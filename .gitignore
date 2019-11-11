@@ -32,3 +32,12 @@ target
 
 .idea
 *.iml
+
+# For python
+.coverage
+.tox/
+coverage.xml
+__pycache__
+*.egg-info/
+htmlcov/
+xunit-results.xml
