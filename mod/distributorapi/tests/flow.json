@@ -1,0 +1,305 @@
+{
+  "bucket": {
+    "allowBundleRedeploy": false,
+    "createdTimestamp": 1570196205153,
+    "identifier": "f645b971-f096-485c-9699-93a193d9c0fa",
+    "link": {
+      "href": "buckets/f645b971-f096-485c-9699-93a193d9c0fa",
+      "params": {
+        "rel": "self"
+      }
+    },
+    "name": "Demos",
+    "permissions": {
+      "canDelete": true,
+      "canRead": true,
+      "canWrite": true
+    }
+  },
+  "flow": {
+    "bucketIdentifier": "f645b971-f096-485c-9699-93a193d9c0fa",
+    "bucketName": "Demos",
+    "createdTimestamp": 1570589769648,
+    "description": "",
+    "identifier": "ddec92e2-97c3-4b41-80d7-fd38bbf5bb69",
+    "link": {
+      "href": "buckets/f645b971-f096-485c-9699-93a193d9c0fa/flows/ddec92e2-97c3-4b41-80d7-fd38bbf5bb69",
+      "params": {
+        "rel": "self"
+      }
+    },
+    "modifiedTimestamp": 1570673258622,
+    "name": "work-in-progress",
+    "type": "Flow",
+    "versionCount": 4
+  },
+  "flowContents": {
+    "comments": "",
+    "componentType": "PROCESS_GROUP",
+    "connections": [
+      {
+        "backPressureDataSizeThreshold": "1 GB",
+        "backPressureObjectThreshold": 10000,
+        "bends": [],
+        "componentType": "CONNECTION",
+        "destination": {
+          "comments": "",
+          "groupId": "07fc9b5e-bbcd-3487-aded-eeced74fdfaa",
+          "id": "a8134467-b4b4-348f-8a1c-8d732fe4fcad",
+          "name": "AnomalyDetector",
+          "type": "PROCESSOR"
+        },
+        "flowFileExpiration": "0 sec",
+        "groupIdentifier": "07fc9b5e-bbcd-3487-aded-eeced74fdfaa",
+        "identifier": "04ab8849-858d-36d5-b7cf-40da26051759",
+        "labelIndex": 1,
+        "loadBalanceCompression": "DO_NOT_COMPRESS",
+        "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+        "name": "foo-conn",
+        "partitioningAttribute": "",
+        "prioritizers": [],
+        "selectedRelationships": [
+          "publishes:ves_specification:7.30.1:message router:ves-pnfRegistration-secondary",
+          "subscribes:predictin:1.0.0:message_router:predict_subscriber"
+        ],
+        "source": {
+          "comments": "",
+          "groupId": "07fc9b5e-bbcd-3487-aded-eeced74fdfaa",
+          "id": "3a0b5a44-f262-3836-93d5-dfe45fd90996",
+          "name": "DcaeVesCollector",
+          "type": "PROCESSOR"
+        },
+        "zIndex": 0
+      },
+      {
+        "backPressureDataSizeThreshold": "1 GB",
+        "backPressureObjectThreshold": 10000,
+        "bends": [],
+        "componentType": "CONNECTION",
+        "destination": {
+          "comments": "",
+          "groupId": "07fc9b5e-bbcd-3487-aded-eeced74fdfaa",
+          "id": "3a0b5a44-f262-3836-93d5-dfe45fd90996",
+          "name": "DcaeVesCollector",
+          "type": "PROCESSOR"
+        },
+        "flowFileExpiration": "0 sec",
+        "groupIdentifier": "07fc9b5e-bbcd-3487-aded-eeced74fdfaa",
+        "identifier": "c7c62954-ae06-388c-a6d9-a24243b51bea",
+        "labelIndex": 1,
+        "loadBalanceCompression": "DO_NOT_COMPRESS",
+        "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+        "name": "ves-data-conn",
+        "partitioningAttribute": "",
+        "prioritizers": [],
+        "selectedRelationships": [
+          "subscribes:ves_specification:7.30.1:message router:ves-notification"
+        ],
+        "source": {
+          "comments": "",
+          "groupId": "07fc9b5e-bbcd-3487-aded-eeced74fdfaa",
+          "id": "58629a8a-e813-3bb3-ac2d-7ce2f4abf604",
+          "name": "ves-notification",
+          "type": "INPUT_PORT"
+        },
+        "zIndex": 0
+      }
+    ],
+    "controllerServices": [],
+    "funnels": [],
+    "identifier": "07fc9b5e-bbcd-3487-aded-eeced74fdfaa",
+    "inputPorts": [
+      {
+        "allowRemoteAccess": false,
+        "comments": "",
+        "componentType": "INPUT_PORT",
+        "concurrentlySchedulableTaskCount": 1,
+        "groupIdentifier": "07fc9b5e-bbcd-3487-aded-eeced74fdfaa",
+        "identifier": "58629a8a-e813-3bb3-ac2d-7ce2f4abf604",
+        "name": "ves-notification",
+        "position": {
+          "x": 1168.5,
+          "y": 544.5
+        },
+        "type": "INPUT_PORT"
+      }
+    ],
+    "labels": [],
+    "name": "test",
+    "outputPorts": [],
+    "position": {
+      "x": 826,
+      "y": 301
+    },
+    "processGroups": [],
+    "processors": [
+      {
+        "autoTerminatedRelationships": [],
+        "bulletinLevel": "WARN",
+        "bundle": {
+          "artifact": "anomaly-detector",
+          "group": "org.onap.dcae",
+          "version": "1.0.0"
+        },
+        "comments": "",
+        "componentType": "PROCESSOR",
+        "concurrentlySchedulableTaskCount": 1,
+        "executionNode": "ALL",
+        "groupIdentifier": "07fc9b5e-bbcd-3487-aded-eeced74fdfaa",
+        "identifier": "a8134467-b4b4-348f-8a1c-8d732fe4fcad",
+        "name": "AnomalyDetector",
+        "penaltyDuration": "30 sec",
+        "position": {
+          "x": 2410,
+          "y": 824
+        },
+        "properties": {},
+        "propertyDescriptors": {},
+        "runDurationMillis": 0,
+        "schedulingPeriod": "0 sec",
+        "schedulingStrategy": "TIMER_DRIVEN",
+        "style": {},
+        "type": "org.onap.dcae.AnomalyDetector",
+        "yieldDuration": "1 sec"
+      },
+      {
+        "autoTerminatedRelationships": [],
+        "bulletinLevel": "WARN",
+        "bundle": {
+          "artifact": "dcae-ves-collector",
+          "group": "org.onap.dcae",
+          "version": "1.5.0"
+        },
+        "comments": "",
+        "componentType": "PROCESSOR",
+        "concurrentlySchedulableTaskCount": 1,
+        "executionNode": "ALL",
+        "groupIdentifier": "07fc9b5e-bbcd-3487-aded-eeced74fdfaa",
+        "identifier": "3a0b5a44-f262-3836-93d5-dfe45fd90996",
+        "name": "DcaeVesCollector",
+        "penaltyDuration": "30 sec",
+        "position": {
+          "x": 1500,
+          "y": 690
+        },
+        "properties": {
+          "collector.keystore.passwordfile": "/opt/app/dcae-certificate/.password",
+          "event.transform.flag": "1",
+          "collector.service.port": "8080",
+          "collector.schema.checkflag": "1",
+          "tomcat.maxthreads": "200",
+          "collector.truststore.passwordfile": "/opt/app/dcae-certificate/.trustpassword",
+          "header.authlist": "sample1,$2a$10$pgjaxDzSuc6XVFEeqvxQ5u90DKJnM/u7TJTcinAlFJVaavXMWf/Zi|userid1,$2a$10$61gNubgJJl9lh3nvQvY9X.x4e5ETWJJ7ao7ZhJEvmfJigov26Z6uq|userid2,$2a$10$G52y/3uhuhWAMy.bx9Se8uzWinmbJa.dlm1LW6bYPdPkkywLDPLiy",
+          "collector.service.secure.port": "8443",
+          "collector.keystore.file.location": "/opt/app/dcae-certificate/keystore.jks",
+          "collector.dmaap.streamid": "fault=ves-fault,ves-fault-secondary|syslog=ves-syslog,ves-syslog-secondary|heartbeat=ves-heartbeat,ves-heartbeat-secondary|measurementsForVfScaling=ves-measurement,ves-measurement-secondary|mobileFlow=ves-mobileflow,ves-mobileflow-secondary|other=ves-other,ves-other-secondary|stateChange=ves-statechange,ves-statechange-secondary|thresholdCrossingAlert=ves-thresholdCrossingAlert,ves-thresholdCrossingAlert-secondary|voiceQuality=ves-voicequality,ves-voicequality-secondary|sipSignaling=ves-sipsignaling,ves-sipsignaling-secondary|notification=ves-notification,ves-notification-secondary|pnfRegistration=ves-pnfRegistration,ves-pnfRegistration-secondary",
+          "collector.schema.file": "{\"v1\":\"./etc/CommonEventFormat_27.2.json\",\"v2\":\"./etc/CommonEventFormat_27.2.json\",\"v3\":\"./etc/CommonEventFormat_27.2.json\",\"v4\":\"./etc/CommonEventFormat_27.2.json\",\"v5\":\"./etc/CommonEventFormat_28.4.1.json\",\"v7\":\"./etc/CommonEventFormat_30.json\"}",
+          "auth.method": "noAuth",
+          "collector.truststore.file.location": "/opt/app/dcae-certificate/truststore.jks"
+        },
+        "propertyDescriptors": {
+          "collector.keystore.passwordfile": {
+            "displayName": "collector.keystore.passwordfile",
+            "identifiesControllerService": false,
+            "name": "collector.keystore.passwordfile",
+            "sensitive": false
+          },
+          "event.transform.flag": {
+            "displayName": "event.transform.flag",
+            "identifiesControllerService": false,
+            "name": "event.transform.flag",
+            "sensitive": false
+          },
+          "collector.service.port": {
+            "displayName": "collector.service.port",
+            "identifiesControllerService": false,
+            "name": "collector.service.port",
+            "sensitive": false
+          },
+          "collector.schema.checkflag": {
+            "displayName": "collector.schema.checkflag",
+            "identifiesControllerService": false,
+            "name": "collector.schema.checkflag",
+            "sensitive": false
+          },
+          "tomcat.maxthreads": {
+            "displayName": "tomcat.maxthreads",
+            "identifiesControllerService": false,
+            "name": "tomcat.maxthreads",
+            "sensitive": false
+          },
+          "collector.truststore.passwordfile": {
+            "displayName": "collector.truststore.passwordfile",
+            "identifiesControllerService": false,
+            "name": "collector.truststore.passwordfile",
+            "sensitive": false
+          },
+          "header.authlist": {
+            "displayName": "header.authlist",
+            "identifiesControllerService": false,
+            "name": "header.authlist",
+            "sensitive": false
+          },
+          "collector.service.secure.port": {
+            "displayName": "collector.service.secure.port",
+            "identifiesControllerService": false,
+            "name": "collector.service.secure.port",
+            "sensitive": false
+          },
+          "collector.keystore.file.location": {
+            "displayName": "collector.keystore.file.location",
+            "identifiesControllerService": false,
+            "name": "collector.keystore.file.location",
+            "sensitive": false
+          },
+          "collector.dmaap.streamid": {
+            "displayName": "collector.dmaap.streamid",
+            "identifiesControllerService": false,
+            "name": "collector.dmaap.streamid",
+            "sensitive": false
+          },
+          "collector.schema.file": {
+            "displayName": "collector.schema.file",
+            "identifiesControllerService": false,
+            "name": "collector.schema.file",
+            "sensitive": false
+          },
+          "auth.method": {
+            "displayName": "auth.method",
+            "identifiesControllerService": false,
+            "name": "auth.method",
+            "sensitive": false
+          },
+          "collector.truststore.file.location": {
+            "displayName": "collector.truststore.file.location",
+            "identifiesControllerService": false,
+            "name": "collector.truststore.file.location",
+            "sensitive": false
+          }
+        },
+        "runDurationMillis": 0,
+        "schedulingPeriod": "0 sec",
+        "schedulingStrategy": "TIMER_DRIVEN",
+        "style": {},
+        "type": "org.onap.dcae.DcaeVesCollector",
+        "yieldDuration": "1 sec"
+      }
+    ],
+    "remoteProcessGroups": [],
+    "variables": {}
+  },
+  "snapshotMetadata": {
+    "author": "anonymous",
+    "bucketIdentifier": "f645b971-f096-485c-9699-93a193d9c0fa",
+    "comments": "",
+    "flowIdentifier": "ddec92e2-97c3-4b41-80d7-fd38bbf5bb69",
+    "link": {
+      "href": "buckets/f645b971-f096-485c-9699-93a193d9c0fa/flows/ddec92e2-97c3-4b41-80d7-fd38bbf5bb69/versions/4",
+      "params": {
+        "rel": "content"
+      }
+    },
+    "timestamp": 1570673258587,
+    "version": 4
+  }
+}
