@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8822b0b4_b9273f3b",
+        "filename": "mod/genprocessor/docker/http/start.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2019-11-12T22:32:06Z",
+      "side": 1,
+      "message": "missing license header",
+      "revId": "c72609d6dd46e904b89348df01860917119ac4fc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7394fb56_5a7473b5",
+        "filename": "mod/genprocessor/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2019-11-12T22:32:06Z",
+      "side": 1,
+      "message": "org.onap.dcaegen2.platform.mod",
+      "range": {
+        "startLine": 7,
+        "startChar": 11,
+        "endLine": 7,
+        "endChar": 18
+      },
+      "revId": "c72609d6dd46e904b89348df01860917119ac4fc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6cb34e70_d67ee56c",
+        "filename": "mod/genprocessor/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2019-11-12T22:32:06Z",
+      "side": 1,
+      "message": "1.0.0",
+      "range": {
+        "startLine": 9,
+        "startChar": 11,
+        "endLine": 9,
+        "endChar": 16
+      },
+      "revId": "c72609d6dd46e904b89348df01860917119ac4fc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "37e99c35_3048b4d5",
+        "filename": "mod/genprocessor/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2019-11-12T22:32:06Z",
+      "side": 1,
+      "message": "dcaegen2-platform-mod-genprocessor (this is used for sonar reporting)",
+      "range": {
+        "startLine": 11,
+        "startChar": 8,
+        "endLine": 11,
+        "endChar": 20
+      },
+      "revId": "c72609d6dd46e904b89348df01860917119ac4fc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9f3f6097_c0d6b144",
+        "filename": "mod/genprocessor/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2019-11-12T22:32:06Z",
+      "side": 1,
+      "message": "Need to move to java11 before M4",
+      "range": {
+        "startLine": 18,
+        "startChar": 27,
+        "endLine": 18,
+        "endChar": 30
+      },
+      "revId": "c72609d6dd46e904b89348df01860917119ac4fc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dd8f31da_00ec1c97",
+        "filename": "mod/genprocessor/src/main/java/sandbox/App.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2019-11-12T22:32:06Z",
+      "side": 1,
+      "message": "change this to proper package (e.g org.onap.dcae.genprocessor)",
+      "range": {
+        "startLine": 18,
+        "startChar": 8,
+        "endLine": 18,
+        "endChar": 15
+      },
+      "revId": "c72609d6dd46e904b89348df01860917119ac4fc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "16aa791d_8342d2d5",
+        "filename": "mod/genprocessor/src/test/java/sandbox/AppTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2019-11-12T22:32:06Z",
+      "side": 1,
+      "message": "Test coverage should be min 60% before M4",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 1
+      },
+      "revId": "c72609d6dd46e904b89348df01860917119ac4fc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
