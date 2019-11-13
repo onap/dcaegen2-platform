@@ -111,6 +111,30 @@
     },
     {
       "key": {
+        "uuid": "7c17c9e7_ee9d0327",
+        "filename": "adapter/acumos/setup.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 515
+      },
+      "writtenOn": "2019-11-13T23:00:40Z",
+      "side": 1,
+      "message": "Long descriptions are rare and really only serve a purpose when a package is intended for PyPi. As far as I know, this is now dockerized and pip probably ins\u0027t the intended install.",
+      "parentUuid": "63d7f2f8_6b1ce7d3",
+      "range": {
+        "startLine": 27,
+        "startChar": 4,
+        "endLine": 27,
+        "endChar": 15
+      },
+      "revId": "4152dff1d3aa5e5d62a46f57dadd20a75a937b1b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1e0f58f2_051f0b65",
         "filename": "adapter/acumos/tox.ini",
         "patchSetId": 1
