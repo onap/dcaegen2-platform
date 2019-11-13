@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<!--
+============LICENSE_START=======================================================
+org.onap.dcae
+================================================================================
+Copyright (c) 2019 AT&T Intellectual Property. All rights reserved.
+================================================================================
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+============LICENSE_END=========================================================
+-->
+<html>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1"/>
+<head><title>Acumos-ONAP Adapter Demo</title>
+<style>
+body {
+  background-size: cover;
+  font-family: Arial;
+  color: blue;
+  background-color: white;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+ul li {
+  float: left;
+  width: 200px;
+  height: 50px;
+  background-color: black;
+  opacity: 1;
+  line-height: 50px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+ul li a {
+  text-decoration: none;
+  color: white;
+  display: block;
+}
+ul li a:hover {
+  background-color: green;
+}
+ul li ul li {
+  display: none;
+}
+ul li:hover ul li {
+  display: block;
+}
+.navBar {
+  height: 50px;
+  background-color: black;
+}
+.auxNav {
+  float: right;
+}
+#itAcumos {
+  display: none;
+}
+#onboardingInProgress {
+  display: none;
+}
+.form-popup {
+  display: none;
+  position: fixed;
+  top: 100px;
+  left: 100px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+.form-container {
+  max-width: 350px;
+  padding: 10px;
+  background-color: white;
+}
+.form-container input[type=text], .form-container input[type=password] {
+  width: 300px;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+</style>
+</head><body>
+<div class="navBar">
+<ul>
+<li><a>File</a>
+  <ul>
+    <li><a onclick="openImportPopup()">Import ...</a></li>
+  </ul>
+</li>
+<li class="auxNav"><a>Signout</a></li>
+</ul>
+</div>
+<form class="form-popup form-container" id="importPopup">
+  <h2 align="center">Import Model</h2>
+  <select id="importType" onchange="setImportType()">
+    <option value="-" selected="true">-- Choose Import Type --</option>
+    <option value="itAcumos" >Acumos</option>
+  </select>
+  <div id="itAcumos">
+    <hr/>
+    <label for="furl"><b>Acumos Federation URL</b></label> <input id="furl" type="text" name="furl" placeholder="https://server:9084" required>
+    <button type="button" onclick="lookupCatalogs()">Lookup</button>
+  </div>
+  <div id="cAcumos">
+    <hr/>
+    <label for="catMenu"><b>Select Catalog</b></label> <select id="catMenu" onchange="chooseCatalog()">
+      <option value="*">All Catalogs</option>
+    </select>
+  </div>
+  <div id="acSols">
+    <hr/>
+    <label for="solMenu"><b>Select Solution</b></label> <select id="solMenu" onchange="chooseSolution()">
+      <option value="*">All Solutions</option>
+    </select>
+  </div>
+  <div id="acRevs">
+    <hr/>
+    <label for="revMenu"><b>Select Revision</b></label> <select id="revMenu">
+      <option value="*">All Revisions</option>
+    </select>
+  </div>
+  <hr/>
+  <button type="button" onclick="closeImportPopup()">Cancel</button>
+  <button id="onboard" type="button" onclick="onBoard()">Onboard</button>
+  <b id="onboardingInProgress">Onboarding - Please Wait ...</b>
+</form>
+<script>
+function fcomp(n) {
+  return document.getElementById(n);
+}
+function cvalue(n) {
+  return fcomp(n).value;
+}
+
+function uecvalue(n) {
+  return encodeURIComponent("" + cvalue(n));
+}
+
+function esc(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function onBoard() {
+  fcomp("onboardingInProgress").style.display = "block";
+  var url = "/onboard.js?acumos=" + uecvalue("furl");
+  if (cvalue("catMenu") != "*") {
+    url += "&catalogId=" + uecvalue("catMenu");
+    if (cvalue("solMenu") != "*") {
+      url += "&solutionId=" + uecvalue("solMenu");
+      if (cvalue("revMenu") != "*") {
+        url += "&revisionId=" + uecvalue("revMenu");
+      }
+    }
+  }
+  let xhr = new XMLHttpRequest();
+  xhr.onerror = xhr.onload = function() {
+    fcomp("onboardingInProgress").style.display = "none";
+  }
+  xhr.open("POST", url);
+  xhr.send();
+}
+
+function chooseSolution() {
+  if (cvalue("solMenu") == "*") {
+    updatevis();
+  } else {
+    lookupItem("acRevs", "revMenu", "/listRevisions.js?acumos=" + uecvalue("furl") + "&solutionId=" + uecvalue("solMenu"));
+  }
+}
+function chooseCatalog() {
+  if (cvalue("catMenu") == "*") {
+    updatevis();
+  } else {
+    lookupItem("acSols", "solMenu", "/listSolutions.js?acumos=" + uecvalue("furl") + "&catalogId=" + uecvalue("catMenu"));
+  }
+}
+function lookupCatalogs() {
+  fcomp("onboard").style.display = "block";
+  lookupItem("cAcumos", "catMenu", "/listCatalogs.js?acumos=" + uecvalue("furl"));
+}
+function lookupItem(dblock, smenu, url) {
+  fcomp(dblock).style.display = "block";
+  let xhr = new XMLHttpRequest();
+  let catmenu = fcomp(smenu);
+  catmenu.options.length = 1;
+  catmenu.options[0].selected = true;
+  xhr.onload = function() {
+    let catresp = JSON.parse(this.response);
+    var i;
+    for (i = 0; i < catresp.length; i++) {
+      var option = document.createElement("option");
+      option.text = esc(catresp[i].name);
+      option.value = catresp[i].id;
+      catmenu.add(option);
+    }
+    updatevis();
+  };
+  xhr.open("GET", url);
+  xhr.send();
+}
+
+function updatevis() {
+  if (cvalue("importType") != "itAcumos") {
+    fcomp("itAcumos").style.display = "none";
+    fcomp("furl").value = "";
+  }
+  if (cvalue("furl") == "") {
+    fcomp("cAcumos").style.display = "none";
+    fcomp("onboard").style.display = "none";
+    fcomp("catMenu").options[0].selected = true;
+  }
+  if (cvalue("catMenu") == "*") {
+    fcomp("acSols").style.display = "none";
+    fcomp("solMenu").options[0].selected = true;
+  }
+  if (cvalue("solMenu") == "*") {
+    fcomp("acRevs").style.display = "none";
+    fcomp("revMenu").options[0].selected = true;
+  }
+}
+
+function setImportType() {
+  let di = fcomp("itAcumos");
+  if (cvalue("importType") == "itAcumos") {
+    fcomp("furl").value = "";
+    di.style.display = "block";
+  }
+  updatevis();
+}
+function openImportPopup() {
+  fcomp("importType").options[0].selected = true;
+  fcomp("importPopup").style.display = "block";
+  updatevis();
+}
+function closeImportPopup() {
+  fcomp("importPopup").style.display = "none";
+}
+</script>
+</body>
+</html>
