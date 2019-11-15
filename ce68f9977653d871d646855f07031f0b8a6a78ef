@@ -22,6 +22,30 @@
       "revId": "ce68f9977653d871d646855f07031f0b8a6a78ef",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eba40cf7_eb13549f",
+        "filename": "adapter/acumos/Dockerfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 515
+      },
+      "writtenOn": "2019-11-15T19:08:13Z",
+      "side": 1,
+      "message": "please for the love of what is holy let us address these minor issues in a later submission\nfwiw the proto-viewer in acumos uses exactly this dockerfile, and no one has complained there, and you have been the main committer to that repo \u003d)",
+      "parentUuid": "4d853946_ffee80ba",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 3
+      },
+      "revId": "ce68f9977653d871d646855f07031f0b8a6a78ef",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
