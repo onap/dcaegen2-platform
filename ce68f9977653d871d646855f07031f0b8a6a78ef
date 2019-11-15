@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d853946_ffee80ba",
+        "filename": "adapter/acumos/Dockerfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 681
+      },
+      "writtenOn": "2019-11-15T18:46:19Z",
+      "side": 1,
+      "message": "Is there any chance you could inherit from a base image that already has NPM installed? The amount of work for npm and nodejs is somewhat large, as seen in https://jenkins.onap.org/sandbox/job/dcaegen2-platform-aoadapter-docker-verify-master/3/console\n\n    13:44:06 0 upgraded, 253 newly installed, 0 to remove and 5 not upgraded.\n    13:44:06 Need to get 10.6 MB of archives.\n\nJust thought it might be worth asking.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 3
+      },
+      "revId": "ce68f9977653d871d646855f07031f0b8a6a78ef",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
