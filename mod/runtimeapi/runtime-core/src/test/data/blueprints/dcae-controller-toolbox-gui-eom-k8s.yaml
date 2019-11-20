@@ -1,0 +1,213 @@
+
+#This is the blueprint to deploy the DCAE Toolbox GUI.
+#2.0.0
+#
+---
+tosca_definitions_version: cloudify_dsl_1_3
+imports:
+- http://www.getcloudify.org/spec/cloudify/4.4/types.yaml
+- /k8splugin/1.4.22/node-type.yaml
+- /relationship/1.0.1/types.yaml
+- /cloudifydmaapplugin/1.4.6/node-type.yaml
+- /dcaepolicyplugin/2.3.1/node-type.yaml
+- /pgaas/0.3.2/pgaas_types.yaml
+inputs:
+  additionalsans:
+    type: string
+    default: ''
+    description: additional sans (string)
+  annotations:
+    default: {}
+  dcae-controller-toolbox-gui_cpu_limit:
+    type: string
+    default: '250m'
+    description: cpu limit for deployment (string)
+  dcae-controller-toolbox-gui_cpu_request:
+    type: string
+    default: '250m'
+    description: cpu requested for deployment (string)
+  dcae-controller-toolbox-gui_memory_limit:
+    type: string
+    default: '128Mi'
+    description: memory limit for deployment (string)
+  dcae-controller-toolbox-gui_memory_request:
+    type: string
+    default: '128Mi'
+    description: memory requested for deployment (string)
+  dcae_service_location:
+    type: string
+    description: Docker host override for docker bps (string)
+  idns_fqdn:
+    type: string
+    default: ''
+    description: The idns you will be using for your deployment (string)
+  image:
+    type: string
+    default: 'dcae-controller-tosca-gui:2.0.3'
+    description: The docker image for you microservice (string)
+  namespace:
+    type: string
+  replicas:
+    type: integer
+    default: 1
+    description: The number of replicas for your kubernetes deployment (integer)
+  service_component_name_override:
+    type: string
+    default: 'dcae-controller-toolbox-gui'
+    description: Unique identifier for your deployment (string)
+  use_aaf_tls:
+    type: boolean
+    default: false
+    description: To use or not use the aaf section (boolean)
+node_templates:
+  dcae-controller-toolbox-gui_dcae-controller-toolbox-gui:
+    type: dcae.nodes.ContainerizedServiceComponent
+    properties:
+      application_config:
+        services_calls: []
+        streams_publishes: {}
+        streams_subscribes: {}
+      docker_config:
+        healthcheck:
+          interval: 360s
+          timeout: 120s
+          type: http
+          endpoint: /actuator/health
+        livehealthcheck:
+          interval: 360s
+          timeout: 120s
+          type: http
+          endpoint: /actuator/health
+        volumes: []
+        ports:
+        - '8080:30998'
+      image:
+        get_input: image
+      location_id:
+        get_input: dcae_service_location
+      service_component_type: dcae-controller-toolbox-gui
+      replicas:
+        get_input: replicas
+      service_component_name_override:
+        concat:
+        - get_secret: location_id
+        - '-'
+        - get_input: service_component_name_override
+      configuration:
+        file_content:
+          apiVersion: v1
+          clusters:
+          - name: default-cluster
+            cluster:
+              server:
+                concat:
+                - https://
+                - get_secret: kc-kubernetes_master_ip
+                - ':'
+                - get_secret: kc-kubernetes_master_port
+              insecure-skip-tls-verify: true
+          contexts:
+          - name: default-context
+            context:
+              cluster: default-cluster
+              namespace:
+                get_input: namespace
+              user: default-user
+          kind: Config
+          preferences: {}
+          users:
+          - name: default-user
+            user:
+              token:
+                get_secret: dcae-mechid-k8s-token
+          current-context: default-context
+      resource_config:
+        limits:
+          cpu:
+            get_input: dcae-controller-toolbox-gui_cpu_limit
+          memory:
+            get_input: dcae-controller-toolbox-gui_memory_limit
+        requests:
+          cpu:
+            get_input: dcae-controller-toolbox-gui_cpu_request
+          memory:
+            get_input: dcae-controller-toolbox-gui_memory_request
+      aaf_tls_info:
+        use_aaf_tls:
+          get_input: use_aaf_tls
+        cert_directory: /opt/app/aafcertman
+        image: aaf-init-container:1.0.1
+        env:
+        - name: NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: deployer_id
+          valueFrom:
+            secretKeyRef:
+              name:
+                concat:
+                - get_input: namespace
+                - -cert-secret
+              key: deployerid
+        - name: deployer_pass
+          valueFrom:
+            secretKeyRef:
+              name:
+                concat:
+                - get_input: namespace
+                - -cert-secret
+              key: deployerpass
+        - name: cert_id
+          valueFrom:
+            secretKeyRef:
+              name:
+                concat:
+                - get_input: namespace
+                - -cert-secret
+              key: certid
+        - name: cm_url
+          valueFrom:
+            secretKeyRef:
+              name:
+                concat:
+                - get_input: namespace
+                - -cert-secret
+              key: cmurl
+        - name: idns_fqdn
+          value:
+            get_input: idns_fqdn
+        - name: app_service_names
+          value:
+            concat:
+            - get_secret: location_id
+            - '-'
+            - get_input: service_component_name_override
+        args:
+        - place
+        - cmtemplate
+        - -idnsfqdn=$(idns_fqdn)
+        - -cmurl=$(cm_url)
+        - -deployerid=$(deployer_id)
+        - -deployerpass=$(deployer_pass)
+        - -certid=$(cert_id)
+        - -namespace=$(NAMESPACE)
+        - -services=$(app_service_names)
+        - concat:
+          - -additionalsans=
+          - get_input: additionalsans
+        use_aaf_tls_renewal: true
+        renewal_args:
+        - renew
+        - -idnsfqdn=$(idns_fqdn)
+        - -cmurl=$(cm_url)
+        resource_config:
+          limits:
+            cpu: 250m
+            memory: 256Mi
+          requests:
+            cpu: 100m
+            memory: 256Mi
+      annotations:
+        get_input: annotations
+    relationships: []
