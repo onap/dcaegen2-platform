@@ -1,0 +1,131 @@
+# ============LICENSE_START=======================================================
+# Copyright (c) 2019 AT&T Intellectual Property. All rights reserved.
+# ================================================================================
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ============LICENSE_END=========================================================
+---
+tosca_definitions_version: cloudify_dsl_1_3
+imports:
+- http://www.getcloudify.org/spec/cloudify/3.4/types.yaml
+- /k8splugin/1.4.22/node-type.yaml
+- /relationship/1.0.1/types.yaml
+- /cloudifydmaapplugin/1.4.6/node-type.yaml
+- /dcaepolicyplugin/2.3.1/node-type.yaml
+- /pgaas/0.3.2/pgaas_types.yaml
+inputs:
+  DCAE-HELLO-WORLD-PUB-DR_delivery_url:
+    type: string
+  DCAE-HELLO-WORLD-PUB-DR_location:
+    type: string
+  DCAE-HELLO-WORLD-PUB-DR_password:
+    type: string
+  DCAE-HELLO-WORLD-PUB-DR_subscriber_id:
+    type: string
+  DCAE-HELLO-WORLD-PUB-DR_username:
+    type: string
+  DCAE-HELLO-WORLD-SUB-DR_delivery_url:
+    type: string
+  DCAE-HELLO-WORLD-SUB-DR_location:
+    type: string
+  DCAE-HELLO-WORLD-SUB-DR_password:
+    type: string
+  DCAE-HELLO-WORLD-SUB-DR_subscriber_id:
+    type: string
+  DCAE-HELLO-WORLD-SUB-DR_username:
+    type: string
+  DCAE_HELLO_WORLD_PUB_MR_publish_url:
+    type: string
+  DCAE_HELLO_WORLD_SUB_MR_subscribe_url:
+    type: string
+  external_port:
+    type: string
+    description: Kubernetes node port on which collector is exposed
+    default: '"''30235''"'
+  log_directory:
+    type: string
+    default: '"/opt/app/vcc/logs/DCAE"'
+  replicas:
+    type: integer
+    description: number of instances
+    default: 1
+  tag_version:
+    type: string
+    default: '"dcae-controller-vcc-helloworld-pm:18.02-001"'
+  vcc_hello_name:
+    type: string
+node_templates:
+  dcae.collectors-vcc-helloworld-pm:
+    type: dcae.nodes.ContainerizedPlatformComponent
+    interfaces:
+      cloudify.interfaces.lifecycle:
+        start:
+          inputs:
+            ports: []
+    properties:
+      application_config:
+        service_calls: []
+        stream_publishes:
+          DCAE-HELLO-WORLD-PUB-DR:
+            dmaap_info:
+              username:
+                get_input: DCAE-HELLO-WORLD-PUB-DR_username
+              password:
+                get_input: DCAE-HELLO-WORLD-PUB-DR_password
+              location:
+                get_input: DCAE-HELLO-WORLD-PUB-DR_location
+              delivery_url:
+                get_input: DCAE-HELLO-WORLD-PUB-DR_delivery_url
+              subscriber_id:
+                get_input: DCAE-HELLO-WORLD-PUB-DR_subscriber_id
+            type: data_router
+          DCAE-HELLO-WORLD-PUB-MR:
+            dmaap_info:
+              topic_url:
+                get_input: DCAE_HELLO_WORLD_PUB_MR_publish_url
+            type: message_router
+        stream_subcribes:
+          DCAE-HELLO-WORLD-SUB-DR:
+            dmaap_info:
+              username:
+                get_input: DCAE-HELLO-WORLD-SUB-DR_username
+              password:
+                get_input: DCAE-HELLO-WORLD-SUB-DR_password
+              location:
+                get_input: DCAE-HELLO-WORLD-SUB-DR_location
+              delivery_url:
+                get_input: DCAE-HELLO-WORLD-SUB-DR_delivery_url
+              subscriber_id:
+                get_input: DCAE-HELLO-WORLD-SUB-DR_subscriber_id
+            type: data_router
+          DCAE-HELLO-WORLD-SUB-MR:
+            dmaap_info:
+              topic_url:
+                get_input: DCAE_HELLO_WORLD_SUB_MR_subscribe_url
+            type: message_router
+        isSelfServeComponent: false
+        useDtiConfig: false
+        vcc_hello_name:
+          get_input: vcc_hello_name
+      docker_config:
+        interval: 60s
+        timeout: 20s
+        script: /opt/app/vcc/bin/common/HealthCheck_HelloWorld.sh
+        type: docker
+      image:
+        get_input: tag_version
+      log_info:
+        get_input: log_directory
+      dns_name: dcae.collectors-vcc-helloworld-pm
+      replicas:
+        get_input: replicas
+      name: dcae.collectors-vcc-helloworld-pm
