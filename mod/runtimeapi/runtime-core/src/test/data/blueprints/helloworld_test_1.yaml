@@ -1,0 +1,357 @@
+
+#Hello World mS for subscribing the data from local DMaaP, DR or MR, processing them and publishing them as PM files to local DMaaP DR
+#1.0.1
+#
+---
+tosca_definitions_version: cloudify_dsl_1_3
+imports:
+- http://www.getcloudify.org/spec/cloudify/4.4/types.yaml
+- /k8splugin/1.4.22/node-type.yaml
+- /relationship/1.0.1/types.yaml
+- /cloudifydmaapplugin/1.4.6/node-type.yaml
+- /dcaepolicyplugin/2.3.1/node-type.yaml
+- /pgaas/0.3.2/pgaas_types.yaml
+inputs:
+  DCAE-HELLO-WORLD-PUB-DR_feed2_feed_name:
+    type: string
+    description: Dmaap information needed for deploying a microservice using dmaap
+      (string)
+    default: 'DCAE-HELLO-WORLD-PUB-DR'
+  DCAE-HELLO-WORLD-PUB-MR_topic3_aaf_password:
+    type: string
+  DCAE-HELLO-WORLD-PUB-MR_topic3_aaf_username:
+    type: string
+  DCAE-HELLO-WORLD-PUB-MR_topic3_client_role:
+    type: string
+    description: client or location for dmaap (string)
+  DCAE-HELLO-WORLD-PUB-MR_topic3_location:
+    type: string
+    description: client or location for dmaap (string)
+  DCAE-HELLO-WORLD-PUB-MR_topic3_name:
+    type: string
+    description: Dmaap information needed for deploying a microservice using dmaap
+      (string)
+    default: 'sample_topic_1'
+  DCAE-HELLO-WORLD-SUB-DR_feed1_feed_name:
+    type: string
+    description: Dmaap information needed for deploying a microservice using dmaap
+      (string)
+    default: 'DCAE-HELLO-WORLD-SUB-DR'
+  DCAE-HELLO-WORLD-SUB-MR_topic0_aaf_password:
+    type: string
+  DCAE-HELLO-WORLD-SUB-MR_topic0_aaf_username:
+    type: string
+  DCAE-HELLO-WORLD-SUB-MR_topic0_client_role:
+    type: string
+    description: client or location for dmaap (string)
+  DCAE-HELLO-WORLD-SUB-MR_topic0_location:
+    type: string
+    description: client or location for dmaap (string)
+  DCAE-HELLO-WORLD-SUB-MR_topic0_name:
+    type: string
+    description: Dmaap information needed for deploying a microservice using dmaap
+      (string)
+    default: 'DCAE-HELLO-WORLD-SUB-MR'
+  additionalsans:
+    type: string
+    default: ''
+    description: additional sans (string)
+  annotations:
+    default: {}
+  dcae-collectors-vcc-helloworld-pm_cpu_limit:
+    type: string
+    default: '250m'
+    description: cpu limit for deployment (string)
+  dcae-collectors-vcc-helloworld-pm_cpu_request:
+    type: string
+    default: '250m'
+    description: cpu requested for deployment (string)
+  dcae-collectors-vcc-helloworld-pm_memory_limit:
+    type: string
+    default: '128Mi'
+    description: memory limit for deployment (string)
+  dcae-collectors-vcc-helloworld-pm_memory_request:
+    type: string
+    default: '128Mi'
+    description: memory requested for deployment (string)
+  dcae_service_location:
+    type: string
+    description: Docker host override for docker bps (string)
+  idns_fqdn:
+    type: string
+    default: ''
+    description: The idns you will be using for your deployment (string)
+  image:
+    type: string
+    default: 'dcae-controller-vcc-helloworld-pm:18.02-001'
+    description: The docker image for you microservice (string)
+  namespace:
+    type: string
+  replicas:
+    type: integer
+    default: 1
+    description: The number of replicas for your kubernetes deployment (integer)
+  service_component_name_override:
+    type: string
+    default: 'dcae-collectors-vcc-helloworld-pm'
+    description: Unique identifier for your deployment (string)
+  use_aaf_tls:
+    type: boolean
+    default: false
+    description: To use or not use the aaf section (boolean)
+  vcc_hello_name:
+    type: string
+    description: the name entered for specific person
+    default: ''
+node_templates:
+  dcae-collectors-vcc-helloworld-pm_dcae-collectors-vcc-helloworld-pm:
+    type: dcae.nodes.ContainerizedServiceComponentUsingDmaap
+    properties:
+      application_config:
+        services_calls: []
+        streams_publishes:
+          DCAE-HELLO-WORLD-PUB-DR:
+            dmaap_info: <<feed2>>
+            type: data_router
+          DCAE-HELLO-WORLD-PUB-MR:
+            dmaap_info: <<topic3>>
+            type: message_router
+            aaf_password:
+              get_input: DCAE-HELLO-WORLD-PUB-MR_topic3_aaf_password
+            aaf_username:
+              get_input: DCAE-HELLO-WORLD-PUB-MR_topic3_aaf_username
+        streams_subscribes:
+          DCAE-HELLO-WORLD-SUB-DR:
+            dmaap_info: <<feed1>>
+            type: data_router
+          DCAE-HELLO-WORLD-SUB-MR:
+            dmaap_info: <<topic0>>
+            type: message_router
+            aaf_password:
+              get_input: DCAE-HELLO-WORLD-SUB-MR_topic0_aaf_password
+            aaf_username:
+              get_input: DCAE-HELLO-WORLD-SUB-MR_topic0_aaf_username
+        isSelfServeComponent: false
+        useDtiConfig: false
+        vcc_hello_name:
+          get_input: vcc_hello_name
+      docker_config:
+        healthcheck:
+          interval: 60s
+          timeout: 20s
+          script: /opt/app/vcc/bin/common/HealthCheck_HelloWorld.sh
+          type: docker
+        livehealthcheck:
+          interval: 60s
+          timeout: 20s
+          script: /opt/app/vcc/bin/common/HealthCheck_HelloWorld.sh
+          type: docker
+        volumes:
+        - container:
+            bind: /opt/app/dcae-certificate
+          host:
+            path: /opt/app/dcae-certificate
+        - container:
+            bind: /opt/logs/DCAE/dmd/AGENT
+          host:
+            path: /opt/logs/DCAE/helloworldpm/dmd/AGENT
+        - container:
+            bind: /opt/logs/DCAE/dmd/WATCHER
+          host:
+            path: /opt/logs/DCAE/helloworldpm/dmd/WATCHER
+        - container:
+            bind: /opt/app/vcc/logs/DCAE
+          host:
+            path: /opt/logs/DCAE/helloworldpm/vcc-logs
+        - container:
+            bind: /opt/app/vcc/archive/data
+          host:
+            path: /opt/data/DCAE/helloworldpm/vcc-archive
+      image:
+        get_input: image
+      location_id:
+        get_input: dcae_service_location
+      service_component_type: dcae-collectors-vcc-helloworld-pm
+      replicas:
+        get_input: replicas
+      streams_subscribes:
+      - name: topic0
+        type: message_router
+        client_role:
+          get_input: DCAE-HELLO-WORLD-SUB-MR_topic0_client_role
+        location:
+          get_input: DCAE-HELLO-WORLD-SUB-MR_topic0_location
+        route: DCAE-HELLO-WORLD-SUB-MR
+        scheme: https
+      - name: feed1
+        type: data_router
+        location:
+          get_input: dcae_service_location
+        scheme: https
+        route: DCAE-HELLO-WORLD-SUB-DR
+      streams_publishes:
+      - name: feed2
+        type: data_router
+        location:
+          get_input: dcae_service_location
+      - name: topic3
+        type: message_router
+        client_role:
+          get_input: DCAE-HELLO-WORLD-PUB-MR_topic3_client_role
+        location:
+          get_input: DCAE-HELLO-WORLD-PUB-MR_topic3_location
+      service_component_name_override:
+        concat:
+        - get_secret: location_id
+        - '-'
+        - get_input: service_component_name_override
+      configuration:
+        file_content:
+          apiVersion: v1
+          clusters:
+          - name: default-cluster
+            cluster:
+              server:
+                concat:
+                - https://
+                - get_secret: kc-kubernetes_master_ip
+                - ':'
+                - get_secret: kc-kubernetes_master_port
+              insecure-skip-tls-verify: true
+          contexts:
+          - name: default-context
+            context:
+              cluster: default-cluster
+              namespace:
+                get_input: namespace
+              user: default-user
+          kind: Config
+          preferences: {}
+          users:
+          - name: default-user
+            user:
+              token:
+                get_secret: dcae-mechid-k8s-token
+          current-context: default-context
+      resource_config:
+        limits:
+          cpu:
+            get_input: dcae-collectors-vcc-helloworld-pm_cpu_limit
+          memory:
+            get_input: dcae-collectors-vcc-helloworld-pm_memory_limit
+        requests:
+          cpu:
+            get_input: dcae-collectors-vcc-helloworld-pm_cpu_request
+          memory:
+            get_input: dcae-collectors-vcc-helloworld-pm_memory_request
+      aaf_tls_info:
+        use_aaf_tls:
+          get_input: use_aaf_tls
+        cert_directory: /opt/app/aafcertman
+        image: aaf-init-container:1.0.1
+        env:
+        - name: NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: deployer_id
+          valueFrom:
+            secretKeyRef:
+              name:
+                concat:
+                - get_input: namespace
+                - -cert-secret
+              key: deployerid
+        - name: deployer_pass
+          valueFrom:
+            secretKeyRef:
+              name:
+                concat:
+                - get_input: namespace
+                - -cert-secret
+              key: deployerpass
+        - name: cert_id
+          valueFrom:
+            secretKeyRef:
+              name:
+                concat:
+                - get_input: namespace
+                - -cert-secret
+              key: certid
+        - name: cm_url
+          valueFrom:
+            secretKeyRef:
+              name:
+                concat:
+                - get_input: namespace
+                - -cert-secret
+              key: cmurl
+        - name: idns_fqdn
+          value:
+            get_input: idns_fqdn
+        - name: app_service_names
+          value:
+            concat:
+            - get_secret: location_id
+            - '-'
+            - get_input: service_component_name_override
+        args:
+        - place
+        - cmtemplate
+        - -idnsfqdn=$(idns_fqdn)
+        - -cmurl=$(cm_url)
+        - -deployerid=$(deployer_id)
+        - -deployerpass=$(deployer_pass)
+        - -certid=$(cert_id)
+        - -namespace=$(NAMESPACE)
+        - -services=$(app_service_names)
+        - concat:
+          - -additionalsans=
+          - get_input: additionalsans
+        use_aaf_tls_renewal: true
+        renewal_args:
+        - renew
+        - -idnsfqdn=$(idns_fqdn)
+        - -cmurl=$(cm_url)
+        resource_config:
+          limits:
+            cpu: 250m
+            memory: 256Mi
+          requests:
+            cpu: 100m
+            memory: 256Mi
+      annotations:
+        get_input: annotations
+    relationships:
+    - target: topic0
+      type: dcae.relationships.subscribe_to_events
+    - target: feed1
+      type: dcae.relationships.subscribe_to_files
+    - target: feed2
+      type: dcae.relationships.publish_files
+    - target: topic3
+      type: dcae.relationships.publish_events
+  feed1:
+    type: dcae.nodes.Feed
+    properties:
+      feed_name:
+        get_input: DCAE-HELLO-WORLD-SUB-DR_feed1_feed_name
+      useExisting: true
+  feed2:
+    type: dcae.nodes.Feed
+    properties:
+      feed_name:
+        get_input: DCAE-HELLO-WORLD-PUB-DR_feed2_feed_name
+      useExisting: true
+  topic0:
+    type: dcae.nodes.Topic
+    properties:
+      topic_name:
+        get_input: DCAE-HELLO-WORLD-SUB-MR_topic0_name
+      useExisting: true
+  topic3:
+    type: dcae.nodes.Topic
+    properties:
+      topic_name:
+        get_input: DCAE-HELLO-WORLD-PUB-MR_topic3_name
+      useExisting: true
