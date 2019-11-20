@@ -1,0 +1,37 @@
+{
+	"self": {
+		"component_type": "docker",
+		"description": "This is the blueprint to deploy the DCAE Toolbox GUI.",
+		"name": "dcae-controller-toolbox-gui",
+		"version": "2.0.0"
+	},
+	
+	"services": {
+		"calls": [],
+		"provides": []
+	},
+	
+	"streams": {
+		"publishes": [],
+		"subscribes": []
+	},
+	
+    "parameters": [],
+
+	"auxilary": {
+		"healthcheck": {
+			"interval": "360s",
+			"timeout": "120s",
+			"endpoint": "/actuator/health",
+			"type": "http"
+		},
+		
+		"volumes": [],
+		"ports" : ["8080:30998"]        
+    },
+    
+    "artifacts": [{
+		"type": "docker image",
+		"uri": "dcae-controller-tosca-gui:2.0.3"
+	}]	
+}
