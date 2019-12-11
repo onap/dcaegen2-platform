@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f318b7a5_3b97127e",
+        "filename": "mod/runtimeapi/runtime-web/pom.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2019-12-11T16:13:15Z",
+      "side": 1,
+      "message": "1.0.0",
+      "range": {
+        "startLine": 26,
+        "startChar": 12,
+        "endLine": 26,
+        "endChar": 17
+      },
+      "revId": "7b2a8d908eaa3eab7b7937478e38325601c85ffd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
