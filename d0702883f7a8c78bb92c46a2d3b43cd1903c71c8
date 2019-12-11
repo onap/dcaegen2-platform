@@ -251,6 +251,30 @@
     },
     {
       "key": {
+        "uuid": "776bcadf_dfb3265f",
+        "filename": "mod/runtimeapi/runtime-core/src/main/java/org/onap/dcae/runtime/core/blueprint_creator/BlueprintCreatorOnapDublin.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2019-12-11T16:13:15Z",
+      "side": 1,
+      "message": "Can you submit the patch you did locally into onap/Dublin branch for bp-gen?",
+      "parentUuid": "c13f16a5_ff74891c",
+      "range": {
+        "startLine": 46,
+        "startChar": 25,
+        "endLine": 46,
+        "endChar": 42
+      },
+      "revId": "d0702883f7a8c78bb92c46a2d3b43cd1903c71c8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1c773af4_3882ed37",
         "filename": "mod/runtimeapi/runtime-core/src/test/data/blueprints/dcae-controller-toolbox-gui-eom-k8s.yaml",
         "patchSetId": 3
