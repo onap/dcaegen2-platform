@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "99818b33_53ba8255",
+        "filename": "mod/distributorapi/Dockerfile",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1071
+      },
+      "writtenOn": "2019-12-16T15:46:45Z",
+      "side": 1,
+      "message": "Ok",
+      "parentUuid": "106fb2e2_5f5736d2",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 22
+      },
+      "revId": "21295806bb929148c71f52c02a683641b1f93c08",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6c73711f_59db423c",
         "filename": "mod/distributorapi/Dockerfile",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2019-12-16T15:07:07Z",
       "side": 1,
       "message": "This doesn\u0027t look quite right.  I don\u0027t see a file named start-distributor-api in this change set.  Is this somehow put in the path when the container is created?",
+      "range": {
+        "startLine": 8,
+        "startChar": 4,
+        "endLine": 8,
+        "endChar": 25
+      },
+      "revId": "21295806bb929148c71f52c02a683641b1f93c08",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4beb1e35_1f419e10",
+        "filename": "mod/distributorapi/Dockerfile",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1071
+      },
+      "writtenOn": "2019-12-16T15:46:45Z",
+      "side": 1,
+      "message": "You identified the magic in the setup.py",
+      "parentUuid": "6c73711f_59db423c",
       "range": {
         "startLine": 8,
         "startChar": 4,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "6ec7d8f8_fe494a71",
+        "filename": "mod/distributorapi/pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1071
+      },
+      "writtenOn": "2019-12-16T15:46:45Z",
+      "side": 1,
+      "message": "Ok",
+      "parentUuid": "360933ac_aea120c2",
+      "range": {
+        "startLine": 22,
+        "startChar": 6,
+        "endLine": 22,
+        "endChar": 44
+      },
+      "revId": "21295806bb929148c71f52c02a683641b1f93c08",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "37d6e370_0b66fd3b",
         "filename": "mod/distributorapi/setup.py",
         "patchSetId": 3
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "33c7a573_001b7447",
+        "filename": "mod/distributorapi/setup.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1071
+      },
+      "writtenOn": "2019-12-16T15:46:45Z",
+      "side": 1,
+      "message": "Good catch.  I\u0027ve patched this and sync\u0027d the source of version at least on the python side.",
+      "parentUuid": "37d6e370_0b66fd3b",
+      "range": {
+        "startLine": 20,
+        "startChar": 7,
+        "endLine": 20,
+        "endChar": 24
+      },
+      "revId": "21295806bb929148c71f52c02a683641b1f93c08",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "664514e5_7249b7ff",
         "filename": "mod/distributorapi/setup.py",
         "patchSetId": 3
@@ -105,6 +201,30 @@
       "writtenOn": "2019-12-16T15:07:07Z",
       "side": 1,
       "message": "Is this how the start-distributor-api script is created?  Seems magical :)",
+      "range": {
+        "startLine": 26,
+        "startChar": 8,
+        "endLine": 26,
+        "endChar": 29
+      },
+      "revId": "21295806bb929148c71f52c02a683641b1f93c08",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3508813c_aa1f6500",
+        "filename": "mod/distributorapi/setup.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1071
+      },
+      "writtenOn": "2019-12-16T15:46:45Z",
+      "side": 1,
+      "message": "\u003e Seems magical\n\nSlightly magical.  I\u0027d say baby Harry Potter level compared to Java Spring\u0027s Gandalf the White level.",
+      "parentUuid": "664514e5_7249b7ff",
       "range": {
         "startLine": 26,
         "startChar": 8,
