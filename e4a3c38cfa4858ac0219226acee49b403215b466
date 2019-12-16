@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a728d946_4a2a83a4",
+        "filename": "mod/distributorapi/pom.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 681
+      },
+      "writtenOn": "2019-12-16T15:57:58Z",
+      "side": 1,
+      "message": "It may be worth commenting here that this duplicates and must be kept in sync with the string in version.py ?",
+      "range": {
+        "startLine": 25,
+        "startChar": 10,
+        "endLine": 25,
+        "endChar": 16
+      },
+      "revId": "e4a3c38cfa4858ac0219226acee49b403215b466",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da1d2e2a_c14b04f3",
+        "filename": "mod/distributorapi/setup.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 681
+      },
+      "writtenOn": "2019-12-16T15:57:58Z",
+      "side": 1,
+      "message": "Not a big deal, just checking here, in my experience doc files in most projects are supposed to have Creative Commons 4.0 license headers (not Apache 2.0) but I don\u0027t know for sure if ONAP follows that practice.",
+      "range": {
+        "startLine": 1,
+        "startChar": 5,
+        "endLine": 15,
+        "endChar": 35
+      },
+      "revId": "e4a3c38cfa4858ac0219226acee49b403215b466",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
