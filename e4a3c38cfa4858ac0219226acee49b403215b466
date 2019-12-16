@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a2477b27_a558a105",
+        "filename": "mod/distributorapi/pom.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1071
+      },
+      "writtenOn": "2019-12-16T16:03:42Z",
+      "side": 1,
+      "message": "I agree",
+      "parentUuid": "a728d946_4a2a83a4",
+      "range": {
+        "startLine": 25,
+        "startChar": 10,
+        "endLine": 25,
+        "endChar": 16
+      },
+      "revId": "e4a3c38cfa4858ac0219226acee49b403215b466",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "da1d2e2a_c14b04f3",
         "filename": "mod/distributorapi/setup.py",
         "patchSetId": 4
@@ -36,6 +60,30 @@
       "writtenOn": "2019-12-16T15:57:58Z",
       "side": 1,
       "message": "Not a big deal, just checking here, in my experience doc files in most projects are supposed to have Creative Commons 4.0 license headers (not Apache 2.0) but I don\u0027t know for sure if ONAP follows that practice.",
+      "range": {
+        "startLine": 1,
+        "startChar": 5,
+        "endLine": 15,
+        "endChar": 35
+      },
+      "revId": "e4a3c38cfa4858ac0219226acee49b403215b466",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "922c00fe_13ee6fc2",
+        "filename": "mod/distributorapi/setup.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1071
+      },
+      "writtenOn": "2019-12-16T16:03:42Z",
+      "side": 1,
+      "message": "???",
+      "parentUuid": "da1d2e2a_c14b04f3",
       "range": {
         "startLine": 1,
         "startChar": 5,
