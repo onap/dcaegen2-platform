@@ -1,0 +1,4 @@
+[submodule "mod/designtool/nifi"]
+	path = mod/designtool/nifi
+	url = https://github.com/apache/nifi.git
+	branch = support/nifi-1.9.x
