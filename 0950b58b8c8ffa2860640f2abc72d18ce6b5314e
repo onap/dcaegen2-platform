@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "755ab99d_365f93a8",
+        "filename": "mod/designtool/build.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 681
+      },
+      "writtenOn": "2019-12-19T20:51:56Z",
+      "side": 1,
+      "message": "cd $WORKSPACE also works in Jenkins",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 2
+      },
+      "revId": "0950b58b8c8ffa2860640f2abc72d18ce6b5314e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e99fa89_2501a3e0",
+        "filename": "mod/designtool/build.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 681
+      },
+      "writtenOn": "2019-12-19T20:51:56Z",
+      "side": 1,
+      "message": "No need, when Jenkins clones a repo, it automagically inits and updates all submodules.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 1
+      },
+      "revId": "0950b58b8c8ffa2860640f2abc72d18ce6b5314e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
