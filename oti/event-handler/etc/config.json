@@ -1,0 +1,44 @@
+{
+    "version" : "1.0.0",
+    "wservice_port" : 9443,
+    "dti_handler" : {
+        "system" : "dti_handler",
+        "tls" : {
+            "cert_directory" : "/opt/app/ecompc-certificate",
+            "cacert" : "/usr/local/share/ca-certificates/aafcacert.crt",
+            "private_key" : "tls.key",
+            "server_cert" : "tls.crt",
+            "server_ca_chain" : "tls.chain.crt"
+        }
+    },
+    "logging" : {
+        "version": 1,
+        "disable_existing_loggers": false,
+        "formatters": {
+            "local": {
+                "format": "%(asctime)s.%(msecs)03d %(levelname)+8s %(threadName)s %(name)s.%(funcName)s: %(message)s",
+                "datefmt": "%Y%m%d_%H%M%S"
+            }
+        },
+        "handlers": {
+            "file": {
+                "class": "logging.handlers.RotatingFileHandler",
+                "formatter": "local",
+                "filename" : "logs/dti_handler.log",
+                "level": "DEBUG",
+                "maxBytes": 200000000,
+                "backupCount": 5,
+                "delay": true
+            }
+        },
+        "loggers": {
+            "dti_handler" : {
+                "handlers": ["file"],
+                "propagate":false
+            }
+        },
+        "root": {
+            "handlers": ["file"]
+        }
+    }
+}
