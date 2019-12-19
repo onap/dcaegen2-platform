@@ -45,6 +45,144 @@
       "revId": "0950b58b8c8ffa2860640f2abc72d18ce6b5314e",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "660188ce_9f5deeb3",
+        "filename": "mod/designtool/build.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 681
+      },
+      "writtenOn": "2019-12-19T21:00:43Z",
+      "side": 1,
+      "message": "Not sure I understood, but Mike mentioned that NIFI has internal submodules. This command omits the \"--recursive\" flag.  Is that required?",
+      "range": {
+        "startLine": 29,
+        "startChar": 4,
+        "endLine": 29,
+        "endChar": 13
+      },
+      "revId": "0950b58b8c8ffa2860640f2abc72d18ce6b5314e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9c3f411_55471b43",
+        "filename": "mod/designtool/build.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 681
+      },
+      "writtenOn": "2019-12-19T21:00:43Z",
+      "side": 1,
+      "message": "How about parameterizing this version string?",
+      "range": {
+        "startLine": 41,
+        "startChar": 35,
+        "endLine": 41,
+        "endChar": 41
+      },
+      "revId": "0950b58b8c8ffa2860640f2abc72d18ce6b5314e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46dfb63d_3f705099",
+        "filename": "mod/designtool/build.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 681
+      },
+      "writtenOn": "2019-12-19T21:00:43Z",
+      "side": 1,
+      "message": "double slash?",
+      "range": {
+        "startLine": 42,
+        "startChar": 8,
+        "endLine": 42,
+        "endChar": 10
+      },
+      "revId": "0950b58b8c8ffa2860640f2abc72d18ce6b5314e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5be51d4_5f2c2f06",
+        "filename": "mod/designtool/build.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 681
+      },
+      "writtenOn": "2019-12-19T21:00:43Z",
+      "side": 1,
+      "message": "Version string",
+      "range": {
+        "startLine": 43,
+        "startChar": 51,
+        "endLine": 43,
+        "endChar": 56
+      },
+      "revId": "0950b58b8c8ffa2860640f2abc72d18ce6b5314e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "acab34bd_d2ff0dd4",
+        "filename": "mod/designtool/build.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 681
+      },
+      "writtenOn": "2019-12-19T21:00:43Z",
+      "side": 1,
+      "message": "version string",
+      "range": {
+        "startLine": 44,
+        "startChar": 58,
+        "endLine": 44,
+        "endChar": 63
+      },
+      "revId": "0950b58b8c8ffa2860640f2abc72d18ce6b5314e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cc8ca37_9ff5d057",
+        "filename": "mod/designtool/build.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 681
+      },
+      "writtenOn": "2019-12-19T21:00:43Z",
+      "side": 1,
+      "message": "version string",
+      "range": {
+        "startLine": 45,
+        "startChar": 29,
+        "endLine": 45,
+        "endChar": 34
+      },
+      "revId": "0950b58b8c8ffa2860640f2abc72d18ce6b5314e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
