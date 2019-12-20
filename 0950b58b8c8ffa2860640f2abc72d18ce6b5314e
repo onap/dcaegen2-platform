@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a8f07c66_6a7548ba",
+        "filename": "mod/designtool/build.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1071
+      },
+      "writtenOn": "2019-12-20T20:24:31Z",
+      "side": 1,
+      "message": "$WORKSPACE is *really* coupling this to Jenkins specifically which maybe ok but I\u0027m going to elect not to use it because then there should a validation to make sure the env variable is actually set - more code.",
+      "parentUuid": "755ab99d_365f93a8",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 2
+      },
+      "revId": "0950b58b8c8ffa2860640f2abc72d18ce6b5314e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7e99fa89_2501a3e0",
         "filename": "mod/designtool/build.sh",
         "patchSetId": 3
@@ -71,6 +95,54 @@
     },
     {
       "key": {
+        "uuid": "cdd81685_94a15c67",
+        "filename": "mod/designtool/build.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1071
+      },
+      "writtenOn": "2019-12-20T20:24:31Z",
+      "side": 1,
+      "message": "I think there\u0027s no harm in making an additional \"git submodule update\" call right?  I was thinking of removing this but then thought of the scenario where someone runs this script and the submodule update wasn\u0027t called.  Leaving this call covers both cases - submodule update called and not called prior to the execution of this script.",
+      "parentUuid": "7e99fa89_2501a3e0",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 1
+      },
+      "revId": "0950b58b8c8ffa2860640f2abc72d18ce6b5314e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e5d4245_28abe82d",
+        "filename": "mod/designtool/build.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1071
+      },
+      "writtenOn": "2019-12-20T20:24:31Z",
+      "side": 1,
+      "message": "I might have misspoken.  When I said submodules I didn\u0027t mean git submodules rather sub-projects.  There are several levels of java sub-projects within the nifi super project\n\nhttps://github.com/apache/nifi\n\ngit submodule command does not need recursive flag.",
+      "parentUuid": "660188ce_9f5deeb3",
+      "range": {
+        "startLine": 29,
+        "startChar": 4,
+        "endLine": 29,
+        "endChar": 13
+      },
+      "revId": "0950b58b8c8ffa2860640f2abc72d18ce6b5314e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a9c3f411_55471b43",
         "filename": "mod/designtool/build.sh",
         "patchSetId": 3
@@ -91,6 +163,30 @@
       "revId": "0950b58b8c8ffa2860640f2abc72d18ce6b5314e",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0397cce_eb29745b",
+        "filename": "mod/designtool/build.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1071
+      },
+      "writtenOn": "2019-12-20T20:24:31Z",
+      "side": 1,
+      "message": "Good idea.  Done.",
+      "parentUuid": "a9c3f411_55471b43",
+      "range": {
+        "startLine": 41,
+        "startChar": 35,
+        "endLine": 41,
+        "endChar": 41
+      },
+      "revId": "0950b58b8c8ffa2860640f2abc72d18ce6b5314e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "7b1591f4_25d7b540",
+        "filename": "mod/designtool/build.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1071
+      },
+      "writtenOn": "2019-12-20T20:24:31Z",
+      "side": 1,
+      "message": "It\u0027s harmless but fixed.",
+      "parentUuid": "46dfb63d_3f705099",
+      "range": {
+        "startLine": 42,
+        "startChar": 8,
+        "endLine": 42,
+        "endChar": 10
+      },
+      "revId": "0950b58b8c8ffa2860640f2abc72d18ce6b5314e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c5be51d4_5f2c2f06",
         "filename": "mod/designtool/build.sh",
         "patchSetId": 3
@@ -137,6 +257,30 @@
       "revId": "0950b58b8c8ffa2860640f2abc72d18ce6b5314e",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6d821e0a_d42a5f76",
+        "filename": "mod/designtool/build.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1071
+      },
+      "writtenOn": "2019-12-20T20:24:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5be51d4_5f2c2f06",
+      "range": {
+        "startLine": 43,
+        "startChar": 51,
+        "endLine": 43,
+        "endChar": 56
+      },
+      "revId": "0950b58b8c8ffa2860640f2abc72d18ce6b5314e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "e07f5999_20aafc64",
+        "filename": "mod/designtool/build.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1071
+      },
+      "writtenOn": "2019-12-20T20:24:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "acab34bd_d2ff0dd4",
+      "range": {
+        "startLine": 44,
+        "startChar": 58,
+        "endLine": 44,
+        "endChar": 63
+      },
+      "revId": "0950b58b8c8ffa2860640f2abc72d18ce6b5314e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6cc8ca37_9ff5d057",
         "filename": "mod/designtool/build.sh",
         "patchSetId": 3
@@ -183,6 +351,30 @@
       "revId": "0950b58b8c8ffa2860640f2abc72d18ce6b5314e",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "588385b5_f81b7aa3",
+        "filename": "mod/designtool/build.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1071
+      },
+      "writtenOn": "2019-12-20T20:24:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6cc8ca37_9ff5d057",
+      "range": {
+        "startLine": 45,
+        "startChar": 29,
+        "endLine": 45,
+        "endChar": 34
+      },
+      "revId": "0950b58b8c8ffa2860640f2abc72d18ce6b5314e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
