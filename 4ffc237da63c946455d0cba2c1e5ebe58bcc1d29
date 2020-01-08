@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8dd53c0e_41acf557",
+        "filename": "oti/event-handler/DTI-API.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5106
+      },
+      "writtenOn": "2020-01-08T21:32:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8a2d61a_3c6dfb8a",
+      "range": {
+        "startLine": 1,
+        "startChar": 2,
+        "endLine": 1,
+        "endChar": 5
+      },
+      "revId": "4ffc237da63c946455d0cba2c1e5ebe58bcc1d29",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0f1f174_e51af29c",
         "filename": "oti/event-handler/Dockerfile",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2020-01-02T20:06:41Z",
       "side": 1,
       "message": "This line shld be removed",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 70
+      },
+      "revId": "4ffc237da63c946455d0cba2c1e5ebe58bcc1d29",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "efca4a10_06e0b92e",
+        "filename": "oti/event-handler/Dockerfile",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5106
+      },
+      "writtenOn": "2020-01-08T21:32:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0f1f174_e51af29c",
       "range": {
         "startLine": 17,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "56b97ca9_8b742356",
+        "filename": "oti/event-handler/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5106
+      },
+      "writtenOn": "2020-01-08T21:32:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "175c51f5_b13ad83d",
+      "range": {
+        "startLine": 1,
+        "startChar": 4,
+        "endLine": 1,
+        "endChar": 7
+      },
+      "revId": "4ffc237da63c946455d0cba2c1e5ebe58bcc1d29",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aab59c5e_a4eebdb3",
         "filename": "oti/event-handler/aaf_certman_client_init.sh",
         "patchSetId": 6
@@ -88,6 +160,24 @@
     },
     {
       "key": {
+        "uuid": "1ea75cbe_454d47d7",
+        "filename": "oti/event-handler/aaf_certman_client_init.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5106
+      },
+      "writtenOn": "2020-01-08T21:32:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aab59c5e_a4eebdb3",
+      "revId": "4ffc237da63c946455d0cba2c1e5ebe58bcc1d29",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e1f6a75_30b1e137",
         "filename": "oti/event-handler/dtihandler/cbs_rest.py",
         "patchSetId": 6
@@ -99,6 +189,30 @@
       "writtenOn": "2020-01-02T20:06:41Z",
       "side": 1,
       "message": "can the directory/import be changed otihandler? This would be preferred for consistency. However if there are other dependencies limiting this change, then current naming is okay for seedcode delivery.",
+      "range": {
+        "startLine": 22,
+        "startChar": 5,
+        "endLine": 22,
+        "endChar": 15
+      },
+      "revId": "4ffc237da63c946455d0cba2c1e5ebe58bcc1d29",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3d83c62e_81fbade5",
+        "filename": "oti/event-handler/dtihandler/cbs_rest.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5106
+      },
+      "writtenOn": "2020-01-08T21:32:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e1f6a75_30b1e137",
       "range": {
         "startLine": 22,
         "startChar": 5,
@@ -134,6 +248,30 @@
     },
     {
       "key": {
+        "uuid": "3b638000_70f671b8",
+        "filename": "oti/event-handler/dtihandler/config.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5106
+      },
+      "writtenOn": "2020-01-08T21:32:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60037538_5346af08",
+      "range": {
+        "startLine": 28,
+        "startChar": 19,
+        "endLine": 28,
+        "endChar": 22
+      },
+      "revId": "4ffc237da63c946455d0cba2c1e5ebe58bcc1d29",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ae0a19b_f54be848",
         "filename": "oti/event-handler/dtihandler/consul_client.py",
         "patchSetId": 6
@@ -145,6 +283,30 @@
       "writtenOn": "2020-01-02T20:06:41Z",
       "side": 1,
       "message": "shld this be removed?",
+      "range": {
+        "startLine": 616,
+        "startChar": 0,
+        "endLine": 625,
+        "endChar": 131
+      },
+      "revId": "4ffc237da63c946455d0cba2c1e5ebe58bcc1d29",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d8a4658_9c5892f0",
+        "filename": "oti/event-handler/dtihandler/consul_client.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 5106
+      },
+      "writtenOn": "2020-01-08T21:32:53Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4ae0a19b_f54be848",
       "range": {
         "startLine": 616,
         "startChar": 0,
@@ -180,6 +342,30 @@
     },
     {
       "key": {
+        "uuid": "d3e69b9e_641a4ea3",
+        "filename": "oti/event-handler/dtihandler/consul_client.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 660,
+      "author": {
+        "id": 5106
+      },
+      "writtenOn": "2020-01-08T21:32:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34f590d8_72025b56",
+      "range": {
+        "startLine": 643,
+        "startChar": 0,
+        "endLine": 660,
+        "endChar": 0
+      },
+      "revId": "4ffc237da63c946455d0cba2c1e5ebe58bcc1d29",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4aa24608_4286a8cc",
         "filename": "oti/event-handler/dtihandler/dti_processor.py",
         "patchSetId": 6
@@ -191,6 +377,30 @@
       "writtenOn": "2020-01-02T20:06:41Z",
       "side": 1,
       "message": "verify mock is not reflecting valid fqdn",
+      "range": {
+        "startLine": 500,
+        "startChar": 26,
+        "endLine": 500,
+        "endChar": 69
+      },
+      "revId": "4ffc237da63c946455d0cba2c1e5ebe58bcc1d29",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "896f78f3_7b775b74",
+        "filename": "oti/event-handler/dtihandler/dti_processor.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 5106
+      },
+      "writtenOn": "2020-01-08T21:32:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4aa24608_4286a8cc",
       "range": {
         "startLine": 500,
         "startChar": 26,
@@ -226,6 +436,30 @@
     },
     {
       "key": {
+        "uuid": "9fb0bce4_dbf735b8",
+        "filename": "oti/event-handler/dtihandler/dti_processor.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 5106
+      },
+      "writtenOn": "2020-01-08T21:32:53Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "12646922_5aaab5a4",
+      "range": {
+        "startLine": 504,
+        "startChar": 34,
+        "endLine": 504,
+        "endChar": 78
+      },
+      "revId": "4ffc237da63c946455d0cba2c1e5ebe58bcc1d29",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b9428af_a5bd1f47",
         "filename": "oti/event-handler/dtihandler/dti_processor.py",
         "patchSetId": 6
@@ -237,6 +471,30 @@
       "writtenOn": "2020-01-02T20:06:41Z",
       "side": 1,
       "message": "same comment as before",
+      "range": {
+        "startLine": 534,
+        "startChar": 26,
+        "endLine": 534,
+        "endChar": 70
+      },
+      "revId": "4ffc237da63c946455d0cba2c1e5ebe58bcc1d29",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "77126997_f8c633e7",
+        "filename": "oti/event-handler/dtihandler/dti_processor.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 5106
+      },
+      "writtenOn": "2020-01-08T21:32:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b9428af_a5bd1f47",
       "range": {
         "startLine": 534,
         "startChar": 26,
@@ -272,6 +530,30 @@
     },
     {
       "key": {
+        "uuid": "af3191dc_eee57608",
+        "filename": "oti/event-handler/dtihandler/dti_processor.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 5106
+      },
+      "writtenOn": "2020-01-08T21:32:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35561b38_41153d1b",
+      "range": {
+        "startLine": 538,
+        "startChar": 26,
+        "endLine": 538,
+        "endChar": 70
+      },
+      "revId": "4ffc237da63c946455d0cba2c1e5ebe58bcc1d29",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "541abd09_a96eb87c",
         "filename": "oti/event-handler/etc/common_logger.config",
         "patchSetId": 6
@@ -283,6 +565,30 @@
       "writtenOn": "2020-01-02T20:06:41Z",
       "side": 1,
       "message": "to be removed",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 70
+      },
+      "revId": "4ffc237da63c946455d0cba2c1e5ebe58bcc1d29",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a53ca45_5e1ad911",
+        "filename": "oti/event-handler/etc/common_logger.config",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5106
+      },
+      "writtenOn": "2020-01-08T21:32:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "541abd09_a96eb87c",
       "range": {
         "startLine": 17,
         "startChar": 0,
@@ -318,6 +624,30 @@
     },
     {
       "key": {
+        "uuid": "b348328a_e8bcf929",
+        "filename": "oti/event-handler/etc/config.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 5106
+      },
+      "writtenOn": "2020-01-08T21:32:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72e410f5_2a6f2d76",
+      "range": {
+        "startLine": 4,
+        "startChar": 5,
+        "endLine": 4,
+        "endChar": 8
+      },
+      "revId": "4ffc237da63c946455d0cba2c1e5ebe58bcc1d29",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea804b6c_379c7884",
         "filename": "oti/event-handler/etc/config.json",
         "patchSetId": 6
@@ -329,6 +659,30 @@
       "writtenOn": "2020-01-02T20:06:41Z",
       "side": 1,
       "message": "keep it generic.. /opt/app/oti-handler/certificate",
+      "range": {
+        "startLine": 7,
+        "startChar": 41,
+        "endLine": 7,
+        "endChar": 47
+      },
+      "revId": "4ffc237da63c946455d0cba2c1e5ebe58bcc1d29",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5306ff5c_89091d4b",
+        "filename": "oti/event-handler/etc/config.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5106
+      },
+      "writtenOn": "2020-01-08T21:32:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea804b6c_379c7884",
       "range": {
         "startLine": 7,
         "startChar": 41,
@@ -364,6 +718,30 @@
     },
     {
       "key": {
+        "uuid": "4321ad08_66a81371",
+        "filename": "oti/event-handler/etc/config.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 5106
+      },
+      "writtenOn": "2020-01-08T21:32:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d98cf78f_c2ab6f8d",
+      "range": {
+        "startLine": 8,
+        "startChar": 24,
+        "endLine": 8,
+        "endChar": 70
+      },
+      "revId": "4ffc237da63c946455d0cba2c1e5ebe58bcc1d29",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "81d0a698_7e82eb24",
         "filename": "oti/event-handler/run.sh",
         "patchSetId": 6
@@ -375,6 +753,30 @@
       "writtenOn": "2020-01-02T20:06:41Z",
       "side": 1,
       "message": "to be removed",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 70
+      },
+      "revId": "4ffc237da63c946455d0cba2c1e5ebe58bcc1d29",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3b290ebf_54369f20",
+        "filename": "oti/event-handler/run.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5106
+      },
+      "writtenOn": "2020-01-08T21:32:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81d0a698_7e82eb24",
       "range": {
         "startLine": 18,
         "startChar": 0,
