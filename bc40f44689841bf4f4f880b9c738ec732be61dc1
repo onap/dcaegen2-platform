@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a64c11b_9748bbfd",
+        "filename": "oti/event-handler/Dockerfile",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-01-08T16:04:39Z",
+      "side": 1,
+      "message": "the latest changes were made after 1/1/2020, so this now needs to say 2020",
+      "revId": "bc40f44689841bf4f4f880b9c738ec732be61dc1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6854f577_83be4338",
+        "filename": "oti/event-handler/OTI-API.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-01-08T16:04:39Z",
+      "side": 1,
+      "message": "need to add /oti_docker_events and /oti_k8_events as synonyms",
+      "revId": "bc40f44689841bf4f4f880b9c738ec732be61dc1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6dfef808_6bad73c7",
+        "filename": "oti/event-handler/README.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-01-08T16:04:39Z",
+      "side": 1,
+      "message": "Please expand \"OTI\" on its first use\n\nONAP Topology Interface (OTI)",
+      "revId": "bc40f44689841bf4f4f880b9c738ec732be61dc1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee92cce5_8ee2d1fd",
+        "filename": "oti/event-handler/README.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-01-08T16:04:39Z",
+      "side": 1,
+      "message": "Please expand \"OTI\" on its first use\n\nONAP Topology Interface (OTI)",
+      "revId": "bc40f44689841bf4f4f880b9c738ec732be61dc1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b160b950_4f7f5bcf",
+        "filename": "oti/event-handler/README.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-01-08T16:04:39Z",
+      "side": 1,
+      "message": "DCAE Topology Interface \u003d\u003e\nONAP Topology Interface",
+      "revId": "bc40f44689841bf4f4f880b9c738ec732be61dc1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "def47b84_d0161ce9",
+        "filename": "oti/event-handler/otihandler/web_server.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-01-08T16:04:39Z",
+      "side": 1,
+      "message": "should be able to move this code into a common subroutine and have two cherrypy functions that invoke it, one each for dti_k8_events and oti_k8s_events\n\nsimilar comment for dt_docker_eventsi() and dti()\n\nwhy are you using \"k8\" for \"kubernetes\" instead of \"k8s\"?",
+      "revId": "bc40f44689841bf4f4f880b9c738ec732be61dc1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
