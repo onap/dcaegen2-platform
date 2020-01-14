@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fdb13abf_7e6523bb",
+        "filename": "oti/event-handler/otihandler/__init__.py",
+        "patchSetId": 9
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-01-14T15:46:03Z",
+      "side": 1,
+      "message": "since this is a COPY of the dtihandler code, we cannot lose the copyright dates that were present from that code.",
+      "revId": "c3ea77f6d1dd98ddc02b23f835a79f33db88a11b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
