@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "21868a07_b598ba0f",
+        "filename": "mod/designtool/build.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 681
+      },
+      "writtenOn": "2020-01-16T15:48:05Z",
+      "side": 1,
+      "message": "consider 2020 here",
+      "range": {
+        "startLine": 2,
+        "startChar": 16,
+        "endLine": 2,
+        "endChar": 20
+      },
+      "revId": "ba61cb22c40de5ed75957059b02cd461d6c49d1f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02b24472_bbc32641",
+        "filename": "mod/designtool/build.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 681
+      },
+      "writtenOn": "2020-01-16T15:48:05Z",
+      "side": 1,
+      "message": "Add some info like this up top:\n\n    echo \"---\u003e build.sh\"",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 1
+      },
+      "revId": "ba61cb22c40de5ed75957059b02cd461d6c49d1f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9db3072_6b1c58e9",
+        "filename": "mod/designtool/build.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 681
+      },
+      "writtenOn": "2020-01-16T15:48:05Z",
+      "side": 1,
+      "message": "Add \"set -eu\" up here so a failed maven build will cause the script to stop.\n\nYou MAY wish to use \"set -x\" so bash shows every command it executes.  That makes debugging at Jenkins a WHOLE LOT easier.",
+      "revId": "ba61cb22c40de5ed75957059b02cd461d6c49d1f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64f04ef1_997afb43",
+        "filename": "mod/designtool/build.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 681
+      },
+      "writtenOn": "2020-01-16T15:48:05Z",
+      "side": 1,
+      "message": "I think you need to decide, are you building this script for Jenkins at LF, or for local use? It\u0027s difficult to have it both ways. \n\nThe Jenkins server checks out all submodules before this ever runs, so this whole sequence lines 28..30 is superfluous.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 1
+      },
+      "revId": "ba61cb22c40de5ed75957059b02cd461d6c49d1f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44526cb8_5ea010c3",
+        "filename": "mod/designtool/build.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 681
+      },
+      "writtenOn": "2020-01-16T15:48:05Z",
+      "side": 1,
+      "message": "At LF variable $MVN is available in the Jenkins so that the version is configurable. Directly calling mvn might work, but it loses the configurability.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 3
+      },
+      "revId": "ba61cb22c40de5ed75957059b02cd461d6c49d1f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e04891a2_2d17a8e9",
+        "filename": "mod/designtool/pom.xml",
+        "patchSetId": 6
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 681
+      },
+      "writtenOn": "2020-01-16T15:48:05Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 4,
+        "startChar": 19,
+        "endLine": 4,
+        "endChar": 23
+      },
+      "revId": "ba61cb22c40de5ed75957059b02cd461d6c49d1f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
