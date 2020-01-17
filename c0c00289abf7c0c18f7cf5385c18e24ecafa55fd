@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c0fae182_2da65aad",
+        "filename": "mod/designtool/design-tool-changes.patch",
+        "patchSetId": 8
+      },
+      "lineNbr": 6487,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-01-17T22:31:17Z",
+      "side": 1,
+      "message": "is this binary patch required?",
+      "range": {
+        "startLine": 5776,
+        "startChar": 0,
+        "endLine": 6487,
+        "endChar": 11
+      },
+      "revId": "c0c00289abf7c0c18f7cf5385c18e24ecafa55fd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03da034a_8e9cad25",
+        "filename": "mod/designtool/design-tool-changes.patch",
+        "patchSetId": 8
+      },
+      "lineNbr": 7207,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-01-17T22:31:17Z",
+      "side": 1,
+      "message": "to be confirmed if required",
+      "range": {
+        "startLine": 7202,
+        "startChar": 2,
+        "endLine": 7207,
+        "endChar": 11
+      },
+      "revId": "c0c00289abf7c0c18f7cf5385c18e24ecafa55fd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
