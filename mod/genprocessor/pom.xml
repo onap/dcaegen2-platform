@@ -2,22 +2,22 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-
-  <groupId>org.onap.dcaegen2.platform.mod</groupId>
-  <artifactId>genprocessor</artifactId>
-  <version>1.0.0</version>
-
-  <name>dcaegen2-platform-mod-genprocessor</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
-
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
-  </properties>
-
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.onap.oparent</groupId>
+		<artifactId>oparent</artifactId>
+		<version>2.0.0</version>
+	</parent>
+	<groupId>org.onap.dcaegen2.platform.mod</groupId>
+	<artifactId>genprocessor</artifactId>
+	<version>1.0.0</version>
+	<name>dcaegen2-platform-mod-genprocessor</name>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.deploy.skip>true</maven.deploy.skip>
+		<java.version>1.8</java.version>
+		<maven.build.timestamp.format>yyyyMMdd'T'HHmmss</maven.build.timestamp.format>
+	</properties>
   <dependencies>
     <!--NOTE: Nifi jars used here are version 1.9.2 but dcae mod is on 1.9.3 because 1.9.3 is not in
          Maven Central -->

@@ -18,8 +18,12 @@
 package sandbox;
 
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+
+import org.onap.dcae.genprocessor.CompSpec;
+import org.onap.dcae.genprocessor.Utils;
 
 /**
  * Unit test for simple App.
@@ -33,5 +37,19 @@ public class AppTest
     public void shouldAnswerWithTrue()
     {
         assertTrue( true );
+    }
+
+    /**
+     * Test Utils
+     */
+    @Test
+    public void testUtils()
+    {
+	new Utils();
+        assertEquals(Utils.formatNameForJavaClass("part1.a-bee"), "Part1ABee");
+    	CompSpec cs = new CompSpec();
+	cs.name = "SomeJar";
+	cs.version = "2.0";
+	assertEquals(Utils.formatNameForJar(cs), "SomeJar-2.0");
     }
 }
