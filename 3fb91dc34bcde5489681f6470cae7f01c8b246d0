@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "090da152_5f00422b",
+        "filename": "mod/genprocessor/docker/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-01-21T21:40:14Z",
+      "side": 1,
+      "message": "This file could be retained.. the build steps can be replaced to use mvn instead",
+      "revId": "3fb91dc34bcde5489681f6470cae7f01c8b246d0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
