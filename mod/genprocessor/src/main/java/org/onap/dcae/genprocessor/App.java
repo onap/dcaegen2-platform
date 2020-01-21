@@ -308,13 +308,34 @@ public class App {
         return false;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         if (args.length == 0) {
+            args = new String[] { "gen" };
+            String sleepstr = System.getenv("GENPROC_SLEEP_SEC");
+            long sleepdur = (sleepstr != null)? 1000 * Long.parseLong(sleepstr): 0;
+            do {
+		try {
+			main2(args);
+		} catch (Exception e) {
+			LOG.error(e.toString(), e);
+		}
+                Thread.sleep(sleepdur);
+            } while (sleepdur > 0);
+            return;
+        } else {
+            main2(args);
+        }
+    }
+
+
+    public static void main2(String[] args) {
+        String argsStr = String.join(", ", args);
+        if (argsStr.contains("-h")) {
             LOG.info("Here are the possible args:");
             LOG.info("<gen> <load>");
+            return;
         }
 
-        String argsStr = String.join(", ", args);
         boolean shouldGenerate = argsStr.contains("gen") ? true : false;
         boolean shouldLoad = argsStr.contains("load") ? true : false;
         boolean shouldPackage = argsStr.contains("package") ? true : false;
