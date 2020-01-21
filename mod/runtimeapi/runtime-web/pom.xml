@@ -66,25 +66,50 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<groupId>io.fabric8</groupId>
 				<artifactId>docker-maven-plugin</artifactId>
 				<configuration>
 					<verbose>true</verbose>
-					<imagePullPolicy>IfNotPresent</imagePullPolicy>
+					<pullRegistry>${docker.pull.registry}</pullRegistry>
+					<pushRegistry>${docker.push.registry}</pushRegistry>
 					<images>
 						<image>
 							<name>onap/${project.groupId}.${project.artifactId}</name>
 							<registry>${onap.nexus.dockerregistry.daily}</registry>
 							<build>
-								<contextDir>${project.basedir}</contextDir>
-								<cleanup>none</cleanup>
+								<from>openjdk:8-jre-alpine</from>
 								<tags>
 									<tag>latest</tag>
 									<tag>${project.version}</tag>
 									<tag>${project.version}-${maven.build.timestamp}Z</tag>
 								</tags>
+								<assembly>
+									<descriptorRef>artifact</descriptorRef>
+								</assembly>
+								<workdir>/maven</workdir>
+								<volumes>
+									<volume>/tmp</volume>
+								</volumes>
+								<ports>
+									<port>9090</port>
+								</ports>
+								<entryPoint>
+									<exec>
+										<arg>java</arg>
+										<arg>-Djava.security.egd=file:/dev/./urandom</arg>
+										<arg>-jar</arg>
+										<arg>${project.artifactId}-${project.version}.${project.packaging}</arg>
+									</exec>
+								</entryPoint>
 							</build>
 						</image>
 					</images>

@@ -2,55 +2,52 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.onap.oparent</groupId>
-		<artifactId>oparent</artifactId>
-		<version>2.0.0</version>
-	</parent>
-	<groupId>org.onap.dcaegen2.platform.mod</groupId>
-	<artifactId>genprocessor</artifactId>
-	<version>1.0.0</version>
-	<name>dcaegen2-platform-mod-genprocessor</name>
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.deploy.skip>true</maven.deploy.skip>
-		<java.version>1.8</java.version>
-		<maven.build.timestamp.format>yyyyMMdd'T'HHmmss</maven.build.timestamp.format>
-	</properties>
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.onap.oparent</groupId>
+    <artifactId>oparent</artifactId>
+    <version>2.0.0</version>
+  </parent>
+  <groupId>org.onap.dcaegen2.platform.mod</groupId>
+  <artifactId>genprocessor</artifactId>
+  <version>1.0.0</version>
+  <name>dcaegen2-platform-mod-genprocessor</name>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.deploy.skip>true</maven.deploy.skip>
+    <java.version>1.8</java.version>
+    <maven.build.timestamp.format>yyyyMMdd'T'HHmmss</maven.build.timestamp.format>
+    <docker.pull.registry>nexus3.onap.org:10001</docker.pull.registry>
+    <docker.push.registry>${env.NEXUS3_PUSH_REGISTRY}</docker.push.registry>
+    <start-class>org.onap.dcae.genprocessor.App</start-class>
+    <!--NOTE: Nifi jars used here are version 1.9.2 but dcae mod is on 1.9.3 because 1.9.3 is not in Maven Central -->
+    <nifi.version>1.9.2</nifi.version>
+  </properties>
   <dependencies>
-    <!--NOTE: Nifi jars used here are version 1.9.2 but dcae mod is on 1.9.3 because 1.9.3 is not in
-         Maven Central -->
     <dependency>
-        <groupId>org.apache.nifi</groupId>
-        <artifactId>nifi-api</artifactId>
-        <version>1.9.2</version>
+      <groupId>org.apache.nifi</groupId>
+      <artifactId>nifi-api</artifactId>
+      <version>${nifi.version}</version>
     </dependency>
     <dependency>
-        <groupId>org.apache.nifi</groupId>
-        <artifactId>nifi-record-serialization-service-api</artifactId>
-        <version>1.9.2</version>
+      <groupId>org.apache.nifi</groupId>
+      <artifactId>nifi-record-serialization-service-api</artifactId>
+      <version>${nifi.version}</version>
     </dependency>
     <dependency>
-        <groupId>org.apache.nifi</groupId>
-        <artifactId>nifi-record</artifactId>
-        <version>1.9.2</version>
+      <groupId>org.apache.nifi</groupId>
+      <artifactId>nifi-record</artifactId>
+      <version>${nifi.version}</version>
     </dependency>
     <dependency>
-        <groupId>org.apache.nifi</groupId>
-        <artifactId>nifi-processor-utils</artifactId>
-        <version>1.9.2</version>
+      <groupId>org.apache.nifi</groupId>
+      <artifactId>nifi-processor-utils</artifactId>
+      <version>${nifi.version}</version>
     </dependency>
     <dependency>
-        <groupId>org.apache.nifi</groupId>
-        <artifactId>nifi-utils</artifactId>
-        <version>1.9.2</version>
-    </dependency>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
+      <groupId>org.apache.nifi</groupId>
+      <artifactId>nifi-utils</artifactId>
+      <version>${nifi.version}</version>
     </dependency>
     <dependency>
       <groupId>org.javassist</groupId>
@@ -58,120 +55,114 @@
       <version>3.25.0-GA</version>
     </dependency>
     <dependency>
-        <groupId>ch.qos.logback</groupId>
-        <artifactId>logback-classic</artifactId>
-        <version>1.2.3</version>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>1.2.3</version>
     </dependency>
     <dependency>
-        <groupId>com.fasterxml.jackson.core</groupId>
-        <artifactId>jackson-core</artifactId>
-        <version>2.10.0.pr1</version>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>2.10.0.pr1</version>
     </dependency>
     <dependency>
-        <groupId>com.fasterxml.jackson.core</groupId>
-        <artifactId>jackson-databind</artifactId>
-        <version>2.10.0.pr1</version>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.10.0.pr1</version>
     </dependency>
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-text</artifactId>
       <version>1.7</version>
     </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
-
   <build>
-    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
-      <plugins>
-        <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
-        <plugin>
-          <artifactId>maven-clean-plugin</artifactId>
-          <version>3.1.0</version>
-        </plugin>
-        <!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
-        <plugin>
-          <artifactId>maven-resources-plugin</artifactId>
-          <version>3.0.2</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.8.0</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <version>2.22.1</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-jar-plugin</artifactId>
-          <version>3.0.2</version>
-          <configuration>
-            <archive>
-              <manifest>
-                <addClasspath>true</addClasspath>
-                <classpathPrefix>lib/</classpathPrefix>
-                <mainClass>org.onap.dcae.genprocessor.App</mainClass>
-              </manifest>
-            </archive>
-          </configuration>
-        </plugin>
-        <plugin>
-          <artifactId>maven-install-plugin</artifactId>
-          <version>2.5.2</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-deploy-plugin</artifactId>
-          <version>2.8.2</version>
-          <configuration>
-            <skip>true</skip>
-          </configuration>
-        </plugin>
-        <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
-        <plugin>
-          <artifactId>maven-site-plugin</artifactId>
-          <version>3.7.1</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-project-info-reports-plugin</artifactId>
-          <version>3.0.0</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-assembly-plugin</artifactId>
-          <executions>
-            <execution>
-              <phase>package</phase>
-              <goals>
-                <goal>single</goal>
-              </goals>
-            </execution>
-          </executions>
-          <configuration>
-            <descriptorRefs>
-              <descriptorRef>jar-with-dependencies</descriptorRef>
-            </descriptorRefs>
-            <archive>
-              <manifest>
-                <addClasspath>true</addClasspath>
-                <classpathPrefix>lib/</classpathPrefix>
-                <mainClass>org.onap.dcae.genprocessor.App</mainClass>
-              </manifest>
-            </archive>
-          </configuration>
-        </plugin>
-        <!-- THIS DOES NOT RUN-->
-        <plugin>
-          <artifactId>maven-dependency-plugin</artifactId>
-          <executions>
-            <execution>
-              <phase>package</phase>
-              <goals>
-                <goal>copy-dependencies</goal>
-              </goals>
-              <configuration>
-                <outputDirectory>${project.build.directory}/lib</outputDirectory>
-              </configuration>
-            </execution>
-          </executions>
-         </plugin>
-      </plugins>
-    </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>io.fabric8</groupId>
+        <artifactId>docker-maven-plugin</artifactId>
+        <configuration>
+          <verbose>true</verbose>
+          <pullRegistry>${docker.pull.registry}</pullRegistry>
+          <pushRegistry>${docker.push.registry}</pushRegistry>
+          <images>
+	    <image>
+              <name>onap/${project.groupId}.${project.artifactId}-http</name>
+              <registry>${onap.nexus.dockerregistry.daily}</registry>
+              <build>
+                <from>nginx:latest</from>
+                <tags>
+                  <tag>latest</tag>
+                  <tag>${project.version}</tag>
+                  <tag>${project.version}-${maven.build.timestamp}Z</tag>
+                </tags>
+		<assembly>
+		  <targetDir>/</targetDir>
+		  <inline>
+		    <files>
+		      <file>
+		        <source>./nginx.conf</source>
+		        <outputDirectory>/etc/nginx/conf.d</outputDirectory>
+		        <destName>default.conf</destName>
+		      </file>
+		    </files>
+		  </inline>
+		</assembly>
+                <entryPoint>
+                  <exec>
+		    <arg>nginx</arg>
+		    <arg>-g</arg>
+		    <arg>daemon off;</arg>
+		  </exec>
+		</entryPoint>
+	      </build>
+	    </image>
+            <image>
+              <name>onap/${project.groupId}.${project.artifactId}-job</name>
+              <registry>${onap.nexus.dockerregistry.daily}</registry>
+              <build>
+                <from>openjdk:8-jre-alpine</from>
+                <tags>
+                  <tag>latest</tag>
+                  <tag>${project.version}</tag>
+                  <tag>${project.version}-${maven.build.timestamp}Z</tag>
+                </tags>
+                <assembly>
+                  <descriptorRef>artifact-with-dependencies</descriptorRef>
+                </assembly>
+                <workdir>/maven</workdir>
+                <env>
+                  <GENPROC_WORKING_DIR>/work</GENPROC_WORKING_DIR>
+                  <GENPROC_ONBOARDING_API_HOST>http://onboarding-api/onboarding</GENPROC_ONBOARDING_API_HOST>
+                  <GENPROC_PROCESSOR_CLASSFILE_PATH>/code/target/classes/sandbox/DCAEPROCESSOR.class</GENPROC_PROCESSOR_CLASSFILE_PATH>
+                  <GENPROC_SLEEP_SEC>10</GENPROC_SLEEP_SEC>
+                </env>
+                <entryPoint>
+                  <exec>
+                    <arg>java</arg>
+                    <arg>-cp</arg>
+                    <arg>/maven/*</arg>
+                    <arg>${start-class}</arg>
+                  </exec>
+                </entryPoint>
+              </build>
+            </image>
+          </images>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>build</goal>
+              <goal>push</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
   </build>
 </project>
