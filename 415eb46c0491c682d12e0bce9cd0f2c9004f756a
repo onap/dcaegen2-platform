@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "40403730_3447d0ef",
+        "filename": "mod/genprocessor/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-01-23T19:55:20Z",
+      "side": 1,
+      "message": "include license header",
+      "revId": "415eb46c0491c682d12e0bce9cd0f2c9004f756a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "671d08f5_e37d988f",
+        "filename": "mod/genprocessor/src/main/java/org/onap/dcae/genprocessor/App.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-01-23T19:55:20Z",
+      "side": 1,
+      "message": "include 2020",
+      "range": {
+        "startLine": 3,
+        "startChar": 17,
+        "endLine": 3,
+        "endChar": 21
+      },
+      "revId": "415eb46c0491c682d12e0bce9cd0f2c9004f756a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
