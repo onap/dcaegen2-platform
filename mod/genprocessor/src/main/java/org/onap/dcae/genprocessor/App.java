@@ -23,6 +23,7 @@ import javassist.CtClass;
 
 import java.io.File;
 import java.io.FilenameFilter;
+import java.io.InputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -160,13 +161,13 @@ public class App {
         }
     }
 
-    private static boolean copyProcessorClassFile(File pathClassFile, File dirBuild) {
+    private static boolean copyProcessorClassFile(String classResourceName, File dirBuild) {
         File dirSandbox = new File(dirBuild, "org/onap/dcae/genprocessor");
 
         if (dirSandbox.exists() || dirSandbox.mkdir()) {
-            try {
-                File dest = new File(dirSandbox, pathClassFile.getName());
-                Files.copy(pathClassFile.toPath(), dest.toPath());
+            try (InputStream asStream = App.class.getResourceAsStream(classResourceName)) {
+                File dest = new File(dirSandbox, classResourceName);
+                Files.copy(asStream, dest.toPath());
                 return true;
             } catch (FileAlreadyExistsException e) {
                 // Do nothing, class file already exists
@@ -308,7 +309,7 @@ public class App {
         return false;
     }
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, URISyntaxException {
         if (args.length == 0) {
             args = new String[] { "gen" };
             String sleepstr = System.getenv("GENPROC_SLEEP_SEC");
@@ -328,7 +329,7 @@ public class App {
     }
 
 
-    public static void main2(String[] args) {
+    public static void main2(String[] args) throws URISyntaxException {
         String argsStr = String.join(", ", args);
         if (argsStr.contains("-h")) {
             LOG.info("Here are the possible args:");
@@ -343,7 +344,6 @@ public class App {
         // Config from env variables
         File dirWorking = new File(System.getenv("GENPROC_WORKING_DIR"));
         String hostOnboardingAPI = System.getenv("GENPROC_ONBOARDING_API_HOST");
-        File processorClassFile = new File(System.getenv("GENPROC_PROCESSOR_CLASSFILE_PATH"));
         String urlToJarIndex = System.getenv("GENPROC_JAR_INDEX_URL");
 
         String[] paramsToPrint = new String[] {
@@ -380,7 +380,7 @@ public class App {
                     writeManifestThing(dirBuild, generateManifestMF(comp.compSpec), "META-INF", "MANIFEST.MF");
                     writeManifestThing(dirBuild, Arrays.asList(createClassName(comp.compSpec)), "META-INF/services",
                             "org.apache.nifi.processor.Processor");
-                    copyProcessorClassFile(processorClassFile, dirBuild);
+                    copyProcessorClassFile("DCAEProcessor.class", dirBuild);
                     packageJar(dirWorking, dirBuild, jarName);
                 }
             }

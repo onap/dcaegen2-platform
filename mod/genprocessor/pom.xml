@@ -22,6 +22,7 @@
     <start-class>org.onap.dcae.genprocessor.App</start-class>
     <!--NOTE: Nifi jars used here are version 1.9.2 but dcae mod is on 1.9.3 because 1.9.3 is not in Maven Central -->
     <nifi.version>1.9.2</nifi.version>
+    <docker.fabric.version>0.32.0</docker.fabric.version>
   </properties>
   <dependencies>
     <dependency>
@@ -80,12 +81,19 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>com.github.stefanbirkner</groupId>
+      <artifactId>system-rules</artifactId>
+      <version>1.19.0</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
       <plugin>
         <groupId>io.fabric8</groupId>
         <artifactId>docker-maven-plugin</artifactId>
+	<version>${docker.fabric.version}</version>
         <configuration>
           <verbose>true</verbose>
           <pullRegistry>${docker.pull.registry}</pullRegistry>
@@ -139,7 +147,6 @@
                 <env>
                   <GENPROC_WORKING_DIR>/work</GENPROC_WORKING_DIR>
                   <GENPROC_ONBOARDING_API_HOST>http://onboarding-api/onboarding</GENPROC_ONBOARDING_API_HOST>
-                  <GENPROC_PROCESSOR_CLASSFILE_PATH>/code/target/classes/sandbox/DCAEPROCESSOR.class</GENPROC_PROCESSOR_CLASSFILE_PATH>
                   <GENPROC_SLEEP_SEC>10</GENPROC_SLEEP_SEC>
                 </env>
                 <entryPoint>
