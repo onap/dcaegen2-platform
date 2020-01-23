@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+============LICENSE_START=======================================================
+Copyright (c) 2020 AT&T Intellectual Property. All rights reserved.
+================================================================================
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
+     http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+============LICENSE_END=========================================================
+-->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
@@ -22,6 +38,7 @@
     <start-class>org.onap.dcae.genprocessor.App</start-class>
     <!--NOTE: Nifi jars used here are version 1.9.2 but dcae mod is on 1.9.3 because 1.9.3 is not in Maven Central -->
     <nifi.version>1.9.2</nifi.version>
+    <docker.fabric.version>0.32.0</docker.fabric.version>
   </properties>
   <dependencies>
     <dependency>
@@ -80,18 +97,25 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>com.github.stefanbirkner</groupId>
+      <artifactId>system-rules</artifactId>
+      <version>1.19.0</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
       <plugin>
         <groupId>io.fabric8</groupId>
         <artifactId>docker-maven-plugin</artifactId>
+        <version>${docker.fabric.version}</version>
         <configuration>
           <verbose>true</verbose>
           <pullRegistry>${docker.pull.registry}</pullRegistry>
           <pushRegistry>${docker.push.registry}</pushRegistry>
           <images>
-	    <image>
+            <image>
               <name>onap/${project.groupId}.${project.artifactId}-http</name>
               <registry>${onap.nexus.dockerregistry.daily}</registry>
               <build>
@@ -101,27 +125,27 @@
                   <tag>${project.version}</tag>
                   <tag>${project.version}-${maven.build.timestamp}Z</tag>
                 </tags>
-		<assembly>
-		  <targetDir>/</targetDir>
-		  <inline>
-		    <files>
-		      <file>
-		        <source>./nginx.conf</source>
-		        <outputDirectory>/etc/nginx/conf.d</outputDirectory>
-		        <destName>default.conf</destName>
-		      </file>
-		    </files>
-		  </inline>
-		</assembly>
+                <assembly>
+                  <targetDir>/</targetDir>
+                  <inline>
+                    <files>
+                      <file>
+                        <source>./nginx.conf</source>
+                        <outputDirectory>/etc/nginx/conf.d</outputDirectory>
+                        <destName>default.conf</destName>
+                      </file>
+                    </files>
+                  </inline>
+                </assembly>
                 <entryPoint>
                   <exec>
-		    <arg>nginx</arg>
-		    <arg>-g</arg>
-		    <arg>daemon off;</arg>
-		  </exec>
-		</entryPoint>
-	      </build>
-	    </image>
+                    <arg>nginx</arg>
+                    <arg>-g</arg>
+                    <arg>daemon off;</arg>
+                  </exec>
+                </entryPoint>
+              </build>
+            </image>
             <image>
               <name>onap/${project.groupId}.${project.artifactId}-job</name>
               <registry>${onap.nexus.dockerregistry.daily}</registry>
@@ -139,7 +163,6 @@
                 <env>
                   <GENPROC_WORKING_DIR>/work</GENPROC_WORKING_DIR>
                   <GENPROC_ONBOARDING_API_HOST>http://onboarding-api/onboarding</GENPROC_ONBOARDING_API_HOST>
-                  <GENPROC_PROCESSOR_CLASSFILE_PATH>/code/target/classes/sandbox/DCAEPROCESSOR.class</GENPROC_PROCESSOR_CLASSFILE_PATH>
                   <GENPROC_SLEEP_SEC>10</GENPROC_SLEEP_SEC>
                 </env>
                 <entryPoint>
