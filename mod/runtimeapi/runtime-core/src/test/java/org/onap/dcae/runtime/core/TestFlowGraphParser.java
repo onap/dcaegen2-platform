@@ -1,6 +1,6 @@
 /*-
  * ============LICENSE_START=======================================================
- * Copyright (C) 2019 AT&T Intellectual Property. All rights reserved.
+ * Copyright (C) 2019-2020 AT&T Intellectual Property. All rights reserved.
  * ================================================================================
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,33 +17,58 @@
  */
 package org.onap.dcae.runtime.core;
 
-import org.junit.Before;
-import org.junit.Ignore;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
+import java.util.Map;
+import org.junit.Rule;
+import org.junit.rules.TemporaryFolder;
 import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 import org.onap.dcae.runtime.core.blueprint_creator.BlueprintCreatorOnapDublin;
 
 public class TestFlowGraphParser {
 
-    private FlowGraph<Node, Edge> flowGraph;
-    private FlowGraphParser flowGraphParser;
-
-    @Before
-    public void setUp() throws Exception{
-        flowGraph = Helper.prepareFlowGraph();
-        flowGraphParser = new FlowGraphParser(new BlueprintCreatorOnapDublin());
-        flowGraphParser.parse(flowGraph);
-    }
+    @Rule
+    public TemporaryFolder folder = new TemporaryFolder();
 
     @Test
-    @Ignore
-    public void testBlueprintsCreate() throws Exception{
-        /*
-        TODO: FIX
-        Map<String,String> expectedBlueprints = Helper.loadTestBlueprints();
-        Map<String,String> resultBlueprints = flowGraphParser.createAndProcessBlueprints();
-
-        assertEquals(expectedBlueprints,resultBlueprints);
-        */
+    public void testFlowGraphParser() throws IOException {
+        try {
+        File importsfile = folder.newFile("imports.yaml");
+        try (Writer w = new FileWriter(importsfile)) {
+            w.write(
+                "imports:\n" +
+		" - 'http://www.getcloudify.org/spec/cloudify/3.4/types.yaml'\n" +
+		" - 'https://nexus.onap.org/service/local/repositories/raw/content/org.onap.dcaegen2.platform.plugins/R4/k8splugin/1.4.5/k8splugin_types.yaml'\n" +
+                " - 'https://nexus.onap.org/service/local/repositories/raw/content/org.onap.dcaegen2.platform.plugins/R4/dcaepolicyplugin/2.3.0/dcaepolicyplugin_types.yaml'\n"
+	    );
+        }
+        FlowGraph<Node, Edge> mainFlowGraph = new FlowGraph<>("1234", "nifi-main", true, "mock graph");
+        mainFlowGraph.addNode(new Node("dummy_id", "dummy_name", "dummy_compspec"));
+        BlueprintCreatorOnapDublin bcod = new BlueprintCreatorOnapDublin();
+        bcod.setTopicUrl("u.r.l");
+        bcod.setImportFilePath(importsfile.getAbsolutePath());
+        FlowGraphParser flowGraphParser = new FlowGraphParser(bcod);
+        flowGraphParser.parse(mainFlowGraph);
+        String compspec = Helper.loadFileContent("src/test/data/compspecs/componentSpec_hello_world.json");
+        mainFlowGraph.addNode(new Node("comp5678", "hello-world-2", compspec));
+        mainFlowGraph.addNode(new Node("comp1234", "hello-world-1", compspec));
+        mainFlowGraph.addEdge(
+          flowGraphParser.getNodeFromId("comp1234"),
+          flowGraphParser.getNodeFromId("comp5678"), 
+          new Edge(
+            new EdgeLocation("comp1234", "DCAE-HELLO-WORLD-PUB-MR"),
+            new EdgeLocation("comp5678", "DCAE-HELLO-WORLD-SUB-MR"),
+            new EdgeMetadata("sample_topic_1", "json", "MR")));
+        flowGraphParser.createAndProcessBlueprints();
+        } catch (RuntimeException rte) {
+            rte.printStackTrace();
+            throw rte;
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+	}
     }
-
 }
