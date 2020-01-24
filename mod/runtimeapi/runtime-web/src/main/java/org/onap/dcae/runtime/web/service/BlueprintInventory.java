@@ -1,6 +1,6 @@
 /*-
  * ============LICENSE_START=======================================================
- * Copyright (C) 2019 AT&T Intellectual Property. All rights reserved.
+ * Copyright (C) 2019-2020 AT&T Intellectual Property. All rights reserved.
  * ================================================================================
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,6 +39,8 @@ public class BlueprintInventory {
 
     Logger logger = LoggerFactory.getLogger(BlueprintInventory.class);
 
+    private RestTemplate restTemplate = new RestTemplate();
+
     public void distributeToInventory(List<BlueprintVessel> blueprints) {
         for (BlueprintVessel bpv : blueprints) {
             JSONObject body = prepareBlueprintJsonObject(bpv.name, bpv.version, bpv.blueprint);
@@ -51,7 +53,6 @@ public class BlueprintInventory {
     // Should work with inventory too!
     private boolean postToDashboard(JSONObject blueprintJsonObject){
         //1. setup
-        RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         // NOTE: This commented out line is to be used for dcae dashboard api and not inventory
