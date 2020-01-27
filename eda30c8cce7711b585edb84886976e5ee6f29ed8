@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a18b10f7_a0fa4242",
+        "filename": "mod/designtool/build.sh",
+        "patchSetId": 11
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1907
+      },
+      "writtenOn": "2020-01-27T19:26:11Z",
+      "side": 1,
+      "message": "This needs to respect the phase argument passed into the script, and not run this every time.  According to the pom.xml in this directory, this can be invoked for the clean, generate-sources, compile, package, test, install, and deploy phases.  As is, this will do a complete build-and-install every time it is invoked.",
+      "revId": "eda30c8cce7711b585edb84886976e5ee6f29ed8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07ae795c_26361e23",
+        "filename": "mod/designtool/pom.xml",
+        "patchSetId": 11
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1907
+      },
+      "writtenOn": "2020-01-27T19:26:11Z",
+      "side": 1,
+      "message": "This needs a parent pom.xml that sets the variables referenced in the environment variable configuration of the exec plugin.  For example, org.onap/dcaegen2/1.2.0-SNAPSHOT, like what is used for the org.onap.dcaegen2.utils pom.xml",
+      "revId": "eda30c8cce7711b585edb84886976e5ee6f29ed8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
