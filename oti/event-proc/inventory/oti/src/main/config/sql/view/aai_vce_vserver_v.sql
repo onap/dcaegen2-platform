@@ -1,0 +1,56 @@
+CREATE OR REPLACE VIEW dti.aai_vce_vserver_v AS 
+ SELECT a.vnf_id,
+    a.vnf_name,
+    a.vnf_name2,
+    a.vnf_type,
+    '' as service_id,
+    '' as regional_resource_zone,
+    a.prov_status,
+    a.operational_status,
+    a.equipment_role,
+    a.orchestration_status,
+    a.heat_stack_id,
+    a.mso_catalog_key,
+    a.ipv4_oam_address,
+    a.ipv4_loopback0_address,
+    a.resource_version,
+    c.vserver_id,
+    c.vserver_name,
+    c.vserver_name2,
+    c.prov_status AS vserver_prov_status,
+    c.vserver_selflink,
+    c.in_maint,
+    c.is_closed_loop_disabled,
+    c.resource_version AS vserver_resource_version,
+    c.tenant_id
+   FROM dti.rt_vce a
+     JOIN dti.rt_relationship_list b ON a.vnf_id = b.from_node_id AND b.related_from = 'vce' AND lower(b.from_node_id) like '%vbc'
+     JOIN dti.rt_vserver c ON CONCAT(c.cloud_owner, '|', c.cloud_Region_id, '|', c.tenant_id, '|', c.vserver_id) = b.to_node_id AND b.related_to = 'vserver'
+UNION
+ SELECT a.vnf_id,
+    a.vnf_name,
+    a.vnf_name2,
+    a.vnf_type,
+    a.service_id,
+    a.regional_resource_zone,
+    a.prov_status,
+    a.operational_status,
+    a.equipment_role,
+    a.orchestration_status,
+    a.heat_stack_id,
+    a.mso_catalog_key,
+    a.ipv4_oam_address,
+    a.ipv4_loopback0_address,
+    a.resource_version,
+    c.vserver_id,
+    c.vserver_name,
+    c.vserver_name2,
+    c.prov_status AS vserver_prov_status,
+    c.vserver_selflink,
+    c.in_maint,
+    c.is_closed_loop_disabled,
+    c.resource_version AS vserver_resource_version,
+    c.tenant_id
+   FROM dti.rt_generic_vnf a
+     JOIN dti.rt_relationship_list b ON a.vnf_id = b.from_node_id AND lower(a.vnf_type) = 'vce' AND b.related_from = 'generic_vnf' AND lower(b.from_node_id) like '%vbc'
+     JOIN dti.rt_vserver c ON CONCAT(c.cloud_owner, '|', c.cloud_Region_id, '|', c.tenant_id, '|', c.vserver_id) = b.to_node_id AND b.related_to = 'vserver';

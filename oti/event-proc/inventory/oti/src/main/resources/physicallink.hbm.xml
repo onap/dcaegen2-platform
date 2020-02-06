@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.att.vcc.inventorycollector.domain.Physicallink" schema="dti"  table="rt_physical_link">
+        <meta attribute="class-description">This class contains the rt_physical_link detail.</meta>
+        <meta attribute="use-in-tostring">true</meta>
+        <id name="linkname" column="link_name"  type="java.lang.String"/>
+        <property name="speedvalue" column="speed_value" type="java.lang.Long" />
+        <property name="speedunits" column="speed_units" type="string" />
+        <property name="circuitid" column="circuit_id" type="string" />
+        <property name="dualmode" column="dual_mode" type="string" />
+        <property name="resourceversion" column="resource_version" type="string" />
+        <property name="managementoption" column="management_option" type="string" />
+        <property name="serviceprovidername" column="service_provider_name" type="string" />
+        <property name="serviceproviderbwupvalue" column="service_provider_bandwidth_up_value" type="string" />
+        <property name="serviceproviderbwupunits" column="service_provider_bandwidth_up_units" type="string" />
+        <property name="serviceproviderbwdownvalue" column="service_provider_bandwidth_down_value" type="string" />
+        <property name="serviceproviderbwdownunits" column="service_provider_bandwidth_down_units" type="string" />
+        <property name="updatedOn" column="UPDATED_ON" type="string" />
+      </class>
+</hibernate-mapping>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.att.vcc.inventorycollector.domain.L3InterfaceIpv6AddressList" schema="dti" table="RT_L3INTERFACE_IPV6ADDRESSLIST">
+        <meta attribute="class-description">This class contains the RT_L3INTERFACE_IPV6ADDRESSLIST detail.</meta>
+        <meta attribute="use-in-tostring">true</meta>
+        <composite-id>
+            <key-property name="ipv6address" column="ipv6address" type="string"/>
+            <key-property name="grandparententityid" column="GRANDPARENT_ENTITY_ID" type="string"/>
+            <key-property name="parententityid" column="parent_entity_id" type="string"/>
+            <key-property name="cloudregiontenant" column="CLOUD_REGION_TENANT" type="string" />
+            <key-property name="pinterfacename" column="P_INTERFACE_NAME" type="string" />
+            <key-property name="laginterfacename" column="LAG_INTERFACE_NAME" type="string" />
+            <key-property name="vlaninterface" column="VLAN_INTERFACE" type="string" />
+        </composite-id>
+        <property name="ipv6prefixlength" column="ipv6prefixlength" type="java.lang.Long" />
+        <property name="vlanidinner" column="vlan_id_inner" type="java.lang.Long" />
+        <property name="vlanidouter" column="vlan_id_outer" type="java.lang.Long" />
+        <property name="isfloating" column="is_floating" type="string" />
+        <property name="resourceversion" column="resource_version" type="string" />
+        <property name="neutronnetworkid" column="neutron_network_id" type="string" />
+        <property name="neutronsubnetid" column="neutron_subnet_id" type="string" />
+        <property name="parententitytype" column="parent_entity_type" type="string"/>
+        <property name="grandparententitytype" column="GRANDPARENT_ENTITY_TYPE" type="string"/>
+        <property name="updatedOn" column="UPDATED_ON" type="string" />
+    </class>
+</hibernate-mapping>

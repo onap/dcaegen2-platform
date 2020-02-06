@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.att.vcc.inventorycollector.domain.Vfmodule" schema="dti" table="RT_vf_module">
+        <meta attribute="class-description">This class contains the RT_vf_module detail.</meta>
+        <meta attribute="use-in-tostring">true</meta>
+        <id name="vfmoduleid" column="VF_MODULE_ID"  type="java.lang.String"/>
+        <property name="vfmodulename" column="VF_MODULE_NAME " type="string" />
+        <property name="modelinvariantid" column="MODEL_INVARIANT_ID" type="string" />
+        <property name="modelversionid" column="MODEL_VERSION_ID" type="string" />
+        <property name="modelcustomizationid" column="MODEL_CUSTOMIZATION_ID" type="string" />
+        <property name="widgetmodelid" column="WIDGET_MODEL_ID" type="string" />
+        <property name="widgetmodelversion" column="WIDGET_MODEL_VERSION" type="string" />
+        <property name="heatstackid" column="HEAT_STACK_ID" type="string" />
+        <property name="isbasevfmodule" column="IS_BASE_VF_MODULE" type="string" />
+        <property name="orchestrationstatus" column="ORCHESTRATION_STATUS" type="string" />
+        <property name="resourceversion" column="RESOURCE_VERSION" type="string" />
+        <property name="contrailserviceinstancefqdn" column="CONTRAIL_SERVICE_INSTANCE_FQDN" type="string" />
+        <property name="moduleindex" column="MODULE_INDEX" type="java.lang.Long" />
+        <property name="selflink" column="SELFLINK" type="string" />
+        <property name="updatedOn" column="UPDATED_ON" type="string" />
+      </class>
+</hibernate-mapping>
