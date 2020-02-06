@@ -48,7 +48,8 @@ public class Appconfig {
 		return params;
 	}
 
-	public TreeMap<String, LinkedHashMap<String, Object>> createAppconfig(TreeMap<String, LinkedHashMap<String, Object>> inps, ComponentSpec cs, String override) {
+	public TreeMap<String, LinkedHashMap<String, Object>> createAppconfig(TreeMap<String, LinkedHashMap<String, Object>> inps, ComponentSpec cs, String override,
+																		  boolean isDmaap) {
 		TreeMap<String, LinkedHashMap<String, Object>> retInputs = new TreeMap<String, LinkedHashMap<String, Object>>();
 		retInputs = inps;
 
@@ -66,14 +67,14 @@ public class Appconfig {
 					String config = p.getConfig_key();
 					DmaapObj pub = new DmaapObj();
 					String name = "feed" + counter;
-					retInputs = pub.createOnapDmaapDRObj(retInputs, config, 'p', "feed" + counter, name);
+					retInputs = pub.createOnapDmaapDRObj(retInputs, config, 'p', "feed" + counter, name, isDmaap);
 					pub.setType(p.getType());
 					streamPublishes.put(config, pub);
 				} else if(p.getType().equals("message_router") || p.getType().equals("message router")) {
 					String config = p.getConfig_key();
 					DmaapObj pub = new DmaapObj();
 					String name = "topic" + counter;
-					retInputs = pub.createOnapDmaapMRObj(retInputs, config, 'p', "topic" + counter, name);
+					retInputs = pub.createOnapDmaapMRObj(retInputs, config, 'p', "topic" + counter, name, isDmaap);
 					pub.setType(p.getType());
 					streamPublishes.put(config, pub);
 				}
@@ -91,14 +92,14 @@ public class Appconfig {
 					String config = s.getConfig_key();
 					DmaapObj sub = new DmaapObj();
 					String name = "feed" + counter;
-					retInputs = sub.createOnapDmaapDRObj(retInputs, config, 'p', "feed" + counter, name);
+					retInputs = sub.createOnapDmaapDRObj(retInputs, config, 'p', "feed" + counter, name, isDmaap);
 					sub.setType(s.getType());
 					streamSubscribes.put(config, sub);
 				} else if(s.getType().equals("message_router") || s.getType().equals("message router")) {
 					String config = s.getConfig_key();
 					DmaapObj sub = new DmaapObj();
 					String name = "topic" + counter;
-					retInputs = sub.createOnapDmaapMRObj(retInputs, config, 's', "topic" + counter, name);
+					retInputs = sub.createOnapDmaapMRObj(retInputs, config, 's', "topic" + counter, name, isDmaap);
 					sub.setType(s.getType());
 					streamSubscribes.put(config, sub);
 				}

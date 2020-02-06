@@ -1,0 +1,169 @@
+
+#description: Collector for receiving VES events through restful interface
+#blueprint_version: 1.5.0
+---
+tosca_definitions_version: cloudify_dsl_1_3
+imports:
+- https://www.getcloudify.org/spec/cloudify/4.5.5/types.yaml
+- https://nexus.onap.org/service/local/repositories/raw/content/org.onap.dcaegen2.platform.plugins/R6/k8splugin/1.7.1/k8splugin_types.yaml
+inputs:
+  always_pull_image:
+    type: boolean
+    description: Set to true if the image should always be pulled
+    default: true
+  collector.dmaap.streamid:
+    type: string
+    default: "fault=ves-fault,ves-fault-secondary|syslog=ves-syslog,ves-syslog-secondary|heartbeat=ves-heartbeat,ves-heartbeat-secondary|measurementsForVfScaling=ves-measurement,ves-measurement-secondary|mobileFlow=ves-mobileflow,ves-mobileflow-secondary|other=ves-other,ves-other-secondary|stateChange=ves-statechange,ves-statechange-secondary|thresholdCrossingAlert=ves-thresholdCrossingAlert,ves-thresholdCrossingAlert-secondary|voiceQuality=ves-voicequality,ves-voicequality-secondary|sipSignaling=ves-sipsignaling,ves-sipsignaling-secondary|notification=ves-notification,ves-notification-secondary|pnfRegistration=ves-pnfRegistration,ves-pnfRegistration-secondary"
+  dcae-ves-collector_cpu_limit:
+    type: string
+    default: "250m"
+  dcae-ves-collector_cpu_request:
+    type: string
+    default: "250m"
+  dcae-ves-collector_memory_limit:
+    type: string
+    default: "128Mi"
+  dcae-ves-collector_memory_request:
+    type: string
+    default: "128Mi"
+  envs:
+    default: {}
+  external_port_0:
+    type: string
+    default: "8080"
+  external_port_1:
+    type: string
+    default: "8443"
+  header.authlist:
+    type: string
+    default: "sample1,$2a$10$pgjaxDzSuc6XVFEeqvxQ5u90DKJnM/u7TJTcinAlFJVaavXMWf/Zi|userid1,$2a$10$61gNubgJJl9lh3nvQvY9X.x4e5ETWJJ7ao7ZhJEvmfJigov26Z6uq|userid2,$2a$10$G52y/3uhuhWAMy.bx9Se8uzWinmbJa.dlm1LW6bYPdPkkywLDPLiy"
+  image:
+    type: string
+    default: "nexus.onap.org:10001/onap/org.onap.dcaegen2.collectors.ves.vescollector:latest"
+  location_id:
+    type: string
+    default: ""
+  replicas:
+    type: integer
+    description: number of instances
+    default: 1
+  service_component_name_override:
+    type: string
+    default: ""
+  ves_fault_publish_url:
+    type: string
+  ves_heartbeat_secondary_publish_url:
+    type: string
+  ves_measurement_publish_url:
+    type: string
+  ves_notification_publish_url:
+    type: string
+  ves_other_publish_url:
+    type: string
+  ves_pnfRegistration_publish_url:
+    type: string
+node_templates:
+  dcae-ves-collector:
+    type: dcae.nodes.ContainerizedPlatformComponent
+    interfaces:
+      cloudify.interfaces.lifecycle:
+        start:
+          inputs:
+            ports:
+            - concat: ["8080:", {get_input: external_port_0}]
+            - concat: ["8443:", {get_input: external_port_1}]
+            envs:
+              get_input: envs
+    properties:
+      application_config:
+        service_calls: []
+        streams_publishes:
+          ves-fault:
+            dmaap_info:
+              topic_url:
+                get_input: ves_fault_publish_url
+            type: message router
+          ves-heartbeat-secondary:
+            dmaap_info:
+              topic_url:
+                get_input: ves_heartbeat_secondary_publish_url
+            type: message router
+          ves-measurement:
+            dmaap_info:
+              topic_url:
+                get_input: ves_measurement_publish_url
+            type: message router
+          ves-notification:
+            dmaap_info:
+              topic_url:
+                get_input: ves_notification_publish_url
+            type: message router
+          ves-other:
+            dmaap_info:
+              topic_url:
+                get_input: ves_other_publish_url
+            type: message router
+          ves-pnfRegistration:
+            dmaap_info:
+              topic_url:
+                get_input: ves_pnfRegistration_publish_url
+            type: message router
+        streams_subscribes: {}
+        auth.method: noAuth
+        collector.dmaap.streamid:
+          get_input: collector.dmaap.streamid
+        collector.keystore.file.location: /opt/app/dcae-certificate/keystore.jks
+        collector.keystore.passwordfile: /opt/app/dcae-certificate/.password
+        collector.schema.checkflag: 1
+        collector.schema.file: {"v1":"./etc/CommonEventFormat_27.2.json","v2":"./etc/CommonEventFormat_27.2.json","v3":"./etc/CommonEventFormat_27.2.json","v4":"./etc/CommonEventFormat_27.2.json","v5":"./etc/CommonEventFormat_28.4.1.json","v7":"./etc/CommonEventFormat_30.json"}
+        collector.service.port: 8080
+        collector.service.secure.port: 8443
+        collector.truststore.file.location: /opt/app/dcae-certificate/truststore.jks
+        collector.truststore.passwordfile: /opt/app/dcae-certificate/.trustpassword
+        event.transform.flag: 1
+        header.authlist:
+          get_input: header.authlist
+        service_component_name_override:
+          get_input: service_component_name_override
+        tomcat.maxthreads: 200
+      docker_config:
+        healthcheck:
+          interval: 15s
+          timeout: 1s
+          type: https
+          endpoint: /healthcheck
+        volumes:
+        - container:
+            bind: /opt/app/dcae-certificate
+          host:
+            path: /opt/app/dcae-certificate
+        - container:
+            bind: /opt/app/VESCollector/logs
+          host:
+            path: /opt/logs/DCAE/VESCollector/logs
+        - container:
+            bind: /opt/app/VESCollector/etc
+          host:
+            path: /opt/logs/DCAE/VESCollector/etc
+      image:
+        get_input: image
+      location_id:
+        get_input: location_id
+      dns_name: dcae-ves-collector
+      replicas:
+        get_input: replicas
+      name: dcae-ves-collector
+      resource_config:
+        limits:
+          cpu:
+            get_input: dcae-ves-collector_cpu_limit
+          memory:
+            get_input: dcae-ves-collector_memory_limit
+        requests:
+          cpu:
+            get_input: dcae-ves-collector_cpu_request
+          memory:
+            get_input: dcae-ves-collector_memory_request
+      always_pull_image:
+        get_input: always_pull_image
+    relationships: []

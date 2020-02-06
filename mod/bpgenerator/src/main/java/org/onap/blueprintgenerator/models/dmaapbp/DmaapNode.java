@@ -24,6 +24,8 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.TreeMap;
 
+import org.onap.blueprintgenerator.core.PgaasNodeBuilder;
+import org.onap.blueprintgenerator.core.PolicyNodeBuilder;
 import org.onap.blueprintgenerator.models.blueprint.GetInput;
 import org.onap.blueprintgenerator.models.blueprint.Interfaces;
 import org.onap.blueprintgenerator.models.blueprint.Node;
@@ -100,6 +102,18 @@ public class DmaapNode extends Node{
 				rets.add(subRelations);
 				counter++;
 			}
+		}
+
+		//add relationship for policy if exist
+		if(cs.getPolicyInfo() != null){
+			ArrayList<LinkedHashMap<String, String>> policyRelationshipsList = PolicyNodeBuilder.getPolicyRelationships(cs);
+			rets.addAll(policyRelationshipsList);
+		}
+
+		//add relationships and env_variables for pgaas dbs if exist
+		if(cs.getAuxilary().getDatabases() != null){
+			ArrayList<LinkedHashMap<String, String>> pgaasRelationshipsList = PgaasNodeBuilder.getPgaasNodeRelationships(cs);
+			rets.addAll(pgaasRelationshipsList);
 		}
 		
 		this.setRelationships(rets);

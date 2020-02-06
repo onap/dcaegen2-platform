@@ -23,8 +23,6 @@ package org.onap.blueprintgenerator.models.blueprint;
 import java.util.LinkedHashMap;
 import java.util.TreeMap;
 
-import org.onap.blueprintgenerator.models.componentspec.ComponentSpec;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
@@ -32,12 +30,13 @@ import lombok.Getter; import lombok.Setter;
 @JsonInclude(value=Include.NON_NULL)
 @Getter @Setter
 public class DmaapObj {
-	private String dmaap_info;
+	private Object dmaap_info;
 	private String type;
 	private GetInput pass;
 	private GetInput user;
 
-	public TreeMap<String, LinkedHashMap<String, Object>> createOnapDmaapMRObj(TreeMap<String, LinkedHashMap<String, Object>> inps, String config, char type, String n, String num) {
+	public TreeMap<String, LinkedHashMap<String, Object>> createOnapDmaapMRObj(TreeMap<String, LinkedHashMap<String, Object>> inps,
+																			   String config, char type, String n, String num, boolean isDmaap) {
 		TreeMap<String, LinkedHashMap<String, Object>> retInputs = new TreeMap<String, LinkedHashMap<String, Object>>();
 		LinkedHashMap<String, Object> stringType = new LinkedHashMap();
 		stringType.put("type", "string");
@@ -45,31 +44,41 @@ public class DmaapObj {
 
 		//set the dmaapinfo
 		DmaapInfo info = new DmaapInfo();
-		String infoType = "<<" + n + ">>";
-		this.setDmaap_info(infoType);
+		if(!isDmaap){
+			info.createOnapDmaapMRInfo(inps, config, type);
+			this.setDmaap_info(info);
+		}
+		else{
+			String infoType = "<<" + n + ">>";
+			this.setDmaap_info(infoType);
+			//set username
+			GetInput u = new GetInput();
+			u.setGet_input(config + "_" + num +"_aaf_username");
+			this.setUser(u);
+			retInputs.put(config + "_" + num +"_aaf_username", stringType);
 
-		//set username
-		GetInput u = new GetInput();
-		u.setGet_input(config + "_" + num +"_aaf_username");
-		this.setUser(u);
-		retInputs.put(config + "_" + num +"_aaf_username", stringType);
-
-		//set password
-		GetInput p = new GetInput();
-		p.setGet_input(config + "_" + num +"_aaf_password");
-		this.setPass(p);
-		retInputs.put(config + "_" + num +"_aaf_password", stringType);
-
+			//set password
+			GetInput p = new GetInput();
+			p.setGet_input(config + "_" + num +"_aaf_password");
+			this.setPass(p);
+			retInputs.put(config + "_" + num +"_aaf_password", stringType);
+		}
 		return retInputs;
 	}
-	public TreeMap<String, LinkedHashMap<String, Object>> createOnapDmaapDRObj(TreeMap<String, LinkedHashMap<String, Object>> inps, String config, char type, String n, String num) {
+	public TreeMap<String, LinkedHashMap<String, Object>> createOnapDmaapDRObj(TreeMap<String, LinkedHashMap<String, Object>> inps, String config, char type, String n, String num, boolean isDmaap) {
 		TreeMap<String, LinkedHashMap<String, Object>> retInputs = new TreeMap<String, LinkedHashMap<String, Object>>();
 		retInputs = inps;
 		
 		//set the dmaapinfo
 		DmaapInfo info = new DmaapInfo();
-		String infoType = "<<" + n + ">>";
-		this.setDmaap_info(infoType);
+		if(!isDmaap){
+			info.createOnapDmaapDRInfo(inps, config, type);
+			this.setDmaap_info(info);
+		}
+		else {
+			String infoType = "<<" + n + ">>";
+			this.setDmaap_info(infoType);
+		}
 		return retInputs;
 	}
 }

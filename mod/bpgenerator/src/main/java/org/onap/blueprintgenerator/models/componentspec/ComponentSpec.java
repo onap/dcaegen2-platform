@@ -22,23 +22,17 @@ package org.onap.blueprintgenerator.models.componentspec;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Map;
-
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.Getter; import lombok.Setter;
 import lombok.NoArgsConstructor;
+import org.onap.blueprintgenerator.models.componentspec.policy_info.PolicyInfo;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -90,6 +84,9 @@ public class ComponentSpec {
 	
 	/** The auxilary. */
 	private Auxilary auxilary;
+
+	@JsonProperty("policy_info")
+	private PolicyInfo policyInfo;
 	
 	/** The artifacts. */
 	private Artifacts[] artifacts;
@@ -119,6 +116,7 @@ public class ComponentSpec {
 		this.setParameters(cs.getParameters());
 		this.setServices(cs.getServices());
 		this.setStreams(cs.getStreams());
+		this.setPolicyInfo(cs.getPolicyInfo());
 	}
 
 
