@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.att.vcc.inventorycollector.domain.RelationshipList"
+		schema="dti" table="rt_relationship_list">
+		<meta attribute="class-description">This class contains the relationship_list detail.</meta>
+		<meta attribute="use-in-tostring">true</meta>
+		<composite-id>
+			<key-property name="fromNodeId" column="from_node_id"
+				type="string" />
+			<key-property name="toNodeId" column="to_node_id" type="string" />
+			<key-property name="relatedFrom" column="related_from" type="string" />
+			<key-property name="relatedTo" column="related_to" type="string" />
+		</composite-id>
+		<property name="relatedLink" column="related_link" type="string" />
+		<property name="relationshipLabel" column="relationship_label" type="string" />
+		<property name="updatedOn" column="UPDATED_ON" type="string" />
+	</class>
+</hibernate-mapping>

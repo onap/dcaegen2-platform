@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.att.vcc.inventorycollector.domain.NaradPort"
+		schema="dti" table="narad_port">
+		<meta attribute="class-description">This class contains the narad port detail.</meta>
+		<meta attribute="use-in-tostring">true</meta>
+		<composite-id>
+			<key-property name="chassisname" column="chassis_name" type="string" />
+			<key-property name="portname" column="port_name" type="string" />
+		</composite-id>
+		<property name="cardslotname" column="card_slot_name" type="string" />
+		<property name="cardtype" column="card_type" type="string" />
+		<property name="pluggableslotname" column="pluggable_slot_name"	type="string" />
+		<property name="pluggabletype" column="pluggable_type" type="string" />
+		<property name="porttype" column="port_type" type="string" />
+		<property name="portrole" column="port_role" type="string" />
+		<property name="speedvalue" column="speed_value" type="string" />
+		<property name="speedunits" column="speed_units" type="string" />
+		<property name="resourceversion" column="resource_version" type="string" />
+		<property name="updatedOn" column="UPDATED_ON" type="string" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.att.vcc.inventorycollector.domain.Platform"  schema="dti" table="rt_platform">
+        <meta attribute="class-description">This class contains the pnf detail.</meta>
+        <meta attribute="use-in-tostring">true</meta>
+        <id name="platformname" column="PLATFORM_NAME"  type="java.lang.String"/>
+        <property name="resourceversion" column="RESOURCE_VERSION" type="string" />
+        <property name="updatedOn" column="UPDATED_ON" type="string" />
+    </class>
+</hibernate-mapping>

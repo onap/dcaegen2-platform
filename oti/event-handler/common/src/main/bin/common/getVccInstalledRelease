@@ -1,0 +1,27 @@
+#!/usr/bin/env ksh
+
+###
+#
+# SCRIPT
+#  getVccInstalledRelease
+#
+# SYNOPSIS
+#  getVccInstalledRelease
+#
+# DESCRIPTION
+#  This script returns the last successfully installed VCC release, e.g. "17.07"
+#
+# DEPENDENCIES
+#  $VCC_HOME/vccInstalledRelease.txt
+#
+# RELATED SCRIPTS
+#  N/A
+#
+###
+
+if [ -e $VCC_HOME/vccInstalledRelease.txt ]
+then
+	echo `cat $VCC_HOME/vccInstalledRelease.txt`
+else
+	echo ""
+fi

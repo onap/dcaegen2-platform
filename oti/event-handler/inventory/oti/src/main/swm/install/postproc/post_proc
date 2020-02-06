@@ -1,0 +1,16 @@
+#!/bin/sh
+
+#echo "Calling common script to set up environment"
+#source ../../common/common.env
+#echo "Common environment set up"
+
+#LOCALIZE_SCRIPT=`dirname $0`/../../common/localize.sh
+
+#sh -x ${LOCALIZE_SCRIPT} || {
+	#echo "ERROR: Localization script failed"
+	#exit 1
+#}
+
+#echo "Running common install post proc script"
+#cd ../../common
+#exec sh -x ./install_postproc.sh

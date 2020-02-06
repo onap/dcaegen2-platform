@@ -1,0 +1,27 @@
+#######################################
+# Mapping from application controller params
+# to Task json object
+#
+#######################################
+
+contents:
+  taskId: collectionTaskId 
+  collectionType: collectionType
+  subType: collectionSubType
+  protocol: protocol
+  collectionInterval: collectionInterval    
+  vnfType: elementType
+  vnfcFuncId: elementCode
+  priority: priority
+  description: collectionTask   
+  nodeType: elementType
+  nodeSubtype: elementSubType
+  serviceType: serviceType
+defaults:
+  taskId: DefaultTask
+
+
+  
+  
+    
+    

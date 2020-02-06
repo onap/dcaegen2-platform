@@ -1,0 +1,29 @@
+<descriptor xmlns="http://aft.att.com/swm/descriptor" version="1">
+    <platforms>
+		<platform os="Linux" osVersions="*" architecture="*"/>
+    </platforms>
+
+    <paths>
+		<path name="/opt/app/dti" type="d" user="dti" group="dcaedti" permissions="755" recursive="true"/>
+    </paths>
+
+    <actions>
+		<action type="DINST">
+			<proc stage="PRE" user="dti" group="dcaedti"/>
+			<proc stage="POST" user="dti" group="dcaedti"/>
+		</action>
+		<action type="INIT">
+			<proc stage="PRE" user="dti" group="dcaedti"/>
+			<proc stage="POST" user="dti" group="dcaedti"/>
+		</action>
+		<action type="INST">
+			<proc stage="PRE" user="dti" group="dcaedti"/>
+			<proc stage="POST" user="dti" group="dcaedti"/>
+		</action>
+    </actions>
+    
+    <!-- <dependencies>
+    	<dependencyFilter componentName="com.att.java:jdk7lin" versions="[1.7.0.85-02]" sequence="1"/>
+    	<dependencyFilter componentName="com.att.ecomp.dcae.ccs:framework" versions="[1.0.0-003]" sequence="2"/>
+    </dependencies> -->
+</descriptor>

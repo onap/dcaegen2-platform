@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.att.vcc.inventorycollector.domain.NaradSubnet" schema="dti" table="narad_subnet">
+        <meta attribute="class-description">This class contains the narad subnet detail.</meta>
+        <meta attribute="use-in-tostring">true</meta>
+        <composite-id>
+            <key-property name="subnetid" column="SUBNET_ID" type="string"/>
+            <key-property name="parententitytype" column="PARENT_ENTITY_TYPE" type="string"/>
+            <key-property name="parententityid" column="PARENT_ENTITY_ID" type="string"/>
+        </composite-id>
+        <property name="subnetname" column="SUBNET_NAME" type="string" />
+        <property name="neutronsubnetid" column="NEUTRON_SUBNET_ID" type="string" />
+        <property name="gatewayaddress" column="GATEWAY_ADDRESS" type="string" />
+        <property name="networkstartaddress" column="NETWORK_START_ADDRESS" type="string" />
+        <property name="cidrmask" column="CIDR_MASK" type="string" />
+        <property name="ipversion" column="IP_VERSION" type="string" />
+        <property name="orchestrationstatus" column="ORCHESTRATION_STATUS" type="string" />
+        <property name="description" column="DESCRIPTION" type="string" />
+        <property name="dhcpenabled" column="DHCP_ENABLED" type="string" />
+        <property name="dhcpstart" column="DHCP_START" type="string" />
+        <property name="dhcpend" column="DHCP_END" type="string" />
+        <property name="resourceversion" column="RESOURCE_VERSION" type="string" />
+        <property name="subnetRole" column="SUBNET_ROLE" type="string" />
+        <property name="ipAssignmentDirection" column="IP_ASSIGNMENT_DIRECTION" type="string" />
+        <property name="subnetSequence" column="SUBNET_SEQUENCE" type="string" />
+        <property name="subnetModel" column="SUBNET_MODEL" type="string" />
+        <property name="opsNote" column="OPS_NOTE" type="string" />
+        <property name="updatedOn" column="UPDATED_ON" type="string" />
+      </class>
+</hibernate-mapping>

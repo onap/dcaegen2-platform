@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.att.vcc.inventorycollector.domain.serviceSubscription" schema="dti" table="rt_service_subscription">
+        <meta attribute="class-description">This class contains the service subscription detail.</meta>
+        <meta attribute="use-in-tostring">true</meta>
+        <composite-id>
+		    <key-property name="servicetype" column="SERVICE_TYPE" type="string"/>
+		    <key-property name="globalcustomerid" column="GLOBAL_CUSTOMER_ID" type="string"/>
+		</composite-id>
+        <property name="resourceversion" column="RESOURCE_VERSION" type="string" />
+        <property name="updatedOn" column="UPDATED_ON" type="string" />
+     </class>
+</hibernate-mapping>

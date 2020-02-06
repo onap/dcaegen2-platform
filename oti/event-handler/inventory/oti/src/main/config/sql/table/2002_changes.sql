@@ -1,0 +1,290 @@
+\echo executing "CREATE TABLE IF NOT EXISTS dti.narad_cloud_region_new"
+CREATE TABLE IF NOT EXISTS dti.narad_cloud_region_new
+(
+    CLOUD_OWNER             VARCHAR(25)  NOT NULL,
+    CLOUD_REGION_ID         VARCHAR(20)  NOT NULL,
+    CLOUD_TYPE              VARCHAR(20)  NULL,
+    OWNER_DEFINED_TYPE      VARCHAR(20)  NULL,
+    CLOUD_REGION_VERSION    VARCHAR(10)  NULL,
+    IDENTITY_URL            VARCHAR(200) NULL,
+    CLOUD_ZONE              VARCHAR(50)  NULL,
+    COMPLEX_NAME            VARCHAR(20)  NULL,
+    SRIOV_AUTOMATION        VARCHAR(50)  NULL,
+    RESOURCE_VERSION        VARCHAR(25)  NULL,
+    UPGRADE_CYCLE           VARCHAR(25)  NULL,
+    ORCHESTRATION_DISABLED  VARCHAR(1)   NULL,
+    IN_MAINT                VARCHAR(1)   NULL,
+    CLOUD_ROLE				VARCHAR(50)	 NULL,
+    CLOUD_FUNCTION			VARCHAR(50)	 NULL,
+    STATUS					VARCHAR(50)  NULL,
+    UPDATED_ON              VARCHAR(20)  NULL,
+    PRIMARY KEY (CLOUD_OWNER,CLOUD_REGION_ID)
+);
+
+\echo executing "INSERT INTO dti.narad_cloud_region_new  from dti.narad_cloud_region"
+INSERT INTO dti.narad_cloud_region_new
+(
+    CLOUD_OWNER,
+    CLOUD_REGION_ID,
+    CLOUD_TYPE,
+    OWNER_DEFINED_TYPE,
+    CLOUD_REGION_VERSION,
+    IDENTITY_URL,
+    CLOUD_ZONE,
+    COMPLEX_NAME,
+    SRIOV_AUTOMATION,
+    RESOURCE_VERSION,
+    UPGRADE_CYCLE,
+    ORCHESTRATION_DISABLED,
+    IN_MAINT,
+    UPDATED_ON
+) SELECT 
+    CLOUD_OWNER,
+    CLOUD_REGION_ID,
+    CLOUD_TYPE,
+    OWNER_DEFINED_TYPE,
+    CLOUD_REGION_VERSION,
+    IDENTITY_URL,
+    CLOUD_ZONE,
+    COMPLEX_NAME,
+    SRIOV_AUTOMATION,
+    RESOURCE_VERSION,
+    UPGRADE_CYCLE,
+    ORCHESTRATION_DISABLED,
+    IN_MAINT,
+    UPDATED_ON
+	FROM dti.narad_cloud_region ;
+
+\echo executing "DROP TABLE dti.narad_cloud_region CASCADE;"
+DROP TABLE  dti.narad_cloud_region CASCADE;
+
+\echo executing "ALTER TABLE dti.narad_cloud_region_new RENAME TO narad_cloud_region"
+ALTER TABLE dti.narad_cloud_region_new RENAME TO narad_cloud_region;
+
+\echo executing "CREATE INDEX IF NOT EXISTS narad_cloud_region_idx"
+CREATE INDEX IF NOT EXISTS narad_cloud_region_idx 
+		ON dti.narad_cloud_region ( CLOUD_REGION_ID );
+		
+
+\echo executing "CREATE TABLE IF NOT EXISTS dti.narad_lag_interface_new"
+CREATE TABLE IF NOT EXISTS dti.narad_lag_interface_new
+(
+    INTERFACE_NAME           VARCHAR(100) NOT NULL,
+    INTERFACE_DESCRIPTION    VARCHAR(125),
+    RESOURCE_VERSION         VARCHAR(25),
+    SPEED_VALUE              BIGINT,
+    SPEED_UNITS              VARCHAR(10),
+    INTERFACE_ID             VARCHAR(150),
+    INTERFACE_ROLE           VARCHAR(100),
+    PROV_STATUS              VARCHAR(10),
+    IN_MAINT                 VARCHAR(1) NOT NULL DEFAULT 'N',
+    LACP_SYSTEM_ID			 VARCHAR(150) NULL,
+    OPS_NOTE				 VARCHAR(1000) NULL,
+    INTERFACE_FUNCTION		 VARCHAR(100) NULL,
+    PARENT_ENTITY_TYPE       VARCHAR(40) NOT Null,
+    PARENT_ENTITY_ID         VARCHAR(100) NOT Null,
+    UPDATED_ON                VARCHAR(20),
+    PRIMARY KEY (INTERFACE_NAME,PARENT_ENTITY_TYPE,PARENT_ENTITY_ID)
+);
+
+\echo executing "INSERT INTO dti.narad_lag_interface_new  from dti.narad_lag_interface"
+INSERT INTO dti.narad_lag_interface_new
+(
+	INTERFACE_NAME,
+    INTERFACE_DESCRIPTION,
+    RESOURCE_VERSION,
+    SPEED_VALUE,
+    SPEED_UNITS,
+    INTERFACE_ID,
+    INTERFACE_ROLE,
+    PROV_STATUS,
+    IN_MAINT,
+    PARENT_ENTITY_TYPE,
+    PARENT_ENTITY_ID,
+    UPDATED_ON
+) SELECT 
+	INTERFACE_NAME,
+    INTERFACE_DESCRIPTION,
+    RESOURCE_VERSION,
+    SPEED_VALUE,
+    SPEED_UNITS,
+    INTERFACE_ID,
+    INTERFACE_ROLE,
+    PROV_STATUS,
+    IN_MAINT,
+    PARENT_ENTITY_TYPE,
+    PARENT_ENTITY_ID,
+    UPDATED_ON
+	FROM dti.narad_lag_interface ;
+
+\echo executing "DROP TABLE dti.narad_lag_interface CASCADE;"
+DROP TABLE  dti.narad_lag_interface CASCADE;
+
+\echo executing "ALTER TABLE dti.narad_lag_interface_new RENAME TO narad_lag_interface"
+ALTER TABLE dti.narad_lag_interface_new RENAME TO narad_lag_interface;
+
+
+\echo executing "CREATE TABLE IF NOT EXISTS dti.narad_l_interface_new"
+CREATE TABLE IF NOT EXISTS dti.narad_l_interface_new
+(
+    INTERFACE_NAME           VARCHAR(250) NOT NULL,
+    INTERFACE_ROLE           VARCHAR(250),
+    V6_WAN_LINK_IPADDRESS    VARCHAR(45),
+    SELFLINK                 VARCHAR(4000),
+    INTERFACE_ID             VARCHAR(150),
+    MACADDRESS               VARCHAR(40),
+    NETWORK_NAME             VARCHAR(100),
+    RESOURCE_VERSION         VARCHAR(25),
+    MANAGEMENT_OPTION        VARCHAR(20),
+    INTERFACE_DESCRIPTION    VARCHAR(150),
+    INTERFACE_TYPE			 VARCHAR(50) NULL,
+    IS_PORT_MIRRORED         VARCHAR(1)  NOT NULL,
+    IN_MAINT                 VARCHAR(1)   NOT NULL,
+    PROV_STATUS              VARCHAR(20),
+    IS_IP_UNNUMBERED         VARCHAR(1) NOT NULL DEFAULT 'N',
+    PARENT_ENTITY_TYPE       VARCHAR(40) NOT NULL,
+    PARENT_ENTITY_ID         VARCHAR(150) NOT NULL,
+    ALLOWED_ADDRESS_PAIRS    VARCHAR(500),
+    ADMIN_STATUS			 VARCHAR(50) NULL,
+    OPS_NOTE				 VARCHAR(1000) NULL,
+    INTERFACE_FUNCTION		 VARCHAR(100) NULL,
+    CLOUD_REGION_TENANT      VARCHAR(200),
+    P_INTERFACE_NAME         VARCHAR(50),
+    LAG_INTERFACE_NAME       VARCHAR(40),
+    UPDATED_ON               VARCHAR(20),
+    PRIMARY KEY (INTERFACE_NAME,PARENT_ENTITY_ID,CLOUD_REGION_TENANT,P_INTERFACE_NAME,LAG_INTERFACE_NAME)
+);
+
+\echo executing "INSERT INTO dti.narad_l_interface_new  from dti.narad_l_interface"
+INSERT INTO dti.narad_l_interface_new
+(
+	INTERFACE_NAME,
+    INTERFACE_ROLE,
+    V6_WAN_LINK_IPADDRESS,
+    SELFLINK,
+    INTERFACE_ID,
+    MACADDRESS,
+    NETWORK_NAME,
+    RESOURCE_VERSION,
+    MANAGEMENT_OPTION,
+    INTERFACE_DESCRIPTION,
+    IS_PORT_MIRRORED,
+    IN_MAINT,
+    PROV_STATUS,
+    IS_IP_UNNUMBERED,
+    PARENT_ENTITY_TYPE,
+    PARENT_ENTITY_ID,
+    ALLOWED_ADDRESS_PAIRS,
+    CLOUD_REGION_TENANT,
+    P_INTERFACE_NAME,
+    LAG_INTERFACE_NAME,
+    UPDATED_ON
+) SELECT 
+	INTERFACE_NAME,
+    INTERFACE_ROLE,
+    V6_WAN_LINK_IPADDRESS,
+    SELFLINK,
+    INTERFACE_ID,
+    MACADDRESS,
+    NETWORK_NAME,
+    RESOURCE_VERSION,
+    MANAGEMENT_OPTION,
+    INTERFACE_DESCRIPTION,
+    IS_PORT_MIRRORED,
+    IN_MAINT,
+    PROV_STATUS,
+    IS_IP_UNNUMBERED,
+    PARENT_ENTITY_TYPE,
+    PARENT_ENTITY_ID,
+    ALLOWED_ADDRESS_PAIRS,
+    CLOUD_REGION_TENANT,
+    P_INTERFACE_NAME,
+    LAG_INTERFACE_NAME,
+    UPDATED_ON
+	FROM dti.narad_l_interface ;
+
+\echo executing "DROP TABLE dti.narad_l_interface CASCADE;"
+DROP TABLE  dti.narad_l_interface CASCADE;
+
+\echo executing "ALTER TABLE dti.narad_l_interface_new RENAME TO narad_l_interface"
+ALTER TABLE dti.narad_l_interface_new RENAME TO narad_l_interface;
+		
+
+\echo executing "CREATE TABLE IF NOT EXISTS dti.narad_vlan_new"
+CREATE TABLE IF NOT EXISTS dti.narad_vlan_new
+(
+    VLAN_INTERFACE           VARCHAR(64) NOT NULL,
+    VLAN_ID_INNER            DECIMAL(32),
+    VLAN_ID_OUTER            DECIMAL(32),
+    RESOURCE_VERSION         VARCHAR(25),
+    SPEED_VALUE              BIGINT,
+    SPEED_UNITS              VARCHAR(10),
+    VLAN_TYPE				 VARCHAR(50) NULL,
+    VLAN_DESCRIPTION         VARCHAR(100),
+    BACKDOOR_CONNECTION      VARCHAR(25),
+    VPN_KEY                  VARCHAR(20),
+    ORCHESTRATION_STATUS     VARCHAR(25),
+    IN_MAINT                 VARCHAR(1) NOT NULL DEFAULT 'N',
+    PROV_STATUS              VARCHAR(10),
+    IS_IP_UNNUMBERED         VARCHAR(1) NOT NULL DEFAULT 'N',
+    INTERFACE_NAME           VARCHAR(150) NOT NULL,
+    GRANDPARENT_ENTITY_TYPE  VARCHAR(150) NOT NULL,
+    GRANDPARENT_ENTITY_ID    VARCHAR(150) NOT NULL,
+    CLOUD_REGION_TENANT      VARCHAR(200),
+    P_INTERFACE_NAME         VARCHAR(50),
+    LAG_INTERFACE_NAME       VARCHAR(40),
+    UPDATED_ON               VARCHAR(20),
+    PRIMARY KEY (VLAN_INTERFACE,INTERFACE_NAME,GRANDPARENT_ENTITY_ID)
+);
+
+\echo executing "INSERT INTO dti.narad_vlan_new  from dti.narad_vlan"
+INSERT INTO dti.narad_vlan_new
+(
+	VLAN_INTERFACE,
+    VLAN_ID_INNER,
+    VLAN_ID_OUTER,
+    RESOURCE_VERSION,
+    SPEED_VALUE,
+    SPEED_UNITS,
+    VLAN_DESCRIPTION,
+    BACKDOOR_CONNECTION,
+    VPN_KEY,
+    ORCHESTRATION_STATUS,
+    IN_MAINT,
+    PROV_STATUS,
+    IS_IP_UNNUMBERED,
+    INTERFACE_NAME,
+    GRANDPARENT_ENTITY_TYPE,
+    GRANDPARENT_ENTITY_ID,
+    CLOUD_REGION_TENANT,
+    P_INTERFACE_NAME,
+    LAG_INTERFACE_NAME,
+    UPDATED_ON
+) SELECT 
+	VLAN_INTERFACE,
+    VLAN_ID_INNER,
+    VLAN_ID_OUTER,
+    RESOURCE_VERSION,
+    SPEED_VALUE,
+    SPEED_UNITS,
+    VLAN_DESCRIPTION,
+    BACKDOOR_CONNECTION,
+    VPN_KEY,
+    ORCHESTRATION_STATUS,
+    IN_MAINT,
+    PROV_STATUS,
+    IS_IP_UNNUMBERED,
+    INTERFACE_NAME,
+    GRANDPARENT_ENTITY_TYPE,
+    GRANDPARENT_ENTITY_ID,
+    CLOUD_REGION_TENANT,
+    P_INTERFACE_NAME,
+    LAG_INTERFACE_NAME,
+    UPDATED_ON
+	FROM dti.narad_vlan ;
+
+\echo executing "DROP TABLE dti.narad_vlan CASCADE;"
+DROP TABLE  dti.narad_vlan CASCADE;
+
+\echo executing "ALTER TABLE dti.narad_vlan_new RENAME TO narad_vlan"
+ALTER TABLE dti.narad_vlan_new RENAME TO narad_vlan;

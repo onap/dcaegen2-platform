@@ -1,0 +1,28 @@
+CREATE TABLE IF NOT EXISTS dti.rt_sriov_vf
+(
+    PCI_ID                        VARCHAR(150)    NOT NULL,
+    VF_VLAN_FILTER                VARCHAR(1000)   NULL,
+    VF_MAC_FILTER                 VARCHAR(1000)   NULL,
+    VF_VLAN_STRIP                 VARCHAR(1)      NULL,
+    VF_VLAN_ANTI_SPOOF_CHECK      VARCHAR(1)      NULL,
+    VF_MAC_ANTI_SPOOF_CHECK       VARCHAR(1)      NULL,
+    VF_MIRRORS                    VARCHAR(1000)   NULL,
+    VF_BROADCAST_ALLOW            VARCHAR(1)      NULL,
+    VF_UNKNOWN_MULTICAST_ALLOW    VARCHAR(1)      NULL,
+    VF_UNKNOWN_UNICAST_ALLOW      VARCHAR(1)      NULL,
+    VF_INSERT_STAG                VARCHAR(1)      NULL,
+    VF_LINK_STATUS                VARCHAR(50)     NULL,
+    RESOURCE_VERSION              VARCHAR(25)     NULL,
+    NEUTRON_NETWORK_ID            VARCHAR(100)    NULL,
+    PARENT_ENTITY_TYPE            VARCHAR(40)     NULL,
+    PARENT_ENTITY_ID              VARCHAR(100)    NULL,
+    CLOUD_OWNER                   VARCHAR(25)     NULL,
+    CLOUD_REGION_ID               VARCHAR(20)     NULL,
+    TENANT_ID                     VARCHAR(150)    NULL,
+    GRANDPARENT_ENTITY_TYPE       VARCHAR(40)     NOT NULL,
+    GRANDPARENT_ENTITY_ID         VARCHAR(100)    NOT NULL,
+    P_INTERFACE_NAME              VARCHAR(250)    NULL,
+    LAG_INTERFACE_NAME            VARCHAR(250)    NULL,
+    UPDATED_ON                    VARCHAR(20),
+    PRIMARY KEY (PCI_ID, GRANDPARENT_ENTITY_ID)
+);

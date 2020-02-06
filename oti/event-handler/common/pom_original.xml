@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+<!--  
+    <parent>
+        <groupId>com.att.vcc</groupId>
+        <artifactId>vcc-snmppoller-parent</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../../pom_snmppoller.xml</relativePath>
+    </parent>
+ -->
+     <parent>
+        <groupId>com.att.vcc</groupId>
+        <artifactId>vcc-foicamel-parent</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../../pom_foicamel.xml</relativePath>
+    </parent>
+       
+    <groupId>com.att.vcc</groupId>
+    <artifactId>vcc-common</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	
+	<properties>
+		<appdir>/opt/app/vcc</appdir>
+		<logger.yaml.path>${project.basedir}/src/main/resources/VccLogger.yaml</logger.yaml.path>
+
+    	<jar.finalName>common</jar.finalName>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.att.ecomp.operation</groupId>
+			<artifactId>operation-utils</artifactId>
+			<version>0.0.8-SNAPSHOT</version>
+		</dependency>
+	</dependencies>		
+	
+	<build>
+		<finalName>common</finalName>
+		
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.5.0</version>
+				<executions>
+					<execution>
+						<phase>validate</phase>
+						<goals>
+							<goal>java</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<executable>java</executable>
+					<mainClass>com.att.ecomp.utils.YamlToJava</mainClass>
+					<arguments>
+						<argument>${logger.yaml.path}</argument>
+					</arguments>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

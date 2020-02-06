@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.att.vcc.inventorycollector.domain.NaradCard" schema="dti" table="narad_card">
+        <meta attribute="class-description">This class contains the narad card detail.</meta>
+	<meta attribute="use-in-tostring">true</meta>
+	<composite-id>
+        	<key-property name="chassisname" column="chassis_name" type="string" />
+	        <key-property name="cardslotname" column="card_slot_name" type="string" />
+		<key-property name="cardtype" column="card_type" type="string" />
+	</composite-id>
+        <property name="resourceversion" column="resource_version" type="string" />
+        <property name="updatedOn" column="UPDATED_ON" type="string" />
+     </class>
+</hibernate-mapping>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.att.vcc.inventorycollector.domain.Vlan"  schema="dti" table="rt_vlan">
+        <meta attribute="class-description">This class contains the vlan detail.</meta>
+        <meta attribute="use-in-tostring">true</meta>
+        <composite-id>
+            <key-property name="vlaninterface" column="VLAN_INTERFACE" type="string"/>
+            <key-property name="interfacename" column="INTERFACE_NAME" type="string"/>
+            <key-property name="grandparententityid" column="GRANDPARENT_ENTITY_ID" type="string"/>
+            <key-property name="cloudregiontenant" column="CLOUD_REGION_TENANT" type="string" />
+            <key-property name="pinterfacename" column="P_INTERFACE_NAME" type="string" />
+            <key-property name="laginterfacename" column="LAG_INTERFACE_NAME" type="string" />
+        </composite-id>
+        <property name="vlanidinner" column="VLAN_ID_INNER" type="java.lang.Long" />
+        <property name="vlanidouter" column="VLAN_ID_OUTER" type="java.lang.Long" />
+        <property name="resourceversion" column="RESOURCE_VERSION" type="string" />
+        <property name="speedvalue" column="SPEED_VALUE" type="java.lang.Long" />
+        <property name="speedunits" column="SPEED_UNITS" type="string" />
+        <property name="vlandescription" column="VLAN_DESCRIPTION" type="string" />
+        <property name="backdoorconnection" column="BACKDOOR_CONNECTION" type="string" />
+        <property name="vpnkey" column="VPN_KEY" type="string" />
+        <property name="orchestrationstatus" column="ORCHESTRATION_STATUS" type="string" />
+        <property name="inmaint" column="IN_MAINT" type="string" />
+        <property name="provstatus" column="PROV_STATUS" type="string" />
+        <property name="isipunnumbered" column="IS_IP_UNNUMBERED" type="string" />
+        <property name="grandparententitytype" column="GRANDPARENT_ENTITY_TYPE" type="string" />
+        <property name="updatedOn" column="UPDATED_ON" type="string" />
+     </class>
+</hibernate-mapping>
