@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS dti.vm_vnfc_map CASCADE;
+
+CREATE TABLE dti.vm_vnfc_map
+(
+	VM_NAME VARCHAR(50) NOT NULL, 
+        VNFC_NAME VARCHAR(50) NOT NULL
+);
+

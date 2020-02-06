@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.att.vcc.inventorycollector.domain.Configurationvalue" table="configurationvalue">
+        <meta attribute="class-description">This class contains the configurationvalue detail.</meta>
+        <meta attribute="use-in-tostring">true</meta>
+        <id name="configurationname" column="CONFIGURATIONNAME"  type="java.lang.String"/>
+        <property name="configurationvalue" column="CONFIGURATIONVALUE" type="string" />
+        <property name="description" column="DESCRIPTION" type="string" />
+        <property name="updatedby" column="UPDATEDBY" type="string" />
+        <property name="upddateddate" column="UPDATEDDATE" type="string" />
+        <property name="updatedOn" column="UPDATED_ON" type="string" />
+      </class>
+</hibernate-mapping>

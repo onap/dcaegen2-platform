@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.att.vcc.inventorycollector.domain.Cp"  schema="dti" table="rt_cp">
+        <meta attribute="class-description">This class contains the cp detail.</meta>
+        <meta attribute="use-in-tostring">true</meta>
+        <composite-id>
+            <key-property name="cpinstanceid" column="CP_INSTANCE_ID"  type="java.lang.String"/>
+            <key-property name="vnfcname" column="VNFC_NAME" type="string" />
+        </composite-id>
+        <property name="portid" column="PORT_ID" type="integer" />
+        <property name="resourceversion" column="RESOURCE_VERSION" type="string" />
+    	<property name="updatedOn" column="UPDATED_ON" type="string" />
+    </class>
+</hibernate-mapping>

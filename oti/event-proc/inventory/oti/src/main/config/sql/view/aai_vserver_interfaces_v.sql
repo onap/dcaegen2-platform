@@ -1,0 +1,27 @@
+CREATE OR REPLACE VIEW dti.aai_vserver_interfaces_v AS 
+ SELECT iv.vserver_id,
+    iv.vserver_name,
+    iv.vserver_name2,
+    iv.prov_status,
+    iv.vserver_selflink,
+    iv.in_maint,
+    iv.is_closed_loop_disabled,
+    iv.tenant_id,
+    iv.vserver_resource_version_ts,
+    iv.interface_name,
+    iv.interface_role,
+    iv.v6_wan_link_ipaddress,
+    iv.selflink,
+    iv.interface_id,
+    iv.macaddress,
+    iv.network_name,
+    iv.resource_version,
+    iv.parent_entity_type,
+    iv.parent_entity_id,
+    iv.intf_resource_version_ts,
+    ip.ipv4address,
+    ip.ipv6address,
+    ip.ipv4_resource_version_ts,
+    ip.ipv6_resource_version_ts
+   FROM dti.aai_l_interface_vserver_v iv
+     JOIN dti.aai_l_interface_ipv4_6_v ip ON iv.vserver_id::text = ip.grandparent_entity_id_ip4::text AND iv.interface_name::text = ip.interface_name::text;

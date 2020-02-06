@@ -1,0 +1,45 @@
+#!/usr/bin/env ksh
+
+###
+#
+# SCRIPT
+#  getVccFunctionSpec
+#
+# SYNOPSIS
+#  getVccFunctionSpec [-v <VLSN>|-n <NN>]
+#
+# DESCRIPTION
+#  Return VCC Function Code(s)
+#  If no argument is provided, return function code(s) for THIS system
+#  If an option is specified, behavior is as follows ...
+#  -v <VLSN>, where <VLSN> is the VCC logical system name of the 
+#     server for which you want the VCC function code(s)
+#  -n <NN>, where <NN> is the VCC network name of the 
+#     server for which you want the VCC function code(s)
+#  If VLSN or NN is not found, return ""
+#  If unknown option supplied (not -v|-n), return "error: unknown option"
+#
+# RELATED SCRIPTS
+#  vtiername returns "network" name (vtiername or hostname)
+#  getMyVccLogicalSystemName returns a VCC logical system name or ""(NULL)
+#
+# DEPENDENCIES
+#  $VCC_CONFIG_SYSTEM_DIR/vcc_server_info.cfg  
+#
+###
+
+if [ "$1" != "" ];
+then
+	if [ "$1" = "-v" ];
+	then
+		grep -v "^#" $VCC_CONFIG_SYSTEM_DIR/vcc_server_info.cfg | grep "^${2:-`getMyVccLogicalSystemName`}" | cut -d ":" -f 14
+    elif [ "$1" = "-n" ];
+    then
+		grep -v "^#" $VCC_CONFIG_SYSTEM_DIR/vcc_server_info.cfg | egrep "^.*:.*:.*:.*:.*:.*:${2:-`vtiername`[\.|:]}" | cut -d ":" -f 14
+    else
+    	echo "error: unknown option"
+    	exit 4
+    fi
+else
+	grep -v "^#" $VCC_CONFIG_SYSTEM_DIR/vcc_server_info.cfg | grep "`getMyVccLogicalSystemName`" | cut -d ":" -f 14
+fi
