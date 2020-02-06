@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.att.vcc.inventorycollector.domain.Newvce" schema="dti" table="RT_newvce">
+        <meta attribute="class-description">This class contains the newVce detail.</meta>
+        <meta attribute="use-in-tostring">true</meta>
+        <id name="vnfid2" column="VNF_ID2"  type="java.lang.String"/>
+        <property name="vnfname" column="VNF_NAME" type="string" />
+        <property name="vnfname2" column="VNF_NAME2" type="string" />
+        <property name="vnftype" column="VNF_TYPE" type="string" />
+        <property name="provstatus" column="PROV_STATUS" type="string" />
+        <property name="operationalstatus" column="OPERATIONAL_STATUS" type="string" />
+        <property name="equipmentrole" column="EQUIPMENT_ROLE" type="string" />
+        <property name="orchestrationstatus" column="ORCHESTRATION_STATUS" type="string" />
+        <property name="heatstackid" column="HEAT_STACK_ID" type="string" />
+        <property name="msocatalogkey" column="MSO_CATALOG_KEY" type="string" />
+        <property name="ipv4oamaddress" column="IPV4_OAM_ADDRESS" type="string" />
+        <property name="ipv4loopbackaddress" column="IPV4_LOOPBACK0_ADDRESS" type="string" />
+        <property name="resourceversion" column="RESOURCE_VERSION" type="string" />
+        <property name="updatedOn" column="UPDATED_ON" type="string" />
+      </class>
+</hibernate-mapping>

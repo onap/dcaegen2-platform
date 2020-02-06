@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.att.vcc.inventorycollector.domain.NaradPinterface" schema="dti" table="narad_p_interface">
+        <meta attribute="class-description">This class contains the narad pinterface detail.</meta>
+        <meta attribute="use-in-tostring">true</meta>
+        <composite-id>
+		<key-property name="interfacename" column="interface_name" type="string"/>
+		<key-property name="parententityid" column="parent_entity_id" type="string"/>
+		<key-property name="parententitytype" column="parent_entity_type" type="string"/>
+	</composite-id>
+		<property name="interfacename2"  column="interface_name2" type="string"/>
+        <property name="speedvalue" column="speed_value" type="long" />
+        <property name="speedunits" column="speed_units" type="string" />
+        <property name="portrescription" column="port_description" type="string" />
+		<property name="equipmentidentifier" column="equipment_identifier" type="string" />
+        <property name="interfacerole" column="interface_role" type="string" />
+        <property name="interfacetype" column="interface_type" type="string" />
+        <property name="provstatus" column="prov_status" type="string" />
+        <property name="resourceversion" column="resource_version" type="string" />
+        <property name="inmaint" column="in_maint" type="string" />
+        <property name="invstatus" column="inv_status" type="string" />
+        <property name="opsnote" column="ops_note" type="string" />
+        <property name="interfacefunction" column="interface_function" type="string"/>
+        <property name="macaddr" column="macaddr" type="string" />
+        <property name="selflink" column="selflink" type="string" />
+        <property name="updatedOn" column="UPDATED_ON" type="string" />
+      </class>
+</hibernate-mapping>

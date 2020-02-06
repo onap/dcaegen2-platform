@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.att.vcc.inventorycollector.domain.Portgroup" schema="dti" table="rt_port_group">
+        <meta attribute="class-description">This class contains the portgroup detail.</meta>
+        <meta attribute="use-in-tostring">true</meta>
+        <composite-id>
+		    <key-property name="interfaceid" column="INTERFACE_ID" type="string"/>
+		    <key-property name="vnfid" column="VNF_ID" type="string"/>
+		</composite-id>
+        <property name="neutronnetworkid" column="NEUTRON_NETWORK_ID" type="string" />
+        <property name="neutronnetworkname" column="NEUTRON_NETWORK_NAME" type="string" />
+        <property name="interfacerole" column="INTERFACE_ROLE" type="string" />
+        <property name="resourceversion" column="RESOURCE_VERSION" type="string" />
+        <property name="portgroupid" column="PORT_GROUP_ID" type="string" />
+        <property name="portgroupname" column="PORT_GROUP_NAME" type="string" />
+        <property name="switchname" column="SWITCH_NAME" type="string" />
+        <property name="orchestrationstatus" column="ORCHESTRATION_STATUS" type="string" />
+        <property name="heatstackid" column="HEAT_STACK_ID" type="string" />
+        <property name="msocatalogkey" column="MSO_CATALOG_KEY" type="string" />
+        <property name="updatedOn" column="UPDATED_ON" type="string" />
+      </class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+CREATE TABLE IF NOT EXISTS dti.rt_logical_link
+(
+    LINK_NAME               VARCHAR(250) NOT NULL,
+    IN_MAINT                VARCHAR(1) NOT NULL DEFAULT 'N',
+    LINK_TYPE               VARCHAR(40) NOT NULL,
+    SPEED_VALUE             DOUBLE PRECISION,
+    SPEED_UNITS             VARCHAR(10),
+    IP_VERSION              VARCHAR(10),
+    ROUTING_PROTOCOL        VARCHAR(10),
+    RESOURCE_VERSION        VARCHAR(25),
+    MODEL_INVARIANT_ID      VARCHAR(150),
+    MODEL_VERSION_ID        VARCHAR(100),
+    WIDGET_MODEL_ID         VARCHAR(150),
+    WIDGET_MODEL_VERSION    VARCHAR(25),
+    OPERATIONAL_STATUS      VARCHAR(20),
+    PROV_STATUS             VARCHAR(10),
+    LINK_ROLE               VARCHAR(100),
+    LINK_NAME2              VARCHAR(100),
+    LINK_ID                 VARCHAR(150),
+    CIRCUIT_ID              VARCHAR(100),
+    PURPOSE                 VARCHAR(100),
+    UPDATED_ON              VARCHAR(20),
+    PRIMARY KEY (LINK_NAME)
+);

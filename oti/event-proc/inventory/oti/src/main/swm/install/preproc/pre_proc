@@ -1,0 +1,9 @@
+#!/bin/sh
+
+#echo "Calling common script to set up environment"
+#source ../../common/common.env
+#echo "Common environment set up"
+
+#echo "Running common install pre proc"
+#cd ../../common
+#exec sh -x ./install_preproc.sh

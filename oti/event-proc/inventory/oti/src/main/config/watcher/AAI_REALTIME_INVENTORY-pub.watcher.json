@@ -1,0 +1,7 @@
+{
+  "role"          : "producer",
+  "topic"         : "AAI_REALTIME_INVENTORY",
+  "id"            : "AAI_REALTIME_INVENTORY",
+  "dir"           : "/opt/app/vcc/feeds/outgoing/dmaap",
+  "contenttype"   : "json"
+}

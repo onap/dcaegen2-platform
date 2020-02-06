@@ -1,0 +1,26 @@
+#!/usr/bin/env ksh
+
+###
+#
+# SCRIPT
+#  getVccNetworkName
+#
+# SYNOPSIS
+#  getVccNetworkName [<VLSN>]
+#
+# DESCRIPTION
+#  This script returns the network name (legacy or vtier) of the VLSN parameter passed in
+#  If VLSN is not found, returns "" (NULL)
+#  If no VLSN parameter is passed in, return network name of the system on which script is run
+#
+# RELATED SCRIPTS
+#  vtiername returns "network" name (vtiername or hostname)
+#
+###
+
+if [ "$1" != "" ]
+then
+	grep -v "^#" $VCC_CONFIG_SYSTEM_DIR/vcc_server_info.cfg | grep "^$1" | cut -d ":" -f 7
+else
+	echo `vtiername`
+fi

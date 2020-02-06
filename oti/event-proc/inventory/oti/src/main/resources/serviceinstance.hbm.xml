@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.att.vcc.inventorycollector.domain.serviceInstance" schema="dti" table="rt_service_instance">
+        <meta attribute="class-description">This class contains the service instance detail.</meta>
+        <meta attribute="use-in-tostring">true</meta>
+        <composite-id>
+            <key-property name="serviceinnstanceid" column="SERVICE_INSTANCE_ID" type="string"/>
+            <key-property name="servicetype" column="SERVICE_TYPE" type="string"/>
+            <key-property name="globalcustomerid" column="GLOBAL_CUSTOMER_ID" type="string"/>
+        </composite-id>
+        <property name="serviceinstancename" column="SERVICE_INSTANCE_NAME" type="string" />
+        <property name="modelinvariantid" column="MODEL_INVARIANT_ID" type="string" />
+        <property name="modelversionid" column="MODEL_VERSION_ID" type="string" />
+        <property name="widgetmodelid" column="WIDGET_MODEL_ID" type="string" />    
+        <property name="widgetmodelversion" column="WIDGET_MODEL_VERSION" type="string" />
+        <property name="bandwidthtotal" column="BANDWIDTH_TOTAL" type="string" />
+        <property name="bandwidthupwan1" column="BANDWIDTH_UP_WAN1" type="string" />
+        <property name="bandwidthdownwan1" column="BANDWIDTH_DOWN_WAN1" type="string" />
+        <property name="bandwidthupwan2" column="BANDWIDTH_UP_WAN2" type="string" />
+        <property name="bandwidthdownwan2" column="BANDWIDTH_DOWN_WAN2" type="string" />
+        <property name="vhnportalurl" column="VHN_PORTAL_URL" type="string" />
+        <property name="serviceinstancelocationid" column="SERVICE_INSTANCE_LOCATION_ID" type="string" />
+        <property name="resourceversion" column="RESOURCE_VERSION" type="string" />
+        <property name="selflink" column="SELFLINK" type="string" />
+        <property name="orchestrationstatus" column="ORCHESTRATION_STATUS" type="string" />
+        <property name="servicerole" column="SERVICE_ROLE" type="string" />
+        <property name="environmentcontext" column="ENVIRONMENT_CONTEXT" type="string" />
+        <property name="workloadcontext" column="WORKLOAD_CONTEXT" type="string" />
+        <property name="updatedOn" column="UPDATED_ON" type="string" />
+     </class>
+</hibernate-mapping>

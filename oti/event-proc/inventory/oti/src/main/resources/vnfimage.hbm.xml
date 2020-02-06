@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.att.vcc.inventorycollector.domain.Vnfimage" schema="dti" table="rt_vnf_image">
+        <meta attribute="class-description">This class contains the vnfImage detail.</meta>
+        <meta attribute="use-in-tostring">true</meta>
+        <id name="vnfimageuuid" column="VNF_IMAGE_UUID"  type="java.lang.String"/>
+        <property name="application" column="APPLICATION" type="string" />
+        <property name="applicationvendor" column="APPLICATION_VENDOR" type="string" />
+        <property name="applicationversion" column="APPLICATION_VERSION" type="string" />
+        <property name="selflink" column="SELFLINK" type="string" />
+        <property name="resourceversion" column="RESOURCE_VERSION" type="string" />
+        <property name="updatedOn" column="UPDATED_ON" type="string" />
+     </class>
+</hibernate-mapping>

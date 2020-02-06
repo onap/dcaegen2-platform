@@ -1,0 +1,4 @@
+#*/5 * * * * /opt/app/vcc/bin/common/vccRun.sh /opt/app/vcc/bin/common/startOpenDcaeDMD.sh > /opt/app/vcc/logs/DCAE/cron_dmd_startup.log 2>&1
+#*/5 * * * * /opt/app/vcc/bin/common/vccRun.sh /opt/app/vcc/bin/pmParser/pmParserDaemon.sh start > /opt/app/vcc/logs/DCAE/cron_pmparser.log 2>&1
+#*/5 * * * * /opt/app/vcc/bin/common/vccRun.sh /opt/app/vcc/bin/publisher/publisherDaemon.sh start > /opt/app/vcc/logs/DCAE/cron_publisher.log 2>&1
+#*/5 * * * * /opt/app/vcc/bin/common/vccRun.sh /opt/app/vcc/bin/common/cleanUp.sh > /opt/app/vcc/logs/DCAE/cron_cleanup.log 2>&1

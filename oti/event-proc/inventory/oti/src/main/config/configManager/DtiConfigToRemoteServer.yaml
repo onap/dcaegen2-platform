@@ -1,0 +1,18 @@
+#######################################
+# Mapping from application controller params
+# to remoteServerGroups json object
+#
+#######################################
+
+contents:
+  remoteServerIp: dcae_target_collection_ip
+  remoteServerName: dcae_target_name
+  inMaintenance: dcae_target_in-maint
+  neVersion: dcae_target_neVersion
+  provStatus: dcae_target_prov-status
+  networkId: dcae_target_networkId                                      
+otherconstants:
+  isPrimary: true
+  
+    
+    

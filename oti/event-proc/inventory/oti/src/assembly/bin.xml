@@ -1,0 +1,57 @@
+<assembly>
+	<id>bin</id>
+	<formats>
+		<format>tar.gz</format>
+	</formats>
+
+	<fileSets>
+		<fileSet>
+			<directory>src/main/config</directory>
+			<outputDirectory>dti-package-content/config</outputDirectory>
+			<lineEnding>unix</lineEnding>
+			<excludes>
+    			<exclude>*.formatted</exclude>
+  			</excludes>
+			<fileMode>0755</fileMode>
+		</fileSet>
+		<!-- <fileSet>
+			<directory>src/main/sql</directory>
+			<outputDirectory>dti-package-content/sql</outputDirectory>
+			<lineEnding>unix</lineEnding>
+			<excludes>
+    			<exclude>*.formatted</exclude>
+  			</excludes>
+			<fileMode>0755</fileMode>
+		</fileSet> -->
+		<fileSet>
+			<directory>src/main/scripts</directory>
+			<outputDirectory>dti-package-content/bin</outputDirectory>
+			<lineEnding>unix</lineEnding>
+			<excludes>
+    			<exclude>*.formatted</exclude>
+  			</excludes>
+			<fileMode>0755</fileMode>
+		</fileSet>
+		<fileSet>
+			<directory>src/main/swm</directory>
+			<outputDirectory>dti-package-content/swm</outputDirectory>
+			<!-- <lineEnding>unix</lineEnding> -->
+			<fileMode>0755</fileMode>
+		</fileSet>
+		<fileSet>
+			<directory>target</directory>
+			<outputDirectory>dti-package-content/lib</outputDirectory>
+			<includes>
+				<include>*-final.jar</include>
+			</includes>
+			<excludes>
+				<exclude>dti-*-jar-with-dependencies.jar</exclude>
+			</excludes>
+		</fileSet>
+		<fileSet>
+			<directory>target/site/apidocs</directory>
+			<outputDirectory>dti-package-content/apidocs</outputDirectory>
+			<fileMode>0444</fileMode>
+		</fileSet>
+	</fileSets>
+</assembly>

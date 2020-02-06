@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.att.vcc.inventorycollector.domain.Cloudregion" schema="dti" table="rt_cloud_region">
+        <meta attribute="class-description">This class contains the rt_cloud_region detail.</meta>
+        <meta attribute="use-in-tostring">true</meta>
+         <composite-id>
+		    <key-property name="cloudowner" column="CLOUD_OWNER" type="string"/>
+		    <key-property name="cloudregionid" column="CLOUD_REGION_ID" type="string"/>
+		 </composite-id>
+        <property name="cloudtype" column="CLOUD_TYPE" type="string" />
+        <property name="ownerdeinedtype" column="OWNER_DEFINED_TYPE" type="string" />
+        <property name="cloudregionversion" column="CLOUD_REGION_VERSION" type="string" />
+        <property name="identityurl" column="IDENTITY_URL" type="string" />
+        <property name="cloudzone" column="CLOUD_ZONE" type="string" />
+        <property name="complexname" column="COMPLEX_NAME" type="string" />
+        <property name="sriovautomation" column="SRIOV_AUTOMATION" type="string" />
+        <property name="resourceversion" column="RESOURCE_VERSION" type="string" />
+        <property name="upgradecycle" column="UPGRADE_CYCLE" type="string" />
+        <property name="orchestrationdisabled" column="ORCHESTRATION_DISABLED" type="string" />
+        <property name="inmaint" column="IN_MAINT" type="string" />
+        <property name="updatedOn" column="UPDATED_ON" type="string" />
+      </class>
+</hibernate-mapping>
