@@ -48,7 +48,8 @@ public class Appconfig {
 		return params;
 	}
 
-	public TreeMap<String, LinkedHashMap<String, Object>> createAppconfig(TreeMap<String, LinkedHashMap<String, Object>> inps, ComponentSpec cs, String override) {
+	public TreeMap<String, LinkedHashMap<String, Object>> createAppconfig(TreeMap<String, LinkedHashMap<String, Object>> inps, ComponentSpec cs, String override,
+																		  boolean isDmaap) {
 		TreeMap<String, LinkedHashMap<String, Object>> retInputs = new TreeMap<String, LinkedHashMap<String, Object>>();
 		retInputs = inps;
 
@@ -58,26 +59,24 @@ public class Appconfig {
 
 		//set the stream publishes
 		TreeMap<String, DmaapObj> streamPublishes = new TreeMap<String, DmaapObj>();
-		int counter = 0;
 		if(cs.getStreams().getPublishes().length != 0) {
 			for(Publishes p: cs.getStreams().getPublishes()) {
 				if(p.getType().equals("data_router") || p.getType().equals("data router")) {
 					//in this case the data router information gets added to the params so for now leave it alone
 					String config = p.getConfig_key();
 					DmaapObj pub = new DmaapObj();
-					String name = "feed" + counter;
-					retInputs = pub.createOnapDmaapDRObj(retInputs, config, 'p', "feed" + counter, name);
+					String name = p.getConfig_key() +"_feed";
+					retInputs = pub.createOnapDmaapDRObj(retInputs, config, 'p', name, name, isDmaap);
 					pub.setType(p.getType());
 					streamPublishes.put(config, pub);
 				} else if(p.getType().equals("message_router") || p.getType().equals("message router")) {
 					String config = p.getConfig_key();
 					DmaapObj pub = new DmaapObj();
-					String name = "topic" + counter;
-					retInputs = pub.createOnapDmaapMRObj(retInputs, config, 'p', "topic" + counter, name);
+					String name =  p.getConfig_key() + "_topic";
+					retInputs = pub.createOnapDmaapMRObj(retInputs, config, 'p', name, name, isDmaap);
 					pub.setType(p.getType());
 					streamPublishes.put(config, pub);
 				}
-				counter++;
 			}
 		}
 
@@ -90,19 +89,18 @@ public class Appconfig {
 					//in this case the data router information gets added to the params so for now leave it alone
 					String config = s.getConfig_key();
 					DmaapObj sub = new DmaapObj();
-					String name = "feed" + counter;
-					retInputs = sub.createOnapDmaapDRObj(retInputs, config, 'p', "feed" + counter, name);
+					String name = s.getConfig_key() + "_feed";
+					retInputs = sub.createOnapDmaapDRObj(retInputs, config, 'p', name, name, isDmaap);
 					sub.setType(s.getType());
 					streamSubscribes.put(config, sub);
 				} else if(s.getType().equals("message_router") || s.getType().equals("message router")) {
 					String config = s.getConfig_key();
 					DmaapObj sub = new DmaapObj();
-					String name = "topic" + counter;
-					retInputs = sub.createOnapDmaapMRObj(retInputs, config, 's', "topic" + counter, name);
+					String name = s.getConfig_key() + "_topic";
+					retInputs = sub.createOnapDmaapMRObj(retInputs, config, 's', name, name, isDmaap);
 					sub.setType(s.getType());
 					streamSubscribes.put(config, sub);
 				}
-				counter++;
 			}
 		}
 

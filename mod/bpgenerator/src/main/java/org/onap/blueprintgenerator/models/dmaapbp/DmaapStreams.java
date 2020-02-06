@@ -46,6 +46,10 @@ public class DmaapStreams {
 	private GetInput username;
 	private GetInput password;
 	//private GetInput delivery_url;
+
+	private GetInput privileged;
+	private GetInput decompress;
+
 	private String route;
 	private String scheme;
 
@@ -80,6 +84,18 @@ public class DmaapStreams {
 				password.setGet_input(key + "_" + name + "_password");
 				this.setPassword(password);
 				retInputs.put(key + "_" + name + "_password", stringType);
+
+				//set privileged
+				GetInput priviliged = new GetInput();
+				priviliged.setGet_input(key + "_" + name + "_priviliged");
+				this.setPrivileged(priviliged);
+				retInputs.put(key + "_" + name + "_priviliged", stringType);
+
+				//set decompress
+				GetInput decompress = new GetInput();
+				decompress.setGet_input(key + "_" + name + "_decompress");
+				this.setDecompress(decompress);
+				retInputs.put(key + "_" + name + "_decompress", stringType);
 
 				this.setRoute(route);
 				this.setScheme("https");
