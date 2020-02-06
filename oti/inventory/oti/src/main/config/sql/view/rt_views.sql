@@ -1,0 +1,35 @@
+BEGIN;
+\i sql/view/aai_availiability_zone_v.sql
+\i sql/view/aai_complex_v.sql
+\i sql/view/aai_flavor_v.sql
+\i sql/view/aai_generic_vnf.sql
+\i sql/view/aai_image_v.sql
+\i sql/view/aai_network_profile_v.sql
+\i sql/view/aai_pnf_v.sql
+\i sql/view/aai_pserver_v.sql
+\i sql/view/aai_relationship_list_v.sql
+\i sql/view/aai_vce_v.sql
+\i sql/view/aai_vpe_v.sql
+\i sql/view/aai_vserver_v.sql
+\i sql/view/aai_zone_v.sql
+\i sql/view/aai_generic_vnf_vserver_v.sql
+\i sql/view/aai_l_interface_generic_vnf_v.sql
+\i sql/view/aai_l_interface_ipv4_6_v.sql
+\i sql/view/aai_l_interface_ipv4_6_oam_v.sql
+\i sql/view/aai_l_interface_vserver_v.sql
+\i sql/view/aai_pserver_complex_v.sql
+\i sql/view/aai_vnf_naming_code_v.sql
+\i sql/view/aai_vpe_vserver_v.sql
+\i sql/view/aai_vserver_generic_vnf_v.sql
+\i sql/view/aai_vserver_image_v.sql
+\i sql/view/aai_vserver_interfaces_v.sql
+\i sql/view/aai_vserver_pserver_v.sql
+\i sql/view/aai_vserver_generic_vnf_cdap_v.sql
+\i sql/view/aai_pserver_cloud_region_v.sql
+\i sql/view/aai_vm_cdap_v.sql
+\i sql/view/aai_vce_vserver_v.sql
+\i sql/view/v_vce_vm_pserver.sql
+\i sql/view/v_vnf_vm_pserver.sql
+\i sql/view/v_vpe_vm_pserver.sql
+\i sql/view/aai_vnf_app_vendor_v.sql
+COMMIT;

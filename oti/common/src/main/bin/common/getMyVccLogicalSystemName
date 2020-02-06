@@ -1,0 +1,32 @@
+#!/bin/bash
+
+###
+#
+# SCRIPT
+#  getMyVccLogicalSystemName
+#
+# SYNOPSIS
+#  getMyVccLogicalSystemName
+#
+# DESCRIPTION
+#  This script returns the VCC logical system name of the machine on which it run
+#
+# RELATED SCRIPTS
+#  vtiername returns "network" name (vtiername or hostname)
+#
+# FILE DEPENDENCIES
+#  $VCC_CONFIG_SYSTEM_DIR/vcc_server_info.cfg
+#  
+###
+
+if [ ! -f $VCC_CONFIG_SYSTEM_DIR/vcc_server_info.cfg ]
+then
+    echo `hostname -s`
+else
+  logicalSysName=$(grep -v "^#" $VCC_CONFIG_SYSTEM_DIR/vcc_server_info.cfg | egrep "^.*:.*:.*:.*:.*:.*:`vtiername`[\.|:]" | cut -d ":" -f 1)
+  if [ "$logicalSysName" == "" ] ; then
+      echo `hostname -s`
+  else
+      echo $logicalSysName
+  fi
+fi

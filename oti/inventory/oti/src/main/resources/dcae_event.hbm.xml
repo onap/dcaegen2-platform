@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.att.vcc.inventorycollector.domain.DcaeEvent" schema="dti" table="dcae_event">
+        <meta attribute="class-description">This class contains the dcae event detail.</meta>
+        <meta attribute="use-in-tostring">true</meta>
+        <composite-id>
+            <key-property name="dcaetargetname" column="DCAE_TARGET_NAME" type="string"/>
+            <key-property name="dcaetargettype" column="DCAE_TARGET_TYPE" type="string"/>
+        </composite-id>
+        <property name="dcaeservicelocation" column="DCAE_SERVICE_LOCATION" type="string" />
+        <property name="dcaeserviceaction" column="DCAE_SERVICE_ACTION" type="string" />
+        <property name="dcaetargetprovstatus" column="DCAE_TARGET_PROV_STATUS" type="string" />
+        <property name="dcaeservicetype" column="DCAE_SERVICE_TYPE" type="string" />
+        <property name="dcaetargetinmaint" column="DCAE_TARGET_IN_MAINT" type="string" />
+        <property name="dcaetargetisclosedloopdisabled" column="DCAE_TARGET_IS_CLOSED_LOOP_DISABLED" type="string" />
+        <property name="dcaeserviceinstancemodelinvariantid" column="DCAE_SERVICE_INSTANCE_MODEL_INVARIANT_ID" type="string" />
+        <property name="dcaeserviceinstancemodelversionid" column="DCAE_SERVICE_INSTANCE_MODEL_VERSION_ID" type="string" />
+        <property name="dcaegenericvnfmodelinvariantid" column="DCAE_GENERIC_VNF_MODEL_INVARIANT_ID" type="string" />
+        <property name="dcaegenericvnfmodelversionid" column="DCAE_GENERIC_VNF_MODEL_VERSION_ID" type="string" />
+        <property name="dcaetargetcollection" column="DCAE_TARGET_COLLECTION" type="string" />
+        <property name="dcaetargetcollectionip" column="DCAE_TARGET_COLLECTION_IP" type="string" />
+        <property name="dcaesnmpcommunitystring" column="DCAE_SNMP_COMMUNITY_STRING" type="string" />
+        <property name="dcaesnmpversion" column="DCAE_SNMP_VERSION" type="string" />
+        <property name="dcaetargetcloudregionid" column="DCAE_TARGET_CLOUD_REGION_ID" type="string" />
+        <property name="dcaetargetcloudregionversion" column="DCAE_TARGET_CLOUD_REGION_VERSION" type="string" />
+        <property name="dcaetargetservicedescription" column="DCAE_TARGET_SERVICE_DESCRIPTION" type="string" />
+        <property name="event" column="EVENT" type="string" />
+        <property name="aaiadditionalinfo" column="AAI_ADDITIONAL_INFO" type="string" />
+        <property name="dcaeeventsentflag" column="DCAE_EVENT_SENT_FLAG" type="string" />
+        <property name="dcaeeventstatus" column="DCAE_EVENT_STATUS" type="string" />
+        <property name="dcaeeventretryinterval" column="DCAE_EVENT_RETRY_INTERVAL" type="string" />
+        <property name="dcaeeventretrynumber" column="DCAE_EVENT_RETRY_NUMBER" type="string" />
+        <property name="updatedOn" column="UPDATED_ON" type="string" />
+    </class>
+</hibernate-mapping>

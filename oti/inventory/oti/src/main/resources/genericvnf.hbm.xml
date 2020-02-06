@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.att.vcc.inventorycollector.domain.GenericVnf" schema="dti" table="rt_generic_vnf">
+        <meta attribute="class-description">This class contains the generic_vnf detail.</meta>
+        <meta attribute="use-in-tostring">true</meta>
+        <id name="vnfid" column="VNF_ID"  type="java.lang.String"/>
+        <property name="vnfname" column="VNF_NAME" type="string" />
+        <property name="vnfname2" column="VNF_NAME2" type="string" />
+        <property name="vnftype" column="VNF_TYPE" type="string" />
+        <property name="serviceid" column="SERVICE_ID" type="string" />
+        <property name="regionalresourcezone" column="REGIONAL_RESOURCE_ZONE" type="string" />
+        <property name="provstatus" column="PROV_STATUS" type="string" />
+        <property name="operationalstatus" column="OPERATIONAL_STATUS" type="string" />
+        <property name="equipmentrole" column="EQUIPMENT_ROLE" type="string" />
+        <property name="orchestrationstatus" column="ORCHESTRATION_STATUS" type="string" />
+        <property name="heatstackid" column="HEAT_STACK_ID" type="string" />
+        <property name="msocatalogkey" column="MSO_CATALOG_KEY" type="string" />
+        <property name="managementoption" column="MANAGEMENT_OPTION" type="string" />
+        <property name="ipv4oamaddress" column="IPV4_OAM_ADDRESS" type="string" />
+        <property name="ipv4loopback0address" column="IPV4_LOOPBACK0_ADDRESS" type="string" />
+        <property name="nmlanv6address" column="NM_LANV6_ADDRESS" type="string" />
+        <property name="managementv6address" column="MANAGEMENT_V6_ADDRESS" type="string" />
+        <property name="vcpu" column="VCPU" type="java.lang.Long" />
+        <property name="vcpuunits" column="VCPU_UNITS" type="string" />
+        <property name="vmemory" column="VMEMORY" type="java.lang.Long" />
+        <property name="vmemoryunits" column="VMEMORY_UNITS" type="string" />
+        <property name="vdisk" column="VDISK" type="java.lang.Long" />
+        <property name="vdiskunits" column="VDISK_UNITS" type="string" />
+        <property name="inmaint" column="IN_MAINT" type="string" />
+        <property name="isclosedloopdisabled" column="IS_CLOSED_LOOP_DISABLED" type="string" />
+        <property name="resourceversion" column="RESOURCE_VERSION" type="string" />
+        <property name="summarystatus" column="SUMMARY_STATUS " type="string" />
+        <property name="encryptedaccessflag" column="ENCRYPTED_ACCESS_FLAG" type="string" />
+        <property name="modelinvariantid" column="MODEL_INVARIANT_ID" type="string" />
+        <property name="modelversionid" column="MODEL_VERSION_ID" type="string" />
+        <property name="modelcustomizationid" column="MODEL_CUSTOMIZATION_ID" type="string" />
+        <property name="widgetmodelid" column="WIDGET_MODEL_ID" type="string" />
+        <property name="widgetmodelversion" column="WIDGET_MODEL_VERSION" type="string" />
+        <property name="asnumber" column="AS_NUMBER" type="string" />
+        <property name="regionalresourcesubzone" column="REGIONAL_RESOURCE_SUBZONE" type="string" />
+        <property name="nftype" column="NF_TYPE" type="string" />
+        <property name="nfrole" column="NF_ROLE" type="string" />
+        <property name="nffunction" column="NF_FUNCTION" type="string" />
+        <property name="nfnamingcode" column="NF_NAMING_CODE" type="string" />
+        <property name="selflink" column="SELFLINK" type="string" />
+        <property name="ipv4oamgatewayaddress" column="IPV4_OAM_GATEWAY_ADDRESS"  type="java.lang.String"/>
+        <property name="ipv4oamgatewayaddressprefixlength" column="IPV4_OAM_GATEWAY_ADDRESS_PREFIX_LENGTH"  type="java.lang.String"/>
+        <property name="vlan_id_outer" column="VLAN_ID_OUTER"  type="java.lang.Long"/>
+        <property name="nmprofilename" column="NM_PROFILE_NAME"  type="java.lang.String"/>
+        <property name="updatedOn" column="UPDATED_ON" type="string" />
+    </class>
+</hibernate-mapping>

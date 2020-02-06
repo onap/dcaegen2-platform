@@ -1,0 +1,25 @@
+CREATE OR REPLACE VIEW dti.aai_pnf_v AS 
+ SELECT 
+ pnf_name,
+ pnf_name2,
+ pnf_name2_source,
+ pnf_id,
+ equip_type,
+ equip_vendor,
+ equip_model,
+ management_option,
+ ipaddress_v4_oam,
+ sw_version,
+ in_maint,
+ frame_id,
+ serial_number,
+ ipaddress_v4_loopback_0,
+ ipaddress_v6_loopback_0,
+ ipaddress_v4_aim,
+ ipaddress_v6_aim,
+ ipaddress_v6_oam,
+ inv_status,
+ resource_version,
+ prov_status,
+ nf_role
+FROM dti.rt_pnf;

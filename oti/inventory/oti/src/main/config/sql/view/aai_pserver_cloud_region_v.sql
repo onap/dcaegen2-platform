@@ -1,0 +1,40 @@
+DROP VIEW IF EXISTS dti.AAI_PSERVER_CLOUD_REGION_V;
+CREATE OR REPLACE VIEW dti.AAI_PSERVER_CLOUD_REGION_V
+AS
+  SELECT p.hostname,
+         p.ptnii_equip_name,
+         p.number_of_cpus,
+         p.disk_in_gigabytes,
+         p.ram_in_megabytes,
+         p.equip_type,
+         p.equip_vendor,
+         p.equip_model,
+         p.fqdn,
+         p.pserver_selflink,
+         p.ipv4_oam_address,
+         p.serial_number,
+	 p.ipaddress_v4_loopback_0,
+	 p.ipaddress_v6_loopback_0,
+	 p.ipaddress_v4_aim,
+	 p.ipaddress_v6_aim,
+	 p.ipaddress_v6_oam,
+	 p.inv_status,
+         p.pserver_id,
+         p.in_maint,
+         p.internet_topology,
+         p.resource_version AS pserver_resource_version,
+         p.pserver_name2,
+         p.purpose ,
+	 p.prov_status,
+         cr.cloud_owner,
+         cr.cloud_region_id,
+         cr.cloud_type,
+         cr.owner_defined_type,
+         cr.cloud_region_version,
+         cr.identity_url,
+         cr.cloud_zone,
+         cr.complex_name,
+         cr.resource_version AS cloud_region_resource_version
+  FROM dti.rt_pserver p
+  JOIN dti.rt_relationship_list r ON p.hostname = r.from_node_id AND r.related_from = 'pserver' 
+  JOIN dti.rt_cloud_region cr ON CONCAT(cr.cloud_owner, '|', cr.cloud_region_id) = r.to_node_id AND r.related_to = 'cloud-region';

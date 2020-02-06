@@ -1,0 +1,31 @@
+apply from: 'common.gradle'
+
+println 'Build Started in Dir:platform/common Date:' + getDate()
+
+archivesBaseName = 'common'
+
+dependencies {	
+	compile "com.att.vcc:logger:${com_att_vcc_logger_version}"
+	compile "com.att.ecomp.operation:operation-utils:${com_att_ecomp_operation_utils_version}"
+	compile "org.apache.camel:camel-core:${org_apache_camel_version}"
+	compile "org.apache.commons:commons-lang3:${org_apache_commons_version}"
+	compile "com.att.vcc:utils-vcc:${com_att_vcc_utils_version}"	
+}
+
+task copy_jars(type: Copy) {
+	fileMode 0644
+	destinationDir = file('./target/lib/attMaven')
+	from (configurations.compile.files) {
+		exclude 'log4j-slf4j-impl-2.3.jar', 'slf4j-log4j12-1.7.6.jar'
+	}
+}
+
+task yamlToJava(type: JavaExec) {
+  //classpath sourceSets.main.runtimeClasspath
+  classpath = configurations.compile
+  main = 'com.att.ecomp.utils.YamlToJava'
+  args './src/main/resources/VccLogger.yaml'
+}
+
+build.dependsOn copy_jars
+compileJava.dependsOn clean, yamlToJava

@@ -1,0 +1,68 @@
+package-name: com.att.vcc.logger.messages
+java-root: src/main/java
+resources-root: src/main/resources
+
+operations:
+  VCCCollectAndPublishOperation:
+    description: VCC Collect and Publish
+  VCCCollectOperation:
+    description: VCC Collect
+  VCCPublishOperation:
+    description: VCC Publish
+messages:
+  DATA_COLLECTION_SUCCESS: 
+    errorCode: 0
+    messageFormat: Data collected successfully
+    resolution: No resolution needed
+    description: Data collected successfully
+  DATA_PUBLISH_SUCCESS: 
+    errorCode: 0
+    messageFormat: Data published successfully
+    resolution: No resolution needed
+    description: Data published successfully 
+  DATA_COLLECTION_AND_PUBLISH_SUCCESS: 
+    errorCode: 0
+    messageFormat: Data published successfully
+    resolution: No resolution needed
+    description: Data published successfully 
+  DATA_COLLECTION_FAILED: 
+    errorCode: VCC200E
+    messageFormat: Data collection failed
+    resolution: No resolution needed
+    description: Data collection failed
+  DATA_PUBLISH_FAILED: 
+    errorCode: VCC200E
+    messageFormat: Data publish failed
+    resolution: No resolution needed
+    description: Data publish failed 
+  DATA_COLLECTION_AND_PUBLISH_FAILED: 
+    errorCode: VCC200E
+    messageFormat: Data collection and publishfailed
+    resolution: No resolution needed
+    description: Data collection and publishfailed
+  VCC_DEBUG: 
+    errorCode: VCC5400D
+    messageFormat: '{0}'
+    resolution: Please check other logs for more detailed info
+    description: General Debug
+  VCC_INFO: 
+    errorCode: VCC5401
+    messageFormat: '{0}'
+    resolution: Please check other logs for more detailed info
+    description: General Error
+  VCC_ERROR:
+    errorCode: VCC200E
+    messageFormat: '{0}'
+    resolution: Please check other logs for more detailed info
+    description: General Error
+  VCC_WARNING:
+    errorCode: VCC5402W
+    messageFormat: '{0}'
+    resolution: Please check other logs for more detailed info
+    description: General Warning
+  CEILO_CONNECTION_FAILED: 
+    errorCode: VCC210E
+    messageFormat: '{0}'
+    resolution: Please check error log for more detailed info
+    description: Ceilometer connection failed
+    

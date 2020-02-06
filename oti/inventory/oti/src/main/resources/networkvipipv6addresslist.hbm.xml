@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.att.vcc.inventorycollector.domain.Networkvipipv6addresslist"  schema="dti" table="rt_network_vip_ipv6_address_list">
+        <meta attribute="class-description">This class contains the network vip ipv6 address list detail.</meta>
+        <meta attribute="use-in-tostring">true</meta>
+        <id name="vipipv4address" column="VIP_IPV4_ADDRESS"  type="java.lang.String"/>
+        <property name="vipipv4prefixlength" column="VIP_IPV4_PREFIX_LENGTH" type="string" />
+        <property name="vlanidinner" column="VLAN_ID_INNER" type="string" />
+        <property name="vlanidouter" column="VLAN_ID_OUTER" type="string" />
+        <property name="isfloating" column="IS_FLOATING" type="string" />
+    	<property name="resourceversion" column="RESOURCE_VERSION" type="string" />
+    	<property name="neutronnetworkid" column="NEUTRON_NETWORK_ID" type="string" />
+    	<property name="neutronsubnetid" column="NEUTRON_SUBNET_ID" type="string" />
+    	<property name="vnfcname" column="VNFC_NAME" type="string" />
+    	<property name="cpinstanceid" column="CP_INSTANCE_ID" type="string" />
+    	<property name="updatedon" column="UPDATED_ON" type="string" />
+    </class>
+</hibernate-mapping>

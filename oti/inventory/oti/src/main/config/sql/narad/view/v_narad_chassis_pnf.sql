@@ -1,0 +1,1 @@
+CREATE OR REPLACE VIEW dti.v_narad_chassis_pnf AS SELECT c.*, p.pnf_name FROM dti.narad_chassis c LEFT JOIN dti.narad_relationship_list rl ON c.chassis_name = rl.from_node_id AND rl.related_from = 'chassis' AND rl.related_to = 'pnf' LEFT JOIN dti.narad_pnf p ON p.pnf_name = rl.to_node_id AND rl.related_to = 'pnf';

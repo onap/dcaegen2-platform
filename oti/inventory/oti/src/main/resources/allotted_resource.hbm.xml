@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.att.vcc.inventorycollector.domain.AllottedResource" schema="dti" table="rt_allotted_resource">
+        <meta attribute="class-description">This class contains the service instance detail.</meta>
+        <meta attribute="use-in-tostring">true</meta>
+        <composite-id>
+            <key-property name="globalcustomerid" column="GLOBAL_CUSTOMER_ID" type="string"/>
+            <key-property name="servicetype" column="SERVICE_TYPE" type="string"/>
+            <key-property name="serviceinnstanceid" column="SERVICE_INSTANCE_ID" type="string"/>
+            <key-property name="id" column="ID" type="string"/>
+        </composite-id>
+        <property name="description" column="DESCRIPTION" type="string" />
+        <property name="selflink" column="SELFLINK" type="string" />
+        <property name="modelinvariantid" column="MODEL_INVARIANT_ID" type="string" />
+        <property name="modelversionid" column="MODEL_VERSION_ID" type="string" />
+        <property name="resourceversion" column="RESOURCE_VERSION" type="string" />
+        <property name="orchestrationstatus" column="ORCHESTRATION_STATUS" type="string" />
+        <property name="operationalstatus" column="OPERATIONAL_STATUS" type="string" />
+        <property name="type" column="TYPE" type="string" />
+        <property name="role" column="ROLE" type="string" />
+        <property name="updatedOn" column="UPDATED_ON" type="string" />
+     </class>
+</hibernate-mapping>

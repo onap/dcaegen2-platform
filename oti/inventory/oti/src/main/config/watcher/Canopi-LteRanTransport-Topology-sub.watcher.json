@@ -1,0 +1,7 @@
+{
+	"role": "consumer",
+	"topic": "Canopi-LteRanTransport-Topology",
+	"id": "Canopi-LteRanTransport-TopologySubscriberData",
+	"dir": "/opt/app/vcc/feeds/incoming/dmaap/canopi/samsung",
+	"trigger": "/opt/app/vcc/bin/samsung_watcher.sh %t %d %f"
+}

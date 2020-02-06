@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.att.vcc.inventorycollector.domain.Pnf"  schema="dti" table="rt_pnf">
+        <meta attribute="class-description">This class contains the pnf detail.</meta>
+        <meta attribute="use-in-tostring">true</meta>
+        <id name="pnfname" column="PNF_NAME"  type="java.lang.String"/>
+        <property name="pnfname2" column="PNF_NAME2" type="string" />
+        <property name="pnfname2source" column="PNF_NAME2_SOURCE" type="string" />
+        <property name="pnfid" column="PNF_ID" type="string" />
+		<property name="nfnamingcode" column="NF_NAMING_CODE" type="string" />
+        <property name="equiptype" column="EQUIP_TYPE" type="string" />
+        <property name="equipvendor" column="EQUIP_VENDOR" type="string" />
+        <property name="equipmodel" column="EQUIP_MODEL" type="string" />
+        <property name="managementoption" column="MANAGEMENT_OPTION" type="string" />
+        <property name="orchestrationstatus" column="ORCHESTRATION_STATUS" type="string" />
+        <property name="ipaddressv4oam" column="IPADDRESS_V4_OAM" type="string" />
+        <property name="swversion" column="sw_version" type="string" />
+        <property name="inmaint" column="IN_MAINT" type="string" />
+        <property name="frameid" column="FRAME_ID" type="string" />
+        <property name="serialnumber" column="SERIAL_NUMBER" type="string" />
+        <property name="ipaddressv4loopback0" column="IPADDRESS_V4_LOOPBACK_0" type="string" />
+        <property name="ipaddressv6loopback0" column="IPADDRESS_V6_LOOPBACK_0" type="string" />
+        <property name="ipaddressv4aim" column="IPADDRESS_V4_AIM" type="string" />
+        <property name="ipaddressv6aim" column="IPADDRESS_V6_AIM" type="string" />
+        <property name="ipaddressv6oam" column="IPADDRESS_V6_OAM" type="string" />
+        <property name="invstatus" column="INV_STATUS" type="string" />
+        <property name="resourceversion" column="RESOURCE_VERSION" type="string" />
+        <property name="provstatus" column="PROV_STATUS" type="string" />
+		<property name="nfrole" column="NF_ROLE" type="string" />
+		<property name="selflink" column="SELFLINK" type="string" />
+		<property name="updatedOn" column="UPDATED_ON" type="string" />
+    </class>
+</hibernate-mapping>

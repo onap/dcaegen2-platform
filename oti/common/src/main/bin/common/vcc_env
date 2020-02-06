@@ -1,0 +1,522 @@
+#!/bin/bash
+# ============LICENSE_START=======================================================
+# Copyright (c) 2020 AT&T Intellectual Property. All rights reserved.
+# ================================================================================
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ============LICENSE_END=========================================================
+
+#
+# Standard VCC Environment Settings
+#
+# All VCC platform environment variables will be defined here so that there
+# is ONE place to make changes when a new VCC install or update is done.
+#
+# IMPORTANT: PLEASE UPDATE REVISION HISTORY BELOW
+#
+
+###########################################################################
+#
+# IMPORTANT
+#
+# PLEASE READ THIS FIRST BEFORE MAKING ANY CHANGES
+#
+# This file sets the environment that is common to all VCC platform
+# components and applications. Applications can also have their own
+# environment setup scripts to define additional variables, aliases,
+# etc
+#
+# VCC scripts and applications are dependent on the environment
+# variables defined below.
+#
+# Therefore, if you are changing the definitions please be aware the you
+# could potentially affect the operation of all VCC platform components.
+#
+# Adding new environment variables and definitions should be fine and
+# no impact on what exists.
+#
+# Changing the value of an individual process' environment definition
+# should not be problematic across processes, but changing a higher level
+# VCC or HLC definition or doing something like changing the name of an
+# environment variable could be problematic.
+#
+# Therefore, if you're changing definitions that are fundamental to other
+# definitions or changing the names of environment variables, please send
+# out mail to the VCC Team FIRST to check what impact the change might
+# have.
+#
+###########################################################################
+
+#
+# CONVENTIONS
+#
+# If you're adding your own individual process variables, PLEASE base
+# them on higher level variables wherever possible, as in:
+#
+# DM_LOG_DIR=$VCC_LOG_DIR/dm
+#
+# That way if there is any change to the overall directory structure
+# when the higher level paths are changed, yours will change appropriately
+# as well
+#
+# PATH or _PATH at the end of environment variable names should be used when
+#               there are (or may be) a list of directories specified as the
+#               value
+#
+# DIR or _DIR   at the end of environment variable names should be used when
+#               the value can only be a single directory reference
+#
+
+#
+#  REVISION HISTORY
+#   mm/dd/yyyy (attuid) -   added ....
+#   mm/dd/yyyy (attuid) -   fixed ....
+#   mm/dd/yyyy (attuid) - updated ....
+#   mm/dd/yyyy (attuid) - removed ....
+#
+#   02/23/2017 (gh1363) - initial VCC environment definitions based on vec_env entries
+#
+
+# umask should be set in .profile, but
+# just in case ...
+
+umask 0002
+
+###
+#
+# General VCC Platform Environment Variables
+#
+###
+
+export LC_COLLATE=C
+export TZ=GMT
+
+# Note: $HOME is NOT set since it's
+#       set during login and also set
+#       by cron
+
+export VCC_HOME=$HOME
+export PEC_HOME=$HOME
+export VCC_UserID=`whoami`
+
+export VCC_INFRASTRUCTURE_DIR=$VCC_HOME/infrastructure
+export VCC_LANG_DIR=$VCC_INFRASTRUCTURE_DIR/lang
+export VCC_ARCHIVE_DIR=$VCC_HOME/archive
+export VCC_ARCHIVE_INPUT_DIR=$VCC_ARCHIVE_DIR/data/input
+export VCC_ARCHIVE_INPUT_VENDOR_DIR=$VCC_ARCHIVE_INPUT_DIR/vendor
+export VCC_ARCHIVE_OUTPUT_DIR=$VCC_ARCHIVE_DIR/data/output
+export VCC_ARCHIVE_OUTPUT_VENDOR_DIR=$VCC_ARCHIVE_OUTPUT_DIR/vendor
+export VCC_BIN_DIR=$VCC_HOME/bin
+export VCC_BIN_COMMON_DIR=$VCC_BIN_DIR/common
+export VCC_BIN_TOOLS_DIR=$VCC_BIN_DIR/tools
+export VCC_BIN_UTIL_DIR=$VCC_BIN_DIR/util
+export VCC_BIN_INSTALL_DIR=$VCC_BIN_DIR/install
+export VCC_CNTRL_DIR=$VCC_HOME/cntrl
+export VCC_CNTRL_UTIL_DIR=$VCC_CNTRL_DIR/util
+export VCC_CONFIG_DIR=$VCC_HOME/config
+export VCC_CONFIG_COMMON_DIR=$VCC_CONFIG_DIR/common
+export VCC_CONFIG_INSTALL_DIR=$VCC_CONFIG_DIR/install
+export VCC_CONFIG_SYSTEM_DIR=$VCC_CONFIG_DIR/system
+export VCC_CONFIG_COMMON_VCC_DIR=$VCC_CONFIG_COMMON_DIR/VCC
+export VCC_CONFIG_CUSTOM_DIR=$VCC_CONFIG_DIR/custom
+export VCC_CONFIG_MASTER_DIR=$VCC_CONFIG_DIR/master
+export VCC_PLATFORM_CONFIG_DIR=$VCC_CONFIG_COMMON_DIR/VCC
+export VCC_DATA_DIR=$VCC_HOME/data
+export VCC_DATA_INPUT_DIR=$VCC_DATA_DIR/input
+export VCC_DATA_INPUT_VENDOR_DIR=$VCC_DATA_INPUT_DIR/vendor
+export VCC_INVENTORY_DIR=$VCC_DATA_INPUT_DIR/inventory
+export VCC_DATA_INPUT_VCC_DIR=$VCC_DATA_INPUT_DIR/VCC
+export VCC_PLATFORM_DATA_INPUT_DIR=$VCC_DATA_INPUT_DIR/VCC
+export VCC_DATA_OUTPUT_DIR=$VCC_DATA_DIR/output
+export VCC_DATA_OUTPUT_VENDOR_DIR=$VCC_DATA_OUTPUT_DIR/vendor
+export VCC_ETC_DIR=$VCC_HOME/etc
+export VCC_LIB_DIR=$VCC_HOME/lib
+export VCC_PERLIB_DIR=$VCC_HOME/perlib
+export LOGBASEDIR=$VCC_HOME/logs
+export VCC_LOG_DIR=$LOGBASEDIR/DCAE
+export DCAELOGBASEDIR=$VCC_LOG_DIR
+export VCC_MISC_DIR=$VCC_HOME/misc
+export VCC_TASKS_DIR=$VCC_DATA_INPUT_VCC_DIR/tasks
+export VCC_TOPOLOGY_DIR=$VCC_DATA_INPUT_VCC_DIR/topology
+export VCC_FEED_DIR=$VCC_DATA_INPUT_VCC_DIR/topology
+export VCC_TMP_DIR=$VCC_HOME/tmp
+export VCC_ADMIN_DIR=$VCC_HOME/admin
+export VCC_AUDIT_DIR=$VCC_HOME/pecAudit
+export VCC_PACKAGES_DIR=$VCC_INFRASTRUCTURE_DIR/packages
+
+export PEC_COMMON_CONFIG_DIR=$VCC_CONFIG_DIR
+
+export CTI=$VCC_HOME/cti
+export CTI3RD=$VCC_PACKAGES_DIR
+export CTILFS=$VCC_HOME
+
+# ----------------------------------
+# Java Related Environment Variables
+# ----------------------------------
+if [ -f /.dockerenv ]
+then
+        export VCC_JAVA_DIR=/usr
+else
+        export VCC_JAVA_DIR=${VCC_LANG_DIR}/java
+fi
+
+export JAVA_HOME=${VCC_JAVA_DIR}
+export JAVA_BIN_DIR=$JAVA_HOME/bin
+
+export CLASSPATH=${CLASSPATH}:${VCC_CONFIG_DIR}/logger
+
+
+# -----------------------------
+# PORT Variables for VCC 
+# Please keep them all together
+# -----------------------------
+
+export PM_PARSER_PORT=5575
+export POST_PROCESS_PORT=5576
+export HPP_PORT=6666
+
+# Not sure if this will be used, but it is
+# referenced in some scripts ported to VCC
+# from PEC
+export TRAP_PORT=1025
+
+###
+#
+# VCC Platform Component variable definitions
+#
+###
+
+# ----------------------------------------------
+# VCC Application: Archiver (ARCH)
+#                  Related Environment Variables
+# ----------------------------------------------
+export ARCHIVER_BIN_DIR=$VCC_BIN_COMMON_DIR
+export ARCH_BIN_DIR=$VCC_BIN_COMMON_DIR
+
+# -----------------------------------------------------
+# VCC Collector: SNMP Related Environment Variables
+# -----------------------------------------------------
+
+export SNMP_LOG_DIR=$VCC_LOG_DIR/snmp
+export SNMP_ARCHIVE_DIR=$VCC_ARCHIVE_OUTPUT_VENDOR_DIR
+export SNMP_CONFIG_DIR=$VCC_CONFIG_DIR/snmp
+export PEC_TASKS_DIR=$VCC_TASKS_DIR
+export SNMP_VCCAUDIT_OUTPUT_DIR=$VCC_AUDIT_DIR/SNMP
+export SNMP_OUTPUT_BASE_DIR=$VCC_DATA_OUTPUT_VENDOR_DIR
+export LLC_JAVAOBJ_DIR=$VCC_TMP_DIR/snmp/javaobj
+
+
+# ----------------------------------------------
+# VCC Component: Delivery Manager (DM)
+#                Related Environment Variables
+# ----------------------------------------------
+
+# Standard DM environment variables
+export DM_BIN_DIR=$VCC_BIN_DIR/dm
+export DM_LOG_DIR=$VCC_LOG_DIR/dm
+export DM_LIB_DIR=$VCC_PERLIB_DIR/dm
+export DM_TMP_DIR=$VCC_TMP_DIR/dm
+export DM_CONFIG_DIR=$VCC_CONFIG_DIR/dm
+export DM_MISC_DIR=$VCC_MISC_DIR/dm
+export DM_XFER_HISTORY_DIR=$DM_MISC_DIR/xferHistory
+export DM_DIFF_DIR=$DM_MISC_DIR/diffHistory
+export DM_CNTRL_DIR=$DM_MISC_DIR/cntrl
+
+
+# ----------------------------------------------
+# VCC Component: Daemon Monitor (DMON)
+#                Related Environment Variables
+# ----------------------------------------------
+
+export DMON_BIN_DIR=$VCC_BIN_DIR/dmon
+export DMON_LOG_DIR=$VCC_LOG_DIR/dmon
+export DMON_CONFIG_DIR=$VCC_CONFIG_DIR/dmon
+
+
+#-------------------------------------------
+# DMD HOME
+#-------------------------------------------
+export DMDHOME=$VCC_HOME/infrastructure/pmoss/dmd
+
+
+#-------------------------------------------
+# DMD Agent Delegate
+#-------------------------------------------
+export DAD_HOME=$VCC_HOME
+export DAD_BIN_DIR=$DAD_HOME/bin/util/dad
+export DAD_CNTRL_DIR=$VCC_CNTRL_UTIL_DIR/dad
+
+# -------------------------------------------------
+# Publisher Related Environment Variables
+# -------------------------------------------------
+
+export PUBLISHER_HOME=$VCC_HOME
+export PUBLISHER_BIN_DIR=$VCC_BIN_DIR/publisher
+export PUBLISHER_CONFIG_DIR=$VCC_CONFIG_DIR/publisher
+export PUBLISHER_LOG_DIR=$VCC_LOG_DIR/publisher
+export PUBLISHER_INPUT_DIR=$VCC_DATA_INPUT_DIR/publisher
+export PUBLISHER_INTERIM_DIR=$PUBLISHER_INPUT_DIR/vetl
+export PUBLISHER_TMP_DIR=$VCC_TMP_DIR/publisher
+export PUBLISHER_OUTPUT_DIR=$VCC_DATA_OUTPUT_DIR/publisher
+export PUBLISHER_ARCHIVE_DIR=$VCC_ARCHIVE_DIR/published
+export PUBLISHER_LOG_LIB_DIR=$VCC_HOME/perlib/logger/
+
+# -------------------------------------------------
+# Subscriber Related Environment Variables
+# -------------------------------------------------
+
+export SUBSCRIBER_HOME=$VCC_HOME
+export SUBSCRIBER_CONFIG_DIR=$SUBSCRIBER_HOME/config/subscriber
+export SUBSCRIBER_BIN_DIR=$SUBSCRIBER_HOME/bin/subscriber
+export SUBSCRIBER_LOG_LIB_DIR=$SUBSCRIBER_HOME/perlib/logger
+export SUBSCRIBER_LIB_DIR=$SUBSCRIBER_HOME/lib
+
+
+# --------------------------------------------------------
+# VCC Component: Post Processing Daemon (HPP-VEC in 17.07)
+# Related Environment Variables
+# --------------------------------------------------------
+
+export HPP_BIN_DIR=$VCC_BIN_DIR/hpp
+export VCC_STATE_DIR=$VCC_DATA_DIR/state
+
+
+# --------------------------------------------------------
+# VCC Component: Post Processing Trap
+# Related Environment Variables
+# --------------------------------------------------------
+
+export TRAP_CONFIG_DIR=$VCC_HOME/config/hpp
+export TRAP_INPUT_DIR=$VCC_DATA_INPUT_VCC_DIR/topology
+export TRAP_OUTPUT_DIR=$VCC_DATA_OUTPUT_DIR/trap
+export TRAP_TMP_DIR=$VCC_TMP_DIR/trap
+export UEB_BIN_DIR=$VCC_BIN_DIR/ueb
+
+# ---------------------------------------------------
+# VCC Component: Controller - Producer (SLB in 17.07)
+# Related Environment Variables
+# --------------------------------------------------
+
+export SLB_ARCHIVE_DIR=$VCC_ARCHIVE_DIR/slb
+export SLB_BIN_DIR=$VCC_BIN_DIR/slb
+export SLB_LOG_DIR=$VCC_LOG_DIR/slb
+export SLB_TMP_DIR=$VCC_TMP_DIR/slb
+
+# ---------------------------------------------------
+# Miscellaneous VCC
+# Related Environment Variables
+# --------------------------------------------------
+
+# HPP related utility script
+# File Processing Wrap-Up Log Dir
+FPWU_LOG_DIR=$VCC_LOG_DIR/fpwu
+
+# HPP related utility script
+# File State Evaluator Log Dir
+FSE_LOG_DIR=$VCC_LOG_DIR/fse
+
+# -------------------------------------------------
+# DCAE Related Environment Variables
+# -------------------------------------------------
+
+# Apps must use target
+export DCAE_COMMON_LOGGING_SRC_DIR=$VCC_INFRASTRUCTURE_DIR/ecomp/logging/dcae-commonlogging
+export DCAE_COMMON_LOGGING_DIR=$VCC_INFRASTRUCTURE_DIR/ecomp/logger
+
+
+###
+#
+# VCC Platform PATH variables for
+# - command execution
+# - shared libraries
+# - language libraries
+#
+###
+
+# ---------------------------
+# Set VCC Shared Library Path
+# ---------------------------
+
+export LD_LIBRARY_PATH=$VCC_LIB_DIR:/usr/local/lib:/usr/openwin/lib:/usr/dt/lib:/usr/lib
+
+# ------------------------------
+# Set VCC MAN PATH
+# in future add $VCC_HOME/man so that VCC components can add their own man pages
+# -----------------------------
+
+MANPATH=$VCC_HOME/man:/usr/man
+export MANPATH
+
+# -------------------------
+# Set VCC PERL Library Path
+# -------------------------
+
+PERL_HOME=${VCC_LANG_DIR}/perl
+
+PERL_BIN_DIR=${PERL_HOME}/bin
+PERL_LIB_DIR=${PERL_HOME}/lib
+PERL_MAN_DIR=${PERL_HOME}/man
+
+PERL_VERSION=5.10.1
+
+PERL5LIB=${PERL_LIB_DIR}
+PERL5LIB=${PERL5LIB}:${PERL_LIB_DIR}/${PERL_VERSION}
+PERL5LIB=${PERL5LIB}:${PERL_LIB_DIR}/${PERL_VERSION}/x86_64-linux
+PERL5LIB=${PERL5LIB}:${PERL_LIB_DIR}/site_perl
+PERL5LIB=${PERL5LIB}:${PERL_LIB_DIR}/site_perl/${PERL_VERSION}
+PERL5LIB=${PERL5LIB}:${PERL_LIB_DIR}/site_perl/${PERL_VERSION}/x86_64-linux
+PERL5LIB=${PERL5LIB}:${VCC_LIB_DIR}/logger/perl
+PERL5LIB=${PERL5LIB}:${DM_LIB_DIR}
+PERL5LIB=${PERL5LIB}:${PUBLISHER_BIN_DIR}
+PERL5LIB=${PERL5LIB}:${SUBSCRIBER_BIN_DIR}
+PERL5LIB=${PERL5LIB}:${DAD_BIN_DIR}
+PERL5LIB=${PERL5LIB}:${VCC_HOME}/infrastructure/ecomp/logger/perlib
+PERL5LIB=${PERL5LIB}:${VCC_HOME}/perlib/logger
+
+export PERL5LIB
+
+
+# ------------------------------------------------------------
+# Set VCC PATH to point to all appropriate VCC bin directories
+# ------------------------------------------------------------
+
+# NOTES:
+# 1. Done this way so it's visually easier to read and edit
+# 2. Yes, I purposely clobber PATH so that it is ONLY what
+#    we define it to be for security reasons
+# 3. The current directory is also excluded for security
+#    reasons
+
+# VCC Platform / Component executable directories
+PATH=$JAVA_BIN_DIR
+PATH=$PATH:$PERL_BIN_DIR
+PATH=$PATH:$VCC_BIN_DIR
+PATH=$PATH:$VCC_BIN_COMMON_DIR
+PATH=$PATH:$VCC_BIN_INSTALL_DIR
+PATH=$PATH:$VCC_BIN_TOOLS_DIR
+PATH=$PATH:$VCC_BIN_UTIL_DIR
+PATH=$PATH:$PUBLISHER_BIN_DIR
+PATH=$PATH:$SUBSCRIBER_BIN_DIR
+PATH=$PATH:$DM_BIN_DIR
+PATH=$PATH:$DMON_BIN_DIR
+PATH=$PATH:$SLB_BIN_DIR
+PATH=$PATH:$HPP_BIN_DIR
+PATH=$PATH:$UEB_BIN_DIR
+PATH=$PATH:$DAD_BIN_DIR
+
+# Components really should have their
+# own BIN, LOG, CONFIG definitions
+PATH=$PATH:$VCC_BIN_DIR/pmParser
+
+# Uncomment these if the definition
+# becomes unique
+# PATH=$PATH:$ARCHIVER_BIN_DIR
+
+# system executable directories to search
+PATH=$PATH:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin
+PATH=$PATH:/usr/kerberos/bin:/usr/X11R6/bin
+
+PATH=$PATH:$DMDHOME/bin
+
+export PATH
+
+
+# ---------------------------------------------------------
+# vtiers Related Environment Variables and Aliases
+# ---------------------------------------------------------
+
+export MY_VLSN=`$VCC_BIN_COMMON_DIR/getMyVccLogicalSystemName`
+export VCC_USERID=`whoami`
+
+
+# ------------------------------------------------------------------
+# Establish useful aliases for VCC executables run from command line
+# ------------------------------------------------------------------
+
+alias vccRun="$VCC_BIN_COMMON_DIR/vccRun.sh"
+alias tzDate="$VCC_BIN_COMMON_DIR/tzDate.ksh"
+alias vlsn="$VCC_BIN_COMMON_DIR/getMyVccLogicalSystemName"
+
+# ----------------------------------------------------
+# VCC Collector: CLI Related Environment Variables
+# ----------------------------------------------------
+
+export CLI_OUTPUT_DAILY_DIR=$VCC_DATA_OUTPUT_DIR/network/daily
+export CLI_ARCHIVE_DIR=$VCC_ARCHIVE_DIR/network
+export CLI_OUTPUT_ARCHIVE_15MIN_DIR=$VCC_ARCHIVE_DIR/output/network/15min
+export CLI_OUTPUT_ARCHIVE_HOURLY_DIR=$VCC_ARCHIVE_DIR/output/network/hourly
+export CLI_OUTPUT_ARCHIVE_DAILY_DIR=$VCC_ARCHIVE_DIR/output/network/daily
+export CLI_LOG_DIR=$VCC_LOG_DIR/cli
+export CLI_CONFIG_DIR=$VCC_CONFIG_DIR/cli
+export CLI_CISCO_OUTPUT_15MIN_DIR=$VCC_DATA_OUTPUT_DIR/vendor/CISCO/15min
+export CLI_CISCO_OUTPUT_HOURLY_DIR=$VCC_DATA_OUTPUT_DIR/vendor/CISCO/hourly
+export CLI_CISCO_OUTPUT_DAILY_DIR=$VCC_DATA_OUTPUT_DIR/vendor/CISCO/daily
+export CLI_JUNIPER_OUTPUT_15MIN_DIR=$VCC_DATA_OUTPUT_DIR/vendor/JUNIPER/15min
+export CLI_JUNIPER_OUTPUT_HOURLY_DIR=$VCC_DATA_OUTPUT_DIR/vendor/JUNIPER/hourly
+export CLI_JUNIPER_OUTPUT_DAILY_DIR=$VCC_DATA_OUTPUT_DIR/vendor/JUNIPER/daily
+export CLI_DRIVENET_OUTPUT_15MIN_DIR=$VCC_DATA_OUTPUT_DIR/vendor/DRIVENET/15min
+export CLI_DRIVENET_OUTPUT_HOURLY_DIR=$VCC_DATA_OUTPUT_DIR/vendor/DRIVENET/hourly
+export CLI_DRIVENET_OUTPUT_DAILY_DIR=$VCC_DATA_OUTPUT_DIR/vendor/DRIVENET/daily
+export CLI_ARISTASWITCH_OUTPUT_15MIN_DIR=$VCC_DATA_OUTPUT_DIR/vendor/ARISTASWITCH/15min
+export CLI_ARISTASWITCH_OUTPUT_HOURLY_DIR=$VCC_DATA_OUTPUT_DIR/vendor/ARISTASWITCH/hourly
+export CLI_ARISTASWITCH_OUTPUT_DAILY_DIR=$VCC_DATA_OUTPUT_DIR/vendor/ARISTASWITCH/daily
+export CLI_CISCOSWITCH_OUTPUT_15MIN_DIR=$VCC_DATA_OUTPUT_DIR/vendor/CISCOSWITCH/15min
+export CLI_CISCOSWITCH_OUTPUT_HOURLY_DIR=$VCC_DATA_OUTPUT_DIR/vendor/CISCOSWITCH/hourly
+export CLI_CISCOSWITCH_OUTPUT_DAILY_DIR=$VCC_DATA_OUTPUT_DIR/vendor/CISCOSWITCH/daily
+
+
+# VCC Collector: BROADWORKS Related Environment Variables
+# -----------------------------------------------------
+
+export CDR_LOG_DIR=$VCC_LOG_DIR/DCAE
+export CDR_USP_ROUTE_LOG_DIR=$CDR_LOG_DIR/uspRoute
+export CDR_USP_PROCESSOR_LOG_DIR=$CDR_LOG_DIR/uspccfCDR
+export CDR_USP_DECODER_LOG_DIR=$CDR_LOG_DIR/cdrUspDecoder
+export CDR_USPCCF_OUTPUT_DIR=$VCC_DATA_OUTPUT_DIR/voip/usp/cdr/ccf
+export CDR_USPCCF_INPUT_DIR=$VCC_DATA_INPUT_DIR/voip/usp/cdr/ccf
+export CDR_USPCCF_INTERM_DIR=$VCC_DATA_DIR/interm/voip/usp/cdr/ccf
+export CDR_USPCCF_INVENTORY_DIR=$VCC_DATA_INPUT_DIR/inventory
+export CDR_USPCCF_ARCHIVE_DIR=$VCC_HOME/archive/published/dmd/
+export CDR_USPCCF_ARCHIVE_LB_DIR=$VCC_HOME/archive/data/input/voip/usp/cdr/ccf/
+export CDR_USP_PUBLISHER_INPUT_DIR=$VCC_DATA_INPUT_DIR/publisher/dmd
+
+export CDR_BROADWORKS_ROUTE_LOG_DIR=$CDR_LOG_DIR/trnRoute
+export CDR_BROADWORKS_PROCESSOR_LOG_DIR=$CDR_LOG_DIR/broadworksCDR
+export CDR_BROADWORKS_DECODER_LOG_DIR=$CDR_LOG_DIR/trnDecode
+export CDR_BROADWORKS_OUTPUT_DIR=$VCC_DATA_OUTPUT_DIR/voip/broadworks/cdr/ccf
+export CDR_BROADWORKS_INPUT_DIR=$VCC_DATA_INPUT_DIR/voip/broadworks/cdr/ccf
+export CDR_BROADWORKS_INTERM_DIR=$VCC_DATA_DIR/interm/voip/broadworks/cdr/ccf
+export CDR_BROADWORKS_INVENTORY_DIR=$VCC_DATA_INPUT_DIR/inventory
+export CDR_BROADWORKS_ARCHIVE_DIR=$VCC_HOME/archive/published/dmd/
+export CDR_BROADWORKS_ARCHIVE_LB_DIR=$VCC_HOME/archive/data/input/voip/broadworks/cdr/ccf/
+
+export CDR_ERICSSON_ROUTE_LOG_DIR=$CDR_LOG_DIR/trnRoute
+export CDR_ERICSSON_PROCESSOR_LOG_DIR=$CDR_LOG_DIR/ericssonCDR
+export CDR_ERICSSON_DECODER_LOG_DIR=$CDR_LOG_DIR/trnDecode
+export CDR_ERICSSON_OUTPUT_DIR=$VCC_DATA_OUTPUT_DIR/voip/ericsson/cdr/ccf
+export CDR_ERICSSON_INPUT_DIR=$VCC_DATA_INPUT_DIR/voip/ericsson/cdr/ccf
+export CDR_ERICSSON_INTERM_DIR=$VCC_DATA_DIR/interm/voip/ericsson/cdr/ccf
+export CDR_ERICSSON_INVENTORY_DIR=$VCC_DATA_INPUT_DIR/inventory
+export CDR_ERICSSON_ARCHIVE_DIR=$VCC_HOME/archive/published/dmd/
+export CDR_ERICSSON_ARCHIVE_LB_DIR=$VCC_HOME/archive/data/input/voip/ericsson/cdr/ccf/
+
+export CDR_VTSBC_ROUTE_LOG_DIR=$CDR_LOG_DIR/uspRoute
+export CDR_VTSBC_PROCESSOR_LOG_DIR=$CDR_LOG_DIR/vtsbcCDR
+export CDR_VTSBC_DECODER_LOG_DIR=$CDR_LOG_DIR/uspDecode
+export CDR_VTSBC_OUTPUT_DIR=$VCC_DATA_OUTPUT_DIR/voip/vtsbc/cdr/ccf
+export CDR_VTSBC_INPUT_DIR=$VCC_DATA_INPUT_DIR/voip/vtsbc/cdr/ccf
+export CDR_VTSBC_INTERM_DIR=$VCC_DATA_DIR/interm/voip/vtsbc/cdr/ccf
+export CDR_VTSBC_INVENTORY_DIR=$VCC_DATA_INPUT_DIR/inventory
+export CDR_VTSBC_ARCHIVE_DIR=$VCC_HOME/archive/published/dmd/
+export CDR_VTSBC_ARCHIVE_LB_DIR=$VCC_HOME/archive/data/input/voip/vtsbc/cdr/ccf/
+
+export VCC_RUN_ENV=$(no_proxy=$CONSUL_HOST sh -c 'C=`curl -s http://$CONSUL_HOST:8500/v1/agent/self?pretty | grep -m1 ''"NodeName"'' | cut -d\" -f4 | cut -c3`; case "$C" in d) echo "DEV" ;; t) echo "PST" ;; e) echo "E2E" ;; l) echo "PSL" ;; p) echo "PROD" ;; esac')

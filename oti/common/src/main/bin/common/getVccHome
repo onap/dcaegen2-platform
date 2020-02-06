@@ -1,0 +1,45 @@
+#!/usr/bin/env ksh
+
+###
+#
+# SCRIPT
+#  getVccHome
+#
+# SYNOPSIS
+#  getVccHome [-v <VLSN>|-n <networkName>]
+#
+# DESCRIPTION
+#  Return VCC home directory
+#  If no argument is provided, return $VCC_HOME
+#  If an option is specified, behavior is as follows ...
+#  -v <VLSN>, where <VLSN> is the VCC logical system name of the 
+#     server for which you want the VCC home directory
+#  -n <NN>, where <NN> is the VCC network name of the 
+#     server for which you want the VCC home directory
+#  If PLSN or NN is not found, return ""
+#  If unknown option supplied (not -v|-n), return "error: unknown option"
+#
+# RELATED SCRIPTS
+#  vtiername returns "network" name (vtiername or hostname)
+#  getMyVccLogicalSystemName returns a VCC logical system name or ""(NULL)
+#
+# DEPENDENCIES
+#  $VCC_CONFIG_SYSTEM_DIR/vcc_server_info.cfg  
+#
+###
+
+if [ "$1" != "" ];
+then
+	if [ "$1" = "-v" ];
+	then
+		grep -v "^#" $VCC_CONFIG_SYSTEM_DIR/vcc_server_info.cfg | grep "^${2:-`getMyVccLogicalSystemName`}" | cut -d ":" -f 8
+    elif [ "$1" = "-n" ];
+    then
+		grep -v "^#" $VCC_CONFIG_SYSTEM_DIR/vcc_server_info.cfg | egrep "^.*:.*:.*:.*:.*:.*:${2:-`vtiername`[\.|:]}" | cut -d ":" -f 8
+    else
+    	echo "error: unknown option"
+    	exit 4
+    fi
+else
+	echo $VCC_HOME
+fi
