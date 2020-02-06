@@ -24,6 +24,8 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.TreeMap;
 
+import org.onap.blueprintgenerator.core.PgaasNodeBuilder;
+import org.onap.blueprintgenerator.models.componentspec.Auxilary;
 import org.onap.blueprintgenerator.models.componentspec.ComponentSpec;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -34,14 +36,36 @@ import lombok.Getter; import lombok.Setter;
 @Getter @Setter
 @JsonInclude(value=Include.NON_NULL)
 public class StartInputs {
-	//private ArrayList<String> ports;
-	private GetInput envs;
+	private ArrayList<String> ports;
+	private Object envs;
 
 	public TreeMap<String, LinkedHashMap<String, Object>> createOnapStartInputs(TreeMap<String, LinkedHashMap<String, Object>> inps, ComponentSpec cs){
-		TreeMap<String, LinkedHashMap<String, Object>> retInputs = new TreeMap<String, LinkedHashMap<String, Object>>();
-		retInputs = inps;
-		LinkedHashMap<String, Object> stringType  = new LinkedHashMap<String, Object>();
+		TreeMap<String, LinkedHashMap<String, Object>> retInputs = inps;
 
+		int count = 0;
+		ArrayList<String> portList = new ArrayList();
+		Auxilary aux = cs.getAuxilary();
+
+		if (aux.getPorts() != null) {
+
+			for(Object p : aux.getPorts()) {
+				String[] ports = p.toString().split(":");
+				String internal
+						= String.format("concat: [\"%s:\", {get_input: external_port_%d}]"
+						, ports[0], count);
+				portList.add(internal);
+
+				LinkedHashMap<String, Object> portType = new LinkedHashMap();
+				portType.put("type", "string");
+				portType.put("default", ports[1]);
+				retInputs.put("external_port_" + count, portType);
+
+				count++;
+			}
+
+		}
+
+		this.setPorts(portList);
 //		ArrayList<String> port = new ArrayList<String>();
 //		String external = "";
 //		if(cs.getAuxilary().getPorts() != null) {
@@ -73,12 +97,21 @@ public class StartInputs {
 //		}
 
 		//set the envs
-		GetInput env = new GetInput();
-		env.setGet_input("envs");
-		this.setEnvs(env);
 		LinkedHashMap<String, Object> eMap = new LinkedHashMap();
-		eMap.put("default", "{}");
+		if(cs.getAuxilary().getDatabases() != null){
+			//set db env variables
+			LinkedHashMap<String, Object> envVars = PgaasNodeBuilder.getEnvVariables(cs.getAuxilary().getDatabases());
+			this.setEnvs(envVars);
+			eMap.put("default", "&envs {}");
+		}
+		else {
+			GetInput env = new GetInput();
+			env.setGet_input("envs");
+			this.setEnvs(env);
+			eMap.put("default", "{}");
+		}
 		retInputs.put("envs", eMap);
+
 
 		return retInputs;
 	}

@@ -20,11 +20,7 @@
 
 package org.onap.blueprintgenerator.models.blueprint;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.TreeMap;
@@ -50,7 +46,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
+import org.yaml.snakeyaml.Yaml;
 
 
 @Getter @Setter
@@ -194,7 +190,6 @@ public class Blueprint {
 		System.out.println("Blueprint created");
 	}
 
-
 	public String blueprintToString() {
 		String ret = "";
 
@@ -206,6 +201,6 @@ public class Blueprint {
 		}
 
 
-		return ret;
+		return Fixes.applyFixes(ret);
 	}
 }

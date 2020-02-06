@@ -24,6 +24,8 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.TreeMap;
 
+import org.onap.blueprintgenerator.core.PgaasNodeBuilder;
+import org.onap.blueprintgenerator.core.PolicyNodeBuilder;
 import org.onap.blueprintgenerator.models.blueprint.GetInput;
 import org.onap.blueprintgenerator.models.blueprint.Interfaces;
 import org.onap.blueprintgenerator.models.blueprint.Node;
@@ -71,19 +73,17 @@ public class DmaapNode extends Node{
 		ArrayList<LinkedHashMap<String, String>> rets = new ArrayList();
 
 		//go through the streams publishes
-		int counter = 0;
 		if(cs.getStreams().getPublishes() != null) {
 			for(Publishes p: cs.getStreams().getPublishes()) {
 				LinkedHashMap<String, String> pubRelations = new LinkedHashMap();
 				if(p.getType().equals("message_router") || p.getType().equals("message router")) {
 					pubRelations.put("type", "ccsdk.relationships.publish_events");
-					pubRelations.put("target", "topic" + counter);
+					pubRelations.put("target", p.getConfig_key() + "_topic");
 				} else if(p.getType().equals("data_router") || p.getType().equals("data router")) {
 					pubRelations.put("type", "ccsdk.relationships.publish_files");
-					pubRelations.put("target", "feed" + counter);
+					pubRelations.put("target", p.getConfig_key() + "_feed");
 				}
 				rets.add(pubRelations);
-				counter++;
 			}
 		}
 		//go through the stream subscribes
@@ -92,14 +92,25 @@ public class DmaapNode extends Node{
 				LinkedHashMap<String, String> subRelations = new LinkedHashMap();
 				if(s.getType().equals("message_router") || s.getType().equals("message router")) {
 					subRelations.put("type", "ccsdk.relationships.subscribe_to_events");
-					subRelations.put("target", "topic" + counter);
+					subRelations.put("target", s.getConfig_key() + "_topic");
 				} else if(s.getType().equals("data_router") || s.getType().equals("data router")) {
 					subRelations.put("type", "ccsdk.relationships.subscribe_to_files");
-					subRelations.put("target", "feed" + counter);
+					subRelations.put("target", s.getConfig_key() + "_feed");
 				}
 				rets.add(subRelations);
-				counter++;
 			}
+		}
+
+		//add relationship for policy if exist
+		if(cs.getPolicyInfo() != null){
+			ArrayList<LinkedHashMap<String, String>> policyRelationshipsList = PolicyNodeBuilder.getPolicyRelationships(cs);
+			rets.addAll(policyRelationshipsList);
+		}
+
+		//add relationships and env_variables for pgaas dbs if exist
+		if(cs.getAuxilary().getDatabases() != null){
+			ArrayList<LinkedHashMap<String, String>> pgaasRelationshipsList = PgaasNodeBuilder.getPgaasNodeRelationships(cs);
+			rets.addAll(pgaasRelationshipsList);
 		}
 		
 		this.setRelationships(rets);
