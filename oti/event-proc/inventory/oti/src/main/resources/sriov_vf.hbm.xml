@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.att.vcc.inventorycollector.domain.SriovVf" schema="dti" table="rt_sriov_vf">
+        <meta attribute="class-description">This class contains the pnf detail.</meta>
+        <meta attribute="use-in-tostring">true</meta>
+         <composite-id>
+		    <key-property name="pciid" column="PCI_ID" type="string"/>
+		    <key-property name="grandparententityid" column="GRANDPARENT_ENTITY_ID" type="string" />
+		</composite-id>
+		<property name="vfvlanfilter" column="VF_VLAN_FILTER" type="string" />
+		<property name="vfmacfilter" column="VF_MAC_FILTER" type="string" />
+		<property name="vfvlanstrip" column="VF_VLAN_STRIP" type="string" />
+		<property name="vfvlanantispoofcheck" column="VF_VLAN_ANTI_SPOOF_CHECK" type="string" />
+		<property name="vfmacantispoofcheck" column="VF_MAC_ANTI_SPOOF_CHECK" type="string" />
+		<property name="vfmirrors" column="VF_MIRRORS" type="string" />
+		<property name="vfbroadcastallow" column="VF_BROADCAST_ALLOW" type="string" />
+		<property name="vfunknownmulticastallow" column="VF_UNKNOWN_MULTICAST_ALLOW" type="string" />
+		<property name="vfunknowniunicastallow" column="VF_UNKNOWN_UNICAST_ALLOW" type="string" />
+		<property name="vfinsertstag" column="VF_INSERT_STAG" type="string" />
+		<property name="vflinkstatus" column="VF_LINK_STATUS" type="string" />
+		<property name="resourceversion" column="RESOURCE_VERSION" type="string" />
+		<property name="neutronnetworkid" column="NEUTRON_NETWORK_ID" type="string" />
+		<property name="parententitytype" column="PARENT_ENTITY_TYPE" type="string" />
+		<property name="parententityid" column="PARENT_ENTITY_ID" type="string"/>
+		<property name="cloudowner" column="CLOUD_OWNER" type="string" />
+		<property name="cloudregionid" column="CLOUD_REGION_ID" type="string" />
+		<property name="tenantid" column="TENANT_ID" type="string" />
+		<property name="grandparententitytype" column="GRANDPARENT_ENTITY_TYPE" type="string" />
+		<property name="pinterfacename" column="P_INTERFACE_NAME" type="string" />
+		<property name="laginterfacename" column="LAG_INTERFACE_NAME" type="string" />		
+		<property name="updatedOn" column="UPDATED_ON" type="string" />
+    </class>
+</hibernate-mapping>

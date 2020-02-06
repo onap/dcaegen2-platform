@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.att.vcc.inventorycollector.domain.Vnfc" schema="dti" table="RT_vnfc">
+        <meta attribute="class-description">This class contains the vnfc detail.</meta>
+        <meta attribute="use-in-tostring">true</meta>
+        <id name="vnfcname" column="VNFC_NAME"  type="java.lang.String"/>
+        <property name="nfcnamingcode" column="NFC_NAMING_CODE" type="string" />
+        <property name="nfcfunction" column="NFC_FUNCTION" type="string" />
+        <property name="provstatus" column="PROV_STATUS" type="string" />
+        <property name="orchestrationstatus" column="ORCHESTRATION_STATUS" type="string" />
+        <property name="resourceversion" column="RESOURCE_VERSION" type="string" />
+        <property name="inmaint" column="IN_MAINT" type="string" />
+        <property name="ipaddressv4oamvip" column="IPADDRESS_V4_OAM_VIP" type="string" />
+        <property name="isclosedloopdisabled" column="IS_CLOSED_LOOP_DISABLED" type="string" />
+        <property name="groupnotation" column="group_notation" type="string" />
+        <property name="modelinvariantid" column="MODEL_INVARIANT_ID" type="string" />
+        <property name="modelversionid" column="MODEL_VERSION_ID" type="string" />
+        <property name="modelCustomizationId" column="MODEL_CUSTOMIZATION_ID" type="string" />
+        <property name="updatedOn" column="UPDATED_ON" type="string" />
+      </class>
+</hibernate-mapping>

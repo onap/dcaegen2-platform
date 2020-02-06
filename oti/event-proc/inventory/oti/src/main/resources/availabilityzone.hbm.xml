@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.att.vcc.inventorycollector.domain.AvailabilityZone" schema="dti" table="rt_availability_zone">
+		<meta attribute="class-description">This class contains the availability-zone detail.</meta>
+		<meta attribute="use-in-tostring">true</meta>
+		<composite-id>
+			<key-property name="availabilityZoneName" column="AVAILABILITY_ZONE_NAME" type="java.lang.String" />
+			<key-property name="cloudOwner" column="CLOUD_OWNER" type="string" />
+			<key-property name="cloudRegionId" column="CLOUD_REGION_ID" type="string" />
+		</composite-id>
+		<property name="hypervisorType" column="HYPERVISOR_TYPE" type="string" />
+		<property name="operationalStatus" column="OPERATIONAL_STATUS" type="string" />
+		<property name="resourceversion" column="RESOURCE_VERSION" type="string" />
+		<property name="updatedOn" column="UPDATED_ON" type="string" />
+	</class>
+</hibernate-mapping>

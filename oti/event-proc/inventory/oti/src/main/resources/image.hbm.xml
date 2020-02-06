@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.att.vcc.inventorycollector.domain.Image" schema="dti" table="rt_image">
+        <meta attribute="class-description">This class contains the image detail.</meta>
+        <meta attribute="use-in-tostring">true</meta>
+        <composite-id>
+            <key-property name="imageid" column="IMAGE_ID"  type="java.lang.String"/>
+            <key-property name="cloudowner" column="CLOUD_OWNER" type="string" />
+            <key-property name="cloudregionid" column="CLOUD_REGION_ID" type="string" />
+        </composite-id>
+        <property name="imagename" column="IMAGE_NAME" type="string" />
+        <property name="imagearchitecture" column="IMAGE_ARCHITECTURE" type="string" />
+        <property name="imageosdistro" column="IMAGE_OS_DISTRO" type="string" />
+        <property name="imageosversion" column="IMAGE_OS_VERSION" type="string" />
+        <property name="application" column="APPLICATION" type="string" />
+        <property name="applicationvendor" column="APPLICATION_VENDOR" type="string" />
+        <property name="applicationversion" column="APPLICATION_VERSION" type="string" />
+        <property name="imageselflink" column="IMAGE_SELFLINK" type="string" />
+        <property name="resourceversion" column="RESOURCE_VERSION" type="string" />
+        <property name="updatedOn" column="UPDATED_ON" type="string" />
+    </class>
+</hibernate-mapping>

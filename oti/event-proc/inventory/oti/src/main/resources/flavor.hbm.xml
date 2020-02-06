@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.att.vcc.inventorycollector.domain.Flavor" schema="dti" table="rt_flavor">
+        <meta attribute="class-description">This class contains the flavor detail.</meta>
+        <meta attribute="use-in-tostring">true</meta>
+        <composite-id>
+            <key-property name="flavorid" column="flavor_id"  type="java.lang.String"/>
+            <key-property name="cloudOwner" column="CLOUD_OWNER" type="string" />
+            <key-property name="cloudRegionId" column="CLOUD_REGION_ID" type="string" />
+        </composite-id>
+        <property name="flavorname" column="flavor_name" type="string" />
+        <property name="flavorvcpus" column="flavor_vcpus" type="java.lang.Long" />
+        <property name="flavorram" column="flavor_ram" type="java.lang.Long" />
+        <property name="flavordisk" column="flavor_disk" type="java.lang.Long" />
+        <property name="flavorephemeral" column="flavor_ephemeral" type="java.lang.Long" />
+        <property name="flavorswap" column="flavor_swap" type="string" />
+        <property name="flavorispublic" column="flavor_is_public" type="string" />
+        <property name="flavorselflink" column="flavor_selflink" type="string" />
+        <property name="flavordisabled" column="flavor_disabled" type="string" />
+        <property name="resourceversion" column="resource_version" type="string" />
+        <property name="updatedOn" column="UPDATED_ON" type="string" />
+     </class>
+</hibernate-mapping>

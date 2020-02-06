@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+		<!-- <property name="hibernate.connection.password">${PGPASSWORD}</property> 
+			<property name="hibernate.connection.url">${PGJDBC_URL}</property> <property 
+			name="hibernate.connection.username">${PGUSERNAME}</property> -->
+		<property name="show_sql">false</property>
+		<property name="format_sql">false</property>
+		<property name="use_sql_comments">false</property>
+
+		<property name="hibernate.c3p0.min_size">1</property>
+		<property name="hibernate.c3p0.max_size">5</property>
+		<property name="hibernate.c3p0.timeout">300</property>
+		<property name="hibernate.c3p0.max_statements">50</property>
+		<property name="hibernate.c3p0.idle_test_period">3000</property>
+
+		<!-- List of XML mapping files -->
+		<mapping resource="complex.hbm.xml" />
+		<mapping resource="relationshiplist.hbm.xml" />
+		<mapping resource="genericvnf.hbm.xml" />
+		<mapping resource="vserver.hbm.xml" />
+		<mapping resource="image.hbm.xml" />
+		<mapping resource="service.hbm.xml" />
+		<mapping resource="pserver.hbm.xml" />
+		<mapping resource="linterface.hbm.xml" />
+		<mapping resource="tenant.hbm.xml" />
+		<mapping resource="l3-interface-ipv4-address-list.hbm.xml" />
+		<mapping resource="flavor.hbm.xml" />
+		<mapping resource="pinterface.hbm.xml" />
+		<mapping resource="l3-interface-ipv6-address-list.hbm.xml" />
+		<mapping resource="vlan.hbm.xml" />
+		<mapping resource="physicallink.hbm.xml" />
+		<mapping resource="dvsswitch.hbm.xml" />
+		<mapping resource="networkprofile.hbm.xml" />
+		<mapping resource="vce.hbm.xml" />
+		<mapping resource="vpe.hbm.xml" />
+		<mapping resource="vnfimage.hbm.xml" />
+		<mapping resource="logicallink.hbm.xml" />
+		<mapping resource="oamnetwork.hbm.xml" />
+		<mapping resource="virtualdatacenter.hbm.xml" />
+		<mapping resource="availabilityzone.hbm.xml" />
+		<mapping resource="volume.hbm.xml" />
+		<mapping resource="customer.hbm.xml" />
+		<mapping resource="servicesubscription.hbm.xml" />
+		<mapping resource="serviceinstance.hbm.xml" />
+		<mapping resource="laginterface.hbm.xml" />
+		<mapping resource="laglink.hbm.xml" />
+		<mapping resource="l3network.hbm.xml" />
+		<mapping resource="subnet.hbm.xml" />
+		<mapping resource="portgroup.hbm.xml" />
+		<mapping resource="cloudregion.hbm.xml" />
+		<mapping resource="newvce.hbm.xml" />
+		<mapping resource="servicecapability.hbm.xml" />
+		<mapping resource="vfmodule.hbm.xml" />
+		<mapping resource="vnfc.hbm.xml" />
+		<mapping resource="metadatum.hbm.xml" />
+		<mapping resource="vpls-pe.hbm.xml" />
+		<mapping resource="sriov_vf.hbm.xml" />
+		<mapping resource="pnf.hbm.xml" />
+		<mapping resource="model.hbm.xml" />
+		<mapping resource="modelver.hbm.xml" />
+		<mapping resource="zone.hbm.xml" />
+		<mapping resource="platform.hbm.xml" />
+		<mapping resource="owning_entity.hbm.xml" />
+		<mapping resource="line_of_business.hbm.xml" />
+		<mapping resource="project.hbm.xml" />
+		<mapping resource="operationalenvironment.hbm.xml" />
+		<mapping resource="seedingmanager.hbm.xml" />
+		<mapping resource="verticafeed.hbm.xml" />
+		<mapping resource="forwardingpath.hbm.xml" />
+		<mapping resource="forwarder.hbm.xml" />
+		<mapping resource="dcae_event.hbm.xml" />
+		<mapping resource="sriov_pf.hbm.xml" />
+		<mapping resource="community_string.hbm.xml" />
+		<mapping resource="cp.hbm.xml" />
+		<mapping resource="cloudvipipv4addresslist.hbm.xml" />
+        <mapping resource="cloudvipipv6addresslist.hbm.xml" />
+        <mapping resource="nos_server.hbm.xml" />
+        <mapping resource="allotted_resource.hbm.xml" />
+
+<!--         Narad hibernate files -->
+
+		<mapping resource="narad_cable.hbm.xml" />
+		<mapping resource="narad_card_slot.hbm.xml" />
+		<mapping resource="narad_card.hbm.xml" />
+		<mapping resource="narad_chassis.hbm.xml" />
+		<mapping resource="narad_rack.hbm.xml" />				
+		<mapping resource="narad_cloud_region.hbm.xml" />
+		<mapping resource="narad_complex.hbm.xml" />
+		<mapping resource="narad_instance_group.hbm.xml" />
+		<mapping resource="narad_l_interface.hbm.xml" />
+		<mapping resource="narad_l3_interface_ipv4_address_list.hbm.xml" />
+		<mapping resource="narad_l3_interface_ipv6_address_list.hbm.xml" />
+		<mapping resource="narad_l3network.hbm.xml" />
+		<mapping resource="narad_lag_interface.hbm.xml" />
+		<mapping resource="narad_logical_link.hbm.xml" />
+		<mapping resource="narad_p_interface.hbm.xml" />
+		<mapping resource="narad_physical_link.hbm.xml" />
+		<mapping resource="narad_pluggable_slot.hbm.xml" />
+		<mapping resource="narad_pluggable.hbm.xml" />
+		<mapping resource="narad_pnf.hbm.xml" />
+		<mapping resource="narad_port.hbm.xml" />
+		<mapping resource="narad_pserver.hbm.xml" />		
+		<mapping resource="narad_relationship_list.hbm.xml" />
+		<mapping resource="narad_subnet.hbm.xml" />
+		<mapping resource="narad_vlan.hbm.xml" />
+		<mapping resource="narad_zone.hbm.xml" />                   		
+	</session-factory>
+</hibernate-configuration>

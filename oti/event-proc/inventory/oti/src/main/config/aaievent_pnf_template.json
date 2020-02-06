@@ -1,0 +1,1 @@
+{"cambria.partition":"AAI","event-header":{"timestamp":"20190801-20:27:40:901","id":"5e41e5f4-3864-45ba-8652-a8af0df360bf","source-name":"MSO","action":"UPDATE","domain":"Production","sequence-number":"0","entity-link":"ENTITY_LINK","entity-type":"pnf","severity":"NORMAL","event-type":"AAI-EVENT","version":"v16","top-entity-type":"pnf"},"entity":ENTITY_VALUE}

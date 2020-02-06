@@ -1,0 +1,1 @@
+{"cambria.partition":"AAI","event-header":{"timestamp":"20190801-04:22:21:683","id":"a08e9935-d6d0-494b-96bb-ccce09ce42ac","source-name":"RO","action":"UPDATE","domain":"Production","sequence-number":"0","entity-link":"ENTITY_LINK","entity-type":"pserver","severity":"NORMAL","event-type":"AAI-EVENT","version":"v16","top-entity-type":"pserver"},"entity":ENTITY_VALUE}

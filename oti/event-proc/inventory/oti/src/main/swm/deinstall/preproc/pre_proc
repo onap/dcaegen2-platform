@@ -1,0 +1,5 @@
+# Pre-deinstall routines
+
+#echo "Running common deinstall pre proc script"
+#cd ../../common
+#exec sh -x ./deinstall_preproc.sh

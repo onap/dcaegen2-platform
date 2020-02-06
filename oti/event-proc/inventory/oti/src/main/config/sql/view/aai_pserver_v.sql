@@ -1,0 +1,28 @@
+CREATE OR REPLACE VIEW dti.aai_pserver_v AS 
+ SELECT 
+    rt_pserver.hostname,
+    rt_pserver.ptnii_equip_name,
+    rt_pserver.number_of_cpus,
+    rt_pserver.disk_in_gigabytes,
+    rt_pserver.ram_in_megabytes,
+    rt_pserver.equip_type,
+    rt_pserver.equip_vendor,
+    rt_pserver.equip_model,
+    rt_pserver.fqdn,
+    rt_pserver.pserver_selflink,
+    rt_pserver.ipv4_oam_address,
+    rt_pserver.serial_number,
+    rt_pserver.ipaddress_v4_loopback_0,
+    rt_pserver.ipaddress_v6_loopback_0,
+    rt_pserver.ipaddress_v4_aim,
+    rt_pserver.ipaddress_v6_aim,
+    rt_pserver.ipaddress_v6_oam,
+    rt_pserver.inv_status,
+    rt_pserver.pserver_id,
+    rt_pserver.in_maint,
+    rt_pserver.internet_topology,
+    rt_pserver.resource_version,
+    rt_pserver.pserver_name2,
+    rt_pserver.purpose,
+    rt_pserver.prov_status
+   FROM dti.rt_pserver;

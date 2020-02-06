@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.att.vcc.inventorycollector.domain.Pserver" schema="dti" table="rt_pserver">
+        <meta attribute="class-description">This class contains the rt_pserver detail.</meta>
+        <meta attribute="use-in-tostring">true</meta>
+        <id name="hostname" column="hostname"  type="java.lang.String"/>
+        <property name="ptniiequipname" column="ptnii_equip_name" type="string" />
+        <property name="numberofcpus" column="number_of_cpus" type="java.lang.Long" />
+        <property name="diskingigabytes" column="disk_in_gigabytes" type="java.lang.Long" />
+        <property name="raminmegabytes" column="ram_in_megabytes" type="java.lang.Long" />
+        <property name="equiptype" column="equip_type" type="string" />
+        <property name="equipvendor" column="equip_vendor" type="string" />
+        <property name="equipmodel" column="equip_model" type="string" />
+        <property name="fqdn" column="fqdn" type="string" />
+        <property name="pserverselflink" column="pserver_selflink" type="string" />
+        <property name="ipv4oamaddress" column="ipv4_oam_address" type="string" />
+        <property name="serialnumber" column="serial_number" type="string" />
+        <property name="ipaddressv4loopback0" column="IPADDRESS_V4_LOOPBACK_0" type="string" />
+        <property name="ipaddressv6loopback0" column="IPADDRESS_V6_LOOPBACK_0" type="string" />
+        <property name="ipaddressv4aim" column="IPADDRESS_V4_AIM" type="string" />
+        <property name="ipaddressv6aim" column="IPADDRESS_V6_AIM" type="string" />
+        <property name="ipaddressv6oam" column="IPADDRESS_V6_OAM" type="string" />
+        <property name="invstatus" column="INV_STATUS" type="string" />
+        <property name="pserverid" column="pserver_id" type="string" />
+        <property name="inmaint" column="in_maint" type="string" />
+        <property name="internettopology" column="internet_topology" type="string" />
+        <property name="resourceversion" column="resource_version" type="string" />
+        <property name="pservername2" column="pserver_name2" type="string" />
+        <property name="purpose" column="purpose" type="string" />
+        <property name="provstatus" column="PROV_STATUS" type="string" />
+        <property name="managementoption" column="MANAGEMENT_OPTION" type="string" />
+        <property name="hostProfile" column="HOST_PROFILE" type="string"/>
+        <property name="updatedOn" column="UPDATED_ON" type="string" />
+    </class>
+</hibernate-mapping>
