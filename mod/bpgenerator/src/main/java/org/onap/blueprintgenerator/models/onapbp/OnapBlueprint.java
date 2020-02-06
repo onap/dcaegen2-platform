@@ -24,6 +24,8 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.TreeMap;
 
+import org.onap.blueprintgenerator.core.PgaasNodeBuilder;
+import org.onap.blueprintgenerator.core.PolicyNodeBuilder;
 import org.onap.blueprintgenerator.models.blueprint.Blueprint;
 import org.onap.blueprintgenerator.models.blueprint.Imports;
 import org.onap.blueprintgenerator.models.blueprint.Node;
@@ -69,8 +71,19 @@ public class OnapBlueprint extends Blueprint{
 		nodeTemplate.put(nodeName, node);
 		this.setNode_templates(nodeTemplate);
 
+		//if present in component spec, populate policyNode information in the blueprint
+		if(cs.getPolicyInfo() != null){
+			PolicyNodeBuilder.addPolicyNodesAndInputs(cs, nodeTemplate, inputs);
+		}
+
+		//if present in component spec, populate pgaasNodes information in the blueprint
+		if(cs.getAuxilary().getDatabases() != null){
+			PgaasNodeBuilder.addPgaasNodesAndInputs(cs, nodeTemplate, inputs);
+		}
+
 		//set the inputs
 		this.setInputs(inputs);
+
 
 		Blueprint bp = new Blueprint();
 		bp.setImports(this.getImports());
