@@ -1,0 +1,18 @@
+CREATE TABLE IF NOT EXISTS dti.rt_vnfc
+(
+    VNFC_NAME                  VARCHAR(100) NOT NULL ,
+    NFC_NAMING_CODE            VARCHAR(20) NOT NULL ,
+    NFC_FUNCTION               VARCHAR(50),
+    PROV_STATUS                VARCHAR(10),
+    ORCHESTRATION_STATUS       VARCHAR(25),
+    RESOURCE_VERSION           VARCHAR(25) NOT NULL,
+    IN_MAINT                   VARCHAR(1),
+    IPADDRESS_V4_OAM_VIP       VARCHAR(20),
+    IS_CLOSED_LOOP_DISABLED    VARCHAR(1) NOT NULL,
+    group_notation             VARCHAR(40),
+    MODEL_INVARIANT_ID         VARCHAR(150),
+    MODEL_VERSION_ID           VARCHAR(100),
+    MODEL_CUSTOMIZATION_ID     VARCHAR(150),
+    UPDATED_ON                 VARCHAR(20),
+    PRIMARY KEY (VNFC_NAME)
+);

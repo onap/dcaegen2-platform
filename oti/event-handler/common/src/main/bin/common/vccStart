@@ -1,0 +1,208 @@
+#!/usr/bin/env ksh
+
+###
+#
+#  NAME
+#   vccStart
+#
+#  AUTHOR(S)
+#   1. Greg Howard; greg.howard@att.com; 607-257-1575; original developer
+#
+#  DESCRIPTION
+#   This script starts the VCC application by loading the 
+#   crontab file; The crontab file can be rebuilt prior to
+#   loading it if desired
+#
+#  SYNOPSIS
+#   vccStart [-h|?] [-d] [-b]
+#
+#    ? Print help.
+#
+#   -h Same as '?'.
+#
+#   -b Build the crontab configuration file
+#
+#   -v Verbose output
+#
+#  RELATED SCRIPTS
+#   vccServiceInstall~StartVccProcesses
+#
+#  FILE DEPENDENCIES
+#   $VCC_HOME/etc/crontab/crontab.cfg  
+#   $VCC_HOME/config/master/crontab_master.cfg  
+#   $VCC_HOME/config/custom/crontab/crontab_gbl_vccDEFAULT.idList.cfg
+#   $VCC_HOME/config/custom/crontab/crontab_svc_*.cfg
+#
+#  FILE PRODUCTION
+#   $VCC_ETC_DIR/crontab/crontab.cfg 
+#   (if -b option is used, otherwise left untouched)
+#
+#  NOTES
+#   1. ... 
+#
+#  TODO
+#   1. ...
+#
+#  REVISION HISTORY
+#   mm/dd/yyyy attuid -   added ....
+#   mm/dd/yyyy attuid - changed ....
+#   mm/dd/yyyy attuid - removed ....
+#
+#   06/15/2017 gh1363 - created initial version for 17.07
+#
+###
+
+#
+# Internal function definitions
+#
+
+function printUsage
+{
+	echo ""
+	echo "${SCRIPT} [-h|?] [-d] [-b] [-v]"
+	echo ""
+	echo "Example(s):"
+	echo "${SCRIPT}"
+	echo "${SCRIPT} -b"
+	echo "${SCRIPT} -v"
+	echo "${SCRIPT} -b -v"
+	echo ""
+}
+
+setLogFile()
+{
+	# Ensure log dir exists
+	mkdir -p $VCC_LOG_DIR/system
+
+	VLSN=`getMyVccLogicalSystemName`
+	if [ -z "$VLSN" ]
+	then
+		VLSN=`hostname`
+	fi
+
+	LogFile=$VCC_LOG_DIR/system/vccStart_${START_DATETIME_YYYYMMDDhhmmss}_$VLSN.log
+
+	> $LogFile
+
+	return 0
+}
+
+echoAndLog()
+{
+	LevelArg=$1
+	MsgArg=$2
+
+	DATETIME=`date +%Y%m%d%H%M%S`
+
+	NON_VERBOSE_MSG_TYPES="WARN:ERROR:INFO"
+
+	# For user output (assuming we're on a tty), depends on -v option
+	# If verboseOutput=TRUE, then display exactly what gets logged
+	# If verboseOutput=FALSE, then display simpler messages
+	if [[ "$RunEnv" == "tty" ]]
+	then
+		# We're on a tty
+		if [[ "$verboseOutput" == "TRUE" ]]
+		then
+			echo "${DATETIME}000~${LevelArg}~VCC~${SCRIPT}~${LevelArg}_MSG~${MsgArg}"
+		else
+			[[ "$NON_VERBOSE_MSG_TYPES" =~ "$LevelArg" ]] && echo "${MsgArg}" 
+		fi
+	fi
+
+	# Log always gets everything
+	echo "${DATETIME}000~${LevelArg}~VCC~${SCRIPT}~${LevelArg}_MSG~${MsgArg}" >> $LogFile 2>&1
+}
+
+#
+# Initialization
+#
+
+SCRIPT=`basename ${0}`
+START_DATETIME_YYYYMMDD=`date +%Y%m%d`
+START_DATETIME_YYYYMMDDhhmmss=`date +%Y%m%d%H%M%S`
+
+RunEnv=`tty -s && echo "tty" || echo "non-tty"`
+
+verboseOutput="FALSE"
+
+buildCrontabConfigFile="FALSE"
+crontabConfigFile="$VCC_ETC_DIR/crontab/crontab.cfg"
+
+setLogFile
+
+#
+# Process Options (both getopts and name/value pairs)
+#
+
+while
+	getopts dhbv ARG
+do
+	case ${ARG} in
+	d)
+		set -x
+		;;
+	h)
+		printUsage
+		exit 0
+		;;
+	b)
+		buildCrontabConfigFile="TRUE"
+		;;
+	v)
+		verboseOutput="TRUE"
+		;;
+	\?)
+		printUsage
+		exit 1
+		;;
+	esac
+done
+shift `expr ${OPTIND} - 1`
+
+for NON_GETOPTS_CLO in $*
+do
+	if [ "$NON_GETOPTS_CLO" == "?" ]
+	then
+		printUsage
+		exit 0
+	fi
+done
+
+#
+# Main
+#
+
+echoAndLog TRACE "Start ${SCRIPT} $*"
+
+# Rebuild the crontab file if requested to do so,
+# this is typically only done at install time
+if [[ "$buildCrontabConfigFile" == "TRUE" ]]
+then
+	mkdir -p $VCC_ETC_DIR/crontab
+	echoAndLog INFO "Rebuilding: $crontabConfigFile ..."
+	buildVccManagedConfig.ksh -f $crontabConfigFile
+	if [ "$?" -ne 0 ]
+	then
+		echoAndLog ERROR "Rebuild of crontab failed, exiting"
+		exit 1
+	else
+		echoAndLog INFO "Rebuild of crontab succeeded"
+	fi
+fi
+
+cd $VCC_HOME
+. ${VCC_HOME}/.profile
+
+echoAndLog INFO "Loading crontab ..."
+crontab $crontabConfigFile
+if [ "$?" -ne 0 ]
+then
+	echoAndLog ERROR "Install of crontab failed, exiting"
+	exit 1
+fi
+
+echoAndLog INFO "Crontab successfully loaded"
+echoAndLog TRACE "End ${SCRIPT}"
+
+exit 0

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.att.vcc.inventorycollector.domain.NaradLaginterface" schema="dti" table="narad_lag_interface">
+        <meta attribute="class-description">This class contains the narad_lag_interface detail.</meta>
+        <meta attribute="use-in-tostring">true</meta>
+        <composite-id>
+		<key-property name="interfacename" column="interface_name" type="java.lang.String"/>
+		<key-property name="parententitytype" column="parent_entity_type" type="string"/>
+		<key-property name="parententityid" column="parent_entity_id" type="string"/>
+	</composite-id>
+        <property name="interfacedescription" column="INTERFACE_DESCRIPTION" type="string" />           
+        <property name="resourceversion" column="RESOURCE_VERSION" type="string" />
+        <property name="speedvalue" column="SPEED_VALUE" type="java.lang.Long" />
+        <property name="speedunits" column="SPEED_UNITS" type="string" />
+        <property name="interfaceid" column="INTERFACE_ID" type="string" />
+        <property name="interfacerole" column="INTERFACE_ROLE" type="string" />
+        <property name="provstatus" column="PROV_STATUS" type="string" />
+        <property name="inmaint" column="IN_MAINT" type="string" />
+        <property name="lacpsystemid" column="LACP_SYSTEM_ID" type="string" />
+        <property name="opsnote" column="OPS_NOTE" type="string" />
+        <property name="interfacefunction" column="INTERFACE_FUNCTION" type="string" />
+        <property name="updatedOn" column="UPDATED_ON" type="string" />
+     </class>
+</hibernate-mapping>

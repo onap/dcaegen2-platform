@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.att.vcc.inventorycollector.domain.Logicallink" schema="dti" table="rt_logical_link">
+        <meta attribute="class-description">This class contains the rt_physical_link detail.</meta>
+        <meta attribute="use-in-tostring">true</meta>
+        <id name="linkname" column="LINK_NAME"  type="java.lang.String"/>
+        <property name="linktype" column="LINK_TYPE" type="string" />
+        <property name="speedvalue" column="SPEED_VALUE" type="long" />
+        <property name="speedunits" column="SPEED_UNITS" type="string" />
+        <property name="ipversion" column="IP_VERSION" type="string" />
+        <property name="routingprotocol" column="ROUTING_PROTOCOL" type="string" />
+        <property name="resourceversion" column="RESOURCE_VERSION" type="string" />
+        <property name="modelinvariantid" column="MODEL_INVARIANT_ID" type="string" />
+        <property name="modelversionid" column="MODEL_VERSION_ID" type="string" />
+        <property name="widgetmodelid" column="WIDGET_MODEL_ID" type="string" />
+        <property name="widgetmodelversion" column="WIDGET_MODEL_VERSION" type="string" />
+        <property name="operationalstatus" column="OPERATIONAL_STATUS" type="string" />
+        <property name="provstatus" column="PROV_STATUS" type="string" />
+        <property name="linkrole" column="LINK_ROLE" type="string" />
+        <property name="linkname2" column="LINK_NAME2" type="string" />
+        <property name="linkid" column="LINK_ID" type="string" />
+        <property name="circuitid" column="CIRCUIT_ID" type="string" />
+        <property name="purpose" column="PURPOSE" type="string" />
+        <property name="inmaint" column="IN_MAINT" type="string" />
+        <property name="updatedOn" column="UPDATED_ON" type="string" />
+      </class>
+</hibernate-mapping>

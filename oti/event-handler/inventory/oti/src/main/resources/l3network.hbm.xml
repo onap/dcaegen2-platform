@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.att.vcc.inventorycollector.domain.L3network" schema="dti" table="rt_l3_network">
+        <meta attribute="class-description">This class contains the rt_l3_network detail.</meta>
+        <meta attribute="use-in-tostring">true</meta>
+        <id name="networkid" column="NETWORK_ID"  type="java.lang.String"/>
+        <property name="networkname" column="NETWORK_NAME" type="string" />
+        <property name="networktype" column="NETWORK_TYPE" type="string" />
+        <property name="networkrole" column="NETWORK_ROLE" type="string" />
+        <property name="networktechnology" column="NETWORK_TECHNOLOGY" type="string" />
+        <property name="neutronnetworkid" column="NEUTRON_NETWORK_ID" type="string" />
+        <property name="isboundtovpn" column="IS_BOUND_TO_VPN" type="string" />
+        <property name="serviceid" column="SERVICE_ID" type="string" />
+        <property name="networkroleinstance" column="NETWORK_ROLE_INSTANCE" type="java.lang.Long" />
+        <property name="resourceversion" column="RESOURCE_VERSION" type="string" />
+        <property name="orchestrationstatus" column="ORCHESTRATION_STATUS" type="string" />
+        <property name="heatstackid" column="HEAT_STACK_ID" type="string" />
+        <property name="msocatalodkey" column="MSO_CATALOG_KEY" type="string" />
+        <property name="contrailnetworkfqdn" column="contrail_network_fqdn" type="string" />
+        <property name="modelinvariantid" column="model_invariant_id" type="string" />
+        <property name="modelversionid" column="model_version_id" type="string" />
+        <property name="modelcustomizationid" column="model_customization_id" type="string" />
+        <property name="widgetmodelid" column="widget_model_id" type="string" />
+        <property name="widgetmodelversion" column="widget_model_version" type="string" />
+        <property name="physicalnetworkname" column="physical_network_name" type="string" />
+        <property name="isprovidernetwork" column="is_provider_network" type="string" />
+        <property name="issharednetwork" column="is_shared_network" type="string" />
+        <property name="isexternalnetwork" column="is_external_network" type="string" />
+        <property name="operationalstatus" column="operational_status" type="string" />
+        <property name="selflink" column="selflink" type="string" />
+        <property name="updatedOn" column="UPDATED_ON" type="string" />
+     </class>
+</hibernate-mapping>

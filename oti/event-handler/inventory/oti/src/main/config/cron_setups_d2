@@ -1,0 +1,11 @@
+30 1 * * 0 export datevar=`date +\%Y\%m\%d`;bash /opt/app/dti/bin/startAAIFullSync.sh  >> /opt/logs/DCAE/dti/startAAIFullSync.$datevar.log 2>&1 &
+5,10,15,20,25,30,35,40,45,50,55 * * * * export datevar=`date +\%Y\%m\%d`;bash /opt/app/dti/bin/startAAIRealtimeUpdates.sh  >> /opt/logs/DCAE/dti/startAAIRealtimeUpdates.sh.$datevar.log 2>&1 &
+5,10,15,20,25,30,35,40,45,50,55 * * * * export datevar=`date +\%Y\%m\%d`;bash /opt/app/dti/bin/startAAIRealtimeUpdatesForDB.sh  >> /opt/logs/DCAE/dti/startAAIRealtimeUpdatesForDB.sh.$datevar.log 2>&1 &
+5,10,15,20,25,30,35,40,45,50,55 * * * * export datevar=`date +\%Y\%m\%d`;bash /opt/app/dti/bin/sendFeedsVETL.sh >> /opt/logs/DCAE/dti/sendFeedsVETL.sh.$datevar.log 2>&1 &
+5,10,15,20,25,30,35,40,45,50,55 * * * * export datevar=`date +\%Y\%m\%d`;bash /opt/app/dti/bin/getSeedRediscovery.sh  >> /opt/logs/DCAE/dti/getSeedRediscovery.sh.$datevar.log 2>&1 &
+0,6,12,18,24,30,36,42,48,54 * * * * export datevar=`date +\%Y\%m\%d`; bash /opt/app/dti/bin/checkAAIRealTimeUpdateStart.sh >> /opt/logs/DCAE/dti/checkAAIRealTimeUpdateStart.$datevar.log 2>&1 &
+5,10,15,20,25,30,35,40,45,50,55 * * * * export datetimevar=`date +\%Y\%m\%d\%H\%M\%S`; bash /opt/app/dti/bin/ProcessVNodeList.sh $datetimevar FULL >> /opt/logs/DCAE/dti/ProcessVNodeList.sh.$datetimevar.log 2>&1 &
+15 * * * * find /opt/app/dti/feeds/outgoing/dmaap -mtime +4 -type f -exec rm -rf {} \; 2>/dev/null
+30 * * * * find /opt/app/dti/feeds/outgoing/dmaap/archive -mtime +7 -type f -exec rm -rf {} \; 2>/dev/null
+30 * * * * find /opt/logs/DCAE/dti -mtime +7 -type f -exec rm -rf {} \; 2>/dev/null
+30 8 * * * mv /opt/app/dti/feeds/outgoing/dmaap/NetworkElementAttributes.full.*.gz /opt/app/dti/feeds/outgoing/dmaap/archive/. 2>/dev/null

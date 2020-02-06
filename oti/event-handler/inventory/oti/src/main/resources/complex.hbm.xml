@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.att.vcc.inventorycollector.domain.Complex" schema="dti" table="rt_complex">
+        <meta attribute="class-description">This class contains the complex detail.</meta>
+        <meta attribute="use-in-tostring">true</meta>
+        <id name="physicallocationid" column="Physical_location_id"  type="java.lang.String"/>
+        <property name="datacentercode" column="data_center_code" type="string" />
+        <property name="complexname" column="complex_name" type="string" />
+        <property name="identityurl" column="IDENTITY_URL" type="string" />
+        <property name="resourceversion" column="resource_version" type="string" />
+        <property name="physicallocationtype" column="physical_location_type" type="string" />
+        <property name="street1" column="street1" type="string" />
+        <property name="street2" column="street2" type="string" />
+        <property name="city" column="city" type="string" />
+        <property name="state" column="state" type="string" />
+        <property name="postalcode" column="postal_code" type="string" />
+        <property name="country" column="country" type="string" />
+        <property name="region" column="region" type="string" />
+        <property name="latitude" column="latitude" type="string" />
+        <property name="longitude" column="longitude" type="string" />
+        <property name="elevation" column="elevation" type="string" />
+        <property name="lata" column="lata" type="string" />
+        <property name="updatedOn" column="UPDATED_ON" type="string" />
+     </class>
+</hibernate-mapping>

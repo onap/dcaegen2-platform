@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.att.vcc.inventorycollector.domain.NaradInstanceGroup" schema="dti" table="narad_instance_group">
+        <meta attribute="class-description">This class contains the narad instance group detail.</meta>
+        <meta attribute="use-in-tostring">true</meta>
+        <id name="id" column="id"  type="java.lang.String"/>
+        <property name="instancegrouprole" column="INSTANCE_GROUP_ROLE" type="string" />
+        <property name="modelinvariantid" column="MODEL_INVARIANT_ID" type="string" />
+        <property name="modelversionid" column="MODEL_VERSION_ID" type="string" />
+        <property name="description" column="DESCRIPTION" type="string" />
+        <property name="instancegrouptype" column="INSTANCE_GROUP_TYPE" type="string" />
+        <property name="resourceversion" column="RESOURCE_VERSION" type="string" />
+        <property name="instancegroupname" column="INSTANCE_GROUP_NAME" type="string" />
+        <property name="instancegroupfunction" column="INSTANCE_GROUP_FUNCTION" type="string" />
+        <property name="updatedOn" column="UPDATED_ON" type="string" />
+     </class>
+</hibernate-mapping>

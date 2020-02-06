@@ -1,0 +1,653 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.att.vcc</groupId>
+    <artifactId>vcc-bom</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
+    <name>VCC BOM</name>
+    <description>VCC BOM (bill of materials)</description>
+
+    <properties>
+        <!-- PROJECT SETTINGS-->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!-- main.basedir is package -->
+        <main.basedir>${project.basedir}</main.basedir>
+
+		<maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
+
+        <eelf-logger.version>3.0.1</eelf-logger.version>
+
+		<commons_lang_version>2.6</commons_lang_version>
+		<com_fasterxml_jackson_core_version>2.6.0</com_fasterxml_jackson_core_version>
+		<snakeyaml_version>1.15</snakeyaml_version>
+		<apache_commons_lang3_version>3.5</apache_commons_lang3_version>
+		<org_springframework_version>4.2.2.RELEASE</org_springframework_version>
+		<com_att_vcc_vcctask_version>0.0.2-SNAPSHOT</com_att_vcc_vcctask_version>
+		<com_att_vcc_logger_version>0.0.1-SNAPSHOT</com_att_vcc_logger_version>
+		<com_att_vcc_utils_version>0.0.1-SNAPSHOT</com_att_vcc_utils_version>
+		<com_att_vcc_common_version>1.0.0-SNAPSHOT</com_att_vcc_common_version>
+		<com_att_ecomp_operation_utils_version>0.0.8-SNAPSHOT</com_att_ecomp_operation_utils_version>
+		
+		<org_apache_camel_version>2.15.3</org_apache_camel_version>
+		<com_mikesamuel_json_sanitizer_version>1.0</com_mikesamuel_json_sanitizer_version>
+		<javax_validation_version>1.1.0.CR2</javax_validation_version>
+		<joda_time_version>2.2</joda_time_version>	
+		<org_mockito_version>1.10.19</org_mockito_version>
+		<org_jmockit_version>1.8</org_jmockit_version>
+		<org_jdom2_version>2.0.6</org_jdom2_version>
+		
+        <!-- TEST DEPENDENCIES -->
+        <junit-jupiter.version>5.3.2</junit-jupiter.version>
+
+        <!--TEST SETTINGS -->
+        <surefire.redirectTestOutputToFile>true</surefire.redirectTestOutputToFile>
+        <!-- PLUGINS VERSIONS -->
+        <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
+        <maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
+        <maven-assembly-plugin.version>3.1.1</maven-assembly-plugin.version>
+        <maven-failsafe-plugin.version>2.22.1</maven-failsafe-plugin.version>
+        <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
+        <jacoco.plugin.version>0.8.3</jacoco.plugin.version>
+        <maven.build.helper.plugin.version>3.0.0</maven.build.helper.plugin.version>
+        <dockerfile.maven.plugin.version>1.4.3</dockerfile.maven.plugin.version>
+        <!--PLUGIN SETTINGS -->
+        <docker.repository>dockercentral.it.att.com:5100/com.att.vcc</docker.repository>
+	
+		<!-- Ceilometer -->
+		<javax_json_api_version>1.0</javax_json_api_version>
+		<commons_configuration_version>1.10</commons_configuration_version>
+		<org_glassfish_javax_json_version>1.0.4</org_glassfish_javax_json_version>
+
+        <com_jcraft_jsch_version>0.1.53</com_jcraft_jsch_version>
+        <com_att_lpp_nwcodec_utility_version>1.0.5</com_att_lpp_nwcodec_utility_version>
+        
+        <org_slf4j_version>1.7.6</org_slf4j_version>
+        <org_mongodb_java_driver_version>3.4.0</org_mongodb_java_driver_version>
+		<com_googlecode_json_simple_version>1.1.1</com_googlecode_json_simple_version>
+		<com_google_code_gson_version>2.7</com_google_code_gson_version>
+		<org_apache_httpcomponents_httpclient_version>4.5.3</org_apache_httpcomponents_httpclient_version>
+		<org_apache_httpcomponents_httpmime_version>4.3.1</org_apache_httpcomponents_httpmime_version>
+		<com_google_guava_version>19.0</com_google_guava_version>
+		<org_json_version>20180813</org_json_version>
+	    <commons-net_version>1.2.2</commons-net_version>
+	    <org_glassfish_jersey_version>2.27</org_glassfish_jersey_version>
+	    <com_oracle_ojdbc6_version>11.2.0.3</com_oracle_ojdbc6_version>
+	    <junit-addons_version>1.4</junit-addons_version>
+		<com_github_stefanbirkner_version>1.2.0</com_github_stefanbirkner_version>
+		<org_eclipse_jetty_version>9.4.9.v20180320</org_eclipse_jetty_version>
+		<commons-codec_version>1.9</commons-codec_version>
+
+    </properties>
+
+	<repositories>
+		<repository>
+			<id>maven-central</id>
+			<url>http://mavencentral.it.att.com:8081/nexus/repository/central/</url>
+			<name>maven-central</name>
+		</repository>
+		<repository>
+			<id>att-releases</id>
+			<url>http://mavencentral.it.att.com:8081/nexus/repository/att-repository-releases/</url>
+			<name>ATT releases repository</name>
+		</repository>
+		<repository>
+			<id>att-snapshots</id>
+			<url>http://mavencentral.it.att.com:8081/nexus/repository/att-repository-snapshots</url>
+			<name>ATT snapshots repository</name>
+		</repository>
+	</repositories>
+	
+	<distributionManagement>
+        <repository>
+            <id>nexus</id>
+            <name>att-repository-releases</name>
+            <url>http://mavencentral.it.att.com:8081/nexus/content/repositories/att-repository-releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus</id>
+            <name>att-repository-snapshots</name>
+            <url>http://mavencentral.it.att.com:8081/nexus/content/repositories/att-repository-snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+    
+	<dependencyManagement>
+		<dependencies>
+
+			<!-- UTILITIES -->
+			<dependency>
+				<groupId>com.fasterxml.jackson.dataformat</groupId>
+				<artifactId>jackson-dataformat-csv</artifactId>
+				<version>${jackson.csv.version}</version>
+			</dependency>
+
+			<!-- JUNIT 5 DEPENDENCIES -->
+			<dependency>
+				<groupId>org.junit.jupiter</groupId>
+				<artifactId>junit-jupiter-engine</artifactId>
+				<version>${junit-jupiter.version}</version>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.junit.jupiter</groupId>
+				<artifactId>junit-jupiter-params</artifactId>
+				<version>${junit-jupiter.version}</version>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>com.att.ecomp.operation</groupId>
+				<artifactId>operation-utils</artifactId>
+				<version>${com_att_ecomp_operation_utils_version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.att.vcc</groupId>
+				<artifactId>logger</artifactId>
+				<version>${com_att_vcc_logger_version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.att.vcc</groupId>
+				<artifactId>utils-vcc</artifactId>
+				<version>${com_att_vcc_utils_version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.att.vcc</groupId>
+				<artifactId>vcctask</artifactId>
+				<version>${com_att_vcc_vcctask_version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.att.vcc</groupId>
+				<artifactId>vcc-common</artifactId>
+				<version>${com_att_vcc_common_version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.apache.camel</groupId>
+				<artifactId>camel-core</artifactId>
+				<version>${org_apache_camel_version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.camel</groupId>
+				<artifactId>camel-http4</artifactId>
+				<version>${org_apache_camel_version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.camel</groupId>
+				<artifactId>camel-ftp</artifactId>
+				<version>${org_apache_camel_version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.camel</groupId>
+				<artifactId>camel-exec</artifactId>
+				<version>${org_apache_camel_version}</version>
+			</dependency>
+		
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>${apache_commons_lang3_version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-core</artifactId>
+				<version>${com_fasterxml_jackson_core_version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.dataformat</groupId>
+				<artifactId>jackson-dataformat-yaml</artifactId>
+				<version>${com_fasterxml_jackson_core_version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-annotations</artifactId>
+				<version>${com_fasterxml_jackson_core_version}</version>
+			</dependency>	
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-databind</artifactId>
+				<version>${com_fasterxml_jackson_core_version}</version>
+			</dependency>	
+			<dependency>
+				<groupId>org.yaml</groupId>
+				<artifactId>snakeyaml</artifactId>
+				<version>${snakeyaml_version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-core</artifactId>
+				<version>${org_mockito_version}</version>
+			</dependency>
+			<dependency>		
+	    		<groupId>org.jmockit</groupId>
+    			<artifactId>jmockit</artifactId>
+    			<version>${org_jmockit_version}</version>
+    		</dependency>
+			<dependency>
+				<groupId>javax.json</groupId>
+				<artifactId>javax.json-api</artifactId>
+				<version>${javax_json_api_version}</version>
+			</dependency>	
+		
+			<dependency>
+				<groupId>commons-lang</groupId>
+				<artifactId>commons-lang</artifactId>
+				<version>${commons_lang_version}</version>
+			</dependency>
+			<dependency>
+			   <groupId>org.glassfish</groupId>
+			   <artifactId>javax.json</artifactId>
+			   <version>${org_glassfish_javax_json_version}</version>
+		    </dependency>
+			<dependency>
+	            <groupId>com.att.lpp.nwcodec</groupId>
+	            <artifactId>utility</artifactId>
+	            <version>${com_att_lpp_nwcodec_utility_version}</version>
+	        </dependency>
+		    <dependency>
+				<groupId>org.json</groupId>
+				<artifactId>json</artifactId>
+				<version>${org_json_version}</version>
+			</dependency>	
+	
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>${com_google_guava_version}</version>
+			</dependency>	
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpclient</artifactId>
+				<version>${org_apache_httpcomponents_httpclient_version}</version>
+			</dependency>	
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpmime</artifactId>
+				<version>${org_apache_httpcomponents_httpmime_version}</version>
+			</dependency>	
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${org_slf4j_version}</version>
+			</dependency>	
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>${org_slf4j_version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.code.gson</groupId>
+				<artifactId>gson</artifactId>
+				<version>${com_google_code_gson_version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.mikesamuel</groupId>
+				<artifactId>json-sanitizer</artifactId>
+				<version>${com_mikesamuel_json_sanitizer_version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.googlecode.json-simple</groupId>
+				<artifactId>json-simple</artifactId>
+				<version>${com_googlecode_json_simple_version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>org.mongodb</groupId>
+			    <artifactId>mongo-java-driver</artifactId>
+			    <version>${org_mongodb_java_driver_version}</version>
+			</dependency>
+			
+			<dependency>		
+				<groupId>com.jcraft</groupId>
+	    		<artifactId>jsch</artifactId>
+	    		<version>${com_jcraft_jsch_version}</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.validation</groupId>
+				<artifactId>validation-api</artifactId>
+				<version>${javax_validation_version}</version>
+			</dependency>
+			<dependency>
+				<groupId>joda-time</groupId>
+				<artifactId>joda-time</artifactId>
+				<version>${joda_time_version}</version>
+			</dependency>
+			
+			<dependency>
+	           <groupId>commons-net</groupId>
+	           <artifactId>commons-net</artifactId>
+	           <version>${commons-net_version}</version>
+	        </dependency>
+ 
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-beans</artifactId>
+				<version>${org_springframework_version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-expression</artifactId>
+				<version>${org_springframework_version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${org_springframework_version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-oxm</artifactId>
+				<version>${org_springframework_version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-core</artifactId>
+				<version>${org_springframework_version}</version>
+			</dependency>
+		
+			<dependency>
+	           <groupId>org.springframework.boot</groupId>
+	           <artifactId>spring-boot-starter-jersey</artifactId>
+	           <version>1.2.0.RELEASE</version>
+	        </dependency>
+	        <dependency>
+	    		<groupId>org.springframework.boot</groupId>
+	    		<artifactId>spring-boot-starter-web</artifactId>
+	    		<version>1.5.9.RELEASE</version>
+			</dependency>
+			<dependency>
+	 		   	<groupId>org.springframework.boot</groupId>
+			    <artifactId>spring-boot-starter-actuator</artifactId>
+			    <version>2.1.6.RELEASE</version>
+			</dependency>
+			<dependency>
+	    		<groupId>org.springframework.boot</groupId>
+	    		<artifactId>spring-boot-gradle-plugin</artifactId>
+	    		<version>1.5.6.RELEASE</version>
+	    		<type>pom</type>
+			</dependency>
+	        <dependency>
+		       <groupId>org.springframework.boot</groupId>
+		       <artifactId>spring-boot-starter-test</artifactId>
+		       <version>2.1.6.RELEASE</version>
+		       <scope>test</scope>
+	        </dependency>
+	        
+	    <dependency>
+			<groupId>org.glassfish.jersey.core</groupId>
+			<artifactId>jersey-common</artifactId>
+			<version>${org_glassfish_jersey_version}</version>
+		</dependency>	
+		<dependency>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-servlet</artifactId>
+			<version>${org_glassfish_jersey_version}</version>
+		</dependency>	
+		<dependency>
+			<groupId>org.glassfish.jersey.core</groupId>
+			<artifactId>jersey-server</artifactId>
+			<version>${org_glassfish_jersey_version}</version>
+		</dependency>	
+		<dependency>
+			<groupId>org.glassfish.jersey.core</groupId>
+			<artifactId>jersey-client</artifactId>
+			<version>${org_glassfish_jersey_version}</version>
+		</dependency>	
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-multipart</artifactId>
+			<version>${org_glassfish_jersey_version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>${com_oracle_ojdbc6_version}</version>
+		</dependency>
+		<dependency>
+			<groupId>junit-addons</groupId>
+			<artifactId>junit-addons</artifactId>
+			<version>${junit-addons_version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.stefanbirkner</groupId>
+			<artifactId>system-rules</artifactId>
+			<version>${com_github_stefanbirkner_version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-servlet</artifactId>
+			<version>${org_eclipse_jetty_version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-server</artifactId>
+			<version>${org_eclipse_jetty_version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>${commons-codec_version}</version>
+		</dependency>
+		</dependencies>
+	</dependencyManagement>
+    
+    <dependencies>
+		<dependency>
+			<groupId>com.att.vcc</groupId>
+			<artifactId>logger</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.att.vcc</groupId>
+			<artifactId>utils-vcc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.att.vcc</groupId>
+			<artifactId>vcctask</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.json</groupId>
+			<artifactId>javax.json-api</artifactId>
+		</dependency>		
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+		</dependency>
+		<dependency>
+		   <groupId>org.glassfish</groupId>
+		   <artifactId>javax.json</artifactId>
+	    </dependency> 
+		<dependency>
+            <groupId>com.att.lpp.nwcodec</groupId>
+            <artifactId>utility</artifactId>
+        </dependency>
+        
+	</dependencies>
+	 		
+	<build>
+
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>${project.build.directory}/git</directory>
+            </resource>
+        </resources>
+           
+        <pluginManagement>
+
+            <plugins>
+
+                <!-- COMPILER PLUGIN -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven-compiler-plugin.version}</version>
+                    <configuration>
+                        <fork>true</fork>
+                        <debug>true</debug>
+                        <meminitial>256m</meminitial>
+                        <maxmem>2048m</maxmem>
+                        <source>1.8</source>
+                        <target>1.8</target>
+                        <showWarnings>true</showWarnings>
+                        <showDeprecation>true</showDeprecation>
+                    </configuration>
+                </plugin>
+
+                <!-- MAVEN DEPLOY PLUGIN -->
+                <plugin>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>${maven-deploy-plugin.version}</version>
+                    <configuration>
+                        <deployAtEnd>true</deployAtEnd>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.jacoco</groupId>
+                    <artifactId>jacoco-maven-plugin</artifactId>
+                    <version>${jacoco.plugin.version}</version>
+                    <configuration>
+                        <excludes>
+                            <exclude>**/generated/**</exclude>
+                            <exclude>**/generated-sources/**</exclude>
+                        </excludes>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>pre-unit-test</id>
+                            <goals>
+                                <goal>prepare-agent</goal>
+                            </goals>
+                            <configuration>
+                                <!-- Sets the path to the file which contains the execution data. -->
+                                <destFile>${project.build.directory}/jacoco/jacoco-ut.exec</destFile>
+                                <propertyName>surefireArgLine</propertyName>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>post-unit-test</id>
+                            <phase>test</phase>
+                            <goals>
+                                <goal>report</goal>
+                            </goals>
+                            <configuration>
+                                <!-- Sets the path to the file which contains the execution data. -->
+                                <dataFile>${project.build.directory}/jacoco/jacoco-ut.exec</dataFile>
+                                <outputDirectory>${project.reporting.outputDirectory}/jacoco-ut</outputDirectory>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>pre-integration-test</id>
+                            <phase>pre-integration-test</phase>
+                            <goals>
+                                <goal>prepare-agent</goal>
+                            </goals>
+                            <configuration>
+                                <!-- Sets the path to the file which contains the execution data. -->
+                                <destFile>${project.build.directory}/jacoco/jacoco-it.exec</destFile>
+                                <propertyName>failsafeArgLine</propertyName>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>post-integration-test</id>
+                            <phase>post-integration-test</phase>
+                            <goals>
+                                <goal>report</goal>
+                            </goals>
+                            <configuration>
+                                <!-- Sets the path to the file which contains the execution data. -->
+                                <dataFile>${project.build.directory}/jacoco/jacoco-it.exec</dataFile>
+                                <outputDirectory>${project.reporting.outputDirectory}/jacoco-it</outputDirectory>
+                            </configuration>
+                        </execution>
+                    </executions>
+
+                </plugin>
+
+                <!-- JAR PLUGIN -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>${maven-jar-plugin.version}</version>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            </manifest>
+                            <manifestEntries>
+                                <Implementation-Build-Version>${project.version}</Implementation-Build-Version>
+                            </manifestEntries>
+                        </archive>
+                    </configuration>
+                </plugin>
+
+            </plugins>
+
+        </pluginManagement>
+
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+            </plugin>
+           
+            <!-- Copy Dependency jars to target/attMaven directory -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+        				</goals>
+        				<configuration>
+          					<outputDirectory>${project.build.directory}/attMaven</outputDirectory>
+          					<overWriteReleases>false</overWriteReleases>
+          					<overWriteSnapshots>false</overWriteSnapshots>
+          					<overWriteIfNewer>true</overWriteIfNewer>
+        				</configuration>
+      				</execution>
+    			</executions>
+  			</plugin>
+			
+        </plugins>
+    </build>
+    
+</project>

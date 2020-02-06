@@ -1,0 +1,7 @@
+{
+	"role": "consumer",
+	"topic": "CANOPY_NDC-D2-Device-List",
+	"id": "CANOPY_NDC-D2-Device-ListSubscriberData",
+	"dir": "/opt/app/vcc/feeds/incoming/dmaap/canopi/d2msn",
+	"trigger": "/opt/app/vcc/bin/D2MSN_watcher.sh %t %d %f"
+}

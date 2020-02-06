@@ -1,0 +1,16 @@
+##########################################################
+##Static file that has mapping between physical         ## 
+##location id and local dcae collector host name        ##
+##Cllicode(physical location id)=zone,ldcae name          ##
+##########################################################
+
+AKRNOHAH=AKR1,zakr1avldcae01
+ALLNTXSA=ALL1,zall1lvldcae01
+ALPSGADT=ALP1,zalp1lvldcae01
+CHCGILCG=CHG1,zchg1lvldcae01
+VNNYCA52=VNN1,zvnn1lvldcae01
+RDM2WAGPLCP=RDM2,zTestvldcae01
+RDMDWAGP=RDM3,zrdm2lvldcae01
+RDM3WAGPLCP=RDM3,zrdm2lvldcae01
+SNANTXCA=test,zTestvldcae01
+GDRPMIBL=AKR1,zTestvldcae01

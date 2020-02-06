@@ -1,0 +1,7 @@
+{
+  "role"          : "producer",
+  "topic"         : "VOIP_NETWORK_COLLECTION_INVENTORY",
+  "id"            : "VOIP_NETWORK_COLLECTION_INVENTORY",
+  "dir"           : "/opt/app/vcc/feeds/outgoing/dmaap/VEC",
+  "contenttype"   : "json"
+}
