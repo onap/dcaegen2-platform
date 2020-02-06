@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.att.vcc.inventorycollector.domain.Oamnetwork" schema="dti" table="rt_oam_network">
+        <meta attribute="class-description">This class contains the oam_network detail.</meta>
+        <meta attribute="use-in-tostring">true</meta>
+        <composite-id>
+            <key-property name="networkuuid" column="NETWORK_UUID"  type="java.lang.String"/>
+            <key-property name="cloudowner" column="CLOUD_OWNER" type="string" />
+            <key-property name="cloudregionid" column="CLOUD_REGION_ID" type="string" />
+        </composite-id>
+        <property name="networkname" column="NETWORK_NAME" type="string" />
+        <property name="cvlantag" column="CVLAN_TAG" type="java.lang.Long" />
+        <property name="ipv4oamgtwyaddr" column="IPV4_OAM_GTWY_ADDR" type="string" />
+        <property name="ipv4oamgtwyaddrprefixlen" column="IPV4_OAM_GTWY_ADDR_PREFIX_LEN" type="java.lang.Long" />
+        <property name="resourceversion" column="RESOURCE_VERSION" type="string" />
+        <property name="updatedOn" column="UPDATED_ON" type="string" />
+        
+     </class>
+</hibernate-mapping>

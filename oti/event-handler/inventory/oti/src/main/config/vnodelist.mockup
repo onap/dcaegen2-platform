@@ -1,0 +1,8 @@
+#_________________________________________________________________________
+#
+# File Name = vnodelist.mockup
+# Purpose   = Creating mockup nodes for testing and simulation
+#             in the case that the real Lab data is not available.
+# Note      = All mockup nodes are used only in ST and DIT env.
+#_________________________________________________________________________
+

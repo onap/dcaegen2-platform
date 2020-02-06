@@ -1,0 +1,1 @@
+CREATE OR REPLACE VIEW dti.v_narad_chassis_pserver AS SELECT c.*, p.hostname FROM dti.narad_chassis c LEFT JOIN dti.narad_relationship_list rl ON c.chassis_name = rl.from_node_id AND rl.related_from = 'chassis' AND rl.related_to = 'pserver' LEFT JOIN dti.narad_pserver p ON p.hostname = rl.to_node_id AND rl.related_to = 'pserver';

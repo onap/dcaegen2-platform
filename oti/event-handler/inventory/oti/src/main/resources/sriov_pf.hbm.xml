@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.att.vcc.inventorycollector.domain.SriovPf" schema="dti" table="rt_sriov_pf">
+        <meta attribute="class-description">This class contains the pnf detail.</meta>
+        <meta attribute="use-in-tostring">true</meta>
+        <composite-id>
+            <key-property name="pfpciid" column="PF_PCI_ID" type="string"/>
+            <key-property name="grandparententitytype" column="GRANDPARENT_ENTITY_TYPE" type="string" />
+            <key-property name="grandparententityname" column="GRANDPARENT_ENTITY_NAME" type="string" />
+            <key-property name="interfacename" column="INTERFACE_NAME" type="string" />		
+		</composite-id>
+        <property name="resourceversion" column="RESOURCE_VERSION" type="string" />
+        <property name="updatedOn" column="UPDATED_ON" type="string" />
+    </class>
+</hibernate-mapping>

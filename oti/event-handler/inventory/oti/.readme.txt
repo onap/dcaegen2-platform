@@ -1,0 +1,45 @@
+For inventory/dti/src/main/config/vm_pattern_map.properties  
+ 
+#####ipaddress field names#####
+mobility-firewall-device=oam_mgmt_
+#mobility-firewall-device=oam_protected_
+mobility-other-device=oam_protected_
+#mobility-other-device=OAM
+#trinity=Trinity_OAMP_3900
+trinity=OAM
+vusp=OAM
+
+ For Trinity, this is the first time we are doing collection from open dcae.  
+ We are looking for those values in the network name. If for some reason we change the value there, then it may affect some other project.  
+
+For Trinity, original value was: trinity=Trinity_OAMP_3900. This is the first time we are using the old code for trinity (written by Navena). if Naveena's old was using a diff logic to identify the OAM addr for Trinity devices compared to vNodeList then it is better we synch them with what is used in vNodeList....    
+ 
+If there is an network_name field (=Trinity_OAMP_3900) in A&AI event and if that l-interface object contains "Trinity_OAMP_3900", then that corresponding l4 ipaddress will be used as the OAM ipaddress  
+ 
+for vNodelist,  the sql is just using OAM. Then for trinity we can use OAM.  
+ Whatever logic is currently being used in vNodeList to drive the collections for Trinity in PMOSS-VEC should not be changing with this migration project.  Below is the sql query to get OAM IP address for vNodelist: (network_name like '%OAM%')  
+select distinct t2.parent_entity_id as vserver_id, ipv4address, t3.vserver_name,  network_name \ 
+from rt_l3interface_ipv4addresslist t1, \ 
+(select interface_name, parent_entity_type, parent_entity_id, network_name from rt_l_interface \ 
+where parent_entity_type = 'vserver' and validto is null ) t2, rt_vserver t3 \ 
+where t1.validto is null and t1.parent_interface_name = t2.interface_name and t3.validto is null \ 
+and t1.grandparent_entity_type = 'vserver' and t3.vserver_id = t2.parent_entity_id \ 
+and t1.grandparent_entity_id = t3.vserver_id \ 
+and  substr(t3.vserver_name, 0, 4) in (select func_code from networkelementattributes ) \ 
+and substr(ipv4address, 0, 3) in ( \ 
+select distinct substr(ipv4address, 0, 3) from rt_l3interface_ipv4addresslist t1, \ 
+(select interface_name, parent_entity_type, parent_entity_id, network_name from rt_l_interface \ 
+where parent_entity_type = 'vserver' and validto is null and network_name like '%OAM%' ) t2, rt_vserver t3 \ 
+where t1.validto is null and t1.parent_interface_name = t2.interface_name and t3.validto is null \ 
+and t1.grandparent_entity_type = 'vserver' and t3.vserver_id = t2.parent_entity_id \ 
+and t1.grandparent_entity_id = t3.vserver_id \ 
+and  substr(t3.vserver_name, 0, 4) in (select func_code from networkelementattributes ) \ 
+) order by ipv4address, t3.vserver_name desc
+
+As of 1810 release, vvvv's supported for trinity & vusp (as per Util.java used only for vservers)  
+Trinity: vvvv
+basx,bdbl,bdbr,bdbx,bmsc,bmsi,bmsx,bnfm,bpsr,bpsx,bsgm,bums,bxsd,bxsp,bxss,bnsx,bpsd,buss,bxsa,dbhx,tsbg,dbkx,dbpx,dbzx,ctsf,buvs,asbg,nsbg,qsbg,rsbg,tsbg,tsdb,tece,bpsm,rarf1,bxsc,bxsl,bxst,bxsi,bxsn,bdbr,ccdb,ccfx,mrtf,csdb,bslf,bulf,bnsf,bcdf,bclf,bxsf,bndf,bnmf,bhzf,bpbf,bpaf,bmif,bprf,bxmf,bxaf,dbkf,dbqf,dbjf,dbqx,dbjx,bfsa
+
+VUSP: vvvv
+dbcx,dbdx,dbux,comx,dbgx,dbsx,dbrx,rarf,dbax,sflb,ibcx,iwfx,tsbc  
+

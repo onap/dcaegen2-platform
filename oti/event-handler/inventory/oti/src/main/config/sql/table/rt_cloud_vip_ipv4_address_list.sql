@@ -1,0 +1,15 @@
+CREATE TABLE IF NOT EXISTS dti.rt_cloud_vip_ipv4_address_list
+(
+    VIP_IPV4_ADDRESS          VARCHAR(20) NOT NULL,
+    VIP_IPV4_PREFIX_LENGTH    BIGINT,
+    VLAN_ID_INNER             BIGINT,
+    VLAN_ID_OUTER             BIGINT,
+    IS_FLOATING               VARCHAR(1),
+    RESOURCE_VERSION          VARCHAR(25),
+    NEUTRON_NETWORK_ID        VARCHAR(150),
+    NEUTRON_SUBNET_ID         VARCHAR(150),
+    CLOUD_OWNER               VARCHAR(25),
+    CLOUD_REGION_ID           VARCHAR(20),
+    UPDATED_ON                VARCHAR(20),
+    PRIMARY KEY (VIP_IPV4_ADDRESS)
+);

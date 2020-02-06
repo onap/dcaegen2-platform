@@ -1,0 +1,845 @@
+package-name: com.att.vcc.inventorycollector.messages
+java-root: src/main/java
+resources-root: src/main/config
+
+messages:
+  DTI_CONFIG_FILE_HANDLER_CONFIG_NOT_SET:
+    errorCode: DTI001
+    messageFormat: DTI config is not set
+    resolution: Check environment variable DTI_CONFIG value
+    description: DTI application cannot run
+  DTI_REST_CLIENT_RETRIEVE_FAILURE:
+    errorCode: DTI002
+    messageFormat: Error in REST Client Initialization {0}
+    resolution: Check the stack trace
+    description: DTI application cannot run
+  DTI_REST_CLIENT_SSL_INIT_ISSUE:
+    errorCode: DTI003
+    messageFormat: Error while initializing SSL Context {0}
+    resolution: Check the stack trace
+    description: DTI application cannot run
+  DTI_REST_CLIENT_CLIENT_CONFIG_ISSUE:
+    errorCode: DTI004
+    messageFormat: ClientConfig error {0}
+    resolution: Check the stack trace
+    description: DTI application cannot run
+  DTI_CONFIG_FILE_HANDLER_PROPS_LOAD_FAILURE:
+    errorCode: DTI005
+    messageFormat: Cannot load one or more of DTI property files {0}
+    resolution: Check the stack trace for the issue
+    description: DTI application cannot run
+  DTI_CONFIG_FILE_HANDLER_FULL_FEEDS_PROCESS_FAILURE:
+    errorCode: DTI006
+    messageFormat: Error while processing full feeds from A&AI {0}
+    resolution: Check stacktrace for any issues
+    description: DTI Cannot create config / task files
+  DTI_EVENT_PROCESSOR_DB_FAILURE:
+    errorCode: DTI007
+    messageFormat: No Database connection.
+    resolution: Check the DB credentials and acl between hosts.
+    description: DTI is not able to talk to Database.
+  DTI_EVENT_UTIL_CONFIG_FILE_MISSING_ERROR:
+    errorCode: DTI008
+    messageFormat: Cannot find dti.properties. Exiting...
+    resolution: Place the config file
+    description: Cannot find the config file.
+  DTI_EVENT_UTIL_LOAD_CONFIG_ERROR:
+    errorCode: DTI009
+    messageFormat: loadConfigs - {0}
+    resolution: Check the stack trace
+    description: Exception occured while loading Configs.
+  DTI_UEB_SUBSCRIBER_CAMBRIA_CONSUMER_INIT_FAILURE:
+    errorCode: DTI010
+    messageFormat: CambriaConsumer is not initialized
+    resolution: Check the logs
+    description: DTI cannot subscribe to UEB and get AAI events.
+  DTI_DBADAPTER_FAILED_CREATE_SESSIONFACTORY_ERROR:
+    errorCode: DTI011
+    messageFormat: SEVERITY_1 - Failed to create sessionFactory object - {0}
+    resolution: Check the stack trace
+    description: Failed to create sessionFactory object in DBAdaptor
+  DTI_DBADAPTER_DATA_NULL_ERROR:
+    errorCode: DTI012
+    messageFormat: Data Cannot be null
+    resolution: Check the logs
+    description: Data cannot be null while storing in DB.
+  DTI_CONFIG_FILE_HANDLER_FEED_SIZE_ISSUE:
+    errorCode: DTI021
+    messageFormat: Feed received from A&AI is less than {0} % of the previous day. New feed size {1} , Previous feed size {2} . {3} configuration file creation aborted
+    resolution: No resolution needed
+    description: DTI will not create new config / task files as the new feed size is less than the existing feed size by threshold %
+  DTI_CONFIG_FILE_HANDLER_FILE_DELETE_ISSUE:
+    errorCode: DTI022
+    messageFormat: Error while trying to delete existing {0} files {1}
+    resolution: No resolution needed
+    description: DTI cannot create new config / task files if it cannot delete the existing ones.
+  DTI_CONFIG_FILE_HANDLER_FILE_CREATE_ISSUE:
+    errorCode: DTI023
+    messageFormat: IO Error while creating DTI configuration file for full A&AI feed {0}
+    resolution: No resolution needed
+    description: DTI cannot create config / task files
+  DTI_CONFIG_FILE_HANDLER_FILE_COPY_ISSUE:
+    errorCode: DTI024
+    messageFormat: Error while copying the config files to dcae configuration file path {0}
+    resolution: No resolution needed
+    description: DTI cannot send config / task files to local dcae
+  DTI_CONFIG_FILE_HANDLER_RSYNC_PROCESS_ISSUE:
+    errorCode: DTI025
+    messageFormat: An {0} occured during rsync {1} topology to local DCAE
+    resolution: No resolution needed
+    description: DTI cannot send any updated config / task files to local DCAE
+  DTI_EVENT_PROCESSOR_DTIEXCEPTION:
+    errorCode: DTI026
+    messageFormat: PerformSync {0} DTIException {1}
+    resolution: Check error log for the error and resolve.
+    description: DTI exception has occured  while performing sync operation in DTI Event Processor script.
+  DTI_UNSUPPORTEDENCODINGEXCEPTION:
+    errorCode: DTI027
+    messageFormat: UnsupportedEncodingException {0} for {1}
+    resolution: Check error log for the error and resolve.
+    description: UnsupportedEncodingException occured in DTI Event Processor script.
+  DTI_EVENT_PROCESSOR_JSONMAPPINGEXCEPTION:
+    errorCode: DTI028
+    messageFormat: JsonMappingException for {0}
+    resolution: Check error log for the error and resolve.
+    description: JsonMappingException occured in DTI Event Processor script.
+  DTI_EVENT_PROCESSOR_FULL_FEEDS_ERROR:
+    errorCode: DTI029
+    messageFormat: Error while processing the full feeds
+    resolution: Check Stack trace in error log file.
+    description: Some exception thrown from the config handler.
+  DTI_INVENTORY_COLLECTOR_LOAD_CONFIG_ERROR:
+    errorCode: DTI030
+    messageFormat: Cannot load config files. Exiting.
+    resolution: No resolution needed.
+    description: Cannot load config files. Exiting from InventoryCollector.
+  DTI_INVENTORY_COLLECTOR_EXCEPTION_ERROR:
+    errorCode: DTI031
+    messageFormat: Cannot perform Full Sync - {0}
+    resolution: No resolution needed.
+    description: Cannot perform Full Sync in InventoryCollector.
+  DTI_INVENTORY_COLLECTOR_UEB_EXCEPTION_ERROR:
+    errorCode: DTI032
+    messageFormat: UEB Subscriber error - {0}
+    resolution: No resolution needed.
+    description: UEB Subscriber error in InventoryCollector.
+  DTI_EVENT_PROCESSOR_AAI_EMPTY_RESULT_ERROR:
+    errorCode: DTI033
+    messageFormat: performSync {0} returned empty result
+    resolution: No resolution needed
+    description: AAI did not retrun result.
+  DTI_EVENT_PROCESSOR_TASKID_ERROR:
+    errorCode: DTI034
+    messageFormat: TaskIDs with the following patterns will be impacted {0}
+    resolution: No resolution needed
+    description: Some task ID's will be affected.
+  DTI_EVENT_PROCESSOR_DIFFERENT_DOMAIN_ERROR:
+    errorCode: DTI035
+    messageFormat: This event is Skipped. DOMAIN configured= {0} , domain from event= {1}
+    resolution: No resolution needed
+    description: UEB event skipped because of different domain.
+  DTI_INVENTORY_COLLECTOR_EVENT_SUB_ERROR:
+    errorCode: DTI036
+    messageFormat: Event subscriber has not started
+    resolution: No resolution needed.
+    description: Event subscriber has not started in InventoryCollector.
+  DTI_DMAAPMR_SUBSCRIBER_CAMBRIA_CONSUMER_INIT_FAILURE:
+    errorCode: DTI037
+    messageFormat: DMAAP MR Consumer is not initialized
+    resolution: Check the logs
+    description: DTI cannot subscribe to DMaaP MR and get AAI events.
+  DTI_INVENTORY_COLLECTOR_DMAAPMR_EXCEPTION_ERROR:
+    errorCode: DTI038
+    messageFormat: DMAAP MR Subscriber error - {0}
+    resolution: No resolution needed.
+    description: DMAAP MR Subscriber error in InventoryCollector.
+  DTI_EVENT_UTIL_KEYSTORE_LOCATION_ERROR:
+    errorCode: DTI039
+    messageFormat: KEYSTORE_LOCATION is not Valid. Exiting.
+    resolution: Please check KEYSTORE_LOCATION present in dti.properties file.
+    description: KEYSTORE_LOCATION is not Valid. Exiting in EventUtils.
+  DTI_CONFIG_FILE_HANDLER_PROCESS_EVENT_FAILURE:
+    errorCode: DTI051
+    messageFormat: Cannot process AAI event. Either entity or event-header or entity-type is null.
+    resolution: No resolution needed
+    description: DTI cannot process this AAI Event
+  DTI_CONFIG_FILE_HANDLER_PROVSTATUS_FAILURE:
+    errorCode: DTI052
+    messageFormat: Cannot process this record - {0}, prov-status is {1}
+    resolution: No resolution needed
+    description: DTI cannot process this event / record from full feed
+  DTI_CONFIG_FILE_HANDLER_NAME_FAILURE:
+    errorCode: DTI053
+    messageFormat: Cannot process this record - {0}, Required field is blank. Entity-type {1} ,name {2}
+    resolution: No resolution needed
+    description: DTI cannot process this AAI event / record from full feed 
+  DTI_CONFIG_FILE_HANDLER_REF_FILE_LOAD_FAILURE:
+    errorCode: DTI054
+    messageFormat: Cannot load reference file {0}
+    resolution: No resolution needed
+    description: DTI cannot load reference file. DTI will make call to AAI to fetch needed data.
+  DTI_CONFIG_FILE_HANDLER_IP_FAILURE:
+    errorCode: DTI055
+    messageFormat: Cannot process this record - {0}, Required field is blank. deviceType {1} ,deviceName {2},ipAddress {3}
+    resolution: No resolution needed
+    description: DTI cannot process this event / record from full feed
+  DTI_CONFIG_FILE_HANDLER_CALL_TO_AAI_FAILURE:
+    errorCode: DTI056
+    messageFormat: Error while trying to fetch data from A&AI for {0}
+    resolution: No resolution needed
+    description: DTI cannot process this AAI event / record from full feed
+  DTI_CONFIG_FILE_HANDLER_NETWORK_FAILURE:
+    errorCode: DTI057
+    messageFormat: Cannot process this record - {0}, Required field is blank. deviceType {1} ,deviceName {2} ,network {3}
+    resolution: No resolution needed
+    description: DTI cannot process this event / record from full feed
+  DTI_CONFIG_FILE_HANDLER_NO_TENANTS_FAILURE:
+    errorCode: DTI058
+    messageFormat: Cannot process this record - {0}, tenants does not exist.
+    resolution: No resolution needed
+    description: DTI cannot process this event / record from full feed
+  DTI_CONFIG_FILE_HANDLER_NO_VSERVERS_FAILURE:
+    errorCode: DTI059
+    messageFormat: Cannot process this record - {0}, vservers does not exist.
+    resolution: No resolution needed
+    description: DTI cannot process this event / record from full feed
+  DTI_CONFIG_FILE_HANDLER_NODETYPE_FAILURE:
+    errorCode: DTI060
+    messageFormat: Cannot process this record - {0}, Required field is blank. deviceType {1} ,deviceName {2} ,ipAddress {3}
+    resolution: No resolution needed
+    description: DTI cannot process this event / record from full feed
+  DTI_CONFIG_FILE_HANDLER_ZONE_FAILURE:
+    errorCode: DTI061
+    messageFormat: Cannot process this record - {0}, No associated local dcae name found for this physical location id {1}
+    resolution: No resolution needed
+    description: DTI cannot process this event / record from full feed
+  DTI_CONFIG_FILE_HANDLER_STATIC_FILE_PROCESS_FAILURE:
+    errorCode: DTI062
+    messageFormat: IO Error while reading {0} static config data
+    resolution: Check if static topology file are available at the expected location
+    description: DTI Cannot create config / task files with any static topology
+  DTI_CONFIG_FILE_HANDLER_UPDATE_REF_FILE_ISSUE:
+    errorCode: DTI063
+    messageFormat: Error while saving {0} reference data {1}
+    resolution: No resolution needed
+    description: Cannot update reference files.
+  DTI_CONFIG_FILE_HANDLER_TASK_FILE_CREATE_ISSUE:
+    errorCode: DTI064
+    messageFormat: ERROR - {0} exception while creating tasks file {1}
+    resolution: No resolution needed
+    description: Cannot create task files
+  DTI_CONFIG_FILE_HANDLER_DUPLICATE_EVENT:
+    errorCode: DTI065
+    messageFormat: Event already sent to orchestrator for target {0}
+    resolution: No resolution needed
+    description: An event with this name and action was already sent to Orchestrator
+  DTI_CONFIG_FILE_HANDLER_EVENTS_JSON_CREATE_ISSUE:
+    errorCode: DTI066
+    messageFormat: Action {0}. JSON Processing exception while creating events JSONObject to send to orchestrator {1}
+    resolution: Check for data anamolies while creating Events JSON
+    description: Cannot create Event JSONs
+  DTI_CONFIG_FILE_HANDLER_REF_FILE_CREATE_ISSUE:
+    errorCode: DTI067
+    messageFormat: Error while creating or updating reference file {0}
+    resolution: No resolution needed
+    description: Error occured while creating / updating one of the reference files.
+  DTI_CONFIG_FILE_HANDLER_UPDATE_FILE_ISSUE:
+    errorCode: DTI068
+    messageFormat: Error while updating {0} file {0}
+    resolution: No resolution needed
+    description: Error occured while updating config / task files
+  DTI_REST_CLIENT_POST_FAILURE:
+    errorCode: DTI070
+    messageFormat: POST to REST api failed for {0} , Exception {1}
+    resolution: Check stacktrace
+    description: DTI cannot POST events to Orchestrator
+  DTI_EVENT_UTIL_CONFIG_PARAM_MISSING_ERROR:
+    errorCode: DTI071
+    messageFormat: Cannot find  {0} in config file. Exiting...
+    resolution: Check the config file for the parameter.
+    description: Cannot find the config param or file.
+  DTI_EVENT_UTIL_LOAD_CONFIG_DEFAULT_ERROR:
+    errorCode: DTI072
+    messageFormat: Cannot find  UEBFILTER in config file. Setting to default...
+    resolution: No resolution needed
+    description: Cannot find  UEBFILTER in config file. Setting to default in EventUtils.
+  DTI_EVENT_UTIL_EXCEPTION_ERROR:
+    errorCode: DTI073
+    messageFormat: Exception occured - {0}
+    resolution: Check the stack trace.
+    description: Exception occured in EventUtils.
+  DTI_EVENT_UTIL_TRUSTSTORE_PATH_ERROR:
+    errorCode: DTI074
+    messageFormat: Cannot find  TRUSTSTORE_PATH.
+    resolution: No resolution needed.
+    description: Cannot find  TRUSTSTORE_PATH in EventUtils.
+  DTI_EVENT_UTIL_TRUSTSTORE_PASSWORD_ERROR:
+    errorCode: DTI075
+    messageFormat: Cannot find  TRUSTSTORE_PASSWORD.
+    resolution: No resolution needed.
+    description: Cannot find  TRUSTSTORE_PASSWORD in EventUtils.
+  DTI_EVENT_UTIL_KEYSTORE_PATH_ERROR:
+    errorCode: DTI076
+    messageFormat: KEYSTORE_PATH is not Valid. Exiting.
+    resolution: No resolution needed.
+    description: KEYSTORE_PATH is not Valid. Exiting in EventUtils.
+  DTI_EVENT_UTIL_DOMAIN_ERROR:
+    errorCode: DTI077
+    messageFormat: Cannot find DOMAIN. Default to ALL events.
+    resolution: No resolution needed.
+    description: Cannot find DOMAIN. Default to ALL events in EventUtils.
+  DTI_EVENT_UTIL_TABLEDUMP_ERROR:
+    errorCode: DTI078
+    messageFormat: tableDump - {0}
+    resolution: Check the stack trace.
+    description: tableDump exception in EventUtils.
+  DTI_EVENT_UTIL_FILESEND_ERROR:
+    errorCode: DTI079
+    messageFormat: storeListToFileAndSend - {0}
+    resolution: Check the stack trace.
+    description: storeListToFileAndSend exception in EventUtils.
+  DTI_EVENT_UTIL_COMPRESS_GZIP_FILE_ERROR:
+    errorCode: DTI080
+    messageFormat: compressGzipFile - {0}
+    resolution: Check the stack trace.
+    description: compressGzipFile exception in EventUtils.
+  DTI_EVENT_UTIL_IOEXCEPTION_ERROR:
+    errorCode: DTI081
+    messageFormat: IOException {0} for - {1}
+    resolution: Check the stack trace.
+    description: IOException in EventUtils.
+  DTI_EVENT_UTIL_AAI_UEB_DMAAP_MATCH_ERROR:
+    errorCode: DTI082
+    messageFormat: Cannot find  AAICLIENT matching UEB/Dmaap in config file. Exiting...
+    resolution: Check the stack trace.
+    description: Cannot find  AAICLIENT matching UEB/Dmaap in config file. Exiting... in EventUtils.
+  DTI_EVENT_PROCESSOR_UEB_EVENT_EMPTY:
+    errorCode: DTI083
+    messageFormat: UEB event is empty.
+    resolution: Check the UEB messages.
+    description: DTI Event Processor script is not getting any UEB event.
+  DTI_EVENT_PROCESSOR_EXCEPTION:
+    errorCode: DTI084
+    messageFormat: Exception {0}
+    resolution: Check error log for the error and resolve.
+    description: Exception occured in DTI Event Processor script.
+  DTI_EVENT_PROCESSOR_JSON_PARSE_EXCEPTION:
+    errorCode: DTI085
+    messageFormat: JsonParseException {0}
+    resolution: Check the json.
+    description: Json parse exception occured in DTI Event Processor script.
+  DTI_EVENT_PROCESSOR_FILENOTFOUNDEXCEPTION:
+    errorCode: DTI086
+    messageFormat: FileNotFoundException {0} for {1}
+    resolution: Check error log for the error and resolve.
+    description: FileNotFoundException occured in DTI Event Processor script.
+  DTI_EVENT_PROCESSOR_IOEXCEPTION:
+    errorCode: DTI087
+    messageFormat: IOException {0} for {1}
+    resolution: Check error log for the error and resolve.
+    description: IOException occured in DTI Event Processor script.
+  DTI_EVENT_PROCESSOR_NO_UEB_EVENT_HEADER:
+    errorCode: DTI088
+    messageFormat: No Event header, Exiting {0}
+    resolution: No resolution needed
+    description: DTI cannot Process UEB event.
+  DTI_EVENT_PROCESSOR_NO_UEB_EVENT_ID:
+    errorCode: DTI089
+    messageFormat: No Event ID, Exiting {0}
+    resolution: No resolution needed
+    description: DTI cannot Process UEB event.
+  DTI_EVENT_PROCESSOR_NO_UEB_EVENT_TIMESTAMP:
+    errorCode: DTI090
+    messageFormat: No Event Timestamps, Exiting {0}
+    resolution: No resolution needed
+    description: DTI cannot Process UEB event.
+  DTI_EVENT_PROCESSOR_NO_UEB_EVENT_ACTION:
+    errorCode: DTI091
+    messageFormat: No Event Action, Exiting {0}
+    resolution: No resolution needed
+    description: DTI cannot Process UEB event.
+  DTI_EVENT_PROCESSOR_NO_UEB_EVENT_TYPE:
+    errorCode: DTI092
+    messageFormat: No Event Type, Exiting {0}
+    resolution: No resolution needed
+    description: DTI cannot Process UEB event.
+  DTI_EVENT_PROCESSOR_NO_UEB_EVENT_ENTITY_TYPE:
+    errorCode: DTI093
+    messageFormat: No Event Entity-type, Exiting {0}
+    resolution: No resolution needed
+    description: DTI cannot Process UEB event.
+  DTI_EVENT_PROCESSOR_NO_UEB_EVENT_ENTITY:
+    errorCode: DTI094
+    messageFormat: No Event Entity, Exiting {0}
+    resolution: No resolution needed
+    description: DTI cannot Process UEB event.
+  DTI_EVENT_PROCESSOR_EVENT_ENTITY_TYPE_NOT_PROCESSED:
+    errorCode: DTI095
+    messageFormat: Event with Entity Type {0} is NOT processed. UEB event ID {1}
+    resolution: No resolution needed
+    description: DTI has skipped processing UEB event.
+  DTI_EVENT_PROCESSOR_PROCESS_PSERVER_ERROR:
+    errorCode: DTI096
+    messageFormat: Error in processPserver, Hostname {0}
+    resolution: No resolution needed
+    description: Not able to save data in Database or send data to VETL.
+  DTI_EVENT_PROCESSOR_PROCESS_SRIOVVF_ERROR:
+    errorCode: DTI097
+    messageFormat: Error in processSriovVf, pciid {0}
+    resolution: No resolution needed
+    description: Not able to save data in Database or send data to VETL.
+  DTI_EVENT_PROCESSOR_PROCESS_VPLSPE_ERROR:
+    errorCode: DTI098
+    messageFormat: Error in processVplsPe, equipmentname {0}
+    resolution: No resolution needed
+    description: Not able to save data in Database or send data to VETL.
+  DTI_EVENT_PROCESSOR_PROCESS_METADATAUM_ERROR:
+    errorCode: DTI099
+    messageFormat: Error in processMetadataum, Metaname {0}
+    resolution: No resolution needed
+    description: Not able to save data in Database or send data to VETL.
+  DTI_EVENT_PROCESSOR_PROCESS_PINTERFACES_ERROR:
+    errorCode: DTI100
+    messageFormat: Error in processPinterfaces, Interface Name {0}
+    resolution: No resolution needed
+    description: Not able to save data in Database or send data to VETL.
+  DTI_EVENT_PROCESSOR_PROCESS_LAG_INTERFACE_TOFILE_ERROR:
+    errorCode: DTI101
+    messageFormat: Error in processLagInterfaceToFile, InterfaceName {0}
+    resolution: No resolution needed
+    description: Not able to save data in Database or send data to VETL.
+  DTI_UEB_SUBSCRIBER_RECEIVED_EVENT_ISSUE:
+    errorCode: DTI102
+    messageFormat: UEB Event Error - {0} , {1}
+    resolution: No resolution needed
+    description: DTI cannot process this AAI Event.
+  DTI_EXCEPTION:
+    errorCode: DTI103
+    messageFormat: DTI Exception {0}
+    resolution: No resolution needed
+    description: Generic DTI exception.
+  DTI_UEB_SUBSCRIBER_PROCESSING_FAILURE:
+    errorCode: DTI104
+    messageFormat: UEB Event Processing failed - {0}
+    resolution: No resolution needed
+    description: DTI cannot process this AAI Event.
+  DTI_INVENTORY_UTIL_ERROR:
+    errorCode: DTI105
+    messageFormat: ERROR - {0} , {1}
+    resolution: No resolution needed
+    description: DTI cannot process this AAI Event.
+  DTI_DMAAP_PUB_CONFIG_EXCEPTION:
+    errorCode: DTI106
+    messageFormat: DMaap Configuration exception {0}
+    resolution: No resolution needed
+    description: DTI cannot publish feed files to DMaaP DR
+  DTI_DBADAPTER_HIBERNATE_EXCEPTION_OBJECT_ERROR:
+    errorCode: DTI107
+    messageFormat: DB Update - HibernateException with object - {0} - exception - {1} 
+    resolution: check stack trace
+    description: Not able to update the table due to hibernate exception in DBAdapter.
+  DTI_DBADAPTER_HIBERNATE_EXCEPTION_SQL_ERROR:
+    errorCode: DTI108
+    messageFormat: DB Update - HibernateException with sql - {0} - exception - {1} 
+    resolution: check stack trace
+    description: Not able to update the table due to hibernate exception in DBAdapter.
+  DTI_DBADAPTER_HIBERNATE_EXCEPTION_SQL_INSERT_OBJECT_ERROR:
+    errorCode: DTI109
+    messageFormat: DB Update - HibernateException with sql - {0} - Insert Object - {1} - exception - {2} 
+    resolution: check stack trace
+    description: Not able to update the table due to hibernate exception in DBAdapter.
+  DTI_DBADAPTER_INVALIDATE_NOT_RECEIVED_TABLE_ERROR:
+    errorCode: DTI110
+    messageFormat: function {0} - {1} not a valid table name 
+    resolution: No resolution needed
+    description: Table is not present in the table list in DBAdapter.
+  DTI_DBADAPTER_INVALIDATE_NOT_RECEIVED_KEY_ERROR:
+    errorCode: DTI111
+    messageFormat: Function {0} - {1} not a valid key name 
+    resolution: No resolution needed
+    description: Key is not present in the key list in DBAdapter.
+  DTI_DBADAPTER_UPDATE_TABLE_QUERY_ERROR:
+    errorCode: DTI112
+    messageFormat: update {0} set validto = {1} where {2}={3} and validto is null 
+    resolution: No resolution needed
+    description: Update query failed in DBAdapter.
+  DTI_CONFIG_FILE_HANDLER_POST_ORCH_FAILURE:
+    errorCode: DTI113
+    messageFormat: POST to Orchestrator completed with error status code - {0} , {1} , {2} 
+    resolution: No resolution needed
+    description: Event JSON to Orchestrator with this action and name was completed in error.
+  DTI_CONFIG_FILE_HANDLER_LOCATIONID_MAP_FAILURE:
+    errorCode: DTI114
+    messageFormat: Cannot process this record - {0}, No local dcae found for this location id {1} , deviceName {2} 
+    resolution: Check with SE if this is a new location and the mapping is not found.
+    description: No local dcae mapping found for this location id. So config cannot be handled
+  DTI_EVENT_UTIL_INVALID_TABLE_NAME_ERROR:
+    errorCode: DTI115
+    messageFormat: Invalid table name - {0}
+    resolution: Check the file entitytypeTableMap.properties to check this invalid table name.
+    description: This is an invalid table name. Not found on dti schema in postgres DB.
+  DTI_CONFIG_FILE_HANDLER_INVALID_ENV_VARIABLE:
+    errorCode: DTI116
+    messageFormat: Invalid value for env variable - {0}
+    resolution: Check the file dti.properties to check this invalid table name.
+    description: This is an invalid value for an environment variable.
+  DTI_DMAAPMR_SUBSCRIBER_RECEIVED_EVENT_ISSUE:
+    errorCode: DTI117
+    messageFormat: DMAAP MR Event Error - {0} , {1}
+    resolution: No resolution needed
+    description: DTI cannot process this AAI Event.
+  DTI_DMAAPMR_SUBSCRIBER_PROCESSING_FAILURE:
+    errorCode: DTI118
+    messageFormat: DMAAP MR Event Processing failed - {0}
+    resolution: No resolution needed
+    description: DTI cannot process this AAI Event.
+  DTI_EVENT_PROCESSOR_PROCESS_FORWARING_PATH_ERROR:
+    errorCode: DTI119
+    messageFormat: Error in processForwardingPath, forwarding path name {0}
+    resolution: No resolution needed
+    description: Not able to save data in Database or send data to VETL.
+  DTI_EVENT_PROCESSOR_PROCESS_FORWARDER_ERROR:
+    errorCode: DTI120
+    messageFormat: Error in processForwarder, forwarding path name {0}
+    resolution: No resolution needed
+    description: Not able to save data in Database or send data to VETL.  
+  DTI_DBADAPTER_INSIDE_FUNCTION_DEBUG:
+    errorCode: 0
+    messageFormat: Inside function -  {0}
+    resolution: No resolution needed
+    description: Inside function
+  DTI_DBADAPTER_INSIDE_ADD_SHUTDOWN_HOOK_DEBUG:
+    errorCode: 0
+    messageFormat: Inside Add Shutdown Hook
+    resolution: No resolution needed
+    description: Inside Add Shutdown Hook
+  DTI_DBADAPTER_SHUTDOWN_HOOK_ATTACHED_DEBUG:
+    errorCode: 0
+    messageFormat: Shut Down Hook Attached.
+    resolution: No resolution needed
+    description: Shut Down Hook Attached. 
+  DTI_DBADAPTER_IGNORE_NUMBER_FORMAT_EXCEPTION_DEBUG:
+    errorCode: 0
+    messageFormat: Ignore NumberFormatException - {0}
+    resolution: No resolution needed
+    description: Ignore NumberFormatException in DBAdapter
+  DTI_DBADAPTER_INVALIDATE_NOT_RECEIVED_TABLE_DEBUG:
+    errorCode: 0
+    messageFormat: Invalidate Not Received for Table- {0} Below keys are invalidated. \n {1}
+    resolution: No resolution needed
+    description: Invalidate not received for table in DBAdapter
+  DTI_DBADAPTER_INVALIDATE_NOT_RECEIVED_TYPE_DEBUG:
+    errorCode: 0
+    messageFormat: Invalidate Not Received for {0}
+    resolution: No resolution needed
+    description: Invalidate not received for table in DBAdapter
+  DTI_DBADAPTER_GET_MODIFIED_RECORD_DEBUG:
+    errorCode: 0
+    messageFormat: Get modified records for {0}
+    resolution: No resolution needed
+    description: Get modified records for table in DBAdapter
+  DTI_CONFIG_FILE_HANDLER_INSIDE_FUNCTION_DEBUG:
+    errorCode: 0
+    messageFormat: Inside function -  {0}
+    resolution: No resolution needed
+    description: Inside function
+  DTI_CONFIG_FILE_HANDLER_FULL_FEEDS_PROCESS:
+    errorCode: 0
+    messageFormat: Processing {0} full feeds response from A&AI {1}
+    resolution: No resolution needed
+    description: ConfigurationFileHandler processing full AAI feeds for config/ task file creation.
+  DTI_CONFIG_FILE_HANDLER_SET_PERSONA_DETAILS:
+    errorCode: 0
+    messageFormat: Retreiving generic-vnf object to set personal details into Event JSON to Orchestrator
+    resolution: No resolution needed
+    description: Retreiving generic-vnf object to set personal id and model details into Event JSON
+  DTI_CONFIG_FILE_HANDLER_SET_NEVERSION:
+    errorCode: 0
+    messageFormat: Retreiving vserver -> image data from generic-vnf to set neVersion
+    resolution: No resolution needed
+    description: Setting neVersion field
+  DTI_CONFIG_FILE_HANDLER_CREATE_REF_FILE:
+    errorCode: 0
+    messageFormat: Creating reference file for {0}
+    resolution: No resolution needed
+    description: Create Reference file
+  DTI_CONFIG_FILE_HANDLER_UPDATE_REF_FILE:
+    errorCode: 0
+    messageFormat: Updating reference file for {0}
+    resolution: No resolution needed
+    description: Update Reference file
+  DTI_CONFIG_FILE_HANDLER_CREATE_FILE:
+    errorCode: 0
+    messageFormat: Creating DTI {0} files for {1}
+    resolution: No resolution needed
+    description: Creating DTI configuration / task files
+  DTI_CONFIG_FILE_HANDLER_FULL_FEEDS_SUCCESS:
+    errorCode: 0
+    messageFormat: Full feeds process completed successfully.
+    resolution: No resolution needed
+    description: AAI Full feeds are processed successfully
+  DTI_CONFIG_FILE_HANDLER_RSYNC_PROCESS:
+    errorCode: 0
+    messageFormat: Starting process to rsync {0} topology to local DCAE
+    resolution: No resolution needed
+    description: Sending config / task files to local dcae using rsync
+  DTI_CONFIG_FILE_HANDLER_RSYNC_PROCESS_SUCCESS:
+    errorCode: 0
+    messageFormat: rsync {0} files to local dcae completed successfully
+    resolution: No resolution needed
+    description: rsync config and or task files to local dcae completed successfully
+  DTI_CONFIG_FILE_HANDLER_RECEIVED_AAI_EVENT:
+    errorCode: 0
+    messageFormat: Processing AAI Event - {0}
+    resolution: No resolution needed
+    description: ConfigurationFileHandler received an AAI Event
+  DTI_CONFIG_FILE_HANDLER_POST_ORCH:
+    errorCode: 0
+    messageFormat: Sending {0} action to Orchestrator for target {1}
+    resolution: No resolution needed
+    description: Event JSON with this action and name will be sent to Orchestrator
+  DTI_CONFIG_FILE_HANDLER_POST_ORCH_SUCCESS:
+    errorCode: 0
+    messageFormat: POST to Orchestrator completed successfully - {0} , {1}
+    resolution: No resolution needed
+    description: Event JSON to Orchestrator with this action and name was successfully completed.
+  DTI_REST_CLIENT_RETRIEVE:
+    errorCode: 0
+    messageFormat: Initializing KeyManagerFactory. KEYSTORE_PATH {0}
+    resolution: No resolution needed
+    description: Initializing KeyManagerFactory
+  DTI_REST_CLIENT_SSL_INIT:
+    errorCode: 0
+    messageFormat: Initializing SSL Context
+    resolution: No resolution needed
+    description: Initializing SSL Context
+  DTI_REST_CLIENT_RETRIEVE_URL:
+    errorCode: 0
+    messageFormat: Making Jersey https call - {0}
+    resolution: No resolution needed
+    description: DTI calling A&AI with the given URL
+  DTI_REST_CLIENT_RETRIEVE_SUCCESS:
+    errorCode: 0
+    messageFormat: REST API result - {0}
+    resolution: No resolution needed
+    description: Successful response got from A&AI
+  DTI_REST_CLIENT_POST_URL:
+    errorCode: 0
+    messageFormat: POST to url {0}
+    resolution: No resolution needed
+    description: URL that DTI is POSTing to
+  DTI_REST_CLIENT_POST_REQUEST:
+    errorCode: 0
+    messageFormat: POST request {0}
+    resolution: No resolution needed
+    description: Request that is POSTed
+  DTI_REST_CLIENT_POST_RESPONSE_CODE:
+    errorCode: 0
+    messageFormat: Response from POST to REST api - Status code {0} , Reason Phrase {1}
+    resolution: No resolution needed
+    description: Response to POST
+  DTI_REST_CLIENT_POST_RESPONSE_MESSAGE:
+    errorCode: 0
+    messageFormat: Response from POST to REST api - Entity message {0}
+    resolution: No resolution needed
+    description: Response to POST
+  DTI_EVENT_PROCESSOR_INSIDE_FUNCTION_DEBUG:
+    errorCode: 0
+    messageFormat: Inside function -  {0}
+    resolution: No resolution needed
+    description: Inside function
+  DTI_EVENT_PROCESSOR_INSIDE_BLOCK_DEBUG:
+    errorCode: 0
+    messageFormat: Inside block -  {0}
+    resolution: No resolution needed
+    description: Inside block
+  DTI_EVENT_PROCESSOR_TOP_ENTITY_TYPE_DEBUG:
+    errorCode: 0
+    messageFormat: top-entity-type is empty - {0}
+    resolution: No resolution needed
+    description: Top entity type is empty for UEB message.
+  DTI_EVENT_PROCESSOR_UEB_EVENT_RESULT_DEBUG:
+    errorCode: 0
+    messageFormat: RESULT = {0} for UEB event ID - {1}
+    resolution: No resolution needed
+    description: Result for UEB event in Event Processor.
+  DTI_EVENT_PROCESSOR_START_SYNC_DEBUG:
+    errorCode: 0
+    messageFormat: Starting performSync
+    resolution: No resolution needed
+    description: Starting performSync (AAI) in Event Processor.
+  DTI_EVENT_PROCESSOR_PERFORM_SYNC_DEBUG:
+    errorCode: 0
+    messageFormat: performSync - {0}
+    resolution: No resolution needed
+    description: performSync (AAI) in Event Processor.
+  DTI_EVENT_PROCESSOR_SYNC_COLLECTOR_COMP_DEBUG:
+    errorCode: 0
+    messageFormat: Calling collector component for sync - {0}
+    resolution: No resolution needed
+    description: Calling collector component for sync from Event Processor.
+  DTI_EVENT_PROCESSOR_ORCHESTRATOR_DISABLED_DEBUG:
+    errorCode: 0
+    messageFormat: Posting events to Orchestrator is disabled
+    resolution: No resolution needed
+    description: Posting events to Orchestrator is disabled in Event Processor.
+  DTI_EVENT_PROCESSOR_PROCESSING_SYNC_DEBUG:
+    errorCode: 0
+    messageFormat: Processing sync for {0}
+    resolution: No resolution needed
+    description: Processing sync for individual objects in Event Processor.
+  DTI_EVENT_PROCESSOR_PROCESSING_SYNC_COMPLETE_DEBUG:
+    errorCode: 0
+    messageFormat: Finished Processing sync {0}
+    resolution: No resolution needed
+    description: Finished Processing sync in Event Processor.
+  DTI_EVENT_PROCESSOR_UPDATE_RECEIVED_MAPS_DEBUG:
+    errorCode: 0
+    messageFormat: Updating received maps for sync {0}
+    resolution: No resolution needed
+    description: Updating received maps for sync in Event Processor.
+  DTI_EVENT_PROCESSOR_START_INVALIDATE_NOT_RECEIVED_PROCESS_DEBUG:
+    errorCode: 0
+    messageFormat: starting  invalidateNotReceivedProcess for sync {0}
+    resolution: No resolution needed
+    description: starting  invalidateNotReceivedProcess for sync in Event Processor.
+  DTI_EVENT_PROCESSOR_SENDING_FEEDS_VETL_DEBUG:
+    errorCode: 0
+    messageFormat: Sending feeds to VETL for sync {0}
+    resolution: No resolution needed
+    description: Sending feeds to VETL for sync from Event Processor.
+  DTI_EVENT_PROCESSOR_FINISH_PERFORM_SYNC_DEBUG:
+    errorCode: 0
+    messageFormat: Finished performSync {0}
+    resolution: No resolution needed
+    description: Finished performSync from Event Processor.
+  DTI_EVENT_PROCESSOR_ENTER_STORE_EVENT_DB_DEBUG:
+    errorCode: 0
+    messageFormat: Entering storeEventToDB  {0} - {1}
+    resolution: No resolution needed
+    description: Entering function storeEventToDB in Event Processor.
+  DTI_EVENT_PROCESSOR_STATUS_UPDATE_DEBUG:
+    errorCode: 0
+    messageFormat: NO_UPDATE - SUCCESS_UPDATE {0} - {1}
+    resolution: No resolution needed
+    description: Status update information in Event Processor.
+  DTI_EVENT_PROCESSOR_START_PROCESS_EVENTS_DEBUG:
+    errorCode: 0
+    messageFormat: starting processEvents
+    resolution: No resolution needed
+    description: starting processEvents function in Event Processor.
+  DTI_EVENT_PROCESSOR_PROCESS_UEB_EVENTS_DEBUG:
+    errorCode: 0
+    messageFormat: UEB Event is processed successfully {0}
+    resolution: No resolution needed
+    description: UEB Event is processed successfully in Event Processor.
+  DTI_EVENT_START_FULL_SYNC_DEBUG:
+    errorCode: 0
+    messageFormat: Starting Full Sync
+    resolution: No resolution needed
+    description: Starting Full Sync in Event Processor.
+  DTI_EVENT_FULL_SYNC_COMPLETE_DEBUG:
+    errorCode: 0
+    messageFormat: Full Sync is completed successfully
+    resolution: No resolution needed
+    description: Full Sync is completed successfully in Event Processor.
+  DTI_EVENT_UTIL_IN_FUNCTION_DEBUG:
+    errorCode: 0
+    messageFormat: In function {0}
+    resolution: No resolution needed.
+    description: Inside function in EventUtils.
+  DTI_EVENT_UTIL_DMAAP_DISABLED_DEBUG:
+    errorCode: 0
+    messageFormat: Publishing to DMaaP is disabled
+    resolution: No resolution needed.
+    description: Publishing to DMaaP is disabled in EventUtils.
+  DTI_EVENT_UTIL_FINISHED_FUNCTION_DEBUG:
+    errorCode: 0
+    messageFormat: Finished function {0}
+    resolution: No resolution needed.
+    description: Completed function in EventUtils.
+  DTI_EVENT_UTIL_DB_USERNAME_DEBUG:
+    errorCode: 0
+    messageFormat: Username - {0} - {1}
+    resolution: No resolution needed.
+    description: Database username and driver name in EventUtils.
+  DTI_EVENT_UTIL_QUERY_DEBUG:
+    errorCode: 0
+    messageFormat: select * from dti.{0} where validto={1} or validfrom={2}
+    resolution: No resolution needed.
+    description: Database dynamic query in EventUtils.
+  DTI_EVENT_UTIL_RESULT_SIZE_DEBUG:
+    errorCode: 0
+    messageFormat: resultList.size - {0}
+    resolution: No resolution needed.
+    description: resultList size in EventUtils.
+  DTI_INVENTORY_COLLECTOR_START_FULL_SYNC_DEBUG:
+    errorCode: 0
+    messageFormat: Starting Full Sync
+    resolution: No resolution needed.
+    description: Starting Full Sync in InventoryCollector.
+  DTI_INVENTORY_COLLECTOR_FINISHED_FULL_SYNC_DEBUG:
+    errorCode: 0
+    messageFormat: Finished Full Sync
+    resolution: No resolution needed.
+    description: Full Sync Completed in InventoryCollector.
+  DTI_INVENTORY_COLLECTOR_START_DMAAPMRSUB_DEBUG:
+    errorCode: 0
+    messageFormat: Starting DMAAP MR Subscriber
+    resolution: No resolution needed.
+    description: Starting DMAAP MR Subscriber in InventoryCollector.
+  DTI_INVENTORY_COLLECTOR_START_UEBSUB_DEBUG:
+    errorCode: 0
+    messageFormat: Starting UEBSubscriber
+    resolution: No resolution needed.
+    description: Starting UEBSubscriber in InventoryCollector.
+  DTI_INVENTORY_COLLECTOR_EXIT_DEBUG:
+    errorCode: 0
+    messageFormat: Exiting Inventory Collector
+    resolution: No resolution needed.
+    description: Exiting Inventory Collector in InventoryCollector.
+  DTI_DMAAPMR_SUBSCRIBER_RECEIVED_AAI_EVENT:
+    errorCode: 0
+    messageFormat: Received AAI event - message {0}
+    resolution: No resolution needed.
+    description: DTI received AAI event
+  DTI_UEB_SUBSCRIBER_RECEIVED_AAI_EVENT:
+    errorCode: 0
+    messageFormat: Received AAI event - message {0}
+    resolution: No resolution needed.
+    description: DTI received AAI event
+  DTI_POST_ORCH_DISABLED:
+    errorCode: 0
+    messageFormat: POSTing events to Orchestrator is disabled
+    resolution: No resolution needed.
+    description: DTI will not post any Event JSONs to Orchestrator
+  DTI_PG_LOAD_DISABLED:
+    errorCode: 0
+    messageFormat: Loading to Postgres DB is disabled
+    resolution: No resolution needed.
+    description: DTI will not load any topology to postgres DB
+  DTI_DMAAP_PUBLISH_DISABLED:
+    errorCode: 0
+    messageFormat: Publishing feeds to DMaaP is disabled
+    resolution: No resolution needed.
+    description: DTI will not publish any topology feeds to DMaaP DR
+  DTI_DMAAP_PUB_SUCCESS:
+    errorCode: 0
+    messageFormat: Successfully Published to DMaap, Filename - {0}
+    resolution: No resolution needed
+    description: DTI published feed files to DMaaP successfully
+operations:
+  DTIRetrieveInventoryOperation:
+    description: DTI Retrieve AAI Inventory
+  DTICreateUpdateDeleteTaskAndPostToOrchOperation:
+    description: DTI Create or Update or Delete task info and POST to orchestrator
+  DTICreateUpdateDeleteTaskconfigAndRsyncToLDCAEOperation:
+    description: DTI Create or Update or Delete task, config files and rsync to local dcae
+  DTIRsyncTaskConfigToLDCAEOperation:
+    description: DTI to rsync task, config files to local dcae
+  DTIPostTaskToOrchOperation:
+    description: DTI to POST task files to Orchestrator
+  DTIPublishToDmaapOperation:
+    description: DTI Publish AAI Inventory to DMaaP DR
+  DTILoadToPostgresOperation:
+    description: DTI Load AAI Inventory to postgres database

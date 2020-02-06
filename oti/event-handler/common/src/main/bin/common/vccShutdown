@@ -1,0 +1,263 @@
+#!/usr/bin/env ksh
+
+###
+#
+#  NAME
+#   vccShutdown
+#
+#  AUTHOR(S)
+#   1. Greg Howard; greg.howard@att.com; 607-257-1575; original developer
+#
+#  DESCRIPTION
+#   This script shuts down the VCC application by:
+#   - Saving a copy of and then removing the crontab entries
+#   - Executing shutdown scripts for all VCC components/apps
+#     > The shutdown config file can be rebuilt prior to 
+#       running if desired
+#
+#  SYNOPSIS
+#   vccShutdown [-h|?] [-d] [-b]
+#
+#    ? Print help.
+#
+#   -h Same as '?'.
+#
+#   -b Build the shutdown configuration file
+#
+#   -v Verbose output
+#
+#  RELATED SCRIPTS
+#   vccStart
+#
+#  FILE DEPENDENCIES
+#   $VCC_HOME/config/system/processShutdown.cfg  
+#   $VCC_HOME/config/master/processShutdown_master.cfg  
+#   $VCC_HOME/config/custom/processShutdown/processShutdown_gbl_vccDEFAULT.idList.cfg
+#   $VCC_HOME/config/custom/processShutdown/processShutdown_svc_*.cfg
+#
+#  FILE PRODUCTION
+#   $VCC_HOME/config/system/processShutdown.cfg  
+#   (if -b option is used, otherwise left untouched)
+#
+#  NOTES
+#   1. ... 
+#
+#  TODO
+#   1. ...
+#
+#  REVISION HISTORY
+#   mm/dd/yyyy attuid -   added ....
+#   mm/dd/yyyy attuid - changed ....
+#   mm/dd/yyyy attuid - removed ....
+#
+#   06/15/2017 gh1363 - created initial version for 17.07
+#
+###
+
+#
+# Internal function definitions
+#
+
+function printUsage
+{
+	echo ""
+	echo "${SCRIPT} [-h|?] [-d] [-b] [-v]"
+	echo ""
+	echo "Example(s):"
+	echo "${SCRIPT}"
+	echo "${SCRIPT} -b"
+	echo "${SCRIPT} -v"
+	echo "${SCRIPT} -b -v"
+	echo ""
+}
+
+setLogFile()
+{
+	# Ensure log dir exists
+	mkdir -p $VCC_LOG_DIR/system
+
+	VLSN=`getMyVccLogicalSystemName`
+	if [ -z "$VLSN" ]
+	then
+		VLSN=`hostname`
+	fi
+
+	LogFile=$VCC_LOG_DIR/system/vccShutdown_${START_DATETIME_YYYYMMDDhhmmss}_$VLSN.log
+
+	> $LogFile
+
+	return 0
+}
+
+echoAndLog()
+{
+	LevelArg=$1
+	MsgArg=$2
+
+	DATETIME=`date +%Y%m%d%H%M%S`
+
+	NON_VERBOSE_MSG_TYPES="WARN:ERROR:INFO"
+
+	# For user output (assuming we're on a tty), depends on -v option
+	# If verboseOutput=TRUE, then display exactly what gets logged
+	# If verboseOutput=FALSE, then display simpler messages
+	if [[ "$RunEnv" == "tty" ]]
+	then
+		# We're on a tty
+		if [[ "$verboseOutput" == "TRUE" ]]
+		then
+			echo "${_DATETIME}000~${LevelArg}~VCC~${SCRIPT}~${LevelArg}_MSG~${MsgArg}"
+		else
+			[[ "$NON_VERBOSE_MSG_TYPES" =~ "$LevelArg" ]] && echo "${MsgArg}" 
+		fi
+	fi
+
+	# Log always gets everything
+	echo "${DATETIME}000~${LevelArg}~VCC~${SCRIPT}~${LevelArg}_MSG~${MsgArg}" >> $LogFile 2>&1
+}
+
+#
+# Initialization
+#
+
+SCRIPT=`basename ${0}`
+START_DATETIME_YYYYMMDD=`date +%Y%m%d`
+START_DATETIME_YYYYMMDDhhmmss=`date +%Y%m%d%H%M%S`
+
+RunEnv=`tty -s && echo "tty" || echo "non-tty"`
+
+verboseOutput="FALSE"
+
+buildShutdownConfigFile="FALSE"
+shutdownConfigFile="$VCC_CONFIG_DIR/system/processShutdown.cfg"
+
+setLogFile
+
+#
+# Process Options (both getopts and name/value pairs)
+#
+
+while
+	getopts dhbv ARG
+do
+	case ${ARG} in
+	d)
+		set -x
+		;;
+	h)
+		printUsage
+		exit 0
+		;;
+	b)
+		buildShutdownConfigFile="TRUE"
+		;;
+	v)
+		verboseOutput="TRUE"
+		;;
+	\?)
+		printUsage
+		exit 1
+		;;
+	esac
+done
+shift `expr ${OPTIND} - 1`
+
+for NON_GETOPTS_CLO in $*
+do
+	if [ "$NON_GETOPTS_CLO" == "?" ]
+	then
+		printUsage
+		exit 0
+	fi
+done
+
+#
+# Main
+#
+
+echoAndLog TRACE "Start ${SCRIPT}"
+
+# Rebuild the processShutdown file if requested to do so,
+# this is typically done during the install but AFTER the
+# initial shutdown (during the config setup phase)
+if [[ "$buildShutdownConfigFile" == "TRUE" ]]
+then
+	mkdir -p $VCC_CONFIG_DIR/system
+	echoAndLog INFO "Rebuilding: $shutdownConfigFile ..."
+	buildVccManagedConfig.ksh -f $shutdownConfigFile
+	if [ "$?" -ne 0 ]
+	then
+		echoAndLog ERROR "Rebuild of processShutdown config failed, exiting"
+		exit 1
+	else
+		echoAndLog INFO "Rebuild of processShutdown config succeeded"
+	fi
+fi
+
+echoAndLog INFO "Backing up crontab entries ..."
+# Preserve what's loaded in cron now so that when 
+# a vccStart is done you will get what you had when
+# you did the vccShutdown, however, there are exceptions:
+# - During an install, crontab.cfg will get rebuilt
+# - If you explicitly ask for crontab.cfg to be rebuilt (-b option)
+crontab -l > $VCC_HOME/etc/crontab/crontab.cfg
+# Save what was loaded in cron to a dated backup 
+# that also indicated it was created by vccShutdown
+crontab -l > $VCC_HOME/etc/crontab/vccCrontabBackup.${START_DATETIME_YYYYMMDDhhmmss}.vccShutdown.txt
+echoAndLog INFO "Completed backup of crontab entries"
+
+echoAndLog INFO "Removing crontab entries ..."
+crontab -r
+echoAndLog INFO "Completed removal of crontab entries"
+
+# Wait short period before initiating
+# a process by process graceful shutdown
+sleep 10
+
+# Set IFS to be just a linefeed so that all options
+# defined in the processShutdown.cfg file stay with 
+# their commands; Normally you'd set it back after
+# but we're done with the script after the loop so
+# there isn't really a need to save/restore it
+IFS="
+"
+
+# Loop through processShutdown config which contains
+# the list of shutdown commands to execute on this 
+# particular system to initiate graceful shutdowns
+echoAndLog INFO "Going through processShutdown config to execute each graceful shutdown script ..."
+for cmdStr in `cat $shutdownConfigFile | grep -v "#" | grep -e [0-9a-zA-Z]`
+do
+	echoAndLog INFO "cmdStr: $cmdStr"
+
+	eval expandedCmdStr=`echo "$cmdStr"`
+	echoAndLog INFO "expandedCmdStr: $expandedCmdStr"
+
+	justCmd=`echo $expandedCmdStr | cut -d" " -f1`
+	echoAndLog INFO "justCmd: $justCmd"
+
+	echoAndLog INFO "Exists? $justCmd"
+	if [ -e $justCmd ]
+	then
+		echoAndLog INFO "Exists: $justCmd"
+	else
+		echoAndLog INFO "Does NOT exist: $justCmd"
+		continue
+	fi
+
+	echoAndLog INFO "Executing: $cmdStr"
+	eval $cmdStr
+	rc=$?
+
+	echoAndLog INFO "Completed: $cmdStr rc<$rc>"
+
+	if [ $rc -ne 0 ]
+	then
+		echoAndLog ERROR "Failed execution of: ${cmdStr}"
+	fi
+done
+echoAndLog INFO "Completed execution of all graceful shutdown scripts"
+
+echoAndLog TRACE "End ${SCRIPT}"
+
+exit 0
