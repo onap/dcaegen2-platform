@@ -39,6 +39,8 @@ limitations under the License.
     <!--NOTE: Nifi jars used here are version 1.9.2 but dcae mod is on 1.9.3 because 1.9.3 is not in Maven Central -->
     <nifi.version>1.9.2</nifi.version>
     <docker.fabric.version>0.32.0</docker.fabric.version>
+    <sonar.coverage.jacoco.xmlReportPaths>${project.reporting.outputDirectory}/jacoco-ut/jacoco.xml
+    </sonar.coverage.jacoco.xmlReportPaths>
   </properties>
   <dependencies>
     <dependency>
