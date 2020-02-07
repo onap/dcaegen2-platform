@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fecd8971_9b90992e",
+        "filename": "oti/event-handler/collection/configManager/src/main/java/com/att/vcc/configmanager/.gradle/3.5/file-changes/last-build.bin",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-07T22:22:34Z",
+      "side": 1,
+      "message": "should be removed",
+      "revId": "86a95bc630aa9f5118f9bc0c0bb0aef88c549c78",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1bba491e_1b3180c6",
+        "filename": "oti/event-handler/collection/configManager/src/main/java/com/att/vcc/configmanager/.gradle/3.5/taskHistory/fileSnapshots.bin",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-07T22:22:34Z",
+      "side": 1,
+      "message": "no binary files are allowed",
+      "revId": "86a95bc630aa9f5118f9bc0c0bb0aef88c549c78",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e26c3166_3a2a5845",
+        "filename": "oti/event-handler/inventory/oti/src/main/config/sql/narad/table/narad_cable.sql",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-07T22:22:34Z",
+      "side": 1,
+      "message": "all sql pertaining to narad doesn\u0027t apply for ONAP; should be removed",
+      "revId": "86a95bc630aa9f5118f9bc0c0bb0aef88c549c78",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66c18515_4bdc3286",
+        "filename": "oti/event-handler/inventory/oti/src/main/config/sql/table/rt_allotted_resource.sql",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-07T22:22:34Z",
+      "side": 1,
+      "message": "rt_ files can also be removed; confirm with Wen/Leo",
+      "revId": "86a95bc630aa9f5118f9bc0c0bb0aef88c549c78",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff24a42a_9a901a36",
+        "filename": "oti/event-handler/inventory/oti/src/main/etc/crontab/crontab.cfg",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-07T22:22:34Z",
+      "side": 1,
+      "message": "candidate to be removed?",
+      "revId": "86a95bc630aa9f5118f9bc0c0bb0aef88c549c78",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7143ee2f_701eb235",
+        "filename": "oti/event-handler/inventory/oti/src/main/etc/crontab/crontab.cfg_dtiProc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-07T22:22:34Z",
+      "side": 1,
+      "message": "same comment as earlier.. these wont apply on k8s deployment for ONAP",
+      "revId": "86a95bc630aa9f5118f9bc0c0bb0aef88c549c78",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eca25d99_4c056feb",
+        "filename": "oti/event-handler/inventory/oti/src/main/resources/narad_cable.hbm.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-07T22:22:34Z",
+      "side": 1,
+      "message": "all narad related resources to be removed",
+      "revId": "86a95bc630aa9f5118f9bc0c0bb0aef88c549c78",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2bdc7a37_c4a4acaf",
+        "filename": "oti/event-handler/inventory/oti/src/main/swm/deinstall/postproc/post_proc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-07T22:22:34Z",
+      "side": 1,
+      "message": "SWM doesn\u0027t apply for onap, all related files to be removed",
+      "revId": "86a95bc630aa9f5118f9bc0c0bb0aef88c549c78",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fac4601_01ddaf17",
+        "filename": "oti/event-handler/inventory/oti/src/test/resources/naradevent/chassis_naradevent.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-07T22:22:34Z",
+      "side": 1,
+      "message": "test and source files related to narad to be removed",
+      "revId": "86a95bc630aa9f5118f9bc0c0bb0aef88c549c78",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
