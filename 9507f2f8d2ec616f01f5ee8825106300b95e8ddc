@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "732a996d_d7daaa46",
+        "filename": "mod/designtool/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-10T22:59:53Z",
+      "side": 1,
+      "message": "Build/Packaging is more appropriate",
+      "range": {
+        "startLine": 17,
+        "startChar": 3,
+        "endLine": 17,
+        "endChar": 14
+      },
+      "revId": "9507f2f8d2ec616f01f5ee8825106300b95e8ddc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b08676dd_2f40b772",
+        "filename": "mod/designtool/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-10T22:59:53Z",
+      "side": 1,
+      "message": "Separate \"Development\" section to clarify steps involved for development/unit-test will be useful; should include how/when one should introduce updates to jsp/java source",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 44
+      },
+      "revId": "9507f2f8d2ec616f01f5ee8825106300b95e8ddc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
