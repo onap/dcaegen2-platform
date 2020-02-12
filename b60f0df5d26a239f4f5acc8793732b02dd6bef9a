@@ -1,0 +1,227 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "13e06e91_219cdee0",
+        "filename": "mod/bpgenerator/TestCases/hello-changed.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-12T20:54:58Z",
+      "side": 1,
+      "message": "change this to public docker hub image",
+      "range": {
+        "startLine": 152,
+        "startChar": 10,
+        "endLine": 152,
+        "endChar": 107
+      },
+      "revId": "b60f0df5d26a239f4f5acc8793732b02dd6bef9a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b3b78e88_1bed22e4",
+        "filename": "mod/bpgenerator/TestCases/hello_changed_bp_yaml.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-12T20:54:58Z",
+      "side": 1,
+      "message": "missing onap license header",
+      "revId": "b60f0df5d26a239f4f5acc8793732b02dd6bef9a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "00daa1ed_22e0281f",
+        "filename": "mod/bpgenerator/TestCases/helloworld/blueprint/helloworld_changed_with_dmaap_yaml.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-12T20:54:58Z",
+      "side": 1,
+      "message": "missing license header",
+      "revId": "b60f0df5d26a239f4f5acc8793732b02dd6bef9a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "09b24e81_eda2a406",
+        "filename": "mod/bpgenerator/TestCases/helloworld/compspec/hello-changed.json",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-12T20:54:58Z",
+      "side": 1,
+      "message": "change this to public docker hub image",
+      "range": {
+        "startLine": 152,
+        "startChar": 11,
+        "endLine": 152,
+        "endChar": 107
+      },
+      "revId": "b60f0df5d26a239f4f5acc8793732b02dd6bef9a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4cce626a_ff6a1334",
+        "filename": "mod/bpgenerator/TestCases/ves/blueprints/ves-no-change_yaml.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-12T20:54:58Z",
+      "side": 1,
+      "message": "license header missing",
+      "revId": "b60f0df5d26a239f4f5acc8793732b02dd6bef9a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d24ea857_05c31ea9",
+        "filename": "mod/bpgenerator/TestCases/ves/blueprints/ves-with-dmaap_yaml.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-12T20:54:58Z",
+      "side": 1,
+      "message": "license header missing",
+      "revId": "b60f0df5d26a239f4f5acc8793732b02dd6bef9a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1b2623ee_d74416e0",
+        "filename": "mod/bpgenerator/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-12T20:54:58Z",
+      "side": 1,
+      "message": "This should be enabled",
+      "range": {
+        "startLine": 25,
+        "startChar": 1,
+        "endLine": 29,
+        "endChar": 13
+      },
+      "revId": "b60f0df5d26a239f4f5acc8793732b02dd6bef9a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fdf31f10_847305f5",
+        "filename": "mod/bpgenerator/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-12T20:54:58Z",
+      "side": 1,
+      "message": "bump version to 1.3.0",
+      "range": {
+        "startLine": 32,
+        "startChar": 10,
+        "endLine": 32,
+        "endChar": 24
+      },
+      "revId": "b60f0df5d26a239f4f5acc8793732b02dd6bef9a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7108f613_3e5b9b3a",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/core/PgaasNodeBuilder.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-12T20:54:58Z",
+      "side": 1,
+      "message": "2020",
+      "range": {
+        "startLine": 4,
+        "startChar": 15,
+        "endLine": 4,
+        "endChar": 19
+      },
+      "revId": "b60f0df5d26a239f4f5acc8793732b02dd6bef9a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "923f76f9_cae2b4e0",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/core/PolicyNodeBuilder.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-12T20:54:58Z",
+      "side": 1,
+      "message": "2019-2020",
+      "range": {
+        "startLine": 4,
+        "startChar": 15,
+        "endLine": 4,
+        "endChar": 19
+      },
+      "revId": "b60f0df5d26a239f4f5acc8793732b02dd6bef9a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4901e004_7ec427c7",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/GetAttribute.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-12T20:54:58Z",
+      "side": 1,
+      "message": "missing header",
+      "revId": "b60f0df5d26a239f4f5acc8793732b02dd6bef9a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
