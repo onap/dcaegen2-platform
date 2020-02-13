@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "947d128f_15b43d2a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-13T14:34:15Z",
+      "side": 1,
+      "message": "DCAEGEN2-1643?",
+      "range": {
+        "startLine": 10,
+        "startChar": 10,
+        "endLine": 10,
+        "endChar": 22
+      },
+      "revId": "b60f0df5d26a239f4f5acc8793732b02dd6bef9a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "13e06e91_219cdee0",
         "filename": "mod/bpgenerator/TestCases/hello-changed.json",
         "patchSetId": 1
