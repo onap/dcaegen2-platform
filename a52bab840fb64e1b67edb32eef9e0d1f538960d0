@@ -1,0 +1,146 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9138496_d46971a1",
+        "filename": "oti/event-proc/collection/configManager/src/main/java/com/att/vcc/configmanager/.gradle/3.5/file-changes/last-build.bin",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-17T16:58:05Z",
+      "side": 1,
+      "message": "grade related files to be removed",
+      "revId": "a52bab840fb64e1b67edb32eef9e0d1f538960d0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "09eadf02_4818db95",
+        "filename": "oti/event-proc/inventory/oti/src/main/config/sql/narad/table/narad_cable.sql",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-17T16:58:05Z",
+      "side": 1,
+      "message": "all narad files/sql must be removed",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 6
+      },
+      "revId": "a52bab840fb64e1b67edb32eef9e0d1f538960d0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4da8a086_bc325b9b",
+        "filename": "oti/event-proc/inventory/oti/src/main/config/sql/table/rt_allotted_resource.sql",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-17T16:58:05Z",
+      "side": 1,
+      "message": "all rt_* sql must be removed as this feature/interface does  not apply for ONAP",
+      "revId": "a52bab840fb64e1b67edb32eef9e0d1f538960d0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "08a3ba85_b3960033",
+        "filename": "oti/event-proc/inventory/oti/src/main/config/sql/view/rt_event_devconf_v.sql",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-17T16:58:05Z",
+      "side": 1,
+      "message": "all rt_* views must be removed",
+      "revId": "a52bab840fb64e1b67edb32eef9e0d1f538960d0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "791bc490_9408ea57",
+        "filename": "oti/event-proc/inventory/oti/src/main/etc/crontab/crontab.cfg",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-17T16:58:05Z",
+      "side": 1,
+      "message": "cron files/config will not apply for ONAP k8s deployment; should be removed",
+      "revId": "a52bab840fb64e1b67edb32eef9e0d1f538960d0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "feeba672_db7882ff",
+        "filename": "oti/event-proc/inventory/oti/src/main/resources/narad_cloud_region.hbm.xml",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-17T16:58:05Z",
+      "side": 1,
+      "message": "narad related files must be removed",
+      "revId": "a52bab840fb64e1b67edb32eef9e0d1f538960d0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6faea3ff_e0f4bcf8",
+        "filename": "oti/event-proc/inventory/oti/src/main/swm/deinstall/preproc/pre_proc",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-17T16:58:05Z",
+      "side": 1,
+      "message": "all swm related files must be removed",
+      "revId": "a52bab840fb64e1b67edb32eef9e0d1f538960d0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d5f857bb_dd2f253a",
+        "filename": "oti/event-proc/inventory/oti/src/test/resources/naradevent/rack_naradevent.json",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-17T16:58:05Z",
+      "side": 1,
+      "message": "narad related test file to be removed",
+      "revId": "a52bab840fb64e1b67edb32eef9e0d1f538960d0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
