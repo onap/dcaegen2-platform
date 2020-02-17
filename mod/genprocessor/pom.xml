@@ -152,7 +152,7 @@ limitations under the License.
               <name>onap/${project.groupId}.${project.artifactId}-job</name>
               <registry>${onap.nexus.dockerregistry.daily}</registry>
               <build>
-                <from>openjdk:8-jre-alpine</from>
+                <from>openjdk:8</from>
                 <tags>
                   <tag>latest</tag>
                   <tag>${project.version}</tag>
