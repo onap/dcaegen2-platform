@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<!--
+================================================================================
+Copyright (c) 2020 AT&T Intellectual Property. All rights reserved.
+================================================================================
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+============LICENSE_END=========================================================
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0   http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.onap.dcaegen2.platform.mod</groupId>
+    <artifactId>designtool</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+  <artifactId>mod-registry</artifactId>
+  <name>dcaegen2-platform-mod-registry</name>
+  <properties>
+    <postgresql.version>42.2.6</postgresql.version>
+    <nifi.registry.version>0.5.0</nifi.registry.version>
+  </properties>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>3.1.1</version>
+        <executions>
+          <execution>
+            <id>copy</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>copy</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <artifactItems>
+            <artifactItem>
+              <groupId>org.postgresql</groupId>
+              <artifactId>postgresql</artifactId>
+              <version>${postgresql.version}</version>
+              <overWrite>false</overWrite>
+            </artifactItem>
+          </artifactItems>
+          <outputDirectory>${project.build.directory}</outputDirectory>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>io.fabric8</groupId>
+	<artifactId>docker-maven-plugin</artifactId>
+	<version>${docker.fabric.version}</version>
+	<configuration>
+	  <verbose>true</verbose>
+	  <pullRegistry>${docker.pull.registry}</pullRegistry>
+	  <pushRegistry>${docker.push.registry}</pushRegistry>
+	  <images>
+	    <image>
+	      <name>onap/${project.groupId}.${project.artifactId}</name>
+	      <registry>${onap.nexus.dockerregistry.daily}</registry>
+	      <build>
+	        <from>apache/nifi-registry:${nifi.registry.version}</from>
+		<tags>
+		  <tag>latest</tag>
+		  <tag>${project.version}</tag>
+		  <tag>${project.version}-${maven.build.timestamp}Z</tag>
+		</tags>
+		<assembly>
+		  <targetDir>/opt/drivers</targetDir>
+		  <inline>
+		    <files>
+		      <file>
+		        <source>${project.build.directory}/postgresql-${postgresql.version}.jar</source>
+		      </file>
+		    </files>
+		  </inline>
+		</assembly>
+		<env>
+		  <NIFI_REGISTRY_DB_CLASS>org.postgresql.Driver</NIFI_REGISTRY_DB_CLASS>
+		  <NIFI_REGISTRY_DB_DIR>/opt/drivers</NIFI_REGISTRY_DB_DIR>
+		</env>
+	      </build>
+	    </image>
+	  </images>
+	</configuration>
+	<executions>
+	  <execution>
+	    <goals>
+	      <goal>build</goal>
+	      <goal>push</goal>
+	    </goals>
+	  </execution>
+	</executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

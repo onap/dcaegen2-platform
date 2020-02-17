@@ -45,6 +45,7 @@ limitations under the License.
   <modules>
     <module>nifi-war-to-jar</module>
     <module>designtool-web</module>
+    <module>mod-registry</module>
   </modules>
   <build>
     <plugins>
