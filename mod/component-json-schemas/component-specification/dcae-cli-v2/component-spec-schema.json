@@ -102,6 +102,36 @@
       "items": {
         "$ref": "#/definitions/artifact"
       }
+    },
+    "policy_info": {
+      "type": "object",
+      "properties": {
+        "policy": 
+        {
+          "type": "array",
+          "items": 
+          {
+            "type": "object",
+            "properties": 
+            {
+              "node_label": 
+              {
+                "type": "string"
+              },
+              "policy_id": 
+              {
+              "type": "string"
+              },
+              "policy_model_id": 
+              {
+              "type": "string"
+              }
+            },
+            "required": ["node_label", "policy_model_id"]
+          }
+        }
+      },
+      "additionalProperties": false
     }
   },
   "required": [
@@ -740,7 +770,7 @@
             "type": "string"
           }
         },
-        "logging": {
+        "log_info": {
           "description": "Component specific details for logging",
           "type": "object",
           "properties": {
@@ -754,6 +784,34 @@
             }
           },
           "additionalProperties": false
+        },
+        "tls_info": {
+          "description": "Component information to use tls certificates",
+          "type": "object",
+          "properties": {
+            "cert_directory": {
+              "description": "The path in the container where the component certificates will be placed by the init container",
+              "type": "string"
+            },
+            "use_tls": {
+              "description": "Boolean flag to determine if the application is using tls certificates",
+              "type": "boolean"
+            }
+          },
+          "required": [
+              "cert_directory","use_tls"
+             ],
+          "additionalProperties": false
+        },
+        "databases": {
+          "description": "The databases the application is connecting to using the pgaas",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "enum": [
+              "postgres"
+            ]
+          }
         },
         "policy": {
            "properties": {
