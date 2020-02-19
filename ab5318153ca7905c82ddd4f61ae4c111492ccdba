@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8d7fb121_a7950498",
+        "filename": "mod/bpgenerator/TestCases/helloworld/blueprint/helloworld_changed_with_dmaap.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-19T17:01:58Z",
+      "side": 1,
+      "message": "replace with ONAP image",
+      "range": {
+        "startLine": 113,
+        "startChar": 14,
+        "endLine": 113,
+        "endChar": 111
+      },
+      "revId": "ab5318153ca7905c82ddd4f61ae4c111492ccdba",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e5751405_eac1b5ff",
+        "filename": "mod/bpgenerator/TestCases/helloworld/blueprint/helloworld_changed_without_dmaap_yaml.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-19T17:01:58Z",
+      "side": 1,
+      "message": "replace as onap image",
+      "range": {
+        "startLine": 88,
+        "startChar": 14,
+        "endLine": 88,
+        "endChar": 111
+      },
+      "revId": "ab5318153ca7905c82ddd4f61ae4c111492ccdba",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
