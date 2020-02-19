@@ -20,15 +20,14 @@
 
 package org.onap.blueprintgenerator.models.dmaapbp;
 
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.TreeMap;
 
+import org.onap.blueprintgenerator.core.PgaasNodeBuilder;
+import org.onap.blueprintgenerator.core.PolicyNodeBuilder;
 import org.onap.blueprintgenerator.models.blueprint.Blueprint;
 import org.onap.blueprintgenerator.models.blueprint.Imports;
-import org.onap.blueprintgenerator.models.blueprint.Interfaces;
 import org.onap.blueprintgenerator.models.blueprint.Node;
-import org.onap.blueprintgenerator.models.blueprint.Properties;
 import org.onap.blueprintgenerator.models.componentspec.ComponentSpec;
 import org.onap.blueprintgenerator.models.componentspec.Publishes;
 import org.onap.blueprintgenerator.models.componentspec.Subscribes;
@@ -68,39 +67,46 @@ public class DmaapBlueprint extends Blueprint{
 		//create and add the topic/feed nodes
 
 		//go through the streams publishes
-		int counter = 0;
 		if(cs.getStreams().getPublishes() != null) {
 			for(Publishes p: cs.getStreams().getPublishes()) {
 				if(p.getType().equals("message_router") || p.getType().equals("message router")) {
-					String topic = "topic" + counter;
+					String topic = p.getConfig_key() + "_topic";
 					DmaapNode topicNode = new DmaapNode();
 					inps = topicNode.createTopicNode(cs, inps, topic);
 					nodeTemplate.put(topic, topicNode);
 				} else if(p.getType().equals("data_router") || p.getType().equals("data router")) {
-					String feed = "feed" + counter;
+					String feed = p.getConfig_key() + "_feed";
 					DmaapNode feedNode = new DmaapNode();
 					inps = feedNode.createFeedNode(cs, inps, feed);
 					nodeTemplate.put(feed, feedNode);
 				}
-				counter++;
 			}
 		}
 		//go through the stream subscribes
 		if(cs.getStreams().getSubscribes() != null) {
 			for(Subscribes s: cs.getStreams().getSubscribes()) {
 				if(s.getType().equals("message_router") || s.getType().equals("message router")) {
-					String topic = "topic" + counter;
+					String topic = s.getConfig_key() + "_topic";
 					DmaapNode topicNode = new DmaapNode();
 					inps = topicNode.createTopicNode(cs, inps, topic);
 					nodeTemplate.put(topic, topicNode);
 				} else if(s.getType().equals("data_router") || s.getType().equals("data router")) {
-					String feed = "feed" + counter;
+					String feed = s.getConfig_key() + "_feed";
 					DmaapNode feedNode = new DmaapNode();
 					inps = feedNode.createFeedNode(cs, inps, feed);
 					nodeTemplate.put(feed, feedNode);
 				}
-				counter++;
 			}
+		}
+
+		//if present in component spec, populate policyNodes information in the blueprint
+		if(cs.getPolicyInfo() != null){
+			PolicyNodeBuilder.addPolicyNodesAndInputs(cs, nodeTemplate, inps);
+		}
+
+		//if present in component spec, populate pgaasNodes information in the blueprint
+		if(cs.getAuxilary().getDatabases() != null){
+			PgaasNodeBuilder.addPgaasNodesAndInputs(cs, nodeTemplate, inps);
 		}
 
 		bp.setNode_templates(nodeTemplate);

@@ -29,6 +29,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Fixes {
 	private static ArrayList<String> lines = new ArrayList<String>();
@@ -40,6 +41,7 @@ public class Fixes {
 			FileReader fr = new FileReader(translateFile);
 			BufferedReader br = new BufferedReader(fr);
 			while((line = br.readLine()) != null) {
+//				lines.add(ensureNoSingleQuotes(line));
 				if(line.contains("'")) {
 					line = line.replace("'", "");
 				}
@@ -67,4 +69,36 @@ public class Fixes {
 			throw new RuntimeException(e);
 		}
 	}
+
+	/**
+	 * Remove single quotes from a line from a blueprint
+	 */
+	private static String ensureNoSingleQuotes(String line) {
+		// TODO: Should probably use regex instead
+		// REVIEW: The condition under which to remove the single quotes
+		if ((line.contains("concat") || line.contains("default: ")) && line.contains("'")) {
+			return line.replace("'", "");
+		} else {
+			return line;
+		}
+	}
+
+	/**
+	 * Takes in an entire blueprint (YAML) in a string buffer and post processes it to apply
+	 * "fixes" like removing unwanted single quotes.
+	 */
+	public static String applyFixes(String bp) {
+		List<String> lines = new ArrayList<String>();
+
+		String[] linesPre = bp.split("\n");
+		System.out.println(String.format("To post-processing #lines: %d", linesPre.length));
+
+		for (String line : linesPre) {
+			lines.add(ensureNoSingleQuotes(line));
+		}
+
+		return String.join("\n", lines);
+	}
+
+
 }

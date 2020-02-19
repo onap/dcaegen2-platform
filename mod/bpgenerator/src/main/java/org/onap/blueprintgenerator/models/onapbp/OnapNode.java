@@ -20,9 +20,12 @@
 
 package org.onap.blueprintgenerator.models.onapbp;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.TreeMap;
 
+import org.onap.blueprintgenerator.core.PgaasNodeBuilder;
+import org.onap.blueprintgenerator.core.PolicyNodeBuilder;
 import org.onap.blueprintgenerator.models.blueprint.Interfaces;
 import org.onap.blueprintgenerator.models.blueprint.Node;
 import org.onap.blueprintgenerator.models.blueprint.Properties;
@@ -47,6 +50,8 @@ import lombok.NoArgsConstructor;
 public class OnapNode extends Node{
 	private TreeMap<String, Interfaces> interfaces;
 	private Properties properties;
+	private ArrayList<LinkedHashMap<String, String>> relationships;
+
 	public TreeMap<String, LinkedHashMap<String, Object>> createOnapNode(TreeMap<String, LinkedHashMap<String, Object>> inps, ComponentSpec cs, String override) {
 		TreeMap<String, LinkedHashMap<String, Object>> retInputs = new TreeMap<String, LinkedHashMap<String, Object>>();
 		retInputs = inps;
@@ -60,6 +65,23 @@ public class OnapNode extends Node{
 
 		//set the type
 		this.setType("dcae.nodes.ContainerizedPlatformComponent");
+
+		//create and set the relationships
+		ArrayList<LinkedHashMap<String, String>> rets = new ArrayList();
+
+		//add relationship for policy if exist
+		if(cs.getPolicyInfo() != null){
+			ArrayList<LinkedHashMap<String, String>> policyRelationshipsList = PolicyNodeBuilder.getPolicyRelationships(cs);
+			rets.addAll(policyRelationshipsList);
+		}
+
+		//add relationships and env_variables for pgaas dbs if exist
+		if(cs.getAuxilary().getDatabases() != null){
+			ArrayList<LinkedHashMap<String, String>> pgaasRelationshipsList = PgaasNodeBuilder.getPgaasNodeRelationships(cs);
+			rets.addAll(pgaasRelationshipsList);
+		}
+
+		this.setRelationships(rets);
 
 		//set the properties
 		Properties props = new Properties();

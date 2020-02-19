@@ -26,12 +26,9 @@ import java.util.TreeMap;
 
 import org.onap.blueprintgenerator.models.componentspec.Auxilary;
 import org.onap.blueprintgenerator.models.componentspec.ComponentSpec;
-import org.onap.blueprintgenerator.models.componentspec.HealthCheck;
 import org.onap.blueprintgenerator.models.componentspec.Publishes;
 import org.onap.blueprintgenerator.models.componentspec.Subscribes;
-import org.onap.blueprintgenerator.models.componentspec.Volumes;
 import org.onap.blueprintgenerator.models.dmaapbp.DmaapStreams;
-import org.onap.blueprintgenerator.models.onapbp.LogDirectory;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -54,8 +51,9 @@ public class Properties {
 	private GetInput feed_name;
 	ArrayList<DmaapStreams> streams_publishes;
 	ArrayList<DmaapStreams> streams_subscribes;
-	private TreeMap<String, Object> tls_info;
+	private TlsInfo tls_info;
 	private ResourceConfig resource_config;
+	private GetInput always_pull_image;
 	//private boolean useExisting;
 
 	public TreeMap<String, LinkedHashMap<String, Object>> createOnapProperties(TreeMap<String, LinkedHashMap<String, Object>> inps, ComponentSpec cs, String override) {
@@ -77,18 +75,11 @@ public class Properties {
 		this.setLocation_id(location);
 		LinkedHashMap<String, Object> locMap = new LinkedHashMap();
 		locMap.put("type", "string");
-		locMap.put("default", "central");
+		locMap.put("default", "");
+		retInputs.put("location_id", locMap);
 
 		//set the log info
-		GetInput logD = new GetInput();
-		logD.setGet_input("log_directory");
-		TreeMap<String, Object> l = new TreeMap();
-		l.put("log_directory", logD);
-		this.setLog_info(l);
-		LinkedHashMap<String, Object> logMap = new LinkedHashMap();
-		logMap.put("type", "string");
-		logMap.put("default", "''");
-		retInputs.put("log_directory", logMap);
+		this.setLog_info(cs.getAuxilary().getLog_info());
 
 		//set the replicas
 		GetInput replica = new GetInput();
@@ -108,35 +99,29 @@ public class Properties {
 
 		//set the docker config
 		Auxilary aux = cs.getAuxilary();
-		if(aux.getPorts() != null) {
-			retInputs = aux.createPorts(retInputs);
-		}
+//		if(aux.getPorts() != null) {
+//			retInputs = aux.createPorts(retInputs);
+//		}
 		this.setDocker_config(aux);
 
 		//set the app config
 		Appconfig app = new Appconfig();
-		retInputs = app.createAppconfig(retInputs, cs, override);
+		retInputs = app.createAppconfig(retInputs, cs, override, false);
 		this.setApplication_config(app);
 
+		// set always_pull_image
+		this.always_pull_image = new GetInput();
+		this.always_pull_image.setGet_input("always_pull_image");
+		LinkedHashMap<String, Object> inputAlwaysPullImage = new LinkedHashMap<String, Object>();
+		inputAlwaysPullImage.put("type", "boolean");
+		inputAlwaysPullImage.put("description", "Set to true if the image should always be pulled");
+		inputAlwaysPullImage.put("default", true);
+		retInputs.put("always_pull_image", inputAlwaysPullImage);
+
 		//set the tls info
-		GetInput tls = new GetInput();
-		tls.setGet_input("use_tls");
-		GetInput cert = new GetInput();
-		cert.setGet_input("cert_directory");
-		TreeMap<String, Object> tlsInfo = new TreeMap();
-		tlsInfo.put("cert_directory", cert);
-		tlsInfo.put("use_tls", tls);
-		this.setTls_info(tlsInfo);
-
-		LinkedHashMap<String, Object> certMap = new LinkedHashMap();
-		certMap.put("type", "string");
-		certMap.put("default", "''");
-		retInputs.put("cert_directory", certMap);
-
-		LinkedHashMap<String, Object> useMap = new LinkedHashMap();
-		useMap.put("type", "boolean");
-		useMap.put("default", false);
-		retInputs.put("use_tls", useMap);
+		if(cs.getAuxilary().getTls_info() != null){
+			addTlsInfo(cs,retInputs);
+		}
 
 		//set the reource config
 		ResourceConfig resource = new ResourceConfig();
@@ -160,15 +145,7 @@ public class Properties {
 		retInputs.put("tag_version", img);
 
 		//set the log info
-		GetInput logD = new GetInput();
-		logD.setGet_input("log_directory");
-		TreeMap<String, Object> l = new TreeMap();
-		l.put("log_directory", logD);
-		this.setLog_info(l);
-		LinkedHashMap<String, Object> logMap = new LinkedHashMap();
-		logMap.put("type", "string");
-		logMap.put("default", "''");
-		retInputs.put("log_directory", logMap);
+		this.setLog_info(cs.getAuxilary().getLog_info());
 
 		//set service component type
 		String sType = cs.getSelf().getName();
@@ -176,24 +153,9 @@ public class Properties {
 		this.setService_component_type(sType);
 
 		//set the tls info
-		GetInput tls = new GetInput();
-		tls.setGet_input("use_tls");
-		GetInput cert = new GetInput();
-		cert.setGet_input("cert_directory");
-		TreeMap<String, Object> tlsInfo = new TreeMap();
-		tlsInfo.put("cert_directory", cert);
-		tlsInfo.put("use_tls", tls);
-		this.setTls_info(tlsInfo);
-
-		LinkedHashMap<String, Object> certMap = new LinkedHashMap();
-		certMap.put("type", "string");
-		certMap.put("default", "''");
-		retInputs.put("cert_directory", certMap);
-
-		LinkedHashMap<String, Object> useMap = new LinkedHashMap();
-		useMap.put("type", "boolean");
-		useMap.put("default", false);
-		retInputs.put("use_tls", useMap);
+		if(cs.getAuxilary().getTls_info() != null){
+			addTlsInfo(cs,retInputs);
+		}
 
 		//set the replicas
 		GetInput replica = new GetInput();
@@ -213,34 +175,32 @@ public class Properties {
 
 		//set the docker config
 		Auxilary aux = cs.getAuxilary();
-		if(aux.getPorts() != null) {
-			retInputs = aux.createPorts(retInputs);
-		}
+//		if(aux.getPorts() != null) {
+//			retInputs = aux.createPorts(retInputs);
+//		}
 		this.setDocker_config(aux);
 
 		//set the appconfig
 		Appconfig app = new Appconfig();
-		retInputs = app.createAppconfig(retInputs, cs, override);
+		retInputs = app.createAppconfig(retInputs, cs, override, true);
 		this.setApplication_config(app);
 
 		//set the stream publishes
 		ArrayList<DmaapStreams> pubStreams = new ArrayList();
-		int counter = 0;
 		if(cs.getStreams().getPublishes() != null) {
 			for(Publishes p: cs.getStreams().getPublishes()) {
 				if(p.getType().equals("message_router") || p.getType().equals("message router")) {
-					String topic = "topic" + counter;
+					String topic = p.getConfig_key() + "_topic";
 					DmaapStreams mrStreams = new DmaapStreams();
 					retInputs = mrStreams.createStreams(inps, cs, topic, p.getType(), p.getConfig_key(), p.getRoute(), 'p');
 					pubStreams.add(mrStreams);
 				}
 				else if(p.getType().equals("data_router") || p.getType().equals("data router")){
-					String feed = "feed" + counter;
+					String feed = p.getConfig_key() + "_feed";
 					DmaapStreams drStreams = new DmaapStreams();
 					retInputs = drStreams.createStreams(inps, cs, feed, p.getType(), p.getConfig_key(), p.getRoute(), 'p');
 					pubStreams.add(drStreams);
 				}
-				counter++;
 			}
 		}
 
@@ -249,18 +209,17 @@ public class Properties {
 		if(cs.getStreams().getSubscribes() != null) {
 			for(Subscribes s: cs.getStreams().getSubscribes()) {
 				if(s.getType().equals("message_router") || s.getType().equals("message router")) {
-					String topic = "topic" + counter;
+					String topic = s.getConfig_key() + "_topic";
 					DmaapStreams mrStreams = new DmaapStreams();
 					retInputs = mrStreams.createStreams(inps, cs, topic, s.getType(), s.getConfig_key(), s.getRoute(), 's');
 					subStreams.add(mrStreams);
 				}
 				else if(s.getType().equals("data_router") || s.getType().equals("data router")){
-					String feed = "feed" + counter;
+					String feed = s.getConfig_key() + "_feed";
 					DmaapStreams drStreams = new DmaapStreams();
 					retInputs = drStreams.createStreams(inps, cs, feed, s.getType(), s.getConfig_key(), s.getRoute(), 's');
 					subStreams.add(drStreams);
 				}
-				counter++;
 			}
 		}
 
@@ -278,5 +237,19 @@ public class Properties {
 
 
 		return retInputs;
+	}
+
+	private void addTlsInfo(ComponentSpec cs, TreeMap<String, LinkedHashMap<String, Object>> retInputs) {
+		TlsInfo tlsInfo = new TlsInfo();
+		tlsInfo.setCertDirectory((String) cs.getAuxilary().getTls_info().get("cert_directory"));
+		GetInput useTLSFlag = new GetInput();
+		useTLSFlag.setGet_input("use_tls");
+		tlsInfo.setUseTls(useTLSFlag);
+		this.setTls_info(tlsInfo);
+		LinkedHashMap<String, Object> useTlsFlagInput = new LinkedHashMap<String, Object>();
+		useTlsFlagInput.put("type", "boolean");
+		useTlsFlagInput.put("description", "flag to indicate tls enable/disable");
+		useTlsFlagInput.put("default", cs.getAuxilary().getTls_info().get("use_tls"));
+		retInputs.put("use_tls", useTlsFlagInput);
 	}
 }
