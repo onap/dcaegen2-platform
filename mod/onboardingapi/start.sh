@@ -9,7 +9,7 @@ fi
 if [ ! -f ~/.config/dcae-cli/config.json ]; then
     echo "Creating dcae-cli config"
     # TODO: Make this into a variable that gets fed in via docker run
-    echo "{\"server_url\": \"https://git.onap.org/dcaegen2/platform/cli/plain\", \"user\": \"api\", \"db_url\": \"$PG_CONN\", \"cli_version\": \"2.11.1\", \"path_component_spec\": \"/component-json-schemas/component-specification/dcae-cli-v2/component-spec-schema.json\", \"path_data_format\": \"/component-json-schemas/data-format/dcae-cli-v1/data-format-schema.json\"}" > ~/.config/dcae-cli/config.json
+    echo "{\"server_url\": \"https://git.onap.org/dcaegen2/platform/tree/mod\", \"user\": \"api\", \"db_url\": \"$PG_CONN\", \"cli_version\": \"2.11.1\", \"path_component_spec\": \"/component-json-schemas/component-specification/dcae-cli-v2/component-spec-schema.json\", \"path_data_format\": \"/component-json-schemas/data-format/dcae-cli-v1/data-format-schema.json\"}" > ~/.config/dcae-cli/config.json
 fi
 
 dcae_cli http --live
