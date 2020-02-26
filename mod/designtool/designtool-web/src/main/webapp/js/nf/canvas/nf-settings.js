@@ -103,21 +103,6 @@
     };
 
 
-    var dcaeDistributorApiHostname;
-
-        //get hostname
-        $.ajax({
-               type: 'GET',
-               url:   '../nifi-api/flow/config',
-               dataType: 'json',
-               contentType: 'application/json',
-               success: function(data){
-                    dcaeDistributorApiHostname= data.flowConfiguration.dcaeDistributorApiHostname;
-                    console.log(dcaeDistributorApiHostname);
-                }
-        });
-
-
     /**
      * Gets the controller services table.
      *
@@ -573,7 +558,7 @@
         // add the new distribution environment
         var addDistributionEnvironment= $.ajax({
             type: 'POST',
-            url: dcaeDistributorApiHostname+'/distribution-targets',
+            url: '/distributor/distribution-targets',
             data: JSON.stringify(environmentEntity),
             dataType: 'json',
             contentType: 'application/json'
@@ -670,7 +655,7 @@
         // updating distribution environment
         var updateDistributionEnvironment = $.ajax({
             type: 'PUT',
-            url: dcaeDistributorApiHostname+'/distribution-targets/'+environmentEntity.id,
+            url: '/distributor/distribution-targets/'+environmentEntity.id,
             data: JSON.stringify(requestEnvironmentEntity),
             dataType: 'json',
             contentType: 'application/json'
@@ -1824,7 +1809,7 @@
          console.log(environmentEntity);
          $.ajax({
              type: 'DELETE',
-             url: dcaeDistributorApiHostname+'/distribution-targets/'+environmentEntity.id,
+             url: '/distributor/distribution-targets/'+environmentEntity.id,
              dataType: 'json'
          }).done(function (response) {
           console.log(response);
@@ -2023,7 +2008,7 @@
         console.log("in loadDistributionEnvironments.. ");
             return $.ajax({
                 type: 'GET',
-                url: dcaeDistributorApiHostname+'/distribution-targets',
+                url: '/distributor/distribution-targets',
                 dataType: 'json'
             }).done(function (response) {
                 console.log(response);
