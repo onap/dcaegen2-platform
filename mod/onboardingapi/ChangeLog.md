@@ -15,6 +15,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 * Enhance Docker image creation to generate the dcae-cli configuration at runtime rather than at build time
 * Fix format_description to handle no description case
 * Add filtering by name, version for GET /components
+* Modify server url in start.sh to point to new spec file
+* Change dcae cli version in start.sh to 2.12.0
+* Change werkzeug dependency version in setup.py
 
 ## [2.11.3]
 

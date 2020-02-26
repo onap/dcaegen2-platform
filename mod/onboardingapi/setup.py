@@ -42,7 +42,9 @@ setup(
     dcae_cli=dcae_cli.cli:cli
     """,
     setup_requires=['pytest-runner'],
-    install_requires=['python-consul<1.0.0',
+    install_requires=[
+                      'Werkzeug==0.16.1',
+		      'python-consul<1.0.0',
                       'six',
                       'sqlalchemy',
                       'SQLAlchemy-Utils',

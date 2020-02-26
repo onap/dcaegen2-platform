@@ -34,6 +34,7 @@ setup(
         start-distributor-api=distributor.http:start_http_server
         """,
         install_requires=[
+            "Werkzeug==0.16.1",
             "flask-restplus"
             , "Flask-Cors"
             , "requests"
