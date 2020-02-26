@@ -36,14 +36,10 @@ jar xf $NIFI_BASE_DIR/nifi-current/lib/nifi-framework-nar-$NIFI_VERSION.nar \
 # patch jar files
 cd $PATCHES/WEB-INF/classes
 set +f
-jar uf $NIFI_BASE_DIR/nifi-toolkit-current/lib/nifi-client-dto-$NIFI_VERSION.jar \
-    org/apache/nifi/web/api/dto/FlowConfigurationDTO*.class
 jar uf $TARGETS/META-INF/bundled-dependencies/nifi-jetty-$NIFI_VERSION.jar \
     org/apache/nifi/web/server/JettyServer*.class
 jar uf $NIFI_BASE_DIR/nifi-current/lib/nifi-properties-$NIFI_VERSION.jar \
     org/apache/nifi/util/NiFiProperties*.class
-jar uf $NIFI_BASE_DIR/nifi-current/lib/nifi-runtime-$NIFI_VERSION.jar \
-    org/apache/nifi/NiFi*.class
 jar uf $NIFI_BASE_DIR/nifi-toolkit-current/lib/nifi-framework-core-api-$NIFI_VERSION.jar \
     org/apache/nifi/controller/AbstractPort*.class
 jar uf $TARGETS/META-INF/bundled-dependencies/nifi-framework-nar-loading-utils-$NIFI_VERSION.jar \
@@ -52,7 +48,6 @@ jar uf $TARGETS/META-INF/bundled-dependencies/nifi-framework-nar-loading-utils-$
 # patch war files
 cd $PATCHES
 jar uf $TARGETS/META-INF/bundled-dependencies/nifi-web-api-$NIFI_VERSION.war \
-    WEB-INF/classes/org/apache/nifi/web/StandardNiFiServiceFacade*.class \
     WEB-INF/classes/org/apache/nifi/web/api/dto/DtoFactory*.class \
     WEB-INF/classes/org/apache/nifi/web/dao/impl/StandardConnectionDAO*.class
 set -f
@@ -73,6 +68,7 @@ sed -i \
     -e '/nf.FlowVerison/{r nf-flow-version-min.js' -e 'd}' \
     -e '/controllerConfig/{r nf-settings-min.js' -e 'd}' \
     -e '/this.breadcrumbs/{r nf-ng-breadcrumbs-controller-min.js' -e 'd}' \
+    -e '/Canvas.GlobalMenuCtrl=/{r nf-ng-canvas-global-menu-controller-min.js' -e 'd}' \
     -e '/processor-types-table/{r nf-ng-processor-component-min.js' -e 'd}' \
     js/nf/canvas/nf-canvas-all.js
 sed -i \
@@ -83,19 +79,14 @@ gzip -k \
     js/nf/canvas/nf-canvas-all.js \
     js/nf/summary/nf-summary-all.js
 jar uf $TARGETS/META-INF/bundled-dependencies/nifi-web-ui-$NIFI_VERSION.war \
-    $(find WEB-INF/classes/org/apache/jsp/WEB_002dINF WEB-INF/pages WEB-INF/partials css js images -type f -print)
+    $(find WEB-INF/classes/org/apache/jsp/WEB_002dINF WEB-INF/pages WEB-INF/partials css js images fonts -type f -print)
 # patch scripts
 cp common.sh start.sh $NIFI_BASE_DIR/scripts/
 # patch nar files
 cd $TARGETS
-cp $NIFI_BASE_DIR/nifi-toolkit-current/lib/nifi-client-dto-$NIFI_VERSION.jar \
-    META-INF/bundled-dependencies/nifi-client-dto-$NIFI_VERSION.jar
-jar uf $NIFI_BASE_DIR/nifi-current/lib/nifi-site-to-site-reporting-nar-$NIFI_VERSION.nar \
-    META-INF/bundled-dependencies/nifi-client-dto-$NIFI_VERSION.jar
 cp $NIFI_BASE_DIR/nifi-toolkit-current/lib/nifi-framework-core-api-$NIFI_VERSION.jar \
     META-INF/bundled-dependencies/nifi-framework-core-api-$NIFI_VERSION.jar
 jar uf $NIFI_BASE_DIR/nifi-current/lib/nifi-framework-nar-$NIFI_VERSION.nar \
-    META-INF/bundled-dependencies/nifi-client-dto-$NIFI_VERSION.jar \
     META-INF/bundled-dependencies/nifi-framework-core-api-$NIFI_VERSION.jar \
     META-INF/bundled-dependencies/nifi-framework-nar-loading-utils-$NIFI_VERSION.jar \
     META-INF/bundled-dependencies/nifi-jetty-$NIFI_VERSION.jar \
