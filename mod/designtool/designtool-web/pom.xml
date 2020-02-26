@@ -149,6 +149,13 @@ limitations under the License.
               <aggregations>
                 <aggregation>
                   <insertNewLine>true</insertNewLine>
+                  <output>${project.build.directory}/${project.build.finalName}//nf-ng-canvas-global-menu-controller-min.js</output>
+                  <includes>
+                    <include>${staging.dir}/js/nf/canvas/controllers/nf-ng-canvas-global-menu-controller.js</include>
+                  </includes>
+                </aggregation>
+                <aggregation>
+                  <insertNewLine>true</insertNewLine>
                   <output>${project.build.directory}/${project.build.finalName}//nf-ng-breadcrumbs-controller-min.js</output>
                   <includes>
                     <include>${staging.dir}/js/nf/canvas/controllers/nf-ng-breadcrumbs-controller.js</include>

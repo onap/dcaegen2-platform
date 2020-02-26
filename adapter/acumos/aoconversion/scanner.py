@@ -251,23 +251,23 @@ class Apihandler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         self.doqp()
-        if self.path == '/' or self.path == '/index.html':
+        if self.path == '/' or self.path == '/index.html' or self.path == '/acumos-adapter/' or self.path == '/acumos-adapter/index.html':
             self.replyraw(self.server.index, 'text/html')
             return
         if 'acumos' not in self.qparams:
             self.send_error(400)
             return
         aa = _AcumosAccess(self.server.config, self.qparams['acumos'])
-        if self.path == '/listCatalogs.js':
+        if self.path == '/acumos-adapter/listCatalogs.js':
             self.replyjson([{'name': x['name'], 'id': x['catalogId']} for x in aa.jsonget('/catalogs')])
             return
-        if self.path == '/listSolutions.js':
+        if self.path == '/acumos-adapter/listSolutions.js':
             if 'catalogId' not in self.qparams:
                 self.send_error(400)
                 return
             self.replyjson([{'name': x['name'], 'id': x['solutionId']} for x in aa.jsonget('/solutions?catalogId={}', self.qparams['catalogId'])])
             return
-        if self.path == '/listRevisions.js':
+        if self.path == '/acumos-adapter/listRevisions.js':
             if 'solutionId' not in self.qparams:
                 self.send_error(400)
                 return
@@ -277,7 +277,7 @@ class Apihandler(BaseHTTPRequestHandler):
 
     def do_POST(self):
         self.doqp()
-        if self.path == '/onboard.js':
+        if self.path == '/acumos-adapter/onboard.js':
             if 'acumos' not in self.qparams:
                 self.send_error(400)
                 return
