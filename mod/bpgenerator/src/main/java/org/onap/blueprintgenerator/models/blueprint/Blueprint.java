@@ -85,8 +85,11 @@ public class Blueprint {
 			LinkedHashMap<String, Object> temp = bp.getInputs().get(s);
 			if(temp.get("type") == "string") {
 				String def = (String) temp.get("default");
-				def = '"' + def + '"';
-				temp.replace("default", def);
+				if(def != null && def.equals("")){
+					String emptyString = "\"\"";
+					Object emptyObj = emptyString;
+					temp.put("default", emptyObj);
+				}
 				bp.getInputs().replace(s, temp);
 			}
 		}
@@ -199,7 +202,6 @@ public class Blueprint {
 		} catch (JsonProcessingException e) {
 			throw new RuntimeException(e);
 		}
-
 
 		return Fixes.applyFixes(ret);
 	}
