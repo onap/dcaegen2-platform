@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d56a5bcb_45065e33",
+        "filename": "mod/runtimeapi/pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-27T22:52:46Z",
+      "side": 1,
+      "message": "out of alignment",
+      "revId": "2184076232233cbcd29196d4d194c87738adcfcd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "105ef157_31ff3bc1",
+        "filename": "mod/runtimeapi/runtime-core/src/main/java/org/onap/dcae/runtime/core/blueprint_creator/BlueprintCreatorOnapDublin.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-27T22:52:46Z",
+      "side": 1,
+      "message": "Class could be renamed to BlueprintCreatorOnap",
+      "range": {
+        "startLine": 28,
+        "startChar": 13,
+        "endLine": 28,
+        "endChar": 39
+      },
+      "revId": "2184076232233cbcd29196d4d194c87738adcfcd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3d80ec5_0b962429",
+        "filename": "mod/runtimeapi/runtime-web/src/main/java/org/onap/dcae/runtime/web/configuration/BlueprintCreatorConfig.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-27T22:52:46Z",
+      "side": 1,
+      "message": "could be removed",
+      "range": {
+        "startLine": 48,
+        "startChar": 15,
+        "endLine": 48,
+        "endChar": 21
+      },
+      "revId": "2184076232233cbcd29196d4d194c87738adcfcd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "65485d45_f458f838",
+        "filename": "mod/runtimeapi/runtime-web/src/main/java/org/onap/dcae/runtime/web/configuration/BlueprintCreatorConfig.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-27T22:52:46Z",
+      "side": 1,
+      "message": "different indentation",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 39
+      },
+      "revId": "2184076232233cbcd29196d4d194c87738adcfcd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6455131c_0507a2be",
+        "filename": "mod/runtimeapi/runtime-web/src/main/java/org/onap/dcae/runtime/web/configuration/BlueprintCreatorConfig.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-27T22:52:46Z",
+      "side": 1,
+      "message": "consider renaming as onapImportFilePath",
+      "range": {
+        "startLine": 96,
+        "startChar": 13,
+        "endLine": 96,
+        "endChar": 37
+      },
+      "revId": "2184076232233cbcd29196d4d194c87738adcfcd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82e783e0_eb20d1b3",
+        "filename": "mod/runtimeapi/runtime-web/src/main/java/org/onap/dcae/runtime/web/configuration/BlueprintCreatorConfig.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-27T22:52:46Z",
+      "side": 1,
+      "message": "same comment as above",
+      "range": {
+        "startLine": 106,
+        "startChar": 15,
+        "endLine": 106,
+        "endChar": 39
+      },
+      "revId": "2184076232233cbcd29196d4d194c87738adcfcd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f3b763ac_b07fffdd",
+        "filename": "mod/runtimeapi/runtime-web/src/main/java/org/onap/dcae/runtime/web/configuration/BlueprintCreatorConfig.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-27T22:52:46Z",
+      "side": 1,
+      "message": "missing dmaap/pg/clamp here.. this probably should be changed based on new import variables",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 53
+      },
+      "revId": "2184076232233cbcd29196d4d194c87738adcfcd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
