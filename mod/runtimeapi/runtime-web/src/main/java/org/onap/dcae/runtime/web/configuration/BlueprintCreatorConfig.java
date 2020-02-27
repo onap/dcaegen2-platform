@@ -18,7 +18,7 @@
 package org.onap.dcae.runtime.web.configuration;
 
 import org.onap.dcae.runtime.core.FlowGraphParser;
-import org.onap.dcae.runtime.core.blueprint_creator.BlueprintCreatorOnapDublin;
+import org.onap.dcae.runtime.core.blueprint_creator.BlueprintCreatorOnap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -44,27 +44,32 @@ public class BlueprintCreatorConfig {
     @Autowired
     Environment env;
 
-    @Value("${onapDublin.topicUrl}")
-    String onapDublinTopicUrl;
-
-    @Value("${onapDublin.import.cloudifyPlugin}")
+    @Value("${onap.import.cloudifyPlugin}")
     String onapDublinImportCloudifyPlugin;
 
-    @Value("${onapDublin.import.k8sPlugin}")
+    @Value("${onap.import.k8sPlugin}")
     String onapDublinImportK8sPlugin;
 
-    @Value("${onapDublin.import.policyPlugin}")
+    @Value("${onap.import.policyPlugin}")
     String onapDublinImportPolicyPlugin;
 
-    
+    @Value("${onap.import.postgresPlugin}")
+    String onapDublinImportPostgresPlugin;
+
+    @Value("${onap.import.clampPlugin}")
+    String onapDublinImportClampPlugin;
+
+    @Value("${onap.import.dmaapPlugin}")
+    String onapDublinImportDmaapPlugin;
+
+
     @Profile("onap_dublin")
     @Primary
     @Bean
     public FlowGraphParser getFlowGraphParserForOnapDublin(){
-        BlueprintCreatorOnapDublin blueprintCreatorOnapDublin = new BlueprintCreatorOnapDublin();
-        blueprintCreatorOnapDublin.setTopicUrl(onapDublinTopicUrl);
-        blueprintCreatorOnapDublin.setImportFilePath(writeImportsTofile());
-        FlowGraphParser flowGraphParser = new FlowGraphParser(blueprintCreatorOnapDublin);
+        BlueprintCreatorOnap blueprintCreatorOnap = new BlueprintCreatorOnap();
+        blueprintCreatorOnap.setImportFilePath(writeImportsTofile());
+        FlowGraphParser flowGraphParser = new FlowGraphParser(blueprintCreatorOnap);
         return flowGraphParser;
     }
 
@@ -84,17 +89,17 @@ public class BlueprintCreatorConfig {
 
     private Path createDataImportDirAndImportFile() {
         Path importDirPath = Paths.get("./data/imports").toAbsolutePath().normalize();
-        Path onapDublinImportFilePath = Paths.get("./data/imports/onapDublinImports.yaml").toAbsolutePath().normalize();
+        Path onapImportFilePath = Paths.get("./data/imports/onapImports.yaml").toAbsolutePath().normalize();
         try {
             Files.createDirectories(importDirPath);
-            Files.createFile(onapDublinImportFilePath);
+            Files.createFile(onapImportFilePath);
         }
         catch (FileAlreadyExistsException ignored){
         }
         catch (IOException e) {
             e.printStackTrace();
         }
-        return onapDublinImportFilePath;
+        return onapImportFilePath;
     }
 
     private String getContentToWrite() {
@@ -103,6 +108,13 @@ public class BlueprintCreatorConfig {
         importList.add(onapDublinImportCloudifyPlugin);
         importList.add(onapDublinImportK8sPlugin);
         importList.add(onapDublinImportPolicyPlugin);
+
+        importList.add(onapDublinImportPostgresPlugin);
+        importList.add(onapDublinImportClampPlugin);
+        importList.add(onapDublinImportDmaapPlugin);
+                
+    
+   
         result.put("imports",importList);
         return new Yaml().dump(result);
     }
