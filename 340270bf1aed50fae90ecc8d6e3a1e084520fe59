@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "ece3f0c8_5597192b",
+        "filename": "mod/runtimeapi/runtime-web/data/imports/onapImports.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-27T22:52:46Z",
+      "side": 1,
+      "message": "I believe this is generated file based on the properties defined on application.properties; DHRUMIN can confirm",
+      "parentUuid": "c4680b72_1b6661e9",
+      "revId": "340270bf1aed50fae90ecc8d6e3a1e084520fe59",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3bf9ffc0_c43f5199",
         "filename": "mod/runtimeapi/runtime-web/src/main/resources/application.properties",
         "patchSetId": 2
