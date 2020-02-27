@@ -42,7 +42,7 @@ public class BlueprintCreatorOnapDublin implements BlueprintCreator{
     public String createBlueprint(String componentSpecString) {
         ComponentSpec componentSpec = new ComponentSpec();
         componentSpec.createComponentSpecFromString(componentSpecString);
-        Blueprint blueprint = new Blueprint().createBlueprint(componentSpec,"",'o',importFilePath);
+        Blueprint blueprint = new Blueprint().createBlueprint(componentSpec,"",'o',importFilePath,"");
         return blueprint.blueprintToString();
     }
 
