@@ -25,7 +25,7 @@ import org.yaml.snakeyaml.Yaml;
 
 import java.util.Map;
 
-public class BlueprintCreatorOnapDublin implements BlueprintCreator{
+public class BlueprintCreatorOnap implements BlueprintCreator{
 
     private String topicUrl;
     private String importFilePath;
@@ -42,7 +42,7 @@ public class BlueprintCreatorOnapDublin implements BlueprintCreator{
     public String createBlueprint(String componentSpecString) {
         ComponentSpec componentSpec = new ComponentSpec();
         componentSpec.createComponentSpecFromString(componentSpecString);
-        Blueprint blueprint = new Blueprint().createBlueprint(componentSpec,"",'o',importFilePath);
+        Blueprint blueprint = new Blueprint().createBlueprint(componentSpec,"",'o',importFilePath,"");
         return blueprint.blueprintToString();
     }
 

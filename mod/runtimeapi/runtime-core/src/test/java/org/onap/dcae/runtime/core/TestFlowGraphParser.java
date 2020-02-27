@@ -26,7 +26,7 @@ import org.junit.Rule;
 import org.junit.rules.TemporaryFolder;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
-import org.onap.dcae.runtime.core.blueprint_creator.BlueprintCreatorOnapDublin;
+import org.onap.dcae.runtime.core.blueprint_creator.BlueprintCreatorOnap;
 
 public class TestFlowGraphParser {
 
@@ -47,7 +47,7 @@ public class TestFlowGraphParser {
         }
         FlowGraph<Node, Edge> mainFlowGraph = new FlowGraph<>("1234", "nifi-main", true, "mock graph");
         mainFlowGraph.addNode(new Node("dummy_id", "dummy_name", "dummy_compspec"));
-        BlueprintCreatorOnapDublin bcod = new BlueprintCreatorOnapDublin();
+        BlueprintCreatorOnap bcod = new BlueprintCreatorOnap();
         bcod.setTopicUrl("u.r.l");
         bcod.setImportFilePath(importsfile.getAbsolutePath());
         FlowGraphParser flowGraphParser = new FlowGraphParser(bcod);
