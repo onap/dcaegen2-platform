@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c4680b72_1b6661e9",
+        "filename": "mod/runtimeapi/runtime-web/data/imports/onapImports.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 987
+      },
+      "writtenOn": "2020-02-27T21:49:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57b341f8_d612c3c8",
+      "revId": "340270bf1aed50fae90ecc8d6e3a1e084520fe59",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3bf9ffc0_c43f5199",
         "filename": "mod/runtimeapi/runtime-web/src/main/resources/application.properties",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2020-02-27T21:25:50Z",
       "side": 1,
       "message": "How do the import values here related to the imports in the onapImports.yaml file?",
+      "revId": "340270bf1aed50fae90ecc8d6e3a1e084520fe59",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40de53c4_3e26ccf5",
+        "filename": "mod/runtimeapi/runtime-web/src/main/resources/application.properties",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 987
+      },
+      "writtenOn": "2020-02-27T21:49:43Z",
+      "side": 1,
+      "message": "Acting Dhrumin, Vijay\u0027s instructions here. I checked and the properties here and in onapImports.yaml were the same.",
+      "parentUuid": "3bf9ffc0_c43f5199",
       "revId": "340270bf1aed50fae90ecc8d6e3a1e084520fe59",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
