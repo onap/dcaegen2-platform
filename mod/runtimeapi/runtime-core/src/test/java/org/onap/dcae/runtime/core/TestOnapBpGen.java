@@ -29,7 +29,7 @@ public class TestOnapBpGen {
         componentSpec.createComponentSpecFromString(Helper.loadFileContent(
                 "src/test/data/compspecs/componentSpec_hello_world_only_MR.json"));
 
-        Blueprint bp = new Blueprint().createBlueprint(componentSpec,"",'d',"");
+        Blueprint bp = new Blueprint().createBlueprint(componentSpec,"",'d',"","");
         System.out.println(bp.getInputs());
     }
 }

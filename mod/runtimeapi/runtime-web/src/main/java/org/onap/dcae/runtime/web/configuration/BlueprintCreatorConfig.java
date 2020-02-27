@@ -47,16 +47,25 @@ public class BlueprintCreatorConfig {
     @Value("${onapDublin.topicUrl}")
     String onapDublinTopicUrl;
 
-    @Value("${onapDublin.import.cloudifyPlugin}")
+    @Value("${onap.import.cloudifyPlugin}")
     String onapDublinImportCloudifyPlugin;
 
-    @Value("${onapDublin.import.k8sPlugin}")
+    @Value("${onap.import.k8sPlugin}")
     String onapDublinImportK8sPlugin;
 
-    @Value("${onapDublin.import.policyPlugin}")
+    @Value("${onap.import.policyPlugin}")
     String onapDublinImportPolicyPlugin;
 
-    
+    @Value("${onap.import.postgresPlugin}")
+    String onapDublinImportPostgresPlugin;
+
+   @Value("${onap.import.clampPlugin}")
+    String onapDublinImportClampPlugin;
+
+   @Value("${onap.import.dmaapPlugin}")
+    String onapDublinImportDmaapPlugin;
+
+
     @Profile("onap_dublin")
     @Primary
     @Bean
@@ -84,7 +93,7 @@ public class BlueprintCreatorConfig {
 
     private Path createDataImportDirAndImportFile() {
         Path importDirPath = Paths.get("./data/imports").toAbsolutePath().normalize();
-        Path onapDublinImportFilePath = Paths.get("./data/imports/onapDublinImports.yaml").toAbsolutePath().normalize();
+        Path onapDublinImportFilePath = Paths.get("./data/imports/onapImports.yaml").toAbsolutePath().normalize();
         try {
             Files.createDirectories(importDirPath);
             Files.createFile(onapDublinImportFilePath);
