@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "ce71125e_4e92bbf6",
+        "filename": "mod/runtimeapi/runtime-web/data/imports/onapImports.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4389
+      },
+      "writtenOn": "2020-02-28T22:06:24Z",
+      "side": 1,
+      "message": "Yes. The file is created from the application.config file when runtime api starts.",
+      "parentUuid": "ece3f0c8_5597192b",
+      "revId": "340270bf1aed50fae90ecc8d6e3a1e084520fe59",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3bf9ffc0_c43f5199",
         "filename": "mod/runtimeapi/runtime-web/src/main/resources/application.properties",
         "patchSetId": 2
