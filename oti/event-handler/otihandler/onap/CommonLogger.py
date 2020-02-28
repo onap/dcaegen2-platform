@@ -781,7 +781,7 @@ class CommonLogger:
                 print("error creating %s directory to hold %s logfile: %s" %(folder, filename, str(err)))
                 sys.exit(2)
 
-if __name__ == "__main__":
+if __name__ == "__main__":   # pragma: no cover
 
     def __checkOneTime(line):
         format = r'[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2},[0-9]{3}[+]00:00[|]'

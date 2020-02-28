@@ -168,7 +168,7 @@ class CfyClient(object):
         if not password:
             raise CfyClientConsulError("{} value is missing 'cloudify.password'".format(source))
 
-        b64_encoded_str = base64.b64encode(bytes("{}:{}".format(username, password), 'utf-8')).decode("utf-8")
+        b64_encoded_str = base64.b64encode(bytes("{}:{}".format(username, password), "utf-8")).decode("utf-8")
         headers = {'Authorization': 'Basic ' + b64_encoded_str.rstrip('\n')}
         #headers = {'Authorization': 'Basic ' + '{}:{}'.format(username, password).encode("base64").rstrip('\n')}
         
@@ -416,8 +416,8 @@ class CfyClient(object):
                     continue
     
             # Check if the collector supports this VNF Type
-            # scn:dti Consul key is authoritative for vnfTypes that a collector supports (not docker_config)
-            dti_key = scn + ':dti'
+            # scn:oti Consul key is authoritative for vnfTypes that a collector supports (not docker_config)
+            dti_key = scn + ':oti'
             try:
                 obj = ConsulClient.get_value(dti_key)
             except Exception as e:
@@ -531,8 +531,8 @@ class CfyClient(object):
                     continue
 
             # Check if the collector supports this VNF Type
-            # scn:dti Consul key is authoritative for vnfTypes that a collector supports (not docker_config)
-            dti_key = scn + ':dti'
+            # scn:oti Consul key is authoritative for vnfTypes that a collector supports (not docker_config)
+            dti_key = scn + ':oti'
             try:
                 obj = ConsulClient.get_value(dti_key)
             except Exception as e:
