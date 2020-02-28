@@ -24,6 +24,7 @@ import os
 
 from otihandler.consul_client import ConsulClient
 
+os.makedirs('logs', exist_ok=True)
 logging.basicConfig(
     filename='logs/oti_handler.log', \
     format='%(asctime)s.%(msecs)03d %(levelname)+8s ' + \
