@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0cf1d4f9_29680809",
+        "filename": "mod/runtimeapi/runtime-web/src/main/java/org/onap/dcae/runtime/web/configuration/BlueprintCreatorConfig.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-28T22:15:24Z",
+      "side": 1,
+      "message": "could be removed as well",
+      "range": {
+        "startLine": 48,
+        "startChar": 15,
+        "endLine": 48,
+        "endChar": 21
+      },
+      "revId": "7666d2a36849f88e917d87abec2e177dac500191",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c09622f4_c7b80f6f",
+        "filename": "mod/runtimeapi/runtime-web/src/main/java/org/onap/dcae/runtime/web/configuration/BlueprintCreatorConfig.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-02-28T22:15:24Z",
+      "side": 1,
+      "message": "same here and all corresponding references",
+      "range": {
+        "startLine": 51,
+        "startChar": 15,
+        "endLine": 51,
+        "endChar": 21
+      },
+      "revId": "7666d2a36849f88e917d87abec2e177dac500191",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
