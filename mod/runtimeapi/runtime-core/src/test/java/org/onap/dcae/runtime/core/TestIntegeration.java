@@ -21,7 +21,7 @@ import org.onap.dcae.runtime.core.blueprint_creator.BlueprintCreator;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
-import org.onap.dcae.runtime.core.blueprint_creator.BlueprintCreatorOnapDublin;
+import org.onap.dcae.runtime.core.blueprint_creator.BlueprintCreatorOnap;
 
 public class TestIntegeration {
 
@@ -33,7 +33,7 @@ public class TestIntegeration {
         FlowGraph<Node, Edge> flowGraph = Helper.prepareFlowGraph();
 
         //2. Inject graph in FlowGraphParser
-        BlueprintCreator blueprintCreator = new BlueprintCreatorOnapDublin();
+        BlueprintCreator blueprintCreator = new BlueprintCreatorOnap();
         flowGraphParser = new FlowGraphParser(blueprintCreator);
         flowGraphParser.parse(flowGraph);
     }
