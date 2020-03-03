@@ -80,20 +80,21 @@ public class Blueprint {
 		}
 		return bp;
 	}
+
 	public Blueprint setQuotations(Blueprint bp) {
 		for(String s: bp.getInputs().keySet()) {
 			LinkedHashMap<String, Object> temp = bp.getInputs().get(s);
 			if(temp.get("type") == "string") {
 				String def = (String) temp.get("default");
-				if(def != null && def.equals("")){
-					String emptyString = "\"\"";
-					Object emptyObj = emptyString;
-					temp.put("default", emptyObj);
+				if(def != null){
+					def = def.replaceAll("\"$", "").replaceAll("^\"", "");
 				}
+				def = '"' + def + '"';
+				temp.replace("default", def);
 				bp.getInputs().replace(s, temp);
 			}
 		}
-		
+
 		return bp;
 	}
 
