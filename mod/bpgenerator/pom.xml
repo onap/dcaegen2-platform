@@ -39,7 +39,7 @@
 		<sonar.java.coveragePlugin>cobertura</sonar.java.coveragePlugin>
 		<sonar.junit.reportsPath>${project.basedir}/target/surefire-reports</sonar.junit.reportsPath>
 		<sonar.surefire.reportsPath>${project.basedir}/target/surefire-reports</sonar.surefire.reportsPath>
-		<sonar.cobertura.reportPath>${project.basedir}/target/site/cobertura/coverage.xml</sonar.cobertura.reportPath>
+		<sonar.cobertura.reportPaths>${project.basedir}/target/site/cobertura/coverage.xml</sonar.cobertura.reportPaths>
 		<shade.main>org.onap.blueprintgenerator.core.App</shade.main>
 		<shade.transformer>org.apache.maven.plugins.shade.resource.ManifestResourceTransformer</shade.transformer>
 	</properties>
