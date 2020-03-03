@@ -29,7 +29,7 @@ from aoconversion import utils
 
 def _get_dcae_cs_schema():
     res = requests.get(
-        "https://gerrit.onap.org/r/gitweb?p=dcaegen2/platform/cli.git;a=blob_plain;f=component-json-schemas/component-specification/dcae-cli-v2/component-spec-schema.json;hb=HEAD"
+        "https://git.onap.org/dcaegen2/platform/plain/mod/component-json-schemas/component-specification/dcae-cli-v2/component-spec-schema.json"
     )
     return res.json()
 
