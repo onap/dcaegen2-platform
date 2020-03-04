@@ -1,0 +1,10 @@
+distribution_type: 'container'
+container_release_tag: '1.0.0'
+project: 'dcaegen2-platform'
+log_dir: 'dcaegen2-platform-mod-master-genprocessor-merge-java/8'
+ref: 534f8a3b979ae78a21ec3b7b8ffdb1cd3e425f1a
+containers:
+  - name: 'org.onap.dcaegen2.platform.mod.genprocessor-job'
+    version: '1.0.0-20200217T215940Z'
+  - name: 'org.onap.dcaegen2.platform.mod.genprocessor-http'
+    version: '1.0.0-20200217T215940Z'
