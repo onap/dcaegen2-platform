@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ba827cd3_218b99dd",
+        "filename": "releases/1.0.0-genprocessor-job-container.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-03-04T19:13:17Z",
+      "side": 1,
+      "message": "both genprocessor images can be released under single yaml as they are from the same job..",
+      "revId": "54ba66d9a83a992d36da2e7dda7202da247c2853",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
