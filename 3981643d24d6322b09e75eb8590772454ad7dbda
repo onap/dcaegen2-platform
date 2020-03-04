@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "21a3c9f8_0be34fdd",
+        "filename": "oti/event-handler/tests/__init__.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 2835
+      },
+      "writtenOn": "2020-03-04T23:55:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "56a42778_3b719288",
+      "range": {
+        "startLine": 2,
+        "startChar": 16,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "3981643d24d6322b09e75eb8590772454ad7dbda",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d4f1efd_d04d0ee4",
         "filename": "oti/event-handler/tests/__init__.py",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2020-03-04T23:06:07Z",
       "side": 1,
       "message": "This line should be removed",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 70
+      },
+      "revId": "3981643d24d6322b09e75eb8590772454ad7dbda",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1b0e711_ff1af90f",
+        "filename": "oti/event-handler/tests/__init__.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 2835
+      },
+      "writtenOn": "2020-03-04T23:55:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2d4f1efd_d04d0ee4",
       "range": {
         "startLine": 17,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "72bd839f_60b952e6",
+        "filename": "oti/event-handler/tests/test_otihandler.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 2835
+      },
+      "writtenOn": "2020-03-04T23:55:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d0b94cef_0e133fbe",
+      "range": {
+        "startLine": 2,
+        "startChar": 16,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "3981643d24d6322b09e75eb8590772454ad7dbda",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c9f10b35_e55c7bfa",
         "filename": "oti/event-handler/tests/test_otihandler.py",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2020-03-04T23:06:07Z",
       "side": 1,
       "message": "remove line",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 70
+      },
+      "revId": "3981643d24d6322b09e75eb8590772454ad7dbda",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dbb089b4_8e2aba61",
+        "filename": "oti/event-handler/tests/test_otihandler.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 2835
+      },
+      "writtenOn": "2020-03-04T23:55:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c9f10b35_e55c7bfa",
       "range": {
         "startLine": 17,
         "startChar": 0,
