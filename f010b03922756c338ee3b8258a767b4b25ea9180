@@ -22,6 +22,30 @@
       "revId": "f010b03922756c338ee3b8258a767b4b25ea9180",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a77863d_b5c3023c",
+        "filename": "releases/1.0.0-designtool-container.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 987
+      },
+      "writtenOn": "2020-03-04T20:05:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f0fbd816_fef1b389",
+      "range": {
+        "startLine": 8,
+        "startChar": 29,
+        "endLine": 8,
+        "endChar": 45
+      },
+      "revId": "f010b03922756c338ee3b8258a767b4b25ea9180",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
