@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "173a9704_7a905004",
+        "filename": "releases/2.12.0-onboardingapi.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-03-04T18:05:36Z",
+      "side": 1,
+      "message": "remove onap/ prefix",
+      "range": {
+        "startLine": 7,
+        "startChar": 11,
+        "endLine": 7,
+        "endChar": 16
+      },
+      "revId": "5c2d9ddb288cc4d4ced36d93ec62a2e2639741b7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f211a130_1cae3546",
+        "filename": "releases/2.12.0-onboardingapi.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-03-04T18:05:36Z",
+      "side": 1,
+      "message": "will also suggest renaming the file as 2.12.0-onboardingapi-container.yaml",
+      "revId": "5c2d9ddb288cc4d4ced36d93ec62a2e2639741b7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
