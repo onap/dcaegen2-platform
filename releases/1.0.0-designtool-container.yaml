@@ -1,0 +1,8 @@
+distribution_type: 'container'
+container_release_tag: '1.0.0'
+project: 'dcaegen2-platform'
+log_dir: 'dcaegen2-platform-mod-master-designtool-merge-java/1'
+ref: 9507f2f8d2ec616f01f5ee8825106300b95e8ddc
+containers:
+  - name: 'org.onap.dcaegen2.platform.mod.designtool-web'
+    version: '1.0.0-SNAPSHOT-20200217T165545Z'
