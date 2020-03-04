@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "046a05d4_50d6bf4d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-03-04T19:14:35Z",
+      "side": 1,
+      "message": "typo to be corrected",
+      "range": {
+        "startLine": 7,
+        "startChar": 9,
+        "endLine": 7,
+        "endChar": 21
+      },
+      "revId": "e0a2fcb99cdc86d04b7bdfecabae4f3a083ebe2f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2cc4eb18_7c7cbaa0",
+        "filename": "releases/1.0.0-genprocessor-http-container.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-03-04T19:14:35Z",
+      "side": 1,
+      "message": "include the geneprocessor-job container also here\n\n  - name: \u0027org.onap.dcaegen2.platform.mod.genprocessor-job\u0027\n    version: \u00271.0.0-20200217T215940Z\u0027",
+      "revId": "e0a2fcb99cdc86d04b7bdfecabae4f3a083ebe2f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
