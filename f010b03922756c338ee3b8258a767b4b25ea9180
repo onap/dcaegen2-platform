@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0fbd816_fef1b389",
+        "filename": "releases/1.0.0-designtool-container.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-03-04T19:57:55Z",
+      "side": 1,
+      "message": "Don\u0027t find this tag on job#1 log noted above. \n\nI see this on https://jenkins.onap.org/view/dcaegen2/job/dcaegen2-platform-mod-master-designtool-merge-java/2/console, which is same job that generated 1.0.0-mod-nifi-registry-container.yaml. Both container release could have been combined ideally as they are from same job.",
+      "range": {
+        "startLine": 8,
+        "startChar": 29,
+        "endLine": 8,
+        "endChar": 45
+      },
+      "revId": "f010b03922756c338ee3b8258a767b4b25ea9180",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
