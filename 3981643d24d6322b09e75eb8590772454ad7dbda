@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "56a42778_3b719288",
+        "filename": "oti/event-handler/tests/__init__.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-03-04T23:06:07Z",
+      "side": 1,
+      "message": "new file should have just 2020",
+      "range": {
+        "startLine": 2,
+        "startChar": 16,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "3981643d24d6322b09e75eb8590772454ad7dbda",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2d4f1efd_d04d0ee4",
+        "filename": "oti/event-handler/tests/__init__.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-03-04T23:06:07Z",
+      "side": 1,
+      "message": "This line should be removed",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 70
+      },
+      "revId": "3981643d24d6322b09e75eb8590772454ad7dbda",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0b94cef_0e133fbe",
+        "filename": "oti/event-handler/tests/test_otihandler.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-03-04T23:06:07Z",
+      "side": 1,
+      "message": "remove it",
+      "range": {
+        "startLine": 2,
+        "startChar": 16,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "3981643d24d6322b09e75eb8590772454ad7dbda",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9f10b35_e55c7bfa",
+        "filename": "oti/event-handler/tests/test_otihandler.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-03-04T23:06:07Z",
+      "side": 1,
+      "message": "remove line",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 70
+      },
+      "revId": "3981643d24d6322b09e75eb8590772454ad7dbda",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
