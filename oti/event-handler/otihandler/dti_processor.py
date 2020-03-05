@@ -156,7 +156,7 @@ def notify_svc(args_tuple):
                         return (component_scn, "exception {}: {!s} running {}".format(type(e).__name__, e, what))
                 else:
                     # remove from dtih_event_ack if present
-                    if curr_evt is not None:
+                    if curr_evt: 
                         try:
                             del_evt_ack = db_access.query_event_info_docker(curr_evt, component_scn, deployment_id,
                                                                             container_id)
@@ -178,7 +178,7 @@ def notify_svc(args_tuple):
         elif dcae_service_action == 'update':
             # handle update for pods being tracked and handle add for new pods
             k8s_scn_result = db_access.query_event_data_k8s_pod(curr_evt, component_scn)
-            if k8s_scn_result is not None:
+            if k8s_scn_result: 
                 # update
                 DTIProcessor.logger.debug("dti_processor.notify_svc() in k8s for update action")
                 return notify_k8s_pod((dti_event, db_access, k8s_scn_result))
@@ -582,7 +582,7 @@ class DTIProcessor(object):
                     msg = "processing delete event for {}/{} to relate with any k8s hosts".format(
                         self.target_type, self.target_name)
                     DTIProcessor.logger.warning(msg)
-                    if self.prim_db_event is not None:
+                    if self.prim_db_event: 
                         result = self.db_access.query_event_data_k8s(self.target_type, self.target_name)
                         res_dict_k8s = dict(self.k8s_pool.map(notify_k8s_pod, (
                             ((self.event, self.db_access, ack_item) for ack_item in result))))
@@ -592,7 +592,7 @@ class DTIProcessor(object):
                     self._result['ERROR'] = msg
 
             try:
-                if self.prim_db_event is not None:
+                if self.prim_db_event: 
                     self.db_access.deleteDomainObject(self.prim_db_event)
             except Exception as e:
                 msg = "trying to delete event from database, got exception {}: {!s}".format(type(e).__name__, e.args)
@@ -603,10 +603,10 @@ class DTIProcessor(object):
                 DTIProcessor.logger.warning(msg)
                 self._result['ERROR'] = msg
 
-        if res_dict_k8s is not None:
+        if res_dict_k8s: 
             utils.update_dict(res_dict, res_dict_k8s)
 
-        if res_dict_docker is not None:
+        if res_dict_docker: 
             utils.update_dict(res_dict, res_dict_docker)
 
         return res_dict
@@ -622,7 +622,7 @@ class DTIProcessor(object):
         if self.is_notify:
             try:
                 self.prim_db_event = self.db_access.query_event_item(self.target_type, self.target_name)
-                if self.prim_db_event is not None:
+                if self.prim_db_event: 
                     self.db_access.update_event_item(self.event, self.target_type, self.target_name)
                     result = self.db_access.query_event_data(self.target_type, self.target_name)
                     if len(result) == 0:
@@ -662,10 +662,10 @@ class DTIProcessor(object):
                 DTIProcessor.logger.error(msg)
                 self._result['ERROR'] = msg
 
-        if res_dict_k8s is not None:
+        if res_dict_k8s: 
             utils.update_dict(res_dict, res_dict_k8s)
 
-        if res_dict_docker is not None:
+        if res_dict_docker: 
             utils.update_dict(res_dict, res_dict_docker)
 
         return res_dict
@@ -678,7 +678,7 @@ class DTIProcessor(object):
         res_dict = {}
         try:
             self.prim_db_event = self.db_access.query_event_item(self.target_type, self.target_name)
-            if self.prim_db_event is not None:
+            if self.prim_db_event: 
                 self.db_access.update_event_item(self.event, self.target_type, self.target_name)
             else:
                 self.prim_db_event = Event(event=self.event, target_name=self.target_name, target_type=self.target_type,
