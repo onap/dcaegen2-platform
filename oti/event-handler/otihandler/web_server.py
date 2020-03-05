@@ -180,6 +180,8 @@ class _DTIWeb(object):
         if cherrypy.request.method != "POST":
             raise cherrypy.HTTPError(404, "unexpected method {}".format(cherrypy.request.method))
 
+        msg = ""
+
         dti_event = cherrypy.request.json or {}
         str_dti_event = json.dumps(dti_event)
 
@@ -192,38 +194,38 @@ class _DTIWeb(object):
         dcae_service_action = dti_event.get('dcae_service_action')
         if not dcae_service_action:
             msg = 'dcae_service_action is missing'
-            DTIWeb.logger.error(msg)
-            raise cherrypy.HTTPError(400, msg)
         elif dcae_service_action.lower() not in self.VALID_EVENT_TYPES:
             msg = 'dcae_service_action is invalid'
-            DTIWeb.logger.error(msg)
-            raise cherrypy.HTTPError(400,msg)
 
         dcae_target_name = dti_event.get('dcae_target_name')
-        if not dcae_target_name:
+        if not msg and not dcae_target_name:
             msg = 'dcae_target_name is missing'
-            DTIWeb.logger.error(msg)
-            raise cherrypy.HTTPError(400, msg)
 
         dcae_target_type = dti_event.get('dcae_target_type', '')
-        if not dcae_target_type:
+        if not msg and not dcae_target_type:
             msg = 'dcae_target_type is missing'
-            DTIWeb.logger.error(msg)
-            raise cherrypy.HTTPError(400, msg)
 
-        send_notification = True
-        if (isinstance(notify, bool) and not notify) or \
-           (isinstance(notify, str) and notify.lower() in [ "f", "false", "n", "no" ]):
-            send_notification = False
+        if msg:
+            result = {"ERROR": msg}
 
-        prc = DTIProcessor(dti_event, send_notification=send_notification)
-        result = prc.get_result()
+            DTIWeb.logger.error("%s: dti_event=%s result=%s", \
+                req_info, str_dti_event, json.dumps(result))
+        else:
+            send_notification = True
+            if (isinstance(notify, bool) and not notify) or \
+               (isinstance(notify, str) and notify.lower() in [ "f", "false", "n", "no" ]):
+                send_notification = False
 
-        DTIWeb.logger.info("%s: dti_event=%s result=%s", \
-            req_info, str_dti_event, json.dumps(result))
+            prc = DTIProcessor(dti_event, send_notification=send_notification)
+            result = prc.get_result()
+
+            DTIWeb.logger.info("%s: dti_event=%s result=%s", \
+                req_info, str_dti_event, json.dumps(result))
 
         success, http_status_code, _ = audit.audit_done(result=json.dumps(result))
-        if not success:
+        if msg:
+            cherrypy.response.status = "400 Bad Request"
+        elif not success:
             cherrypy.response.status = http_status_code
 
         return result
@@ -537,7 +539,7 @@ class _DTIWeb(object):
             req_info, service_name, json.dumps(cherrypy.request.headers))
 
         try:
-            result = CBSRest.get_dti(service_name=service_name, vnf_type=vnf_type, vnf_id=vnf_id, service_location=service_location)
+            result = CBSRest.get_oti(service_name=service_name, vnf_type=vnf_type, vnf_id=vnf_id, service_location=service_location)
         except Exception as e:
             result = {"ERROR": "exception {}: {!s}".format(type(e).__name__, e)}
             audit.set_http_status_code(404)

@@ -410,7 +410,7 @@ class ConsulClient(object):
 
         # key = urllib.quote(key)  # can't use urllib.quote() because it kills ':' in the key
         if value:
-            return {"KV": {"Verb": verb, "Key": key, "Value": base64.b64encode(value)}}
+            return {"KV": {"Verb": verb, "Key": key, "Value": base64.b64encode(bytes(value, "utf-8")).decode("utf-8")}}
         return {"KV": {"Verb": verb, "Key": key}}
 
 
@@ -450,7 +450,7 @@ class ConsulClient(object):
         """put kvs into consul-kv"""
 
         if not kvs:
-            ConsulClient._logger.warn("kvs not supplied to store_kvs()")
+            ConsulClient._logger.warning("kvs not supplied to store_kvs()")
             return
 
         store_kvs = [
@@ -474,7 +474,7 @@ class ConsulClient(object):
         """delete key from consul-kv"""
 
         if not key:
-            ConsulClient._logger.warn("key not supplied to delete_key()")
+            ConsulClient._logger.warning("key not supplied to delete_key()")
             return
 
         delete_key = [
@@ -488,7 +488,7 @@ class ConsulClient(object):
         """delete key from consul-kv"""
 
         if not key:
-            ConsulClient._logger.warn("key not supplied to delete_kvs()")
+            ConsulClient._logger.warning("key not supplied to delete_kvs()")
             return
 
         delete_kvs = [
@@ -555,16 +555,16 @@ class ConsulClient(object):
     @staticmethod
     def add_vnf_id(scn, vnf_type, vnf_id, dti_dict):
         """
-        Add VNF instance to Consul scn:dti key.
+        Add VNF instance to Consul scn:oti key.
 
         Treat its value as a JSON string representing a dict.
         Extend the dict by adding a dti_dict for vnf_id under vnf_type.
         Turn the resulting extended dict into a JSON string.
-        Store the string back into Consul under scn:dti key.
+        Store the string back into Consul under scn:oti key.
         Watch out for conflicting concurrent updates.
         """
 
-        key = scn + ':dti'
+        key = scn + ':oti'
         lc_vnf_type = vnf_type.lower()
         while True:     # do until update succeeds
             (mod_index, v) = ConsulClient.get_value(key, get_index=True)
@@ -583,16 +583,16 @@ class ConsulClient(object):
     @staticmethod
     def delete_vnf_id(scn, vnf_type, vnf_id):
         """
-        Delete VNF instance from Consul scn:dti key.
+        Delete VNF instance from Consul scn:oti key.
 
         Treat its value as a JSON string representing a dict.
         Modify the dict by deleting the vnf_id key entry from under vnf_type.
         Turn the resulting extended dict into a JSON string.
-        Store the string back into Consul under scn:dti key.
+        Store the string back into Consul under scn:oti key.
         Watch out for conflicting concurrent updates.
         """
 
-        key = scn + ':dti'
+        key = scn + ':oti'
         lc_vnf_type = vnf_type.lower()
         while True:     # do until update succeeds
             (mod_index, v) = ConsulClient.get_value(key, get_index=True)
