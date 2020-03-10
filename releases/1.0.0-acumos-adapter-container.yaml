@@ -1,0 +1,8 @@
+distribution_type: 'container'
+container_release_tag: '1.0.0'
+project: 'dcaegen2-platform'
+log_dir: 'dcaegen2-platform-adapter-acumos-docker-merge-master/3'
+ref: 4da2d08fc132367b38c3ec555f931a175cfcbfcd
+containers:
+  - name: 'org.onap.dcaegen2.platform.adapter.acumos'
+    version: '1.0.0-SNAPSHOT-20200303T215210Z'
