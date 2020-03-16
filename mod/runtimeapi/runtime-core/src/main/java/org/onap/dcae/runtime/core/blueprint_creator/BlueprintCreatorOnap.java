@@ -17,12 +17,14 @@
  */
 package org.onap.dcae.runtime.core.blueprint_creator;
 
+import org.onap.blueprintgenerator.core.Fixes;
 import org.onap.dcae.runtime.core.Node;
 import org.onap.blueprintgenerator.models.blueprint.Blueprint;
 import org.onap.blueprintgenerator.models.componentspec.ComponentSpec;
 import org.yaml.snakeyaml.DumperOptions;
 import org.yaml.snakeyaml.Yaml;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class BlueprintCreatorOnap implements BlueprintCreator{
@@ -57,12 +59,27 @@ public class BlueprintCreatorOnap implements BlueprintCreator{
         Map<String,Object> obj = yaml.load(blueprintContent);
         Map<String,Object> inputsObj = (Map<String, Object>) obj.get("inputs");
         for(Map.Entry<String,Object> entry: inputsObj.entrySet()){
+            LinkedHashMap<String, Object> modified = retainQuotesForDefault(entry.getValue());
+            entry.setValue(modified);
             if(entry.getKey().matches(locationPort+".*url")) {
                 Map<String,String> inputValue = (Map<String, String>) entry.getValue();
                 inputValue.put("default",topicUrl + "/" + dmaapEntityName);
             }
         }
-        node.getBlueprintData().setBlueprint_content(yaml.dump(obj));
+        node.getBlueprintData().setBlueprint_content(Fixes.applyFixes(yaml.dump(obj)));
+    }
+
+    private LinkedHashMap<String, Object> retainQuotesForDefault(Object valueOfInputObject) {
+        LinkedHashMap<String, Object> temp = (LinkedHashMap<String, Object>) valueOfInputObject;
+        if(temp.containsKey("type") && temp.get("type").equals("string")) {
+            String def = (String) temp.get("default");
+            if(def != null){
+                def = def.replaceAll("\"$", "").replaceAll("^\"", "");
+            }
+            def = '"' + def + '"';
+            temp.replace("default", def);
+        }
+        return temp;
     }
 
     private Yaml getYamlInstance() {

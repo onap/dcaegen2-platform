@@ -22,7 +22,7 @@ limitations under the License.
 	<parent>
 		<groupId>org.onap.dcaegen2.platform.mod</groupId>
 		<artifactId>runtimeapi</artifactId>
-		<version>1.0.0</version>
+		<version>1.0.1</version>
 	</parent>
 	<artifactId>runtime-web</artifactId>
 	<version>1.0.0</version>
