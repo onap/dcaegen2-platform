@@ -156,7 +156,7 @@ function esc(s) {
 
 function onBoard() {
   fcomp("onboardingInProgress").style.display = "block";
-  var url = "/onboard.js?acumos=" + uecvalue("furl");
+  var url = "/acumos-adapter/onboard.js?acumos=" + uecvalue("furl");
   if (cvalue("catMenu") != "*") {
     url += "&catalogId=" + uecvalue("catMenu");
     if (cvalue("solMenu") != "*") {
@@ -178,19 +178,19 @@ function chooseSolution() {
   if (cvalue("solMenu") == "*") {
     updatevis();
   } else {
-    lookupItem("acRevs", "revMenu", "/listRevisions.js?acumos=" + uecvalue("furl") + "&solutionId=" + uecvalue("solMenu"));
+    lookupItem("acRevs", "revMenu", "/acumos-adapter/listRevisions.js?acumos=" + uecvalue("furl") + "&solutionId=" + uecvalue("solMenu"));
   }
 }
 function chooseCatalog() {
   if (cvalue("catMenu") == "*") {
     updatevis();
   } else {
-    lookupItem("acSols", "solMenu", "/listSolutions.js?acumos=" + uecvalue("furl") + "&catalogId=" + uecvalue("catMenu"));
+    lookupItem("acSols", "solMenu", "/acumos-adapter/listSolutions.js?acumos=" + uecvalue("furl") + "&catalogId=" + uecvalue("catMenu"));
   }
 }
 function lookupCatalogs() {
   fcomp("onboard").style.display = "block";
-  lookupItem("cAcumos", "catMenu", "/listCatalogs.js?acumos=" + uecvalue("furl"));
+  lookupItem("cAcumos", "catMenu", "/acumos-adapter/listCatalogs.js?acumos=" + uecvalue("furl"));
 }
 function lookupItem(dblock, smenu, url) {
   fcomp(dblock).style.display = "block";

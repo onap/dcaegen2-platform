@@ -192,7 +192,6 @@ public abstract class NiFiProperties {
     // ui properties
     public static final String UI_BANNER_TEXT = "nifi.ui.banner.text";
     public static final String UI_AUTO_REFRESH_INTERVAL = "nifi.ui.autorefresh.interval";
-    public static  final String UI_DCAE_DISTRIBUTOR_API_URL="nifi.ui.dcae.distibutor.api.url";
 
     // cluster common properties
     public static final String CLUSTER_PROTOCOL_HEARTBEAT_INTERVAL = "nifi.cluster.protocol.heartbeat.interval";
@@ -715,15 +714,6 @@ public abstract class NiFiProperties {
      */
     public String getBannerText() {
         return this.getProperty(UI_BANNER_TEXT, StringUtils.EMPTY);
-    }
-
-
-    /**
-     * @author Renu
-     * @return the IP address where the nifi-app is being hosted
-     */
-    public String getDcaeDistributorApiHostname() {
-        return getProperty(UI_DCAE_DISTRIBUTOR_API_URL);
     }
 
     /**

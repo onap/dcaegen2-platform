@@ -336,3 +336,69 @@ span.breadcrumb-version-control-gray {
     white-space: nowrap;
     line-height: normal;
 }
+
+.icon-import:before {
+    content: '\e850';
+}
+
+div.import-group {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 20px;
+    right: 20px;
+    overflow: auto;
+}
+
+div.import-header-text {
+    height: 28px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #728E9B;
+    margin-bottom: 30px;
+}
+
+div.import-container {
+    position: absolute;
+    top: 58px;
+    bottom: 52px;
+    left: 20px;
+    right: 0px;
+    font-size: 15px;
+}
+
+.onap-action {
+  width: 250px;
+}
+
+.onap-unpadded {
+  margin: 0px;
+  padding: 0px;
+}
+
+#import-menu-content {
+  font-size: 13px;
+  padding: 3px 0;
+  background-color: rgba(249, 250, 251, 0.97);
+  border: 1px solid #004849;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  width: 215px;
+  max-height: inherit;
+}
+
+#import-menu-content md-menu-item {
+  min-height: 28px;
+  height: 28px;
+}
+
+#import-menu-content a {
+  height: 28px;
+  padding: 6px 16px;
+  cursor: pointer;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#import-menu-content a:hover {
+  background-color:#C7D2D7;
+}

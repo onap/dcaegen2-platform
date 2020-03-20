@@ -50,34 +50,34 @@
                     nf-draggable="appCtrl.serviceProvider.headerCtrl.toolboxCtrl.draggableComponentConfig(appCtrl.serviceProvider.headerCtrl.toolboxCtrl.groupComponent);">
                 <span class="component-button-grip"></span>
             </button>
-              <button title="{{appCtrl.serviceProvider.headerCtrl.toolboxCtrl.config.type.remoteProcessGroup}}"
-                               id="group-remote-component"
-                               class="component-button icon icon-group-remote"
-                               ng-disabled="!appCtrl.nf.CanvasUtils.canWriteCurrentGroup();"
-                               nf-draggable="appCtrl.serviceProvider.headerCtrl.toolboxCtrl.draggableComponentConfig(appCtrl.serviceProvider.headerCtrl.toolboxCtrl.remoteGroupComponent);">
-                           <span class="component-button-grip"></span>
-                       </button>
-                       <button title="{{appCtrl.serviceProvider.headerCtrl.toolboxCtrl.config.type.funnel}}"
-                               id="funnel-component"
-                               class="component-button icon icon-funnel"
-                               ng-disabled="!appCtrl.nf.CanvasUtils.canWriteCurrentGroup();"
-                               nf-draggable="appCtrl.serviceProvider.headerCtrl.toolboxCtrl.draggableComponentConfig(appCtrl.serviceProvider.headerCtrl.toolboxCtrl.funnelComponent);">
-                           <span class="component-button-grip"></span>
-                       </button>
-                       <button title="{{appCtrl.serviceProvider.headerCtrl.toolboxCtrl.config.type.template}}"
-                               id="template-component"
-                               class="component-button icon icon-template"
-                               ng-disabled="!appCtrl.nf.CanvasUtils.canWriteCurrentGroup();"
-                               nf-draggable="appCtrl.serviceProvider.headerCtrl.toolboxCtrl.draggableComponentConfig(appCtrl.serviceProvider.headerCtrl.toolboxCtrl.templateComponent);">
-                           <span class="component-button-grip"></span>
-                       </button>
-                       <button title="{{appCtrl.serviceProvider.headerCtrl.toolboxCtrl.config.type.label}}"
-                               id="label-component"
-                               class="component-button icon icon-label"
-                               ng-disabled="!appCtrl.nf.CanvasUtils.canWriteCurrentGroup();"
-                               nf-draggable="appCtrl.serviceProvider.headerCtrl.toolboxCtrl.draggableComponentConfig(appCtrl.serviceProvider.headerCtrl.toolboxCtrl.labelComponent);">
-                           <span class="component-button-grip"></span>
-                       </button>
+            <button title="{{appCtrl.serviceProvider.headerCtrl.toolboxCtrl.config.type.remoteProcessGroup}}"
+                    id="group-remote-component"
+                    class="component-button icon icon-group-remote"
+                    ng-disabled="!appCtrl.nf.CanvasUtils.canWriteCurrentGroup();"
+                    nf-draggable="appCtrl.serviceProvider.headerCtrl.toolboxCtrl.draggableComponentConfig(appCtrl.serviceProvider.headerCtrl.toolboxCtrl.remoteGroupComponent);">
+                <span class="component-button-grip"></span>
+            </button>
+            <button title="{{appCtrl.serviceProvider.headerCtrl.toolboxCtrl.config.type.funnel}}"
+                    id="funnel-component"
+                    class="component-button icon icon-funnel"
+                    ng-disabled="!appCtrl.nf.CanvasUtils.canWriteCurrentGroup();"
+                    nf-draggable="appCtrl.serviceProvider.headerCtrl.toolboxCtrl.draggableComponentConfig(appCtrl.serviceProvider.headerCtrl.toolboxCtrl.funnelComponent);">
+                <span class="component-button-grip"></span>
+            </button>
+            <button title="{{appCtrl.serviceProvider.headerCtrl.toolboxCtrl.config.type.template}}"
+                    id="template-component"
+                    class="component-button icon icon-template"
+                    ng-disabled="!appCtrl.nf.CanvasUtils.canWriteCurrentGroup();"
+                    nf-draggable="appCtrl.serviceProvider.headerCtrl.toolboxCtrl.draggableComponentConfig(appCtrl.serviceProvider.headerCtrl.toolboxCtrl.templateComponent);">
+                <span class="component-button-grip"></span>
+            </button>
+            <button title="{{appCtrl.serviceProvider.headerCtrl.toolboxCtrl.config.type.label}}"
+                    id="label-component"
+                    class="component-button icon icon-label"
+                    ng-disabled="!appCtrl.nf.CanvasUtils.canWriteCurrentGroup();"
+                    nf-draggable="appCtrl.serviceProvider.headerCtrl.toolboxCtrl.draggableComponentConfig(appCtrl.serviceProvider.headerCtrl.toolboxCtrl.labelComponent);">
+                <span class="component-button-grip"></span>
+            </button>
         </div>
         <div layout="row" layout-align="space-between center">
             <div layout-align="space-between end" layout="column">
@@ -128,6 +128,22 @@
                             <i class="icon icon-provenance"></i>Data Provenance
                         </a>
                     </md-menu-item>
+                    <md-menu-item layout-align="space-around center">
+	    <md-menu class="onap-unpadded">
+	      <a id="import-link" ng-click="$mdMenu.open()"><i class="icon icon-import"></i>Import</a>
+	      <md-menu-content id="import-menu-content">
+	        <md-menu-item layout-align="space-around center">
+		  <a id="adapter-acumos-link" ng-click="appCtrl.serviceProvider.headerCtrl.globalMenuCtrl.importModel.shell.launch();">Import Models ...</a>
+		</md-menu-item>
+	        <md-menu-item layout-align="space-around center">
+		  <a id="import-component-link" ng-click="appCtrl.serviceProvider.headerCtrl.globalMenuCtrl.importComponent.shell.launch();">Import Component Spec. ...</a>
+		</md-menu-item>
+	        <md-menu-item layout-align="space-around center">
+		  <a id="import-format-link" ng-click="appCtrl.serviceProvider.headerCtrl.globalMenuCtrl.importDataFormat.shell.launch();">Import Data Format ...</a>
+		</md-menu-item>
+	      </md-menu-content>
+	    </md-menu>
+	    </md-menu-item>
                     <md-menu-divider></md-menu-divider>
                     <md-menu-item layout-align="space-around center">
                         <a id="flow-settings-link"

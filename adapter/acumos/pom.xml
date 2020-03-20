@@ -23,7 +23,7 @@ limitations under the License.
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.onap.dcaegen2.platform.adapter</groupId>
 	<artifactId>dcaegen2-platform-adapter-acumos</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<sonar.sources>.</sonar.sources>

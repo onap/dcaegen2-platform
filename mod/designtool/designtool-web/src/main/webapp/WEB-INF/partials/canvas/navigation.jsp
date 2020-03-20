@@ -127,3 +127,53 @@
         </div>
     </div>
 </div>
+<div id="import-model" class="hidden medium-dialog import-group">
+  <div id="import-model-header-text" class="import-header-text">Import Model</div>
+  <div class="import-container">
+    <select id="model-type" onchange="setModelType()">
+      <option value="-" selected="true">-- Choose Model Type --</option>
+      <option value="mtAcumos">Acumos</option>
+    </select>
+    <div id="mt-acumos" class="hidden">
+      <hr/>
+      <label for="furl"><b>Acumos Federation URL</b></label> <input id="furl" type="text" name="furl" placeholder="https://server:9084" required/>
+      <button type="button" class="onap-action" onclick="lookupCatalogs()">Lookup</button>
+    </div>
+    <div id="c-acumos" class="hidden">
+      <hr/>
+      <label for="cat-menu"><b>Select Catalog</b></label> <select id="cat-menu" onchange="chooseCatalog()">
+        <option value="*">All Catalogs</option>
+      </select>
+    </div>
+    <div id="ac-sols" class="hidden">
+      <hr/>
+      <label for="sol-menu"><b>Select Solution</b></label> <select id="sol-menu" onchange="chooseSolution()">
+        <option value="*">All Solutions</option>
+      </select>
+    </div>
+    <div id="ac-revs" class="hidden">
+      <hr/>
+      <label for="rev-menu"><b>Select Revision</b></label> <select id="rev-menu">
+        <option value="*">All Revisions</option>
+      </select>
+    </div>
+    <hr/>
+    <button id="onboard" class="hidden onap-action" type="button" onclick="onBoard()">Onboard</button><br>
+    <b id="onboarding-in-progress" class="hidden">Onboarding - Please Wait ...</b>
+  </div>
+</div>
+
+<div id="import-component" class="hidden medium-dialog import-group">
+  <div id="import-component-header-text" class="import-header-text">Import Component Specification</div>
+  <div class="import-container">
+    <label for="cspec"><b>Component Specification File</b></label> <input id="cspec" type="file" name="file" placeholder="Component-Spec.json" accept=".json,application/json" required>
+    <br><button id="uploadComponent" type="button" class="onap-action" onclick="onBoardComponent()">Upload</button>
+  </div>
+</div>
+<div id="import-data-format" class="hidden medium-dialog import-group">
+  <div id="import-data-format-header-text" class="import-header-text">Import Data Format</div>
+  <div class="import-container">
+    <label for="dfspec"><b>Data Format File</b></label> <input id="dfspec" type="file" name="file" placeholder="Data-Format.json" accept=".json,application/json" required>
+    <br><button id="uploadDataFormat" type="button" class="onap-action" onclick="onBoardDataFormat()">Upload</button>
+  </div>
+</div>
