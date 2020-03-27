@@ -51,16 +51,9 @@ prop_replace 'nifi.web.proxy.context.path'                  "${NIFI_WEB_PROXY_CO
 # replace value conditionally if the property name exists otherwise append
 if grep -q 'nifi.dcae.jars.index.url' $nifi_props_file
 then
-    prop_replace 'nifi.dcae.jars.index.url'                     "${NIFI_DCAE_JARS_INDEX_URL:-http://genprocessor-http/nifi-jars/}"
+    prop_replace 'nifi.dcae.jars.index.url'                     "${NIFI_DCAE_JARS_INDEX_URL:-http://genprocessor-http:8080/nifi-jars/}"
 else
-    prop_append 'nifi.dcae.jars.index.url'                     "${NIFI_DCAE_JARS_INDEX_URL:-http://genprocessor-http/nifi-jars/}"
-fi
-
-if grep -q 'nifi.ui.dcae.distibutor.api.url' $nifi_props_file
-then
-    prop_replace 'nifi.ui.dcae.distibutor.api.url' "${NIFI_DCAE_DISTRIBUTOR_API_URL:-http://distributor-api}"
-else
-    prop_append 'nifi.ui.dcae.distibutor.api.url' "${NIFI_DCAE_DISTRIBUTOR_API_URL:-http://distributor-api}"
+    prop_append 'nifi.dcae.jars.index.url'                     "${NIFI_DCAE_JARS_INDEX_URL:-http://genprocessor-http:8080/nifi-jars/}"
 fi
 
 . "${scripts_dir}/update_cluster_state_management.sh"

@@ -253,4 +253,4 @@ def start_http_server():
     if is_debug():
         _app.run(debug=True)
     else:
-        _app.run(host="0.0.0.0", port=80, debug=False)
+        _app.run(host="0.0.0.0", port=8080, debug=False)

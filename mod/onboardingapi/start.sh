@@ -6,6 +6,7 @@ if [ -z $PG_CONN ]; then
     exit 1
 fi
 
+mkdir -p ~/.config/dcae-cli
 if [ ! -f ~/.config/dcae-cli/config.json ]; then
     echo "Creating dcae-cli config"
     # TODO: Make this into a variable that gets fed in via docker run

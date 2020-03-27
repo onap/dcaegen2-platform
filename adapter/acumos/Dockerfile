@@ -17,6 +17,8 @@
 # ============LICENSE_END======================================================
 
 FROM python:3.7
+ARG UID=1000
+ARG GID=1000
 COPY setup.py /tmp/build/
 COPY aoconversion/ /tmp/build/aoconversion/
 RUN apt-get update && \
@@ -26,9 +28,12 @@ RUN apt-get update && \
     cd /tmp/build/ && \
     python setup.py install && \
     cd / && \
-    rm -rf /tmp/*
+    rm -rf /tmp/* && \
+    groupadd -g $GID dcaemod && \
+    useradd -s /bin/bash -u $UID -g $GID -m dcaemod
 
 EXPOSE 9000
 ENV PYTHONUNBUFFERED TRUE
+USER dcaemod
 ENTRYPOINT [ "/usr/local/bin/acumos-adapter" ]
 CMD [ "/run/config/config.yaml" ]

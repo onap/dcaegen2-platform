@@ -47,7 +47,7 @@ class Config(object):
     Configuration parameters as attributes, make sure the required ones are there,
     populate defaults.
     """
-    def __init__(self, dcaeurl, dcaeuser, onboardingurl, onboardinguser, onboardingpass, certfile, dockerregistry, dockeruser, dockerpass, acumosurl=None, interval=900, dockerhost='unix:///var/run/docker.sock', tmpdir='/var/tmp/aoadapter', certverify=True, catalogs=None, port=None, **extras):
+    def __init__(self, dcaeurl, dcaeuser, onboardingurl, onboardinguser, onboardingpass, certfile, dockerregistry, dockeruser, dockerpass, acumosurl=None, interval=900, dockerhost='tcp://localhost:2375', tmpdir='/var/tmp/aoadapter', certverify=True, catalogs=None, port=None, **extras):
         self.dcaeurl = dcaeurl
         self.dcaeuser = dcaeuser
 
@@ -299,7 +299,7 @@ class Apihandler(BaseHTTPRequestHandler):
             else:
                 solution = aa.jsonget('/solutions/{}', self.qparams['solutionId'])
                 onboard(aa, callback, solution, self.qparams['revisionId'])
-            self.replyraw('OK', 'text/plain')
+            self.replyraw('OK'.encode('utf-8'), 'text/plain')
             return
         self.send_error(400)
 

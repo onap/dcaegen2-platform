@@ -27,6 +27,7 @@ limitations under the License.
     <version>1.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>designtool-web</artifactId>
+  <version>1.0.2-SNAPSHOT</version>
   <packaging>war</packaging>
   <name>dcaegen2-platform-mod-designtool-web</name>
   <properties>
@@ -84,7 +85,7 @@ limitations under the License.
     <dependency>
       <groupId>org.onap.dcaegen2.platform.mod</groupId>
       <artifactId>nifi-war-to-jar</artifactId>
-      <version>${project.version}</version>
+      <version>1.0.1-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
     <dependency>

@@ -35,4 +35,4 @@ def init():
 
     global onboarding_api_url
     onboarding_api_url = _grab_env("ONBOARDING_API_URL"
-            , default="http://onboarding-api/onboarding")
+            , default="http://onboarding-api:8080/onboarding")

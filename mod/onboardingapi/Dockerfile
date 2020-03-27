@@ -1,12 +1,18 @@
 FROM python:3.7-alpine
 
-RUN apk update && \
-    apk add --virtual build-deps gcc python-dev musl-dev && \
-    apk add postgresql-dev bash
+ARG UID=1000
+ARG GID=1000
+
 COPY . /code
 WORKDIR /code
-RUN pip install . \
-    && mkdir -p ~/.config/dcae-cli
-EXPOSE 80
+RUN apk update && \
+    apk add --virtual build-deps gcc python-dev musl-dev && \
+    apk add postgresql-dev bash && \
+    addgroup -g $GID dcaemod && \
+    adduser -s /bin/bash -u $UID -G dcaemod -D dcaemod && \
+    pip install .
+
+EXPOSE 8080
+USER dcaemod
 
 CMD /code/start.sh

@@ -26,7 +26,7 @@ limitations under the License.
   </parent>
   <groupId>org.onap.dcaegen2.platform.mod</groupId>
   <artifactId>genprocessor</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1-SNAPSHOT</version>
   <name>dcaegen2-platform-mod-genprocessor</name>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -139,6 +139,10 @@ limitations under the License.
                     </files>
                   </inline>
                 </assembly>
+		<runCmds>
+		  <runCmd>groupadd -g 1000 dcaemod &amp;&amp; useradd --shell /bin/bash -u 1000 -g 1000 -m dcaemod</runCmd>
+		</runCmds>
+		<user>dcaemod</user>
                 <entryPoint>
                   <exec>
                     <arg>nginx</arg>
@@ -161,12 +165,16 @@ limitations under the License.
                 <assembly>
                   <descriptorRef>artifact-with-dependencies</descriptorRef>
                 </assembly>
+		<runCmds>
+		  <runCmd>groupadd -g 1000 dcaemod &amp;&amp; useradd --shell /bin/bash -u 1000 -g 1000 -m dcaemod &amp;&amp; mkdir -p /work &amp;&amp; chown dcaemod:dcaemod /work</runCmd>
+		</runCmds>
                 <workdir>/maven</workdir>
                 <env>
                   <GENPROC_WORKING_DIR>/work</GENPROC_WORKING_DIR>
-                  <GENPROC_ONBOARDING_API_HOST>http://onboarding-api/onboarding</GENPROC_ONBOARDING_API_HOST>
+                  <GENPROC_ONBOARDING_API_HOST>http://onboarding-api:8080/onboarding</GENPROC_ONBOARDING_API_HOST>
                   <GENPROC_SLEEP_SEC>10</GENPROC_SLEEP_SEC>
                 </env>
+		<user>dcaemod</user>
                 <entryPoint>
                   <exec>
                     <arg>java</arg>

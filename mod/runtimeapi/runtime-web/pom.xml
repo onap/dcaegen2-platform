@@ -25,7 +25,7 @@ limitations under the License.
 		<version>1.0.1</version>
 	</parent>
 	<artifactId>runtime-web</artifactId>
-	<version>1.0.1</version>
+	<version>1.0.2-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>runtime-web</name>
 	<description>MOD Runtime Web Module</description>
@@ -118,6 +118,9 @@ limitations under the License.
 								<assembly>
 									<descriptorRef>artifact</descriptorRef>
 								</assembly>
+								<runCmds>
+								  <runCmd>addgroup -g 1000 dcaemod &amp;&amp; adduser -s /bin/bash -u 1000 -G dcaemod -D dcaemod</runCmd>
+								</runCmds>
 								<workdir>/maven</workdir>
 								<volumes>
 									<volume>/tmp</volume>
@@ -125,6 +128,7 @@ limitations under the License.
 								<ports>
 									<port>9090</port>
 								</ports>
+								<user>dcaemod</user>
 								<entryPoint>
 									<exec>
 										<arg>java</arg>

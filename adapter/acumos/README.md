@@ -56,7 +56,7 @@ This operates in 2 modes:
     Gateway of the ACUMOS instance.
   certfile - The file path for the PEM file containing the private key, etc.
   dockerhost - (optional) The URL for the docker host.  By default,
-    unix:///var/run/docker.sock.
+    tcp://localhost:2375.
   dockerregistry - The host:port for the ONAP docker registry.
   dockeruser - The user ID for uploading images to the docker registry.
   dockerpass - The password for uploading images to the docker registry.
