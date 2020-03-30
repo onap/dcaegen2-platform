@@ -140,7 +140,7 @@ limitations under the License.
                   </inline>
                 </assembly>
 		<runCmds>
-		  <runCmd>groupadd -g 1000 dcaemod &amp;&amp; useradd --shell /bin/bash -u 1000 -g 1000 -m dcaemod</runCmd>
+		  <runCmd>sed -i /etc/nginx/nginx.conf -e '/^user /d' &amp;&amp; touch /var/run/nginx.pid &amp;&amp; mkdir -p /www/data &amp;&amp; chown -R nginx:nginx /www /etc/nginx /var/cache/nginx /var/log/nginx /var/run/nginx.pid</runCmd>
 		</runCmds>
 		<user>dcaemod</user>
                 <entryPoint>
@@ -166,7 +166,7 @@ limitations under the License.
                   <descriptorRef>artifact-with-dependencies</descriptorRef>
                 </assembly>
 		<runCmds>
-		  <runCmd>groupadd -g 1000 dcaemod &amp;&amp; useradd --shell /bin/bash -u 1000 -g 1000 -m dcaemod &amp;&amp; mkdir -p /work &amp;&amp; chown dcaemod:dcaemod /work</runCmd>
+		  <runCmd>groupadd -g 1000 dcaemod &amp;&amp; useradd --shell /bin/bash -u 1000 -g 1000 -m dcaemod</runCmd>
 		</runCmds>
                 <workdir>/maven</workdir>
                 <env>
@@ -174,7 +174,7 @@ limitations under the License.
                   <GENPROC_ONBOARDING_API_HOST>http://onboarding-api:8080/onboarding</GENPROC_ONBOARDING_API_HOST>
                   <GENPROC_SLEEP_SEC>10</GENPROC_SLEEP_SEC>
                 </env>
-		<user>dcaemod</user>
+		<user>nginx</user>
                 <entryPoint>
                   <exec>
                     <arg>java</arg>
