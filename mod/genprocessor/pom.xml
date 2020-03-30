@@ -142,7 +142,7 @@ limitations under the License.
 		<runCmds>
 		  <runCmd>sed -i /etc/nginx/nginx.conf -e '/^user /d' &amp;&amp; touch /var/run/nginx.pid &amp;&amp; mkdir -p /www/data &amp;&amp; chown -R nginx:nginx /www /etc/nginx /var/cache/nginx /var/log/nginx /var/run/nginx.pid</runCmd>
 		</runCmds>
-		<user>dcaemod</user>
+		<user>nginx</user>
                 <entryPoint>
                   <exec>
                     <arg>nginx</arg>
@@ -174,7 +174,7 @@ limitations under the License.
                   <GENPROC_ONBOARDING_API_HOST>http://onboarding-api:8080/onboarding</GENPROC_ONBOARDING_API_HOST>
                   <GENPROC_SLEEP_SEC>10</GENPROC_SLEEP_SEC>
                 </env>
-		<user>nginx</user>
+		<user>dcaemod</user>
                 <entryPoint>
                   <exec>
                     <arg>java</arg>
