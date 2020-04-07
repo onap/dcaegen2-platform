@@ -119,7 +119,7 @@ limitations under the License.
 									<descriptorRef>artifact</descriptorRef>
 								</assembly>
 								<runCmds>
-								  <runCmd>addgroup -g 1000 dcaemod &amp;&amp; adduser -s /bin/bash -u 1000 -G dcaemod -D dcaemod</runCmd>
+								  <runCmd>addgroup -g 1000 dcaemod &amp;&amp; adduser -s /bin/bash -u 1000 -G dcaemod -D dcaemod &amp;&amp; mkdir -p /maven/data &amp;&amp; chown -R dcaemod:dcaemod /maven/data</runCmd>
 								</runCmds>
 								<workdir>/maven</workdir>
 								<volumes>
