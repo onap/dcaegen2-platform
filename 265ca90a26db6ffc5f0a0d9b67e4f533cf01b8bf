@@ -16,6 +16,24 @@
       "revId": "265ca90a26db6ffc5f0a0d9b67e4f533cf01b8bf",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7548b52_53ac524b",
+        "filename": "adapter/acumos-deployment/resources/config/config.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-04-09T21:06:50Z",
+      "side": 1,
+      "message": "Not sure how this url is used in adapter. If this is used to identify the schema files - then corresponding path should be https://git.onap.org/dcaegen2/platform/plain/mod/component-json-schemas/ \n\nAndrew - Pls confirm which one should be used.",
+      "parentUuid": "313764d4_2b782c2e",
+      "revId": "265ca90a26db6ffc5f0a0d9b67e4f533cf01b8bf",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
