@@ -33,6 +33,9 @@ target
 .idea
 *.iml
 
+# For Helm artifacts
+charts/
+requirements.lock
 # For python
 .coverage
 .tox/
