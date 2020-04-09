@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "313764d4_2b782c2e",
+        "filename": "adapter/acumos-deployment/resources/config/config.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 511
+      },
+      "writtenOn": "2020-04-09T21:02:06Z",
+      "side": 1,
+      "message": "Tested in my local environment",
+      "revId": "265ca90a26db6ffc5f0a0d9b67e4f533cf01b8bf",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
