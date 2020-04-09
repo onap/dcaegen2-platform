@@ -52,6 +52,24 @@
       "revId": "265ca90a26db6ffc5f0a0d9b67e4f533cf01b8bf",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba8464c0_73efbed9",
+        "filename": "adapter/acumos-deployment/resources/config/config.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-04-09T21:36:50Z",
+      "side": 1,
+      "message": "Okay, got it.",
+      "parentUuid": "aef641f5_1881cebe",
+      "revId": "265ca90a26db6ffc5f0a0d9b67e4f533cf01b8bf",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
