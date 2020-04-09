@@ -1,0 +1,112 @@
+#============LICENSE_START========================================================
+#=================================================================================
+# Copyright (c) 2020 AT&T Intellectual Property. All rights reserved.
+# ================================================================================
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ============LICENSE_END=========================================================
+
+#################################################################
+# Global configuration defaults.
+#################################################################
+global:
+  persistence: {}
+  nodePortPrefix: 302
+  nodePortPrefixExt: 304
+  readinessRepository: oomk8s
+  readinessImage: readiness-check:2.0.0
+
+  ingress:
+    enabled: true
+    virtualhost:
+        enabled: false
+
+config:
+  distributorAPIURL: /distributor
+
+
+# application image
+repository: nexus3.onap.org:10001
+image: onap/org.onap.dcaegen2.platform.adapter.acumos:1.0.2
+dindRepository: docker.io
+dindImage: docker:dind
+
+service:
+  type: ClusterIP
+  name: dcae-acumos-adapter
+  ports:
+    - name: http
+      port: 9000
+
+ingress:
+  enabled: true
+  service:
+    - baseaddr: "acumos-adapter"
+      name: "dcae-acumos-adapter"
+      port: 9000
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+  # Adapter can take a long time to respond, since
+  # it's building and pushing a Docker image
+  # Override default ingress controller timeouts
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "60"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "900"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "900"
+  # Want to set ssl-redirect to false with the values below,
+  # but template doesn't expand properly
+  #config:
+  #  ssl: "none"
+
+liveness:
+  initialDelaySeconds: 90
+  periodSeconds: 30
+  # necessary to disable liveness probe when setting breakpoints
+  # in debugger so K8s doesn't restart unresponsive container
+  enabled: false
+  port: http
+
+readiness:
+  initialDelaySeconds: 60
+  periodSeconds: 20
+  port: http
+
+secrets:
+  - uid: "certs"
+    type: genericKV
+    envs:
+    - name: cert.pem
+      value: '{{ tpl .Values.acumosCert . }}'
+  - uid: "docker"
+    type: genericKV
+    envs:
+    - name: dpass
+      value: '{{ tpl .Values.dockerPass . }}'
+
+# Resource Limit flavor -By Default using small
+flavor: small
+# Segregation for Different environment (Small and Large)
+resources:
+  small:
+    limits:
+      cpu: 2
+      memory: 2Gi
+    requests:
+      cpu: 1
+      memory: 1Gi
+  large:
+    limits:
+      cpu: 4
+      memory: 4Gi
+    requests:
+      cpu: 2
+      memory: 2Gi
+  unlimited: {}
