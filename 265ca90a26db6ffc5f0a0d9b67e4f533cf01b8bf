@@ -34,6 +34,24 @@
       "revId": "265ca90a26db6ffc5f0a0d9b67e4f533cf01b8bf",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aef641f5_1881cebe",
+        "filename": "adapter/acumos-deployment/resources/config/config.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 511
+      },
+      "writtenOn": "2020-04-09T21:10:47Z",
+      "side": 1,
+      "message": "I picked the URL that pointed to contents that were most similar to the old URL.  The old URL points to the parent directory of  component-json-schemas.  The new URL also points to the parent directory of component-json-schemas.",
+      "parentUuid": "b7548b52_53ac524b",
+      "revId": "265ca90a26db6ffc5f0a0d9b67e4f533cf01b8bf",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
