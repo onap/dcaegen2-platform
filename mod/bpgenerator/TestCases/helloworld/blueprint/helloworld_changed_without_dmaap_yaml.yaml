@@ -121,7 +121,7 @@ inputs:
     default: "fsdfa"
 node_templates:
   dcae.collectors.vcc.helloworld.pm:
-    type: dcae.nodes.ContainerizedPlatformComponent
+    type: dcae.nodes.ContainerizedServiceComponent
     interfaces:
       cloudify.interfaces.lifecycle:
         start:

@@ -352,7 +352,7 @@ public class BlueprintGeneratorTest {
 		OnapNode testNode = new OnapNode();
 
 		//set the type
-		testNode.setType("dcae.nodes.ContainerizedPlatformComponent");
+		testNode.setType("dcae.nodes.ContainerizedServiceComponent");
 
 		ArrayList<String> ports = new ArrayList<String>();
 		ports.add("concat: [\"80:\", {get_input: external_port }]");
