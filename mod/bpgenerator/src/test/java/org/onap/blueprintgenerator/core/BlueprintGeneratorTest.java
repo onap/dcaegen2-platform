@@ -242,8 +242,8 @@ public class BlueprintGeneratorTest {
 		ArrayList<String> imps = new ArrayList<String>();
 
 		imps.add("http://www.getcloudify.org/spec/cloudify/3.4/types.yaml");
-		imps.add("https://nexus.onap.org/service/local/repositories/raw/content/org.onap.dcaegen2.platform.plugins/R4/k8splugin/1.4.5/k8splugin_types.yaml");
-		imps.add("https://nexus.onap.org/service/local/repositories/raw/content/org.onap.dcaegen2.platform.plugins/R4/dcaepolicyplugin/2.3.0/dcaepolicyplugin_types.yaml");
+		imps.add("https://nexus.onap.org/service/local/repositories/raw/content/org.onap.dcaegen2.platform.plugins/R6/k8splugin/1.7.2/k8splugin_types.yaml");
+		imps.add("https://nexus.onap.org/service/local/repositories/raw/content/org.onap.dcaegen2.platform.plugins/R6/dcaepolicyplugin/2.4.0/dcaepolicyplugin_types.yaml");
 		assertEquals(bp.getImports(), imps);
 	}
 
