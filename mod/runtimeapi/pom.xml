@@ -32,7 +32,7 @@ limitations under the License.
 	</parent>
 	<groupId>org.onap.dcaegen2.platform.mod</groupId>
 	<artifactId>runtimeapi</artifactId>
-	<version>1.0.1</version>
+	<version>1.0.2</version>
 	<name>dcaegen2-platform-mod-runtimeapi</name>
 	<description>MOD Runtime API</description>
 	<properties>
