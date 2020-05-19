@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cfee17b6_a7cbbae4",
+        "filename": "mod/runtimeapi/runtime-core/pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-05-19T23:10:15Z",
+      "side": 1,
+      "message": "This should be updated.",
+      "range": {
+        "startLine": 47,
+        "startChar": 21,
+        "endLine": 47,
+        "endChar": 26
+      },
+      "revId": "e8dabaa660c5e83d8d14d8a11630da8a544c3757",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec0c87fd_772b6fa7",
+        "filename": "pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-05-19T23:10:15Z",
+      "side": 1,
+      "message": "This pom is not used other than but release job - version update is not required. I was referring to the file under https://git.onap.org/dcaegen2/platform/tree/mod/bpgenerator",
+      "range": {
+        "startLine": 32,
+        "startChar": 11,
+        "endLine": 32,
+        "endChar": 16
+      },
+      "revId": "e8dabaa660c5e83d8d14d8a11630da8a544c3757",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd25fcfa_f4e6268b",
+        "filename": "version.properties",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-05-19T23:10:15Z",
+      "side": 1,
+      "message": "same here - this update is also not required. Was referring to version.properties under https://git.onap.org/dcaegen2/platform/tree/mod/bpgenerator",
+      "revId": "e8dabaa660c5e83d8d14d8a11630da8a544c3757",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
