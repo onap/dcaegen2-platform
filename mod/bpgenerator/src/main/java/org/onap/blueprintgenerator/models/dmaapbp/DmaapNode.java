@@ -52,10 +52,6 @@ import lombok.Setter;
 
 public class DmaapNode extends Node{
 
-	private TreeMap<String, Interfaces> interfaces;
-	private Properties properties;
-	private ArrayList<LinkedHashMap<String, String>> relationships;
-
 	public TreeMap<String, LinkedHashMap<String, Object>> createDmaapNode(ComponentSpec cs, TreeMap<String, LinkedHashMap<String, Object>> inps, String override) {
 		TreeMap<String, LinkedHashMap<String, Object>> retInputs = inps;
 

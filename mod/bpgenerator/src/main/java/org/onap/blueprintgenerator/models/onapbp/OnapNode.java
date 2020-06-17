@@ -48,9 +48,6 @@ import lombok.NoArgsConstructor;
 @JsonInclude(value=Include.NON_NULL)
 
 public class OnapNode extends Node{
-	private TreeMap<String, Interfaces> interfaces;
-	private Properties properties;
-	private ArrayList<LinkedHashMap<String, String>> relationships;
 
 	public TreeMap<String, LinkedHashMap<String, Object>> createOnapNode(TreeMap<String, LinkedHashMap<String, Object>> inps, ComponentSpec cs, String override) {
 		TreeMap<String, LinkedHashMap<String, Object>> retInputs = new TreeMap<String, LinkedHashMap<String, Object>>();
