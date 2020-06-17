@@ -1,0 +1,101 @@
+
+#description: Test component spec
+#blueprint_version: 1.0.1
+---
+tosca_definitions_version: cloudify_dsl_1_3
+imports:
+- http://www.getcloudify.org/spec/cloudify/3.4/types.yaml
+- https://nexus.onap.org/service/local/repositories/raw/content/org.onap.dcaegen2.platform.plugins/R6/k8splugin/1.7.2/k8splugin_types.yaml
+- https://nexus.onap.org/service/local/repositories/raw/content/org.onap.dcaegen2.platform.plugins/R6/dcaepolicyplugin/2.4.0/dcaepolicyplugin_types.yaml
+inputs:
+  always_pull_image:
+    type: boolean
+    description: Set to true if the image should always be pulled
+    default: true
+  envs:
+    default: {}
+  external_port_0:
+    type: string
+    default: "80"
+  external_port_1:
+    type: string
+    default: "99"
+  image:
+    type: string
+    default: "test.tester"
+  location_id:
+    type: string
+    default: ""
+  replicas:
+    type: integer
+    description: number of instances
+    default: 1
+  service_component_name_override:
+    type: string
+    default: ""
+  test.component.spec_cpu_limit:
+    type: string
+    default: "250m"
+  test.component.spec_cpu_request:
+    type: string
+    default: "250m"
+  test.component.spec_memory_limit:
+    type: string
+    default: "128Mi"
+  test.component.spec_memory_request:
+    type: string
+    default: "128Mi"
+  use_tls:
+    type: boolean
+    description: flag to indicate tls enable/disable
+    default: true
+node_templates:
+  test.component.spec:
+    type: dcae.nodes.ContainerizedServiceComponent
+    interfaces:
+      cloudify.interfaces.lifecycle:
+        start:
+          inputs:
+            ports:
+            - concat: ["80:", {get_input: external_port_0}]
+            - concat: ["99:", {get_input: external_port_1}]
+            envs:
+              get_input: envs
+    properties:
+      application_config:
+        service_calls: []
+        streams_publishes: {}
+        streams_subscribes: {}
+        service_component_name_override:
+          get_input: service_component_name_override
+      docker_config:
+        healthcheck:
+          interval: 300s
+          timeout: 120s
+          script: /etc/init.d/nagios status
+          type: docker
+      image:
+        get_input: image
+      location_id:
+        get_input: location_id
+      service_component_type: test-component-spec
+      replicas:
+        get_input: replicas
+      tls_info:
+        cert_directory: /opt/app/dcae-certificate/
+        use_tls:
+          get_input: use_tls
+      resource_config:
+        limits:
+          cpu:
+            get_input: test.component.spec_cpu_limit
+          memory:
+            get_input: test.component.spec_memory_limit
+        requests:
+          cpu:
+            get_input: test.component.spec_cpu_request
+          memory:
+            get_input: test.component.spec_memory_request
+      always_pull_image:
+        get_input: always_pull_image
+    relationships: []

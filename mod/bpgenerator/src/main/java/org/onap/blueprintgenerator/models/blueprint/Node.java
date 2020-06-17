@@ -22,7 +22,14 @@ package org.onap.blueprintgenerator.models.blueprint;
 
 import lombok.Getter; import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.TreeMap;
+
 @Getter @Setter
 public class Node {
 	private String type;
+	private TreeMap<String, Interfaces> interfaces;
+	private Properties properties;
+	private ArrayList<LinkedHashMap<String, String>> relationships;
 }
