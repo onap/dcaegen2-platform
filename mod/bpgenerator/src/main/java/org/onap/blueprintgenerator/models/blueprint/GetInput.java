@@ -1,7 +1,9 @@
 /**============LICENSE_START======================================================= 
  org.onap.dcae 
  ================================================================================ 
- Copyright (c) 2019 AT&T Intellectual Property. All rights reserved. 
+ Copyright (c) 2019 AT&T Intellectual Property. All rights reserved.
+ ================================================================================
+ Modifications Copyright (c) 2020 Nokia. All rights reserved.
  ================================================================================ 
  Licensed under the Apache License, Version 2.0 (the "License"); 
  you may not use this file except in compliance with the License. 
@@ -26,4 +28,10 @@ import lombok.Getter; import lombok.Setter;
 public class GetInput {
 
 	private Object get_input;
+
+	public GetInput() {}
+
+	public GetInput(Object get_input){
+		this.get_input = get_input;
+	}
 }
