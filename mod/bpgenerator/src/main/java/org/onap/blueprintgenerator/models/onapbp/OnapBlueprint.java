@@ -52,7 +52,7 @@ public class OnapBlueprint extends Blueprint{
 		this.setTosca_definitions_version("cloudify_dsl_1_3");
 
 		//set the imports 
-		if(importPath != "") {
+		if(!"".equals(importPath)) {
 			Imports imps = new Imports();
 			this.setImports(imps.createImportsFromFile(importPath));
 		}
