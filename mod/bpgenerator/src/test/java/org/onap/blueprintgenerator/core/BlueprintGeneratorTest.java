@@ -392,6 +392,8 @@ public class BlueprintGeneratorTest {
 
 		assertEquals(true, test);
 	}
+
+
 	@Test
 	public void dmaapPluginTest() {
 		ComponentSpec cs = new ComponentSpec();
