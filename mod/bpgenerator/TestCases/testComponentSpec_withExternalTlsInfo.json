@@ -1,0 +1,57 @@
+{
+	"self": {
+		"component_type": "docker",
+		"description": "Test component spec",
+		"name": "test.component.spec",
+		"version": "1.0.1"
+	},
+
+	"services": {
+		"calls": [],
+		"provides": []
+	},
+
+	"streams": {
+		"publishes": [],
+		"subscribes": []
+	},
+
+	"parameters": [],
+
+	"auxilary": {
+		"healthcheck": {
+			"type": "docker",
+			"interval": "300s",
+			"timeout": "120s",
+			"script": "/etc/init.d/nagios status"
+		},
+		"volumes": [
+			{
+				"container": {
+					"bind": "/opt/app/dcae-certificate/external_cert"
+				},
+				"host": {
+					"path": "/opt/app/dcae-certificate/external_cert"
+				}
+			}
+		],
+		"ports": [
+			"80:80",
+			"99:99"
+		],
+		"external_tls_info": {
+			"external_cert_directory": "/opt/app/dcae-certificate/external_cert",
+			"use_external_tls": true,
+			"ca_name": "RA",
+			"external_certificate_parameters": {
+				"common_name": "simpledemo.onap.org",
+				"sans": "simpledemo.onap.org;ves.simpledemo.onap.org;ves.onap.org"
+			}
+		}
+	},
+	"artifacts": [{
+		"type": "docker image",
+		"uri": "test.tester"
+	}]	
+
+}
