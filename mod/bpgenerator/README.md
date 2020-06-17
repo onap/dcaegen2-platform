@@ -9,7 +9,7 @@ This tool allows the user to create a blueprint from a component spec json file
 - To execute the application
 
 ```bash
-java -jar target/blueprint-generator-1.2.1-SNAPSHOT-executable.jar
+java -jar target/blueprint-generator-1.4.0-SNAPSHOT-executable.jar
 ```
 
 
@@ -31,7 +31,7 @@ OPTIONS:
 it will look like this:
 
 ```bash
-java -jar target/blueprint-generator-1.2.1-SNAPSHOT-executable.jar blueprint -p Blueprints -i ComponentSpecs/TestComponentSpec.json -n HelloWorld -d
+java -jar target/blueprint-generator-1.4.0-SNAPSHOT-executable.jar blueprint -p Blueprints -i ComponentSpecs/TestComponentSpec.json -n HelloWorld -d
 ```
 
 This command will create a blueprint from the component spec TestComponentSpec. The blueprint file name will be called HelloWorld.yaml and it will be in the directory Blueprints. The blueprint will also contain the DMaaP plugin.
@@ -55,7 +55,7 @@ OPTIONS:
 it will look like this:
 
 ```bash
-java -jar target/blueprint-generator-1.2.1-SNAPSHOT-executable.jar policy -p models -i ComponentSpecs/TestComponentSpec.json
+java -jar target/blueprint-generator-1.4.0-SNAPSHOT-executable.jar policy -p models -i ComponentSpecs/TestComponentSpec.json
 ```
 
 This command will create a directory called models and put the policy models created from the component spec given in that directory. (A component spec may generate multiple policy models)
