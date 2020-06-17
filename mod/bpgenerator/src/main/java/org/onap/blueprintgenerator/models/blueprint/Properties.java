@@ -52,6 +52,7 @@ public class Properties {
 	ArrayList<DmaapStreams> streams_publishes;
 	ArrayList<DmaapStreams> streams_subscribes;
 	private TlsInfo tls_info;
+	private ExternalTlsInfo external_tls_info;
 	private ResourceConfig resource_config;
 	private GetInput always_pull_image;
 	//private boolean useExisting;
@@ -122,7 +123,10 @@ public class Properties {
 		if(cs.getAuxilary().getTls_info() != null){
 			addTlsInfo(cs,retInputs);
 		}
-
+        //set the external tls info
+        if(cs.getAuxilary().getExternal_tls_info() != null){
+            addExternalTlsInfo(cs,retInputs);
+        }
 		//set the reource config
 		ResourceConfig resource = new ResourceConfig();
 		retInputs = resource.createResourceConfig(retInputs, cs.getSelf().getName());
@@ -156,7 +160,10 @@ public class Properties {
 		if(cs.getAuxilary().getTls_info() != null){
 			addTlsInfo(cs,retInputs);
 		}
-
+        //set the external tls info
+        if(cs.getAuxilary().getExternal_tls_info() != null){
+            addExternalTlsInfo(cs,retInputs);
+        }
 		//set the replicas
 		GetInput replica = new GetInput();
 		replica.setGet_input("replicas");
@@ -252,4 +259,49 @@ public class Properties {
 		useTlsFlagInput.put("default", cs.getAuxilary().getTls_info().get("use_tls"));
 		retInputs.put("use_tls", useTlsFlagInput);
 	}
+
+    private void addExternalTlsInfo(ComponentSpec cs, TreeMap<String, LinkedHashMap<String, Object>> retInputs) {
+        ExternalTlsInfo externalTlsInfo = new ExternalTlsInfo();
+        externalTlsInfo.setCertDirectory((String) cs.getAuxilary().getExternal_tls_info().get("cert_directory"));
+        GetInput useExternalTLSFlag = new GetInput();
+        useExternalTLSFlag.setGet_input("use_external_tls");
+        externalTlsInfo.setUseExternalTls(useExternalTLSFlag);
+        GetInput caNameInput = new GetInput();
+        caNameInput.setGet_input("ca_name");
+        externalTlsInfo.setCaName(caNameInput);
+
+        ExternalCertificateParameters externalCertificateParameters = new ExternalCertificateParameters();
+        GetInput commonNameInput = new GetInput();
+        commonNameInput.setGet_input("common_name");
+        GetInput sansInput = new GetInput();
+        sansInput.setGet_input("sans");
+        externalCertificateParameters.setCommonName(commonNameInput);
+        externalCertificateParameters.setSans(sansInput);
+		externalTlsInfo.setExternalCertificateParameters(externalCertificateParameters);
+        this.setExternal_tls_info(externalTlsInfo);
+        LinkedHashMap<String, Object> useTlsFlagInput = new LinkedHashMap<String, Object>();
+        useTlsFlagInput.put("type", "boolean");
+        useTlsFlagInput.put("description", "flag to indicate tls enable/disable");
+        useTlsFlagInput.put("default", cs.getAuxilary().getExternal_tls_info().get("use_external_tls"));
+        retInputs.put("use_external_tls", useTlsFlagInput);
+
+        LinkedHashMap<String, Object> caNameInputMap = new LinkedHashMap<String, Object>();
+        caNameInputMap.put("type", "string");
+        caNameInputMap.put("description", "Name of Certificate Authority configured on CertService side");
+        caNameInputMap.put("default", cs.getAuxilary().getExternal_tls_info().get("ca_name"));
+        retInputs.put("ca_name", caNameInputMap);
+
+		LinkedHashMap<String, Object> extCertParams = (LinkedHashMap<String, Object>) cs.getAuxilary().getExternal_tls_info().get("external_certificate_parameters");
+		LinkedHashMap<String, Object> commonNameInputMap = new LinkedHashMap<String, Object>();
+		commonNameInputMap.put("type", "string");
+		commonNameInputMap.put("description", "to be added");
+		commonNameInputMap.put("default", extCertParams.get("common_name"));
+		retInputs.put("common_name", commonNameInputMap);
+
+		LinkedHashMap<String, Object> sansInputMap = new LinkedHashMap<String, Object>();
+		sansInputMap.put("type", "string");
+		sansInputMap.put("description", "to be added");
+		sansInputMap.put("default", extCertParams.get("sans"));
+		retInputs.put("sans", sansInputMap);
+    }
 }

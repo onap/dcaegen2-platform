@@ -76,6 +76,10 @@ public class Auxilary {
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	private TreeMap<String, Object> tls_info;
 
+	/**tls-info**/
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+	private TreeMap<String, Object> external_tls_info;
+
 	/** The volumes. */
 	private Volumes[] volumes;
 
