@@ -21,6 +21,9 @@
 package org.onap.blueprintgenerator.core;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -35,6 +38,8 @@ import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
 import org.onap.blueprintgenerator.models.blueprint.Blueprint;
+import org.onap.blueprintgenerator.models.blueprint.ExternalCertificateParameters;
+import org.onap.blueprintgenerator.models.blueprint.ExternalTlsInfo;
 import org.onap.blueprintgenerator.models.blueprint.GetInput;
 import org.onap.blueprintgenerator.models.componentspec.Artifacts;
 import org.onap.blueprintgenerator.models.componentspec.Auxilary;
@@ -392,6 +397,65 @@ public class BlueprintGeneratorTest {
 
 		assertEquals(true, test);
 	}
+
+	@Test
+	public void externalTlsInfoTest(){
+		ComponentSpec cs = new ComponentSpec();
+		cs.createComponentSpecFromFile("TestCases/testComponentSpec_withExternalTlsInfo.json");
+
+		Blueprint bp = new Blueprint();
+		bp = bp.createBlueprint(cs, "", 'o', "", "");
+
+		//should create proper inputs
+		assertContainsInputWithDefault(bp, "external_tls_use_external_tls", true);
+		assertContainsInputWithDefault(bp, "external_tls_common_name", "\"common-name\"");
+		assertContainsInputWithDefault(bp, "external_tls_ca_name", "\"RA\"");
+		assertContainsInputWithDefault(bp, "external_tls_sans", "\"sans\"");
+
+		OnapNode node = (OnapNode) bp.getNode_templates().get("test.component.spec");
+
+		//should create proper externalTlsInfo object in node properties
+		ExternalTlsInfo externalTlsInfo = node.getProperties().getExternal_tls_info();
+		assertNotNull(externalTlsInfo);
+
+		assertEquals("external_tls_ca_name", externalTlsInfo.getCaName().getGet_input());
+		assertEquals("external_tls_use_external_tls", externalTlsInfo.getUseExternalTls().getGet_input());
+		assertEquals("/opt/app/dcae-certificate/external_cert", externalTlsInfo.getExternalCertDirectory());
+
+		ExternalCertificateParameters extCertParams = externalTlsInfo.getExternalCertificateParameters();
+		assertNotNull(extCertParams);
+
+		assertEquals("external_tls_common_name", extCertParams.getCommonName().getGet_input());
+		assertEquals("external_tls_sans", extCertParams.getSans().getGet_input());
+	}
+
+	private void assertContainsInputWithDefault(Blueprint bp, String inputName, Object defaultValue) {
+		LinkedHashMap<String, Object> input = bp.getInputs().get(inputName);
+		assertNotNull(input);
+		assertEquals(defaultValue, input.get("default"));
+	}
+
+	@Test
+	public void noExternalTlsInfoTest(){
+		ComponentSpec cs = new ComponentSpec();
+		cs.createComponentSpecFromFile("TestCases/testComponentSpec_withoutExternalTlsInfo.json");
+
+		Blueprint bp = new Blueprint();
+		bp = bp.createBlueprint(cs, "", 'o', "", "");
+
+		//should not create inputs for external tls
+		assertFalse(bp.getInputs().containsKey("external_tls_use_external_tls"));
+		assertFalse(bp.getInputs().containsKey("external_tls_common_name"));
+		assertFalse(bp.getInputs().containsKey("external_tls_ca_name"));
+		assertFalse(bp.getInputs().containsKey("external_tls_sans"));
+
+		OnapNode node = (OnapNode) bp.getNode_templates().get("test.component.spec");
+
+		//should not create externalTlsInfo object in node properties
+		ExternalTlsInfo externalTlsInfo = node.getProperties().getExternal_tls_info();
+		assertNull(externalTlsInfo);
+	}
+
 	@Test
 	public void dmaapPluginTest() {
 		ComponentSpec cs = new ComponentSpec();
