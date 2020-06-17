@@ -2,7 +2,9 @@
  org.onap.dcae 
  ================================================================================ 
  Copyright (c) 2019 AT&T Intellectual Property. All rights reserved. 
- ================================================================================ 
+ ================================================================================
+ Modifications Copyright (c) 2020 Nokia. All rights reserved.
+ ================================================================================
  Licensed under the Apache License, Version 2.0 (the "License"); 
  you may not use this file except in compliance with the License. 
  You may obtain a copy of the License at 
@@ -52,7 +54,7 @@ public class OnapBlueprint extends Blueprint{
 		this.setTosca_definitions_version("cloudify_dsl_1_3");
 
 		//set the imports 
-		if(importPath != "") {
+		if(!"".equals(importPath)) {
 			Imports imps = new Imports();
 			this.setImports(imps.createImportsFromFile(importPath));
 		}
