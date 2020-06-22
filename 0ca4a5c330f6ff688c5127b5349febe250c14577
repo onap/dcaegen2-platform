@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "db27f728_ab692afb",
+        "filename": "mod/runtimeapi/runtime-core/pom.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-06-22T16:05:10Z",
+      "side": 1,
+      "message": "Dependencies on snapshot should be avoided (1.3.2 should be released first). Would hold on this bpgen release/update as newer patchset update for bp-gen is pending",
+      "range": {
+        "startLine": 47,
+        "startChar": 26,
+        "endLine": 47,
+        "endChar": 35
+      },
+      "revId": "0ca4a5c330f6ff688c5127b5349febe250c14577",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
