@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6302e08a_41d38a2c",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/Properties.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 5775
+      },
+      "writtenOn": "2020-06-24T13:50:58Z",
+      "side": 1,
+      "message": "Split method to inputs and blueprint part",
+      "revId": "f3ea1e8021f81153dac8779e902f4058e883f105",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32228d4c_08858e2d",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/Properties.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 5775
+      },
+      "writtenOn": "2020-06-24T13:50:58Z",
+      "side": 1,
+      "message": "Generalize name of the map",
+      "revId": "f3ea1e8021f81153dac8779e902f4058e883f105",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
