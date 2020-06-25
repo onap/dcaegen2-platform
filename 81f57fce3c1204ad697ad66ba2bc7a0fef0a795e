@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4d605eb5_270d21f9",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/ExternalTlsInfo.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-06-25T07:53:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c269a373_8072fdf9",
+      "range": {
+        "startLine": 38,
+        "startChar": 1,
+        "endLine": 38,
+        "endChar": 13
+      },
+      "revId": "81f57fce3c1204ad697ad66ba2bc7a0fef0a795e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c828d0d8_04bd336d",
         "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/ExternalTlsInfo.java",
         "patchSetId": 11
@@ -45,6 +69,30 @@
       "revId": "81f57fce3c1204ad697ad66ba2bc7a0fef0a795e",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e9c72686_bb74017b",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/ExternalTlsInfo.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-06-25T07:53:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c828d0d8_04bd336d",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 41
+      },
+      "revId": "81f57fce3c1204ad697ad66ba2bc7a0fef0a795e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "e9227b29_7014a342",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/GetInput.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-06-25T07:53:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53b60544_af080f78",
+      "range": {
+        "startLine": 30,
+        "startChar": 8,
+        "endLine": 30,
+        "endChar": 15
+      },
+      "revId": "81f57fce3c1204ad697ad66ba2bc7a0fef0a795e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9d6e440d_072289bf",
         "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/componentspec/Auxilary.java",
         "patchSetId": 11
@@ -82,6 +154,30 @@
       "writtenOn": "2020-06-25T07:21:28Z",
       "side": 1,
       "message": "I think unused code could be removed",
+      "range": {
+        "startLine": 103,
+        "startChar": 1,
+        "endLine": 103,
+        "endChar": 36
+      },
+      "revId": "81f57fce3c1204ad697ad66ba2bc7a0fef0a795e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba52e3da_b1657619",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/componentspec/Auxilary.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-06-25T07:53:11Z",
+      "side": 1,
+      "message": "I think it would be better to remove dead code in a separate commit.",
+      "parentUuid": "9d6e440d_072289bf",
       "range": {
         "startLine": 103,
         "startChar": 1,
@@ -114,6 +210,30 @@
       "revId": "81f57fce3c1204ad697ad66ba2bc7a0fef0a795e",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50cae9fe_f940ba8c",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/onapbp/OnapBlueprint.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-06-25T07:53:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d8b6ea0_1e663401",
+      "range": {
+        "startLine": 4,
+        "startChar": 1,
+        "endLine": 4,
+        "endChar": 69
+      },
+      "revId": "81f57fce3c1204ad697ad66ba2bc7a0fef0a795e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
