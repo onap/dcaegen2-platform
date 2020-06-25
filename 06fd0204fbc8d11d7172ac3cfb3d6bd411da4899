@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a8c179b1_e59c3b38",
+        "filename": "mod/bpgenerator/src/test/java/org/onap/blueprintgenerator/core/BlueprintGeneratorTest.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 5775
+      },
+      "writtenOn": "2020-06-25T14:42:25Z",
+      "side": 1,
+      "message": "Why you are comparing in 4 cases keys and what in one case value?",
+      "revId": "06fd0204fbc8d11d7172ac3cfb3d6bd411da4899",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
