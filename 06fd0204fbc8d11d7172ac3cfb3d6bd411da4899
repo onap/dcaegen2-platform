@@ -16,6 +16,24 @@
       "revId": "06fd0204fbc8d11d7172ac3cfb3d6bd411da4899",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb6c4420_eb2334c9",
+        "filename": "mod/bpgenerator/src/test/java/org/onap/blueprintgenerator/core/BlueprintGeneratorTest.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-06-25T18:46:40Z",
+      "side": 1,
+      "message": "As in specification cases excluding cert directory are supposed to create inputs in blueprint, while cert directory is supposed to be defined in comonent spec. So the 4 tests check if correct input is assigned to correct field and assertions from lines 409-412 check if their default values are same as in component spec.",
+      "parentUuid": "a8c179b1_e59c3b38",
+      "revId": "06fd0204fbc8d11d7172ac3cfb3d6bd411da4899",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
