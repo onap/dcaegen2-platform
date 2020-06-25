@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "c269a373_8072fdf9",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/ExternalTlsInfo.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-06-25T07:21:28Z",
+      "side": 1,
+      "message": "I think it could be private",
+      "range": {
+        "startLine": 38,
+        "startChar": 1,
+        "endLine": 38,
+        "endChar": 13
+      },
+      "revId": "81f57fce3c1204ad697ad66ba2bc7a0fef0a795e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c828d0d8_04bd336d",
         "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/ExternalTlsInfo.java",
         "patchSetId": 11
@@ -41,6 +64,52 @@
         "startChar": 8,
         "endLine": 30,
         "endChar": 15
+      },
+      "revId": "81f57fce3c1204ad697ad66ba2bc7a0fef0a795e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d6e440d_072289bf",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/componentspec/Auxilary.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-06-25T07:21:28Z",
+      "side": 1,
+      "message": "I think unused code could be removed",
+      "range": {
+        "startLine": 103,
+        "startChar": 1,
+        "endLine": 103,
+        "endChar": 36
+      },
+      "revId": "81f57fce3c1204ad697ad66ba2bc7a0fef0a795e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d8b6ea0_1e663401",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/onapbp/OnapBlueprint.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-06-25T07:21:28Z",
+      "side": 1,
+      "message": "Missing modification info",
+      "range": {
+        "startLine": 4,
+        "startChar": 1,
+        "endLine": 4,
+        "endChar": 69
       },
       "revId": "81f57fce3c1204ad697ad66ba2bc7a0fef0a795e",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
