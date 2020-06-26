@@ -3,6 +3,8 @@
  ================================================================================
  Copyright (c) 2019-2020 AT&T Intellectual Property. All rights reserved.
  ================================================================================
+ Modifications Copyright (c) 2020 Nokia. All rights reserved.
+ ================================================================================
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
@@ -29,6 +31,8 @@ import org.onap.blueprintgenerator.models.componentspec.ComponentSpec;
 
 import java.util.*;
 
+import static org.onap.blueprintgenerator.common.blueprint.BlueprintHelper.createInputValue;
+
 public class PgaasNodeBuilder {
 
     private static final String PGAAS_NODE_TYPE = "dcae.nodes.pgaas.database";
@@ -52,16 +56,8 @@ public class PgaasNodeBuilder {
     }
 
     private static void addPgaasInputs(Map.Entry<String, String> database, TreeMap<String, LinkedHashMap<String, Object>> inps) {
-        inps.put(database.getKey() + NAME_POSTFIX, getInputValue("string", "db name", ""));
-        inps.put(database.getKey() + WRITER_FQDN_POSTFIX, getInputValue("string", "db writerfqdn", ""));
-    }
-
-    private static LinkedHashMap<String, Object> getInputValue(String type, String description, Object defaultValue) {
-        LinkedHashMap<String, Object> inputValueMap = new LinkedHashMap();
-        inputValueMap.put("type", type);
-        inputValueMap.put("description", description);
-        inputValueMap.put("default", defaultValue);
-        return  inputValueMap;
+        inps.put(database.getKey() + NAME_POSTFIX, createInputValue("string", "db name", ""));
+        inps.put(database.getKey() + WRITER_FQDN_POSTFIX, createInputValue("string", "db writerfqdn", ""));
     }
 
     private static void addPgaasNode(Map.Entry<String, String> database, TreeMap<String, Node> nodeTemplate) {
@@ -76,11 +72,11 @@ public class PgaasNodeBuilder {
         PgaasNodeProperties pgaasNodeProperties = new PgaasNodeProperties();
 
         GetInput nameValue = new GetInput();
-        nameValue.setGet_input(dbName + NAME_POSTFIX);
+        nameValue.setBpInputName(dbName + NAME_POSTFIX);
         pgaasNodeProperties.setName(nameValue);
 
         GetInput writerfqdnValue = new GetInput();
-        writerfqdnValue.setGet_input(dbName + WRITER_FQDN_POSTFIX);
+        writerfqdnValue.setBpInputName(dbName + WRITER_FQDN_POSTFIX);
         pgaasNodeProperties.setWriterfqdn(writerfqdnValue);
 
         pgaasNodeProperties.setUseExisting(USE_EXISTING);
@@ -107,7 +103,7 @@ public class PgaasNodeBuilder {
             envVariables.put("<<", "*envs");
 
             GetInput nameValue = new GetInput();
-            nameValue.setGet_input(name.toLowerCase() + NAME_POSTFIX);
+            nameValue.setBpInputName(name.toLowerCase() + NAME_POSTFIX);
             envVariables.put(name + "_DB_NAME", nameValue);
 
             GetAttribute adminHostValue = buildGetAttributeValue(name.toLowerCase(), "admin", "host");
