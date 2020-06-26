@@ -18,15 +18,17 @@
 
  */
 
-package org.onap.blueprintgenerator.models.blueprint;
+package org.onap.blueprintgenerator.models.blueprint.dmaap;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import lombok.Getter;
+import lombok.Setter;
+import org.onap.blueprintgenerator.models.blueprint.GetInput;
 
 import java.util.LinkedHashMap;
 import java.util.TreeMap;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
-
-import lombok.Getter; import lombok.Setter;
 @JsonInclude(value=Include.NON_NULL)
 @Getter @Setter
 public class DmaapObj {
@@ -53,13 +55,13 @@ public class DmaapObj {
 			this.setDmaap_info(infoType);
 			//set username
 			GetInput u = new GetInput();
-			u.setGet_input(config + "_" + num +"_aaf_username");
+			u.setBpFieldName(config + "_" + num +"_aaf_username");
 			this.setUser(u);
 			retInputs.put(config + "_" + num +"_aaf_username", stringType);
 
 			//set password
 			GetInput p = new GetInput();
-			p.setGet_input(config + "_" + num +"_aaf_password");
+			p.setBpFieldName(config + "_" + num +"_aaf_password");
 			this.setPass(p);
 			retInputs.put(config + "_" + num +"_aaf_password", stringType);
 		}

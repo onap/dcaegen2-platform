@@ -33,7 +33,6 @@ import org.onap.blueprintgenerator.models.blueprint.Properties;
 import org.onap.blueprintgenerator.models.componentspec.ComponentSpec;
 import org.onap.blueprintgenerator.models.componentspec.Publishes;
 import org.onap.blueprintgenerator.models.componentspec.Subscribes;
-import org.onap.blueprintgenerator.models.onapbp.OnapNode;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -133,7 +132,7 @@ public class DmaapNode extends Node{
 		//create and set the properties
 		Properties props = new Properties();
 		GetInput topicInput = new GetInput();
-		topicInput.setGet_input(name + "_name");
+		topicInput.setBpFieldName(name + "_name");
 		props.setFeed_name(topicInput);
 		//props.setUseExisting(true);
 		retInputs.put(name + "_name", stringType);
@@ -153,7 +152,7 @@ public class DmaapNode extends Node{
 		//create and set the properties
 		Properties props = new Properties();
 		GetInput topicInput = new GetInput();
-		topicInput.setGet_input(name + "_name");
+		topicInput.setBpFieldName(name + "_name");
 		props.setTopic_name(topicInput);
 		//props.setUseExisting(true);
 		retInputs.put(name + "_name", stringType);

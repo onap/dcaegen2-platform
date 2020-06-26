@@ -38,8 +38,9 @@ import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
 import org.onap.blueprintgenerator.models.blueprint.Blueprint;
-import org.onap.blueprintgenerator.models.blueprint.ExternalTlsInfo;
 import org.onap.blueprintgenerator.models.blueprint.GetInput;
+import org.onap.blueprintgenerator.models.blueprint.tls.impl.ExternalCertificateParameters;
+import org.onap.blueprintgenerator.models.blueprint.tls.impl.ExternalTlsInfo;
 import org.onap.blueprintgenerator.models.componentspec.Artifacts;
 import org.onap.blueprintgenerator.models.componentspec.Auxilary;
 import org.onap.blueprintgenerator.models.componentspec.CallsObj;
@@ -375,7 +376,7 @@ public class BlueprintGeneratorTest {
 		OnapNode node = (OnapNode) bp.getNode_templates().get("test.component.spec");
 
 		GetInput par = (GetInput) node.getProperties().getApplication_config().getParams().get("testParam1");
-		assertEquals(par.getGet_input(), "testParam1");
+		assertEquals(par.getBpFieldName(), "testParam1");
 	}
 
 	@Test
@@ -418,15 +419,15 @@ public class BlueprintGeneratorTest {
 		ExternalTlsInfo externalTlsInfo = node.getProperties().getExternal_tls_info();
 		assertNotNull(externalTlsInfo);
 
-		assertEquals("external_tls_ca_name", externalTlsInfo.getCaName().getGet_input());
-		assertEquals("external_tls_use_external_tls", externalTlsInfo.getUseExternalTls().getGet_input());
+		assertEquals("external_tls_ca_name", externalTlsInfo.getCaName().getBpFieldName());
+		assertEquals("external_tls_use_external_tls", externalTlsInfo.getUseExternalTls().getBpFieldName());
 		assertEquals("/opt/app/dcae-certificate/external_cert", externalTlsInfo.getExternalCertDirectory());
 
-		ExternalTlsInfo.ExternalCertificateParameters extCertParams = externalTlsInfo.getExternalCertificateParameters();
+		ExternalCertificateParameters extCertParams = externalTlsInfo.getExternalCertificateParameters();
 		assertNotNull(extCertParams);
 
-		assertEquals("external_tls_common_name", extCertParams.getCommonName().getGet_input());
-		assertEquals("external_tls_sans", extCertParams.getSans().getGet_input());
+		assertEquals("external_tls_common_name", extCertParams.getCommonName().getBpFieldName());
+		assertEquals("external_tls_sans", extCertParams.getSans().getBpFieldName());
 	}
 
 	private void assertContainsInputWithDefault(Blueprint bp, String inputName, Object defaultValue) {

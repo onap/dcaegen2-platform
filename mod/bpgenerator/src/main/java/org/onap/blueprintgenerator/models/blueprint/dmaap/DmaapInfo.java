@@ -18,16 +18,16 @@
 
  */
 
-package org.onap.blueprintgenerator.models.blueprint;
-
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.TreeMap;
+package org.onap.blueprintgenerator.models.blueprint.dmaap;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import lombok.Getter;
+import lombok.Setter;
+import org.onap.blueprintgenerator.models.blueprint.GetInput;
 
-import lombok.Getter; import lombok.Setter;
+import java.util.LinkedHashMap;
+import java.util.TreeMap;
 
 @Getter @Setter
 @JsonInclude(value=Include.NON_NULL)
@@ -54,7 +54,7 @@ public class DmaapInfo {
 		}
 		
 		GetInput topic = new GetInput();
-		topic.setGet_input(config);
+		topic.setBpFieldName(config);
 		this.setTopic_url(topic);
 		
 		retInputs.put(config, stringType);
@@ -69,27 +69,27 @@ public class DmaapInfo {
 		stringType.put("type", "string");
 		
 		GetInput username = new GetInput();
-		username.setGet_input(config + "_" + "username");
+		username.setBpFieldName(config + "_" + "username");
 		this.setUsername(username);
 		retInputs.put(config + "_" + "username", stringType);
 		
 		GetInput password = new GetInput();
-		password.setGet_input(config + "_" + "password");
+		password.setBpFieldName(config + "_" + "password");
 		this.setPassword(password);
 		retInputs.put(config + "_" + "password", stringType);
 		
 		GetInput location = new GetInput();
-		location.setGet_input(config + "_" + "location");
+		location.setBpFieldName(config + "_" + "location");
 		this.setLocation(location);
 		retInputs.put(config + "_" + "location", stringType);
 		
 		GetInput deliveryUrl = new GetInput();
-		deliveryUrl.setGet_input(config + "_" + "delivery_url");
+		deliveryUrl.setBpFieldName(config + "_" + "delivery_url");
 		this.setDelivery_url(deliveryUrl);
 		retInputs.put(config + "_" + "delivery_url", stringType);
 		
 		GetInput subscriberID = new GetInput();
-		subscriberID.setGet_input(config + "_" + "subscriber_id");
+		subscriberID.setBpFieldName(config + "_" + "subscriber_id");
 		this.setSubscriber_id(subscriberID);
 		retInputs.put(config + "_" + "subscriber_id", stringType);
 		

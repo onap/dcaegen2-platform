@@ -23,6 +23,7 @@ package org.onap.blueprintgenerator.models.blueprint;
 import java.util.LinkedHashMap;
 import java.util.TreeMap;
 
+import org.onap.blueprintgenerator.models.blueprint.dmaap.DmaapObj;
 import org.onap.blueprintgenerator.models.componentspec.CallsObj;
 import org.onap.blueprintgenerator.models.componentspec.ComponentSpec;
 import org.onap.blueprintgenerator.models.componentspec.Parameters;
@@ -113,7 +114,7 @@ public class Appconfig {
 			String pName = p.getName();
 			if(p.isSourced_at_deployment()) {
 				GetInput paramInput = new GetInput();
-				paramInput.setGet_input(pName);
+				paramInput.setBpFieldName(pName);
 				parameters.put(pName, paramInput);
 
 				if(!p.getValue().equals("")) {
@@ -139,7 +140,7 @@ public class Appconfig {
 		}
 		if(override != null) {
 			GetInput ov = new GetInput();
-			ov.setGet_input("service_component_name_override");
+			ov.setBpFieldName("service_component_name_override");
 			parameters.put("service_component_name_override", ov);
 			LinkedHashMap<String, Object> over = new LinkedHashMap<String, Object>();
 			over.put("type", "string");

@@ -68,7 +68,7 @@ public class PolicyNodeBuilder {
         PolicyNodeProperties policyNodeProperties = new PolicyNodeProperties();
 
         GetInput policyIdGetInput = new GetInput();
-        policyIdGetInput.setGet_input(policy.getNode_label() + "_policy_id");
+        policyIdGetInput.setBpFieldName(policy.getNode_label() + "_policy_id");
         policyNodeProperties.setPolicyId(policyIdGetInput);
 
         policyNodeProperties.setPolicyModelId(policy.getPolicy_model_id());

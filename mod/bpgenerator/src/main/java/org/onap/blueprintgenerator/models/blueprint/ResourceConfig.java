@@ -23,8 +23,6 @@ package org.onap.blueprintgenerator.models.blueprint;
 import java.util.LinkedHashMap;
 import java.util.TreeMap;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -91,11 +89,11 @@ public class ResourceConfig {
 		TreeMap<String, GetInput> lim = new TreeMap<String, GetInput>();
 
 		GetInput cpu = new GetInput();
-		cpu.setGet_input(name + "cpu_limit");
+		cpu.setBpFieldName(name + "cpu_limit");
 		lim.put("cpu", cpu);
 
 		GetInput memL = new GetInput();
-		memL.setGet_input(name + "memory_limit");
+		memL.setBpFieldName(name + "memory_limit");
 		lim.put("memory", memL);
 
 		retInputs.put(name + "cpu_limit", m);
@@ -107,11 +105,11 @@ public class ResourceConfig {
 		TreeMap<String, GetInput> req = new TreeMap<String, GetInput>();
 
 		GetInput cpuR = new GetInput();
-		cpuR.setGet_input(name + "cpu_request");
+		cpuR.setBpFieldName(name + "cpu_request");
 		req.put("cpu", cpuR);
 
 		GetInput memR = new GetInput();
-		memR.setGet_input(name + "memory_request");
+		memR.setBpFieldName(name + "memory_request");
 		req.put("memory", memR);
 
 		retInputs.put(name + "cpu_request", m);
