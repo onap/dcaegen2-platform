@@ -1,0 +1,193 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "12fb03e3_8b25ea45",
+        "filename": "mod/bpgenerator/TestModels/Test_Parameters.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-06-26T12:31:19Z",
+      "side": 1,
+      "message": "Not sure if this file should be present in repo",
+      "revId": "862cd9ce661af0fc07806a6c6a5fed7a20c4b708",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dfe91ce6_f260aa14",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/common/blueprint/Manipulation.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-06-26T12:31:19Z",
+      "side": 1,
+      "message": "Consider name like BlueprintInputCreator or something more descriptive",
+      "range": {
+        "startLine": 26,
+        "startChar": 13,
+        "endLine": 26,
+        "endChar": 25
+      },
+      "revId": "862cd9ce661af0fc07806a6c6a5fed7a20c4b708",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "423fed2c_8df71130",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/GetInput.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-06-26T12:31:19Z",
+      "side": 1,
+      "message": "This field name can\u0027t be simply changed, as it should map to:\nget_input: \u003cfield-value\u003e\n\nNow it would map to:\nbpFieldName: \u003cfield-value\u003e\n\nget_input is a function of cloudify so either add @JsonProperty annotation to specify its name or rename back to get_input.",
+      "range": {
+        "startLine": 35,
+        "startChar": 16,
+        "endLine": 35,
+        "endChar": 27
+      },
+      "revId": "862cd9ce661af0fc07806a6c6a5fed7a20c4b708",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05fa45cc_657e9d11",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/Properties.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-06-26T12:31:19Z",
+      "side": 1,
+      "message": "Consider using original formatting.",
+      "revId": "862cd9ce661af0fc07806a6c6a5fed7a20c4b708",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd089671_f900d2f7",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/Properties.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-06-26T12:31:19Z",
+      "side": 1,
+      "message": "Consider reusing factories instead of creating new with each call of addExternalTlsInfo",
+      "range": {
+        "startLine": 261,
+        "startChar": 0,
+        "endLine": 262,
+        "endChar": 115
+      },
+      "revId": "862cd9ce661af0fc07806a6c6a5fed7a20c4b708",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0e9b90b0_66711724",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/dmaap/DmaapInfo.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-06-26T12:31:19Z",
+      "side": 1,
+      "message": "Consider using constructor with parameter:\nGetInput username \u003d new GetInput(config + \"_\" + \"username\")\nor introducing other way of creating GetInput.",
+      "range": {
+        "startLine": 71,
+        "startChar": 1,
+        "endLine": 72,
+        "endChar": 53
+      },
+      "revId": "862cd9ce661af0fc07806a6c6a5fed7a20c4b708",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "477877f8_a6345d64",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/tls/ExternalTlsInfoFactory.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-06-26T12:31:19Z",
+      "side": 1,
+      "message": "Can be private",
+      "range": {
+        "startLine": 38,
+        "startChar": 1,
+        "endLine": 38,
+        "endChar": 2
+      },
+      "revId": "862cd9ce661af0fc07806a6c6a5fed7a20c4b708",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1798c23_13325f38",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/tls/api/ExternalCertificateData.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-06-26T12:31:19Z",
+      "side": 1,
+      "message": "Is this class needed? Seems to be unused elsewhere than class declaration.\nNot sure what would be better but I think class like ExternalTlsInfoFactory could just extend AbstractExternalCertificateDataFactory (withoud \u003cT extends ExternalCertificateData\u003e",
+      "revId": "862cd9ce661af0fc07806a6c6a5fed7a20c4b708",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4854a6bc_e934b626",
+        "filename": "mod/bpgenerator/src/test/java/org/onap/blueprintgenerator/models/blueprint/tls/ExternalCertificateParametersFactoryTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-06-26T12:31:19Z",
+      "side": 1,
+      "message": "Consider checking if default value of input is equal to one from component spec json",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 1
+      },
+      "revId": "862cd9ce661af0fc07806a6c6a5fed7a20c4b708",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
