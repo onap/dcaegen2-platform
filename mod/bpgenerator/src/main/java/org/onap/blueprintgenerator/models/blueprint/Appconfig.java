@@ -2,7 +2,9 @@
  org.onap.dcae 
  ================================================================================ 
  Copyright (c) 2019 AT&T Intellectual Property. All rights reserved. 
- ================================================================================ 
+ ================================================================================
+ Modifications Copyright (c) 2020 Nokia. All rights reserved.
+ ================================================================================
  Licensed under the Apache License, Version 2.0 (the "License"); 
  you may not use this file except in compliance with the License. 
  You may obtain a copy of the License at 
@@ -23,6 +25,7 @@ package org.onap.blueprintgenerator.models.blueprint;
 import java.util.LinkedHashMap;
 import java.util.TreeMap;
 
+import org.onap.blueprintgenerator.models.blueprint.dmaap.DmaapObj;
 import org.onap.blueprintgenerator.models.componentspec.CallsObj;
 import org.onap.blueprintgenerator.models.componentspec.ComponentSpec;
 import org.onap.blueprintgenerator.models.componentspec.Parameters;
@@ -113,7 +116,7 @@ public class Appconfig {
 			String pName = p.getName();
 			if(p.isSourced_at_deployment()) {
 				GetInput paramInput = new GetInput();
-				paramInput.setGet_input(pName);
+				paramInput.setBpInputName(pName);
 				parameters.put(pName, paramInput);
 
 				if(!p.getValue().equals("")) {
@@ -139,7 +142,7 @@ public class Appconfig {
 		}
 		if(override != null) {
 			GetInput ov = new GetInput();
-			ov.setGet_input("service_component_name_override");
+			ov.setBpInputName("service_component_name_override");
 			parameters.put("service_component_name_override", ov);
 			LinkedHashMap<String, Object> over = new LinkedHashMap<String, Object>();
 			over.put("type", "string");

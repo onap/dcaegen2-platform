@@ -3,6 +3,8 @@
  ================================================================================
  Copyright (c) 2019 AT&T Intellectual Property. All rights reserved.
  ================================================================================
+ Modifications Copyright (c) 2020 Nokia. All rights reserved.
+ ================================================================================
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
@@ -68,7 +70,7 @@ public class PolicyNodeBuilder {
         PolicyNodeProperties policyNodeProperties = new PolicyNodeProperties();
 
         GetInput policyIdGetInput = new GetInput();
-        policyIdGetInput.setGet_input(policy.getNode_label() + "_policy_id");
+        policyIdGetInput.setBpInputName(policy.getNode_label() + "_policy_id");
         policyNodeProperties.setPolicyId(policyIdGetInput);
 
         policyNodeProperties.setPolicyModelId(policy.getPolicy_model_id());

@@ -3,6 +3,8 @@
  ================================================================================
  Copyright (c) 2019 AT&T Intellectual Property. All rights reserved.
  ================================================================================
+ Modifications Copyright (c) 2020 Nokia. All rights reserved.
+ ================================================================================
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
@@ -22,8 +24,6 @@ package org.onap.blueprintgenerator.models.blueprint;
 
 import java.util.LinkedHashMap;
 import java.util.TreeMap;
-
-import com.fasterxml.jackson.annotation.JsonInclude;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -91,11 +91,11 @@ public class ResourceConfig {
 		TreeMap<String, GetInput> lim = new TreeMap<String, GetInput>();
 
 		GetInput cpu = new GetInput();
-		cpu.setGet_input(name + "cpu_limit");
+		cpu.setBpInputName(name + "cpu_limit");
 		lim.put("cpu", cpu);
 
 		GetInput memL = new GetInput();
-		memL.setGet_input(name + "memory_limit");
+		memL.setBpInputName(name + "memory_limit");
 		lim.put("memory", memL);
 
 		retInputs.put(name + "cpu_limit", m);
@@ -107,11 +107,11 @@ public class ResourceConfig {
 		TreeMap<String, GetInput> req = new TreeMap<String, GetInput>();
 
 		GetInput cpuR = new GetInput();
-		cpuR.setGet_input(name + "cpu_request");
+		cpuR.setBpInputName(name + "cpu_request");
 		req.put("cpu", cpuR);
 
 		GetInput memR = new GetInput();
-		memR.setGet_input(name + "memory_request");
+		memR.setBpInputName(name + "memory_request");
 		req.put("memory", memR);
 
 		retInputs.put(name + "cpu_request", m);

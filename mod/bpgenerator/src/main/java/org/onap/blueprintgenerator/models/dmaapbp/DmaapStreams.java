@@ -23,10 +23,8 @@ package org.onap.blueprintgenerator.models.dmaapbp;
 import java.util.LinkedHashMap;
 import java.util.TreeMap;
 
-import org.onap.blueprintgenerator.models.blueprint.Appconfig;
 import org.onap.blueprintgenerator.models.blueprint.GetInput;
 import org.onap.blueprintgenerator.models.componentspec.ComponentSpec;
-import org.onap.blueprintgenerator.models.componentspec.HealthCheck;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -66,7 +64,7 @@ public class DmaapStreams {
 
 		//set the location
 		GetInput location = new GetInput();
-		location.setGet_input(key + "_" + name + "_location");
+		location.setBpInputName(key + "_" + name + "_location");
 		retInputs.put(key + "_" + name + "_location", stringType);
 		this.setLocation(location);
 
@@ -75,25 +73,25 @@ public class DmaapStreams {
 			if(o == 's') {
 				//set the username
 				GetInput username = new GetInput();
-				username.setGet_input(key + "_" + name + "_username");
+				username.setBpInputName(key + "_" + name + "_username");
 				this.setUsername(username);
 				retInputs.put(key + "_" + name + "_username", stringType);
 
 				//set the password
 				GetInput password = new GetInput();
-				password.setGet_input(key + "_" + name + "_password");
+				password.setBpInputName(key + "_" + name + "_password");
 				this.setPassword(password);
 				retInputs.put(key + "_" + name + "_password", stringType);
 
 				//set privileged
 				GetInput priviliged = new GetInput();
-				priviliged.setGet_input(key + "_" + name + "_priviliged");
+				priviliged.setBpInputName(key + "_" + name + "_priviliged");
 				this.setPrivileged(priviliged);
 				retInputs.put(key + "_" + name + "_priviliged", stringType);
 
 				//set decompress
 				GetInput decompress = new GetInput();
-				decompress.setGet_input(key + "_" + name + "_decompress");
+				decompress.setBpInputName(key + "_" + name + "_decompress");
 				this.setDecompress(decompress);
 				retInputs.put(key + "_" + name + "_decompress", stringType);
 
@@ -110,7 +108,7 @@ public class DmaapStreams {
 		} else {
 			//set the client role
 			GetInput client = new GetInput();
-			client.setGet_input(key + "_" + name + "_client_role");
+			client.setBpInputName(key + "_" + name + "_client_role");
 			this.setClient_role(client);
 			retInputs.put(key + "_" + name + "_client_role", stringType);
 		}

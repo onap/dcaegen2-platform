@@ -9,7 +9,7 @@
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
 
-      http://www.apache.org/licenses/LICENSE-2.0
+ http://www.apache.org/licenses/LICENSE-2.0
 
  Unless required by applicable law or agreed to in writing, software
  distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,21 +19,22 @@
  ============LICENSE_END=========================================================
 
  */
-
-package org.onap.blueprintgenerator.models.blueprint;
+package org.onap.blueprintgenerator.models.blueprint.tls;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.onap.blueprintgenerator.models.blueprint.GetInput;
 
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
-public class GetInput {
+public class TlsInfo {
 
-	@JsonProperty("get_input")
-	private Object bpInputName;
+    @JsonProperty("cert_directory")
+    private String certDirectory;
+
+    @JsonProperty("use_tls")
+    private GetInput useTls;
 }
