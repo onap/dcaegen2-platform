@@ -23,9 +23,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.onap.blueprintgenerator.models.blueprint.Blueprint;
-import org.onap.blueprintgenerator.models.blueprint.ExternalTlsInfo;
 import org.onap.blueprintgenerator.models.blueprint.Node;
-import org.onap.blueprintgenerator.models.blueprint.TlsInfo;
+import org.onap.blueprintgenerator.models.blueprint.tls.TlsInfo;
+import org.onap.blueprintgenerator.models.blueprint.tls.impl.ExternalCertificateParameters;
+import org.onap.blueprintgenerator.models.blueprint.tls.impl.ExternalTlsInfo;
 import org.onap.blueprintgenerator.models.componentspec.ComponentSpec;
 
 import java.util.Arrays;
@@ -95,16 +96,16 @@ public class TlsInfoTest {
 		ExternalTlsInfo externalTlsInfo = node.getProperties().getExternal_tls_info();
 		assertNotNull(externalTlsInfo);
 
-		assertEquals("external_tls_ca_name", externalTlsInfo.getCaName().getGet_input());
-		assertEquals("external_tls_cert_type", externalTlsInfo.getCertType().getGet_input());
-		assertEquals("external_tls_use_external_tls", externalTlsInfo.getUseExternalTls().getGet_input());
+		assertEquals("external_tls_ca_name", externalTlsInfo.getCaName().getBpInputName());
+		assertEquals("external_tls_cert_type", externalTlsInfo.getCertType().getBpInputName());
+		assertEquals("external_tls_use_external_tls", externalTlsInfo.getUseExternalTls().getBpInputName());
 		assertEquals("/opt/app/dcae-certificate/", externalTlsInfo.getExternalCertDirectory());
 
-		ExternalTlsInfo.ExternalCertificateParameters extCertParams = externalTlsInfo.getExternalCertificateParameters();
+		ExternalCertificateParameters extCertParams = externalTlsInfo.getExternalCertificateParameters();
 		assertNotNull(extCertParams);
 
-		assertEquals("external_tls_common_name", extCertParams.getCommonName().getGet_input());
-		assertEquals("external_tls_sans", extCertParams.getSans().getGet_input());
+		assertEquals("external_tls_common_name", extCertParams.getCommonName().getBpInputName());
+		assertEquals("external_tls_sans", extCertParams.getSans().getBpInputName());
 	}
 
 	private void assertBlueprintContainsTlsInfoWithUseFlagDefault(Blueprint bp, boolean useFlagDefault) {
@@ -115,7 +116,7 @@ public class TlsInfoTest {
 
 		//should create proper tlsInfo object in node properties
 		TlsInfo tlsInfo = node.getProperties().getTls_info();
-		assertEquals("use_tls", tlsInfo.getUseTls().getGet_input());
+		assertEquals("use_tls", tlsInfo.getUseTls().getBpInputName());
 		assertEquals("/opt/app/dcae-certificate/", tlsInfo.getCertDirectory());
 
 	}
