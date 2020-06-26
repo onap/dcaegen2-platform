@@ -1,8 +1,9 @@
-/**============LICENSE_START======================================================= 
+/*============LICENSE_START=======================================================
  org.onap.dcae 
  ================================================================================ 
- Copyright (c) 2019 AT&T Intellectual Property. All rights reserved. 
- ================================================================================ 
+ Copyright (c) 2019 AT&T Intellectual Property. All rights reserved.
+ Copyright (c) 2020 Nokia. All rights reserved.
+ ================================================================================
  Licensed under the Apache License, Version 2.0 (the "License"); 
  you may not use this file except in compliance with the License. 
  You may obtain a copy of the License at 
@@ -106,7 +107,7 @@ public class StartInputs {
 		}
 		else {
 			GetInput env = new GetInput();
-			env.setGet_input("envs");
+			env.setBpInputName("envs");
 			this.setEnvs(env);
 			eMap.put("default", "{}");
 		}

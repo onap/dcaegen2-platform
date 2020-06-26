@@ -1,7 +1,8 @@
-/**============LICENSE_START=======================================================
+/*============LICENSE_START=======================================================
  org.onap.dcae
  ================================================================================
  Copyright (c) 2019 AT&T Intellectual Property. All rights reserved.
+ Copyright (c) 2020 Nokia. All rights reserved.
  ================================================================================
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -36,9 +37,10 @@ public class PolicyNodeBuilder {
     private static final String POLICY_NODE_TYPE = "clamp.nodes.policy";
     private static final String POLICY_RELATIONSHIP_TYPE = "cloudify.relationships.depends_on";
 
-    public static void addPolicyNodesAndInputs(ComponentSpec cs, TreeMap<String, Node> nodeTemplate, TreeMap<String, LinkedHashMap<String, Object>> inps) {
+    public static void addPolicyNodesAndInputs(ComponentSpec cs, TreeMap<String, Node> nodeTemplate,
+        TreeMap<String, LinkedHashMap<String, Object>> inps) {
         List<TypePolicy> policyList = cs.getPolicyInfo().getTypePolicyList();
-        for(TypePolicy policy: policyList){
+        for (TypePolicy policy : policyList) {
             addPolicyNodesToNodeTemplate(policy, nodeTemplate);
             addPolicyInputs(policy, inps);
         }
@@ -54,7 +56,7 @@ public class PolicyNodeBuilder {
         inputValueMap.put("type", type);
         inputValueMap.put("description", description);
         inputValueMap.put("default", defaultValue);
-        return  inputValueMap;
+        return inputValueMap;
     }
 
     private static void addPolicyNodesToNodeTemplate(TypePolicy policy, TreeMap<String, Node> nodeTemplate) {
@@ -68,7 +70,7 @@ public class PolicyNodeBuilder {
         PolicyNodeProperties policyNodeProperties = new PolicyNodeProperties();
 
         GetInput policyIdGetInput = new GetInput();
-        policyIdGetInput.setGet_input(policy.getNode_label() + "_policy_id");
+        policyIdGetInput.setBpInputName(policy.getNode_label() + "_policy_id");
         policyNodeProperties.setPolicyId(policyIdGetInput);
 
         policyNodeProperties.setPolicyModelId(policy.getPolicy_model_id());
@@ -79,7 +81,7 @@ public class PolicyNodeBuilder {
     public static ArrayList<LinkedHashMap<String, String>> getPolicyRelationships(ComponentSpec cs) {
         ArrayList<LinkedHashMap<String, String>> relationships = new ArrayList<>();
         List<TypePolicy> policyList = cs.getPolicyInfo().getTypePolicyList();
-        for(TypePolicy policy: policyList){
+        for (TypePolicy policy : policyList) {
             LinkedHashMap<String, String> relationship = new LinkedHashMap<>();
             relationship.put("type", POLICY_RELATIONSHIP_TYPE);
             relationship.put("target", policy.getNode_label());

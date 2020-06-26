@@ -1,7 +1,8 @@
-/**============LICENSE_START=======================================================
+/*============LICENSE_START=======================================================
  org.onap.dcae
  ================================================================================
  Copyright (c) 2019 AT&T Intellectual Property. All rights reserved.
+ Copyright (c) 2020 Nokia. All rights reserved.
  ================================================================================
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -15,7 +16,6 @@
  See the License for the specific language governing permissions and
  limitations under the License.
  ============LICENSE_END=========================================================
-
  */
 
 package org.onap.blueprintgenerator.models.dmaapbp;
@@ -33,7 +33,6 @@ import org.onap.blueprintgenerator.models.blueprint.Properties;
 import org.onap.blueprintgenerator.models.componentspec.ComponentSpec;
 import org.onap.blueprintgenerator.models.componentspec.Publishes;
 import org.onap.blueprintgenerator.models.componentspec.Subscribes;
-import org.onap.blueprintgenerator.models.onapbp.OnapNode;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -129,7 +128,7 @@ public class DmaapNode extends Node{
 		//create and set the properties
 		Properties props = new Properties();
 		GetInput topicInput = new GetInput();
-		topicInput.setGet_input(name + "_name");
+		topicInput.setBpInputName(name + "_name");
 		props.setFeed_name(topicInput);
 		//props.setUseExisting(true);
 		retInputs.put(name + "_name", stringType);
@@ -149,7 +148,7 @@ public class DmaapNode extends Node{
 		//create and set the properties
 		Properties props = new Properties();
 		GetInput topicInput = new GetInput();
-		topicInput.setGet_input(name + "_name");
+		topicInput.setBpInputName(name + "_name");
 		props.setTopic_name(topicInput);
 		//props.setUseExisting(true);
 		retInputs.put(name + "_name", stringType);
