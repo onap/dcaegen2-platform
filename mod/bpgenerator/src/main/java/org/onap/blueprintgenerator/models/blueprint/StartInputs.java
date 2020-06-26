@@ -106,7 +106,7 @@ public class StartInputs {
 		}
 		else {
 			GetInput env = new GetInput();
-			env.setGet_input("envs");
+			env.setBpInputName("envs");
 			this.setEnvs(env);
 			eMap.put("default", "{}");
 		}

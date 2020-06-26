@@ -1,0 +1,13 @@
+{
+  "auxilary": {
+    "external_tls_info": {
+      "external_cert_directory": "/opt/app/dcae-certificate/external_cert",
+      "use_external_tls": true,
+      "ca_name": "RA",
+      "external_certificate_parameters": {
+        "common_name": "simpledemo.onap.org",
+        "sans": "simpledemo.onap.org;ves.simpledemo.onap.org;ves.onap.org"
+      }
+    }
+  }
+}
