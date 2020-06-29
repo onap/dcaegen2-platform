@@ -1,0 +1,349 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb7c9ebf_5d90cfce",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/core/PgaasNodeBuilder.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-06-29T09:55:58Z",
+      "side": 1,
+      "message": "Missing modification info",
+      "range": {
+        "startLine": 4,
+        "startChar": 1,
+        "endLine": 4,
+        "endChar": 73
+      },
+      "revId": "dd71b4c28acfc387c952fbbf5accad324bacd0fc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff3d15dc_051b2ef0",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/core/PolicyNodeBuilder.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-06-29T09:55:58Z",
+      "side": 1,
+      "message": "Missing modification info",
+      "range": {
+        "startLine": 4,
+        "startChar": 1,
+        "endLine": 4,
+        "endChar": 68
+      },
+      "revId": "dd71b4c28acfc387c952fbbf5accad324bacd0fc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87e3ecf3_178090c6",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/Appconfig.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-06-29T09:55:58Z",
+      "side": 1,
+      "message": "Missing modification info",
+      "range": {
+        "startLine": 4,
+        "startChar": 1,
+        "endLine": 4,
+        "endChar": 67
+      },
+      "revId": "dd71b4c28acfc387c952fbbf5accad324bacd0fc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28d72257_066804c5",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/Properties.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-06-29T09:55:58Z",
+      "side": 1,
+      "message": "Missing modification info",
+      "range": {
+        "startLine": 4,
+        "startChar": 1,
+        "endLine": 4,
+        "endChar": 68
+      },
+      "revId": "dd71b4c28acfc387c952fbbf5accad324bacd0fc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb885078_66d40426",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/ResourceConfig.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-06-29T09:55:58Z",
+      "side": 1,
+      "message": "Missing modification info",
+      "range": {
+        "startLine": 4,
+        "startChar": 1,
+        "endLine": 4,
+        "endChar": 68
+      },
+      "revId": "dd71b4c28acfc387c952fbbf5accad324bacd0fc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6bef4f90_8d4a127d",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/StartInputs.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-06-29T09:55:58Z",
+      "side": 1,
+      "message": "Missing modification info",
+      "range": {
+        "startLine": 4,
+        "startChar": 1,
+        "endLine": 4,
+        "endChar": 69
+      },
+      "revId": "dd71b4c28acfc387c952fbbf5accad324bacd0fc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b039948c_abd3b178",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/dmaap/DmaapInfo.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-06-29T09:55:58Z",
+      "side": 1,
+      "message": "Missing modification info",
+      "range": {
+        "startLine": 4,
+        "startChar": 2,
+        "endLine": 4,
+        "endChar": 69
+      },
+      "revId": "dd71b4c28acfc387c952fbbf5accad324bacd0fc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7fa87cf_a6d20506",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/dmaap/DmaapInfo.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-06-29T09:55:58Z",
+      "side": 1,
+      "message": "Missing modification info",
+      "range": {
+        "startLine": 4,
+        "startChar": 1,
+        "endLine": 4,
+        "endChar": 64
+      },
+      "revId": "dd71b4c28acfc387c952fbbf5accad324bacd0fc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9f3580d0_e304ed80",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/dmaap/DmaapInfo.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-06-29T09:55:58Z",
+      "side": 1,
+      "message": "Consider to extract to method",
+      "range": {
+        "startLine": 70,
+        "startChar": 35,
+        "endLine": 70,
+        "endChar": 60
+      },
+      "revId": "dd71b4c28acfc387c952fbbf5accad324bacd0fc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0887de84_e61eed46",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/dmaap/DmaapObj.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-06-29T09:55:58Z",
+      "side": 1,
+      "message": "Missing modification info",
+      "range": {
+        "startLine": 4,
+        "startChar": 1,
+        "endLine": 4,
+        "endChar": 69
+      },
+      "revId": "dd71b4c28acfc387c952fbbf5accad324bacd0fc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d25899e_f3f7c04f",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/tls/TlsInfo.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-06-29T09:55:58Z",
+      "side": 1,
+      "message": "Missing modification info",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 68
+      },
+      "revId": "dd71b4c28acfc387c952fbbf5accad324bacd0fc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe1fd752_55f0cc34",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/dmaapbp/DmaapNode.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-06-29T09:55:58Z",
+      "side": 1,
+      "message": "Missing modification info",
+      "range": {
+        "startLine": 4,
+        "startChar": 1,
+        "endLine": 4,
+        "endChar": 68
+      },
+      "revId": "dd71b4c28acfc387c952fbbf5accad324bacd0fc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68a44828_c6ed1a87",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/dmaapbp/DmaapStreams.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-06-29T09:55:58Z",
+      "side": 1,
+      "message": "Missing modification info",
+      "range": {
+        "startLine": 4,
+        "startChar": 1,
+        "endLine": 4,
+        "endChar": 68
+      },
+      "revId": "dd71b4c28acfc387c952fbbf5accad324bacd0fc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c5cff48_5dfd9e82",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/dmaapbp/DmaapStreams.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-06-29T09:55:58Z",
+      "side": 1,
+      "message": "Consider to extract to method.",
+      "range": {
+        "startLine": 76,
+        "startChar": 28,
+        "endLine": 76,
+        "endChar": 58
+      },
+      "revId": "dd71b4c28acfc387c952fbbf5accad324bacd0fc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db542d06_9fa78a58",
+        "filename": "mod/bpgenerator/src/test/java/org/onap/blueprintgenerator/core/BlueprintGeneratorTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-06-29T09:55:58Z",
+      "side": 1,
+      "message": "Missing modification info",
+      "range": {
+        "startLine": 4,
+        "startChar": 1,
+        "endLine": 4,
+        "endChar": 67
+      },
+      "revId": "dd71b4c28acfc387c952fbbf5accad324bacd0fc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
