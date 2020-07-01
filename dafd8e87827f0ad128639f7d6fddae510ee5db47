@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cd30a6df_4ecf0587",
+        "filename": "mod/bpgenerator/TestCases/ves/blueprints/vesK8sWithDmaap.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-07-01T18:56:44Z",
+      "side": 1,
+      "message": "add license header",
+      "revId": "dafd8e87827f0ad128639f7d6fddae510ee5db47",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c06368d_4d920af8",
+        "filename": "mod/bpgenerator/TestCases/ves/blueprints/vesK8sWithoutDmaap.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-07-01T18:56:44Z",
+      "side": 1,
+      "message": "add license header",
+      "revId": "dafd8e87827f0ad128639f7d6fddae510ee5db47",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e65c1293_77226364",
+        "filename": "mod/bpgenerator/TestCases/ves/blueprints/vesK8sWithoutDmaap.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-07-01T18:56:44Z",
+      "side": 1,
+      "message": "should be https://www.getcloudify.org/spec/cloudify/4.5.5/types.yaml",
+      "range": {
+        "startLine": 7,
+        "startChar": 2,
+        "endLine": 7,
+        "endChar": 57
+      },
+      "revId": "dafd8e87827f0ad128639f7d6fddae510ee5db47",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
