@@ -92,10 +92,10 @@ public class Properties {
 		retInputs.put("replicas", rep);
 
 		//set the dns name
-		this.setDns_name(cs.getSelf().getName());
+		//this.setDns_name(cs.getSelf().getName());
 
 		//set the name
-		this.setName(cs.getSelf().getName());
+		//this.setName(cs.getSelf().getName());
 
 		//set the docker config
 		Auxilary aux = cs.getAuxilary();
@@ -118,6 +118,12 @@ public class Properties {
 		inputAlwaysPullImage.put("default", true);
 		retInputs.put("always_pull_image", inputAlwaysPullImage);
 
+
+		//set service component type
+		String sType = cs.getSelf().getName();
+		sType = sType.replace('.', '-');
+		this.setService_component_type(sType);
+		
 		//set the tls info
 		if(cs.getAuxilary().getTls_info() != null){
 			addTlsInfo(cs,retInputs);
@@ -144,6 +150,16 @@ public class Properties {
 		img.put("default", cs.getArtifacts()[0].getUri());
 		retInputs.put("tag_version", img);
 
+		
+		//set the location id
+		GetInput location = new GetInput();
+		location.setGet_input("location_id");
+		this.setLocation_id(location);
+		LinkedHashMap<String, Object> locMap = new LinkedHashMap();
+		locMap.put("type", "string");
+		locMap.put("default", "");
+		retInputs.put("location_id", locMap);
+		
 		//set the log info
 		this.setLog_info(cs.getAuxilary().getLog_info());
 

@@ -64,7 +64,7 @@ public class OnapNode extends Node{
 		this.setInterfaces(interfaces);
 
 		//set the type
-		this.setType("dcae.nodes.ContainerizedPlatformComponent");
+		this.setType("dcae.nodes.ContainerizedServiceComponent");
 
 		//create and set the relationships
 		ArrayList<LinkedHashMap<String, String>> rets = new ArrayList();

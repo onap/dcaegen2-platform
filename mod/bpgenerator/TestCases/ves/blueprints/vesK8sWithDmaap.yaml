@@ -15,15 +15,15 @@
 #    See the License for the specific language governing permissions and
 #    limitations under the License.
 #    ============LICENSE_END=========================================================
+#
 #description: Collector for receiving VES events through restful interface
 #blueprint_version: 1.5.0
 ---
 tosca_definitions_version: cloudify_dsl_1_3
 description: Collector for receiving VES events through restful interface
 imports:
-- https://www.getcloudify.org/spec/cloudify/4.5.5/types.yaml
-- https://nexus.onap.org/service/local/repositories/raw/content/org.onap.dcaegen2.platform.plugins/R6/k8splugin/1.7.1/k8splugin_types.yaml
-- https://nexus.onap.org/service/local/repositories/raw/content/org.onap.ccsdk.platform.plugins/type_files/dmaap/dmaap.yaml
+- http://www.getcloudify.org/spec/cloudify/4.5.5/types.yaml
+- https://nexus.onap.org/service/local/repositories/raw/content/org.onap.dcaegen2.platform.plugins/R6/k8splugin/1.7.2/k8splugin_types.yaml
 inputs:
   collector.dmaap.streamid:
     type: string
@@ -51,6 +51,9 @@ inputs:
   header.authlist:
     type: string
     default: "sample1,$2a$10$pgjaxDzSuc6XVFEeqvxQ5u90DKJnM/u7TJTcinAlFJVaavXMWf/Zi|userid1,$2a$10$61gNubgJJl9lh3nvQvY9X.x4e5ETWJJ7ao7ZhJEvmfJigov26Z6uq|userid2,$2a$10$G52y/3uhuhWAMy.bx9Se8uzWinmbJa.dlm1LW6bYPdPkkywLDPLiy"
+  location_id:
+    type: string
+    default: ""
   replicas:
     type: integer
     description: number of instances
@@ -61,65 +64,65 @@ inputs:
   tag_version:
     type: string
     default: "nexus.onap.org:10001/onap/org.onap.dcaegen2.collectors.ves.vescollector:latest"
-  topic0_name:
+  ves-fault_topic_name:
     type: string
-  topic1_name:
+  ves-fault_ves-fault_topic_aaf_password:
     type: string
-  topic2_name:
+  ves-fault_ves-fault_topic_aaf_username:
     type: string
-  topic3_name:
+  ves-fault_ves-fault_topic_client_role:
     type: string
-  topic4_name:
+  ves-fault_ves-fault_topic_location:
     type: string
-  topic5_name:
+  ves-heartbeat-secondary_topic_name:
     type: string
-  ves-fault_topic0_aaf_password:
+  ves-heartbeat-secondary_ves-heartbeat-secondary_topic_aaf_password:
     type: string
-  ves-fault_topic0_aaf_username:
+  ves-heartbeat-secondary_ves-heartbeat-secondary_topic_aaf_username:
     type: string
-  ves-fault_topic0_client_role:
+  ves-heartbeat-secondary_ves-heartbeat-secondary_topic_client_role:
     type: string
-  ves-fault_topic0_location:
+  ves-heartbeat-secondary_ves-heartbeat-secondary_topic_location:
     type: string
-  ves-heartbeat-secondary_topic3_aaf_password:
+  ves-measurement_topic_name:
     type: string
-  ves-heartbeat-secondary_topic3_aaf_username:
+  ves-measurement_ves-measurement_topic_aaf_password:
     type: string
-  ves-heartbeat-secondary_topic3_client_role:
+  ves-measurement_ves-measurement_topic_aaf_username:
     type: string
-  ves-heartbeat-secondary_topic3_location:
+  ves-measurement_ves-measurement_topic_client_role:
     type: string
-  ves-measurement_topic1_aaf_password:
+  ves-measurement_ves-measurement_topic_location:
     type: string
-  ves-measurement_topic1_aaf_username:
+  ves-notification_topic_name:
     type: string
-  ves-measurement_topic1_client_role:
+  ves-notification_ves-notification_topic_aaf_password:
     type: string
-  ves-measurement_topic1_location:
+  ves-notification_ves-notification_topic_aaf_username:
     type: string
-  ves-notification_topic5_aaf_password:
+  ves-notification_ves-notification_topic_client_role:
     type: string
-  ves-notification_topic5_aaf_username:
+  ves-notification_ves-notification_topic_location:
     type: string
-  ves-notification_topic5_client_role:
+  ves-other_topic_name:
     type: string
-  ves-notification_topic5_location:
+  ves-other_ves-other_topic_aaf_password:
     type: string
-  ves-other_topic2_aaf_password:
+  ves-other_ves-other_topic_aaf_username:
     type: string
-  ves-other_topic2_aaf_username:
+  ves-other_ves-other_topic_client_role:
     type: string
-  ves-other_topic2_client_role:
+  ves-other_ves-other_topic_location:
     type: string
-  ves-other_topic2_location:
+  ves-pnfRegistration_topic_name:
     type: string
-  ves-pnfRegistration_topic4_aaf_password:
+  ves-pnfRegistration_ves-pnfRegistration_topic_aaf_password:
     type: string
-  ves-pnfRegistration_topic4_aaf_username:
+  ves-pnfRegistration_ves-pnfRegistration_topic_aaf_username:
     type: string
-  ves-pnfRegistration_topic4_client_role:
+  ves-pnfRegistration_ves-pnfRegistration_topic_client_role:
     type: string
-  ves-pnfRegistration_topic4_location:
+  ves-pnfRegistration_ves-pnfRegistration_topic_location:
     type: string
 node_templates:
   dcae-ves-collector:
@@ -138,47 +141,47 @@ node_templates:
         service_calls: []
         streams_publishes:
           ves-fault:
-            dmaap_info: <<topic0>>
+            dmaap_info: <<ves-fault_topic>>
             type: message router
             pass:
-              get_input: ves-fault_topic0_aaf_password
+              get_input: ves-fault_ves-fault_topic_aaf_password
             user:
-              get_input: ves-fault_topic0_aaf_username
+              get_input: ves-fault_ves-fault_topic_aaf_username
           ves-heartbeat-secondary:
-            dmaap_info: <<topic3>>
+            dmaap_info: <<ves-heartbeat-secondary_topic>>
             type: message router
             pass:
-              get_input: ves-heartbeat-secondary_topic3_aaf_password
+              get_input: ves-heartbeat-secondary_ves-heartbeat-secondary_topic_aaf_password
             user:
-              get_input: ves-heartbeat-secondary_topic3_aaf_username
+              get_input: ves-heartbeat-secondary_ves-heartbeat-secondary_topic_aaf_username
           ves-measurement:
-            dmaap_info: <<topic1>>
+            dmaap_info: <<ves-measurement_topic>>
             type: message router
             pass:
-              get_input: ves-measurement_topic1_aaf_password
+              get_input: ves-measurement_ves-measurement_topic_aaf_password
             user:
-              get_input: ves-measurement_topic1_aaf_username
+              get_input: ves-measurement_ves-measurement_topic_aaf_username
           ves-notification:
-            dmaap_info: <<topic5>>
+            dmaap_info: <<ves-notification_topic>>
             type: message router
             pass:
-              get_input: ves-notification_topic5_aaf_password
+              get_input: ves-notification_ves-notification_topic_aaf_password
             user:
-              get_input: ves-notification_topic5_aaf_username
+              get_input: ves-notification_ves-notification_topic_aaf_username
           ves-other:
-            dmaap_info: <<topic2>>
+            dmaap_info: <<ves-other_topic>>
             type: message router
             pass:
-              get_input: ves-other_topic2_aaf_password
+              get_input: ves-other_ves-other_topic_aaf_password
             user:
-              get_input: ves-other_topic2_aaf_username
+              get_input: ves-other_ves-other_topic_aaf_username
           ves-pnfRegistration:
-            dmaap_info: <<topic4>>
+            dmaap_info: <<ves-pnfRegistration_topic>>
             type: message router
             pass:
-              get_input: ves-pnfRegistration_topic4_aaf_password
+              get_input: ves-pnfRegistration_ves-pnfRegistration_topic_aaf_password
             user:
-              get_input: ves-pnfRegistration_topic4_aaf_username
+              get_input: ves-pnfRegistration_ves-pnfRegistration_topic_aaf_username
         streams_subscribes: {}
         auth.method: noAuth
         collector.dmaap.streamid:
@@ -218,45 +221,47 @@ node_templates:
             path: /opt/logs/DCAE/VESCollector/etc
       image:
         get_input: tag_version
+      location_id:
+        get_input: location_id
       service_component_type: dcae-ves-collector
       replicas:
         get_input: replicas
       streams_publishes:
-      - name: topic0
+      - name: ves-fault_topic
         location:
-          get_input: ves-fault_topic0_location
+          get_input: ves-fault_ves-fault_topic_location
         client_role:
-          get_input: ves-fault_topic0_client_role
+          get_input: ves-fault_ves-fault_topic_client_role
         type: message router
-      - name: topic1
+      - name: ves-measurement_topic
         location:
-          get_input: ves-measurement_topic1_location
+          get_input: ves-measurement_ves-measurement_topic_location
         client_role:
-          get_input: ves-measurement_topic1_client_role
+          get_input: ves-measurement_ves-measurement_topic_client_role
         type: message router
-      - name: topic2
+      - name: ves-other_topic
         location:
-          get_input: ves-other_topic2_location
+          get_input: ves-other_ves-other_topic_location
         client_role:
-          get_input: ves-other_topic2_client_role
+          get_input: ves-other_ves-other_topic_client_role
         type: message router
-      - name: topic3
+      - name: ves-heartbeat-secondary_topic
         location:
-          get_input: ves-heartbeat-secondary_topic3_location
+          get_input: ves-heartbeat-secondary_ves-heartbeat-secondary_topic_location
         client_role:
-          get_input: ves-heartbeat-secondary_topic3_client_role
+          get_input: ves-heartbeat-secondary_ves-heartbeat-secondary_topic_client_role
         type: message router
-      - name: topic4
+      - name: ves-pnfRegistration_topic
         location:
-          get_input: ves-pnfRegistration_topic4_location
+          get_input: ves-pnfRegistration_ves-pnfRegistration_topic_location
         client_role:
-          get_input: ves-pnfRegistration_topic4_client_role
+          get_input: ves-pnfRegistration_ves-pnfRegistration_topic_client_role
         type: message router
-      - name: topic5
+      - name: ves-notification_topic
         location:
-          get_input: ves-notification_topic5_location
+          get_input: ves-notification_ves-notification_topic_location
         client_role:
-          get_input: ves-notification_topic5_client_role
+          get_input: ves-notification_ves-notification_topic_client_role
         type: message router
       resource_config:
         limits:
@@ -271,44 +276,44 @@ node_templates:
             get_input: dcae-ves-collector_memory_request
     relationships:
     - type: ccsdk.relationships.publish_events
-      target: topic0
+      target: ves-fault_topic
     - type: ccsdk.relationships.publish_events
-      target: topic1
+      target: ves-measurement_topic
     - type: ccsdk.relationships.publish_events
-      target: topic2
+      target: ves-other_topic
     - type: ccsdk.relationships.publish_events
-      target: topic3
+      target: ves-heartbeat-secondary_topic
     - type: ccsdk.relationships.publish_events
-      target: topic4
+      target: ves-pnfRegistration_topic
     - type: ccsdk.relationships.publish_events
-      target: topic5
-  topic0:
+      target: ves-notification_topic
+  ves-fault_topic:
     type: ccsdk.nodes.Topic
     properties:
       topic_name:
-        get_input: topic0_name
-  topic1:
+        get_input: ves-fault_topic_name
+  ves-heartbeat-secondary_topic:
     type: ccsdk.nodes.Topic
     properties:
       topic_name:
-        get_input: topic1_name
-  topic2:
+        get_input: ves-heartbeat-secondary_topic_name
+  ves-measurement_topic:
     type: ccsdk.nodes.Topic
     properties:
       topic_name:
-        get_input: topic2_name
-  topic3:
+        get_input: ves-measurement_topic_name
+  ves-notification_topic:
     type: ccsdk.nodes.Topic
     properties:
       topic_name:
-        get_input: topic3_name
-  topic4:
+        get_input: ves-notification_topic_name
+  ves-other_topic:
     type: ccsdk.nodes.Topic
     properties:
       topic_name:
-        get_input: topic4_name
-  topic5:
+        get_input: ves-other_topic_name
+  ves-pnfRegistration_topic:
     type: ccsdk.nodes.Topic
     properties:
       topic_name:
-        get_input: topic5_name
+        get_input: ves-pnfRegistration_topic_name
