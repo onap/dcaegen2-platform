@@ -1,29 +1,11 @@
-#  ============LICENSE_START=======================================================
-#    org.onap.dcae
-#    ================================================================================
-#    Copyright (c) 2019-2020 AT&T Intellectual Property. All rights reserved.
-#    ================================================================================
-#    Licensed under the Apache License, Version 2.0 (the "License");
-#    you may not use this file except in compliance with the License.
-#    You may obtain a copy of the License at
-#
-#    http://www.apache.org/licenses/LICENSE-2.0
-#
-#    Unless required by applicable law or agreed to in writing, software
-#    distributed under the License is distributed on an "AS IS" BASIS,
-#    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-#    See the License for the specific language governing permissions and
-#    limitations under the License.
-#    ============LICENSE_END=========================================================
-#
-#
+
 #description: Collector for receiving VES events through restful interface
 #blueprint_version: 1.5.0
 ---
 tosca_definitions_version: cloudify_dsl_1_3
 imports:
-- https://www.getcloudify.org/spec/cloudify/4.5.5/types.yaml
-- https://nexus.onap.org/service/local/repositories/raw/content/org.onap.dcaegen2.platform.plugins/R6/k8splugin/1.7.1/k8splugin_types.yaml
+- http://www.getcloudify.org/spec/cloudify/3.4/types.yaml
+- https://nexus.onap.org/service/local/repositories/raw/content/org.onap.dcaegen2.platform.plugins/R6/k8splugin/1.7.2/k8splugin_types.yaml
 inputs:
   always_pull_image:
     type: boolean
@@ -82,7 +64,7 @@ inputs:
     type: string
 node_templates:
   dcae-ves-collector:
-    type: dcae.nodes.ContainerizedPlatformComponent
+    type: dcae.nodes.ContainerizedServiceComponent
     interfaces:
       cloudify.interfaces.lifecycle:
         start:
@@ -148,7 +130,7 @@ node_templates:
         healthcheck:
           interval: 15s
           timeout: 1s
-          type: https
+          type: http
           endpoint: /healthcheck
         volumes:
         - container:
@@ -167,10 +149,9 @@ node_templates:
         get_input: image
       location_id:
         get_input: location_id
-      dns_name: dcae-ves-collector
+      service_component_type: dcae-ves-collector
       replicas:
         get_input: replicas
-      name: dcae-ves-collector
       resource_config:
         limits:
           cpu:
