@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "19a4e838_9a001724",
+        "filename": "mod/component-json-schemas/component-specification/dcae-cli-v2/component-spec-schema.json",
+        "patchSetId": 15
+      },
+      "lineNbr": 810,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-07-02T14:48:19Z",
+      "side": 1,
+      "message": "If option1 (to consolidate truststore is adopted), which path will be used by the components (cert_directory or external_cert_directory) for retrieving the truststores?\n\nWould it make to sense to use single propert (cert_directory) path in spec? If so an \"external\" flag can be under under \"tls_info\" block and that can be used determine if external cert is required.",
+      "range": {
+        "startLine": 810,
+        "startChar": 13,
+        "endLine": 810,
+        "endChar": 36
+      },
+      "revId": "775b6cbcfedf09854b11baddbe9eafeaace1173d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}

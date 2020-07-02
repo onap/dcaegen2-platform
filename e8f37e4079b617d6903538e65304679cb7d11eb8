@@ -261,6 +261,30 @@
     },
     {
       "key": {
+        "uuid": "7692634c_f4107357",
+        "filename": "mod/bpgenerator/src/test/java/org/onap/blueprintgenerator/core/BlueprintGeneratorTest.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-07-02T14:48:19Z",
+      "side": 1,
+      "message": "I understand; my comment were towards specific properties being sourced from spec file itself",
+      "parentUuid": "36ebf5b3_1fb0feb6",
+      "range": {
+        "startLine": 425,
+        "startChar": 0,
+        "endLine": 429,
+        "endChar": 76
+      },
+      "revId": "e8f37e4079b617d6903538e65304679cb7d11eb8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3b5539c9_1eeff230",
         "filename": "mod/component-json-schemas/component-specification/dcae-cli-v2/component-spec-schema.json",
         "patchSetId": 14
@@ -320,6 +344,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "64e51588_2cab529a",
+      "range": {
+        "startLine": 818,
+        "startChar": 13,
+        "endLine": 818,
+        "endChar": 20
+      },
+      "revId": "e8f37e4079b617d6903538e65304679cb7d11eb8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03af41d5_fb0b17f4",
+        "filename": "mod/component-json-schemas/component-specification/dcae-cli-v2/component-spec-schema.json",
+        "patchSetId": 14
+      },
+      "lineNbr": 818,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-07-02T14:48:19Z",
+      "side": 1,
+      "message": "Pawel - Yes, my suggestion was to remove from spec file and have it included by default on bp-gen output (values can be defaulted to \"\" or some other string - which must overridden via bp- input).\n\nExcept for use_external_tls and external_cert_directory, all other new properties (ca_name, external_certificate_parameters), are not required from onboarding standpoint to be provided by a developer (as component_spec definition). Other properties seem more of deployment configuration and can be driven as blueprint input (this will provide delienation between design time and runtime properties).\n\n\nThe intent is a single spec can be used for onboarding MS into DCAE but used for multiple instantiation (with different deployment config). Binding those parameters in component_spec will require change each time when deploy configuration has to be modified.",
+      "parentUuid": "73b0420e_11fe59d7",
       "range": {
         "startLine": 818,
         "startChar": 13,
