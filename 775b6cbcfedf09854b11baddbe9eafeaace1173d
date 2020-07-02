@@ -22,6 +22,30 @@
       "revId": "775b6cbcfedf09854b11baddbe9eafeaace1173d",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "72ae2476_0028b0a2",
+        "filename": "mod/component-json-schemas/component-specification/dcae-cli-v2/component-spec-schema.json",
+        "patchSetId": 15
+      },
+      "lineNbr": 810,
+      "author": {
+        "id": 5775
+      },
+      "writtenOn": "2020-07-02T15:15:03Z",
+      "side": 1,
+      "message": "Definitely cert_directory!\n\nHmmm, I was thinking about this. Probably I was wrong. We can use the same K8s ephemeral volume between two init containers (DCAE TLS init and CMPv2 init) and application container. Some days ago I have sent to you my idea:\n\n•\tRegarding reusing certdirectory: \no\tWe can use such property, but within provided directory create subdirectory (e.g. external) to avoid name conflicts.\n\n\nSo, property can be one, but K8s plugin in env property for CMPv2 init container will append cert_directory with /external.",
+      "parentUuid": "19a4e838_9a001724",
+      "range": {
+        "startLine": 810,
+        "startChar": 13,
+        "endLine": 810,
+        "endChar": 36
+      },
+      "revId": "775b6cbcfedf09854b11baddbe9eafeaace1173d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
