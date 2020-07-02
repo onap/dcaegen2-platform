@@ -188,6 +188,30 @@
     },
     {
       "key": {
+        "uuid": "64e51588_2cab529a",
+        "filename": "mod/component-json-schemas/component-specification/dcae-cli-v2/component-spec-schema.json",
+        "patchSetId": 14
+      },
+      "lineNbr": 818,
+      "author": {
+        "id": 5775
+      },
+      "writtenOn": "2020-07-02T08:52:34Z",
+      "side": 1,
+      "message": "It can\u0027t be. CA_NAME is not hardcoded within ONAP. Whoever will integrate ONAP with CMPv2 can configure it multiple times (e.g. different CA hierarchies) under different names. \nCan happen that in multi-site deployment EDGE collectors would have to have different CA_NAME than central collectors.",
+      "parentUuid": "3b5539c9_1eeff230",
+      "range": {
+        "startLine": 818,
+        "startChar": 13,
+        "endLine": 818,
+        "endChar": 20
+      },
+      "revId": "e8f37e4079b617d6903538e65304679cb7d11eb8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f64fd1af_ed69e5b3",
         "filename": "mod/component-json-schemas/component-specification/dcae-cli-v2/component-spec-schema.json",
         "patchSetId": 14
@@ -199,6 +223,30 @@
       "writtenOn": "2020-07-01T22:52:46Z",
       "side": 1,
       "message": "same comment as above",
+      "range": {
+        "startLine": 822,
+        "startChar": 13,
+        "endLine": 822,
+        "endChar": 44
+      },
+      "revId": "e8f37e4079b617d6903538e65304679cb7d11eb8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5d95ec6_aa9e8809",
+        "filename": "mod/component-json-schemas/component-specification/dcae-cli-v2/component-spec-schema.json",
+        "patchSetId": 14
+      },
+      "lineNbr": 822,
+      "author": {
+        "id": 5775
+      },
+      "writtenOn": "2020-07-02T08:52:34Z",
+      "side": 1,
+      "message": "Different collectors may have different default CN and SANs. \nOr you have in mind that such won\u0027t be present in component spec but will be available in generated blueprint? But in such a way all collectors will have the same default CN and SANs.",
+      "parentUuid": "f64fd1af_ed69e5b3",
       "range": {
         "startLine": 822,
         "startChar": 13,
