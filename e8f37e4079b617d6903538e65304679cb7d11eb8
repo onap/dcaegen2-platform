@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4252d1c5_8121cb9f",
+        "filename": "mod/bpgenerator/TestCases/testComponentSpec_withExternalTlsInfo.json",
+        "patchSetId": 14
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-07-02T11:57:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb4b35ae_725c722a",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 4
+      },
+      "revId": "e8f37e4079b617d6903538e65304679cb7d11eb8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0790d1d0_b7496ab5",
         "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/ExternalTlsInfo.java",
         "patchSetId": 14
@@ -72,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "015898d7_6adc3b89",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/ExternalTlsInfo.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-07-02T11:57:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f7a5d69_ae937c65",
+      "range": {
+        "startLine": 84,
+        "startChar": 4,
+        "endLine": 84,
+        "endChar": 41
+      },
+      "revId": "e8f37e4079b617d6903538e65304679cb7d11eb8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "902d7818_eb119fd8",
         "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/ExternalTlsInfo.java",
         "patchSetId": 14
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "69750921_37d717bd",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/ExternalTlsInfo.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-07-02T11:57:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "902d7818_eb119fd8",
+      "range": {
+        "startLine": 125,
+        "startChar": 5,
+        "endLine": 125,
+        "endChar": 50
+      },
+      "revId": "e8f37e4079b617d6903538e65304679cb7d11eb8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "633ec42c_29487c8c",
         "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/ExternalTlsInfo.java",
         "patchSetId": 14
@@ -115,6 +187,30 @@
       "revId": "e8f37e4079b617d6903538e65304679cb7d11eb8",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5caf96a3_0ff0c7cd",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/ExternalTlsInfo.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-07-02T11:57:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "633ec42c_29487c8c",
+      "range": {
+        "startLine": 132,
+        "startChar": 5,
+        "endLine": 132,
+        "endChar": 43
+      },
+      "revId": "e8f37e4079b617d6903538e65304679cb7d11eb8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -212,6 +308,30 @@
     },
     {
       "key": {
+        "uuid": "73b0420e_11fe59d7",
+        "filename": "mod/component-json-schemas/component-specification/dcae-cli-v2/component-spec-schema.json",
+        "patchSetId": 14
+      },
+      "lineNbr": 818,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-07-02T11:57:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64e51588_2cab529a",
+      "range": {
+        "startLine": 818,
+        "startChar": 13,
+        "endLine": 818,
+        "endChar": 20
+      },
+      "revId": "e8f37e4079b617d6903538e65304679cb7d11eb8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f64fd1af_ed69e5b3",
         "filename": "mod/component-json-schemas/component-specification/dcae-cli-v2/component-spec-schema.json",
         "patchSetId": 14
@@ -256,6 +376,30 @@
       "revId": "e8f37e4079b617d6903538e65304679cb7d11eb8",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbf08c38_1710dad1",
+        "filename": "mod/component-json-schemas/component-specification/dcae-cli-v2/component-spec-schema.json",
+        "patchSetId": 14
+      },
+      "lineNbr": 822,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-07-02T11:57:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5d95ec6_aa9e8809",
+      "range": {
+        "startLine": 822,
+        "startChar": 13,
+        "endLine": 822,
+        "endChar": 44
+      },
+      "revId": "e8f37e4079b617d6903538e65304679cb7d11eb8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
