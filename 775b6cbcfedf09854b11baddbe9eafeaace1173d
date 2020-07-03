@@ -94,6 +94,30 @@
       "revId": "775b6cbcfedf09854b11baddbe9eafeaace1173d",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03a0c64b_77de390b",
+        "filename": "mod/component-json-schemas/component-specification/dcae-cli-v2/component-spec-schema.json",
+        "patchSetId": 15
+      },
+      "lineNbr": 810,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-07-03T09:21:43Z",
+      "side": 1,
+      "message": "Can be done, but few issues I would like to be addressed, assuming we add use_external_tls to tls_info.\n1. Should the use_external_tls flag be a required field of tls_info?\n1a. If required - schema won\u0027t be backward compatibile so we should create dcae-cli-v3 schema? Should we anyhow use dcae-cli-v3-draft, as far is I have seen it has errors and is missing some stuff from dcae-cli-v2.\n1b. If not required - how null value should be handled? Should it default to false or should it skip adding external tls to blueprint?\n2. Is current output of bpgenerator satysfying? Meaning that tls_info and exteral_tls_info should be left as separate objects or put together somehow?",
+      "parentUuid": "a01aaf6f_5fe30744",
+      "range": {
+        "startLine": 810,
+        "startChar": 13,
+        "endLine": 810,
+        "endChar": 36
+      },
+      "revId": "775b6cbcfedf09854b11baddbe9eafeaace1173d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
