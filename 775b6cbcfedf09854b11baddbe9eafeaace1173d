@@ -118,6 +118,30 @@
       "revId": "775b6cbcfedf09854b11baddbe9eafeaace1173d",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0bd38491_6d54f0e1",
+        "filename": "mod/component-json-schemas/component-specification/dcae-cli-v2/component-spec-schema.json",
+        "patchSetId": 15
+      },
+      "lineNbr": 810,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-07-03T15:16:59Z",
+      "side": 1,
+      "message": "Hi Remiguiusz, \n1. use_external_tls should be optional\n1.b - If use_external_tls  is not specified,  skip adding external tls to blueprint\n2. I believe separate object for tls_info and external_tls_info on the blueprint is preferred (I dont see the example, is that something you can add part of test resource for each of spec included)? Also you could add a case for both use_tls and use_external_tls as true in test (though current components will not need it, will be good to include it under test)",
+      "parentUuid": "03a0c64b_77de390b",
+      "range": {
+        "startLine": 810,
+        "startChar": 13,
+        "endLine": 810,
+        "endChar": 36
+      },
+      "revId": "775b6cbcfedf09854b11baddbe9eafeaace1173d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
