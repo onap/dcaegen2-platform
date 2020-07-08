@@ -142,6 +142,30 @@
       "revId": "775b6cbcfedf09854b11baddbe9eafeaace1173d",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "579a3215_72c5aa95",
+        "filename": "mod/component-json-schemas/component-specification/dcae-cli-v2/component-spec-schema.json",
+        "patchSetId": 15
+      },
+      "lineNbr": 810,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-07-08T08:48:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bd38491_6d54f0e1",
+      "range": {
+        "startLine": 810,
+        "startChar": 13,
+        "endLine": 810,
+        "endChar": 36
+      },
+      "revId": "775b6cbcfedf09854b11baddbe9eafeaace1173d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }

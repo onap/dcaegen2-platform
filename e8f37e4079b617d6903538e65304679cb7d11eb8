@@ -285,6 +285,30 @@
     },
     {
       "key": {
+        "uuid": "4643b46f_48e0d67e",
+        "filename": "mod/bpgenerator/src/test/java/org/onap/blueprintgenerator/core/BlueprintGeneratorTest.java",
+        "patchSetId": 14
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-07-08T08:48:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7692634c_f4107357",
+      "range": {
+        "startLine": 425,
+        "startChar": 0,
+        "endLine": 429,
+        "endChar": 76
+      },
+      "revId": "e8f37e4079b617d6903538e65304679cb7d11eb8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b5539c9_1eeff230",
         "filename": "mod/component-json-schemas/component-specification/dcae-cli-v2/component-spec-schema.json",
         "patchSetId": 14
