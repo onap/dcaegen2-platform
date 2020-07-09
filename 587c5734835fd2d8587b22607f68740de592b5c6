@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "56097954_f1059e6f",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/ExternalTlsInfo.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-07-09T14:10:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "faa91956_990cfe52",
+      "range": {
+        "startLine": 43,
+        "startChar": 1,
+        "endLine": 43,
+        "endChar": 43
+      },
+      "revId": "587c5734835fd2d8587b22607f68740de592b5c6",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bc9faad2_1ab383cc",
         "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/Properties.java",
         "patchSetId": 22
@@ -45,6 +69,30 @@
       "revId": "587c5734835fd2d8587b22607f68740de592b5c6",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b17df8ab_3e4af6e8",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/Properties.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-07-09T14:10:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc9faad2_1ab383cc",
+      "range": {
+        "startLine": 277,
+        "startChar": 61,
+        "endLine": 277,
+        "endChar": 75
+      },
+      "revId": "587c5734835fd2d8587b22607f68740de592b5c6",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
