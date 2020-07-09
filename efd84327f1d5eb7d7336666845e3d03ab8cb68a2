@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8981fe3f_35e01c64",
+        "filename": "mod/bpgenerator/TestCases/TlsInfo/testComponentSpec_withTlsFalseAndExternalTlsFalse.json",
+        "patchSetId": 21
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-07-09T05:38:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4fe5664b_96a0b733",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 12
+      },
+      "revId": "efd84327f1d5eb7d7336666845e3d03ab8cb68a2",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ec694d5_fcd03d9c",
         "filename": "mod/bpgenerator/TestCases/TlsInfo/testComponentSpec_withTlsTrueAndExternalTlsTrue.json",
         "patchSetId": 21
@@ -45,6 +69,30 @@
       "revId": "efd84327f1d5eb7d7336666845e3d03ab8cb68a2",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf6ea1ad_b2610c16",
+        "filename": "mod/bpgenerator/TestCases/TlsInfo/testComponentSpec_withTlsTrueAndExternalTlsTrue.json",
+        "patchSetId": 21
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-07-09T05:38:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ec694d5_fcd03d9c",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 12
+      },
+      "revId": "efd84327f1d5eb7d7336666845e3d03ab8cb68a2",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
