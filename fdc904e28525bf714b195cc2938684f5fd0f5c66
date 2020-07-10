@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bba4dbc1_901bbf49",
+        "filename": "mod/runtimeapi/runtime-core/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-07-10T15:51:22Z",
+      "side": 1,
+      "message": "version change?\n\nWould be good if version can be commonly managed from tree/mod/runtimeapi/pom.xml across both modules.",
+      "range": {
+        "startLine": 26,
+        "startChar": 17,
+        "endLine": 26,
+        "endChar": 22
+      },
+      "revId": "fdc904e28525bf714b195cc2938684f5fd0f5c66",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
