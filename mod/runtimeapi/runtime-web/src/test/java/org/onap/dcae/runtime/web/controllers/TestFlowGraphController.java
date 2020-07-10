@@ -29,6 +29,7 @@ import org.onap.dcae.runtime.web.TestUtils;
 import org.onap.dcae.runtime.web.models.Action;
 import org.onap.dcae.runtime.web.models.DistributeGraphRequest;
 import org.onap.dcae.runtime.web.models.GraphRequest;
+import org.onap.dcae.runtime.web.RuntimeapiApplication;
 import org.onap.dcae.runtime.web.service.GraphServiceImpl;
 import org.onap.dcae.runtime.web.service.BlueprintInventory;
 import org.junit.Before;
@@ -50,7 +51,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes=RuntimeapiApplication.class)
 @AutoConfigureMockMvc
 public class TestFlowGraphController {
 
@@ -76,6 +77,12 @@ public class TestFlowGraphController {
 	ClientMocking inv = new ClientMocking()
 		.on("POST /ccsdk-app/api-if", "\"OK\"")
 		.applyTo(blueprintInventory);
+    }
+
+    @Test
+    public void testSwaggerUi() throws Exception {
+    	mockMvc.perform(get("/swagger-ui.html"))
+		.andExpect(status().isOk());
     }
 
     @Test
