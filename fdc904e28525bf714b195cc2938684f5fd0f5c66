@@ -22,6 +22,23 @@
       "revId": "fdc904e28525bf714b195cc2938684f5fd0f5c66",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0937f483_8d5b258f",
+        "filename": "mod/runtimeapi/runtime-core/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1907
+      },
+      "writtenOn": "2020-07-13T15:14:14Z",
+      "side": 1,
+      "message": "No.  runtime-core is not deployable/releaseable.  It is internal to runtimeapi builds only.  The only persistent product of the runtimeapi build is the actual docker image, which gets its version from the runtime-web pom.xml (which is also why runtime-web/pom.xml is the only one with -SNAPSHOT in its version.  There is absolutely no benefit to changing the version of the runtime-core.",
+      "revId": "fdc904e28525bf714b195cc2938684f5fd0f5c66",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
