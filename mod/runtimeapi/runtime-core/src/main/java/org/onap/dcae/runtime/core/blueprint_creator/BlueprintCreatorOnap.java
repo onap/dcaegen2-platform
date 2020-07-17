@@ -31,6 +31,7 @@ public class BlueprintCreatorOnap implements BlueprintCreator{
 
     private String topicUrl;
     private String importFilePath;
+    private boolean useDmaapPlugin;
 
     public void setTopicUrl(String topicUrl) {
         this.topicUrl = topicUrl;
@@ -40,11 +41,15 @@ public class BlueprintCreatorOnap implements BlueprintCreator{
         this.importFilePath = importFilePath;
     }
 
+    public void setUseDmaapPlugin(boolean useDmaapPlugin) {
+    	this.useDmaapPlugin = useDmaapPlugin;
+    }
+
     @Override
     public String createBlueprint(String componentSpecString) {
         ComponentSpec componentSpec = new ComponentSpec();
         componentSpec.createComponentSpecFromString(componentSpecString);
-        Blueprint blueprint = new Blueprint().createBlueprint(componentSpec,"",'o',importFilePath,"");
+        Blueprint blueprint = new Blueprint().createBlueprint(componentSpec,"",useDmaapPlugin?'d':'o',importFilePath,"");
         return blueprint.blueprintToString();
     }
 

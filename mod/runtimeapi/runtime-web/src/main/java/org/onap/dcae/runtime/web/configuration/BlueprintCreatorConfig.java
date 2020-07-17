@@ -47,6 +47,9 @@ public class BlueprintCreatorConfig {
     @Value("${onap.topicUrl}")
     String onapDublinTopicUrl;
 
+    @Value("${onap.useDmaapPlugin}")
+    boolean useDmaapPlugin;
+
     @Value("${onap.import.cloudifyPlugin}")
     String onapDublinImportCloudifyPlugin;
 
@@ -72,6 +75,7 @@ public class BlueprintCreatorConfig {
     public FlowGraphParser getFlowGraphParserForOnapDublin(){
         BlueprintCreatorOnap blueprintCreatorOnap = new BlueprintCreatorOnap();
         blueprintCreatorOnap.setImportFilePath(writeImportsTofile());
+        blueprintCreatorOnap.setUseDmaapPlugin(useDmaapPlugin);
         FlowGraphParser flowGraphParser = new FlowGraphParser(blueprintCreatorOnap);
         return flowGraphParser;
     }
