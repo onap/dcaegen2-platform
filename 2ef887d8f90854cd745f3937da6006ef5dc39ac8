@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0dc6e75f_0dc89d6b",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/common/blueprint/BlueprintHelper.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-07-20T06:06:14Z",
+      "side": 1,
+      "message": "I think class should have private constructor throwing UnsupportedOperationException or @UtilityClass lombok annotation.",
+      "revId": "2ef887d8f90854cd745f3937da6006ef5dc39ac8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f18e0a32_40de4952",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/Properties.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-07-20T06:06:14Z",
+      "side": 1,
+      "message": "Keep consistent formatting.",
+      "revId": "2ef887d8f90854cd745f3937da6006ef5dc39ac8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ead77dc1_762d4ce3",
+        "filename": "mod/bpgenerator/src/test/java/org/onap/blueprintgenerator/core/BlueprintGeneratorTest.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-07-20T06:06:14Z",
+      "side": 1,
+      "message": "Tested in TlsInfoTest class",
+      "range": {
+        "startLine": 405,
+        "startChar": 0,
+        "endLine": 455,
+        "endChar": 5
+      },
+      "revId": "2ef887d8f90854cd745f3937da6006ef5dc39ac8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
