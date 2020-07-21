@@ -36,6 +36,29 @@
     },
     {
       "key": {
+        "uuid": "ea36291c_2717633d",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/tls/api/ExternalCertificateDataFactory.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-07-21T09:15:48Z",
+      "side": 1,
+      "message": "Unused imports",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 21
+      },
+      "revId": "2ef887d8f90854cd745f3937da6006ef5dc39ac8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ead77dc1_762d4ce3",
         "filename": "mod/bpgenerator/src/test/java/org/onap/blueprintgenerator/core/BlueprintGeneratorTest.java",
         "patchSetId": 4
@@ -52,6 +75,29 @@
         "startChar": 0,
         "endLine": 455,
         "endChar": 5
+      },
+      "revId": "2ef887d8f90854cd745f3937da6006ef5dc39ac8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5a7432f_3efb1677",
+        "filename": "mod/bpgenerator/src/test/java/org/onap/blueprintgenerator/models/blueprint/tls/ExternalCertificateParametersFactoryTest.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-07-21T09:15:48Z",
+      "side": 1,
+      "message": "Unused import",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 70
       },
       "revId": "2ef887d8f90854cd745f3937da6006ef5dc39ac8",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
