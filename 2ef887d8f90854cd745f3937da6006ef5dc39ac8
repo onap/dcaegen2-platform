@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "30f29f60_4b9a3bf3",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/common/blueprint/BlueprintHelper.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-07-21T13:25:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0dc6e75f_0dc89d6b",
+      "revId": "2ef887d8f90854cd745f3937da6006ef5dc39ac8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f18e0a32_40de4952",
         "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/Properties.java",
         "patchSetId": 4
@@ -33,6 +51,24 @@
       "revId": "2ef887d8f90854cd745f3937da6006ef5dc39ac8",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff4c46a4_879dcba9",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/Properties.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-07-21T13:25:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f18e0a32_40de4952",
+      "revId": "2ef887d8f90854cd745f3937da6006ef5dc39ac8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "a9910b18_7be5f813",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/tls/api/ExternalCertificateDataFactory.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-07-21T13:25:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea36291c_2717633d",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 21
+      },
+      "revId": "2ef887d8f90854cd745f3937da6006ef5dc39ac8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ead77dc1_762d4ce3",
         "filename": "mod/bpgenerator/src/test/java/org/onap/blueprintgenerator/core/BlueprintGeneratorTest.java",
         "patchSetId": 4
@@ -70,6 +130,30 @@
       "writtenOn": "2020-07-20T06:06:14Z",
       "side": 1,
       "message": "Tested in TlsInfoTest class",
+      "range": {
+        "startLine": 405,
+        "startChar": 0,
+        "endLine": 455,
+        "endChar": 5
+      },
+      "revId": "2ef887d8f90854cd745f3937da6006ef5dc39ac8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e4ecc91_08f3ce44",
+        "filename": "mod/bpgenerator/src/test/java/org/onap/blueprintgenerator/core/BlueprintGeneratorTest.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-07-21T13:25:31Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "ead77dc1_762d4ce3",
       "range": {
         "startLine": 405,
         "startChar": 0,
@@ -102,6 +186,30 @@
       "revId": "2ef887d8f90854cd745f3937da6006ef5dc39ac8",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "704e48ee_568c1098",
+        "filename": "mod/bpgenerator/src/test/java/org/onap/blueprintgenerator/models/blueprint/tls/ExternalCertificateParametersFactoryTest.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-07-21T13:25:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5a7432f_3efb1677",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 70
+      },
+      "revId": "2ef887d8f90854cd745f3937da6006ef5dc39ac8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
