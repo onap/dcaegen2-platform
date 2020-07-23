@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "83891d54_42fcaff3",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/Properties.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 2837
+      },
+      "writtenOn": "2020-07-23T13:36:30Z",
+      "side": 1,
+      "message": "Since we do not introduced it.\nI would make this in separate commit.",
+      "parentUuid": "97151fe9_ac9e447c",
+      "revId": "eecc937fa678751b126b44a4f2702b8f4ce679fa",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "eec3a3cd_374b3f26",
         "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/Properties.java",
         "patchSetId": 5
@@ -47,6 +65,24 @@
       "writtenOn": "2020-07-22T12:51:30Z",
       "side": 1,
       "message": "According to clean code principles commented code should be removed (or explained why it should stay).",
+      "revId": "eecc937fa678751b126b44a4f2702b8f4ce679fa",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65acbca5_6711596a",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/Properties.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 2837
+      },
+      "writtenOn": "2020-07-23T13:36:30Z",
+      "side": 1,
+      "message": "Since we do not introduced it.\nI would make this in separate commit.",
+      "parentUuid": "eec3a3cd_374b3f26",
       "revId": "eecc937fa678751b126b44a4f2702b8f4ce679fa",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
@@ -115,6 +151,24 @@
       "writtenOn": "2020-07-22T12:51:30Z",
       "side": 1,
       "message": "commented code",
+      "revId": "eecc937fa678751b126b44a4f2702b8f4ce679fa",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e221716f_fe210fe8",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/dmaapbp/DmaapStreams.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 2837
+      },
+      "writtenOn": "2020-07-23T13:36:30Z",
+      "side": 1,
+      "message": "Since we do not introduced it.\nI would make this in separate commit.",
+      "parentUuid": "07afcde2_a2a02c38",
       "revId": "eecc937fa678751b126b44a4f2702b8f4ce679fa",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
