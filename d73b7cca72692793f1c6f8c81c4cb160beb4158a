@@ -22,6 +22,30 @@
       "revId": "d73b7cca72692793f1c6f8c81c4cb160beb4158a",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18840574_3b4e0ca6",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/dmaap/DmaapInfo.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-07-27T08:06:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cb35cfd_b52d25a2",
+      "range": {
+        "startLine": 72,
+        "startChar": 1,
+        "endLine": 74,
+        "endChar": 55
+      },
+      "revId": "d73b7cca72692793f1c6f8c81c4cb160beb4158a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
