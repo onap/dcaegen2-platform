@@ -25,6 +25,10 @@ RUN apt-get update && \
     apt-get install -y npm nodejs && \
     npm -v && \
     npm install -g protobuf-jsonschema && \
+    mkdir schemas && \
+    wget -O schemas/schema.json 'https://json-schema.org/draft-04/schema#' && \
+    wget -O schemas/compspec.json https://git.onap.org/dcaegen2/platform/plain/mod/component-json-schemas/component-specification/dcae-cli-v2/component-spec-schema.json && \
+    wget -O schemas/dataformat.json https://git.onap.org/dcaegen2/platform/plain/mod/component-json-schemas/data-format/dcae-cli-v1/data-format-schema.json && \
     cd /tmp/build/ && \
     python setup.py install && \
     cd / && \

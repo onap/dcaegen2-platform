@@ -1,7 +1,7 @@
 # ============LICENSE_START=======================================================
 # org.onap.dcae
 # ================================================================================
-# Copyright (c) 2017-2018 AT&T Intellectual Property. All rights reserved.
+# Copyright (c) 2017-2020 AT&T Intellectual Property. All rights reserved.
 # ================================================================================
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -65,16 +65,23 @@ log = get_logger('Schema')
 class FetchSchemaError(RuntimeError):
     pass
 
-def _fetch_schema(schema_path):
-    try:
-        server_url = cli_config.get_server_url()
-        return fetch_file_from_web(server_url, schema_path)
-    except requests.HTTPError as e:
-        raise FetchSchemaError("HTTP error from fetching schema", e)
-    except Exception as e:
-        raise FetchSchemaError("Unexpected error from fetching schema", e)
+class _Schema:
+    def __init__(self, path):
+      self.ret = None
+      self.path = path
 
+    def get(self):
+        try:
+            if self.ret is None:
+                with open(self.path, 'r') as f:
+                    self.ret = json.loads(f.read())
+            return self.ret
+        except Exception as e:
+            raise FetchSchemaError("Unexpected error from fetching schema", e)
 
+component_schema = _Schema('schemas/compspec.json')
+dataformat_schema = _Schema('schemas/dataformat.json')
+          
 def _safe_dict(obj):
     '''Returns a dict from a dict or json string'''
     if isinstance(obj, str):
@@ -82,7 +89,7 @@ def _safe_dict(obj):
     else:
         return obj
 
-def _validate(fetch_schema_func, schema_path, spec):
+def _validate(schema, spec):
     '''Validate the given spec
 
     Fetch the schema and then validate. Upon a error from fetching or validation,
@@ -100,15 +107,11 @@ def _validate(fetch_schema_func, schema_path, spec):
     Nothing, silence is golden
     '''
     try:
-        schema = fetch_schema_func(schema_path)
-        validate(_safe_dict(spec), schema)
+        validate(_safe_dict(spec), schema.get())
     except ValidationError as e:
         reraise_with_msg(e, as_dcae=True)
     except FetchSchemaError as e:
         reraise_with_msg(e, as_dcae=True)
-
-_validate_using_nexus = partial(_validate, _fetch_schema)
-
 
 def apply_defaults(properties_definition, properties):
     """Utility method to enforce expected defaults
@@ -157,7 +160,7 @@ def apply_defaults_docker_config(config):
     """
     # Apply health check defaults
     healthcheck_type = config["healthcheck"]["type"]
-    component_spec = _fetch_schema(cli_config.get_path_component_spec())
+    component_spec = component_schema.get()
 
     if healthcheck_type in ["http", "https"]:
         apply_defaults_func = partial(apply_defaults,
@@ -174,7 +177,7 @@ def apply_defaults_docker_config(config):
     return config
 
 def validate_component(spec):
-    _validate_using_nexus(cli_config.get_path_component_spec(), spec)
+    _validate(component_schema, spec)
 
     # REVIEW: Could not determine how to do this nicely in json schema. This is
     # not ideal. We want json schema to be the "it" for validation.
@@ -188,4 +191,4 @@ def validate_component(spec):
 
 def validate_format(spec):
     path = cli_config.get_path_data_format()
-    _validate_using_nexus(path, spec)
+    _validate(dataformat_schema, spec)

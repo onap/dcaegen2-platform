@@ -1,7 +1,7 @@
 # ============LICENSE_START====================================================
 # org.onap.dcae
 # =============================================================================
-# Copyright (c) 2019 AT&T Intellectual Property. All rights reserved.
+# Copyright (c) 2019-2020 AT&T Intellectual Property. All rights reserved.
 # =============================================================================
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,7 +19,6 @@
 import json
 import requests
 
-from testing_helpers import get_json_fixture as get_test_json
 from testing_helpers import get_fixture_path as get_test_file
 
 from aoconversion import docker_gen as aoc_docker_gen
@@ -157,11 +156,6 @@ _mockwebdata = {
     'https://acumos/artifacts/a2/content': _r(file=get_test_file('models/example-model/model.proto')),
     'https://acumos/artifacts/a3/content': _r(data=b'dummy zip archive data'),
     'https://acumos/artifacts/a4/content': _r(file=get_test_file('models/example-model/metadata.json')),
-    'http://json-schema.org/draft-04/schema#': _r(get_test_json('jsdraft4schema.json')),
-    'https://gerrit.onap.org/r/gitweb?p=dcaegen2/platform/cli.git;a=blob_plain;f=component-json-schemas/data-format/dcae-cli-v1/data-format-schema.json;hb=HEAD': _r(get_test_json('dataformat_101.json')),
-    'http://dcaeurl//component-json-schemas/data-format/dcae-cli-v1/data-format-schema.json': _r(get_test_json('dataformat_101.json')),
-    'https://gerrit.onap.org/r/gitweb?p=dcaegen2/platform/cli.git;a=blob_plain;f=component-json-schemas/component-specification/dcae-cli-v2/component-spec-schema.json;hb=HEAD': _r(get_test_json('dcae-cli-v2_component-spec-schema.json')),
-    'http://dcaeurl//component-json-schemas/component-specification/dcae-cli-v2/component-spec-schema.json': _r(get_test_json('dcae-cli-v2_component-spec-schema.json')),
 }
 
 
@@ -170,7 +164,7 @@ _mockwebdata = {
 #
 
 
-def test_aoconversion(tmpdir, monkeypatch):
+def test_aoconversion(mock_schemas, tmpdir, monkeypatch):
     config = aoc_scanner.Config(dcaeurl='http://dcaeurl', dcaeuser='dcaeuser', onboardingurl='https://onboarding', onboardinguser='obuser', onboardingpass='obpass', acumosurl='https://acumos', certfile=None, dockerregistry='dockerregistry', dockeruser='registryuser', dockerpass='registrypassword')
     monkeypatch.setattr(aoc_docker_gen, 'APIClient', _mockdocker.APIClient)
     monkeypatch.setattr(requests, 'get', _mockwww(_mockwebdata))

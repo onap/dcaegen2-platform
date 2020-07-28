@@ -1,7 +1,7 @@
 # ============LICENSE_START=======================================================
 # org.onap.dcae
 # ================================================================================
-# Copyright (c) 2017-2018 AT&T Intellectual Property. All rights reserved.
+# Copyright (c) 2017-2020 AT&T Intellectual Property. All rights reserved.
 # ================================================================================
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -40,16 +40,6 @@ def get_config_path():
     return os.path.join(get_app_dir(), 'config.json')
 
 
-def _init_config_user():
-    while True:
-        user = click.prompt('Please enter your user id', type=str).strip()
-
-        # There should be no special characters
-        if re.match("(?:\w*)\Z", user):
-            return user
-        else:
-            click.echo("Invalid user id. Please try again.")
-
 def _init_config_server_url():
     return click.prompt("Please enter the remote server url", type=str).strip()
 
@@ -78,8 +68,6 @@ def _init_config():
 
     # UPDATE: Keeping the server url even though the config was not found there.
     new_config["server_url"] = server_url
-    new_config["user"] = _init_config_user()
-    new_config["cli_version"] = _version.__version__
 
     if "db_url" not in new_config or not new_config["db_url"]:
         # The seed configuration was not provided so manually set up the db
@@ -93,11 +81,6 @@ def _init_config():
 
     return new_config
 
-
-def should_force_reinit(config):
-    """Configs older than 2.0.0 should be replaced"""
-    ver = config.get("cli_version", "0.0.0")
-    return int(ver.split(".")[0]) < 2
 
 def get_config():
     '''Returns the configuration dictionary'''

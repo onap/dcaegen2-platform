@@ -44,8 +44,6 @@ This operates in 2 modes:
 - A configuration file, in YAML format, containing the following keys must be
   available.
 
-  dcaeurl - The base URL for the DCAE component and data format schemas.  For
-    example, https://git.onap.org/dcaegen2/platform/cli/plain.
   dcaeuser - The DCAE user who will "own" the loaded data.
   onboardingurl - The URL for accessing the onboarding service.
   onboardinguser - The user ID for accessing the onboarding service.

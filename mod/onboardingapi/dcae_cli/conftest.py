@@ -1,7 +1,7 @@
 # ============LICENSE_START=======================================================
 # org.onap.dcae
 # ================================================================================
-# Copyright (c) 2018 AT&T Intellectual Property. All rights reserved.
+# Copyright (c) 2018-2020 AT&T Intellectual Property. All rights reserved.
 # ================================================================================
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -29,14 +29,22 @@ import dcae_cli
 # The pytest recommendation was to place this file high up in the project.
 
 @pytest.fixture
-def mock_cli_config(monkeypatch):
+def mock_schemas(monkeypatch):
+    import os
+    cwd = os.getcwd()
+    schemadir = cwd[:cwd.find('/onboardingapi')] + '/component-json-schemas'
+    monkeypatch.setattr(dcae_cli.catalog.mock.schema.component_schema, 'path', schemadir + '/component-specification/dcae-cli-v2/component-spec-schema.json')
+    monkeypatch.setattr(dcae_cli.catalog.mock.schema.dataformat_schema, 'path', schemadir + '/data-format/dcae-cli-v1/data-format-schema.json')
+    
+@pytest.fixture
+def mock_cli_config(mock_schemas, monkeypatch):
     """Fixture to provide a mock dcae-cli configuration and profiles
 
     This fixture monkeypatches the respective get calls to return mock objects
     """
     # NOTE: The component spec and data format in gerrit moved once already.
     # Might move again..
-    fake_config = { "active_profile": "default", "user": "bob",
+    fake_config = { "active_profile": "default",
             "server_url": "https://git.onap.org/dcaegen2/platform/cli/plain",
             "db_url": "postgresql://postgres:abc123@localhost:5432/dcae_onboarding_db",
             "path_component_spec": "/component-json-schemas/component-specification/dcae-cli-v2/component-spec-schema.json",

@@ -1,7 +1,7 @@
 # ============LICENSE_START=======================================================
 # org.onap.dcae
 # ================================================================================
-# Copyright (c) 2017-2018 AT&T Intellectual Property. All rights reserved.
+# Copyright (c) 2017-2020 AT&T Intellectual Property. All rights reserved.
 # ================================================================================
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -394,6 +394,8 @@ def test_validate():
 
     good_path = "/correct_path"
 
+    goodschema = schema._Schema(good_path)
+    goodschema.ret = fake_schema
     def fetch_schema(path):
         if path == good_path:
             return fake_schema
@@ -404,18 +406,20 @@ def test_validate():
 
     good_instance = { "foo": "hello", "bar": 1776 }
 
-    schema._validate(fetch_schema, good_path, good_instance)
+    schema._validate(goodschema, good_instance)
 
     # Error from validating
 
     bad_instance = {}
 
     with pytest.raises(DcaeException):
-        schema._validate(fetch_schema, good_path, bad_instance)
+        schema._validate(goodschema, bad_instance)
 
     # Error from fetching
 
     bad_path = "/wrong_path"
 
+    badschema = schema._Schema(bad_path)
+
     with pytest.raises(DcaeException):
-        schema._validate(fetch_schema, bad_path, good_instance)
+        schema._validate(badschema, good_instance)

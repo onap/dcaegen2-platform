@@ -1,7 +1,7 @@
 # ============LICENSE_START====================================================
 # org.onap.dcae
 # =============================================================================
-# Copyright (c) 2019 AT&T Intellectual Property. All rights reserved.
+# Copyright (c) 2019-2020 AT&T Intellectual Property. All rights reserved.
 # =============================================================================
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,20 +19,7 @@
 from subprocess import PIPE, Popen
 import json
 from jsonschema import validate
-import requests
 from aoconversion import utils, exceptions
-
-
-def _get_js_schema():
-    res = requests.get("http://json-schema.org/draft-04/schema#")
-    return res.json()
-
-
-def _get_dcae_df_schema():
-    res = requests.get(
-        "https://gerrit.onap.org/r/gitweb?p=dcaegen2/platform/cli.git;a=blob_plain;f=component-json-schemas/data-format/dcae-cli-v1/data-format-schema.json;hb=HEAD"
-    )
-    return res.json()
 
 
 def _protobuf_to_js(proto_path):
@@ -52,7 +39,7 @@ def _protobuf_to_js(proto_path):
         defs[defn.split(".")[1]] = defs.pop(defn)
 
     # make sure what we got out is a valid jsonschema
-    draft4 = _get_js_schema()
+    draft4 = utils.schema_schema.get()
     validate(instance=asjson, schema=draft4)
 
     return asjson
@@ -141,8 +128,8 @@ def generate_dcae_data_formats(model_repo_path, model_name):
     data_formats = _generate_dcae_data_formats(
         "{0}/{1}/model.proto".format(model_repo_path, model_name),
         utils.get_metadata(model_repo_path, model_name),
-        _get_dcae_df_schema(),
-        _get_js_schema(),
+        utils.dataformat_schema.get(),
+        utils.schema_schema.get()
     )
 
     # now we iterate over these and write a file to disk for each, since the dcae cli seems to want that

@@ -1,7 +1,7 @@
 # ============LICENSE_START====================================================
 # org.onap.dcae
 # =============================================================================
-# Copyright (c) 2019 AT&T Intellectual Property. All rights reserved.
+# Copyright (c) 2020 AT&T Intellectual Property. All rights reserved.
 # =============================================================================
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,21 +16,16 @@
 # limitations under the License.
 # ============LICENSE_END======================================================
 
-from setuptools import setup, find_packages
+import os
+import pytest
+import requests
+import aoconversion
 
-setup(
-    name="aoconversion",
-    version="1.0.3",
-    packages=find_packages(exclude=["tests.*", "tests"]),
-    author="Tommy Carpenter, Andrew Gauld",
-    author_email="tommy@research.att.com, agauld@att.com",
-    description="Service to create DCAE artifacts from acumos models",
-    url="",
-    install_requires=["docker>=4.0.0,<5.0.0", "jsonschema", "PyYAML", "requests"],
-    package_data={'aoconversion': ['index.html']},
-    entry_points={
-      "console_scripts": [
-        "acumos-adapter=aoconversion.adapter:adapter"
-      ]
-    }
-)
+
+@pytest.fixture
+def mock_schemas(monkeypatch):
+    cwd = os.getcwd()
+    schemadir = cwd[:cwd.find('/adapter/acumos')] + '/mod/component-json-schemas'
+    monkeypatch.setattr(aoconversion.utils.component_schema, 'path', schemadir + '/component-specification/dcae-cli-v2/component-spec-schema.json')
+    monkeypatch.setattr(aoconversion.utils.dataformat_schema, 'path', schemadir + '/data-format/dcae-cli-v1/data-format-schema.json')
+    monkeypatch.setattr(aoconversion.utils.schema_schema, 'ret', requests.get('https://json-schema.org/draft-04/schema#').json())

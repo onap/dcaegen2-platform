@@ -1,7 +1,7 @@
 # ============LICENSE_START=======================================================
 # org.onap.dcae
 # ================================================================================
-# Copyright (c) 2017 AT&T Intellectual Property. All rights reserved.
+# Copyright (c) 2017-2020 AT&T Intellectual Property. All rights reserved.
 # ================================================================================
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -73,11 +73,6 @@ def cli(ctx, verbose):
 
     if 'config' not in ctx.obj:
         config = conf.get_config()
-
-        if conf.should_force_reinit(config):
-            if click.confirm("You must reinitialize your dcae-cli configuration. Reinitialize now?",
-                    abort=True):
-                _reinit_cli()
 
         ctx.obj['config'] = config
     else:
