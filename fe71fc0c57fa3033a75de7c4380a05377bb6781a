@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d9780ab3_e2ca8cb8",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/core/PgaasNodeBuilder.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 2807
+      },
+      "writtenOn": "2020-07-28T08:11:17Z",
+      "side": 1,
+      "message": "Please consider to unfold this.",
+      "range": {
+        "startLine": 32,
+        "startChar": 17,
+        "endLine": 32,
+        "endChar": 18
+      },
+      "revId": "fe71fc0c57fa3033a75de7c4380a05377bb6781a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
