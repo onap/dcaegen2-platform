@@ -40,8 +40,8 @@ def test_basic(monkeypatch, tmpdir, mock_db_url):
 
     # Setup config
     test_db_url = mock_db_url
-    config_dict = { "user": "ninny", "active_profile": "fake-solutioning",
-            "db_url": test_db_url, "cli_version": "2.0.0" }
+    config_dict = { "active_profile": "fake-solutioning",
+            "db_url": test_db_url }
     config_file = tmpdir.join("config.json")
     config_file.write(json.dumps(config_dict))
 

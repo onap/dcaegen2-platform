@@ -1,7 +1,7 @@
 # ============LICENSE_START====================================================
 # org.onap.dcae
 # =============================================================================
-# Copyright (c) 2019 AT&T Intellectual Property. All rights reserved.
+# Copyright (c) 2019-2020 AT&T Intellectual Property. All rights reserved.
 # =============================================================================
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,22 +17,19 @@
 # ============LICENSE_END======================================================
 
 from testing_helpers import get_json_fixture, get_fixture_path
-from aoconversion import dataformat_gen, spec_gen
+from aoconversion import dataformat_gen, spec_gen, utils
 
 TEST_META = get_json_fixture("models/example-model/metadata.json")
-DRAFT_4_SCHEMA = get_json_fixture("jsdraft4schema.json")
-DF_101 = get_json_fixture("dataformat_101.json")
-CS_SCHEMA = get_json_fixture("dcae-cli-v2_component-spec-schema.json")
 
 
-def test_generate_spec():
+def test_generate_spec(mock_schemas):
     """
     Test generating data formats from the protobuf
     """
     test_proto_path = get_fixture_path("models/example-model/model.proto")
-    data_formats = dataformat_gen._generate_dcae_data_formats(test_proto_path, TEST_META, DF_101, DRAFT_4_SCHEMA)
+    data_formats = dataformat_gen._generate_dcae_data_formats(test_proto_path, TEST_META, utils.dataformat_schema.get(), utils.schema_schema.get())
     assert spec_gen._generate_spec(
-        "example-model", TEST_META, CS_SCHEMA, data_formats, "nexus01.fake.com:18443/example-model:latest"
+        "example-model", TEST_META, utils.component_schema.get(), data_formats, "nexus01.fake.com:18443/example-model:latest"
     ) == {
         "self": {
             "version": "1.0.0",

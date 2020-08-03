@@ -1,7 +1,7 @@
 # ============LICENSE_START====================================================
 # org.onap.dcae
 # =============================================================================
-# Copyright (c) 2019 AT&T Intellectual Property. All rights reserved.
+# Copyright (c) 2019-2020 AT&T Intellectual Property. All rights reserved.
 # =============================================================================
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,6 +17,30 @@
 # ============LICENSE_END======================================================
 
 import json
+
+
+class FetchSchemaError(RuntimeError):
+    pass
+
+
+class _Schema:
+    def __init__(self, path):
+        self.ret = None
+        self.path = path
+
+    def get(self):
+        try:
+            if self.ret is None:
+                with open(self.path, 'r') as f:
+                    self.ret = json.loads(f.read())
+            return self.ret
+        except Exception as e:
+            raise FetchSchemaError("Unexpected error from fetching schema", e)
+
+
+schema_schema = _Schema('schemas/schema.json')
+component_schema = _Schema('schemas/compspec.json')
+dataformat_schema = _Schema('schemas/dataformat.json')
 
 
 def get_metadata(model_repo_path, model_name):

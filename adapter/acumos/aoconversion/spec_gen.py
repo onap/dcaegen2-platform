@@ -1,7 +1,7 @@
 # ============LICENSE_START====================================================
 # org.onap.dcae
 # =============================================================================
-# Copyright (c) 2019 AT&T Intellectual Property. All rights reserved.
+# Copyright (c) 2019-2020 AT&T Intellectual Property. All rights reserved.
 # =============================================================================
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -23,15 +23,7 @@ Generates DCAE component specs
 
 import json
 from jsonschema import validate
-import requests
 from aoconversion import utils
-
-
-def _get_dcae_cs_schema():
-    res = requests.get(
-        "https://git.onap.org/dcaegen2/platform/plain/mod/component-json-schemas/component-specification/dcae-cli-v2/component-spec-schema.json"
-    )
-    return res.json()
 
 
 def _get_format_version(target_name, data_formats):
@@ -103,7 +95,7 @@ def generate_spec(model_repo_path, model_name, data_formats, docker_uri):
     Returns the spec
     """
     spec = _generate_spec(
-        model_name, utils.get_metadata(model_repo_path, model_name), _get_dcae_cs_schema(), data_formats, docker_uri
+        model_name, utils.get_metadata(model_repo_path, model_name), utils.component_schema.get(), data_formats, docker_uri
     )
     fname = "{0}_dcae_component_specification.json".format(model_name)
     with open("{0}/{1}".format(model_repo_path, fname), "w") as f:
