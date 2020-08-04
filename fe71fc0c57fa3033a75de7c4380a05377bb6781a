@@ -22,6 +22,30 @@
       "revId": "fe71fc0c57fa3033a75de7c4380a05377bb6781a",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "545605b6_ce6e4add",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/core/PgaasNodeBuilder.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-08-04T12:22:34Z",
+      "side": 1,
+      "message": "It will be done in next refactor MR.",
+      "parentUuid": "d9780ab3_e2ca8cb8",
+      "range": {
+        "startLine": 32,
+        "startChar": 17,
+        "endLine": 32,
+        "endChar": 18
+      },
+      "revId": "fe71fc0c57fa3033a75de7c4380a05377bb6781a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
