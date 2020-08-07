@@ -109,7 +109,7 @@ limitations under the License.
 							<name>onap/${project.groupId}.${project.artifactId}</name>
 							<registry>${onap.nexus.dockerregistry.daily}</registry>
 							<build>
-								<from>openjdk:8-jre-alpine</from>
+								<from>openjdk:11-jre-slim</from>
 								<tags>
 									<tag>latest</tag>
 									<tag>${project.version}</tag>
@@ -119,7 +119,7 @@ limitations under the License.
 									<descriptorRef>artifact</descriptorRef>
 								</assembly>
 								<runCmds>
-								  <runCmd>addgroup -g 1000 dcaemod &amp;&amp; adduser -s /bin/bash -u 1000 -G dcaemod -D dcaemod &amp;&amp; mkdir -p /maven/data &amp;&amp; chown -R dcaemod:dcaemod /maven/data</runCmd>
+								  <runCmd>groupadd -r dcaemod &amp;&amp; useradd -ms /bin/bash dcaemod -g dcaemod &amp;&amp; mkdir -p /maven/data &amp;&amp; chown -R dcaemod:dcaemod /maven/data</runCmd>
 								</runCmds>
 								<workdir>/maven</workdir>
 								<volumes>
