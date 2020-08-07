@@ -46,6 +46,125 @@
       "revId": "fe71fc0c57fa3033a75de7c4380a05377bb6781a",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1701982_c6774950",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/core/PolicyNodeBuilder.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-08-07T14:06:08Z",
+      "side": 1,
+      "message": "remove \u003d\u003d\u003d\u003d\u003d separator\nremove \"Modifications\"\n\nsame comment applies to other files as well",
+      "revId": "fe71fc0c57fa3033a75de7c4380a05377bb6781a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "840cff50_435b9a70",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/Properties.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-08-07T14:06:08Z",
+      "side": 1,
+      "message": "why not remove unused code?",
+      "revId": "fe71fc0c57fa3033a75de7c4380a05377bb6781a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15ccfe00_ba04c73c",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/dmaap/DmaapInfo.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-08-07T14:06:08Z",
+      "side": 1,
+      "message": "Because you did not use \"git mv\", this appears as a new file instead of a modified file. That makes it harder to look at differences.\n\nPlease use \"git mv\" in the future.",
+      "revId": "fe71fc0c57fa3033a75de7c4380a05377bb6781a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ef70a79_e05f5d8e",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/tls/ExternalCertificateParametersFactory.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-08-07T14:06:08Z",
+      "side": 1,
+      "message": "new code should have javadocs on class and public methods",
+      "revId": "fe71fc0c57fa3033a75de7c4380a05377bb6781a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b3544c9_130869a8",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/tls/ExternalTlsInfoFactory.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-08-07T14:06:08Z",
+      "side": 1,
+      "message": "new code should have javadocs on class and public methods",
+      "revId": "fe71fc0c57fa3033a75de7c4380a05377bb6781a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c5f49e8_7aabd50e",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/dmaapbp/DmaapNode.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-08-07T14:06:08Z",
+      "side": 1,
+      "message": "add \nCopyright (c) 2020 Nokia . . .",
+      "revId": "fe71fc0c57fa3033a75de7c4380a05377bb6781a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3dcfaf26_78d1945d",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/dmaapbp/DmaapStreams.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-08-07T14:06:08Z",
+      "side": 1,
+      "message": "add \nCopyright (c) 2020 Nokia . . .",
+      "revId": "fe71fc0c57fa3033a75de7c4380a05377bb6781a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
