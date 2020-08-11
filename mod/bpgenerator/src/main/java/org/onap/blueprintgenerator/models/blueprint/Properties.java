@@ -22,6 +22,7 @@ package org.onap.blueprintgenerator.models.blueprint;
 
 import static org.onap.blueprintgenerator.models.blueprint.tls.TlsConstants.USE_EXTERNAL_TLS_FIELD;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import java.util.ArrayList;
@@ -64,6 +65,7 @@ public class Properties {
     private ResourceConfig resource_config;
     private GetInput always_pull_image;
     //private boolean useExisting;
+    @JsonIgnore
     private ExternalTlsInfoFactory externalCertFactory;
 
     public Properties() {
