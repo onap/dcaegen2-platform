@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0df57b6_912dec04",
+        "filename": "mod/runtimeapi/runtime-core/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-08-12T21:58:12Z",
+      "side": 1,
+      "message": "missed noticing this earlier.. This is pointing to Frankfurt version.  should be 1.4.0 which is also upgrade for java11",
+      "range": {
+        "startLine": 49,
+        "startChar": 21,
+        "endLine": 49,
+        "endChar": 26
+      },
+      "revId": "b1729f6e2b9bd4f7aa00091339f820ade64d926f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
