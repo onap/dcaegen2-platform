@@ -1,5 +1,6 @@
 # ============LICENSE_START=======================================================
 # Copyright (c) 2019 AT&T Intellectual Property. All rights reserved.
+#  Copyright 2020 Deutsche Telekom. All rights reserved.
 # ================================================================================
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,16 +14,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ============LICENSE_END=========================================================
-FROM python:3.7-alpine
+FROM nexus3.onap.org:10001/onap/integration-python:latest
 
-ARG UID=1000
-ARG GID=1000
-COPY . /code
-WORKDIR /code
-RUN pip install . && \
-    addgroup -g $GID dcaemod && \
-    adduser -s /bin/bash -u $UID -G dcaemod -D dcaemod
-USER dcaemod
+COPY --chown=onap:onap . /app
+RUN pip install .
 EXPOSE 8080
 ENV DISTRIBUTOR_DEBUG=0
+ENV PATH="$PATH:/home/onap/.local/bin"
 CMD start-distributor-api
