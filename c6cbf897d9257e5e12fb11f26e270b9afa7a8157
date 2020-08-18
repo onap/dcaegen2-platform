@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a709e59_94fd7a46",
+        "filename": "releases/1.0.6-runtimeapi-container.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-08-18T15:05:51Z",
+      "side": 1,
+      "message": "Was this snapshot image verified on DCAE-MOD e2e? If not done already, I will check part of other test planned on windriver later today before approving.",
+      "range": {
+        "startLine": 8,
+        "startChar": 14,
+        "endLine": 8,
+        "endChar": 45
+      },
+      "revId": "c6cbf897d9257e5e12fb11f26e270b9afa7a8157",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
