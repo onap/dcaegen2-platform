@@ -1,0 +1,8 @@
+distribution_type: 'container'
+container_release_tag: '1.0.6'
+project: 'dcaegen2-platform'
+log_dir: 'dcaegen2-platform-mod-master-runtimeapi-merge-java/20'
+ref: 79cbbaff6f96d25ecb410261604c352fec8f2819
+containers:
+  - name: 'org.onap.dcaegen2.platform.mod.runtime-web'
+    version: '1.0.6-SNAPSHOT-20200818T142327Z'
