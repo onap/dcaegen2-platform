@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "564e4bc9_bfa694d8",
+        "filename": "mod/onboardingapi/Dockerfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-08-26T21:40:17Z",
+      "side": 1,
+      "message": "Use specific version instead of latest (nexus3.onap.org:10001/onap/integration-python:7.0.1)",
+      "range": {
+        "startLine": 16,
+        "startChar": 5,
+        "endLine": 16,
+        "endChar": 57
+      },
+      "revId": "8e642336165141ea25e9e15bffe18bd6190eb528",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e86b6387_73aaa0a9",
+        "filename": "mod/onboardingapi/setup.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-08-26T21:40:17Z",
+      "side": 1,
+      "message": "inconsistent space/tab",
+      "range": {
+        "startLine": 48,
+        "startChar": 8,
+        "endLine": 48,
+        "endChar": 16
+      },
+      "revId": "8e642336165141ea25e9e15bffe18bd6190eb528",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
