@@ -2,6 +2,7 @@
 # org.onap.dcae
 # ================================================================================
 # Copyright (c) 2017-2018 AT&T Intellectual Property. All rights reserved.
+# Copyright 2020 Deutsche Telekom. All rights reserved.
 # ================================================================================
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -44,15 +45,14 @@ setup(
     setup_requires=['pytest-runner'],
     install_requires=[
                       'Werkzeug==0.16.1',
-		      'python-consul<1.0.0',
+		              'python-consul<1.0.0',
                       'six',
                       'sqlalchemy',
                       'SQLAlchemy-Utils',
                       'click>=6.0,<7.0',
                       'jsonschema',
                       'terminaltables',
-                      'psycopg2==2.7.5',
-                      'psycopg2-binary==2.7.5',
+                      'psycopg2-binary==2.8.5',
                       'genson',
                       'flask-restplus',
                       'onap-dcae-discovery-client>=2.0.0',
