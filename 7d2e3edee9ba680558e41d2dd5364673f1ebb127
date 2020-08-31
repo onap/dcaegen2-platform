@@ -1,0 +1,228 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c510bd75_869799cc",
+        "filename": "mod2/catalog-service/Dockerfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-08-31T19:36:37Z",
+      "side": 1,
+      "message": "switch to onap/integration-java11:7.1.0",
+      "range": {
+        "startLine": 1,
+        "startChar": 5,
+        "endLine": 1,
+        "endChar": 25
+      },
+      "revId": "7d2e3edee9ba680558e41d2dd5364673f1ebb127",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d9b18bb_5879e891",
+        "filename": "mod2/catalog-service/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-08-31T19:36:37Z",
+      "side": 1,
+      "message": "1.0.0",
+      "range": {
+        "startLine": 33,
+        "startChar": 13,
+        "endLine": 33,
+        "endChar": 18
+      },
+      "revId": "7d2e3edee9ba680558e41d2dd5364673f1ebb127",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ff650b4_6df87d6a",
+        "filename": "mod2/catalog-service/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-08-31T19:36:37Z",
+      "side": 1,
+      "message": "missing dockerfile plugin",
+      "revId": "7d2e3edee9ba680558e41d2dd5364673f1ebb127",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "adf34c80_3214d03b",
+        "filename": "mod2/catalog-service/src/main/java/org/onap/dcaegen2/platform/mod/ModCatalogApplication.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-08-31T19:36:37Z",
+      "side": 1,
+      "message": "1.0.0",
+      "range": {
+        "startLine": 59,
+        "startChar": 5,
+        "endLine": 59,
+        "endChar": 10
+      },
+      "revId": "7d2e3edee9ba680558e41d2dd5364673f1ebb127",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7637cf1d_7e43294d",
+        "filename": "mod2/catalog-service/src/main/java/org/onap/dcaegen2/platform/mod/model/deploymentartifact/DeploymentArtifactStatus.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-08-31T19:36:37Z",
+      "side": 1,
+      "message": "these can be removed",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 27,
+        "endChar": 38
+      },
+      "revId": "7d2e3edee9ba680558e41d2dd5364673f1ebb127",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c3802b3_cc25bf41",
+        "filename": "mod2/catalog-service/src/main/java/org/onap/dcaegen2/platform/mod/model/deploymentartifact/DeploymentType.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-08-31T19:36:37Z",
+      "side": 1,
+      "message": "remove docker",
+      "range": {
+        "startLine": 24,
+        "startChar": 7,
+        "endLine": 24,
+        "endChar": 15
+      },
+      "revId": "7d2e3edee9ba680558e41d2dd5364673f1ebb127",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7ee3e72_22a00ec9",
+        "filename": "mod2/catalog-service/src/main/java/org/onap/dcaegen2/platform/mod/model/restapi/MicroserviceCreateRequest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-08-31T19:36:37Z",
+      "side": 1,
+      "message": "remove space",
+      "range": {
+        "startLine": 42,
+        "startChar": 43,
+        "endLine": 42,
+        "endChar": 50
+      },
+      "revId": "7d2e3edee9ba680558e41d2dd5364673f1ebb127",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f0271d9_b718596b",
+        "filename": "mod2/catalog-service/src/main/java/org/onap/dcaegen2/platform/mod/model/restapi/MicroserviceCreateRequest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-08-31T19:36:37Z",
+      "side": 1,
+      "message": "remove space",
+      "range": {
+        "startLine": 53,
+        "startChar": 30,
+        "endLine": 53,
+        "endChar": 37
+      },
+      "revId": "7d2e3edee9ba680558e41d2dd5364673f1ebb127",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "764dd8fa_60d839ac",
+        "filename": "mod2/catalog-service/src/main/java/org/onap/dcaegen2/platform/mod/model/restapi/MicroserviceUpdateRequest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-08-31T19:36:37Z",
+      "side": 1,
+      "message": "remove space",
+      "range": {
+        "startLine": 47,
+        "startChar": 30,
+        "endLine": 47,
+        "endChar": 37
+      },
+      "revId": "7d2e3edee9ba680558e41d2dd5364673f1ebb127",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b2ca171_11a7520e",
+        "filename": "mod2/catalog-service/src/main/java/org/onap/dcaegen2/platform/mod/model/restapi/MsInstanceUpdateRequest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-08-31T19:36:37Z",
+      "side": 1,
+      "message": "remove space",
+      "range": {
+        "startLine": 35,
+        "startChar": 30,
+        "endLine": 35,
+        "endChar": 37
+      },
+      "revId": "7d2e3edee9ba680558e41d2dd5364673f1ebb127",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
