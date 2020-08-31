@@ -41,7 +41,7 @@ inputs:
     type: string
     default: "128Mi"
   envs:
-    default: {}
+    default: {    }
   external_port_0:
     type: string
     default: "8080"
@@ -135,7 +135,8 @@ node_templates:
             - concat: ["8080:", {get_input: external_port_0}]
             - concat: ["8443:", {get_input: external_port_1}]
             envs:
-              get_input: envs
+              "ENV1": "SA",
+              ""
     properties:
       application_config:
         service_calls: []
