@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7610280f_a6dede26",
+        "filename": "mod2/auth-service/Dockerfile",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 6727
+      },
+      "writtenOn": "2020-09-04T16:01:07Z",
+      "side": 1,
+      "message": "it should be auth-service-1.0.0-SNAPSHOT.jar ?",
+      "revId": "913bd7de18f9485b5d12d9ee422e52ac91814f44",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "93dcd5cf_893d4669",
+        "filename": "mod2/auth-service/src/main/java/org/onap/dcaegen2/platform/mod/DataLoader.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 6727
+      },
+      "writtenOn": "2020-09-04T16:01:07Z",
+      "side": 1,
+      "message": "ROLES SCRUMLEAD, PST, OPS, and ETE can be removed",
+      "range": {
+        "startLine": 74,
+        "startChar": 29,
+        "endLine": 74,
+        "endChar": 33
+      },
+      "revId": "913bd7de18f9485b5d12d9ee422e52ac91814f44",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cfa16170_5f25da8a",
+        "filename": "mod2/auth-service/src/main/java/org/onap/dcaegen2/platform/mod/controllers/UserController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 6727
+      },
+      "writtenOn": "2020-09-04T16:01:07Z",
+      "side": 1,
+      "message": "Checking roles for PST, OPS, SCRUMLEAD and ETE can be removed",
+      "range": {
+        "startLine": 72,
+        "startChar": 46,
+        "endLine": 72,
+        "endChar": 51
+      },
+      "revId": "913bd7de18f9485b5d12d9ee422e52ac91814f44",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87a653ee_7844aebb",
+        "filename": "mod2/auth-service/src/main/java/org/onap/dcaegen2/platform/mod/services/MODUserDetailService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 6727
+      },
+      "writtenOn": "2020-09-04T16:01:07Z",
+      "side": 1,
+      "message": "comments can be removed",
+      "range": {
+        "startLine": 50,
+        "startChar": 13,
+        "endLine": 50,
+        "endChar": 21
+      },
+      "revId": "913bd7de18f9485b5d12d9ee422e52ac91814f44",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
