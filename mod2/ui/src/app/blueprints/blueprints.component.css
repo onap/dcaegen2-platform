@@ -1,0 +1,142 @@
+/* 
+ *  # ============LICENSE_START=======================================================
+ *  # Copyright (c) 2020 AT&T Intellectual Property. All rights reserved.
+ *  # ================================================================================
+ *  # Licensed under the Apache License, Version 2.0 (the "License");
+ *  # you may not use this file except in compliance with the License.
+ *  # You may obtain a copy of the License at
+ *  #
+ *  #      http://www.apache.org/licenses/LICENSE-2.0
+ *  #
+ *  # Unless required by applicable law or agreed to in writing, software
+ *  # distributed under the License is distributed on an "AS IS" BASIS,
+ *  # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  # See the License for the specific language governing permissions and
+ *  # limitations under the License.
+ *  # ============LICENSE_END=========================================================
+ */
+
+td{
+    word-break:break-all;
+    font-size: 12px;
+}
+
+th{
+    font-size: 12px;
+}
+
+.table_column_filter{
+    width: 100%; 
+    height: 20px; 
+    font-size: 10px;
+}
+
+.table_div{
+    margin: 0px 50px 10px 20px; 
+    min-width: 900px; 
+    width: 98%;
+    border: 1px solid darkslategray;
+}
+
+.fa-refresh{
+    cursor: pointer;
+}
+
+textarea  
+{  
+   font-size: 12px;   
+}
+
+.row-expand-layout{
+    display: grid; 
+    width: 100%;
+    grid-template-columns: 20% 30% auto 25%;
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.row-expand-card{
+    font-size: 12px;
+    border-radius: 5px;
+    border: 1px solid slategray;
+    padding: 10px 5px 5px 10px;
+    /* This height prevents vertical scroll bars in Notes and Failure Reason */
+    height: 92px;
+    overflow: hidden;
+}
+
+.table_export_buttons_alignment{
+    margin-left: 5px; 
+    margin-top: -32px; 
+    float: left;
+}
+
+.table_export_button{
+    border-radius: 5px; 
+    height: 22px; 
+    font-size: 14px; 
+    border: none; 
+    margin-top: 4px; 
+    margin-right: 7px;
+    display: inline-flex;
+}
+
+.table_caption_header{
+    margin-left: -18%; 
+    width: 82%; 
+    max-height: 25px; 
+    display: inline-flex;
+}
+
+.table_global_filter{
+    width: 250px;
+    height:25px; 
+    margin-bottom: -5px; 
+    font-size: 12px;
+    margin-left: 15px;
+}
+
+.table_title{
+    width: 40%; 
+    margin-left: 10%;
+}
+
+.table_action_item{
+    outline: none;
+    font-size: 12px;
+}
+
+::ng-deep .mat-menu-content {
+padding-top: 0px !important;
+padding-bottom: 0px !important;
+}
+.mat-menu-item{
+line-height:30px;
+height:30px;
+}
+
+.greenStatus{
+    background-color: rgba(80, 233, 105, 0.616)
+}
+
+.redStatus{
+    background-color: rgba(255, 29, 29, 0.527)
+}
+
+.blueStatus{
+    background-color: rgba(0, 183, 255, 0.384)
+}
+
+.greyStatus{
+    background-color: rgba(150, 150, 150, 0.432)
+}
+
+.ui-toast-detail{
+    white-space: pre-wrap;
+    font-size: 12px;
+}
+
+.ui-state-highlight {
+    background-color: #878C94 !important;
+    color: black !important;
+}

@@ -1,0 +1,121 @@
+/* 
+ *  # ============LICENSE_START=======================================================
+ *  # Copyright (c) 2020 AT&T Intellectual Property. All rights reserved.
+ *  # ================================================================================
+ *  # Licensed under the Apache License, Version 2.0 (the "License");
+ *  # you may not use this file except in compliance with the License.
+ *  # You may obtain a copy of the License at
+ *  #
+ *  #      http://www.apache.org/licenses/LICENSE-2.0
+ *  #
+ *  # Unless required by applicable law or agreed to in writing, software
+ *  # distributed under the License is distributed on an "AS IS" BASIS,
+ *  # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  # See the License for the specific language governing permissions and
+ *  # limitations under the License.
+ *  # ============LICENSE_END=========================================================
+ */
+
+td{
+    word-break:break-all
+}
+
+textarea  
+{  
+   font-size: 12px;   
+}
+
+.table_actions_button{
+    background-color: transparent; 
+    border: none; 
+    width: 20px; 
+    height: 20px;  
+    vertical-align: middle;
+}
+
+.row-expand-layout{
+    display: grid; 
+    grid-template-columns: 30% 40% auto;
+    grid-gap: 10px; 
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.row-expand-card{
+    font-size: 12px;
+    grid-row: 1;
+    border-radius: 5px;
+    border: 1px solid slategray;
+    padding: 10px;
+    /* This height prevents vertical scroll bar in Notes */
+    height: 92px;
+    overflow: hidden;
+}
+
+label {
+    cursor: pointer;
+}
+
+.fa-refresh{
+    cursor: pointer;
+}
+
+.input{
+    padding-top: 10px;
+}
+ 
+.inputLabel { 
+    font-weight: 600;
+    margin-left: 20px;
+    width: 140px;
+}
+
+.inputFieldSm { 
+    width: 200px; 
+    height: 35px; 
+    padding-left: 6px; 
+} 
+.inputFieldMed { 
+    width: 300px; 
+    height: 35px; 
+    padding-left: 6px; 
+} 
+.inputFieldLg { 
+    width: 400px; 
+    height: 35px; 
+    padding-left: 6px; 
+}
+
+.table_action_item{
+    outline: none;
+    font-size: 12px;
+}
+
+::ng-deep .mat-menu-content {
+padding-top: 0px !important;
+padding-bottom: 0px !important;
+}
+.mat-menu-item{
+line-height:30px;
+height:30px;
+}
+
+.greenStatus{
+    background-color: rgba(80, 233, 105, 0.87)
+}
+
+.redStatus{
+    background-color: rgba(255, 29, 29, 0.733)
+}
+
+.blueStatus{
+    background-color: rgba(0, 183, 255, 0.432)
+}
+
+.greyStatus{
+    background-color: rgba(150, 150, 150, 0.432)
+}
+
+.ui-state-highlight {
+    background-color: #878C94 !important;
+    color: black !important;
+}

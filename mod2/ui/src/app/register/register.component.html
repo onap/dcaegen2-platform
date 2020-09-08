@@ -1,0 +1,62 @@
+<!-- 
+  # ============LICENSE_START=======================================================
+  # Copyright (c) 2020 AT&T Intellectual Property. All rights reserved.
+  # ================================================================================
+  # Licensed under the Apache License, Version 2.0 (the "License");
+  # you may not use this file except in compliance with the License.
+  # You may obtain a copy of the License at
+  #
+  #      http://www.apache.org/licenses/LICENSE-2.0
+  #
+  # Unless required by applicable law or agreed to in writing, software
+  # distributed under the License is distributed on an "AS IS" BASIS,
+  # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  # See the License for the specific language governing permissions and
+  # limitations under the License.
+  # ============LICENSE_END=========================================================
+ -->
+
+<p-card header="Register a New User" [style]="{margin:'100px 200px 100px 200px'}" class="ui-card">
+    <hr class="line-break">
+    <form [formGroup]="form" class="p-5 bg-faded" style="margin-left: 250px;margin-bottom: 100px;">
+        <div class="ui-g ui-fluid">
+            <div class="ui-g-12 ui-md-6">
+                <div class="ui-inputgroup" >
+                    <span class="ui-inputgroup-addon"><i class="pi pi-user" style="line-height: 1.25;"></i></span>
+                    <input type="text" pInputText placeholder="ATT UID" formControlName="username" class="ui-inputtext">
+                </div>
+            </div>
+        </div>
+        <i *ngIf="form.get('username').errors && form.get('username').errors.minlength" style="width: 140px;margin-left: 20px;font-size: small;color: red;">username should be at least 5 characters</i>
+        <i *ngIf="form.get('username').errors && form.get('username').errors.maxlength" style="width: 140px;margin-left: 20px;font-size: small;color: red;">username should be at most 10 characters</i>
+        <div class="ui-g ui-fluid" >
+            <div class="ui-g-12 ui-md-6">
+                <div class="ui-inputgroup" >
+                    <span class="ui-inputgroup-addon"><i class="pi pi-user" style="line-height: 1.25;"></i></span>
+                    <input type="text" pInputText placeholder="Full Name" formControlName="fullName" class="ui-inputtext">         
+                </div>
+            </div>
+        </div>
+        <div class="ui-g ui-fluid" >
+            <div class="ui-g-12 ui-md-6">
+                <div class="ui-inputgroup">  
+                <button pButton type="button" icon="pi pi-refresh" class="ui-button-warn" (click)="generateNewPassword()" ></button>
+                <input type="text" pInputText formControlName="password" placeholder="Generate password" class="ui-inputtext">
+                </div>
+            </div>
+        </div>          
+        <i *ngIf="form.get('password').errors && form.get('password').errors.minlength" style="width: 140px;margin-left: 20px;font-size: small;color: red;">password should be at least 6 characters</i>
+        <div class="ui-g ui-fluid" >
+            <div class="ui-g-12 ui-md-6">
+              <div class="ui-inputgroup" >
+                <span class="ui-inputgroup-addon"><i class="pi pi-users" style="line-height: 1.25; height: 1em;"></i></span>
+                <p-multiSelect [options]="rolesFromBackend" formControlName="roles" [showToggleAll]="true" [virtualScroll]="true" [filter]="false" [style]="{height:'3em'}" class="ui-multiselect"></p-multiSelect>  
+              </div> 
+            </div>
+        </div>     
+        <p-footer class="text-left ui-g-12">
+            <button pButton type="button" class="ui-button-info" label="Cancel" (click)="cancel()" style="margin-right: .25em"></button>
+            <button pButton type="submit" class="ui-button-success" label="Register" [disabled]="!form.valid" (click)="submit()"></button>
+        </p-footer>
+    </form>
+</p-card>

@@ -1,0 +1,64 @@
+<!-- 
+  # ============LICENSE_START=======================================================
+  # Copyright (c) 2020 AT&T Intellectual Property. All rights reserved.
+  # ================================================================================
+  # Licensed under the Apache License, Version 2.0 (the "License");
+  # you may not use this file except in compliance with the License.
+  # You may obtain a copy of the License at
+  #
+  #      http://www.apache.org/licenses/LICENSE-2.0
+  #
+  # Unless required by applicable law or agreed to in writing, software
+  # distributed under the License is distributed on an "AS IS" BASIS,
+  # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  # See the License for the specific language governing permissions and
+  # limitations under the License.
+  # ============LICENSE_END=========================================================
+ -->
+
+<p-dialog *ngIf="visible" header="Component Spec ADD" [(visible)]="visible" appendTo="body" [modal]="true" [transitionOptions]="'300ms'"
+          [closeOnEscape]="false" [closable]="false" [style]="{width: '650px'}" (onHide)="closeDialog()">
+
+    <!-- * * * * * Input fields * * * * * -->
+    <form [formGroup]="csAddForm" (ngSubmit)="saveCs()" class="bg-faded">
+        <!-- * * * Type * * * -->
+        <div class="input">
+            <label class="inputLabel">Type<span style="color:red">*</span></label>
+            <p-dropdown [options]="types" placeholder="Select Type" optionLabel="type" formControlName="type"></p-dropdown>
+        </div>
+        <!-- * * * Labels * * * -->
+        <div class="input">
+            <label class="inputLabel">Labels</label>
+            <input class="inputFieldLg" type="text" pInputText formControlName="labels" />
+        </div>
+        <span style="padding: 9px 0px 0px 158px; font-size: 13px;">(Separate labels with a space)</span>
+        <!-- * * * Notes * * * -->
+        <div class="input">
+            <label class="inputLabel" style="vertical-align: top">Notes</label>
+            <textarea class="inputFieldLg" [rows]="1" [cols]="30" pInputTextarea autoResize="autoResize" formControlName="notes"></textarea>
+        </div>
+        <!-- * * * Comp Spec File Select * * * -->
+        <div class="input">
+            <label class="inputLabel">Component Spec<span style="color:red">*</span></label>
+        
+            <input type="file" style="width: 460px; color:blue; font-style: italic;" (input)="onCompSpecUpload($event)" name="myfile" id="myfile" accept=".json">
+        </div>
+
+        <!-- * * * Policy File Select * * * -->
+        <div class="input">
+            <label class="inputLabel">Policy</label>
+        
+            <input type="file" style="width: 460px; color:blue; font-style: italic;" (input)="onPolicyUpload($event)"
+                name="myPolicyFile" id="myPolicyFile" accept=".json">
+        </div>
+
+        <!-- * * * ADD and Cancel buttons * * * -->
+        <div style="float: right; padding: 20px 45px">
+            <button pButton type="button" (click)="closeDialog()" label="Cancel"></button>&nbsp;
+            <button pButton type="submit" class="ui-button-success" label="Add" [disabled]="!csAddForm.valid || !compSpecSelected" style="width: 70px"></button>
+        </div>
+    </form>
+
+    <p-toast key="jsonError" [style]="{width: '430px'}"></p-toast>
+
+</p-dialog>
