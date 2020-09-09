@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "53cb218e_63904808",
+        "filename": "mod2/ui/Dockerfile",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 6727
+      },
+      "writtenOn": "2020-09-09T15:50:53Z",
+      "side": 1,
+      "message": "Remove proxy and change the base image not to point to docker central",
+      "range": {
+        "startLine": 8,
+        "startChar": 38,
+        "endLine": 8,
+        "endChar": 41
+      },
+      "revId": "e86f97251e7c43c26ce8adc24c7248487b402c7a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
