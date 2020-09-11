@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1e858908_f450494d",
+        "filename": "mod2/auth-service/src/main/java/org/onap/dcaegen2/platform/mod/DataLoader.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-09-11T17:02:28Z",
+      "side": 1,
+      "message": "what is class for",
+      "revId": "b733c923007b02d9b127c147c31b3a86e103d3d1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7dc6e384_a65acdae",
+        "filename": "mod2/auth-service/src/main/java/org/onap/dcaegen2/platform/mod/security/WebSecurityConfigurer.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-09-11T17:02:28Z",
+      "side": 1,
+      "message": "what is class for?",
+      "revId": "b733c923007b02d9b127c147c31b3a86e103d3d1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
