@@ -1,0 +1,283 @@
+<!-- 
+  # ============LICENSE_START=======================================================
+  # Copyright (c) 2020 AT&T Intellectual Property. All rights reserved.
+  # ================================================================================
+  # Licensed under the Apache License, Version 2.0 (the "License");
+  # you may not use this file except in compliance with the License.
+  # You may obtain a copy of the License at
+  #
+  #      http://www.apache.org/licenses/LICENSE-2.0
+  #
+  # Unless required by applicable law or agreed to in writing, software
+  # distributed under the License is distributed on an "AS IS" BASIS,
+  # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  # See the License for the specific language governing permissions and
+  # limitations under the License.
+  # ============LICENSE_END=========================================================
+ -->
+
+<ng4-loading-spinner [timeout]="1000000"></ng4-loading-spinner>
+<div class="table_div" [style.visibility]="visible">
+    <!-- * * * * Table of Blueprints * * * * -->
+    <p-table #dt [columns]="cols" [(selection)]="selectedBPs" [value]="bpElements" sortMode="multiple" [paginator]="true"
+        [rows]="18" [rowsPerPageOptions]="[10,12,14,16,18,20,25,50]" (onFilter)="onTableFiltered(dt.filteredValue, $event)" dataKey="id" editMode="row">
+
+        <!-- * * * * Top caption row * * * * -->
+        <ng-template pTemplate="caption">
+
+            <div class="table_caption_header">
+                <!--Blueprints Table Header-->
+                <div>
+                    <!-- * * * * Refresh * * * * -->
+                    <i class="fa fa-refresh" (click)="getAllBPs()"></i>
+                    <!-- * * * * Global filter * * * * -->
+                    <input class="table_global_filter" type="text" pInputText size="50" placeholder="Global Filter"
+                        (input)="dt.filterGlobal($event.target.value, 'contains')">
+                    <i class="fa fa-search" style="margin:4px 0 0 8px"></i>
+                </div>
+
+                <h4 class="table_title"><b>Deployment Artifacts</b></h4>
+
+            </div>
+        </ng-template>
+
+        <!-- * * * * Header row with dynamic column names. Columns include microservice Name, Release, Tag, Type, Version and Status  * * * * -->
+        <ng-template pTemplate="header" let-columns>
+            <tr style="text-align: center; vertical-align: bottom;">
+                <th style="width: 3em"></th>
+                <th class="ui-state-highlight" *ngFor="let col of columns" style="outline: none;" [pSortableColumn]="col.field" style="font-size: 12px; outline: none;"
+                    [ngStyle]="{'width': col.width}">
+                    {{col.header}}<br>
+                    <p-sortIcon [field]="col.field"></p-sortIcon>
+                </th>
+                <th style="width: 7%; vertical-align: middle;">
+                    Actions
+                </th>
+            </tr>
+
+            <!-- * * * * Second header row for individual column filters * * * * -->
+            <tr>
+                <th style="width: 3em"></th>
+                <!-- * * * * column filters * * * * -->
+                <th *ngFor="let col of columns" style="text-align: center;" [ngSwitch]="col.field">
+                    <input *ngSwitchCase="'instanceName'" [(ngModel)]="filteredName" pInputText type="text" (input)="dt.filter($event.target.value, col.field, 'contains')" class="table_column_filter" placeholder="Filter">
+                    <input *ngSwitchCase="'instanceRelease'" [(ngModel)]="filteredRelease" pInputText type="text" (input)="dt.filter($event.target.value, col.field, 'contains')" class="table_column_filter" placeholder="Filter">
+                    <input *ngSwitchCase="'tag'" [(ngModel)]="filteredTag" pInputText type="text" (input)="dt.filter($event.target.value, col.field, 'contains')" class="table_column_filter" placeholder="Filter">
+                    <input *ngSwitchCase="'type'" [(ngModel)]="filteredType" pInputText type="text" (input)="dt.filter($event.target.value, col.field, 'contains')" class="table_column_filter" placeholder="Filter">
+                    <input *ngSwitchCase="'version'" [(ngModel)]="filteredVersion" pInputText type="text" (input)="dt.filter($event.target.value, col.field, 'contains')" class="table_column_filter" placeholder="Filter">
+                    <input *ngSwitchCase="'status'" [(ngModel)]="filteredStatus" pInputText type="text" (input)="dt.filter($event.target.value, col.field, 'contains')" class="table_column_filter" placeholder="Filter">
+                </th>
+                <th>
+                    <div style="text-align: center;">
+                        <p-tableHeaderCheckbox style="padding-right: 5px;"></p-tableHeaderCheckbox>
+                        <button pButton type="button" class="ui-button-secondary" (click)="enableButtonCheck()" [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger" 
+                            style="background-color: transparent; border: none; width: 20px; height: 20px; vertical-align: middle;">
+                            <i class="pi pi-ellipsis-h" style="color: grey;"></i>
+                        </button>
+                        <mat-menu #menu="matMenu" xPosition="before">
+                            <!--<div (mouseleave)="menuTrigger.closeMenu()">-->
+
+                                <div style="background-color: rgba(128, 128, 128, 0.25);">
+                                    <span style="font-size: 12px; margin-left: 10px; font-weight: 500;"><i class="pi pi-download"></i> Download</span>
+                                </div>
+
+                                <!-- * * * * Download Blueprints * * * * -->
+                                <div matTooltip="No Blueprints Selected" [matTooltipDisabled]="canDownload" matTooltipPosition="left">
+                                    <button mat-menu-item class="table_action_item" (click)="downloadSelectedBps()" [disabled]="!canDownload">Download Selected Blueprints</button>
+                                </div>
+
+                                <div style="background-color: rgba(128, 128, 128, 0.25);">
+                                    <span style="font-size: 12px; margin-left: 10px; font-weight: 500;"><i class="pi pi-times"></i> Delete</span>
+                                </div>
+
+                                <!-- * * * * Delete Selected Blueprints * * * -->
+                                <div [matTooltip]="deleteTooltip" [matTooltipDisabled]="canDelete" matTooltipPosition="left">
+                                    <button mat-menu-item  (click)="warnDeleteBlueprint(null)" class="table_action_item" [disabled]="!canDelete">Delete Selected Blueprints</button>
+                                </div>
+                                
+                                <div style="background-color: rgba(128, 128, 128, 0.25);">
+                                    <span style="font-size: 12px; margin-left: 10px; font-weight: 500;"><i class="pi pi-pencil"></i> Update</span>
+                                </div>
+
+                                <!-- * * * * State Changes * * * * -->
+                                <div matTooltip="No Blueprints Selected" [matTooltipDisabled]="canUpdate" matTooltipPosition="left">
+                                    <button *ngFor="let state of states" mat-menu-item class="table_action_item" (click)="updateSelectedStatusesCheck(state)" [disabled]="!canUpdate">{{state.label}}</button>
+                                </div>
+
+                            <!--</div>-->
+                        </mat-menu>
+                    </div>
+                </th>
+            </tr>
+        </ng-template>
+
+        <!-- * * * * dynamic rows generated from columns object and msElems object * * * * -->
+        <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-bpElem>
+            <tr>
+                <!-- * * * * Column for row expand buttons * * * * -->
+                <td>
+                    <a href="#" [pRowToggler]="rowData">
+                        <i [ngClass]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></i>
+                    </a>
+                </td>
+
+                <td *ngFor="let col of cols">
+                    <div *ngIf="col.field==='status'" style="width: -moz-max-content; width: fit-content; padding: 0px 5px 0px 5px; border-radius: 3px; font-weight: 600;" 
+                        [ngClass]="{
+                            'greenStatus' : bpElem[col.field] === 'DEV_COMPLETE' || bpElem[col.field] === 'PST_CERTIFIED' || bpElem[col.field] === 'ETE_CERTIFIED' || bpElem[col.field] === 'IN_PROD',
+                            'redStatus' : bpElem[col.field] === 'PST_FAILED' || bpElem[col.field] === 'ETE_FAILED' || bpElem[col.field] === 'PROD_FAILED',
+                            'blueStatus' : bpElem[col.field] === 'IN_DEV' || bpElem[col.field] === 'IN_PST' || bpElem[col.field] === 'IN_ETE',
+                            'greyStatus' : bpElem[col.field] === 'NOT_NEEDED'}">
+                        {{bpElem[col.field]}}
+                    </div>
+                    <div *ngIf="col.field!=='status'">{{bpElem[col.field]}}</div>
+                </td>
+
+                <!-- * * * * Actions Column * * * * -->
+                <td>
+                    <div style="text-align: center;">
+                        <p-tableCheckbox [value]="rowData" style="padding-right: 5px;"></p-tableCheckbox>
+                        <!-- * * * * Actions Button * * * * -->
+                        <button #actionButton pButton type="button" #menuTrigger="matMenuTrigger" class="ui-button-secondary" style="background-color: transparent; border: none; width: 20px; height: 20px; vertical-align: middle;" [matMenuTriggerFor]="menu">
+                            <i class="pi pi-ellipsis-h" style="color: grey;"></i>
+                        </button>
+                        <!-- * * * * Actions Menu Items * * * * -->
+                        <mat-menu #menu="matMenu">
+                            <div style="background-color: rgba(128, 128, 128, 0.25);">
+                                <span style="font-size: 12px; margin-left: 10px; font-weight: 500;"><i style="font-size: 12px;" class="pi pi-search"></i> View</span>
+                            </div>
+                            
+                            <button mat-menu-item class="table_action_item" (click)="viewBpContent(rowData)">View BP Content</button>
+                                
+                            <div style="background-color: rgba(128, 128, 128, 0.25);">
+                                <span style="font-size: 12px; margin-left: 10px; font-weight: 500;"><i class="pi pi-times"></i> Delete</span>
+                            </div>
+
+                            <div matTooltip='Only blueprints that are in a status of "In Dev", "Not Needed" or "Dev Complete" can be deleted' [matTooltipDisabled]="rowData.status === 'IN_DEV' || rowData.status === 'NOT_NEEDED' || rowData.status === 'DEV_COMPLETE'" matTooltipPosition="left">
+                                <button mat-menu-item class="table_action_item" (click)="warnDeleteBlueprint(rowData)" [disabled]="rowData.status !== 'IN_DEV' && rowData.status !== 'NOT_NEEDED' && rowData.status !== 'DEV_COMPLETE'">Delete Blueprint</button>
+                            </div>
+
+                            <div style="background-color: rgba(128, 128, 128, 0.25);">
+                                <span style="font-size: 12px; margin-left: 10px; font-weight: 500;"><i class="pi pi-pencil"></i> Update</span>
+                            </div>
+
+                            <div>
+                                <div *ngFor="let state of states">
+                                    <button *ngIf="rowData.status !== state.field" mat-menu-item class="table_action_item" (click)="updateState(state, rowData, false)">{{state.label}}</button>
+                                </div>
+                            </div>
+                        </mat-menu>
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+        
+
+        <!-- * * * * Row expand content * * * * -->
+        <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns">
+            <tr>
+                <td [attr.colspan]="columns.length + 2">
+                    <div class="row-expand-layout" [@rowExpansionTrigger]="'active'">
+                        <!-- * * * * Audit Fields * * * * -->
+                        <div class="row-expand-card" style="background-color: rgba(95, 158, 160, 0.295);">
+                            <b>Created By:</b> {{rowData.metadata.createdBy}}<br>
+                            <b>Created On:</b> {{rowData.metadata.createdOn}}<br>
+                            <b>Updated By:</b> {{rowData.metadata.updatedBy}}<br>
+                            <b>Updated On:</b> {{rowData.metadata.updatedOn}}<br>
+                        </div>
+                        <!-- * * * * Notes * * * * -->
+                        <div class="row-expand-card" style="background-color: rgba(100, 148, 237, 0.295); white-space: pre-line;">
+                            <b>Notes:</b><br>
+                            <p-scrollPanel [style]="{width: '100%', height: '75px'}">
+                                <div style="font-size: 12px; word-break: normal;">{{rowData.metadata.notes}}</div>
+                            </p-scrollPanel>
+                        </div>
+                        <!-- * * * * Labels * * * * -->
+                        <div class="row-expand-card" style="background-color: rgba(76, 65, 225, 0.295)">
+                            <b style="padding-bottom: 5px;">Labels:</b><br>
+                            <div *ngFor="let label of rowData['metadata']['labels']"
+                                style="display: inline-flex; margin-top: 5px;">
+                                <div style="padding: 2px 7px 3px 0px;">
+                                    <span style="background-color: rgba(80, 80, 80, 0.185); padding: 3px; border-radius: 3px;">{{label}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- * * * * Failure Reason * * * * -->
+                        <div class="row-expand-card" style="background-color: rgba(225, 65, 65, 0.295)">
+                            <b>Failure Reason:</b><br>
+                            <p-scrollPanel [style]="{width: '100%', height: '75px'}">
+                                <div style="font-size: 12px; word-break: normal;">{{rowData.metadata.failureReason}}</div>
+                            </p-scrollPanel>
+                        </div>
+
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+
+    <!-- * * * * download buttons for exporting table to either csv or excel file * * * * -->
+    <div class="table_export_buttons_alignment">
+        <button pButton type="button" (click)="exportTable('csv')" matTooltip="Export Table to CSV" matTooltipPosition="above" class="table_export_button" style="width: 55px;">
+            <i class="pi pi-file" style="margin-top: 3px; margin-left: 4px;"></i>
+            <label style="font-weight: 800; margin-top: 1px;">CSV</label>
+        </button>
+        <button pButton type="button" (click)="exportTable('excel')" matTooltip="Export Table to XLSX" class="table_export_button" matTooltipPosition="above" style="width: 65px; background-color: green;">
+            <i class="pi pi-file-excel" style="margin-top: 3px; margin-left: 4px;"></i>
+            <label style="font-weight: 800; margin-top: 1px">Excel</label>
+        </button>
+    </div>
+</div>
+
+<p-toast key="statusUpdate" class="ui-toast-detail" [style]="{width: '500px'}">
+    <ng-template let-message pTemplate="message">
+        <p><b>{{message.summary}}</b></p>
+        <p style="font-size: 12px;">{{message.detail}}</p>
+    </ng-template>
+</p-toast>
+<p-toast key="multipleBpReleasesSelected"></p-toast>
+
+<p-toast key="bpDeleteResponse"></p-toast>
+
+
+<!-- * * * * Confirm multiple statuses/releases update toast * * * * -->
+<p-toast position="center" key="confirmToast" (onClose)="onReject()" [baseZIndex]="5000" [style]="{width: '300px'}">
+    <ng-template let-message pTemplate="message">
+        <div style="text-align: center">
+            <i class="pi pi-exclamation-triangle" style="font-size: 3em"></i>
+            <h3>{{message.summary}}</h3>
+            <p>{{message.detail}}</p>
+        </div>
+        <div style="width: 100%; text-align: center;">
+            <button type="button" pButton (click)="onConfirm()" label="Confirm" class="ui-button-success"></button>
+            <button type="button" pButton (click)="onReject()" label="Cancel" class="ui-button-secondary" style="margin-left: 20px;"></button>
+        </div>
+    </ng-template>
+</p-toast>
+
+<!-- * * * * Confirm delete blueprint * * * * -->
+<p-toast position="center" key="confirmDeleteToast" class="ui-toast-detail" (onClose)="onReject()" [baseZIndex]="5000" [style]="{width: '300px'}">
+    <ng-template let-message pTemplate="message">
+        <div style="text-align: center">
+            <i class="pi pi-exclamation-triangle" style="font-size: 3em"></i>
+            <h3>{{message.summary}}</h3>
+            Confirm to delete blueprint(s):<br><br>
+            <p style="text-align: left; margin-left: 10%;">{{message.detail}}</p><br>
+        </div>
+        <div style="width: 100%; text-align: center;">
+            <button type="button" pButton (click)="onConfirmDelete()" label="Confirm" class="ui-button-success"></button>
+            <button type="button" pButton (click)="onRejectDelete()" label="Cancel" class="ui-button-secondary"
+                style="margin-left: 20px;"></button>
+        </div>
+    </ng-template>
+</p-toast>
+
+<!-- * * * * View BP Content Pop Up * * * * -->
+<p-dialog [(visible)]="showBpContentDialog" header="Blueprint Content" appendTo="body" [maximizable]="true" [modal]="true" [style]="{width: '80vw'}" [baseZIndex]="10000"
+    [closable]="false">
+    <pre>{{BpContentToView}}</pre>
+    <p-footer>
+        <button pButton label="Close" (click)="showBpContentDialog=false" type="button"></button>
+        <button pButton label="Download" (click)="download()" type="button"></button>
+    </p-footer>
+</p-dialog>

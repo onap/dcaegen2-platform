@@ -1,0 +1,136 @@
+<!-- 
+  # ============LICENSE_START=======================================================
+  # Copyright (c) 2020 AT&T Intellectual Property. All rights reserved.
+  # ================================================================================
+  # Licensed under the Apache License, Version 2.0 (the "License");
+  # you may not use this file except in compliance with the License.
+  # You may obtain a copy of the License at
+  #
+  #      http://www.apache.org/licenses/LICENSE-2.0
+  #
+  # Unless required by applicable law or agreed to in writing, software
+  # distributed under the License is distributed on an "AS IS" BASIS,
+  # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  # See the License for the specific language governing permissions and
+  # limitations under the License.
+  # ============LICENSE_END=========================================================
+ -->
+
+<ng4-loading-spinner></ng4-loading-spinner>
+<mat-sidenav-container style="background: linear-gradient(to top, #878C94 0%, #DCDFE3 10%, #F2F2F2 40%, #DCDFE3 80%, #878C94 110%);" class="sidenav-container" *ngIf="authService.authPass">
+    <mat-sidenav [class.mat-elevation-z2]="!isActive" [class.mat-elevation-z8]="isActive" #sideMenu class="sidenav"
+        fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" 
+        [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === true">
+        <mat-toolbar></mat-toolbar>
+        <hr width=90%>
+        <mat-action-list style="margin-top: -10px;">
+            <button class="nav" mat-list-item (click)="setCrumbs('', 'reset')" [routerLink]="'/home'" [routerLinkActive]="'is-active'">Home</button>
+            <button class="nav" mat-list-item (click)="setCrumbs('User Management', 'reset')" *ngIf="authService.isAdmin" [routerLink]="'/users'" [routerLinkActive]="'is-active'">User Management</button>
+            <button class="nav" mat-list-item (click)="setCrumbs('Onboarding Tools', 'reset')" [routerLink]="'/OnboardingTools'" [skipLocationChange]="false" [routerLinkActive]="'is-active'">Onboarding Tools</button>
+            <button class="nav" mat-list-item (click)="msMenu()">
+                <i *ngIf="msMenuIconRight" class="pi pi-chevron-right"></i>
+                <i *ngIf="!msMenuIconRight" class="pi pi-chevron-down"></i>
+                &nbsp;&nbsp;Microservices</button>
+            <div *ngIf="showMsMenu" style="margin-left: 20px;">
+                <button class="subMenuItem" mat-list-item (click)="setCrumbs('Microservices', 'reset')" [routerLink]="'/base-microservices'" [routerLinkActive]="'is-active'">Microservices</button>
+                <button class="subMenuItem" mat-list-item (click)="setCrumbs('MS Instances', 'reset')"  [routerLink]="'/ms-instances'" [routerLinkActive]="'is-active'">MS Instances</button>
+                <button class="subMenuItem" mat-list-item (click)="setCrumbs('Blueprints', 'reset')"    [routerLink]="'/blueprints'" [routerLinkActive]="'is-active'">Blueprints</button>
+                
+                <button class="nav" mat-list-item (click)="utilitiesMenu()">
+                    <i *ngIf="utilitiesMenuIconRight" class="pi pi-chevron-right"></i>
+                    <i *ngIf="!utilitiesMenuIconRight" class="pi pi-chevron-down"></i>
+                    &nbsp;&nbsp;Utilites</button>
+
+                <div *ngIf="showUtilitiesMenu" style="margin-left: 20px;">
+                    <button class="subMenuItem" mat-list-item (click)="setCrumbs('Spec Validator', 'reset')"
+                        [routerLink]="'/spec-validator'" [routerLinkActive]="'is-active'">Spec Validator</button>
+                    <button class="subMenuItem" mat-list-item (click)="redirectToAPIs()">MOD APIs</button>
+                </div>
+            </div>
+                <button class="nav" mat-list-item (click)='redirectTo("https://wiki.web.att.com/pages/viewpage.action?spaceKey=DPD&title=DCAE+MOD+User+Guide")'>User Guide</button>
+
+        </mat-action-list>
+    </mat-sidenav>
+    <mat-sidenav-content style="margin-top: 70px; max-height: 90%">
+        <!-- Top bar when Logged in -->
+        <mat-toolbar [class.mat-elevation-z2]="!isActive" [class.mat-elevation-z8]="isActive" color="primary"
+                     fixedInViewport="true" style="background-color: #1D2329; color:#F2F2F2">
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="sideMenu.toggle()" style="color:#F2F2F2">
+                <i *ngIf="!sideMenu.opened" class="pi pi-angle-double-right" style="font-size: 25px; margin-left: -30px; margin-bottom: 8px;"></i>
+                <i *ngIf="sideMenu.opened"  class="pi pi-angle-double-left"  style="font-size: 25px; margin-left: -30px; margin-bottom: 8px;"></i>
+            </button>
+            <span style="font-size: 22px; font-weight: 500; margin-left: 35px">MOD</span>
+            <button type="button" *ngIf="authService.authPass" (click)="handleLogout()"
+                    style="float:right; margin-right: 18%; height: 32px; border: none; color:#F2F2F2; background: linear-gradient(to bottom, #1D2329 0%, #454B52 135%);
+                           font-size: 16px; font-weight: 400">
+                <i class="pi pi-sign-out" style="vertical-align:text-top"></i>
+                Logout
+            </button>
+            <button type="button" *ngIf="authService.authPass" (click)="handleProfile()"
+                style="float:right; margin-right: 4%; height: 32px; border: none; color:#F2F2F2; background: linear-gradient(to bottom, #1D2329 0%, #454B52 135%);
+                    font-size: 16px; font-weight: 400">
+                    <i class="pi pi-user-edit" style="vertical-align:text-top"></i>
+                {{authService.getUser().username}}
+            </button>
+            <!-- BREADCRUMBS . . . . . -->
+            <ul class="breadcrumb">
+                <li *ngFor="let crumb of breadcrumbs" [routerLink]="crumb.link" (click)="setCrumbs(crumb.page, 'crumbClicked')"><a>{{crumb.page}}</a></li>
+            </ul>
+        </mat-toolbar>
+        <main [@routeAnimations]="prepareRoute(outlet)" class="content">
+            <router-outlet #outlet="outlet"></router-outlet>
+        </main>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- Top bar when Logging in -->
+<mat-toolbar *ngIf="!authService.authPass" [class.mat-elevation-z2]="!isActive" [class.mat-elevation-z8]="isActive" color="primary"
+             fixedInViewport="true" style="background-color: #1D2329">
+    <span style="font-size: 22px; font-weight: 500">MOD</span>
+    <app-login></app-login>
+</mat-toolbar>
+
+<!-- Login Expired dialog -->
+<p-dialog header="Login Expired" [(visible)]="authService.reLoginMsg" [modal]="true"  [style]="{width:'25vw'}" [baseZIndex]="10000"
+        [draggable]="false" [resizable]="false">
+  <p>Your login has expired. Please log in again.</p>
+  <p-footer>
+    <button type="button" pButton icon="pi pi-check" (click)="onConfirm()" label="OK"></button>
+  </p-footer>
+</p-dialog>
+
+<!--reset User Password dialog-->
+<p-dialog [(visible)]="resetPasswordFlag" appendTo="body" [modal]="true" [transitionOptions]="'300ms'" [style]="{width: '630px'}" [baseZIndex]="10000"
+[closable]="true" (onHide)="closeResetDialog()">
+<p-header style="display: inline-flex;">
+    Reset User Password
+</p-header>
+<form [formGroup]="resetPasswordForm">
+    <!-- * * * New Password * * * -->
+    <div class="input">
+        <div class="ui-inputgroup" >
+            <label class="inputLabel">New Password</label>
+            <span class="ui-inputgroup-addon" (click)="hidePassword=!hidePassword">               
+            <i [ngClass]="hidePassword? 'pi pi-eye-slash':'pi pi-eye'"></i></span>
+            <input class="inputFieldSm" [type]="hidePassword? 'password':'text'" pInputText formControlName="password" />
+        </div>
+    </div>
+    <i *ngIf="resetPasswordForm.get('password').errors && resetPasswordForm.get('password').errors.minlength" style="width: 140px;margin-left: 20px;font-size: small;color: red;">password should be more than 5 characters</i>
+    <!-- * * * Confirm New Password * * * -->
+    <div class="input">
+        <div class="ui-inputgroup" >
+        <label class="inputLabel">Confirm Password</label>
+        <span class="ui-inputgroup-addon" (click)="hideConfirmPassword=!hideConfirmPassword">               
+        <i [ngClass]="hideConfirmPassword? 'pi pi-eye-slash':'pi pi-eye'"></i></span>
+        <input class="inputFieldSm" [type]="hideConfirmPassword? 'password':'text'" pInputText formControlName="confirm_password" />
+        </div>
+    </div>
+    <i *ngIf="resetPasswordForm.errors && resetPasswordForm.errors.errMsg" style="width: 140px;margin-left: 20px;font-size: small;color: red;">{{resetPasswordForm.errors.errMsg}}</i>
+    <!-- * * * Submit and Cancel buttons * * * -->
+    <div style="margin-top: 2em; margin-left: 1.3em; margin-bottom: 2em;">
+        <button pButton type="button" (click)="closeResetDialog()" label="Cancel"></button>&nbsp;
+        <button pButton type="submit" (click)="resetPasswordForm.valid && submitReset()" class="ui-button-success" label="Submit" style="width: 70px"></button>
+    </div>
+</form>
+
+</p-dialog>

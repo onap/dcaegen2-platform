@@ -1,0 +1,173 @@
+/* 
+ *  # ============LICENSE_START=======================================================
+ *  # Copyright (c) 2020 AT&T Intellectual Property. All rights reserved.
+ *  # ================================================================================
+ *  # Licensed under the Apache License, Version 2.0 (the "License");
+ *  # you may not use this file except in compliance with the License.
+ *  # You may obtain a copy of the License at
+ *  #
+ *  #      http://www.apache.org/licenses/LICENSE-2.0
+ *  #
+ *  # Unless required by applicable law or agreed to in writing, software
+ *  # distributed under the License is distributed on an "AS IS" BASIS,
+ *  # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  # See the License for the specific language governing permissions and
+ *  # limitations under the License.
+ *  # ============LICENSE_END=========================================================
+ */
+
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 190px;
+  background: linear-gradient(to bottom, #1D2329 0%, #454B52 8%)
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+  color:rgb(225, 241, 247);
+}
+
+.subMenuItem{
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+  height: 6vh !important;
+  min-height: 35px !important;
+}
+
+.mat-toolbar.mat-primary {
+  display: block;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  height: 33px;
+  position: fixed;
+  border-radius: 0%;
+  background: linear-gradient(to bottom, #1D2329 0%, #454B52 135%)
+}
+
+.nav {
+  font-size: 16px;
+  font-weight: 500;
+  background-color: #454B52;
+  color:white;
+  height: 7vh !important;
+  min-height: 40px !important;
+}
+
+*:focus {
+    outline: none !important;
+    border: 0 !important;
+}
+
+.is-active{
+  background-color: #EA712F !important;
+}
+
+label {
+  cursor: pointer;
+}
+
+.input{
+  padding-top: 20px;
+}
+
+.inputLabel { 
+  font-weight: 600;
+  margin-left: 25px;
+  width: 160px;
+}
+
+.inputFieldSm { 
+  width: 200px; 
+  height: 35px; 
+  padding-left: 8px; 
+} 
+.inputFieldMed { 
+  width: 300px; 
+  height: 35px; 
+  padding-left: 6px; 
+} 
+.inputFieldLg { 
+  width: 400px; 
+  height: 35px; 
+  padding-left: 6px; 
+}
+
+/*  B R E A D C R U M B S .  .  .  .  .  .  .  .  */
+.breadcrumb { 
+  list-style: none; 
+  overflow: hidden; 
+  font: 12px Helvetica, Arial, Sans-Serif;
+  background: transparent;
+  margin-left: 5px;
+  margin-top: -3px;
+  padding: 0;
+}
+.breadcrumb li { 
+  float: left; 
+}
+.breadcrumb li a {
+  color: #1D2329;
+  font-weight: 700;
+  text-decoration: none; 
+  padding: 6px 0 6px 45px;
+  background: brown; /* fallback color */
+  background: hsla(21,82%,55%,1); 
+  position: relative; 
+  display: block;
+  float: left;
+}
+.breadcrumb li a:after { 
+  content: " "; 
+  display: block; 
+  width: 0; 
+  height: 0;
+  border-top: 50px solid transparent;           /* Go big on the size, and let overflow hide */
+  border-bottom: 50px solid transparent;
+  border-left: 30px solid hsla(21,82%,55%,1);
+  position: absolute;
+  top: 50%;
+  margin-top: -50px; 
+  left: 100%;
+  z-index: 2; 
+}	
+.breadcrumb li a:before { 
+  content: " "; 
+  display: block; 
+  width: 0; 
+  height: 0;
+  border-top: 50px solid transparent;           /* Go big on the size, and let overflow hide */
+  border-bottom: 50px solid transparent;
+  border-left: 30px solid #b9bec4;
+  position: absolute;
+  top: 50%;
+  margin-top: -50px; 
+  margin-left: 3px;
+  left: 100%;
+  z-index: 1; 
+}	
+.breadcrumb li:first-child a {
+  padding-left: 14px;
+}
+.breadcrumb li:nth-child(2) a       { background:        hsla(30,100%,50%,.95); }
+.breadcrumb li:nth-child(2) a:after { border-left-color: hsla(30,100%,50%,.95); }
+.breadcrumb li:nth-child(3) a       { background:        hsla(38,100%,50%,.90); }
+.breadcrumb li:nth-child(3) a:after { border-left-color: hsla(38,100%,50%,.90); }
+.breadcrumb li:nth-child(4) a       { background:        hsla(45,100%,50%,.85); }
+.breadcrumb li:nth-child(4) a:after { border-left-color: hsla(45,100%,50%,.85); }
+.breadcrumb li:nth-child(5) a       { background:        hsla(52,100%,50%,.80); }
+.breadcrumb li:nth-child(5) a:after { border-left-color: hsla(52,100%,50%,.80); }
+.breadcrumb li:last-child a {
+  background: transparent !important;
+  color: black;
+  pointer-events: none;
+  cursor: default;
+  margin-left: -10px;
+}
+.breadcrumb li:last-child a:after { border: 0; }
+.breadcrumb li a:hover { background: rgba(102, 102, 102, 0.993); color: #e9fffd; cursor: pointer}
+.breadcrumb li a:hover:after { border-left-color: hsla(0,0%,40%,1); color: #bbc9d8 !important; cursor: pointer}

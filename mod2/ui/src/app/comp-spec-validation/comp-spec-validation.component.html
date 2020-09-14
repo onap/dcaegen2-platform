@@ -1,0 +1,108 @@
+<!-- 
+  # ============LICENSE_START=======================================================
+  # Copyright (c) 2020 AT&T Intellectual Property. All rights reserved.
+  # ================================================================================
+  # Licensed under the Apache License, Version 2.0 (the "License");
+  # you may not use this file except in compliance with the License.
+  # You may obtain a copy of the License at
+  #
+  #      http://www.apache.org/licenses/LICENSE-2.0
+  #
+  # Unless required by applicable law or agreed to in writing, software
+  # distributed under the License is distributed on an "AS IS" BASIS,
+  # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  # See the License for the specific language governing permissions and
+  # limitations under the License.
+  # ============LICENSE_END=========================================================
+ -->
+
+<div style="margin-left: 2%; margin-right: 2%;">
+    <p style="font-size: 26px;">Component Specification Validation</p>
+    <div style="display: inline-flex; width: 100%; height: 100%; min-height: 450px;">
+        <div class="validator-input-card">
+            <div>
+            <mat-card class="input-section-card">
+                <span><b>Action</b></span><span style="color:red">*</span><br>
+                <div style="display: inline-flex;">
+                    <div style="padding-right: 10%; width: 200px;">
+                        <p-radioButton name="spec-validator-actions" value="validateSpec" [(ngModel)]="spec_validator_action" (click)="validateRadioButton()"></p-radioButton>&nbsp;&nbsp;Validate Spec File
+                    </div>
+                    <div>
+                        <p-radioButton name="spec-validator-actions" value="downloadSchema" [(ngModel)]="spec_validator_action" (click)="downloadRadioButton()"></p-radioButton>&nbsp;&nbsp;Download Schema
+                    </div>
+                </div>
+            </mat-card>
+
+            <mat-card class="input-section-card">
+                <span><b>Release</b></span><span style="color:red">*</span><br>
+                <div>
+                    <div style="display: inline-flex; align-items: center;">
+                        <p-radioButton name="spec-validator-release" value="2007" [(ngModel)]="release"></p-radioButton>&nbsp;&nbsp;2007+
+                    </div>
+                </div>
+            </mat-card>
+
+            <mat-card class="input-section-card">
+                <span><b>Type</b></span><span style="color:red">*</span><br>
+                <div>
+                    <div style="display: inline-flex; align-items: center;">
+                        <p-radioButton name="spec-validator-type" value="k8s" [(ngModel)]="type"></p-radioButton>&nbsp;&nbsp;K8s
+                    </div>
+                    <br>
+                    <div style="display: inline-flex; align-items: center;">
+                        <p-radioButton name="spec-validator-type" value="docker" [(ngModel)]="type"></p-radioButton>&nbsp;&nbsp;Docker
+                    </div>
+                </div>
+            </mat-card>
+            
+            <mat-card *ngIf="spec_validator_action === 'validateSpec'" class="input-section-card">
+                <!-- * * * Comp Spec File Select * * * -->
+                <div>
+                    <b>Component Spec File</b><span style="color:red">*</span><br>
+                
+                    <div style="display: inline-flex;">
+                        <input #myFile type="file" style="color:blue; font-style: italic; width: fit-content"
+                            (input)="onCompSpecUpload($event)" name="myfile" accept=".json">
+                
+                        <button pButton type="button" (click)="resetFile()"
+                            style="background-color: transparent; border: none; height: 20px;"><i class="pi pi-times"
+                                style="color: black;"></i></button>
+                    </div>
+                </div>
+            </mat-card>
+
+            <div>
+                <div *ngIf="shouldValidate" style="background-color: rgba(128, 128, 128, 0.315); height: 2px; width: 100%; margin-top: 2%;"></div>
+                <div *ngIf="shouldDownload" style="background-color: rgba(128, 128, 128, 0.315); height: 2px; width: 100%; margin-top: 22%;"></div>
+
+                <div style="float: right; margin-top: 8px">
+                    <div *ngIf="shouldValidate" matTooltip="Fill In Required Fields" [matTooltipDisabled]="!(release === '' || type === '' || compSpecContent === null)" matTooltipPosition="above">
+                        <button [disabled]="release === '' || type === '' || compSpecContent === null" pButton label="Validate Spec" type="button" (click)="validateSpec()"></button>
+                    </div>
+                    <div *ngIf="shouldDownload" matTooltip="Fill In Required Fields" [matTooltipDisabled]="!(release === '' || type === '')" matTooltipPosition="above">
+                        <button [disabled]="release === '' || type === ''" pButton label="Download Schema" type="button" (click)="downloadSchema()"></button>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <div *ngIf="shouldValidate" class="validator-output-card">
+            <span><b>Output:</b></span><br><br>
+            <div *ngIf="specValidated" style="width: 100%; padding: 1%; border-radius: 3px; overflow: hidden;" [ngClass]="{'greenOutput' : validCompSpec === true, 'redOutput' : validCompSpec === false}">
+                <div>
+                    <span style="font-weight: 500;">{{specValidationOutputHeader}}</span>
+                    <div *ngIf="specValidationOutputMessage !== ''" style="margin-top: 10px; width: 100%; height: 2px; background-color: rgba(128, 128, 128, 0.315); "></div>
+                    
+                    <div *ngIf="specValidationOutputMessage !== ''" style="margin-top: 10px">
+                        <p-scrollPanel [style]="{width: '100%', height: '50vh'}">
+                            <pre style="white-space: pre-wrap;"><b>Summary:</b><br>{{specValidationOutputSummary}}</pre>
+                            <pre style="white-space: pre-wrap;"><b>Message(s):</b><br>{{specValidationOutputMessage}}</pre>
+                        </p-scrollPanel>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
