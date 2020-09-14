@@ -1,0 +1,185 @@
+<!-- 
+  # ============LICENSE_START=======================================================
+  # Copyright (c) 2020 AT&T Intellectual Property. All rights reserved.
+  # ================================================================================
+  # Licensed under the Apache License, Version 2.0 (the "License");
+  # you may not use this file except in compliance with the License.
+  # You may obtain a copy of the License at
+  #
+  #      http://www.apache.org/licenses/LICENSE-2.0
+  #
+  # Unless required by applicable law or agreed to in writing, software
+  # distributed under the License is distributed on an "AS IS" BASIS,
+  # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  # See the License for the specific language governing permissions and
+  # limitations under the License.
+  # ============LICENSE_END=========================================================
+ -->
+
+<ng4-loading-spinner [timeout]="1000000"></ng4-loading-spinner>
+<div style="margin: 0px 0px 10px 20px; width: 97%; min-width: 900px; border: 1px solid darkslategray">
+    <!--Table of base microservices-->
+    <p-table #dt *ngIf="loadTable" [columns]="cols" [value]="msElements" sortMode="multiple" [paginator]="true"
+        [rows]="18" [rowsPerPageOptions]="[10,12,14,16,18,20,25,50]" (onFilter)="onTableFiltered(dt.filteredValue)" dataKey="id">
+
+        <!--Top caption row-->
+        <ng-template pTemplate="caption">
+
+            <div style="margin-left: -5%; width: 90%; max-height: 25px; display: inline-flex;">
+                <!--Microservices Table Header-->
+                <div style="float: left;">
+                    <!--Refresh-->
+                    <i class="fa fa-refresh" (click)="getAllMs()"></i>
+                    <!--Global Filter-->
+                    <input type="text" pInputText size="50" placeholder="Global Filter"
+                           (input)="dt.filterGlobal($event.target.value, 'contains')"
+                           style="width: 250px; height:25px; font-size: 12px; margin-left: 15px">
+                    <i class="fa fa-search" style="margin:4px 0px 0 8px"></i>
+                </div>
+
+                <h4 style="margin-left: 15%"><b>Microservices</b></h4>
+
+            </div>
+
+            <div style="float: right;">
+                <button pButton type="button" (click)="showAddChangeDialog()" matTooltip="Add Microservice" matTooltipPosition="above" 
+                    style="border-radius: 5px; width: 65px; height: 27px; font-size: 14px; border: none; display: inline-flex;">
+                    <i class="pi pi-plus" style="margin-top: 5px; margin-left: 10px;"></i>
+                    <label style="font-weight: 800; margin-top: 3px">MS</label>
+                </button>
+            </div>
+
+        </ng-template>
+
+        <!--Header row with dynamic column names. Columns include microservice Name, Type, Location and Namespace-->
+        <ng-template pTemplate="header" let-columns>
+            <tr style="text-align: center">
+                <th style="width: 3em"></th>
+                <th class="ui-state-highlight" *ngFor="let col of columns" [pSortableColumn]="col.field" style="font-size: 12px; outline: none; vertical-align: bottom;" [ngStyle]="{'width': col.width}">
+                    {{col.header}}<br>
+                    <p-sortIcon [field]="col.field"></p-sortIcon>
+                </th>
+                <th style="font-size: 13px; width: 6.5%; vertical-align: top;">
+                    Actions
+                </th>
+            </tr>
+
+            <!--Second header row for individual column filters-->
+            <tr style="text-align: center;">
+                <th style="width: 3em"></th>
+                <th *ngFor="let col of columns" [ngSwitch]="col.field">
+                    <input pInputText type="text"
+                        (input)="dt.filter($event.target.value, col.field, 'contains')" style="width: 100%; height: 20px; font-size: 10px;"
+                        placeholder="Filter">
+                </th>
+                <th></th>
+            </tr>
+        </ng-template>
+
+        <!--dynamic rows generated from columns object and msElems object-->
+        <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-msElem>
+            <tr style="font-size: 12px;">
+                <!--Column for row expand buttons-->
+                <td>
+                    <a href="#" [pRowToggler]="rowData">
+                        <i [ngClass]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></i>
+                    </a>
+                </td>
+
+                <td *ngFor="let col of cols">
+                    <div *ngIf="col.field==='status'"
+                        style="width: fit-content; width: -moz-max-content; padding: 0px 5px 0px 5px; border-radius: 3px; font-weight: 600;" 
+                        [ngClass]="{'greenStatus' : msElem[col.field] === 'ACTIVE',
+                                    'greyStatus' : msElem[col.field] === 'INACTIVE'}">
+                        {{msElem[col.field]}}
+                    </div>
+                    <div *ngIf="col.field!=='status'">{{msElem[col.field]}}</div>
+                </td>
+
+                <!--Actions Column-->
+                <td>
+                    <div style="text-align: center;">
+                        <button pButton type="button" style="background-color: transparent; border: none; width: 20px; height: 20px; vertical-align: middle;" class="ui-button-secondary" [matMenuTriggerFor]="menu">
+                            <i class="pi pi-ellipsis-h" style="color: grey;"></i>
+                        </button>
+                        <mat-menu #menu="matMenu" xPosition="before">
+
+                            <div style="background-color: rgba(128, 128, 128, 0.25);">
+                                <span style="font-size: 12px; margin-left: 10px; font-weight: 500;"><i class="pi pi-plus"
+                                        style="font-size: 10px;"></i> Add</span>
+                            </div>
+                            
+                            <button mat-menu-item class="table_action_item" (click)="showAddChangeMsInstanceDialog(rowData)">Add MS
+                                Instance...</button>
+
+                            <div style="background-color: rgba(128, 128, 128, 0.25);">
+                                <span style="font-size: 12px; margin-left: 10px; font-weight: 500;"><i class="pi pi-pencil"></i> Update</span>
+                            </div>
+
+                            <button mat-menu-item class="table_action_item" (click)="showAddChangeDialog(rowData)">Update Microservice...</button>
+                        </mat-menu>
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+
+        <!--Row expand content-->
+        <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns">
+            <tr>
+                <td [attr.colspan]="columns.length + 2">
+                    <div class="row-expand-layout" [@rowExpansionTrigger]="'active'">
+                        <!-- Audit Fields -->
+                        <div class="row-expand-card" style="background-color: rgba(95, 158, 160, 0.295)">                         
+                            <b>Created By:</b> {{rowData.metadata.createdBy}}<br>
+                            <b>Created On:</b> {{rowData.metadata.createdOn}}<br>
+                            <b>Updated By:</b> {{rowData.metadata.updatedBy}}<br>
+                            <b>Updated On:</b> {{rowData.metadata.updatedOn}}
+                        </div>
+                        <!-- Notes -->
+                        <div class="row-expand-card" style="background-color: rgba(100, 148, 237, 0.219)">    
+                            <b>Notes:</b><br> 
+                            <p-scrollPanel [style]="{width: '100%', height: '62px'}">
+                                <div style="font-size: 12px; word-break: normal;">{{rowData.metadata.notes}}</div>
+                            </p-scrollPanel>
+                        </div>
+                        <!-- Labels -->
+                        <div class="row-expand-card" style="background-color: rgba(76, 65, 225, 0.199)">
+                            <b style="padding-bottom: 5px;">Labels:</b><br>
+                            <div *ngFor="let label of rowData['metadata']['labels']" style="display: inline-flex; margin-top: 5px;">
+                                <div style="padding: 2px 7px 3px 0px;">
+                                    <span style="background-color: rgba(80, 80, 80, 0.185); padding: 3px; border-radius: 3px;">{{label}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+
+    <!--download buttons for exporting table to either csv or excel file-->
+    <div *ngIf="loadTable" style="margin-left: 10px; margin-top: -32px; float: left;">
+        <button pButton type="button" (click)="exportTable('csv')" 
+            matTooltip="Export Table to CSV" matTooltipPosition="above"
+            style="border-radius: 5px; width: 65px; height: 22px; font-size: 14px; border: none; margin-top: 4px; display: inline-flex;">
+            <i class="pi pi-file" style="margin-top: 2px; margin-left: 8px;"></i>
+            <label style="font-weight: 800; vertical-align: middle;">CSV</label>
+        </button>
+        <button pButton type="button" (click)="exportTable('excel')" 
+            matTooltip="Export Table to XLSX" matTooltipPosition="above" 
+            style="border-radius: 5px; width: 65px; height: 22px; margin-left: 7px; font-size: 14px; background-color: green; border: none; display: inline-flex;">
+            <i class="pi pi-file-excel" style="margin-top: 2px; margin-left: 4px;"></i>
+            <label style="font-weight: 800; vertical-align: middle;">Excel</label>
+        </button>
+    </div>
+
+    <!-- Dialog to Add or Change a MS -->
+    <app-ms-add-change *ngIf="showMsAddChangeDialog" [visible]="showMsAddChangeDialog" [currentRow]="currentRow" (handler)="addOrChangeMs($event)"></app-ms-add-change>
+    
+    <!-- Dialog to Add (or Change) a MS Instance -->
+    <app-ms-instance-add *ngIf="showAddChangeMsInstance" [visible]="showAddChangeMsInstance" [msName]="addInstanceTo" [currentRow]="currentRow" (handler)="addMsInstance($event)"></app-ms-instance-add>
+
+    <!-- Shared success message -->
+    <p-toast key="addChangeSuccess"></p-toast>
+
+</div>

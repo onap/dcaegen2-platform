@@ -1,0 +1,89 @@
+<!-- 
+  # ============LICENSE_START=======================================================
+  # Copyright (c) 2020 AT&T Intellectual Property. All rights reserved.
+  # ================================================================================
+  # Licensed under the Apache License, Version 2.0 (the "License");
+  # you may not use this file except in compliance with the License.
+  # You may obtain a copy of the License at
+  #
+  #      http://www.apache.org/licenses/LICENSE-2.0
+  #
+  # Unless required by applicable law or agreed to in writing, software
+  # distributed under the License is distributed on an "AS IS" BASIS,
+  # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  # See the License for the specific language governing permissions and
+  # limitations under the License.
+  # ============LICENSE_END=========================================================
+ -->
+
+<div style="margin: 0px 20px 10px 20px">
+    <p-table #dt [value]="users" [rowHover]="true">
+        <ng-template pTemplate="caption">
+            <h5><strong>System User List and Management</strong><i style="font-size: smaller;"> ( for admin only )</i></h5>
+            <br/>
+                <a routerLink="/register">Want to register a new user? Click here!</a> 
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width: 15%">Username (ATT UID)</th>
+                <th>Full Name</th>
+                <th>Roles</th>
+                <!-- <th>Active Status</th> -->
+                <th style="width: 15%">Actions</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-user>
+            <tr>
+                <td>{{user.username}}</td> 
+                <td>{{user.fullName}}</td>
+                <td>{{user.roles}}</td>
+                <!-- <td>true</td> -->
+                <td>
+                    <i class="pi pi-trash" (click)="handleDelete(user.username)" pTooltip="delete user" tooltipPosition="right"></i>
+                    <i class="pi pi-pencil" (click)="handleEdit(user)" pTooltip="edit user" tooltipPosition="right" style="margin-left: .5em;"></i>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+
+    <!--edit user information dialog-->
+    <p-dialog [(visible)]="editUserFlag" appendTo="body" [modal]="true" [transitionOptions]="'300ms'" [style]="{width: '635px'}" [baseZIndex]="10000"
+    [closable]="true" (onHide)="closeEditDialog()">
+    <p-header style="display: inline-flex;">
+        Edit User Information
+    </p-header>
+
+    <form [formGroup]="editUserForm">
+        <!-- * * * Username * * * -->
+        <div class="input">
+            <label class="inputLabel">ATT UID</label>&nbsp;
+            <b>{{editUser.username}}</b>
+        </div>
+        <!-- * * * User Full Name * * * -->
+        <div class="input">
+            <label class="inputLabel">Full Name</label>&nbsp;
+            <input class="inputFieldSm" type="text" pInputText formControlName="fullName"/>
+        </div>
+        <!-- * * * Roles * * * -->
+        <div class="input">
+            <label class="inputLabel">Roles</label>&nbsp;
+            <p-multiSelect [options]="rolesFromBackend" formControlName="roles" [showToggleAll]="true" [virtualScroll]="true" [filter]="false" [style]="{height:'3.6em', width:'200px'}"></p-multiSelect>  
+            <!-- <b>{{editUser.roles}}</b> -->
+        </div>
+        <!-- * * * Re-Generate Password * * * -->
+        <div class="input">
+            <div class="ui-inputgroup">  
+                <label class="inputLabel">New Password</label>&nbsp;
+                <button pButton type="button" icon="pi pi-refresh" class="ui-button-warn" (click)="generateNewPassword()" ></button>
+                <input type="text" pInputText formControlName="password" placeholder="Generate password" class="ui-inputtext" pTooltip="Password should be greater than 5 characters" tooltipPosition="right"> 
+            </div>
+        </div>
+        <i *ngIf="editUserForm.get('password').errors && editUserForm.get('password').errors.minlength" style="width: 140px;margin-left: 20px;font-size: small;color: red;">password should be at least 6 characters</i>
+        <!-- * * * Submit and Cancel buttons * * * -->
+        <div style="margin-top: 2em; margin-left: 1.3em; margin-bottom: 2em;">
+            <button pButton type="button" (click)="closeEditDialog()" label="Cancel"></button>&nbsp;
+            <button pButton type="submit" (click)="submitEdit(editUser)" class="ui-button-success" label="Submit" style="width: 70px"></button>
+        </div>
+    </form>
+</p-dialog>
+</div>
