@@ -1,0 +1,93 @@
+<!-- 
+  # ============LICENSE_START=======================================================
+  # Copyright (c) 2020 AT&T Intellectual Property. All rights reserved.
+  # ================================================================================
+  # Licensed under the Apache License, Version 2.0 (the "License");
+  # you may not use this file except in compliance with the License.
+  # You may obtain a copy of the License at
+  #
+  #      http://www.apache.org/licenses/LICENSE-2.0
+  #
+  # Unless required by applicable law or agreed to in writing, software
+  # distributed under the License is distributed on an "AS IS" BASIS,
+  # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  # See the License for the specific language governing permissions and
+  # limitations under the License.
+  # ============LICENSE_END=========================================================
+ -->
+
+<p-dialog [(visible)]="visible" [header]="guiHeader" appendTo="body" [modal]="true" [transitionOptions]="'300ms'" [style]="{width: '720px'}" [baseZIndex]="10000"
+          [closable]="false" (onHide)="closeDialog()">
+
+    <!-- "Add / Change MS Instance" Error Message -->
+    <p-toast key="instanceAddChangeError"></p-toast>
+
+    <form [formGroup]="msInstanceAddForm">
+        <!-- * * * Name * * * -->
+        <div class="input">
+            <label class="inputLabel">MS Name</label>
+            <b>{{msName}}</b>
+        </div>
+        <!-- * * * Release * * * -->
+        <div class="input">
+            <label class="inputLabel">Release<span style="color:red">*</span></label>
+            <p-dropdown [options]="msInstanceReleases" placeholder="Select Release" formControlName="release"></p-dropdown>
+        </div>
+        <!-- * * * Scrum Lead / UID * * * -->
+        <div class="input">
+            <label class="inputLabel">Scrum Lead/UID</label>
+            <input class="inputFieldLg" type="text" pInputText formControlName="scrumLead" /> / <input class="inputFieldXSm" type="text" pInputText formControlName="scrumLeadId" />
+        </div>
+        <!-- * * * Systems Engineer / UID * * * -->
+        <div class="input">
+            <label class="inputLabel">Systems Engineer/UID</label>
+            <input class="inputFieldLg" type="text" pInputText formControlName="systemsEngineer" /> / <input class="inputFieldXSm" type="text" pInputText formControlName="systemsEngineerId" />
+        </div>
+        <!-- * * * Developer / UID * * * -->
+        <div class="input">
+            <label class="inputLabel">Developer<span style="color:red">*</span>/UID<span style="color:red">*</span></label>
+            <input class="inputFieldLg" type="text" pInputText formControlName="developer" /> / <input class="inputFieldXSm" type="text" pInputText formControlName="developerId" />
+        </div>
+        <!-- * * * PST Due Date * * * -->
+        <div class="input">
+            <label class="inputLabel">PST Due Date</label>
+            <p-calendar appendTo="body" [baseZIndex]="10001" dateFormat="yy-mm-dd" formControlName="pstDueDate" [showIcon]="true"></p-calendar>
+        </div>
+        <!-- * * * PST Due Iteration * * * -->
+        <div class="input">
+            <label class="inputLabel">PST Due Iteration</label>
+            <input class="inputFieldSm" type="text" pInputText formControlName="pstDueIteration" />
+        </div>
+        <!-- * * * ETE Due Date * * * -->
+        <div class="input">
+            <label class="inputLabel">ETE Due Date</label>
+            <p-calendar appendTo="body" [baseZIndex]="10001" dateFormat="yy-mm-dd" formControlName="eteDueDate" [showIcon]="true"></p-calendar>
+        </div>
+        <!-- * * * ETE Due Iteration * * * -->
+        <div class="input">
+            <label class="inputLabel">ETE Due Iteration</label>
+            <input class="inputFieldSm" type="text" pInputText formControlName="eteDueIteration" />
+        </div>
+        <!-- * * * Labels * * * -->
+        <div class="input">
+            <label class="inputLabel">Labels</label>
+            <input class="inputFieldLg" type="text" pInputText formControlName="labels" />
+        </div>
+        <span style="padding: 0px 0px 0px 188px; font-size: 13px;">(Separate labels with a space)</span>
+        <!-- * * * Notes * * * -->
+        <div class="input">
+            <label class="inputLabel" style="vertical-align: top">Notes</label>
+            <textarea class="inputFieldLg" [rows]="1" [cols]="30" pInputTextarea autoResize="autoResize" formControlName="notes"></textarea>
+        </div>
+
+        <!-- * * * ADD and Cancel buttons * * * -->
+        <div style="float: right; padding: 10px 25px 5px;">
+            <button pButton type="button" (click)="closeDialog()" label="Cancel"></button>&nbsp;
+            <button pButton type="submit" (click)="submitMsInstance()" class="ui-button-success" [label]="addOrUpdate" style="width: 77px"
+                [disabled]="!msInstanceAddForm.valid ||
+                            !msInstanceAddForm.value['developer'].trim() ||
+                            !msInstanceAddForm.value['developerId'].trim()"></button>
+        </div>
+    </form>
+
+</p-dialog>

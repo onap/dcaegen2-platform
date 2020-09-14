@@ -1,0 +1,170 @@
+<!-- 
+  # ============LICENSE_START=======================================================
+  # Copyright (c) 2020 AT&T Intellectual Property. All rights reserved.
+  # ================================================================================
+  # Licensed under the Apache License, Version 2.0 (the "License");
+  # you may not use this file except in compliance with the License.
+  # You may obtain a copy of the License at
+  #
+  #      http://www.apache.org/licenses/LICENSE-2.0
+  #
+  # Unless required by applicable law or agreed to in writing, software
+  # distributed under the License is distributed on an "AS IS" BASIS,
+  # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  # See the License for the specific language governing permissions and
+  # limitations under the License.
+  # ============LICENSE_END=========================================================
+ -->
+
+<div style="height: 100%;">
+    <p-dialog [(visible)]="visible" appendTo="body" [positionTop]="20" [style]="{width: '88%'}" [modal]="true" [transitionOptions]="'300ms'" [baseZIndex]="10000"
+        [closable]="false" (onHide)="closeDialog()" [maximizable]="true" [minY]="100">
+        <p-header style="display: inline-flex; font-family: Arial, Helvetica, sans-serif;">
+            Component Specs For 
+            <span style="margin-left: 5px; background-color: rgba(96, 164, 228, 0.301); padding: 0 5px 0 5px; border-radius: 5px;">MS Name:&nbsp;{{msName}},&nbsp;&nbsp;Release:&nbsp;{{msRelease}}</span>
+        </p-header>
+        <div style="max-height: 75vh;">
+
+            <mat-accordion>
+                <mat-expansion-panel *ngFor="let cs of componentSpecs" style="margin-bottom: 6px; margin-top: 6px; background-color: rgba(172, 172, 172, 0.226);">
+                    
+                    <mat-expansion-panel-header style="font-family: Arial, Helvetica, sans-serif;">
+                        <mat-panel-title>
+                            <div style="width: 280px;">
+                                <span style="font-weight: 600;">Created On:</span>&nbsp;{{cs.metadata.createdOn | date: 'MMM dd, yyyy h:mm a'}}
+                            </div>
+                            <div style="width: 140px;">
+                                <span style="font-weight: 600;">Type:</span>&nbsp;{{cs.type}}
+                            </div>
+                                <span *ngIf="cs.policyJson !== null && cs.policyJson !== undefined" style="color: rgba(0, 0, 0, 0.473);">(Includes Policy)</span>
+                        </mat-panel-title>
+                        <span *ngIf="cs.status==='ACTIVE'" style="color: rgb(37, 221, 37); font-weight: 600; margin-right: 30px;">ACTIVE</span>
+                    </mat-expansion-panel-header>
+
+                    <mat-expansion-panel style="background-color: rgba(95, 158, 160, 0.226); margin-top: 10px">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title style="font-weight: 500;">
+                                Component Spec
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <pre style="padding-top: 5px;">{{ cs.specContent | json }}</pre>
+                    </mat-expansion-panel>
+
+                    <div *ngIf="cs.policyJson !== null && cs.policyJson !== undefined">
+                        <mat-expansion-panel style="background-color: rgba(126, 160, 95, 0.267); margin-top: 10px;">
+                            <mat-expansion-panel-header>
+                                <mat-panel-title style="font-weight: 500;">
+                                    Policy
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <pre>{{ cs.policyJson | json }}</pre>
+                        </mat-expansion-panel>
+                    </div>
+                    
+                    <div style="display: inline-flex; width: 100%; height: 120px; margin-top: 10px;">
+                        <mat-card style="width: 60%; background-color: rgba(100, 148, 237, 0.295);">
+                            <div style="width: 100%; height: fit-content; position: absolute;">
+                                <span style="font-weight: 500;">Notes:</span>
+                            </div>
+                            <div style="margin-top: 20px; width: 100%;">
+                                <p-scrollPanel [style]="{width: '100%', height: '75px'}">
+                                    <div style="word-break: normal; font-size: 12px;">{{cs.metadata.notes}}</div>
+                                </p-scrollPanel>
+                            </div>
+                        </mat-card>
+                    
+                        <mat-card style="width: 39%; background-color: rgba(76, 65, 225, 0.295); margin-left: 1%;">
+                            <span style="font-weight: 500;">Labels:</span>
+                            <div *ngIf="cs['metadata']['labels'][0] !== ''">
+                                <div *ngFor="let label of cs['metadata']['labels']" style="display: inline-flex; margin-top: 5px;">
+                                    <div style="padding: 2px 7px 3px 0px;">
+                                        <span
+                                            style="background-color: rgba(80, 80, 80, 0.185); padding: 5px; border-radius: 3px;">{{label}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </mat-card>
+                    </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+
+            <!--
+            <p-accordion>
+                <p-accordionTab *ngFor="let cs of componentSpecs">
+                    <p-header>
+                        Created On:&nbsp;{{cs.metadata.createdOn | date: 'MMM dd, yyyy h:mm a'}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Type:&nbsp;{{cs.type}}
+                        <span *ngIf="cs.status==='ACTIVE'" style="color: rgb(37, 221, 37); float: right;">ACTIVE</span>
+                    </p-header>
+                        
+                    <br>
+                    <mat-expansion-panel style="background-color: rgba(95, 158, 160, 0.226);">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title style="font-weight: 500;">
+                                Component Spec
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <pre style="padding-top: 5px;">{{ cs.specContent | json }}</pre>
+                    </mat-expansion-panel>
+
+                    <br>
+                    <div *ngIf="cs.policyInfo !== null && cs.policyInfo !== undefined">
+                        <mat-expansion-panel style="background-color: rgba(126, 160, 95, 0.267);">
+                            <mat-expansion-panel-header>
+                                <mat-panel-title style="font-weight: 500;">
+                                    Policy
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <pre>{{ cs.specContent | json }}</pre>
+                        </mat-expansion-panel>
+                        <br>
+                    </div>
+
+                    <div style="display: inline-flex; width: 100%; height: 120px">
+                        <mat-card style="width: 60%; background-color: rgba(100, 148, 237, 0.295); display: inline-flex;">
+                            <span style="font-weight: 500;">Notes:</span>
+                            <p-scrollPanel [style]="{width: '100%', height: '62px'}">
+                                <div style="word-break: normal; font-size: 12px;">{{cs.metadata.notes}}</div>
+                            </p-scrollPanel>
+                        </mat-card>
+
+                        <mat-card style="width: 39%; background-color: rgba(76, 65, 225, 0.295); margin-left: 1%;">
+                            <span style="font-weight: 500;">Labels:</span>
+                            <div *ngIf="cs['metadata']['labels'][0] !== ''">
+                                <div *ngFor="let label of cs['metadata']['labels']" style="display: inline-flex; margin-top: 5px;">
+                                    <div style="padding: 2px 7px 3px 0px;">
+                                        <span style="background-color: rgba(80, 80, 80, 0.185); padding: 5px; border-radius: 3px;">{{label}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </mat-card>
+                    </div>
+                    <br>
+
+                    <div style="display: grid; grid-template-columns: 70% auto; grid-gap: 10px; height: 80px; font-size: 12px;">
+                        <div style="background-color: rgba(100, 148, 237, 0.295); padding-top: 5px; padding-left: 5px;">
+                            <b>Notes:</b>
+                            <p-scrollPanel [style]="{width: '100%', height: '62px'}">
+                                <div style="word-break: normal; font-size: 12px;">{{cs.metadata.notes}}</div>
+                            </p-scrollPanel>
+                        </div>
+                        <div style="background-color: rgba(76, 65, 225, 0.295); padding-top: 5px; padding-left: 5px;">
+                            <b>Labels:</b><br>
+                            <div *ngIf="cs['metadata']['labels'][0] !== ''">
+                                <div *ngFor="let label of cs['metadata']['labels']" style="display: inline-flex; margin-top: 5px;">
+                                    <div style="padding: 2px 7px 3px 0px;">
+                                        <span style="background-color: rgba(80, 80, 80, 0.185); padding: 5px; border-radius: 3px;">{{label}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                </p-accordionTab>
+            </p-accordion>
+            -->
+        </div>
+        <p-footer>
+            <button pButton label="Close" (click)="closeDialog()" type="button"></button>
+        </p-footer>
+    </p-dialog>
+</div>

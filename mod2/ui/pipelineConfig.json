@@ -1,0 +1,21 @@
+{
+  "release": "3.1.3",
+  "blueprintRepo": "codecloud.web.att.com/scm/st_dcaecntr/platform_onboarding.git",
+  "featureBranch": "feature/cdptest",
+  "featureBranchDir": "DCAE-EOM-K8S/dcae-onboarding-dcae-mod-fe",
+  "jiraTag": "REPLACE-999",
+  "serviceInfo": [
+    {
+      "isKubernetes": true,
+      "serviceName": "dcae-mod-fe",
+      "compSpecFilePath": "public/dpo/comp_spec_toolbox_fe.json",
+      "inputsFilePath": "public/dpo/inputs_ftl3g_k8s.json",
+      "directory": ".",
+      "docker": {
+        "installDir": "/opt/app/dcae-onboarding-dcae-mod-fe",
+        "registry": "dockercentral.it.att.com:5100/com.att.dcae.dcaemod",
+        "filePath": "./Dockerfile"
+      }
+    }
+  ]
+}

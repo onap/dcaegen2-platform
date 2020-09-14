@@ -1,0 +1,73 @@
+/* 
+ *  # ============LICENSE_START=======================================================
+ *  # Copyright (c) 2020 AT&T Intellectual Property. All rights reserved.
+ *  # ================================================================================
+ *  # Licensed under the Apache License, Version 2.0 (the "License");
+ *  # you may not use this file except in compliance with the License.
+ *  # You may obtain a copy of the License at
+ *  #
+ *  #      http://www.apache.org/licenses/LICENSE-2.0
+ *  #
+ *  # Unless required by applicable law or agreed to in writing, software
+ *  # distributed under the License is distributed on an "AS IS" BASIS,
+ *  # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  # See the License for the specific language governing permissions and
+ *  # limitations under the License.
+ *  # ============LICENSE_END=========================================================
+ */
+
+.validator-input-card{
+    width: 40%;
+    min-width: 430px;
+    min-height: 100%;
+    border: 2px solid slategray;
+    border-radius: 5px;
+    background-color: white;
+    padding: 1%;
+}
+.validator-output-card{
+    width: 58%;
+    border: 2px solid slategray;
+    margin-left: 2%; 
+    min-height: 100%;
+    border-radius: 5px;
+    background-color: white;
+    padding: 1%;
+}
+
+.input-section-card{
+    font-size: 14px; 
+    border: solid slategray; 
+    border-style: double;
+    margin-top: 7px
+}
+
+.validateSpec{
+    margin-top: 10px;
+}
+.downloadSchema{
+    margin-top: 80px;
+}
+
+.type-selection{
+    position: absolute; 
+    background-color: rgba(128, 128, 128, 0.15); 
+    width: 190px; 
+    height: 40px; 
+    display: inline-flex; 
+    align-items: center; 
+    margin-left: 150px;
+}
+
+.greenOutput{
+    background-color: rgba(0, 255, 0, 0.205);
+    height: 40px;
+    padding: 3px;
+    border: 2px solid rgba(0, 66, 0, 0.747);
+}
+.redOutput{
+    background-color: rgba(255, 0, 0, 0.267);
+    height: 87%;
+    padding: 10px;
+    border: 2px solid rgba(65, 0, 0, 0.712);
+}
