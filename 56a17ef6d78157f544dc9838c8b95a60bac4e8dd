@@ -1,0 +1,208 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c20c94d3_2ecbee76",
+        "filename": "mod2/ui/src/app/home/home.component.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-09-15T02:12:59Z",
+      "side": 1,
+      "message": "remove commented-out code",
+      "revId": "56a17ef6d78157f544dc9838c8b95a60bac4e8dd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a0d3b65_d8582eb3",
+        "filename": "mod2/ui/src/app/home/home.component.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-09-15T02:12:59Z",
+      "side": 1,
+      "message": "remove commented-out code",
+      "revId": "56a17ef6d78157f544dc9838c8b95a60bac4e8dd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be0c4ebc_8698c1e4",
+        "filename": "mod2/ui/src/app/register/register.component.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-09-15T02:12:59Z",
+      "side": 1,
+      "message": "p is unused?\n\nduplicate code with user manage code?",
+      "revId": "56a17ef6d78157f544dc9838c8b95a60bac4e8dd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5eb5742_94e55539",
+        "filename": "mod2/ui/src/app/register/register.component.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-09-15T02:12:59Z",
+      "side": 1,
+      "message": "12 bytes is woefully poor security. You have ~8 bits from the chars list, times 12, giving 96 bits of randomness.\nFor 256 bits of security, you need a string of 32 characters.",
+      "revId": "56a17ef6d78157f544dc9838c8b95a60bac4e8dd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ecdbe023_5f4a0015",
+        "filename": "mod2/ui/src/app/register/register.component.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-09-15T02:12:59Z",
+      "side": 1,
+      "message": "Math.random() is not cryptographically sound.\nWeb search says:\nUse the Web Crypto API instead, and more precisely the window.crypto.getRandomValues() method.",
+      "revId": "56a17ef6d78157f544dc9838c8b95a60bac4e8dd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5e0a646_27f6c57d",
+        "filename": "mod2/ui/src/app/register/register.component.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-09-15T02:12:59Z",
+      "side": 1,
+      "message": "charAt is 0-based, so you need to remove the +1.",
+      "revId": "56a17ef6d78157f544dc9838c8b95a60bac4e8dd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea720d56_b0c8c86f",
+        "filename": "mod2/ui/src/app/user-management/user-management.component.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-09-15T02:12:59Z",
+      "side": 1,
+      "message": "p is unused?\n\nduplicate code with register manage code?",
+      "revId": "56a17ef6d78157f544dc9838c8b95a60bac4e8dd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e97466b4_b27f4673",
+        "filename": "mod2/ui/src/app/user-management/user-management.component.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-09-15T02:12:59Z",
+      "side": 1,
+      "message": "12 bytes is woefully poor security. You have ~8 bits from the chars list, times 12, giving 96 bits of randomness.\nFor 256 bits of security, you need a string of 32 characters.",
+      "revId": "56a17ef6d78157f544dc9838c8b95a60bac4e8dd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "138b8f94_afc0e57e",
+        "filename": "mod2/ui/src/app/user-management/user-management.component.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-09-15T02:12:59Z",
+      "side": 1,
+      "message": "charAt is 0-based, so you need to remove the +1.",
+      "revId": "56a17ef6d78157f544dc9838c8b95a60bac4e8dd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1e1df55_13ad208f",
+        "filename": "mod2/ui/src/app/user-management/user-management.component.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-09-15T02:12:59Z",
+      "side": 1,
+      "message": "Math.random() is not cryptographically sound.\nWeb search says:\nUse the Web Crypto API instead, and more precisely the window.crypto.getRandomValues() method.",
+      "revId": "56a17ef6d78157f544dc9838c8b95a60bac4e8dd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b606fc33_8dd58df6",
+        "filename": "mod2/ui/src/assets/env.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-09-15T02:12:59Z",
+      "side": 1,
+      "message": "no attuids",
+      "revId": "56a17ef6d78157f544dc9838c8b95a60bac4e8dd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c8a975ee_f6c31939",
+        "filename": "mod2/ui/src/assets/env.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-09-15T02:12:59Z",
+      "side": 1,
+      "message": "Copyright (c) AT\u0026T Intellectual Property. All rights reserved",
+      "revId": "56a17ef6d78157f544dc9838c8b95a60bac4e8dd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
