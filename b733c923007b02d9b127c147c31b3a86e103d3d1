@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "fd374b4f_ba4330b6",
+        "filename": "mod2/auth-service/Dockerfile",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-09-15T18:28:38Z",
+      "side": 1,
+      "message": "Isn\u0027t that your internal image?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 84
+      },
+      "revId": "b733c923007b02d9b127c147c31b3a86e103d3d1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1e858908_f450494d",
         "filename": "mod2/auth-service/src/main/java/org/onap/dcaegen2/platform/mod/DataLoader.java",
         "patchSetId": 5
@@ -19,6 +42,190 @@
     },
     {
       "key": {
+        "uuid": "deaa6dc9_c3956e4b",
+        "filename": "mod2/auth-service/src/main/java/org/onap/dcaegen2/platform/mod/controllers/AuthController.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-09-15T18:28:38Z",
+      "side": 1,
+      "message": "Wildcard imports shouldn\u0027t be used. ( https://wiki.onap.org/display/DW/Java+code+style - https://google.github.io/styleguide/javaguide.html#s3.3-import-statements )",
+      "range": {
+        "startLine": 27,
+        "startChar": 44,
+        "endLine": 27,
+        "endChar": 46
+      },
+      "revId": "b733c923007b02d9b127c147c31b3a86e103d3d1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d86368d4_f70de18c",
+        "filename": "mod2/auth-service/src/main/java/org/onap/dcaegen2/platform/mod/controllers/AuthController.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-09-15T18:28:38Z",
+      "side": 1,
+      "message": "Wildcard import",
+      "range": {
+        "startLine": 42,
+        "startChar": 46,
+        "endLine": 42,
+        "endChar": 48
+      },
+      "revId": "b733c923007b02d9b127c147c31b3a86e103d3d1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb7aaace_b9dfa92a",
+        "filename": "mod2/auth-service/src/main/java/org/onap/dcaegen2/platform/mod/controllers/AuthController.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-09-15T18:28:38Z",
+      "side": 1,
+      "message": "Unnecessary cast",
+      "range": {
+        "startLine": 104,
+        "startChar": 31,
+        "endLine": 104,
+        "endChar": 47
+      },
+      "revId": "b733c923007b02d9b127c147c31b3a86e103d3d1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a21d12e7_78af97f0",
+        "filename": "mod2/auth-service/src/main/java/org/onap/dcaegen2/platform/mod/controllers/AuthController.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-09-15T18:28:38Z",
+      "side": 1,
+      "message": "Consider moving that logic to some kind of service class maybe?\nSeems very weird that UserDetailsServiceImpl has dependency on AuthController",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 153,
+        "endChar": 5
+      },
+      "revId": "b733c923007b02d9b127c147c31b3a86e103d3d1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51a3483e_1a19178d",
+        "filename": "mod2/auth-service/src/main/java/org/onap/dcaegen2/platform/mod/controllers/RoleController.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-09-15T18:28:38Z",
+      "side": 1,
+      "message": "Wildcard import",
+      "range": {
+        "startLine": 28,
+        "startChar": 46,
+        "endLine": 28,
+        "endChar": 49
+      },
+      "revId": "b733c923007b02d9b127c147c31b3a86e103d3d1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "847c5561_bc53489b",
+        "filename": "mod2/auth-service/src/main/java/org/onap/dcaegen2/platform/mod/exceptions/RoleNotExistsException.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-09-15T18:28:38Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 28,
+        "startChar": 22,
+        "endLine": 28,
+        "endChar": 29
+      },
+      "revId": "b733c923007b02d9b127c147c31b3a86e103d3d1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c332428_f683ae5b",
+        "filename": "mod2/auth-service/src/main/java/org/onap/dcaegen2/platform/mod/exceptions/UserAlreadyExistsException.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-09-15T18:28:38Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 28,
+        "startChar": 22,
+        "endLine": 28,
+        "endChar": 29
+      },
+      "revId": "b733c923007b02d9b127c147c31b3a86e103d3d1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4d37564_a4343f28",
+        "filename": "mod2/auth-service/src/main/java/org/onap/dcaegen2/platform/mod/models/ModUser.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-09-15T18:28:38Z",
+      "side": 1,
+      "message": "Wildcard import",
+      "range": {
+        "startLine": 25,
+        "startChar": 13,
+        "endLine": 25,
+        "endChar": 15
+      },
+      "revId": "b733c923007b02d9b127c147c31b3a86e103d3d1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7dc6e384_a65acdae",
         "filename": "mod2/auth-service/src/main/java/org/onap/dcaegen2/platform/mod/security/WebSecurityConfigurer.java",
         "patchSetId": 5
@@ -30,6 +237,52 @@
       "writtenOn": "2020-09-11T17:02:28Z",
       "side": 1,
       "message": "what is class for?",
+      "revId": "b733c923007b02d9b127c147c31b3a86e103d3d1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abe4bf74_5a27af0c",
+        "filename": "mod2/auth-service/src/main/java/org/onap/dcaegen2/platform/mod/security/jwt/JwtUtils.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-09-15T18:28:38Z",
+      "side": 1,
+      "message": "Wildcard import",
+      "range": {
+        "startLine": 26,
+        "startChar": 22,
+        "endLine": 26,
+        "endChar": 24
+      },
+      "revId": "b733c923007b02d9b127c147c31b3a86e103d3d1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b49124d1_a3b8eb56",
+        "filename": "mod2/auth-service/src/main/java/org/onap/dcaegen2/platform/mod/services/MODUserDetailService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-09-15T18:28:38Z",
+      "side": 1,
+      "message": "What is the purpose of this class?\nSome upcoming changes?",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 6
+      },
       "revId": "b733c923007b02d9b127c147c31b3a86e103d3d1",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
