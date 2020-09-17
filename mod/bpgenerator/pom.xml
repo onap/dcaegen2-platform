@@ -29,11 +29,8 @@
 	</parent>
 	<groupId>org.onap.dcaegen2.platform.mod</groupId>
 	<artifactId>blueprint-generator</artifactId>
-	<version>1.4.0-SNAPSHOT</version>
+	<version>1.5.0-SNAPSHOT</version>
 	<properties>
-		<maven.compiler.source>1.6</maven.compiler.source>
-		<maven.compiler.target>1.6</maven.compiler.target>
-
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<sonar.core.codeCoveragePlugin>cobertura</sonar.core.codeCoveragePlugin>
 		<sonar.java.coveragePlugin>cobertura</sonar.java.coveragePlugin>
@@ -141,8 +138,8 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<source>8</source>
-					<target>8</target>
+					<source>11</source>
+					<target>11</target>
 				</configuration>
 			</plugin>
 		</plugins>
