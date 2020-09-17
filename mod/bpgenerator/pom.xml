@@ -29,17 +29,12 @@
 	</parent>
 	<groupId>org.onap.dcaegen2.platform.mod</groupId>
 	<artifactId>blueprint-generator</artifactId>
-	<version>1.4.0-SNAPSHOT</version>
+	<version>1.5.0-SNAPSHOT</version>
 	<properties>
-		<maven.compiler.source>1.6</maven.compiler.source>
-		<maven.compiler.target>1.6</maven.compiler.target>
-
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<sonar.core.codeCoveragePlugin>cobertura</sonar.core.codeCoveragePlugin>
-		<sonar.java.coveragePlugin>cobertura</sonar.java.coveragePlugin>
 		<sonar.junit.reportsPath>${project.basedir}/target/surefire-reports</sonar.junit.reportsPath>
 		<sonar.surefire.reportsPath>${project.basedir}/target/surefire-reports</sonar.surefire.reportsPath>
-		<sonar.cobertura.reportPaths>${project.basedir}/target/site/cobertura/coverage.xml</sonar.cobertura.reportPaths>
+		<sonar.coverage.jacoco.xmlReportPaths>${project.basedir}/target/site/jacoco-ut/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
 		<shade.main>org.onap.blueprintgenerator.core.App</shade.main>
 		<shade.transformer>org.apache.maven.plugins.shade.resource.ManifestResourceTransformer</shade.transformer>
 	</properties>
@@ -65,47 +60,6 @@
 							<goal>single</goal>
 						</goals>
 					</execution>
-				</executions>
-
-			</plugin>
-
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>cobertura-maven-plugin</artifactId>
-				<version>2.7</version>
-				<configuration>
-					<instrumentation>
-						<includes>
-							<include>**/*.class</include>
-						</includes>
-					</instrumentation>
-					<encoding>UTF-8</encoding>
-				</configuration>
-
-				<executions>
-
-					<execution>
-						<id>clean</id>
-						<!-- > <phase>pre-site</phase> -->
-						<phase>pre-site</phase>
-						<goals>
-							<goal>cobertura</goal>
-						</goals>
-					</execution>
-
-
-					<execution>
-						<id>instrument</id>
-						<phase>site</phase>
-						<goals>
-							<goal>instrument</goal>
-							<goal>cobertura</goal>
-						</goals>
-						<configuration>
-							<encoding>UTF-8</encoding>
-						</configuration>
-					</execution>
-
 				</executions>
 
 			</plugin>
@@ -141,30 +95,12 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<source>8</source>
-					<target>8</target>
+					<source>11</source>
+					<target>11</target>
 				</configuration>
 			</plugin>
 		</plugins>
-
 	</build>
-
-	<reporting>
-		<plugins>
-			<plugin>
-				<!-- use mvn cobertura:cobertura to generate cobertura reports -->
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>cobertura-maven-plugin</artifactId>
-				<version>2.7</version>
-				<configuration>
-					<formats>
-						<format>xml</format>
-					</formats>
-				</configuration>
-			</plugin>
-		</plugins>
-	</reporting>
-
 
 	<dependencies>
 		<dependency>
