@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ef1ab7cc_0c28c443",
+        "filename": "mod/bpgenerator/TestCases/ves/blueprints/vesK8sWithDmaap.yaml",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-09-18T21:59:29Z",
+      "side": 1,
+      "message": "why is this update being done part of catalog-service?",
+      "revId": "514c3c7e68a8082c05c31c939ac0902bec4ace88",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2fdbcc6f_9b055ffe",
+        "filename": "mod2/catalog-service/pom.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-09-18T21:59:29Z",
+      "side": 1,
+      "message": "use 1.4.10",
+      "range": {
+        "startLine": 40,
+        "startChar": 41,
+        "endLine": 40,
+        "endChar": 46
+      },
+      "revId": "514c3c7e68a8082c05c31c939ac0902bec4ace88",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4276d294_edcb6270",
+        "filename": "mod2/catalog-service/src/main/java/org/onap/dcaegen2/platform/mod/model/deploymentartifact/DeploymentArtifactStatus.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-09-18T21:59:29Z",
+      "side": 1,
+      "message": "these are not required for onap; to be removed as commented earlier",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 38
+      },
+      "revId": "514c3c7e68a8082c05c31c939ac0902bec4ace88",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
