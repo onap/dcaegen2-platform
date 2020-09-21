@@ -46,9 +46,7 @@ public class DmaapInfo {
 
     public TreeMap<String, LinkedHashMap<String, Object>> createOnapDmaapMRInfo(
         TreeMap<String, LinkedHashMap<String, Object>> inps, String config, char type) {
-        TreeMap<String, LinkedHashMap<String, Object>> retInputs = new TreeMap<String, LinkedHashMap<String, Object>>();
-        retInputs = inps;
-        LinkedHashMap<String, Object> stringType = new LinkedHashMap<String, Object>();
+        LinkedHashMap<String, Object> stringType = new LinkedHashMap<>();
         stringType.put("type", "string");
 
         config = config.replaceAll("-", "_");
@@ -62,9 +60,9 @@ public class DmaapInfo {
         topic.setBpInputName(config);
         this.setTopic_url(topic);
 
-        retInputs.put(config, stringType);
+        inps.put(config, stringType);
 
-        return retInputs;
+        return inps;
     }
 
     public TreeMap<String, LinkedHashMap<String, Object>> createOnapDmaapDRInfo(
