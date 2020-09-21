@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "bad27ffb_223eebcb",
+        "filename": "mod2/auth-service/Dockerfile",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-09-21T15:41:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b2f50c2_09ad4a1a",
+      "revId": "913bd7de18f9485b5d12d9ee422e52ac91814f44",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "93dcd5cf_893d4669",
         "filename": "mod2/auth-service/src/main/java/org/onap/dcaegen2/platform/mod/DataLoader.java",
         "patchSetId": 3
@@ -119,6 +137,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "cfa16170_5f25da8a",
+      "range": {
+        "startLine": 72,
+        "startChar": 46,
+        "endLine": 72,
+        "endChar": 51
+      },
+      "revId": "913bd7de18f9485b5d12d9ee422e52ac91814f44",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "900f3742_6a6eb5c8",
+        "filename": "mod2/auth-service/src/main/java/org/onap/dcaegen2/platform/mod/controllers/UserController.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-09-21T15:41:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bbb5fce9_1c94cbe0",
       "range": {
         "startLine": 72,
         "startChar": 46,
