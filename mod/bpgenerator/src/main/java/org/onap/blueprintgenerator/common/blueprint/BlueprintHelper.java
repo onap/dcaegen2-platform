@@ -27,11 +27,17 @@ import java.util.LinkedHashMap;
 @UtilityClass
 public class BlueprintHelper {
 
+    public static String UNDERSCORE = "_";
+
     public static LinkedHashMap<String, Object> createInputValue(String type, String description, Object defaultValue) {
         LinkedHashMap<String, Object> inputMap = new LinkedHashMap<>();
         inputMap.put("type", type);
         inputMap.put("description", description);
         inputMap.put("default", defaultValue);
         return inputMap;
+    }
+
+    public static String joinUnderscore(String firstValue, String secondValue){
+        return firstValue + UNDERSCORE + secondValue;
     }
 }
