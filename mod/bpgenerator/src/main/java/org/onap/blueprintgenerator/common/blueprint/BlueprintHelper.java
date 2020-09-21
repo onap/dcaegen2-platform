@@ -34,4 +34,8 @@ public class BlueprintHelper {
         inputMap.put("default", defaultValue);
         return inputMap;
     }
+
+    public static String joinUnderscore(String firstValue, String secondValue){
+        return firstValue + "_" + secondValue;
+    }
 }
