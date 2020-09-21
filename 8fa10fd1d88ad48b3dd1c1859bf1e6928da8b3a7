@@ -22,6 +22,30 @@
       "revId": "8fa10fd1d88ad48b3dd1c1859bf1e6928da8b3a7",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01cb0664_cfec2443",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/componentspec/Volumes.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-09-21T14:08:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f016f66f_7d8b91a0",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 21
+      },
+      "revId": "8fa10fd1d88ad48b3dd1c1859bf1e6928da8b3a7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
