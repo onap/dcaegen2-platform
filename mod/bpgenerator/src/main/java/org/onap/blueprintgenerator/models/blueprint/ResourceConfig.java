@@ -71,13 +71,12 @@ public class ResourceConfig {
 	 * @return the tree map
 	 */
 	public TreeMap<String, LinkedHashMap<String, Object>> createResourceConfig(TreeMap<String, LinkedHashMap<String, Object>> inps, String name){
-		TreeMap<String, LinkedHashMap<String, Object>> retInputs = inps;
 
-		LinkedHashMap<String, Object> mi = new LinkedHashMap<String, Object>();
+		LinkedHashMap<String, Object> mi = new LinkedHashMap<>();
 		mi.put("type", "string");
 		mi.put("default", "128Mi");
 
-		LinkedHashMap<String, Object> m = new LinkedHashMap<String, Object>();
+		LinkedHashMap<String, Object> m = new LinkedHashMap<>();
 		m.put("type", "string");
 		m.put("default", "250m");
 
@@ -87,7 +86,7 @@ public class ResourceConfig {
 		}
 
 		//set the limits
-		TreeMap<String, GetInput> lim = new TreeMap<String, GetInput>();
+		TreeMap<String, GetInput> lim = new TreeMap<>();
 
 		GetInput cpu = new GetInput();
 		cpu.setBpInputName(name + "cpu_limit");
@@ -97,13 +96,13 @@ public class ResourceConfig {
 		memL.setBpInputName(name + "memory_limit");
 		lim.put("memory", memL);
 
-		retInputs.put(name + "cpu_limit", m);
-		retInputs.put(name + "memory_limit", mi);
+		inps.put(name + "cpu_limit", m);
+		inps.put(name + "memory_limit", mi);
 
 		this.setLimits(lim);
 
 		//set the requests
-		TreeMap<String, GetInput> req = new TreeMap<String, GetInput>();
+		TreeMap<String, GetInput> req = new TreeMap<>();
 
 		GetInput cpuR = new GetInput();
 		cpuR.setBpInputName(name + "cpu_request");
@@ -113,12 +112,12 @@ public class ResourceConfig {
 		memR.setBpInputName(name + "memory_request");
 		req.put("memory", memR);
 
-		retInputs.put(name + "cpu_request", m);
-		retInputs.put(name + "memory_request", mi);
+		inps.put(name + "cpu_request", m);
+		inps.put(name + "memory_request", mi);
 
 		this.setRequests(req);
 
-		return retInputs;
+		return inps;
 	}
 }
 

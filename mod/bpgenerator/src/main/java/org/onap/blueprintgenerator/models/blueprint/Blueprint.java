@@ -20,34 +20,26 @@
 
 package org.onap.blueprintgenerator.models.blueprint;
 
-import java.io.*;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+import com.fasterxml.jackson.dataformat.yaml.YAMLGenerator;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.TreeMap;
 import java.util.regex.Pattern;
-
+import lombok.Getter;
+import lombok.Setter;
 import org.onap.blueprintgenerator.core.Fixes;
 import org.onap.blueprintgenerator.models.componentspec.ComponentSpec;
-import org.onap.blueprintgenerator.models.componentspec.Parameters;
-import org.onap.blueprintgenerator.models.componentspec.Publishes;
-import org.onap.blueprintgenerator.models.componentspec.Subscribes;
 import org.onap.blueprintgenerator.models.dmaapbp.DmaapBlueprint;
 import org.onap.blueprintgenerator.models.onapbp.OnapBlueprint;
-
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.core.JsonProcessingException;
-//import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
-import com.fasterxml.jackson.dataformat.yaml.YAMLGenerator;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.yaml.snakeyaml.Yaml;
-
 
 @Getter @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -100,93 +92,43 @@ public class Blueprint {
 
 	public void blueprintToYaml(String outputPath, String bluePrintName, ComponentSpec cs) {
 		File outputFile;
-
-		if(bluePrintName.equals("")) {
-			String name = cs.getSelf().getName();
-			if(name.contains(".")) {
-				name = name.replaceAll(Pattern.quote("."), "_");
-			}
-			if(name.contains(" ")) {
-				name = name.replaceAll(" ", "");
-			}
-			String file = name + ".yaml";
-
-
-			outputFile = new File(outputPath, file);
-			outputFile.getParentFile().mkdirs();
-			try {
-				outputFile.createNewFile();
-			} catch (IOException e) {
-				
-				throw new RuntimeException(e);
-			}
-		} else {
-			if(bluePrintName.contains(" ") || bluePrintName.contains(".")) {
-				bluePrintName = bluePrintName.replaceAll(Pattern.quote("."), "_");
-				bluePrintName = bluePrintName.replaceAll(" ", "");
-			}
-			String file = bluePrintName + ".yaml";
-			outputFile = new File(outputPath, file);
-			outputFile.getParentFile().mkdirs();
-			try {
-				outputFile.createNewFile();
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
+		String name = bluePrintName.equals("") ? cs.getSelf().getName() : bluePrintName;
+		if(name.contains(".")) {
+			name = name.replaceAll(Pattern.quote("."), "_");
+		}
+		if(name.contains(" ")) {
+			name = name.replaceAll(" ", "");
+		}
+		String file = name + ".yaml";
+		outputFile = new File(outputPath, file);
+		outputFile.getParentFile().mkdirs();
+		try {
+			outputFile.createNewFile();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
 		}
 
 		String version = "#blueprint_version: " + cs.getSelf().getVersion() + '\n';
 		String description = "#description: " + cs.getSelf().getDescription() + '\n';
 
-		BufferedWriter writer = null;
-		try {
-			writer = new BufferedWriter(new FileWriter(outputFile, false));
+		try(BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile, false))) {
+			writer.write(description);
+			writer.write(version);
 		} catch (IOException e1) {
 			throw new RuntimeException(e1);
 		}
-		if(writer != null) {
-			try {
-				writer.write(description);
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-			try {
-				writer.write(version);
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-			try {
-				writer.close();
-			} catch (IOException e) {
-				throw new RuntimeException(e);
-			}
-		}
-
 
 		//read the translated blueprint into the file
 		ObjectMapper blueprintMapper = new ObjectMapper(new YAMLFactory().configure(YAMLGenerator.Feature.MINIMIZE_QUOTES, true));
 
-		PrintWriter out = null;
-		try {
-			out = new PrintWriter(new BufferedWriter(new FileWriter(outputFile, true)));
+		try (PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(outputFile, true)))) {
+			blueprintMapper.writeValue(out, this);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
 
 		try {
-			if(out != null) {
-				blueprintMapper.writeValue(out, this);
-				out.close();
-			}
-		} catch (IOException e) {
-			
-			throw new RuntimeException(e);
-		}
-
-
-		Fixes fix = new Fixes();
-		try {
-			fix.fixSingleQuotes(outputFile);
+			Fixes.fixSingleQuotes(outputFile);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}

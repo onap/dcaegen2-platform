@@ -52,8 +52,7 @@ public class Appconfig {
 
 	public TreeMap<String, LinkedHashMap<String, Object>> createAppconfig(TreeMap<String, LinkedHashMap<String, Object>> inps, ComponentSpec cs, String override,
 																		  boolean isDmaap) {
-		TreeMap<String, LinkedHashMap<String, Object>> retInputs = new TreeMap<String, LinkedHashMap<String, Object>>();
-		retInputs = inps;
+		TreeMap<String, LinkedHashMap<String, Object>> retInputs = inps;
 
 		//set service calls
 		CallsObj[] call = new CallsObj[0];
@@ -83,7 +82,7 @@ public class Appconfig {
 		}
 
 		//set the stream publishes
-		TreeMap<String, DmaapObj> streamSubscribes = new TreeMap<String, DmaapObj>();
+		TreeMap<String, DmaapObj> streamSubscribes = new TreeMap<>();
 
 		if(cs.getStreams().getSubscribes().length != 0) {
 			for(Subscribes s: cs.getStreams().getSubscribes()) {
@@ -110,7 +109,7 @@ public class Appconfig {
 		this.setStreams_subscribes(streamSubscribes);
 
 		//set the parameters into the appconfig
-		TreeMap<String, Object> parameters = new TreeMap<String, Object>();
+		TreeMap<String, Object> parameters = new TreeMap<>();
 		for(Parameters p: cs.getParameters()) {
 			String pName = p.getName();
 			if(p.isSourced_at_deployment()) {
@@ -119,17 +118,17 @@ public class Appconfig {
 				parameters.put(pName, paramInput);
 
 				if(!p.getValue().equals("")) {
-					LinkedHashMap<String, Object> inputs = new LinkedHashMap<String, Object>();
+					LinkedHashMap<String, Object> inputs = new LinkedHashMap<>();
 					inputs.put("type", "string");
 					inputs.put("default", p.getValue());
 					retInputs.put(pName, inputs);
 				} else {
-					LinkedHashMap<String, Object> inputs = new LinkedHashMap<String, Object>();
+					LinkedHashMap<String, Object> inputs = new LinkedHashMap<>();
 					inputs.put("type", "string");
 					retInputs.put(pName, inputs);
 				}
 			} else {
-				if(p.getType() == "string") {
+				if("string".equals(p.getType())) {
 					String val  =(String) p.getValue();
 					val = '"' + val + '"';
 					parameters.put(pName, val);
@@ -143,7 +142,7 @@ public class Appconfig {
 			GetInput ov = new GetInput();
 			ov.setBpInputName("service_component_name_override");
 			parameters.put("service_component_name_override", ov);
-			LinkedHashMap<String, Object> over = new LinkedHashMap<String, Object>();
+			LinkedHashMap<String, Object> over = new LinkedHashMap<>();
 			over.put("type", "string");
 			over.put("default", override);
 			retInputs.put("service_component_name_override", over);

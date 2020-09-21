@@ -41,10 +41,9 @@ public class StartInputs {
 	private Object envs;
 
 	public TreeMap<String, LinkedHashMap<String, Object>> createOnapStartInputs(TreeMap<String, LinkedHashMap<String, Object>> inps, ComponentSpec cs){
-		TreeMap<String, LinkedHashMap<String, Object>> retInputs = inps;
 
 		int count = 0;
-		ArrayList<String> portList = new ArrayList();
+		ArrayList<String> portList = new ArrayList<>();
 		Auxilary aux = cs.getAuxilary();
 
 		if (aux.getPorts() != null) {
@@ -56,10 +55,10 @@ public class StartInputs {
 						, ports[0], count);
 				portList.add(internal);
 
-				LinkedHashMap<String, Object> portType = new LinkedHashMap();
+				LinkedHashMap<String, Object> portType = new LinkedHashMap<>();
 				portType.put("type", "string");
 				portType.put("default", ports[1]);
-				retInputs.put("external_port_" + count, portType);
+				inps.put("external_port_" + count, portType);
 
 				count++;
 			}
@@ -98,7 +97,7 @@ public class StartInputs {
 //		}
 
 		//set the envs
-		LinkedHashMap<String, Object> eMap = new LinkedHashMap();
+		LinkedHashMap<String, Object> eMap = new LinkedHashMap<>();
 		if(cs.getAuxilary().getDatabases() != null){
 			//set db env variables
 			LinkedHashMap<String, Object> envVars = PgaasNodeBuilder.getEnvVariables(cs.getAuxilary().getDatabases());
@@ -111,9 +110,9 @@ public class StartInputs {
 			this.setEnvs(env);
 			eMap.put("default", "{}");
 		}
-		retInputs.put("envs", eMap);
+		inps.put("envs", eMap);
 
 
-		return retInputs;
+		return inps;
 	}
 }
