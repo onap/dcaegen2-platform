@@ -22,19 +22,15 @@
 package org.onap.blueprintgenerator.models.componentspec;
 
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.TreeMap;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter; import lombok.Setter;
+import java.util.ArrayList;
+import java.util.TreeMap;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 // TODO: Auto-generated Javadoc
 /* (non-Javadoc)
@@ -64,6 +60,7 @@ import lombok.NoArgsConstructor;
  */
 
 @JsonInclude(value=Include.NON_NULL)
+@EqualsAndHashCode
 //Called in component Spec Object
 public class Auxilary {
 	
