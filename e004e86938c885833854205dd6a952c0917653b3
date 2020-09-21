@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7b15cfec_c0f7c052",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/common/blueprint/BlueprintHelper.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 6714
+      },
+      "writtenOn": "2020-09-21T11:54:16Z",
+      "side": 1,
+      "message": "I think we could have the underscore directly here (without extracting it constant that is not used outside of this class). \nThe solution with constant is also OK.\n\nAnyway a good article about string pool could be found here: https://www.baeldung.com/java-string-pool.",
+      "revId": "e004e86938c885833854205dd6a952c0917653b3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
