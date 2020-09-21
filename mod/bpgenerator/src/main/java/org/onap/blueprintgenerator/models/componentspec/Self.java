@@ -20,16 +20,13 @@
 
 package org.onap.blueprintgenerator.models.componentspec;
 
-import java.util.Map;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter; import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 // TODO: Auto-generated Javadoc
 /* (non-Javadoc)
@@ -55,6 +52,7 @@ import lombok.NoArgsConstructor;
  */
 @JsonInclude(value=Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
+@EqualsAndHashCode
 //called in Component Spec object
 public class Self {
 	
