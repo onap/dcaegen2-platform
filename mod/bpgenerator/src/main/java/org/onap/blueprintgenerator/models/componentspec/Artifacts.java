@@ -21,13 +21,11 @@
 package org.onap.blueprintgenerator.models.componentspec;
 
 
-
 import com.fasterxml.jackson.annotation.JsonInclude;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter; import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 // TODO: Auto-generated Javadoc
 /* (non-Javadoc)
@@ -53,6 +51,7 @@ import lombok.NoArgsConstructor;
  */
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@EqualsAndHashCode
 //Called in Component Spec Object
 public class Artifacts {
 	
