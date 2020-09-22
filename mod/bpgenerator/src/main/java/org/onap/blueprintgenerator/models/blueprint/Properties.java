@@ -20,6 +20,7 @@
 
 package org.onap.blueprintgenerator.models.blueprint;
 
+import static org.onap.blueprintgenerator.common.blueprint.BlueprintHelper.isMessageRouterType;
 import static org.onap.blueprintgenerator.models.blueprint.tls.TlsConstants.USE_EXTERNAL_TLS_FIELD;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -41,6 +42,8 @@ import org.onap.blueprintgenerator.models.componentspec.ComponentSpec;
 import org.onap.blueprintgenerator.models.componentspec.Publishes;
 import org.onap.blueprintgenerator.models.componentspec.Subscribes;
 import org.onap.blueprintgenerator.models.dmaapbp.DmaapStreams;
+
+import static org.onap.blueprintgenerator.common.blueprint.BlueprintHelper.isDataRouterType;
 
 @Getter
 @Setter
@@ -221,18 +224,20 @@ public class Properties {
         //set the stream publishes
         ArrayList<DmaapStreams> pubStreams = new ArrayList();
         if (cs.getStreams().getPublishes() != null) {
-            for (Publishes p : cs.getStreams().getPublishes()) {
-                if (p.getType().equals("message_router") || p.getType().equals("message router")) {
-                    String topic = p.getConfig_key() + "_topic";
+            for (Publishes publishes : cs.getStreams().getPublishes()) {
+                if (isMessageRouterType(publishes.getType())) {
+                    String topic = publishes.getConfig_key() + "_topic";
                     DmaapStreams mrStreams = new DmaapStreams();
                     retInputs = mrStreams
-                        .createStreams(inps, cs, topic, p.getType(), p.getConfig_key(), p.getRoute(), 'p');
+                        .createStreams(inps, cs, topic, publishes.getType(), publishes.getConfig_key(),
+                            publishes.getRoute(), 'p');
                     pubStreams.add(mrStreams);
-                } else if (p.getType().equals("data_router") || p.getType().equals("data router")) {
-                    String feed = p.getConfig_key() + "_feed";
+                } else if (isDataRouterType(publishes.getType())) {
+                    String feed = publishes.getConfig_key() + "_feed";
                     DmaapStreams drStreams = new DmaapStreams();
                     retInputs = drStreams
-                        .createStreams(inps, cs, feed, p.getType(), p.getConfig_key(), p.getRoute(), 'p');
+                        .createStreams(inps, cs, feed, publishes.getType(), publishes.getConfig_key(),
+                            publishes.getRoute(), 'p');
                     pubStreams.add(drStreams);
                 }
             }
@@ -241,18 +246,20 @@ public class Properties {
         //set the stream subscribes
         ArrayList<DmaapStreams> subStreams = new ArrayList();
         if (cs.getStreams().getSubscribes() != null) {
-            for (Subscribes s : cs.getStreams().getSubscribes()) {
-                if (s.getType().equals("message_router") || s.getType().equals("message router")) {
-                    String topic = s.getConfig_key() + "_topic";
+            for (Subscribes subscribes : cs.getStreams().getSubscribes()) {
+                if (isMessageRouterType(subscribes.getType())) {
+                    String topic = subscribes.getConfig_key() + "_topic";
                     DmaapStreams mrStreams = new DmaapStreams();
                     retInputs = mrStreams
-                        .createStreams(inps, cs, topic, s.getType(), s.getConfig_key(), s.getRoute(), 's');
+                        .createStreams(inps, cs, topic, subscribes.getType(), subscribes.getConfig_key(),
+                            subscribes.getRoute(), 's');
                     subStreams.add(mrStreams);
-                } else if (s.getType().equals("data_router") || s.getType().equals("data router")) {
-                    String feed = s.getConfig_key() + "_feed";
+                } else if (isDataRouterType(subscribes.getType())) {
+                    String feed = subscribes.getConfig_key() + "_feed";
                     DmaapStreams drStreams = new DmaapStreams();
                     retInputs = drStreams
-                        .createStreams(inps, cs, feed, s.getType(), s.getConfig_key(), s.getRoute(), 's');
+                        .createStreams(inps, cs, feed, subscribes.getType(), subscribes.getConfig_key(),
+                            subscribes.getRoute(), 's');
                     subStreams.add(drStreams);
                 }
             }

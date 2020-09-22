@@ -33,6 +33,8 @@ import org.onap.blueprintgenerator.models.componentspec.ComponentSpec;
 import org.onap.blueprintgenerator.models.componentspec.Publishes;
 import org.onap.blueprintgenerator.models.componentspec.Subscribes;
 
+import static org.onap.blueprintgenerator.common.blueprint.BlueprintHelper.isDataRouterType;
+import static org.onap.blueprintgenerator.common.blueprint.BlueprintHelper.isMessageRouterType;
 import static org.onap.blueprintgenerator.common.blueprint.BlueprintHelper.joinUnderscore;
 import static org.onap.blueprintgenerator.models.blueprint.Imports.createDmaapImports;
 import static org.onap.blueprintgenerator.models.blueprint.Imports.createImportsFromFile;
@@ -74,12 +76,12 @@ public class DmaapBlueprint extends Blueprint {
         //go through the streams publishes
         if (componentSpec.getStreams().getPublishes() != null) {
             for (Publishes publisher : componentSpec.getStreams().getPublishes()) {
-                if (isMessageRouter(publisher.getType())) {
+                if (isMessageRouterType(publisher.getType())) {
                     String topic = joinUnderscore(publisher.getConfig_key(), TOPIC);
                     DmaapNode topicNode = new DmaapNode();
                     inps = topicNode.createTopicNode(componentSpec, inps, topic);
                     nodeTemplate.put(topic, topicNode);
-                } else if (isDataRouter(publisher.getType())) {
+                } else if (isDataRouterType(publisher.getType())) {
                     String feed = joinUnderscore(publisher.getConfig_key(), FEED);
                     DmaapNode feedNode = new DmaapNode();
                     inps = feedNode.createFeedNode(componentSpec, inps, feed);
@@ -90,12 +92,12 @@ public class DmaapBlueprint extends Blueprint {
         //go through the stream subscribes
         if (componentSpec.getStreams().getSubscribes() != null) {
             for (Subscribes subscriber : componentSpec.getStreams().getSubscribes()) {
-                if (isMessageRouter(subscriber.getType())) {
+                if (isMessageRouterType(subscriber.getType())) {
                     String topic = joinUnderscore(subscriber.getConfig_key(), TOPIC);
                     DmaapNode topicNode = new DmaapNode();
                     inps = topicNode.createTopicNode(componentSpec, inps, topic);
                     nodeTemplate.put(topic, topicNode);
-                } else if (isDataRouter(subscriber.getType())) {
+                } else if (isDataRouterType(subscriber.getType())) {
                     String feed = joinUnderscore(subscriber.getConfig_key(), FEED);
                     DmaapNode feedNode = new DmaapNode();
                     inps = feedNode.createFeedNode(componentSpec, inps, feed);
@@ -120,11 +122,4 @@ public class DmaapBlueprint extends Blueprint {
         return blueprint;
     }
 
-    private boolean isDataRouter(String type) {
-        return type.equals("data_router") || type.equals("data router");
-    }
-
-    private boolean isMessageRouter(String type) {
-        return type.equals("message_router") || type.equals("message router");
-    }
 }
