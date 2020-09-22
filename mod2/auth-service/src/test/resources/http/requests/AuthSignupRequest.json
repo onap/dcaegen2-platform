@@ -1,0 +1,6 @@
+{
+	"username": "admin1",
+	"fullName": "Administrator",
+	"password": "admin@mod",
+	"roles": ["ROLE_PST"]
+}
