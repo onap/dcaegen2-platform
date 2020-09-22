@@ -225,6 +225,30 @@
     },
     {
       "key": {
+        "uuid": "6377365e_e9d8a436",
+        "filename": "mod2/auth-service/src/main/java/org/onap/dcaegen2/platform/mod/controllers/AuthController.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-09-22T18:06:36Z",
+      "side": 1,
+      "message": "No problem, marking as resolved.",
+      "parentUuid": "ee280189_630a8898",
+      "range": {
+        "startLine": 104,
+        "startChar": 31,
+        "endLine": 104,
+        "endChar": 47
+      },
+      "revId": "b733c923007b02d9b127c147c31b3a86e103d3d1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a21d12e7_78af97f0",
         "filename": "mod2/auth-service/src/main/java/org/onap/dcaegen2/platform/mod/controllers/AuthController.java",
         "patchSetId": 5
@@ -269,6 +293,30 @@
       "revId": "b733c923007b02d9b127c147c31b3a86e103d3d1",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "debb32e2_c8cc4a2f",
+        "filename": "mod2/auth-service/src/main/java/org/onap/dcaegen2/platform/mod/controllers/AuthController.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-09-22T18:06:36Z",
+      "side": 1,
+      "message": "No problem, marking as resolved.",
+      "parentUuid": "eb9d59cc_6408d4c9",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 153,
+        "endChar": 5
+      },
+      "revId": "b733c923007b02d9b127c147c31b3a86e103d3d1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
