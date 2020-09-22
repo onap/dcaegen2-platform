@@ -33,72 +33,77 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter @Setter
-@JsonInclude(value=Include.NON_NULL)
+import static org.onap.blueprintgenerator.common.blueprint.BlueprintHelper.isDataRouterType;
+
+@Getter
+@Setter
+@JsonInclude(value = Include.NON_NULL)
 public class DmaapStreams {
 
-	private String name;
-	private GetInput location;
-	private GetInput client_role;
-	private String type;
+    private String name;
+    private GetInput location;
+    private GetInput client_role;
+    private String type;
 
-	private GetInput username;
-	private GetInput password;
-	//private GetInput delivery_url;
+    private GetInput username;
+    private GetInput password;
+    //private GetInput delivery_url;
 
-	private GetInput privileged;
-	private GetInput decompress;
+    private GetInput privileged;
+    private GetInput decompress;
 
-	private String route;
-	private String scheme;
+    private String route;
+    private String scheme;
 
-	public TreeMap<String, LinkedHashMap<String, Object>> createStreams(TreeMap<String, LinkedHashMap<String, Object>> inps, ComponentSpec cs, String name, String type, String key, String route, char o){
-		TreeMap<String, LinkedHashMap<String, Object>> retInputs = inps;
-		LinkedHashMap<String, Object> stringType = new LinkedHashMap();
-		stringType.put("type", "string");
+    public TreeMap<String, LinkedHashMap<String, Object>> createStreams(
+        TreeMap<String, LinkedHashMap<String, Object>> inps, ComponentSpec cs, String name, String type, String key,
+        String route, char o) {
+        TreeMap<String, LinkedHashMap<String, Object>> retInputs = inps;
+        LinkedHashMap<String, Object> stringType = new LinkedHashMap();
+        stringType.put("type", "string");
 
-		//set the name
-		this.setName(name);
+        //set the name
+        this.setName(name);
 
-		//set the type
-		this.setType(type);
+        //set the type
+        this.setType(type);
 
-		//set the location
-		GetInput location = new GetInput();
-		location.setBpInputName(key + "_" + name + "_location");
-		retInputs.put(key + "_" + name + "_location", stringType);
-		this.setLocation(location);
+        //set the location
+        GetInput location = new GetInput();
+        location.setBpInputName(key + "_" + name + "_location");
+        retInputs.put(key + "_" + name + "_location", stringType);
+        this.setLocation(location);
 
-		//if its data router we need to add some more
-		if(type.equals("data_router") || type.equals("data router")) {
-			if(o == 's') {
-				//set the username
-				GetInput username = new GetInput();
-				username.setBpInputName(key + "_" + name + "_username");
-				this.setUsername(username);
-				retInputs.put(key + "_" + name + "_username", stringType);
+        //if its data router we need to add some more
+        if (isDataRouterType(type)) {
+            if ('s' == o) {
+                //set the username
+                GetInput username = new GetInput();
+                username.setBpInputName(key + "_" + name + "_username");
+                this.setUsername(username);
+                retInputs.put(key + "_" + name + "_username", stringType);
 
-				//set the password
-				GetInput password = new GetInput();
-				password.setBpInputName(key + "_" + name + "_password");
-				this.setPassword(password);
-				retInputs.put(key + "_" + name + "_password", stringType);
+                //set the password
+                GetInput password = new GetInput();
+                password.setBpInputName(key + "_" + name + "_password");
+                this.setPassword(password);
+                retInputs.put(key + "_" + name + "_password", stringType);
 
-				//set privileged
-				GetInput priviliged = new GetInput();
-				priviliged.setBpInputName(key + "_" + name + "_priviliged");
-				this.setPrivileged(priviliged);
-				retInputs.put(key + "_" + name + "_priviliged", stringType);
+                //set privileged
+                GetInput priviliged = new GetInput();
+                priviliged.setBpInputName(key + "_" + name + "_priviliged");
+                this.setPrivileged(priviliged);
+                retInputs.put(key + "_" + name + "_priviliged", stringType);
 
-				//set decompress
-				GetInput decompress = new GetInput();
-				decompress.setBpInputName(key + "_" + name + "_decompress");
-				this.setDecompress(decompress);
-				retInputs.put(key + "_" + name + "_decompress", stringType);
+                //set decompress
+                GetInput decompress = new GetInput();
+                decompress.setBpInputName(key + "_" + name + "_decompress");
+                this.setDecompress(decompress);
+                retInputs.put(key + "_" + name + "_decompress", stringType);
 
-				this.setRoute(route);
-				this.setScheme("https");
-			}
+                this.setRoute(route);
+                this.setScheme("https");
+            }
 
 //			//set the delivery url
 //			GetInput delivery = new GetInput();
@@ -106,13 +111,13 @@ public class DmaapStreams {
 //			this.setDelivery_url(delivery);
 //			retInputs.put(name + "delivery_url", stringType);
 
-		} else {
-			//set the client role
-			GetInput client = new GetInput();
-			client.setBpInputName(key + "_" + name + "_client_role");
-			this.setClient_role(client);
-			retInputs.put(key + "_" + name + "_client_role", stringType);
-		}
-		return retInputs;
-	}
+        } else {
+            //set the client role
+            GetInput client = new GetInput();
+            client.setBpInputName(key + "_" + name + "_client_role");
+            this.setClient_role(client);
+            retInputs.put(key + "_" + name + "_client_role", stringType);
+        }
+        return retInputs;
+    }
 }
