@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f4386f35_6bbc7745",
+        "filename": "mod2/auth-service/src/test/java/org/onap/dcaegen2/platform/mod/objectmothers/AuthObjectMother.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-09-22T18:03:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e90bd3fe_886395e2",
+      "revId": "32463f585e07215bd6797edac2b8e0ae3157beef",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "47005a34_7225608e",
         "filename": "mod2/auth-service/src/test/java/org/onap/dcaegen2/platform/mod/objectmothers/UserObjectMother.java",
         "patchSetId": 7
@@ -33,6 +51,24 @@
       "revId": "32463f585e07215bd6797edac2b8e0ae3157beef",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a833618_2f336ad8",
+        "filename": "mod2/auth-service/src/test/java/org/onap/dcaegen2/platform/mod/objectmothers/UserObjectMother.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-09-22T18:03:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47005a34_7225608e",
+      "revId": "32463f585e07215bd6797edac2b8e0ae3157beef",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
