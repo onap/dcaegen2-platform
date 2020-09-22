@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c9f94324_6871798d",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/core/TestComponentSpec.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 6714
+      },
+      "writtenOn": "2020-09-22T16:19:24Z",
+      "side": 1,
+      "message": "Consider names \u0027value\u0027 / \u0027componentSpec\u0027. The name \u0027csConcrete\u0027 seems a bit mysterious at first glance.",
+      "revId": "e8394311733eb90b4c98836fea305153dd98a88e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
