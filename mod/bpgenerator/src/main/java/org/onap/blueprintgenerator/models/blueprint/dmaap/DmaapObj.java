@@ -40,10 +40,8 @@ public class DmaapObj {
 
 	public TreeMap<String, LinkedHashMap<String, Object>> createOnapDmaapMRObj(TreeMap<String, LinkedHashMap<String, Object>> inps,
 																			   String config, char type, String n, String num, boolean isDmaap) {
-		TreeMap<String, LinkedHashMap<String, Object>> retInputs = new TreeMap<String, LinkedHashMap<String, Object>>();
-		LinkedHashMap<String, Object> stringType = new LinkedHashMap();
+		LinkedHashMap<String, Object> stringType = new LinkedHashMap<>();
 		stringType.put("type", "string");
-		retInputs = inps;
 
 		//set the dmaapinfo
 		DmaapInfo info = new DmaapInfo();
@@ -58,20 +56,18 @@ public class DmaapObj {
 			GetInput u = new GetInput();
 			u.setBpInputName(config + "_" + num +"_aaf_username");
 			this.setUser(u);
-			retInputs.put(config + "_" + num +"_aaf_username", stringType);
+			inps.put(config + "_" + num +"_aaf_username", stringType);
 
 			//set password
 			GetInput p = new GetInput();
 			p.setBpInputName(config + "_" + num +"_aaf_password");
 			this.setPass(p);
-			retInputs.put(config + "_" + num +"_aaf_password", stringType);
+			inps.put(config + "_" + num +"_aaf_password", stringType);
 		}
-		return retInputs;
+		return inps;
 	}
 	public TreeMap<String, LinkedHashMap<String, Object>> createOnapDmaapDRObj(TreeMap<String, LinkedHashMap<String, Object>> inps, String config, char type, String n, String num, boolean isDmaap) {
-		TreeMap<String, LinkedHashMap<String, Object>> retInputs = new TreeMap<String, LinkedHashMap<String, Object>>();
-		retInputs = inps;
-		
+
 		//set the dmaapinfo
 		DmaapInfo info = new DmaapInfo();
 		if(!isDmaap){
@@ -82,6 +78,6 @@ public class DmaapObj {
 			String infoType = "<<" + n + ">>";
 			this.setDmaap_info(infoType);
 		}
-		return retInputs;
+		return inps;
 	}
 }

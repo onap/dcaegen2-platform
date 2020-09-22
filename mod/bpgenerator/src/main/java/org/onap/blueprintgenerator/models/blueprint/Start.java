@@ -36,14 +36,12 @@ public class Start {
 	private LinkedHashMap<String, Object> envs;
 	
 	public TreeMap<String, LinkedHashMap<String, Object>> createOnapStart(TreeMap<String, LinkedHashMap<String, Object>> inps, ComponentSpec cs) {
-		TreeMap<String, LinkedHashMap<String, Object>> retInputs = inps;
-		retInputs = inps;
-		
+
 		//create the start inputs
 		StartInputs inputs = new StartInputs();
-		inputs.createOnapStartInputs(retInputs, cs);
+		inputs.createOnapStartInputs(inps, cs);
 		this.setInputs(inputs);
 		
-		return retInputs;
+		return inps;
 	}
 }

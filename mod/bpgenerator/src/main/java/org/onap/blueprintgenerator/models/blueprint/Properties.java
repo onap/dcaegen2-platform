@@ -47,6 +47,8 @@ import org.onap.blueprintgenerator.models.dmaapbp.DmaapStreams;
 @JsonInclude(value = Include.NON_NULL)
 public class Properties {
 
+    ArrayList<DmaapStreams> streams_publishes;
+    ArrayList<DmaapStreams> streams_subscribes;
     private Appconfig application_config;
     private Auxilary docker_config;
     private Object image;
@@ -58,8 +60,6 @@ public class Properties {
     private String name;
     private GetInput topic_name;
     private GetInput feed_name;
-    ArrayList<DmaapStreams> streams_publishes;
-    ArrayList<DmaapStreams> streams_subscribes;
     private TlsInfo tls_info;
     private ExternalTlsInfo external_cert;
     private ResourceConfig resource_config;
@@ -155,8 +155,7 @@ public class Properties {
 
     public TreeMap<String, LinkedHashMap<String, Object>> createDmaapProperties(
         TreeMap<String, LinkedHashMap<String, Object>> inps, ComponentSpec cs, String override) {
-        TreeMap<String, LinkedHashMap<String, Object>> retInputs = new TreeMap<String, LinkedHashMap<String, Object>>();
-        retInputs = inps;
+        TreeMap<String, LinkedHashMap<String, Object>> retInputs = inps;
 
         //set the image
         GetInput image = new GetInput();
@@ -171,7 +170,7 @@ public class Properties {
         GetInput location = new GetInput();
         location.setBpInputName("location_id");
         this.setLocation_id(location);
-        LinkedHashMap<String, Object> locMap = new LinkedHashMap();
+        LinkedHashMap<String, Object> locMap = new LinkedHashMap<>();
         locMap.put("type", "string");
         locMap.put("default", "");
         retInputs.put("location_id", locMap);
@@ -219,7 +218,7 @@ public class Properties {
         this.setApplication_config(app);
 
         //set the stream publishes
-        ArrayList<DmaapStreams> pubStreams = new ArrayList();
+        ArrayList<DmaapStreams> pubStreams = new ArrayList<>();
         if (cs.getStreams().getPublishes() != null) {
             for (Publishes p : cs.getStreams().getPublishes()) {
                 if (p.getType().equals("message_router") || p.getType().equals("message router")) {
@@ -239,7 +238,7 @@ public class Properties {
         }
 
         //set the stream subscribes
-        ArrayList<DmaapStreams> subStreams = new ArrayList();
+        ArrayList<DmaapStreams> subStreams = new ArrayList<>();
         if (cs.getStreams().getSubscribes() != null) {
             for (Subscribes s : cs.getStreams().getSubscribes()) {
                 if (s.getType().equals("message_router") || s.getType().equals("message router")) {
@@ -258,10 +257,10 @@ public class Properties {
             }
         }
 
-        if (pubStreams.size() != 0) {
+        if (!pubStreams.isEmpty()) {
             this.setStreams_publishes(pubStreams);
         }
-        if (subStreams.size() != 0) {
+        if (!subStreams.isEmpty()) {
             this.setStreams_subscribes(subStreams);
         }
 
