@@ -38,4 +38,12 @@ public class BlueprintHelper {
     public static String joinUnderscore(String firstValue, String secondValue){
         return firstValue + "_" + secondValue;
     }
+
+    public static boolean isDataRouterType(String type) {
+        return type.equals("data_router") || type.equals("data router");
+    }
+
+    public static boolean isMessageRouterType(String type) {
+        return type.equals("message_router") || type.equals("message router");
+    }
 }
