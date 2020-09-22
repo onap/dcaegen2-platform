@@ -29,7 +29,7 @@
 	</parent>
 	<groupId>org.onap.dcaegen2.platform.mod</groupId>
 	<artifactId>blueprint-generator</artifactId>
-	<version>1.5.0-SNAPSHOT</version>
+	<version>1.5.0</version>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<sonar.junit.reportsPath>${project.basedir}/target/surefire-reports</sonar.junit.reportsPath>
