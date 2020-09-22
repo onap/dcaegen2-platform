@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a68e5b4e_b01f0b89",
+        "filename": "mod2/ui/src/app/home/home.component.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-09-22T18:22:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c20c94d3_2ecbee76",
+      "revId": "56a17ef6d78157f544dc9838c8b95a60bac4e8dd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a0d3b65_d8582eb3",
         "filename": "mod2/ui/src/app/home/home.component.css",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "56a17ef6d78157f544dc9838c8b95a60bac4e8dd",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54d9a509_5b299755",
+        "filename": "mod2/ui/src/app/home/home.component.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-09-22T18:22:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a0d3b65_d8582eb3",
+      "revId": "56a17ef6d78157f544dc9838c8b95a60bac4e8dd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "bc57d20c_b478caba",
+        "filename": "mod2/ui/src/app/register/register.component.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-09-22T18:22:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be0c4ebc_8698c1e4",
+      "revId": "56a17ef6d78157f544dc9838c8b95a60bac4e8dd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b5eb5742_94e55539",
         "filename": "mod2/ui/src/app/register/register.component.ts",
         "patchSetId": 1
@@ -67,6 +121,24 @@
       "revId": "56a17ef6d78157f544dc9838c8b95a60bac4e8dd",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ac33127_79334e88",
+        "filename": "mod2/ui/src/app/register/register.component.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-09-22T18:22:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5eb5742_94e55539",
+      "revId": "56a17ef6d78157f544dc9838c8b95a60bac4e8dd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "70a535d9_99185acf",
+        "filename": "mod2/ui/src/app/register/register.component.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-09-22T18:22:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ecdbe023_5f4a0015",
+      "revId": "56a17ef6d78157f544dc9838c8b95a60bac4e8dd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b5e0a646_27f6c57d",
         "filename": "mod2/ui/src/app/register/register.component.ts",
         "patchSetId": 1
@@ -101,6 +191,24 @@
       "revId": "56a17ef6d78157f544dc9838c8b95a60bac4e8dd",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d66743d4_f3dc4811",
+        "filename": "mod2/ui/src/app/register/register.component.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-09-22T18:22:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5e0a646_27f6c57d",
+      "revId": "56a17ef6d78157f544dc9838c8b95a60bac4e8dd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "090d2e85_54b50521",
+        "filename": "mod2/ui/src/app/user-management/user-management.component.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-09-22T18:22:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea720d56_b0c8c86f",
+      "revId": "56a17ef6d78157f544dc9838c8b95a60bac4e8dd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e97466b4_b27f4673",
         "filename": "mod2/ui/src/app/user-management/user-management.component.ts",
         "patchSetId": 1
@@ -135,6 +261,24 @@
       "revId": "56a17ef6d78157f544dc9838c8b95a60bac4e8dd",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e99aea8d_58225f85",
+        "filename": "mod2/ui/src/app/user-management/user-management.component.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-09-22T18:22:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e97466b4_b27f4673",
+      "revId": "56a17ef6d78157f544dc9838c8b95a60bac4e8dd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "0848dfeb_3ac26243",
+        "filename": "mod2/ui/src/app/user-management/user-management.component.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-09-22T18:22:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "138b8f94_afc0e57e",
+      "revId": "56a17ef6d78157f544dc9838c8b95a60bac4e8dd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a1e1df55_13ad208f",
         "filename": "mod2/ui/src/app/user-management/user-management.component.ts",
         "patchSetId": 1
@@ -169,6 +331,24 @@
       "revId": "56a17ef6d78157f544dc9838c8b95a60bac4e8dd",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "921fdd2a_00b4b864",
+        "filename": "mod2/ui/src/app/user-management/user-management.component.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-09-22T18:22:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1e1df55_13ad208f",
+      "revId": "56a17ef6d78157f544dc9838c8b95a60bac4e8dd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -189,6 +369,24 @@
     },
     {
       "key": {
+        "uuid": "cd9462cc_5ce981c6",
+        "filename": "mod2/ui/src/assets/env.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-09-22T18:22:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b606fc33_8dd58df6",
+      "revId": "56a17ef6d78157f544dc9838c8b95a60bac4e8dd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c8a975ee_f6c31939",
         "filename": "mod2/ui/src/assets/env.js",
         "patchSetId": 1
@@ -203,6 +401,24 @@
       "revId": "56a17ef6d78157f544dc9838c8b95a60bac4e8dd",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e27cc67_9b88cd50",
+        "filename": "mod2/ui/src/assets/env.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-09-22T18:22:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8a975ee_f6c31939",
+      "revId": "56a17ef6d78157f544dc9838c8b95a60bac4e8dd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }

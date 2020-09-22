@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e1e67614_8397b118",
+        "filename": "mod2/ui/e2e/protractor.conf.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-09-22T18:22:52Z",
+      "side": 1,
+      "message": "the normal license should be used",
+      "revId": "0186707acab674fac31417318da8d8182d2818e1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "243ed7c3_2b0ccefd",
+        "filename": "mod2/ui/healthcheck.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-09-22T18:22:52Z",
+      "side": 1,
+      "message": "the normal license should be used",
+      "revId": "0186707acab674fac31417318da8d8182d2818e1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1be6f25_f97f8769",
+        "filename": "mod2/ui/karma.conf.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-09-22T18:22:52Z",
+      "side": 1,
+      "message": "this should be the normal license",
+      "revId": "0186707acab674fac31417318da8d8182d2818e1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
