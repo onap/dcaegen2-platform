@@ -21,11 +21,9 @@
 package org.onap.blueprintgenerator.models.componentspec;
 
 
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter; import lombok.Setter;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 // TODO: Auto-generated Javadoc
 /* (non-Javadoc)

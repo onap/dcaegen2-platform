@@ -41,21 +41,21 @@ public class Imports {
 	private ArrayList<String> imports;
 
 	public static ArrayList<String> createOnapImports() {
-		ArrayList<String> imps = new ArrayList<String>();
-		imps.add("http://www.getcloudify.org/spec/cloudify/3.4/types.yaml");
-		imps.add("https://nexus.onap.org/service/local/repositories/raw/content/org.onap.dcaegen2.platform.plugins/R6/k8splugin/1.7.2/k8splugin_types.yaml");
-		imps.add("https://nexus.onap.org/service/local/repositories/raw/content/org.onap.dcaegen2.platform.plugins/R6/dcaepolicyplugin/2.4.0/dcaepolicyplugin_types.yaml");
+		ArrayList<String> imps = new ArrayList<>();
+		imps.add("https://www.getcloudify.org/spec/cloudify/4.5.5/types.yaml");
+		imps.add("plugin:k8splugin?version=3.4.2");
+		imps.add("plugin:dcaepolicyplugin?version=2.4.0");
 		return imps;
 	}
 	public static ArrayList<String> createDmaapImports(){
-		ArrayList<String> imps = new ArrayList<String>();
-		imps.add("http://www.getcloudify.org/spec/cloudify/3.4/types.yaml");
-		imps.add("https://nexus.onap.org/service/local/repositories/raw/content/org.onap.dcaegen2.platform.plugins/R5/k8splugin/1.6.0/k8splugin_types.yaml");
-		imps.add("https://nexus.onap.org/service/local/repositories/raw/content/org.onap.ccsdk.platform.plugins/type_files/dmaap/dmaap.yaml");
+		ArrayList<String> imps = new ArrayList<>();
+		imps.add("https://www.getcloudify.org/spec/cloudify/4.5.5/types.yaml");
+		imps.add("plugin:k8splugin?version=3.4.2");
+		imps.add("plugin:dmaap?version=1.5.0");
 		return imps;
 	}
 	public static ArrayList<String> createImportsFromFile(String path) {
-		Imports imports = new Imports();
+		Imports imports;
 		ObjectMapper importMapper = new ObjectMapper(new YAMLFactory().configure(YAMLGenerator.Feature.MINIMIZE_QUOTES, true));
 		File importPath = new File(path);
 		try {
@@ -63,10 +63,6 @@ public class Imports {
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
-		ArrayList<String> imps = new ArrayList<String>();
-		for(String s: imports.getImports()) {
-			imps.add(s);
-		}
-		return imps;
+		return imports.getImports();
 	}
 }
