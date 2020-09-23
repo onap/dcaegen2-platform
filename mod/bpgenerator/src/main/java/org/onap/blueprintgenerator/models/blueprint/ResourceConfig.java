@@ -21,6 +21,8 @@
 
 package org.onap.blueprintgenerator.models.blueprint;
 
+import static org.onap.blueprintgenerator.common.blueprint.BlueprintHelper.createInputValue;
+
 import java.util.LinkedHashMap;
 import java.util.TreeMap;
 
@@ -72,50 +74,44 @@ public class ResourceConfig {
 	 */
 	public TreeMap<String, LinkedHashMap<String, Object>> createResourceConfig(TreeMap<String, LinkedHashMap<String, Object>> inps, String name){
 
-		LinkedHashMap<String, Object> mi = new LinkedHashMap<>();
-		mi.put("type", "string");
-		mi.put("default", "128Mi");
-
-		LinkedHashMap<String, Object> m = new LinkedHashMap<>();
-		m.put("type", "string");
-		m.put("default", "250m");
-
+		LinkedHashMap<String, Object> memoryLimit = createInputValue("string", "", "128Mi");
+		LinkedHashMap<String, Object> cpuLimit = createInputValue("string", "", "250m");
 
 		if(!name.equals("")) {
 			name = name + "_";
 		}
 
 		//set the limits
-		TreeMap<String, GetInput> lim = new TreeMap<>();
+		TreeMap<String, GetInput> limits = new TreeMap<>();
 
 		GetInput cpu = new GetInput();
 		cpu.setBpInputName(name + "cpu_limit");
-		lim.put("cpu", cpu);
+		limits.put("cpu", cpu);
 
 		GetInput memL = new GetInput();
 		memL.setBpInputName(name + "memory_limit");
-		lim.put("memory", memL);
+		limits.put("memory", memL);
 
-		inps.put(name + "cpu_limit", m);
-		inps.put(name + "memory_limit", mi);
+		inps.put(name + "cpu_limit", cpuLimit);
+		inps.put(name + "memory_limit", memoryLimit);
 
-		this.setLimits(lim);
+		this.setLimits(limits);
 
 		//set the requests
-		TreeMap<String, GetInput> req = new TreeMap<>();
+		TreeMap<String, GetInput> requests = new TreeMap<>();
 
 		GetInput cpuR = new GetInput();
 		cpuR.setBpInputName(name + "cpu_request");
-		req.put("cpu", cpuR);
+		requests.put("cpu", cpuR);
 
 		GetInput memR = new GetInput();
 		memR.setBpInputName(name + "memory_request");
-		req.put("memory", memR);
+		requests.put("memory", memR);
 
-		inps.put(name + "cpu_request", m);
-		inps.put(name + "memory_request", mi);
+		inps.put(name + "cpu_request", cpuLimit);
+		inps.put(name + "memory_request", memoryLimit);
 
-		this.setRequests(req);
+		this.setRequests(requests);
 
 		return inps;
 	}
