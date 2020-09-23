@@ -1,0 +1,11 @@
+{
+    "/api": {
+        "target": "http://zlecdyh2bdcc1s2dokr05.ec53e7.dyh2b.tci.att.com:32705/",
+        "secure": false,
+        "logLevel": "debug",
+        "pathRewrite": {
+            "^/api": ""
+        },
+        "changeOrigin": true
+    }
+}

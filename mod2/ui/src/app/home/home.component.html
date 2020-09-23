@@ -1,0 +1,93 @@
+<!-- 
+  # ============LICENSE_START=======================================================
+  # Copyright (c) 2020 AT&T Intellectual Property. All rights reserved.
+  # ================================================================================
+  # Licensed under the Apache License, Version 2.0 (the "License");
+  # you may not use this file except in compliance with the License.
+  # You may obtain a copy of the License at
+  #
+  #      http://www.apache.org/licenses/LICENSE-2.0
+  #
+  # Unless required by applicable law or agreed to in writing, software
+  # distributed under the License is distributed on an "AS IS" BASIS,
+  # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  # See the License for the specific language governing permissions and
+  # limitations under the License.
+  # ============LICENSE_END=========================================================
+ -->
+
+<div style="margin: -50px 0px 0px -30px">
+    <mat-card
+        (click)="toggleMsMenu()"
+        appMaterialElevation 
+        [defaultElevation]="defaultElevation" 
+        raisedElevation="16" 
+        class="card" 
+        style="background-color: #60a4a5">
+            Microservices...
+    </mat-card>
+    <mat-card 
+        (click)="navSelect('Onboarding Tools')"    
+        appMaterialElevation 
+        [defaultElevation]="defaultElevation" 
+        raisedElevation="16"
+        class="card"
+        style="background-color: rgba(154, 135, 167, 0.904);"
+            [routerLink]="'/OnboardingTools'">
+            Onboarding Tools
+    </mat-card>
+    <mat-card *ngIf="authService.isAdmin"
+        (click)="navSelect('User Management')"
+        appMaterialElevation 
+        [defaultElevation]="defaultElevation" 
+        raisedElevation="16"
+        class="card"
+        style="background-color: rgba(160, 120, 83, 0.904);"
+            [routerLink]="'/users'">
+            User Management
+    </mat-card>
+</div>
+<br>
+<div *ngIf="displayMsMenu" style="margin-top: -60px">
+    <mat-card id="subMenu" (click)="navSelect('Microservices')"
+        appMaterialElevation 
+        [defaultElevation]="defaultElevation" 
+        raisedElevation="16"
+        class="card"
+        style="background-color: #70a7a9; position: absolute;">
+            Microservices
+    </mat-card>
+</div>
+<br>
+<div *ngIf="displayMsMenu" style="margin-top: 70px">
+    <mat-card id="subMenu" (click)="navSelect('MS Instances')"
+        appMaterialElevation
+        [defaultElevation]="defaultElevation" 
+        raisedElevation="16"
+        class="card"
+        style="background-color: #8fbbbc; position: absolute;">
+            MS Instances
+    </mat-card>
+</div>
+<br>
+<div *ngIf="displayMsMenu" style="margin-top: 70px">
+    <mat-card id="subMenu" (click)="navSelect('Blueprints')"
+        appMaterialElevation 
+        [defaultElevation]="defaultElevation" 
+        raisedElevation="16"
+        class="card"
+        style="background-color: #afcecf; position: absolute;">
+            Blueprints
+    </mat-card>
+</div>
+<br>
+<div *ngIf="displayMsMenu" style="margin-top: 70px">
+    <mat-card id="subMenu" (click)="navSelect('MOD APIs')"
+        appMaterialElevation 
+        [defaultElevation]="defaultElevation" 
+        raisedElevation="16"
+        class="card"
+        style="background-color: #cfe2e2; position: absolute;">
+            MOD APIs
+    </mat-card>
+</div>
