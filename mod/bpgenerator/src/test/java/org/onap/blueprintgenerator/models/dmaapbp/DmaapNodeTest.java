@@ -181,7 +181,7 @@ public class DmaapNodeTest {
 
     private ComponentSpec getSpiedComponentSpecWithoutRelationships() {
         ComponentSpec baseComponentSpec = new ComponentSpec();
-        baseComponentSpec.createComponentSpecFromString(new TestComponentSpec().getCs());
+        baseComponentSpec.createComponentSpecFromString(new TestComponentSpec().getComponentSpecAsString());
         ComponentSpec componentSpec = spy(baseComponentSpec);
 
         Streams streams = new Streams();
