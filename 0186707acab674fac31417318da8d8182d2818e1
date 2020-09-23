@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c399ebc4_6e80f818",
+        "filename": "mod2/ui/e2e/protractor.conf.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 6727
+      },
+      "writtenOn": "2020-09-23T18:46:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1e67614_8397b118",
+      "revId": "0186707acab674fac31417318da8d8182d2818e1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "243ed7c3_2b0ccefd",
         "filename": "mod2/ui/healthcheck.sh",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "67cfde88_357f8d43",
+        "filename": "mod2/ui/healthcheck.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 6727
+      },
+      "writtenOn": "2020-09-23T18:46:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "243ed7c3_2b0ccefd",
+      "revId": "0186707acab674fac31417318da8d8182d2818e1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1be6f25_f97f8769",
         "filename": "mod2/ui/karma.conf.js",
         "patchSetId": 2
@@ -50,6 +86,24 @@
       "revId": "0186707acab674fac31417318da8d8182d2818e1",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78e17e30_854e5399",
+        "filename": "mod2/ui/karma.conf.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 6727
+      },
+      "writtenOn": "2020-09-23T18:46:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1be6f25_f97f8769",
+      "revId": "0186707acab674fac31417318da8d8182d2818e1",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
