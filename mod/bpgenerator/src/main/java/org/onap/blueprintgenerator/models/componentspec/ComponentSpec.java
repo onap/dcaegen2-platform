@@ -1,21 +1,22 @@
-/**============LICENSE_START======================================================= 
- org.onap.dcae 
- ================================================================================ 
- Copyright (c) 2019 AT&T Intellectual Property. All rights reserved. 
- ================================================================================ 
- Licensed under the Apache License, Version 2.0 (the "License"); 
- you may not use this file except in compliance with the License. 
- You may obtain a copy of the License at 
- 
-      http://www.apache.org/licenses/LICENSE-2.0 
- 
- Unless required by applicable law or agreed to in writing, software 
- distributed under the License is distributed on an "AS IS" BASIS, 
- WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
- See the License for the specific language governing permissions and 
- limitations under the License. 
- ============LICENSE_END========================================================= 
- 
+/*============LICENSE_START=======================================================
+ org.onap.dcae
+ ================================================================================
+ Copyright (c) 2019 AT&T Intellectual Property. All rights reserved.
+ Copyright (c) 2020 Nokia. All rights reserved.
+ ================================================================================
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ ============LICENSE_END=========================================================
+
  */
 
 package org.onap.blueprintgenerator.models.componentspec;
@@ -30,11 +31,13 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import lombok.Getter; import lombok.Setter;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.NoArgsConstructor;
 import org.onap.blueprintgenerator.models.componentspec.policy_info.PolicyInfo;
 
 // TODO: Auto-generated Javadoc
+
 /**
  * The Class ComponentSpec.
  */
@@ -43,12 +46,12 @@ import org.onap.blueprintgenerator.models.componentspec.policy_info.PolicyInfo;
 /* (non-Javadoc)
  * @see java.lang.Object#toString()
  */
-@Getter @Setter
+@Getter
+@Setter
 
 /* (non-Javadoc)
  * @see java.lang.Object#toString()
  */
-
 
 /**
  * Instantiates a new component spec.
@@ -66,82 +69,98 @@ import org.onap.blueprintgenerator.models.componentspec.policy_info.PolicyInfo;
  * @param artifacts the artifacts
  */
 
-@JsonInclude(value=Include.NON_NULL)
+@JsonInclude(value = Include.NON_NULL)
 //main object that the component spec file is written in
 public class ComponentSpec {
-	
-	/** The self. */
-	private Self self; 
-	
-	/** The services. */
-	private Services services;
-	
-	/** The streams. */
-	private Streams streams;
-	
-	/** The parameters. */
-	private Parameters[] parameters;
-	
-	/** The auxilary. */
-	private Auxilary auxilary;
 
-	@JsonProperty("policy_info")
-	private PolicyInfo policyInfo;
-	
-	/** The artifacts. */
-	private Artifacts[] artifacts;
+    /**
+     * The self.
+     */
+    private Self self;
 
-	/**
-	 * Creates the component spec from file.
-	 *
-	 * @param path the path
-	 */
-	public void createComponentSpecFromFile(String path) {
-		ObjectMapper componentMapper = new ObjectMapper();
-		File specPathFile = new File(path);
-		ComponentSpec cs = new ComponentSpec();
+    /**
+     * The services.
+     */
+    private Services services;
 
-		try {
-			cs = componentMapper.readValue(specPathFile, ComponentSpec.class);
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		}
+    /**
+     * The streams.
+     */
+    private Streams streams;
 
+    /**
+     * The parameters.
+     */
+    private Parameters[] parameters;
 
+    /**
+     * The auxilary.
+     */
+    private Auxilary auxilary;
 
-		//set all the pieces of the component spec
-		this.setSelf(cs.getSelf()); 
-		this.setArtifacts(cs.getArtifacts());
-		this.setAuxilary(cs.getAuxilary());
-		this.setParameters(cs.getParameters());
-		this.setServices(cs.getServices());
-		this.setStreams(cs.getStreams());
-		this.setPolicyInfo(cs.getPolicyInfo());
-	}
+    @JsonProperty("policy_info")
+    private PolicyInfo policyInfo;
 
+    /**
+     * The artifacts.
+     */
+    private Artifacts[] artifacts;
 
-	/**
-	 * Creates the component spec from string.
-	 *
-	 * @param specString the spec string
-	 */
-	public void createComponentSpecFromString(String specString) {
-		ObjectMapper componentMapper = new ObjectMapper();
-		ComponentSpec cs = new ComponentSpec();
-		try {
-			cs = componentMapper.readValue(specString, ComponentSpec.class);
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		}
+    /**
+     * Creates the component spec from file.
+     *
+     * @param path the path
+     */
+    public void createComponentSpecFromFile(String path) {
+        ObjectMapper componentMapper = new ObjectMapper();
+        File specPathFile = new File(path);
+        ComponentSpec cs = new ComponentSpec();
 
-		//set all the pieces of the component spec
-		this.setSelf(cs.getSelf()); 
-		this.setArtifacts(cs.getArtifacts());
-		this.setAuxilary(cs.getAuxilary());
-		this.setParameters(cs.getParameters());
-		this.setServices(cs.getServices());
-		this.setStreams(cs.getStreams());
-	}
+        try {
+            cs = componentMapper.readValue(specPathFile, ComponentSpec.class);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        //set all the pieces of the component spec
+        this.setSelf(cs.getSelf());
+        this.setArtifacts(cs.getArtifacts());
+        this.setAuxilary(cs.getAuxilary());
+        this.setParameters(cs.getParameters());
+        this.setServices(cs.getServices());
+        this.setStreams(cs.getStreams());
+        this.setPolicyInfo(cs.getPolicyInfo());
+    }
 
 
+    /**
+     * Creates the component spec from string.
+     *
+     * @param specString the spec string
+     */
+    public void createComponentSpecFromString(String specString) {
+        ObjectMapper componentMapper = new ObjectMapper();
+        ComponentSpec cs = new ComponentSpec();
+        try {
+            cs = componentMapper.readValue(specString, ComponentSpec.class);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        //set all the pieces of the component spec
+        this.setSelf(cs.getSelf());
+        this.setArtifacts(cs.getArtifacts());
+        this.setAuxilary(cs.getAuxilary());
+        this.setParameters(cs.getParameters());
+        this.setServices(cs.getServices());
+        this.setStreams(cs.getStreams());
+    }
+
+    public String getImageUri() {
+        return artifacts[0].getUri();
+    }
+
+    public String getSelfName() {
+        return this.self.getName();
+    }
 }
