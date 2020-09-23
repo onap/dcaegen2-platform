@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a4507cfd_7bb50255",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/Properties.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 6714
+      },
+      "writtenOn": "2020-09-23T12:59:11Z",
+      "side": 1,
+      "message": "After previous commit will be merged it would be possible to create method createStringInput in class BlueprintHelper",
+      "revId": "01f90853098b56dfac9e05ccc2f6e495c130ecd8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
