@@ -20,6 +20,7 @@
 
 package org.onap.blueprintgenerator.models.blueprint;
 
+import static org.onap.blueprintgenerator.common.blueprint.BlueprintHelper.createInputValue;
 import static org.onap.blueprintgenerator.models.blueprint.tls.TlsConstants.USE_EXTERNAL_TLS_FIELD;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -46,6 +47,10 @@ import org.onap.blueprintgenerator.models.dmaapbp.DmaapStreams;
 @Setter
 @JsonInclude(value = Include.NON_NULL)
 public class Properties {
+
+    private static final String NO_DESCRIPTION = "";
+    private static final String EMPTY_VALUE = "";
+    private static final String STRING_TYPE = "string";
 
     ArrayList<DmaapStreams> streams_publishes;
     ArrayList<DmaapStreams> streams_subscribes;
@@ -74,36 +79,29 @@ public class Properties {
     }
 
     public TreeMap<String, LinkedHashMap<String, Object>> createOnapProperties(
-        TreeMap<String, LinkedHashMap<String, Object>> inps, ComponentSpec cs, String override) {
+        TreeMap<String, LinkedHashMap<String, Object>> inps, ComponentSpec componentSpec, String override) {
         TreeMap<String, LinkedHashMap<String, Object>> retInputs = inps;
 
         //set the image
         GetInput image = new GetInput();
         image.setBpInputName("image");
         this.setImage(image);
-        LinkedHashMap<String, Object> img = new LinkedHashMap<String, Object>();
-        img.put("type", "string");
-        img.put("default", cs.getArtifacts()[0].getUri());
-        retInputs.put("image", img);
+        retInputs.put("image", createInputValue(STRING_TYPE, NO_DESCRIPTION, componentSpec.getImageUri()));
 
         //set the location id
         GetInput location = new GetInput();
         location.setBpInputName("location_id");
         this.setLocation_id(location);
-        LinkedHashMap<String, Object> locMap = new LinkedHashMap();
-        locMap.put("type", "string");
-        locMap.put("default", "");
-        retInputs.put("location_id", locMap);
+        retInputs.put("location_id", createInputValue(STRING_TYPE, NO_DESCRIPTION, EMPTY_VALUE));
 
         //set the log info
-        this.setLog_info(cs.getAuxilary().getLog_info());
+        this.setLog_info(componentSpec.getAuxilary().getLog_info());
 
         //set the replicas
         GetInput replica = new GetInput();
         replica.setBpInputName("replicas");
         this.setReplicas(replica);
-        LinkedHashMap<String, Object> rep = BlueprintHelper.createInputValue("integer", "number of instances", 1);
-        retInputs.put("replicas", rep);
+        retInputs.put("replicas", createInputValue("integer", "number of instances", 1));
 
         //set the dns name
         //this.setDns_name(cs.getSelf().getName());
@@ -112,7 +110,7 @@ public class Properties {
         //this.setName(cs.getSelf().getName());
 
         //set the docker config
-        Auxilary aux = cs.getAuxilary();
+        Auxilary aux = componentSpec.getAuxilary();
 //		if(aux.getPorts() != null) {
 //			retInputs = aux.createPorts(retInputs);
 //		}
@@ -120,7 +118,7 @@ public class Properties {
 
         //set the app config
         Appconfig app = new Appconfig();
-        retInputs = app.createAppconfig(retInputs, cs, override, false);
+        retInputs = app.createAppconfig(retInputs, componentSpec, override, false);
         this.setApplication_config(app);
 
         // set always_pull_image
@@ -132,72 +130,63 @@ public class Properties {
         retInputs.put("always_pull_image", inputAlwaysPullImage);
 
         //set service component type
-        String sType = cs.getSelf().getName();
-        sType = sType.replace('.', '-');
-        this.setService_component_type(sType);
+        String serviceComponentType = componentSpec.getSelfName().replace('.', '-');
+        this.setService_component_type(serviceComponentType);
 
         //set the tls info for internal and external communication
-        TreeMap<String, Object> tls_info = cs.getAuxilary().getTls_info();
+        TreeMap<String, Object> tls_info = componentSpec.getAuxilary().getTls_info();
         if (tls_info != null) {
-            addTlsInfo(cs, retInputs);
+            addTlsInfo(componentSpec, retInputs);
             if (tls_info.get(USE_EXTERNAL_TLS_FIELD) != null) {
-                retInputs.putAll(addExternalTlsInfo(cs));
+                retInputs.putAll(addExternalTlsInfo(componentSpec));
             }
         }
 
         //set the reource config
         ResourceConfig resource = new ResourceConfig();
-        retInputs = resource.createResourceConfig(retInputs, cs.getSelf().getName());
+        retInputs = resource.createResourceConfig(retInputs, componentSpec.getSelf().getName());
         this.setResource_config(resource);
 
         return retInputs;
     }
 
     public TreeMap<String, LinkedHashMap<String, Object>> createDmaapProperties(
-        TreeMap<String, LinkedHashMap<String, Object>> inps, ComponentSpec cs, String override) {
+        TreeMap<String, LinkedHashMap<String, Object>> inps, ComponentSpec componentSpec, String override) {
         TreeMap<String, LinkedHashMap<String, Object>> retInputs = inps;
 
         //set the image
         GetInput image = new GetInput();
         image.setBpInputName("tag_version");
         this.setImage(image);
-        LinkedHashMap<String, Object> img = new LinkedHashMap<String, Object>();
-        img.put("type", "string");
-        img.put("default", cs.getArtifacts()[0].getUri());
-        retInputs.put("tag_version", img);
+        retInputs.put("tag_version", createInputValue(STRING_TYPE, NO_DESCRIPTION, componentSpec.getImageUri()));
 
         //set the location id
         GetInput location = new GetInput();
         location.setBpInputName("location_id");
         this.setLocation_id(location);
-        LinkedHashMap<String, Object> locMap = new LinkedHashMap<>();
-        locMap.put("type", "string");
-        locMap.put("default", "");
-        retInputs.put("location_id", locMap);
+        retInputs.put("location_id", createInputValue(STRING_TYPE, NO_DESCRIPTION, EMPTY_VALUE));
 
         //set the log info
-        this.setLog_info(cs.getAuxilary().getLog_info());
+        this.setLog_info(componentSpec.getAuxilary().getLog_info());
 
         //set service component type
-        String sType = cs.getSelf().getName();
-        sType = sType.replace('.', '-');
-        this.setService_component_type(sType);
+        String serviceComponentType = componentSpec.getSelfName().replace('.', '-');
+        this.setService_component_type(serviceComponentType);
 
         //set the tls info for internal and external communication
-        TreeMap<String, Object> tls_info = cs.getAuxilary().getTls_info();
+        TreeMap<String, Object> tls_info = componentSpec.getAuxilary().getTls_info();
         if (tls_info != null) {
-            addTlsInfo(cs, retInputs);
+            addTlsInfo(componentSpec, retInputs);
             if (tls_info.get(USE_EXTERNAL_TLS_FIELD) != null) {
-                retInputs.putAll(addExternalTlsInfo(cs));
+                retInputs.putAll(addExternalTlsInfo(componentSpec));
             }
         }
 
         //set the replicas
         GetInput replica = new GetInput();
         replica.setBpInputName("replicas");
-        this.setReplicas(replica);
-        LinkedHashMap<String, Object> rep = BlueprintHelper.createInputValue("integer", "number of instances", 1);
-        retInputs.put("replicas", rep);
+        this.setReplicas(replica);;
+        retInputs.put("replicas", createInputValue("integer", "number of instances", 1));
 
 //		//set the dns name
 //		this.setDns_name(cs.getSelf().getName());
@@ -206,7 +195,7 @@ public class Properties {
 //		this.setName(cs.getSelf().getName());
 
         //set the docker config
-        Auxilary aux = cs.getAuxilary();
+        Auxilary aux = componentSpec.getAuxilary();
 //		if(aux.getPorts() != null) {
 //			retInputs = aux.createPorts(retInputs);
 //		}
@@ -214,24 +203,24 @@ public class Properties {
 
         //set the appconfig
         Appconfig app = new Appconfig();
-        retInputs = app.createAppconfig(retInputs, cs, override, true);
+        retInputs = app.createAppconfig(retInputs, componentSpec, override, true);
         this.setApplication_config(app);
 
         //set the stream publishes
         ArrayList<DmaapStreams> pubStreams = new ArrayList<>();
-        if (cs.getStreams().getPublishes() != null) {
-            for (Publishes p : cs.getStreams().getPublishes()) {
+        if (componentSpec.getStreams().getPublishes() != null) {
+            for (Publishes p : componentSpec.getStreams().getPublishes()) {
                 if (p.getType().equals("message_router") || p.getType().equals("message router")) {
                     String topic = p.getConfig_key() + "_topic";
                     DmaapStreams mrStreams = new DmaapStreams();
                     retInputs = mrStreams
-                        .createStreams(inps, cs, topic, p.getType(), p.getConfig_key(), p.getRoute(), 'p');
+                        .createStreams(inps, componentSpec, topic, p.getType(), p.getConfig_key(), p.getRoute(), 'p');
                     pubStreams.add(mrStreams);
                 } else if (p.getType().equals("data_router") || p.getType().equals("data router")) {
                     String feed = p.getConfig_key() + "_feed";
                     DmaapStreams drStreams = new DmaapStreams();
                     retInputs = drStreams
-                        .createStreams(inps, cs, feed, p.getType(), p.getConfig_key(), p.getRoute(), 'p');
+                        .createStreams(inps, componentSpec, feed, p.getType(), p.getConfig_key(), p.getRoute(), 'p');
                     pubStreams.add(drStreams);
                 }
             }
@@ -239,19 +228,19 @@ public class Properties {
 
         //set the stream subscribes
         ArrayList<DmaapStreams> subStreams = new ArrayList<>();
-        if (cs.getStreams().getSubscribes() != null) {
-            for (Subscribes s : cs.getStreams().getSubscribes()) {
+        if (componentSpec.getStreams().getSubscribes() != null) {
+            for (Subscribes s : componentSpec.getStreams().getSubscribes()) {
                 if (s.getType().equals("message_router") || s.getType().equals("message router")) {
                     String topic = s.getConfig_key() + "_topic";
                     DmaapStreams mrStreams = new DmaapStreams();
                     retInputs = mrStreams
-                        .createStreams(inps, cs, topic, s.getType(), s.getConfig_key(), s.getRoute(), 's');
+                        .createStreams(inps, componentSpec, topic, s.getType(), s.getConfig_key(), s.getRoute(), 's');
                     subStreams.add(mrStreams);
                 } else if (s.getType().equals("data_router") || s.getType().equals("data router")) {
                     String feed = s.getConfig_key() + "_feed";
                     DmaapStreams drStreams = new DmaapStreams();
                     retInputs = drStreams
-                        .createStreams(inps, cs, feed, s.getType(), s.getConfig_key(), s.getRoute(), 's');
+                        .createStreams(inps, componentSpec, feed, s.getType(), s.getConfig_key(), s.getRoute(), 's');
                     subStreams.add(drStreams);
                 }
             }
@@ -266,7 +255,7 @@ public class Properties {
 
         //set the reource config
         ResourceConfig resource = new ResourceConfig();
-        retInputs = resource.createResourceConfig(retInputs, cs.getSelf().getName());
+        retInputs = resource.createResourceConfig(retInputs, componentSpec.getSelf().getName());
         this.setResource_config(resource);
 
         return retInputs;

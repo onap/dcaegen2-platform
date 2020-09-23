@@ -239,6 +239,7 @@ public class DmaapBlueprintTest {
         when(componentSpec.getStreams()).thenReturn(streams);
         when(componentSpec.getArtifacts()).thenReturn(arrayArtifacts);
         when(componentSpec.getParameters()).thenReturn(new Parameters[0]);
+        when(componentSpec.getSelfName()).thenReturn(MOCKED_NAME);
         return componentSpec;
     }
 }
