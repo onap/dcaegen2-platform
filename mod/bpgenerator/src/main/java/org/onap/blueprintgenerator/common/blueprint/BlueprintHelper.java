@@ -29,6 +29,7 @@ public class BlueprintHelper {
 
     public static final String INTEGER_TYPE = "integer";
     public static final String BOOLEAN_TYPE = "boolean";
+    public static final String STRING_TYPE = "string";
 
     public static LinkedHashMap<String, Object> createInputValue(String type, String description, Object defaultValue) {
         LinkedHashMap<String, Object> inputMap = new LinkedHashMap<>();
@@ -44,6 +45,10 @@ public class BlueprintHelper {
 
     public static LinkedHashMap<String, Object> createBooleanInput(String description, Object defaultValue){
         return createInputValue(BOOLEAN_TYPE, description, defaultValue);
+    }
+
+    public static LinkedHashMap<String, Object> createStringInput(String description, Object defaultValue){
+        return createInputValue(STRING_TYPE, description, defaultValue);
     }
 
     public static String joinUnderscore(String firstValue, String secondValue){
