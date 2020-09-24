@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "028154b6_a8124016",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/Imports.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-09-24T07:04:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12fbc20c_b278abe0",
+      "range": {
+        "startLine": 65,
+        "startChar": 2,
+        "endLine": 67,
+        "endChar": 30
+      },
+      "revId": "6780c1701297bb67533bdf65388944e5b6935e94",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1fbe1160_2edb60ab",
         "filename": "mod/bpgenerator/src/test/java/org/onap/blueprintgenerator/models/blueprint/ImportsTest.java",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "6780c1701297bb67533bdf65388944e5b6935e94",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a64dc8fe_cd04c0e9",
+        "filename": "mod/bpgenerator/src/test/java/org/onap/blueprintgenerator/models/blueprint/ImportsTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-09-24T07:04:57Z",
+      "side": 1,
+      "message": "Done. Made it also static.",
+      "parentUuid": "1fbe1160_2edb60ab",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 12
+      },
+      "revId": "6780c1701297bb67533bdf65388944e5b6935e94",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
