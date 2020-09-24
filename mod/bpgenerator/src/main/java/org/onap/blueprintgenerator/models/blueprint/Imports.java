@@ -20,7 +20,6 @@
 
 package org.onap.blueprintgenerator.models.blueprint;
 
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -31,8 +30,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import lombok.Getter;
 import lombok.Setter;
-
-
 
 @Getter @Setter
 @JsonInclude(value=Include.NON_NULL)
@@ -47,6 +44,7 @@ public class Imports {
 		imps.add("plugin:dcaepolicyplugin?version=2.4.0");
 		return imps;
 	}
+
 	public static ArrayList<String> createDmaapImports(){
 		ArrayList<String> imps = new ArrayList<>();
 		imps.add("https://www.getcloudify.org/spec/cloudify/4.5.5/types.yaml");
@@ -54,6 +52,7 @@ public class Imports {
 		imps.add("plugin:dmaap?version=1.5.0");
 		return imps;
 	}
+
 	public static ArrayList<String> createImportsFromFile(String path) {
 		Imports imports;
 		ObjectMapper importMapper = new ObjectMapper(new YAMLFactory().configure(YAMLGenerator.Feature.MINIMIZE_QUOTES, true));
@@ -63,6 +62,8 @@ public class Imports {
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
+		imports.getImports()
+			.removeIf(String::isBlank);
 		return imports.getImports();
 	}
 }

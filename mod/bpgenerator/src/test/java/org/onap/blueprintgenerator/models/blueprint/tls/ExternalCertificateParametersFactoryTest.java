@@ -25,7 +25,7 @@ import org.onap.blueprintgenerator.models.blueprint.tls.impl.ExternalCertificate
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 import static org.onap.blueprintgenerator.models.blueprint.tls.TlsConstants.COMMON_NAME_FIELD;
 import static org.onap.blueprintgenerator.models.blueprint.tls.TlsConstants.DEFAULT_COMMON_NAME;
 import static org.onap.blueprintgenerator.models.blueprint.tls.TlsConstants.DEFAULT_SANS;
