@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "12fbc20c_b278abe0",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/Imports.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-09-24T06:23:43Z",
+      "side": 1,
+      "message": "Consider, move imports declaration and logic to try body. E.g\nImports imports \u003d importMapper.readValue(importPath, Imports.class);\nimports.getImports()\n    .removeIf(String::isBlank);\nreturn imports.getImports();",
+      "range": {
+        "startLine": 65,
+        "startChar": 2,
+        "endLine": 67,
+        "endChar": 30
+      },
+      "revId": "6780c1701297bb67533bdf65388944e5b6935e94",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
