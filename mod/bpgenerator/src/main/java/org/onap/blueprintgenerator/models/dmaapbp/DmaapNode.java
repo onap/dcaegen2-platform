@@ -43,117 +43,135 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import static org.onap.blueprintgenerator.common.blueprint.BlueprintHelper.isDataRouterType;
+import static org.onap.blueprintgenerator.common.blueprint.BlueprintHelper.isMessageRouterType;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
-@Getter @Setter
-@EqualsAndHashCode(callSuper=false)
+@Getter
+@Setter
+@EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
-@JsonInclude(value=Include.NON_NULL)
+@JsonInclude(value = Include.NON_NULL)
 
-public class DmaapNode extends Node{
+public class DmaapNode extends Node {
 
-	public TreeMap<String, LinkedHashMap<String, Object>> createDmaapNode(ComponentSpec cs, TreeMap<String, LinkedHashMap<String, Object>> inps, String override) {
-		TreeMap<String, LinkedHashMap<String, Object>> retInputs = inps;
+    public TreeMap<String, LinkedHashMap<String, Object>> createDmaapNode(ComponentSpec componentSpec,
+        TreeMap<String, LinkedHashMap<String, Object>> inps, String override) {
+        TreeMap<String, LinkedHashMap<String, Object>> retInputs = inps;
 
-		//set the type
-		this.setType("dcae.nodes.ContainerizedServiceComponentUsingDmaap");
+        //set the type
+        this.setType("dcae.nodes.ContainerizedServiceComponentUsingDmaap");
 
-		//create the interface
-		Interfaces inter = new Interfaces();
-		retInputs = inter.createInterface(retInputs, cs);
-		TreeMap<String, Interfaces> interfaces = new TreeMap<String, Interfaces>();
-		interfaces.put("cloudify.interfaces.lifecycle", inter);
-		this.setInterfaces(interfaces);
+        //create the interface
+        Interfaces inter = new Interfaces();
+        retInputs = inter.createInterface(retInputs, componentSpec);
+        TreeMap<String, Interfaces> interfaces = new TreeMap<>();
+        interfaces.put("cloudify.interfaces.lifecycle", inter);
+        this.setInterfaces(interfaces);
 
-		//create and set the relationships
-		ArrayList<LinkedHashMap<String, String>> rets = new ArrayList();
+        //create and set the relationships
+        ArrayList<LinkedHashMap<String, String>> relationships = new ArrayList<>();
 
-		//go through the streams publishes
-		if(cs.getStreams().getPublishes() != null) {
-			for(Publishes p: cs.getStreams().getPublishes()) {
-				LinkedHashMap<String, String> pubRelations = new LinkedHashMap();
-				if(p.getType().equals("message_router") || p.getType().equals("message router")) {
-					pubRelations.put("type", "ccsdk.relationships.publish_events");
-					pubRelations.put("target", p.getConfig_key() + "_topic");
-				} else if(p.getType().equals("data_router") || p.getType().equals("data router")) {
-					pubRelations.put("type", "ccsdk.relationships.publish_files");
-					pubRelations.put("target", p.getConfig_key() + "_feed");
-				}
-				rets.add(pubRelations);
-			}
-		}
-		//go through the stream subscribes
-		if(cs.getStreams().getSubscribes() != null) {
-			for(Subscribes s: cs.getStreams().getSubscribes()) {
-				LinkedHashMap<String, String> subRelations = new LinkedHashMap();
-				if(s.getType().equals("message_router") || s.getType().equals("message router")) {
-					subRelations.put("type", "ccsdk.relationships.subscribe_to_events");
-					subRelations.put("target", s.getConfig_key() + "_topic");
-				} else if(s.getType().equals("data_router") || s.getType().equals("data router")) {
-					subRelations.put("type", "ccsdk.relationships.subscribe_to_files");
-					subRelations.put("target", s.getConfig_key() + "_feed");
-				}
-				rets.add(subRelations);
-			}
-		}
+        //go through the streams publishes
+        if (componentSpec.getStreams().getPublishes() != null) {
+            for (Publishes publishes : componentSpec.getStreams().getPublishes()) {
+                relationships.add(createTypeAndTargetPubRelations(publishes));
+            }
+        }
+        //go through the stream subscribes
+        if (componentSpec.getStreams().getSubscribes() != null) {
+            for (Subscribes subscribes : componentSpec.getStreams().getSubscribes()) {
+                relationships.add(createTypeAndTargetSubRelations(subscribes));
+            }
+        }
 
-		//add relationship for policy if exist
-		if(cs.getPolicyInfo() != null){
-			ArrayList<LinkedHashMap<String, String>> policyRelationshipsList = PolicyNodeBuilder.getPolicyRelationships(cs);
-			rets.addAll(policyRelationshipsList);
-		}
+        //add relationship for policy if exist
+        if (componentSpec.getPolicyInfo() != null) {
+            ArrayList<LinkedHashMap<String, String>> policyRelationshipsList = PolicyNodeBuilder
+                .getPolicyRelationships(componentSpec);
+            relationships.addAll(policyRelationshipsList);
+        }
 
-		//add relationships and env_variables for pgaas dbs if exist
-		if(cs.getAuxilary().getDatabases() != null){
-			ArrayList<LinkedHashMap<String, String>> pgaasRelationshipsList = PgaasNodeBuilder.getPgaasNodeRelationships(cs);
-			rets.addAll(pgaasRelationshipsList);
-		}
-		
-		this.setRelationships(rets);
+        //add relationships and env_variables for pgaas dbs if exist
+        if (componentSpec.getAuxilary().getDatabases() != null) {
+            ArrayList<LinkedHashMap<String, String>> pgaasRelationshipsList = PgaasNodeBuilder
+                .getPgaasNodeRelationships(componentSpec);
+            relationships.addAll(pgaasRelationshipsList);
+        }
 
-		//create and set the properties
-		Properties props = new Properties();
-		retInputs = props.createDmaapProperties(retInputs, cs, override);
-		this.setProperties(props);
+        this.setRelationships(relationships);
 
-		return retInputs;
-	}
-	public TreeMap<String, LinkedHashMap<String, Object>> createFeedNode(ComponentSpec cs, TreeMap<String, LinkedHashMap<String, Object>> inps, String name){
-		TreeMap<String, LinkedHashMap<String, Object>> retInputs = inps;
-		LinkedHashMap<String, Object> stringType = new LinkedHashMap();
-		stringType.put("type", "string");
+        //create and set the properties
+        Properties props = new Properties();
+        retInputs = props.createDmaapProperties(retInputs, componentSpec, override);
+        this.setProperties(props);
 
-		//set the type
-		this.setType("ccsdk.nodes.Feed");
+        return retInputs;
+    }
 
-		//create and set the properties
-		Properties props = new Properties();
-		GetInput topicInput = new GetInput();
-		topicInput.setBpInputName(name + "_name");
-		props.setFeed_name(topicInput);
-		//props.setUseExisting(true);
-		retInputs.put(name + "_name", stringType);
-		this.setProperties(props);
+    public TreeMap<String, LinkedHashMap<String, Object>> createFeedNode(ComponentSpec cs,
+        TreeMap<String, LinkedHashMap<String, Object>> inps, String name) {
+        TreeMap<String, LinkedHashMap<String, Object>> retInputs = inps;
+        LinkedHashMap<String, Object> stringType = new LinkedHashMap<>();
+        stringType.put("type", "string");
 
-		return retInputs;
-	}
+        //set the type
+        this.setType("ccsdk.nodes.Feed");
 
-	public TreeMap<String, LinkedHashMap<String, Object>> createTopicNode(ComponentSpec cs, TreeMap<String, LinkedHashMap<String, Object>> inps, String name){
-		TreeMap<String, LinkedHashMap<String, Object>> retInputs = inps;
-		LinkedHashMap<String, Object> stringType = new LinkedHashMap();
-		stringType.put("type", "string");
+        //create and set the properties
+        Properties props = new Properties();
+        GetInput topicInput = new GetInput();
+        topicInput.setBpInputName(name + "_name");
+        props.setFeed_name(topicInput);
+        //props.setUseExisting(true);
+        retInputs.put(name + "_name", stringType);
+        this.setProperties(props);
 
-		//set the type
-		this.setType("ccsdk.nodes.Topic");
+        return retInputs;
+    }
 
-		//create and set the properties
-		Properties props = new Properties();
-		GetInput topicInput = new GetInput();
-		topicInput.setBpInputName(name + "_name");
-		props.setTopic_name(topicInput);
-		//props.setUseExisting(true);
-		retInputs.put(name + "_name", stringType);
-		this.setProperties(props);
+    public TreeMap<String, LinkedHashMap<String, Object>> createTopicNode(ComponentSpec cs,
+        TreeMap<String, LinkedHashMap<String, Object>> inps, String name) {
+        TreeMap<String, LinkedHashMap<String, Object>> retInputs = inps;
+        LinkedHashMap<String, Object> stringType = new LinkedHashMap<>();
+        stringType.put("type", "string");
 
-		return retInputs;
-	}
+        //set the type
+        this.setType("ccsdk.nodes.Topic");
+
+        //create and set the properties
+        Properties props = new Properties();
+        GetInput topicInput = new GetInput();
+        topicInput.setBpInputName(name + "_name");
+        props.setTopic_name(topicInput);
+        //props.setUseExisting(true);
+        retInputs.put(name + "_name", stringType);
+        this.setProperties(props);
+
+        return retInputs;
+    }
+
+    private LinkedHashMap<String, String> createTypeAndTargetPubRelations(Publishes publishes) {
+        LinkedHashMap<String, String> pubRelations = new LinkedHashMap<>();
+        if (isMessageRouterType(publishes.getType())) {
+            pubRelations.put("type", "ccsdk.relationships.publish_events");
+            pubRelations.put("target", publishes.getConfig_key() + "_topic");
+        } else if (isDataRouterType(publishes.getType())) {
+            pubRelations.put("type", "ccsdk.relationships.publish_files");
+            pubRelations.put("target", publishes.getConfig_key() + "_feed");
+        }
+        return pubRelations;
+    }
+
+    private LinkedHashMap<String, String> createTypeAndTargetSubRelations(Subscribes subscribes) {
+        LinkedHashMap<String, String> subRelations = new LinkedHashMap<>();
+        if (isMessageRouterType(subscribes.getType())) {
+            subRelations.put("type", "ccsdk.relationships.subscribe_to_events");
+            subRelations.put("target", subscribes.getConfig_key() + "_topic");
+        } else if (isDataRouterType(subscribes.getType())) {
+            subRelations.put("type", "ccsdk.relationships.subscribe_to_files");
+            subRelations.put("target", subscribes.getConfig_key() + "_feed");
+        }
+        return subRelations;
+    }
 }

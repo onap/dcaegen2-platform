@@ -27,6 +27,9 @@ import java.util.LinkedHashMap;
 @UtilityClass
 public class BlueprintHelper {
 
+    public static final String INTEGER_TYPE = "integer";
+    public static final String BOOLEAN_TYPE = "boolean";
+
     public static LinkedHashMap<String, Object> createInputValue(String type, String description, Object defaultValue) {
         LinkedHashMap<String, Object> inputMap = new LinkedHashMap<>();
         inputMap.put("type", type);
@@ -35,7 +38,23 @@ public class BlueprintHelper {
         return inputMap;
     }
 
+    public static LinkedHashMap<String, Object> createIntegerInput(String description, Object defaultValue){
+        return createInputValue(INTEGER_TYPE, description, defaultValue);
+    }
+
+    public static LinkedHashMap<String, Object> createBooleanInput(String description, Object defaultValue){
+        return createInputValue(BOOLEAN_TYPE, description, defaultValue);
+    }
+
     public static String joinUnderscore(String firstValue, String secondValue){
         return firstValue + "_" + secondValue;
+    }
+
+    public static boolean isDataRouterType(String type) {
+        return type.equals("data_router") || type.equals("data router");
+    }
+
+    public static boolean isMessageRouterType(String type) {
+        return type.equals("message_router") || type.equals("message router");
     }
 }
