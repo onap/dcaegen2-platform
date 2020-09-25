@@ -36,8 +36,8 @@
         <java.version>11</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <spring-boot.version>2.2.5.RELEASE</spring-boot.version>
-        <dockerfile-maven-plugin.version>1.4.1</dockerfile-maven-plugin.version>
+        <spring-boot.version>2.2.9.RELEASE</spring-boot.version>
+        <dockerfile-maven-plugin.version>1.4.10</dockerfile-maven-plugin.version>
     </properties>
     <dependencies>
         <dependency>
