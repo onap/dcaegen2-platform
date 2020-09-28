@@ -39,6 +39,8 @@
 		<java.version>11</java.version>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
+		<dockerfile-maven-plugin.version>1.4.10</dockerfile-maven-plugin.version>
+		<docker.image.name>${project.groupId}.${project.artifactId}</docker.image.name>
 	</properties>
 
 	<dependencies>
@@ -125,13 +127,13 @@
 			<artifactId>jaxb-api</artifactId>
 			<version>2.3.1</version>
 		</dependency>
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>RELEASE</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>RELEASE</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 
 	<dependencyManagement>
 		<dependencies>
@@ -162,10 +164,59 @@
 				</executions>
 			</plugin>
 			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>dockerfile-maven-plugin</artifactId>
+				<version>${dockerfile-maven-plugin.version}</version>
+				<configuration>
+					<contextDirectory>${project.basedir}</contextDirectory>
+					<repository>${onap.nexus.dockerregistry.daily}/${docker.image.name}</repository>
+					<buildArgs>
+						<PROJECT_BUILD_DIR_NAME>target</PROJECT_BUILD_DIR_NAME>
+						<FINAL_JAR>${project.build.finalName}.jar</FINAL_JAR>
+					</buildArgs>
+				</configuration>
+				<executions>
+					<execution>
+						<id>build-image</id>
+						<phase>package</phase>
+						<goals>
+							<goal>build</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>tag-and-push-image-latest</id>
+						<phase>package</phase>
+						<goals>
+							<goal>tag</goal>
+							<goal>push</goal>
+						</goals>
+						<configuration>
+							<repository>${onap.nexus.dockerregistry.daily}/${docker.image.name}</repository>
+							<tag>latest</tag>
+							<useMavenSettingsForAuth>true</useMavenSettingsForAuth>
+						</configuration>
+					</execution>
+					<execution>
+						<id>tag-and-push-image-with-version</id>
+						<phase>package</phase>
+						<goals>
+							<goal>tag</goal>
+							<goal>push</goal>
+						</goals>
+						<configuration>
+							<repository>${onap.nexus.dockerregistry.daily}/${docker.image.name}</repository>
+							<tag>${project.version}</tag>
+							<useMavenSettingsForAuth>true</useMavenSettingsForAuth>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.22.2</version>
 			</plugin>
 		</plugins>
+		<finalName>mod-auth-service</finalName>
 	</build>
 </project>
