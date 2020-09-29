@@ -1,5 +1,5 @@
 # ---- Base Node ---- 
-FROM alpine:12.4.0 AS base 
+FROM node:12.4.0-alpine AS base 
 
 #RUN fs.inotify.max_user_watches=524288
 
