@@ -32,40 +32,60 @@
     <artifactId>ui</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
+    <properties>
+        <dockerfile-maven-plugin.version>1.4.10</dockerfile-maven-plugin.version>
+        <docker.image.name>${project.groupId}.${project.artifactId}</docker.image.name>
+    </properties>
+
     <build>
         <plugins>
             <plugin>
-                <groupId>com.github.eirslett</groupId>
-                <artifactId>frontend-maven-plugin</artifactId>
-                <version>1.7.6</version>
+                <groupId>com.spotify</groupId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <version>${dockerfile-maven-plugin.version}</version>
                 <configuration>
-                    <workingDirectory>./</workingDirectory>
-                    <nodeVersion>v12.16.1</nodeVersion>
-                    <npmVersion>6.13.4</npmVersion>
+                    <contextDirectory>${project.basedir}</contextDirectory>
+                    <repository>${onap.nexus.dockerregistry.daily}/${docker.image.name}</repository>
+                    <buildArgs>
+                        <PROJECT_BUILD_DIR_NAME>target</PROJECT_BUILD_DIR_NAME>
+                        <FINAL_JAR>${project.build.finalName}.jar</FINAL_JAR>
+                    </buildArgs>
                 </configuration>
                 <executions>
                     <execution>
-                        <id>install node and npm</id>
+                        <id>build-image</id>
+                        <phase>package</phase>
                         <goals>
-                            <goal>install-node-and-npm</goal>
+                            <goal>build</goal>
                         </goals>
                     </execution>
                     <execution>
-                        <id>npm install</id>
+                        <id>tag-and-push-image-latest</id>
+                        <phase>package</phase>
                         <goals>
-                            <goal>npm</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>npm run build</id>
-                        <goals>
-                            <goal>npm</goal>
+                            <goal>tag</goal>
+                            <goal>push</goal>
                         </goals>
                         <configuration>
-                            <arguments>run build</arguments>
+                            <repository>${onap.nexus.dockerregistry.daily}/${docker.image.name}</repository>
+                            <tag>latest</tag>
+                            <useMavenSettingsForAuth>true</useMavenSettingsForAuth>
                         </configuration>
                     </execution>
-                </executions>
+                    <execution>
+                        <id>tag-and-push-image-with-version</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>tag</goal>
+                            <goal>push</goal>
+                        </goals>
+                        <configuration>
+                            <repository>${onap.nexus.dockerregistry.daily}/${docker.image.name}</repository>
+                            <tag>${project.version}</tag>
+                            <useMavenSettingsForAuth>true</useMavenSettingsForAuth>
+                        </configuration>
+                    </execution>
+                </executions>      
             </plugin>
         </plugins>
     </build>
