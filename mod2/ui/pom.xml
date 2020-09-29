@@ -32,6 +32,11 @@
     <artifactId>ui</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
+    <properties>
+        <dockerfile-maven-plugin.version>1.4.10</dockerfile-maven-plugin.version>
+        <docker.image.name>${project.groupId}.${project.artifactId}</docker.image.name>
+    </properties>
+
     <build>
         <plugins>
             <plugin>
@@ -66,6 +71,54 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <version>${dockerfile-maven-plugin.version}</version>
+                <configuration>
+                    <contextDirectory>${project.basedir}</contextDirectory>
+                    <repository>${onap.nexus.dockerregistry.daily}/${docker.image.name}</repository>
+                    <buildArgs>
+                        <PROJECT_BUILD_DIR_NAME>target</PROJECT_BUILD_DIR_NAME>
+                        <FINAL_JAR>${project.build.finalName}.jar</FINAL_JAR>
+                    </buildArgs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>build-image</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>tag-and-push-image-latest</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>tag</goal>
+                            <goal>push</goal>
+                        </goals>
+                        <configuration>
+                            <repository>${onap.nexus.dockerregistry.daily}/${docker.image.name}</repository>
+                            <tag>latest</tag>
+                            <useMavenSettingsForAuth>true</useMavenSettingsForAuth>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>tag-and-push-image-with-version</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>tag</goal>
+                            <goal>push</goal>
+                        </goals>
+                        <configuration>
+                            <repository>${onap.nexus.dockerregistry.daily}/${docker.image.name}</repository>
+                            <tag>${project.version}</tag>
+                            <useMavenSettingsForAuth>true</useMavenSettingsForAuth>
+                        </configuration>
+                    </execution>
+                </executions>      
             </plugin>
         </plugins>
     </build>
