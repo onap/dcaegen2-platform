@@ -21,7 +21,7 @@
 
 package org.onap.blueprintgenerator.models.blueprint;
 
-import static org.onap.blueprintgenerator.common.blueprint.BlueprintHelper.createInputValue;
+import static org.onap.blueprintgenerator.common.blueprint.BlueprintHelper.createStringInput;
 
 import java.util.LinkedHashMap;
 import java.util.TreeMap;
@@ -34,86 +34,94 @@ import lombok.Setter;
 
 //TODO: Auto-generated Javadoc
 /* (non-Javadoc)
-* @see java.lang.Object#toString()
-*/
-@Getter @Setter
+ * @see java.lang.Object#toString()
+ */
+@Getter
+@Setter
 
 /* (non-Javadoc)
-* @see java.lang.Object#toString()
-*/
+ * @see java.lang.Object#toString()
+ */
 @Builder
 
 /**
-* Instantiates a new resource config obj.
-*/
+ * Instantiates a new resource config obj.
+ */
 @NoArgsConstructor
 
 /**
-* Instantiates a new resource config obj.
-*
-* @param limits the limits
-* @param requests the requests
-*/
+ * Instantiates a new resource config obj.
+ *
+ * @param limits the limits
+ * @param requests the requests
+ */
 @AllArgsConstructor
 
 public class ResourceConfig {
 
-	/** The limits. */
-	private TreeMap<String, GetInput> limits;
+    /**
+     * The limits.
+     */
+    private TreeMap<String, GetInput> limits;
 
-	/** The requests. */
-	private TreeMap<String, GetInput> requests;
+    /**
+     * The requests.
+     */
+    private TreeMap<String, GetInput> requests;
 
 
-	/**
-	 * Creates the resource config.
-	 *
-	 * @param inps the inps
-	 * @param name the name
-	 * @return the tree map
-	 */
-	public TreeMap<String, LinkedHashMap<String, Object>> createResourceConfig(TreeMap<String, LinkedHashMap<String, Object>> inps, String name){
+    /**
+     * Creates the resource config.
+     *
+     * @param inps       the inps
+     * @param namePrefix the name
+     * @return the tree map
+     */
+    public TreeMap<String, LinkedHashMap<String, Object>> createResourceConfig(
+        TreeMap<String, LinkedHashMap<String, Object>> inps, String name) {
 
-		LinkedHashMap<String, Object> memoryLimit = createInputValue("string", "", "128Mi");
-		LinkedHashMap<String, Object> cpuLimit = createInputValue("string", "", "250m");
+        LinkedHashMap<String, Object> memoryLimit = createStringInput("128Mi");
+        LinkedHashMap<String, Object> cpuLimit = createStringInput("250m");
 
-		if(!name.equals("")) {
-			name = name + "_";
-		}
+        String namePrefix = getNamePrefix(name);
 
-		//set the limits
-		TreeMap<String, GetInput> limits = new TreeMap<>();
+        //set the limits
+        TreeMap<String, GetInput> limits = new TreeMap<>();
 
-		GetInput cpu = new GetInput();
-		cpu.setBpInputName(name + "cpu_limit");
-		limits.put("cpu", cpu);
+        GetInput cpu = new GetInput();
+        cpu.setBpInputName(namePrefix + "cpu_limit");
+        limits.put("cpu", cpu);
 
-		GetInput memL = new GetInput();
-		memL.setBpInputName(name + "memory_limit");
-		limits.put("memory", memL);
+        GetInput memL = new GetInput();
+        memL.setBpInputName(namePrefix + "memory_limit");
+        limits.put("memory", memL);
 
-		inps.put(name + "cpu_limit", cpuLimit);
-		inps.put(name + "memory_limit", memoryLimit);
+        inps.put(namePrefix + "cpu_limit", cpuLimit);
+        inps.put(namePrefix + "memory_limit", memoryLimit);
 
-		this.setLimits(limits);
+        this.setLimits(limits);
 
-		//set the requests
-		TreeMap<String, GetInput> requests = new TreeMap<>();
+        //set the requests
+        TreeMap<String, GetInput> requests = new TreeMap<>();
 
-		GetInput cpuR = new GetInput();
-		cpuR.setBpInputName(name + "cpu_request");
-		requests.put("cpu", cpuR);
+        GetInput cpuR = new GetInput();
+        cpuR.setBpInputName(namePrefix + "cpu_request");
+        requests.put("cpu", cpuR);
 
-		GetInput memR = new GetInput();
-		memR.setBpInputName(name + "memory_request");
-		requests.put("memory", memR);
+        GetInput memR = new GetInput();
+        memR.setBpInputName(namePrefix + "memory_request");
+        requests.put("memory", memR);
 
-		inps.put(name + "cpu_request", cpuLimit);
-		inps.put(name + "memory_request", memoryLimit);
+        inps.put(namePrefix + "cpu_request", cpuLimit);
+        inps.put(namePrefix + "memory_request", memoryLimit);
 
-		this.setRequests(requests);
+        this.setRequests(requests);
 
-		return inps;
-	}
+        return inps;
+    }
+
+    private String getNamePrefix(String name) {
+        return name.isEmpty() ? "" : name + "_";
+    }
 }
 
