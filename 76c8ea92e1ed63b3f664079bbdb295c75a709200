@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2afec346_45cfd93b",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/onapbp/OnapBlueprint.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 3699
+      },
+      "writtenOn": "2020-09-30T11:06:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75c87189_68ee5305",
+      "range": {
+        "startLine": 1,
+        "startChar": 2,
+        "endLine": 1,
+        "endChar": 3
+      },
+      "revId": "76c8ea92e1ed63b3f664079bbdb295c75a709200",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "61b28f10_c7754891",
         "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/onapbp/OnapBlueprint.java",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "0f037746_551cfd5c",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/onapbp/OnapBlueprint.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 3699
+      },
+      "writtenOn": "2020-09-30T11:06:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61b28f10_c7754891",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 27
+      },
+      "revId": "76c8ea92e1ed63b3f664079bbdb295c75a709200",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d26a7f2f_118c80f5",
         "filename": "mod/bpgenerator/src/test/java/org/onap/blueprintgenerator/models/dmaapbp/DmaapNodeTest.java",
         "patchSetId": 1
@@ -68,6 +116,30 @@
       "revId": "76c8ea92e1ed63b3f664079bbdb295c75a709200",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b710a800_4b8ac7f6",
+        "filename": "mod/bpgenerator/src/test/java/org/onap/blueprintgenerator/models/dmaapbp/DmaapNodeTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 3699
+      },
+      "writtenOn": "2020-09-30T11:06:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d26a7f2f_118c80f5",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 42
+      },
+      "revId": "76c8ea92e1ed63b3f664079bbdb295c75a709200",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
