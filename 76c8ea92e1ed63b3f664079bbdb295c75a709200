@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "75c87189_68ee5305",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/onapbp/OnapBlueprint.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-09-30T10:27:38Z",
+      "side": 1,
+      "message": "Consider. Remove this single asterisk, it allow to fix code formatting by Intelij.",
+      "range": {
+        "startLine": 1,
+        "startChar": 2,
+        "endLine": 1,
+        "endChar": 3
+      },
+      "revId": "76c8ea92e1ed63b3f664079bbdb295c75a709200",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61b28f10_c7754891",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/onapbp/OnapBlueprint.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-09-30T10:27:38Z",
+      "side": 1,
+      "message": "Consider. Remove unused import.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 27
+      },
+      "revId": "76c8ea92e1ed63b3f664079bbdb295c75a709200",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d26a7f2f_118c80f5",
+        "filename": "mod/bpgenerator/src/test/java/org/onap/blueprintgenerator/models/dmaapbp/DmaapNodeTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-09-30T10:27:38Z",
+      "side": 1,
+      "message": "Please remove unused import",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 42
+      },
+      "revId": "76c8ea92e1ed63b3f664079bbdb295c75a709200",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
