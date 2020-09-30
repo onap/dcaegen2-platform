@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0f632928_49deff9e",
+        "filename": "mod2/ui/pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-09-30T22:36:04Z",
+      "side": 1,
+      "message": "onap prefix required; something like below\n\n\u003cdocker.image.name\u003eonap/${project.groupId}.${project.artifactId}\u003c/docker.image.name\u003e",
+      "range": {
+        "startLine": 37,
+        "startChar": 8,
+        "endLine": 37,
+        "endChar": 87
+      },
+      "revId": "fbd89e17058ee7c17653037c69052079c6ab9584",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
