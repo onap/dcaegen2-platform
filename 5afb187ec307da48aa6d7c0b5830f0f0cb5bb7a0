@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2d1f8a43_2bb06496",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/BpConstants.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 3699
+      },
+      "writtenOn": "2020-09-30T12:50:26Z",
+      "side": 1,
+      "message": "Do you mean constants like CLOUDIFY_DSL_1_3 or TOSCA_SIMPLE_YAML? They are all hardcoded constants to me, but I can remove them from this class as indeed they don\u0027t fit here. Please confirm that you mean those two.",
+      "parentUuid": "0e7d0060_a7fb745c",
+      "revId": "5afb187ec307da48aa6d7c0b5830f0f0cb5bb7a0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c4c6d1e3_c7286dc7",
         "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/BpConstants.java",
         "patchSetId": 2
@@ -30,6 +48,30 @@
       "writtenOn": "2020-09-30T11:53:36Z",
       "side": 1,
       "message": "Do we need it here?",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 112
+      },
+      "revId": "5afb187ec307da48aa6d7c0b5830f0f0cb5bb7a0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5eabb954_9a99699e",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/BpConstants.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 3699
+      },
+      "writtenOn": "2020-09-30T12:50:26Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "c4c6d1e3_c7286dc7",
       "range": {
         "startLine": 25,
         "startChar": 0,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "47245aa5_47491ac5",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/BpConstants.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 3699
+      },
+      "writtenOn": "2020-09-30T12:50:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59bc2b06_ca5a4e99",
+      "range": {
+        "startLine": 32,
+        "startChar": 1,
+        "endLine": 37,
+        "endChar": 93
+      },
+      "revId": "5afb187ec307da48aa6d7c0b5830f0f0cb5bb7a0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d818eb31_0444d228",
         "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/policymodel/PolicyModel.java",
         "patchSetId": 2
@@ -76,6 +142,30 @@
       "writtenOn": "2020-09-30T11:53:36Z",
       "side": 1,
       "message": "From my perspective this could be catched as one catch block for Exception. Especially that handling code is literally the same. What do you think?",
+      "range": {
+        "startLine": 131,
+        "startChar": 1,
+        "endLine": 137,
+        "endChar": 9
+      },
+      "revId": "5afb187ec307da48aa6d7c0b5830f0f0cb5bb7a0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5aade955_65c89558",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/policymodel/PolicyModel.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 3699
+      },
+      "writtenOn": "2020-09-30T12:50:26Z",
+      "side": 1,
+      "message": "As the specific exceptions are not handled at all, they can be catched as IOException.",
+      "parentUuid": "d818eb31_0444d228",
       "range": {
         "startLine": 131,
         "startChar": 1,
