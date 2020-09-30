@@ -21,9 +21,13 @@ package org.onap.blueprintgenerator.models.dmaapbp;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.when;
+import static org.onap.blueprintgenerator.models.blueprint.BpConstants.CONTENERIZED_SERVICE_COMPONENT_USING_DMAAP;
+import static org.onap.blueprintgenerator.models.blueprint.BpConstants.FEED;
+import static org.onap.blueprintgenerator.models.blueprint.BpConstants.SUBSCRIBE_TO_EVENTS;
+import static org.onap.blueprintgenerator.models.blueprint.BpConstants.SUBSCRIBE_TO_FILES;
+import static org.onap.blueprintgenerator.models.blueprint.BpConstants.TOPIC;
 
 import java.util.Map;
 import java.util.TreeMap;
@@ -36,8 +40,6 @@ import org.onap.blueprintgenerator.models.componentspec.Streams;
 import org.onap.blueprintgenerator.models.componentspec.Subscribes;
 
 public class DmaapNodeTest {
-
-    private static final String EXPECTED_DMAAP_NODE_TYPE = "dcae.nodes.ContainerizedServiceComponentUsingDmaap";
 
     private static final String DATA_ROUTER_TYPE = "data_router";
     private static final String MESSAGE_ROUTER_TYPE = "message_router";
@@ -59,7 +61,7 @@ public class DmaapNodeTest {
         DmaapNode dmaapNode = new DmaapNode();
         dmaapNode.createDmaapNode(mockedComponentSpec, new TreeMap<>(), "");
 
-        assertEquals(EXPECTED_DMAAP_NODE_TYPE, dmaapNode.getType());
+        assertEquals(CONTENERIZED_SERVICE_COMPONENT_USING_DMAAP, dmaapNode.getType());
     }
 
     @Test
@@ -112,7 +114,7 @@ public class DmaapNodeTest {
 
         Map<String, String> relationship = dmaapNode.getRelationships().get(0);
 
-        assertNotNull(relationship.get(TYPE));
+        assertEquals(SUBSCRIBE_TO_EVENTS, relationship.get(TYPE));
         assertNotNull(relationship.get(TARGET));
     }
 
@@ -130,7 +132,7 @@ public class DmaapNodeTest {
 
         Map<String, String> relationship = dmaapNode.getRelationships().get(0);
 
-        assertNotNull(relationship.get(TYPE));
+        assertEquals(SUBSCRIBE_TO_FILES, relationship.get(TYPE));
         assertNotNull(relationship.get(TARGET));
     }
 
@@ -139,9 +141,9 @@ public class DmaapNodeTest {
         ComponentSpec componentSpec = getSpiedComponentSpecWithoutRelationships();
 
         DmaapNode dmaapNode = new DmaapNode();
-        dmaapNode.createFeedNode(componentSpec, new TreeMap<>() ,"");
+        dmaapNode.createFeedNode(componentSpec, new TreeMap<>(), "");
 
-        assertTrue(dmaapNode.getType().endsWith("Feed"));
+        assertEquals(FEED, dmaapNode.getType());
     }
 
     @Test
@@ -150,9 +152,9 @@ public class DmaapNodeTest {
         ComponentSpec componentSpec = getSpiedComponentSpecWithoutRelationships();
 
         DmaapNode dmaapNode = new DmaapNode();
-        dmaapNode.createTopicNode(componentSpec, new TreeMap<>() ,"");
+        dmaapNode.createTopicNode(componentSpec, new TreeMap<>(), "");
 
-        assertTrue(dmaapNode.getType().endsWith("Topic"));
+        assertEquals(TOPIC, dmaapNode.getType());
     }
 
     private Publishes[] createSamplePublishes(String type) {
@@ -196,6 +198,5 @@ public class DmaapNodeTest {
         when(componentSpec.getPolicyInfo()).thenReturn(null);
 
         return componentSpec;
-
     }
 }
