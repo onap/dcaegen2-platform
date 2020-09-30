@@ -71,7 +71,7 @@ public class Properties {
     private ExternalTlsInfo external_cert;
     private ResourceConfig resource_config;
     private GetInput always_pull_image;
-    //private boolean useExisting;
+    private Boolean useExisting;
     @JsonIgnore
     private ExternalTlsInfoFactory externalCertFactory;
 

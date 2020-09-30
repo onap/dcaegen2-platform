@@ -21,6 +21,7 @@ package org.onap.blueprintgenerator.models.dmaapbp;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.when;
@@ -145,6 +146,16 @@ public class DmaapNodeTest {
     }
 
     @Test
+    public void feedNodePropertiesShouldHaveUseExistingField() {
+        ComponentSpec componentSpec = getSpiedComponentSpecWithoutRelationships();
+
+        DmaapNode dmaapNode = new DmaapNode();
+        dmaapNode.createFeedNode(componentSpec, new TreeMap<>() ,"");
+
+        assertTrue(dmaapNode.getProperties().getUseExisting());
+    }
+
+    @Test
     public void createTopicNodeShouldSetTopicNodeType() {
 
         ComponentSpec componentSpec = getSpiedComponentSpecWithoutRelationships();
@@ -153,6 +164,16 @@ public class DmaapNodeTest {
         dmaapNode.createTopicNode(componentSpec, new TreeMap<>() ,"");
 
         assertTrue(dmaapNode.getType().endsWith("Topic"));
+    }
+
+    @Test
+    public void topicNodePropertiesShouldNotHaveUseExistingField() {
+        ComponentSpec componentSpec = getSpiedComponentSpecWithoutRelationships();
+
+        DmaapNode dmaapNode = new DmaapNode();
+        dmaapNode.createTopicNode(componentSpec, new TreeMap<>() ,"");
+
+        assertNull(dmaapNode.getProperties().getUseExisting());
     }
 
     private Publishes[] createSamplePublishes(String type) {

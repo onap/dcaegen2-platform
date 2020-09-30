@@ -123,7 +123,7 @@ public class DmaapNode extends Node {
         GetInput topicInput = new GetInput();
         topicInput.setBpInputName(name + "_name");
         props.setFeed_name(topicInput);
-        //props.setUseExisting(true);
+        props.setUseExisting(true);
         retInputs.put(name + "_name", stringType);
         this.setProperties(props);
 
