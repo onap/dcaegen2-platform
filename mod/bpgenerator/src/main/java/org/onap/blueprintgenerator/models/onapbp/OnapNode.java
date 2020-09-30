@@ -1,8 +1,10 @@
-/**============LICENSE_START======================================================= 
+/*============LICENSE_START=======================================================
  org.onap.dcae 
  ================================================================================ 
  Copyright (c) 2019 AT&T Intellectual Property. All rights reserved. 
- ================================================================================ 
+ ================================================================================
+ Modifications Copyright (c) 2020 Nokia. All rights reserved.
+ ================================================================================
  Licensed under the Apache License, Version 2.0 (the "License"); 
  you may not use this file except in compliance with the License. 
  You may obtain a copy of the License at 
@@ -20,10 +22,18 @@
 
 package org.onap.blueprintgenerator.models.onapbp;
 
+import static org.onap.blueprintgenerator.models.blueprint.BpConstants.CONTENERIZED_SERVICE_COMPONENT;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.TreeMap;
-
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.onap.blueprintgenerator.core.PgaasNodeBuilder;
 import org.onap.blueprintgenerator.core.PolicyNodeBuilder;
 import org.onap.blueprintgenerator.models.blueprint.Interfaces;
@@ -31,60 +41,54 @@ import org.onap.blueprintgenerator.models.blueprint.Node;
 import org.onap.blueprintgenerator.models.blueprint.Properties;
 import org.onap.blueprintgenerator.models.componentspec.ComponentSpec;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter; import lombok.Setter;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-
 @JsonIgnoreProperties(ignoreUnknown = true)
-@Getter @Setter
-@EqualsAndHashCode(callSuper=false)
+@Getter
+@Setter
+@EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
-@JsonInclude(value=Include.NON_NULL)
+@JsonInclude(value = Include.NON_NULL)
 
-public class OnapNode extends Node{
+public class OnapNode extends Node {
 
-	public TreeMap<String, LinkedHashMap<String, Object>> createOnapNode(TreeMap<String, LinkedHashMap<String, Object>> inps, ComponentSpec cs, String override) {
-		TreeMap<String, LinkedHashMap<String, Object>> retInputs = new TreeMap<String, LinkedHashMap<String, Object>>();
-		retInputs = inps;
+    public TreeMap<String, LinkedHashMap<String, Object>> createOnapNode(
+        TreeMap<String, LinkedHashMap<String, Object>> inps, ComponentSpec cs, String override) {
+        TreeMap<String, LinkedHashMap<String, Object>> retInputs = new TreeMap<String, LinkedHashMap<String, Object>>();
+        retInputs = inps;
 
-		//create and set the interfaces
-		Interfaces inter = new Interfaces();
-		retInputs = inter.createInterface(retInputs, cs);
-		TreeMap<String, Interfaces> interfaces = new TreeMap<String, Interfaces>();
-		interfaces.put("cloudify.interfaces.lifecycle", inter);
-		this.setInterfaces(interfaces);
+        //create and set the interfaces
+        Interfaces inter = new Interfaces();
+        retInputs = inter.createInterface(retInputs, cs);
+        TreeMap<String, Interfaces> interfaces = new TreeMap<String, Interfaces>();
+        interfaces.put("cloudify.interfaces.lifecycle", inter);
+        this.setInterfaces(interfaces);
 
-		//set the type
-		this.setType("dcae.nodes.ContainerizedServiceComponent");
+        //set the type
+        this.setType(CONTENERIZED_SERVICE_COMPONENT);
 
-		//create and set the relationships
-		ArrayList<LinkedHashMap<String, String>> rets = new ArrayList();
+        //create and set the relationships
+        ArrayList<LinkedHashMap<String, String>> rets = new ArrayList();
 
-		//add relationship for policy if exist
-		if(cs.getPolicyInfo() != null){
-			ArrayList<LinkedHashMap<String, String>> policyRelationshipsList = PolicyNodeBuilder.getPolicyRelationships(cs);
-			rets.addAll(policyRelationshipsList);
-		}
+        //add relationship for policy if exist
+        if (cs.getPolicyInfo() != null) {
+            ArrayList<LinkedHashMap<String, String>> policyRelationshipsList = PolicyNodeBuilder
+                .getPolicyRelationships(cs);
+            rets.addAll(policyRelationshipsList);
+        }
 
-		//add relationships and env_variables for pgaas dbs if exist
-		if(cs.getAuxilary().getDatabases() != null){
-			ArrayList<LinkedHashMap<String, String>> pgaasRelationshipsList = PgaasNodeBuilder.getPgaasNodeRelationships(cs);
-			rets.addAll(pgaasRelationshipsList);
-		}
+        //add relationships and env_variables for pgaas dbs if exist
+        if (cs.getAuxilary().getDatabases() != null) {
+            ArrayList<LinkedHashMap<String, String>> pgaasRelationshipsList = PgaasNodeBuilder
+                .getPgaasNodeRelationships(cs);
+            rets.addAll(pgaasRelationshipsList);
+        }
 
-		this.setRelationships(rets);
+        this.setRelationships(rets);
 
-		//set the properties
-		Properties props = new Properties();
-		retInputs = props.createOnapProperties(retInputs, cs, override);
-		this.setProperties(props);
+        //set the properties
+        Properties props = new Properties();
+        retInputs = props.createOnapProperties(retInputs, cs, override);
+        this.setProperties(props);
 
-		return retInputs;
-	}
+        return retInputs;
+    }
 }
