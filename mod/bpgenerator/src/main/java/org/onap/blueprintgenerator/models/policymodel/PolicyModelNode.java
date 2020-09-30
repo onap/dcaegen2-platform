@@ -2,7 +2,9 @@
  org.onap.dcae 
  ================================================================================ 
  Copyright (c) 2019 AT&T Intellectual Property. All rights reserved. 
- ================================================================================ 
+ ================================================================================
+ Modifications Copyright (c) 2020 Nokia. All rights reserved.
+ ================================================================================
  Licensed under the Apache License, Version 2.0 (the "License"); 
  you may not use this file except in compliance with the License. 
  You may obtain a copy of the License at 
@@ -29,6 +31,9 @@ import org.onap.blueprintgenerator.models.blueprint.Node;
 import org.onap.blueprintgenerator.models.componentspec.EntrySchemaObj;
 import org.onap.blueprintgenerator.models.componentspec.Parameters;
 import org.onap.blueprintgenerator.models.componentspec.PolicySchemaObj;
+
+import static org.onap.blueprintgenerator.models.blueprint.BpConstants.TOSCA_DATATYPES_ROOT;
+import static org.onap.blueprintgenerator.models.blueprint.BpConstants.TOSCA_NODES_ROOT;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
@@ -70,7 +75,7 @@ public class PolicyModelNode {
 			}
 		}
 		
-		this.setDerived_from("tosca.datatypes.Root");
+		this.setDerived_from(TOSCA_DATATYPES_ROOT);
 		this.setProperties(props);
 		return hasEntrySchema;
 	}
@@ -79,7 +84,7 @@ public class PolicyModelNode {
 		TreeMap<String, PolicyModelNode> dataType = new TreeMap<String, PolicyModelNode>();
 		
 		PolicyModelNode node = new PolicyModelNode();
-		node.setDerived_from("tosca.datatypes.Root");
+		node.setDerived_from(TOSCA_DATATYPES_ROOT);
 		
 		TreeMap<String, PolicyProperties> properties = new TreeMap();
 		
@@ -119,7 +124,7 @@ public class PolicyModelNode {
 	private TreeMap<String, PolicyModelNode> translateEntrySchema(TreeMap<String, PolicyModelNode> dataType, EntrySchemaObj[] entry, String name){
 		TreeMap<String, PolicyModelNode> data = dataType;
 		PolicyModelNode node = new PolicyModelNode();
-		node.setDerived_from("tosca.nodes.Root");
+		node.setDerived_from(TOSCA_NODES_ROOT);
 		TreeMap<String, PolicyProperties> properties = new TreeMap<String, PolicyProperties>();
 		
 		for(EntrySchemaObj e: entry) {

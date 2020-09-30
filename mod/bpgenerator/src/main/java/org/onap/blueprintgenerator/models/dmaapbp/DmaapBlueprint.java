@@ -38,6 +38,7 @@ import static org.onap.blueprintgenerator.common.blueprint.BlueprintHelper.isMes
 import static org.onap.blueprintgenerator.common.blueprint.BlueprintHelper.joinUnderscore;
 import static org.onap.blueprintgenerator.models.blueprint.Imports.createDmaapImports;
 import static org.onap.blueprintgenerator.models.blueprint.Imports.createImportsFromFile;
+import static org.onap.blueprintgenerator.models.blueprint.BpConstants.CLOUDIFY_DSL_1_3;
 
 public class DmaapBlueprint extends Blueprint {
 
@@ -48,7 +49,7 @@ public class DmaapBlueprint extends Blueprint {
         Blueprint blueprint = new Blueprint();
 
         //set tosca definition
-        blueprint.setTosca_definitions_version("cloudify_dsl_1_3");
+        blueprint.setTosca_definitions_version(CLOUDIFY_DSL_1_3);
 
         //set the description
         blueprint.setDescription(componentSpec.getSelf().getDescription());

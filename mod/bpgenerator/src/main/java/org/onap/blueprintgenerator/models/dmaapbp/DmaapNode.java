@@ -46,6 +46,14 @@ import lombok.Setter;
 import static org.onap.blueprintgenerator.common.blueprint.BlueprintHelper.isDataRouterType;
 import static org.onap.blueprintgenerator.common.blueprint.BlueprintHelper.isMessageRouterType;
 
+import static org.onap.blueprintgenerator.models.blueprint.BpConstants.CONTENERIZED_SERVICE_COMPONENT_USING_DMAAP;
+import static org.onap.blueprintgenerator.models.blueprint.BpConstants.FEED;
+import static org.onap.blueprintgenerator.models.blueprint.BpConstants.TOPIC;
+import static org.onap.blueprintgenerator.models.blueprint.BpConstants.PUBLISH_EVENTS;
+import static org.onap.blueprintgenerator.models.blueprint.BpConstants.PUBLISH_FILES;
+import static org.onap.blueprintgenerator.models.blueprint.BpConstants.SUBSCRIBE_TO_EVENTS;
+import static org.onap.blueprintgenerator.models.blueprint.BpConstants.SUBSCRIBE_TO_FILES;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Getter
 @Setter
@@ -60,7 +68,7 @@ public class DmaapNode extends Node {
         TreeMap<String, LinkedHashMap<String, Object>> retInputs = inps;
 
         //set the type
-        this.setType("dcae.nodes.ContainerizedServiceComponentUsingDmaap");
+        this.setType(CONTENERIZED_SERVICE_COMPONENT_USING_DMAAP);
 
         //create the interface
         Interfaces inter = new Interfaces();
@@ -116,7 +124,7 @@ public class DmaapNode extends Node {
         stringType.put("type", "string");
 
         //set the type
-        this.setType("ccsdk.nodes.Feed");
+        this.setType(FEED);
 
         //create and set the properties
         Properties props = new Properties();
@@ -137,7 +145,7 @@ public class DmaapNode extends Node {
         stringType.put("type", "string");
 
         //set the type
-        this.setType("ccsdk.nodes.Topic");
+        this.setType(TOPIC);
 
         //create and set the properties
         Properties props = new Properties();
@@ -154,10 +162,10 @@ public class DmaapNode extends Node {
     private LinkedHashMap<String, String> createTypeAndTargetPubRelations(Publishes publishes) {
         LinkedHashMap<String, String> pubRelations = new LinkedHashMap<>();
         if (isMessageRouterType(publishes.getType())) {
-            pubRelations.put("type", "ccsdk.relationships.publish_events");
+            pubRelations.put("type", PUBLISH_EVENTS);
             pubRelations.put("target", publishes.getConfig_key() + "_topic");
         } else if (isDataRouterType(publishes.getType())) {
-            pubRelations.put("type", "ccsdk.relationships.publish_files");
+            pubRelations.put("type", PUBLISH_FILES);
             pubRelations.put("target", publishes.getConfig_key() + "_feed");
         }
         return pubRelations;
@@ -166,10 +174,10 @@ public class DmaapNode extends Node {
     private LinkedHashMap<String, String> createTypeAndTargetSubRelations(Subscribes subscribes) {
         LinkedHashMap<String, String> subRelations = new LinkedHashMap<>();
         if (isMessageRouterType(subscribes.getType())) {
-            subRelations.put("type", "ccsdk.relationships.subscribe_to_events");
+            subRelations.put("type", SUBSCRIBE_TO_EVENTS);
             subRelations.put("target", subscribes.getConfig_key() + "_topic");
         } else if (isDataRouterType(subscribes.getType())) {
-            subRelations.put("type", "ccsdk.relationships.subscribe_to_files");
+            subRelations.put("type", SUBSCRIBE_TO_FILES);
             subRelations.put("target", subscribes.getConfig_key() + "_feed");
         }
         return subRelations;

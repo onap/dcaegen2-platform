@@ -2,7 +2,9 @@
  org.onap.dcae 
  ================================================================================ 
  Copyright (c) 2019 AT&T Intellectual Property. All rights reserved. 
- ================================================================================ 
+ ================================================================================
+ Modifications Copyright (c) 2020 Nokia. All rights reserved.
+ ================================================================================
  Licensed under the Apache License, Version 2.0 (the "License"); 
  you may not use this file except in compliance with the License. 
  You may obtain a copy of the License at 
@@ -30,6 +32,8 @@ import org.onap.blueprintgenerator.models.blueprint.Interfaces;
 import org.onap.blueprintgenerator.models.blueprint.Node;
 import org.onap.blueprintgenerator.models.blueprint.Properties;
 import org.onap.blueprintgenerator.models.componentspec.ComponentSpec;
+
+import static org.onap.blueprintgenerator.models.blueprint.BpConstants.CONTENERIZED_SERVICE_COMPONENT;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -61,7 +65,7 @@ public class OnapNode extends Node{
 		this.setInterfaces(interfaces);
 
 		//set the type
-		this.setType("dcae.nodes.ContainerizedServiceComponent");
+		this.setType(CONTENERIZED_SERVICE_COMPONENT);
 
 		//create and set the relationships
 		ArrayList<LinkedHashMap<String, String>> rets = new ArrayList();

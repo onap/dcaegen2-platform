@@ -33,6 +33,8 @@ import org.onap.blueprintgenerator.models.blueprint.Imports;
 import org.onap.blueprintgenerator.models.blueprint.Node;
 import org.onap.blueprintgenerator.models.componentspec.ComponentSpec;
 
+import static org.onap.blueprintgenerator.models.blueprint.BpConstants.CLOUDIFY_DSL_1_3;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -51,7 +53,7 @@ public class OnapBlueprint extends Blueprint{
 		//create the inputs that will be used
 		TreeMap<String, LinkedHashMap<String, Object>> inputs = new TreeMap<String, LinkedHashMap<String, Object>>();
 		//set the tosca definition which is the same for everything
-		this.setTosca_definitions_version("cloudify_dsl_1_3");
+		this.setTosca_definitions_version(CLOUDIFY_DSL_1_3);
 
 		//set the imports 
 		if(!"".equals(importPath)) {

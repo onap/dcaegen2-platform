@@ -2,7 +2,9 @@
  org.onap.dcae 
  ================================================================================ 
  Copyright (c) 2019 AT&T Intellectual Property. All rights reserved. 
- ================================================================================ 
+ ================================================================================
+ Modifications Copyright (c) 2020 Nokia. All rights reserved.
+ ================================================================================
  Licensed under the Apache License, Version 2.0 (the "License"); 
  you may not use this file except in compliance with the License. 
  You may obtain a copy of the License at 
@@ -32,6 +34,8 @@ import java.util.TreeMap;
 import org.onap.blueprintgenerator.models.blueprint.Node;
 import org.onap.blueprintgenerator.models.componentspec.ComponentSpec;
 import org.onap.blueprintgenerator.models.componentspec.Parameters;
+
+import static org.onap.blueprintgenerator.models.blueprint.BpConstants.TOSCA_SIMPLE_YAML;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonGenerationException;
@@ -93,7 +97,7 @@ public class PolicyModel {
 	
 	public PolicyModel createPolicyModel(String s, Parameters[] params) {
 		PolicyModel model = new PolicyModel();
-		model.setTosca_definition_version("tosca_simple_yaml_1_0_0");
+		model.setTosca_definition_version(TOSCA_SIMPLE_YAML);
 		
 		PolicyModelNode node = new PolicyModelNode();
 		String hasEntryScheme = node.createNodeType(s, params);	
