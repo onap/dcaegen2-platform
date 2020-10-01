@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "e535fc7e_4bfc6966",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/BpConstants.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 2837
+      },
+      "writtenOn": "2020-10-01T10:24:25Z",
+      "side": 1,
+      "message": "Mark it in constant name or put comment \"// Blueprint hardcodes\" and after this line place values.",
+      "parentUuid": "2d1f8a43_2bb06496",
+      "revId": "5afb187ec307da48aa6d7c0b5830f0f0cb5bb7a0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c4c6d1e3_c7286dc7",
         "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/BpConstants.java",
         "patchSetId": 2
