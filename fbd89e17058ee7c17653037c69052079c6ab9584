@@ -22,6 +22,30 @@
       "revId": "fbd89e17058ee7c17653037c69052079c6ab9584",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc887cc0_8fd52346",
+        "filename": "mod2/ui/pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-10-01T20:45:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f632928_49deff9e",
+      "range": {
+        "startLine": 37,
+        "startChar": 8,
+        "endLine": 37,
+        "endChar": 87
+      },
+      "revId": "fbd89e17058ee7c17653037c69052079c6ab9584",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
