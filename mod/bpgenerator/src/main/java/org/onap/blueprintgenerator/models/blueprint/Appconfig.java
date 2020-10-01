@@ -21,9 +21,15 @@
 
 package org.onap.blueprintgenerator.models.blueprint;
 
+import static org.onap.blueprintgenerator.common.blueprint.BlueprintHelper.isDataRouterType;
+import static org.onap.blueprintgenerator.common.blueprint.BlueprintHelper.isMessageRouterType;
+import static org.onap.blueprintgenerator.common.blueprint.BlueprintHelper.createStringInput;
+
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import java.util.LinkedHashMap;
 import java.util.TreeMap;
-
+import lombok.Getter;
+import lombok.Setter;
 import org.onap.blueprintgenerator.models.blueprint.dmaap.DmaapObj;
 import org.onap.blueprintgenerator.models.componentspec.CallsObj;
 import org.onap.blueprintgenerator.models.componentspec.ComponentSpec;
@@ -31,125 +37,120 @@ import org.onap.blueprintgenerator.models.componentspec.Parameters;
 import org.onap.blueprintgenerator.models.componentspec.Publishes;
 import org.onap.blueprintgenerator.models.componentspec.Subscribes;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-
-
-import lombok.Getter;
-import lombok.Setter;
-
 @Getter
 @Setter
 public class Appconfig {
-	private CallsObj[] service_calls;
-	private TreeMap<String, DmaapObj> streams_publishes;
-	private TreeMap<String, DmaapObj> streams_subscribes;
-	private TreeMap<String, Object> params;
 
-	@JsonAnyGetter
-	public TreeMap<String, Object> getParams(){
-		return params;
-	}
+    private CallsObj[] service_calls;
+    private TreeMap<String, DmaapObj> streams_publishes;
+    private TreeMap<String, DmaapObj> streams_subscribes;
+    private TreeMap<String, Object> params;
 
-	public TreeMap<String, LinkedHashMap<String, Object>> createAppconfig(TreeMap<String, LinkedHashMap<String, Object>> inps, ComponentSpec cs, String override,
-																		  boolean isDmaap) {
-		TreeMap<String, LinkedHashMap<String, Object>> retInputs = inps;
+    @JsonAnyGetter
+    public TreeMap<String, Object> getParams() {
+        return params;
+    }
 
-		//set service calls
-		CallsObj[] call = new CallsObj[0];
-		this.setService_calls(call);
+    public TreeMap<String, LinkedHashMap<String, Object>> createAppconfig(
+        TreeMap<String, LinkedHashMap<String, Object>> inps, ComponentSpec componentSpec, String override,
+        boolean isDmaap) {
 
-		//set the stream publishes
-		TreeMap<String, DmaapObj> streamPublishes = new TreeMap<String, DmaapObj>();
-		if(cs.getStreams().getPublishes().length != 0) {
-			for(Publishes p: cs.getStreams().getPublishes()) {
-				if(p.getType().equals("data_router") || p.getType().equals("data router")) {
-					//in this case the data router information gets added to the params so for now leave it alone
-					String config = p.getConfig_key();
-					DmaapObj pub = new DmaapObj();
-					String name = p.getConfig_key() +"_feed";
-					retInputs = pub.createOnapDmaapDRObj(retInputs, config, 'p', name, name, isDmaap);
-					pub.setType(p.getType());
-					streamPublishes.put(config, pub);
-				} else if(p.getType().equals("message_router") || p.getType().equals("message router")) {
-					String config = p.getConfig_key();
-					DmaapObj pub = new DmaapObj();
-					String name =  p.getConfig_key() + "_topic";
-					retInputs = pub.createOnapDmaapMRObj(retInputs, config, 'p', name, name, isDmaap);
-					pub.setType(p.getType());
-					streamPublishes.put(config, pub);
-				}
-			}
-		}
+        service_calls = new CallsObj[0];
+        streams_publishes = createStreamPublishes(componentSpec, inps, isDmaap);
+        streams_subscribes = createStreamSubscribes(componentSpec, inps, isDmaap);
+        params = createParameters(componentSpec, inps, override);
 
-		//set the stream publishes
-		TreeMap<String, DmaapObj> streamSubscribes = new TreeMap<>();
+        return inps;
+    }
 
-		if(cs.getStreams().getSubscribes().length != 0) {
-			for(Subscribes s: cs.getStreams().getSubscribes()) {
-				if(s.getType().equals("data_router") || s.getType().equals("data router")) {
-					//in this case the data router information gets added to the params so for now leave it alone
-					String config = s.getConfig_key();
-					DmaapObj sub = new DmaapObj();
-					String name = s.getConfig_key() + "_feed";
-					retInputs = sub.createOnapDmaapDRObj(retInputs, config, 'p', name, name, isDmaap);
-					sub.setType(s.getType());
-					streamSubscribes.put(config, sub);
-				} else if(s.getType().equals("message_router") || s.getType().equals("message router")) {
-					String config = s.getConfig_key();
-					DmaapObj sub = new DmaapObj();
-					String name = s.getConfig_key() + "_topic";
-					retInputs = sub.createOnapDmaapMRObj(retInputs, config, 's', name, name, isDmaap);
-					sub.setType(s.getType());
-					streamSubscribes.put(config, sub);
-				}
-			}
-		}
+    private TreeMap<String, DmaapObj> createStreamPublishes(ComponentSpec componentSpec,
+        TreeMap<String, LinkedHashMap<String, Object>> inps, boolean isDmaap) {
+        TreeMap<String, DmaapObj> streamPublishes = new TreeMap<>();
+        for (Publishes publishes : componentSpec.getStreams().getPublishes()) {
+            if (isDataRouterType(publishes.getType())) {
+                //in this case the data router information gets added to the params so for now leave it alone
+                String config = publishes.getConfig_key();
+                DmaapObj pub = new DmaapObj();
+                String name = publishes.getConfig_key() + "_feed";
+                pub.createOnapDmaapDRObj(inps, config, 'p', name, name, isDmaap);
+                pub.setType(publishes.getType());
+                streamPublishes.put(config, pub);
+            } else if (isMessageRouterType(publishes.getType())) {
+                String config = publishes.getConfig_key();
+                DmaapObj pub = new DmaapObj();
+                String name = publishes.getConfig_key() + "_topic";
+                pub.createOnapDmaapMRObj(inps, config, 'p', name, name, isDmaap);
+                pub.setType(publishes.getType());
+                streamPublishes.put(config, pub);
+            }
+        }
+        return streamPublishes;
+    }
 
-		this.setStreams_publishes(streamPublishes);
-		this.setStreams_subscribes(streamSubscribes);
+    private TreeMap<String, DmaapObj> createStreamSubscribes(ComponentSpec componentSpec,
+        TreeMap<String, LinkedHashMap<String, Object>> inputs, boolean isDmaap) {
+        TreeMap<String, DmaapObj> streamSubscribes = new TreeMap<>();
+        for (Subscribes subscribes : componentSpec.getStreams().getSubscribes()) {
+            String config = subscribes.getConfig_key();
+            DmaapObj sub = new DmaapObj();
+            if (isDataRouterType(subscribes.getType())) {
+                //in this case the data router information gets added to the params so for now leave it alone
+                String name = subscribes.getConfig_key() + "_feed";
+                sub.createOnapDmaapDRObj(inputs, config, 'p', name, name, isDmaap);
+            } else if (isMessageRouterType(subscribes.getType())) {
+                String name = subscribes.getConfig_key() + "_topic";
+                sub.createOnapDmaapMRObj(inputs, config, 's', name, name, isDmaap);
+            }
+            sub.setType(subscribes.getType());
+            streamSubscribes.put(config, sub);
+        }
+        return streamSubscribes;
+    }
 
-		//set the parameters into the appconfig
-		TreeMap<String, Object> parameters = new TreeMap<>();
-		for(Parameters p: cs.getParameters()) {
-			String pName = p.getName();
-			if(p.isSourced_at_deployment()) {
-				GetInput paramInput = new GetInput();
-				paramInput.setBpInputName(pName);
-				parameters.put(pName, paramInput);
+    private TreeMap<String, Object> createParameters(ComponentSpec componentSpec,
+        TreeMap<String, LinkedHashMap<String, Object>> inputs,
+        String override) {
+        TreeMap<String, Object> parameters = new TreeMap<>();
+        for (Parameters params : componentSpec.getParameters()) {
+            String pName = params.getName();
+            if (params.isSourced_at_deployment()) {
+                GetInput paramInput = new GetInput();
+                paramInput.setBpInputName(pName);
+                parameters.put(pName, paramInput);
 
-				if(!p.getValue().equals("")) {
-					LinkedHashMap<String, Object> inputs = new LinkedHashMap<>();
-					inputs.put("type", "string");
-					inputs.put("default", p.getValue());
-					retInputs.put(pName, inputs);
-				} else {
-					LinkedHashMap<String, Object> inputs = new LinkedHashMap<>();
-					inputs.put("type", "string");
-					retInputs.put(pName, inputs);
-				}
-			} else {
-				if("string".equals(p.getType())) {
-					String val  =(String) p.getValue();
-					val = '"' + val + '"';
-					parameters.put(pName, val);
-				}
-				else {
-					parameters.put(pName, p.getValue());
-				}
-			}
-		}
-		if(override != null) {
-			GetInput ov = new GetInput();
-			ov.setBpInputName("service_component_name_override");
-			parameters.put("service_component_name_override", ov);
-			LinkedHashMap<String, Object> over = new LinkedHashMap<>();
-			over.put("type", "string");
-			over.put("default", override);
-			retInputs.put("service_component_name_override", over);
-		}
-		this.setParams(parameters);
-		return retInputs;
-	}
+                if (!params.getValue().equals("")) {
+                    LinkedHashMap<String, Object> input = createStringInput(params.getValue());
+                    inputs.put(pName, input);
+                } else {
+                    LinkedHashMap<String, Object> input = new LinkedHashMap<>();
+                    input.put("type", "string");
+                    inputs.put(pName, input);
+                }
+            } else {
+                if ("string".equals(params.getType())) {
+                    String val = (String) params.getValue();
+                    val = '"' + val + '"';
+                    parameters.put(pName, val);
+                } else {
+                    parameters.put(pName, params.getValue());
+                }
+            }
+        }
+        handleOverride(override, parameters, inputs);
+        return parameters;
+    }
 
+    private void handleOverride(String override, TreeMap<String, Object> parameters,
+        TreeMap<String, LinkedHashMap<String, Object>> inps) {
+        if (override != null) {
+            GetInput ov = new GetInput();
+            ov.setBpInputName("service_component_name_override");
+            parameters.put("service_component_name_override", ov);
+            LinkedHashMap<String, Object> over = new LinkedHashMap<>();
+            over.put("type", "string");
+            over.put("default", override);
+            inps.put("service_component_name_override", over);
+        }
+    }
 
 }
