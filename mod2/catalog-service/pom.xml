@@ -38,9 +38,15 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <spring-boot.version>2.2.9.RELEASE</spring-boot.version>
         <dockerfile-maven-plugin.version>1.4.10</dockerfile-maven-plugin.version>
-        <docker.image.name>${project.groupId}.${project.artifactId}</docker.image.name>
+        <docker.image.name>onap/${project.groupId}.${project.artifactId}</docker.image.name>
     </properties>
     <dependencies>
+        <dependency>
+            <groupId>org.onap.dcaegen2.platform.mod</groupId>
+            <artifactId>blueprint-generator</artifactId>
+            <version>1.5.2-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-mongodb-reactive</artifactId>

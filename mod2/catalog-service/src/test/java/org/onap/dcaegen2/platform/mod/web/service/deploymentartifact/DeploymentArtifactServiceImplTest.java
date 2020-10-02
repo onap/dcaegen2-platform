@@ -25,8 +25,11 @@ import org.onap.dcaegen2.platform.mod.model.deploymentartifact.DeploymentArtifac
 import org.onap.dcaegen2.platform.mod.model.exceptions.deploymentartifact.DeploymentArtifactNotFound;
 import org.onap.dcaegen2.platform.mod.model.microserviceinstance.MsInstance;
 import org.onap.dcaegen2.platform.mod.model.restapi.DeploymentArtifactPatchRequest;
+import org.onap.dcaegen2.platform.mod.model.specification.DeploymentType;
+import org.onap.dcaegen2.platform.mod.model.specification.Specification;
 import org.onap.dcaegen2.platform.mod.objectmothers.DeploymentArtifactObjectMother;
 import org.onap.dcaegen2.platform.mod.objectmothers.MsInstanceObjectMother;
+import org.onap.dcaegen2.platform.mod.objectmothers.SpecificationObjectMother;
 import org.onap.dcaegen2.platform.mod.web.service.microserviceinstance.MsInstanceService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -36,6 +39,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import static org.onap.dcaegen2.platform.mod.objectmothers.MsInstanceObjectMother.*;
@@ -96,6 +100,19 @@ class DeploymentArtifactServiceImplTest {
         when(repository.findAll()).thenReturn(Arrays.asList(deploymentArtifact));
         List<DeploymentArtifact> deployments = deploymentArtifactService.getAllDeploymentArtifacts();
         assertThat(deployments.size()).isEqualTo(1);
+    }
+
+    @Test
+    void test_GenerateForRelease_shouldReturnCorrectBlueprint(){
+        Specification specification = SpecificationObjectMother.getMockSpecification(DeploymentType.K8S);
+        when(deploymentArtifactGeneratorStrategy.generateForRelease(specification, "")).thenReturn(DeploymentArtifactObjectMother.createBlueprintResponse());
+        Map<String, Object> response = deploymentArtifactGeneratorStrategy.generateForRelease(specification, "");
+        verify(deploymentArtifactGeneratorStrategy, atLeastOnce()).generateForRelease(specification,"");
+        assertThat(response).isNotNull();
+        assertThat(response.get("content")).isNotNull();
+        assertThat(response.get("fileName")).isNotNull();
+        assertThat((String)response.get("content")).contains("tosca_definitions_version");
+
     }
 
     @Test
