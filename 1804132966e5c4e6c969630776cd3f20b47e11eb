@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3eb104c2_5479e6cf",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/Appconfig.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 2837
+      },
+      "writtenOn": "2020-10-02T12:54:42Z",
+      "side": 1,
+      "message": "same to setServiceCalls()",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 53
+      },
+      "revId": "1804132966e5c4e6c969630776cd3f20b47e11eb",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "adb34fb1_80f2ed14",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/Appconfig.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 2837
+      },
+      "writtenOn": "2020-10-02T12:54:42Z",
+      "side": 1,
+      "message": "and same here",
+      "range": {
+        "startLine": 66,
+        "startChar": 5,
+        "endLine": 68,
+        "endChar": 35
+      },
+      "revId": "1804132966e5c4e6c969630776cd3f20b47e11eb",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "caf6d4b9_5852ace0",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/Appconfig.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 2837
+      },
+      "writtenOn": "2020-10-02T12:54:42Z",
+      "side": 1,
+      "message": "What is the idea of using setter for inner field?\nSetting it inline via: \"vield \u003d  new CallObj[0];\" would not be good enough?",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 36
+      },
+      "revId": "1804132966e5c4e6c969630776cd3f20b47e11eb",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
