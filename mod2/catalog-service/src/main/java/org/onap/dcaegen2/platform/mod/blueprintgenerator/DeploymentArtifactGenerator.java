@@ -18,19 +18,24 @@
  *  ============LICENSE_END=========================================================
  */
 
-package org.onap.dcaegen2.platform.mod.mock;
+package org.onap.dcaegen2.platform.mod.blueprintgenerator;
 
+import com.google.gson.Gson;
+import org.onap.blueprintgenerator.models.blueprint.Blueprint;
+import org.onap.blueprintgenerator.models.componentspec.ComponentSpec;
 import org.onap.dcaegen2.platform.mod.model.specification.Specification;
 import org.onap.dcaegen2.platform.mod.web.service.deploymentartifact.DeploymentArtifactGeneratorStrategy;
 import org.springframework.stereotype.Component;
 
+
+import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Mock implementation for DeploymentArtifactGenerator
  */
 @Component
-public class MockDeploymentArtifactGenerator implements DeploymentArtifactGeneratorStrategy {
+public class DeploymentArtifactGenerator implements DeploymentArtifactGeneratorStrategy {
 
     /**
      * null implementation.
@@ -38,8 +43,19 @@ public class MockDeploymentArtifactGenerator implements DeploymentArtifactGenera
      * @param release
      * @return
      */
-    @Override
+
+      @Override
     public Map<String, Object> generateForRelease(Specification activeSpec, String release) {
-        return null;
+
+        ComponentSpec inboundComponentSpec = new ComponentSpec();
+        inboundComponentSpec.createComponentSpecFromString(new Gson().toJson(activeSpec.getSpecContent()));
+
+        Blueprint blueprint = new Blueprint().createBlueprint(inboundComponentSpec,"",'d',"","");
+
+        Map<String, Object> modifiedResponse = new HashMap<>();
+        modifiedResponse.put("content",  blueprint.blueprintToString());
+        modifiedResponse.put("fileName", "filenamePlaceholder" + ".yaml");
+        return modifiedResponse;
     }
+
 }

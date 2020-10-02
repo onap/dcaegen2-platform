@@ -99,6 +99,19 @@ class DeploymentArtifactServiceImplTest {
     }
 
     @Test
+    void test_GenerateForRelease_shouldReturnCorrectBlueprint(){
+        Specification specification = SpecificationObjectMother.getMockSpecification(DeploymentType.K8S);
+        when(deploymentArtifactGeneratorStrategy.generateForRelease(specification, "")).thenReturn(DeploymentArtifactObjectMother.createBlueprintResponse());
+        Map<String, Object> response = deploymentArtifactGeneratorStrategy.generateForRelease(specification, "");
+        verify(deploymentArtifactGeneratorStrategy, atLeastOnce()).generateForRelease(specification,"");
+        assertThat(response).isNotNull();
+        assertThat(response.get("content")).isNotNull();
+        assertThat(response.get("fileName")).isNotNull();
+        assertThat((String)response.get("content")).contains("tosca_definitions_version");
+
+    }
+
+    @Test
     void test_GenerateBlueprint_shouldReturnCorrectBlueprint() throws Exception{
 
         setupMockBehaviours();
