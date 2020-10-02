@@ -40,7 +40,7 @@
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<dockerfile-maven-plugin.version>1.4.10</dockerfile-maven-plugin.version>
-		<docker.image.name>${project.groupId}.${project.artifactId}</docker.image.name>
+		<docker.image.name>onap/${project.groupId}.${project.artifactId}</docker.image.name>
 	</properties>
 
 	<dependencies>

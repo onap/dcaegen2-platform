@@ -11,4 +11,4 @@ COPY ${PROJECT_BUILD_DIR_NAME}/${FINAL_JAR} .
 
 ENTRYPOINT ["java", \
             "-Djava.security.egd=file:/dev/./urandom", \
-            "-jar", "auth-service-1.0.0-SNAPSHOT.jar"]
+            "-jar", "mod-auth-service.jar"]
