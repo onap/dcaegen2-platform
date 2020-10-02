@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "fdcc09f7_6a899ed2",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/Appconfig.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 3699
+      },
+      "writtenOn": "2020-10-02T13:11:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3eb104c2_5479e6cf",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 53
+      },
+      "revId": "1804132966e5c4e6c969630776cd3f20b47e11eb",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "adb34fb1_80f2ed14",
         "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/Appconfig.java",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "fca33ed9_aa83b118",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/Appconfig.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 3699
+      },
+      "writtenOn": "2020-10-02T13:11:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "adb34fb1_80f2ed14",
+      "range": {
+        "startLine": 66,
+        "startChar": 5,
+        "endLine": 68,
+        "endChar": 35
+      },
+      "revId": "1804132966e5c4e6c969630776cd3f20b47e11eb",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "caf6d4b9_5852ace0",
         "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/Appconfig.java",
         "patchSetId": 2
@@ -68,6 +116,30 @@
       "revId": "1804132966e5c4e6c969630776cd3f20b47e11eb",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a088f52_8caf1a96",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/Appconfig.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 3699
+      },
+      "writtenOn": "2020-10-02T13:11:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "caf6d4b9_5852ace0",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 36
+      },
+      "revId": "1804132966e5c4e6c969630776cd3f20b47e11eb",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
