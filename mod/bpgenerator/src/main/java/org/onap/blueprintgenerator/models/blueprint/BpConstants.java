@@ -37,4 +37,7 @@ public final class BpConstants {
     public static final String TOSCA_DATATYPES_ROOT = "tosca.datatypes.Root";
     public static final String TOSCA_NODES_ROOT = "tosca.nodes.Root";
     public static final String TOSCA_SIMPLE_YAML = "tosca_simple_yaml_1_0_0";
+
+    public static final String MEMORY_LIMIT = "128Mi";
+    public static final String CPU_LIMIT = "250m";
 }

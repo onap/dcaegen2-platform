@@ -22,10 +22,11 @@
 package org.onap.blueprintgenerator.models.blueprint;
 
 import static org.onap.blueprintgenerator.common.blueprint.BlueprintHelper.createStringInput;
+import static org.onap.blueprintgenerator.models.blueprint.BpConstants.CPU_LIMIT;
+import static org.onap.blueprintgenerator.models.blueprint.BpConstants.MEMORY_LIMIT;
 
 import java.util.LinkedHashMap;
 import java.util.TreeMap;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -59,69 +60,56 @@ import lombok.Setter;
 
 public class ResourceConfig {
 
-    /**
-     * The limits.
-     */
     private TreeMap<String, GetInput> limits;
-
-    /**
-     * The requests.
-     */
     private TreeMap<String, GetInput> requests;
 
 
     /**
      * Creates the resource config.
      *
-     * @param inps the inps
+     * @param inputs the inputs
      * @param name the name
      * @return the tree map
      */
     public TreeMap<String, LinkedHashMap<String, Object>> createResourceConfig(
-        TreeMap<String, LinkedHashMap<String, Object>> inps, String name) {
-
-        LinkedHashMap<String, Object> memoryLimit = createStringInput("128Mi");
-        LinkedHashMap<String, Object> cpuLimit = createStringInput("250m");
+        TreeMap<String, LinkedHashMap<String, Object>> inputs, String name) {
 
         String namePrefix = getNamePrefix(name);
 
-        //set the limits
-        TreeMap<String, GetInput> limits = new TreeMap<>();
+        limits = createInputs(inputs, namePrefix, "limit");
+        requests = createInputs(inputs, namePrefix, "request");
 
-        GetInput cpu = new GetInput();
-        cpu.setBpInputName(namePrefix + "cpu_limit");
-        limits.put("cpu", cpu);
+        return inputs;
+    }
 
-        GetInput memL = new GetInput();
-        memL.setBpInputName(namePrefix + "memory_limit");
-        limits.put("memory", memL);
+    private TreeMap<String, GetInput> createInputs(TreeMap<String, LinkedHashMap<String, Object>> inputs,
+        String namePrefix,
+        String inputType) {
 
-        inps.put(namePrefix + "cpu_limit", cpuLimit);
-        inps.put(namePrefix + "memory_limit", memoryLimit);
+        LinkedHashMap<String, Object> memoryLimit = createStringInput(MEMORY_LIMIT);
+        LinkedHashMap<String, Object> cpuLimit = createStringInput(CPU_LIMIT);
 
-        this.setLimits(limits);
+        final String cpuKey = namePrefix + "cpu_" + inputType;
+        final String memoryKey = namePrefix + "memory_" + inputType;
+        TreeMap<String, GetInput> inps = new TreeMap<>();
 
-        //set the requests
-        TreeMap<String, GetInput> requests = new TreeMap<>();
+        insertInput("cpu", cpuKey, inps);
+        insertInput("memory", memoryKey, inps);
 
-        GetInput cpuR = new GetInput();
-        cpuR.setBpInputName(namePrefix + "cpu_request");
-        requests.put("cpu", cpuR);
-
-        GetInput memR = new GetInput();
-        memR.setBpInputName(namePrefix + "memory_request");
-        requests.put("memory", memR);
-
-        inps.put(namePrefix + "cpu_request", cpuLimit);
-        inps.put(namePrefix + "memory_request", memoryLimit);
-
-        this.setRequests(requests);
+        inputs.put(cpuKey, cpuLimit);
+        inputs.put(memoryKey, memoryLimit);
 
         return inps;
     }
 
+    private void insertInput(String type, String name, TreeMap<String, GetInput> inputs) {
+        GetInput input = new GetInput();
+        input.setBpInputName(name);
+        inputs.put(type, input);
+    }
+
     private String getNamePrefix(String name) {
-        return name.isEmpty() ? "" : name + "_";
+        return (name == null || name.isEmpty()) ? "" : name + "_";
     }
 }
 
