@@ -25,6 +25,52 @@
     },
     {
       "key": {
+        "uuid": "02552b3e_c68f69d2",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/Appconfig.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-10-02T06:58:17Z",
+      "side": 1,
+      "message": "Consider renaming to createStreamPublishes.",
+      "range": {
+        "startLine": 75,
+        "startChar": 38,
+        "endLine": 75,
+        "endChar": 41
+      },
+      "revId": "391d488d477c09035c8dd546ea5d1d93b59d81bd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "179f43ac_de1792a1",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/Appconfig.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-10-02T06:58:17Z",
+      "side": 1,
+      "message": "Consider removing the if statement",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 4
+      },
+      "revId": "391d488d477c09035c8dd546ea5d1d93b59d81bd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fd7aa5ad_72e549d0",
         "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/Appconfig.java",
         "patchSetId": 1
@@ -41,6 +87,75 @@
         "startChar": 27,
         "endLine": 79,
         "endChar": 28
+      },
+      "revId": "391d488d477c09035c8dd546ea5d1d93b59d81bd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6dd3900c_15748611",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/Appconfig.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-10-02T06:58:17Z",
+      "side": 1,
+      "message": "same as above",
+      "range": {
+        "startLine": 101,
+        "startChar": 38,
+        "endLine": 101,
+        "endChar": 41
+      },
+      "revId": "391d488d477c09035c8dd546ea5d1d93b59d81bd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1aa0838b_1ec50855",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/Appconfig.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-10-02T06:58:17Z",
+      "side": 1,
+      "message": "same as above",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 4
+      },
+      "revId": "391d488d477c09035c8dd546ea5d1d93b59d81bd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1c3a034_441e0bed",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/Appconfig.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-10-02T06:58:17Z",
+      "side": 1,
+      "message": "Same as above",
+      "range": {
+        "startLine": 127,
+        "startChar": 36,
+        "endLine": 127,
+        "endChar": 39
       },
       "revId": "391d488d477c09035c8dd546ea5d1d93b59d81bd",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
