@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97c50923_95f9662a",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/Appconfig.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-10-02T06:32:24Z",
+      "side": 1,
+      "message": "Please rename to full name - componentSpec",
+      "range": {
+        "startLine": 75,
+        "startChar": 71,
+        "endLine": 75,
+        "endChar": 73
+      },
+      "revId": "391d488d477c09035c8dd546ea5d1d93b59d81bd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd7aa5ad_72e549d0",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/Appconfig.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-10-02T06:32:24Z",
+      "side": 1,
+      "message": "Please rename to full name.",
+      "range": {
+        "startLine": 79,
+        "startChar": 27,
+        "endLine": 79,
+        "endChar": 28
+      },
+      "revId": "391d488d477c09035c8dd546ea5d1d93b59d81bd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ec362d3_3a7f487e",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/Appconfig.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-10-02T06:32:24Z",
+      "side": 1,
+      "message": "If possible use  blueprintHelper.createStringInput()",
+      "range": {
+        "startLine": 138,
+        "startChar": 20,
+        "endLine": 140,
+        "endChar": 56
+      },
+      "revId": "391d488d477c09035c8dd546ea5d1d93b59d81bd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
