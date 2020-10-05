@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7565ae1b_69cbcebe",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/ResourceConfig.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 2837
+      },
+      "writtenOn": "2020-10-05T13:23:49Z",
+      "side": 1,
+      "message": "We have introduced BpConstants class which should hold such hardcodes. Lets move it there.",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 51
+      },
+      "revId": "fd70049c20e9e7447663d3fe6f4175871753a474",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
