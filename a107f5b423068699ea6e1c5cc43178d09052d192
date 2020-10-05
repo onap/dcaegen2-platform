@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "19a1d3db_6dfcb280",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/Appconfig.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 2837
+      },
+      "writtenOn": "2020-10-05T12:47:16Z",
+      "side": 1,
+      "message": "same like bellow",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 49
+      },
+      "revId": "a107f5b423068699ea6e1c5cc43178d09052d192",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
