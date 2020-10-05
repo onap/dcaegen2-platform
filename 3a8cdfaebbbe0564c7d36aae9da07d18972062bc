@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "152f5431_a3d29392",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/ResourceConfig.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-10-05T07:37:42Z",
+      "side": 1,
+      "message": "Currently this method has 5 args. Consider include memoryLimit and cpuLimit into createInputs(). Default value aren\u0027t configurable, so I suggest extract 128Mi and 250m to const, In future if we would override defaults we can change const to variable and override values. What do you think ?",
+      "range": {
+        "startLine": 80,
+        "startChar": 59,
+        "endLine": 80,
+        "endChar": 80
+      },
+      "revId": "3a8cdfaebbbe0564c7d36aae9da07d18972062bc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f92e969b_94d9264f",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/ResourceConfig.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-10-05T07:37:42Z",
+      "side": 1,
+      "message": "For better readability please add brackets, or change to if/else statement",
+      "range": {
+        "startLine": 112,
+        "startChar": 15,
+        "endLine": 112,
+        "endChar": 45
+      },
+      "revId": "3a8cdfaebbbe0564c7d36aae9da07d18972062bc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa1007c9_cbd2f5ea",
+        "filename": "mod/bpgenerator/src/test/java/org/onap/blueprintgenerator/models/blueprint/ResourceConfigTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-10-05T07:37:42Z",
+      "side": 1,
+      "message": "Remove TODO",
+      "range": {
+        "startLine": 35,
+        "startChar": 8,
+        "endLine": 35,
+        "endChar": 36
+      },
+      "revId": "3a8cdfaebbbe0564c7d36aae9da07d18972062bc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
