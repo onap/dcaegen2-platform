@@ -1,0 +1,4 @@
+distribution_type: 'maven'
+version: '1.5.2'
+project: 'dcaegen2/platform'
+log_dir: 'dcaegen2-platform-mod-bpgenerator-maven-stage-guilin/6'
