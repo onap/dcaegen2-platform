@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "02134a6f_12b6950a",
+        "filename": "mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/ResourceConfig.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 6714
+      },
+      "writtenOn": "2020-10-08T07:57:26Z",
+      "side": 1,
+      "message": "Method createInput() may return void.\n\n\nI would create generic method createInput() and than specific methods like createCreateCpuLimitInput() etc.\n\n\nFinally method createResourceConfig() would look a follows.\n\n\n  TreaMap inputs;\n\n  createCpuRequestInput(inputs, DEFAULT_CPU_REQUEST);\n  createCpuLimitInput(inputs, DEFAULT_CPU_LIMIT);\n\n  createMemoryRequestInput(inputs, DEFAULT_MEMORY_REQUEST);\n  createMemoryLimitInput(inputs, DEFAULT_MEMORY_LIMIT);\n\n  return inputs;",
+      "revId": "4f7d736f2e4997d13727bffabc982abf1a2522d8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
