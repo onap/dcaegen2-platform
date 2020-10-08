@@ -1,0 +1,9 @@
+distribution_type: 'container'
+container_release_tag: '1.1.1'
+project: 'dcaegen2-platform'
+log_dir: 'dcaegen2-platform-mod-guilin-runtimeapi-merge-java/1'
+ref: fb191e459ffaea56d57f6452d1c0f0467e23e102
+containers:
+  - name: 'org.onap.dcaegen2.platform.mod.runtime-web'
+    version: '1.1.1-SNAPSHOT-20201007T203021Z'
+git_tag: '1.1.1-mod-runtimeapi'
