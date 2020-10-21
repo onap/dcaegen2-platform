@@ -19,7 +19,8 @@
  *  *  ============LICENSE_END=========================================================
  *
  *
- */
+ *//*
+
 
 package com.att.blueprintgenerator.test;
 
@@ -34,12 +35,14 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
 
+*/
 /**
  * @author : Ravi Mantena
  * @date 10/16/2020
  * Application: ONAP - Blueprint Generator
  * ONAP Bueprint Jar Comparision with Previos version to make sure Bps are not broken with new changes
- */
+ *//*
+
 
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -107,3 +110,4 @@ public class BlueprintJarComparatorTest extends BlueprintGeneratorTests {
 
 
 }
+*/
