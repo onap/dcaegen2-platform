@@ -49,7 +49,7 @@ import static org.junit.Assert.*;
 
 public class OnapBlueprintServiceTest extends BlueprintGeneratorTests {
 
-    @DisplayName("Testing K8s Blueprint for Service Name Override Component Spec Input File")
+/*    @DisplayName("Testing K8s Blueprint for Service Name Override Component Spec Input File")
     @Test
     public void testServiceNameOverrideK8sBlueprint() throws IOException {
         Input input = onapTestUtils.getInput(Paths.get("src", "test", "resources", "componentspecs" , ves).toFile().getAbsolutePath(), "", "", "", "o", "");
@@ -90,7 +90,7 @@ public class OnapBlueprintServiceTest extends BlueprintGeneratorTests {
         onapTestUtils.verifyDockerConfig("Service Name Override K8s",onapComponentSpec,k8sBpNodeTemplateProperties);
         onapTestUtils.verifyParameters("Service Name Override K8s",onapComponentSpec,k8sBpNodeTemplates);
         onapTestUtils.verifyVolumes("Service Name Override K8s",onapComponentSpec,k8sBpNodeTemplateProperties);
-    }
+    }*/
 
     @DisplayName("Testing K8s Blueprint for Service Name Override Component Spec Input File with Import File")
     @Test
@@ -137,7 +137,7 @@ public class OnapBlueprintServiceTest extends BlueprintGeneratorTests {
     }
 
 
-    @DisplayName("Testing K8s Blueprint for DMAAP Component Spec Input File")
+ /*   @DisplayName("Testing K8s Blueprint for DMAAP Component Spec Input File")
     @Test
     public void testDMAAPK8sBlueprint() {
         Input input = onapTestUtils.getInput(Paths.get("src", "test", "resources", "componentspecs" , ves).toFile().getAbsolutePath(), "", "", "", "d", "");
@@ -178,7 +178,7 @@ public class OnapBlueprintServiceTest extends BlueprintGeneratorTests {
         onapTestUtils.verifyServicesProvides("DMAAP K8s",onapComponentSpec);
         onapTestUtils.verifyDockerConfig("DMAAP K8s",onapComponentSpec,k8sBpNodeTemplateProperties);
         onapTestUtils.verifyParameters("DMAAP K8s",onapComponentSpec,k8sBpNodeTemplates);
-    }
+    }*/
 
     @DisplayName("Testing K8s Blueprint for DMAAP Component Spec Input File with Import File")
     @Test

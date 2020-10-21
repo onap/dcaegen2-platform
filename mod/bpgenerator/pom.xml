@@ -34,6 +34,7 @@
 
     <modules>
         <module>common</module>
+        <!-- <module>dcae</module>   -->
         <module>onap</module>
     </modules>
 
