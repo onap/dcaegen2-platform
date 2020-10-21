@@ -1,3 +1,0 @@
-imports:
-- http://www.getcloudify.org/spec/cloudify/3.4/types.yaml
-- https://nexus.onap.org/service/local/repositories/raw/content/org.onap.dcaegen2.platform.plugins/R6/k8splugin/1.7.2/k8splugin_types.yaml
