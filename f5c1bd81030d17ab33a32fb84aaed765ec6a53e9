@@ -1,0 +1,1092 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e47f8aa2_eff18661",
+        "filename": "mod/bpgenerator/common/src/main/java/com/att/blueprintgenerator/service/base/BlueprintService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "Merge with line 71:\nString comment \u003d \"#\" + input.getComment() + \u0027\\n\u0027;\nThe declaration should be before first use, such as above line 108?\n\nShould there be a space after the \"#\"?",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a70072f8_1d6f61a1",
+        "filename": "mod/bpgenerator/common/src/main/java/com/att/blueprintgenerator/service/base/BlueprintService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "Should there be a space after the \"#\"?",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4625191_f8014142",
+        "filename": "mod/bpgenerator/common/src/main/java/com/att/blueprintgenerator/service/base/FixesService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "https://google.github.io/styleguide/javaguide.html#s4.1.2-blocks-k-r-style",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0820024f_3f5d255f",
+        "filename": "mod/bpgenerator/common/src/main/java/com/att/blueprintgenerator/service/base/FixesService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "https://google.github.io/styleguide/javaguide.html#s4.1.2-blocks-k-r-style",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "275dc6d5_9cbbcdd4",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/BlueprintGeneratorMainApplication.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "if (args.length \u003e\u003d2 \u0026\u0026 args[0].equals(\"app\") \u0026\u0026 args[1].equals(\"ONAP\")) {",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5f18289_60dc0229",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/BlueprintGeneratorMainApplication.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "if (args.length \u003e\u003d4 \u0026\u0026 args[2].equals(\"-type\") \u0026\u0026 args[3].equals(\"policycreate\")){",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "089eb0f4_1974da5a",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/InfoService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "javdoc, code stanards",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0063b32b_32858b2a",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/InfoService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "javadoc",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ba16e68_69390c89",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/OnapBlueprintService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "javadoc",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "326af8ea_3d433142",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/AppConfigService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "can onapComponentSpec.getStreams() possibly return NULL?\n\nalso check the coding standards",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9302e52b_01a7ccb0",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/AppConfigService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "since you just used publishes.getConfig_key() to set config, why not use it here?",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3b841d8_d117ae22",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/AppConfigService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "since you just used publishes.getConfig_key() to set config, why not use it here?",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c476578_2ff6ea3f",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/AppConfigService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "since you just used publishes.getConfig_key() to set config, why not use it here?",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3db9d589_6aee2d39",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/AppConfigService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "since you just used publishes.getConfig_key() to set config, why not use it here?",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "669d9811_5f51bb68",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/AppConfigService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "this should be if (!\"\".equals(p.getValue()) \nin case p.getValue() returns NULL",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a58de363_0f62d69d",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/CommonUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "change to .equals() and switch the order around ??\nWhat is .contains() gaining you here?",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91eab0ac_0e27fbc2",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/CommonUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "um, StringBuilder??\n\nfaster code:\nStringBuilder commandsBuf \u003d \"\";\nString sep \u003d \"\";\nfor (String s : modArgs) {\n  commandsBuf.append(sep).append(s);\n  sep \u003d \" \";\n}\nString commands \u003d commandsBuf.toString();\n\nDoesn\u0027t make that much difference for this small array, but you should use the above pattern for creating a String from a bunch of concatenations with a separator.\n\nFor that matter, since you don\u0027t appear to USE the value of commands below for anything other than using it with .contains(), it would be much better if you just set a bunch of boolean variables indicating that things like \"--imports\" and \"-i\" were found and then test those booleans later. O(n) checks should be kept to a minimum.\n\nFor example, \n\nboolean foundComponentSpec \u003d false;\n. . .\nif (\"-i\".equals(args[i]) {\n  modArgs[i] \u003d \"-i\"; foundComponentSpec \u003d true;\n} else if (\"--component-spec\".equals(args[i]) {\n  modArgs[i] \u003d \"-_component_spec\"; foundComponentSpec \u003d true;\n} . . .\n\nthen later:\nif (foundComponentSpec) { . . .",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52775590_9e1e340c",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/CommonUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "If you DON\u0027T use booleans, then if line 72 used a starting string of \" \" (instead of \"\"),you can eliminate half of the O(n) tests (because there will be a space both at the beginning and end of every element) like this:\n\nif (!(commands.contains(\" -i \") || commands.contains(\" -_component_spec \"))\n\nlikewise for all subsequent tests below.",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6fd82a17_91d11f0e",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/CommonUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "Why not use the original option names shown in printInstructions() and just pass in args here?\nWhy do you bother with creating a shadow copy of the arguments?",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4d75597_bac71c0c",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/CommonUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "see above comments",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3694f879_ea96c5f3",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/CommonUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "see above comments",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0326cd7_3f8d01ce",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/CommonUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "see above comments",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eeaf68aa_9160d3b6",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/ComponentSpecService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "see coding standards",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c11505ac_19d61803",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/DmaapService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "this is a public method that should have a javadoc spec\nditto below",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f353ac50_abf5dc2d",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/DmaapService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "see coding standards",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0bb00947_b69b4c0e",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/ExternalCertificateDataFactoryService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "protected methods should also have a javadoc",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "799201d9_8c66b31f",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/ExternalCertificateParametersFactoryService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "javadoc",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc2d1a70_ddf83d72",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/ExternalCertificateParametersFactoryService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "javadoc",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fcf323cc_87eab328",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/ExternalCertificateParametersFactoryService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "grammar: \"a common_name\" or \"the common_name\" ??\n\"a given component\" or \"the given component\" ??",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4dc5ecc9_c7c87ca4",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/ExternalTlsInfoFactoryService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "javadoc",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4d9500f_0ed2ad96",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/ExternalTlsInfoFactoryService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "javadoc",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "42f072d5_f254be39",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/InterfacesService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "javadoc",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1efdec62_29018803",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/NodeService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "javadoc\ncode standards",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07e2bc94_092ce7d8",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/NodeService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "javaodc\ncode standards",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0fb75015_f832390e",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/NodeService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "javadoc",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a1e55c8_1e8d1041",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/NodeService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "javadoc",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47a1bc01_9d5e67ac",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/PgaasNodeService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "javadoc\ncode standards",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5eeedad1_bfd31357",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/PgaasNodeService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "can onapComponentSpec.getAuxilary(). ever return null?",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "333f5328_866519eb",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/PgaasNodeService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "javadoc\ncode standards",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cdd71a90_0eb417af",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/PgaasNodeService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "javadoc\ncode standards",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c18cf380_ccad82b8",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/PolicyNodeService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "javadocs\ncode standards",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "083730d1_2c5cb29c",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/PolicyNodeService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "how expensive is policy.getPolicy_id() ? does it make sense to call it twice?\n\na re-factor might be:\n\nString defaultValue \u003d policy.getPolicy_id();\nif (defaultValue \u003d\u003d null) defaultValue \u003d \"\";",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6155dffd_eb0692f7",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/PolicyNodeService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "javadocs\ncode standards",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9dcaecb1_4f36586d",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/PropertiesService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "javadoc",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cdcc60be_c0d25f89",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/PropertiesService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "javadoc, code standards",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "074694ef_4fb59fc5",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/PropertiesService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "can onapComponentSpec.getStreams() be null?",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00e3dfe3_07dca5a3",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/QuotationService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "javadoc, code standards",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5885a021_684cdf27",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/QuotationService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "do you want the string \"\\\"(null)\\\"\" if def is null?",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4aa7b935_33e44ff6",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/ResourceConfigService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "javadoc",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "865fde14_1617bfad",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/StartInputsService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "javadoc, code standards",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "640e6b51_82732490",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/StartService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "javadoc",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d43a9c1e_86d39997",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/dmaap/DmaapBlueprintService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "javadoc",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "557996f8_40925e41",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/dmaap/DmaapBlueprintService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "can onapComponentSpec.getStreams() return null?",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8a743982_b2fbb6bd",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/dmaap/StreamsService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "javadoc, code standards",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a28c9f96_6510958b",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/policycreate/service/PolicyModelNodeService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "javadoc, code standards",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8487579c_bb32c01f",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/policycreate/service/PolicyModelNodeService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "can be combined into a single if:\nif ((p.getPolicy_group() !\u003d null) \u0026\u0026 (p.getPolicy_group().equals(policyName))) {",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd12bb52_7f51e549",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/policycreate/service/PolicyModelNodeService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "javadoc, code standards",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d7ad495_4032d767",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/policycreate/service/PolicyModelNodeService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "can p.getName() return null?\nbetter order would be\nparam.equals(p.getName())",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13070698_d636e89c",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/policycreate/service/PolicyModelNodeService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "code standards",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "419ba99e_1e519b57",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/policycreate/service/PolicyModelService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "javadoc",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cdb12a7e_452f808f",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/policycreate/service/PolicyModelService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "can response.get(\"hasEntrySchema\") return null?\na better order would be\nif (!\"\".equals(response.get(\"hasEntrySchema\"))",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24d4472c_d1780f51",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/policycreate/service/PolicyModelService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "eliminate the extra set of braces\n} else if (!names ...",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c57e894_1e5d7977",
+        "filename": "mod/bpgenerator/onap/src/test/java/com/att/blueprintgenerator/test/OnapBlueprintServiceTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "remove commented out block",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cb3e6c2_c07a6a10",
+        "filename": "mod/bpgenerator/onap/src/test/java/com/att/blueprintgenerator/test/OnapBlueprintServiceTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-10-27T01:38:32Z",
+      "side": 1,
+      "message": "remove",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
