@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "6f955bfd_b4dfd5ba",
+        "filename": "mod/bpgenerator/common/src/main/java/com/att/blueprintgenerator/service/base/BlueprintHelperService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-10-27T10:41:20Z",
+      "side": 1,
+      "message": "Static modifiers on methods should probably be removed",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 6
+      },
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d466ede_6d23a4b0",
+        "filename": "mod/bpgenerator/common/src/main/java/com/att/blueprintgenerator/service/base/BlueprintService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-10-27T10:41:20Z",
+      "side": 1,
+      "message": "Those statements are pretty much the same, were refactored already here:\nhttps://gerrit.onap.org/r/c/dcaegen2/platform/+/112916/2/mod/bpgenerator/src/main/java/org/onap/blueprintgenerator/models/blueprint/Blueprint.java",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 13
+      },
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e47f8aa2_eff18661",
         "filename": "mod/bpgenerator/common/src/main/java/com/att/blueprintgenerator/service/base/BlueprintService.java",
         "patchSetId": 3
@@ -19,6 +65,75 @@
     },
     {
       "key": {
+        "uuid": "5e838b2b_79e2b12b",
+        "filename": "mod/bpgenerator/common/src/main/java/com/att/blueprintgenerator/service/base/BlueprintService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-10-27T10:41:20Z",
+      "side": 1,
+      "message": "Extract some helper method for the bpType check.",
+      "range": {
+        "startLine": 107,
+        "startChar": 15,
+        "endLine": 107,
+        "endChar": 112
+      },
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35dc4085_7688e115",
+        "filename": "mod/bpgenerator/common/src/main/java/com/att/blueprintgenerator/service/base/BlueprintService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-10-27T10:41:20Z",
+      "side": 1,
+      "message": "Fix formatting. Cant\u0027t easily see the if statement body.\n\nAlso according to code style in ONAP, braces should be used pretty much everywhere - https://google.github.io/styleguide/javaguide.html#s4.1-braces",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 34
+      },
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dac41752_ef6ba756",
+        "filename": "mod/bpgenerator/common/src/main/java/com/att/blueprintgenerator/service/base/BlueprintService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-10-27T10:41:20Z",
+      "side": 1,
+      "message": "1) Consider using inputs.values() instead of inputs.keySet() ( https://www.geeksforgeeks.org/iterate-map-java/ for example talks of issues with keySet()+get() approach. Also readability would improve when using values() )\n2) Consider lowering complexity of the method. Maybe body of the loop could be extracted and\n if (inputs.get(s).get(\"type\") !\u003d null) {\n   \u003ccode\u003e\n }\n\nchanged to:\n if (inputs.get(s).get(\"type\") !\u003d null) {\n   continue;\n }\n \u003ccode\u003e",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 22
+      },
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a70072f8_1d6f61a1",
         "filename": "mod/bpgenerator/common/src/main/java/com/att/blueprintgenerator/service/base/BlueprintService.java",
         "patchSetId": 3
@@ -30,6 +145,75 @@
       "writtenOn": "2020-10-27T01:38:32Z",
       "side": 1,
       "message": "Should there be a space after the \"#\"?",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0fbcb4e0_2264f9b9",
+        "filename": "mod/bpgenerator/common/src/main/java/com/att/blueprintgenerator/service/base/FixesService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-10-27T10:41:20Z",
+      "side": 1,
+      "message": "No wildcard imports should be present. https://google.github.io/styleguide/javaguide.html#s3.3-import-statements",
+      "range": {
+        "startLine": 29,
+        "startChar": 15,
+        "endLine": 29,
+        "endChar": 16
+      },
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b142e989_d6c2fd4a",
+        "filename": "mod/bpgenerator/common/src/main/java/com/att/blueprintgenerator/service/base/FixesService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-10-27T10:41:20Z",
+      "side": 1,
+      "message": "Could you format all files with spaces instead of tabs? Also onap code style.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 1
+      },
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4e79a64_4d93b529",
+        "filename": "mod/bpgenerator/common/src/main/java/com/att/blueprintgenerator/service/base/FixesService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-10-27T10:41:20Z",
+      "side": 1,
+      "message": "Almost identical to fixOnapSingleQuotes - consider extracting method that would accept lambda/function for line processing.",
+      "range": {
+        "startLine": 44,
+        "startChar": 13,
+        "endLine": 44,
+        "endChar": 32
+      },
       "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
@@ -70,6 +254,29 @@
     },
     {
       "key": {
+        "uuid": "6906395b_c044c757",
+        "filename": "mod/bpgenerator/common/src/main/java/com/att/blueprintgenerator/service/base/ImportsService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-10-27T10:41:20Z",
+      "side": 1,
+      "message": "I think change reverts: https://gerrit.onap.org/r/c/dcaegen2/platform/+/113086",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 170,
+        "endChar": 5
+      },
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "275dc6d5_9cbbcdd4",
         "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/BlueprintGeneratorMainApplication.java",
         "patchSetId": 3
@@ -98,6 +305,29 @@
       "writtenOn": "2020-10-27T01:38:32Z",
       "side": 1,
       "message": "if (args.length \u003e\u003d4 \u0026\u0026 args[2].equals(\"-type\") \u0026\u0026 args[3].equals(\"policycreate\")){",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2249f02c_6a523b45",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/model/common/Properties.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-10-27T10:41:20Z",
+      "side": 1,
+      "message": "I think change reverts: https://gerrit.onap.org/r/c/dcaegen2/platform/+/113350",
+      "range": {
+        "startLine": 82,
+        "startChar": 1,
+        "endLine": 82,
+        "endChar": 2
+      },
       "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
@@ -172,6 +402,29 @@
     },
     {
       "key": {
+        "uuid": "6243c60b_30eae44c",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/AppConfigService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-10-27T10:41:20Z",
+      "side": 1,
+      "message": "The if statement seems redundant.",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 69
+      },
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9302e52b_01a7ccb0",
         "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/AppConfigService.java",
         "patchSetId": 3
@@ -200,6 +453,29 @@
       "writtenOn": "2020-10-27T01:38:32Z",
       "side": 1,
       "message": "since you just used publishes.getConfig_key() to set config, why not use it here?",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9dafd772_343b1b27",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/AppConfigService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-10-27T10:41:20Z",
+      "side": 1,
+      "message": "The if statement seems redundant.",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 5
+      },
       "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
