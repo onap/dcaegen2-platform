@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b35070e5_bd5b00bf",
+        "filename": "mod/bpgenerator/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2020-10-27T15:47:53Z",
+      "side": 0,
+      "message": "Readme should be restored",
+      "revId": "c8d244d826cc1d9b2ad7aeb0ca0874e321ad4577",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
