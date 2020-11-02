@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7487a51d_63573a2b",
+        "filename": "mod/bpgenerator/common/pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-02T20:51:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81801ef5_6a4c5a4b",
+      "range": {
+        "startLine": 41,
+        "startChar": 17,
+        "endLine": 41,
+        "endChar": 29
+      },
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6f955bfd_b4dfd5ba",
         "filename": "mod/bpgenerator/common/src/main/java/com/att/blueprintgenerator/service/base/BlueprintHelperService.java",
         "patchSetId": 3
@@ -60,6 +84,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "6f955bfd_b4dfd5ba",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 6
+      },
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1ea46cf5_f0706e25",
+        "filename": "mod/bpgenerator/common/src/main/java/com/att/blueprintgenerator/service/base/BlueprintHelperService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-02T20:51:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42e4b6d1_42d7025d",
       "range": {
         "startLine": 41,
         "startChar": 0,
@@ -353,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "6ce9daff_a0987e32",
+        "filename": "mod/bpgenerator/common/src/main/java/com/att/blueprintgenerator/service/base/FixesService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-02T20:51:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0fbcb4e0_2264f9b9",
+      "range": {
+        "startLine": 29,
+        "startChar": 15,
+        "endLine": 29,
+        "endChar": 16
+      },
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b142e989_d6c2fd4a",
         "filename": "mod/bpgenerator/common/src/main/java/com/att/blueprintgenerator/service/base/FixesService.java",
         "patchSetId": 3
@@ -416,6 +488,30 @@
         "startChar": 13,
         "endLine": 44,
         "endChar": 32
+      },
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca5f2111_ed2361a4",
+        "filename": "mod/bpgenerator/common/src/main/java/com/att/blueprintgenerator/service/base/FixesService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-02T20:51:08Z",
+      "side": 1,
+      "message": "Needs to be taken care as part of future enhancements\nhttps://jira.onap.org/browse/DCAEGEN2-2502",
+      "parentUuid": "b142e989_d6c2fd4a",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 1
       },
       "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
@@ -563,6 +659,30 @@
     },
     {
       "key": {
+        "uuid": "5827fa53_3d349ea5",
+        "filename": "mod/bpgenerator/common/src/main/resources/application.properties",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-02T20:51:08Z",
+      "side": 1,
+      "message": "Needs to be taken care as part of future enhancements\nhttps://jira.onap.org/browse/DCAEGEN2-2502",
+      "parentUuid": "70788a5a_65958642",
+      "range": {
+        "startLine": 29,
+        "startChar": 28,
+        "endLine": 29,
+        "endChar": 52
+      },
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d103428f_54d84c0b",
         "filename": "mod/bpgenerator/common/src/main/resources/application.properties",
         "patchSetId": 3
@@ -583,6 +703,30 @@
       "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45074003_0d83fbeb",
+        "filename": "mod/bpgenerator/common/src/main/resources/application.properties",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-02T20:51:08Z",
+      "side": 1,
+      "message": "Needs to be taken care as part of future enhancements\nhttps://jira.onap.org/browse/DCAEGEN2-2502",
+      "parentUuid": "d103428f_54d84c0b",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 155
+      },
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -609,6 +753,30 @@
     },
     {
       "key": {
+        "uuid": "5c65a3a7_2491a76e",
+        "filename": "mod/bpgenerator/common/src/main/resources/application.properties",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-02T20:51:08Z",
+      "side": 1,
+      "message": "Needs to be taken care as part of future enhancements\nhttps://jira.onap.org/browse/DCAEGEN2-2502",
+      "parentUuid": "f3227466_d0b2acb7",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 159
+      },
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "486d7aab_32195529",
         "filename": "mod/bpgenerator/common/src/main/resources/application.properties",
         "patchSetId": 3
@@ -632,6 +800,30 @@
     },
     {
       "key": {
+        "uuid": "210ef506_2f61af3d",
+        "filename": "mod/bpgenerator/common/src/main/resources/application.properties",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-02T20:51:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "486d7aab_32195529",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 149
+      },
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "22921b4b_6ac69ee6",
         "filename": "mod/bpgenerator/onap/pom.xml",
         "patchSetId": 3
@@ -652,6 +844,30 @@
       "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2999677_fef428ad",
+        "filename": "mod/bpgenerator/onap/pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-02T20:51:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22921b4b_6ac69ee6",
+      "range": {
+        "startLine": 41,
+        "startChar": 17,
+        "endLine": 41,
+        "endChar": 29
+      },
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -1968,6 +2184,24 @@
     },
     {
       "key": {
+        "uuid": "ebc2ef00_47611293",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/PgaasNodeService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-02T20:51:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5eeedad1_bfd31357",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "333f5328_866519eb",
         "filename": "mod/bpgenerator/onap/src/main/java/com/att/blueprintgenerator/service/common/PgaasNodeService.java",
         "patchSetId": 3
@@ -2685,6 +2919,24 @@
     },
     {
       "key": {
+        "uuid": "3c3ccf17_e1481d98",
+        "filename": "mod/bpgenerator/onap/src/main/java/com/att/policycreate/service/PolicyModelNodeService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-02T20:51:08Z",
+      "side": 1,
+      "message": "As future Enhancement",
+      "parentUuid": "13070698_d636e89c",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "419ba99e_1e519b57",
         "filename": "mod/bpgenerator/onap/src/main/java/com/att/policycreate/service/PolicyModelService.java",
         "patchSetId": 3
@@ -2906,6 +3158,30 @@
     },
     {
       "key": {
+        "uuid": "b7e39f2f_107596c2",
+        "filename": "mod/bpgenerator/pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-02T20:51:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab0a8121_6f9aafb0",
+      "range": {
+        "startLine": 37,
+        "startChar": 3,
+        "endLine": 37,
+        "endChar": 38
+      },
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97769c11_cbd70c98",
         "filename": "mod/bpgenerator/pom.xml",
         "patchSetId": 3
@@ -2926,6 +3202,30 @@
       "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b0a2c9e_06a59502",
+        "filename": "mod/bpgenerator/pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-02T20:51:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97769c11_cbd70c98",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 13
+      },
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
