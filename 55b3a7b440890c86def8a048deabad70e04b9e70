@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "bbaf276c_047e83f8",
+        "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/service/base/FixesService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-03T13:58:07Z",
+      "side": 1,
+      "message": "The wildcards are removed\nhttps://gerrit.onap.org/r/c/dcaegen2/platform/+/114132/7/mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/service/base/FixesService.java",
+      "parentUuid": "d7a3a504_689c2950",
+      "revId": "55b3a7b440890c86def8a048deabad70e04b9e70",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1ca7a7a_681b8fbd",
         "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/service/base/FixesService.java",
         "patchSetId": 5
@@ -104,6 +122,24 @@
     },
     {
       "key": {
+        "uuid": "2366cd8f_91c152a6",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/CommonUtils.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-03T13:58:07Z",
+      "side": 1,
+      "message": "Resolved in PS7",
+      "parentUuid": "ad14e515_826d8ac9",
+      "revId": "55b3a7b440890c86def8a048deabad70e04b9e70",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64ea2535_e309b329",
         "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/CommonUtils.java",
         "patchSetId": 5
@@ -118,6 +154,24 @@
       "revId": "55b3a7b440890c86def8a048deabad70e04b9e70",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a24206c_d526ebe4",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/CommonUtils.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-03T13:58:07Z",
+      "side": 1,
+      "message": "Resolved in PS8",
+      "parentUuid": "64ea2535_e309b329",
+      "revId": "55b3a7b440890c86def8a048deabad70e04b9e70",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -155,6 +209,24 @@
     },
     {
       "key": {
+        "uuid": "2a350ac4_256a3fad",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/ExternalCertificateDataFactoryService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-03T13:58:07Z",
+      "side": 1,
+      "message": "Resolved in PS8",
+      "parentUuid": "987f2ede_a72cbf67",
+      "revId": "55b3a7b440890c86def8a048deabad70e04b9e70",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1d10fb65_35030f4a",
         "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/ExternalCertificateDataFactoryService.java",
         "patchSetId": 5
@@ -172,6 +244,24 @@
     },
     {
       "key": {
+        "uuid": "784152f8_6d5e9e17",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/ExternalCertificateDataFactoryService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-03T13:58:07Z",
+      "side": 1,
+      "message": "Need to handled as part of https://jira.onap.org/browse/DCAEGEN2-2502",
+      "parentUuid": "1d10fb65_35030f4a",
+      "revId": "55b3a7b440890c86def8a048deabad70e04b9e70",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "88d5934a_f4c5eb79",
         "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/ExternalCertificateDataFactoryService.java",
         "patchSetId": 5
@@ -186,6 +276,24 @@
       "revId": "55b3a7b440890c86def8a048deabad70e04b9e70",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d7dcb24_d83ebc65",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/ExternalCertificateDataFactoryService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-03T13:58:07Z",
+      "side": 1,
+      "message": "Need to handled as part of https://jira.onap.org/browse/DCAEGEN2-2502",
+      "parentUuid": "88d5934a_f4c5eb79",
+      "revId": "55b3a7b440890c86def8a048deabad70e04b9e70",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -359,6 +467,24 @@
     },
     {
       "key": {
+        "uuid": "236a9cf6_c608febd",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/PgaasNodeService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-03T13:58:07Z",
+      "side": 1,
+      "message": "Needs to be taken care as part of future enhancements\nhttps://jira.onap.org/browse/DCAEGEN2-2502",
+      "parentUuid": "98a81197_3d5d921c",
+      "revId": "55b3a7b440890c86def8a048deabad70e04b9e70",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85f60934_0a379c6a",
         "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/PgaasNodeService.java",
         "patchSetId": 5
@@ -373,6 +499,24 @@
       "revId": "55b3a7b440890c86def8a048deabad70e04b9e70",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89538523_e9e440b8",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/PgaasNodeService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-03T13:58:07Z",
+      "side": 1,
+      "message": "Resolved in PS8",
+      "parentUuid": "85f60934_0a379c6a",
+      "revId": "55b3a7b440890c86def8a048deabad70e04b9e70",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -393,6 +537,24 @@
     },
     {
       "key": {
+        "uuid": "a427c2b3_d638c745",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/PgaasNodeService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-03T13:58:07Z",
+      "side": 1,
+      "message": "Needs to be taken care as part of future enhancements\nhttps://jira.onap.org/browse/DCAEGEN2-2502",
+      "parentUuid": "15c708f1_3296dcc3",
+      "revId": "55b3a7b440890c86def8a048deabad70e04b9e70",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56542d10_9fe72593",
         "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/PgaasNodeService.java",
         "patchSetId": 5
@@ -407,6 +569,24 @@
       "revId": "55b3a7b440890c86def8a048deabad70e04b9e70",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "295622cd_1c7ed6b8",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/PgaasNodeService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-03T13:58:07Z",
+      "side": 1,
+      "message": "Needs to be taken care as part of future enhancements\nhttps://jira.onap.org/browse/DCAEGEN2-2502",
+      "parentUuid": "56542d10_9fe72593",
+      "revId": "55b3a7b440890c86def8a048deabad70e04b9e70",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -580,6 +760,24 @@
     },
     {
       "key": {
+        "uuid": "9254a8fb_95581029",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/dmaap/DmaapBlueprintService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-03T13:58:07Z",
+      "side": 1,
+      "message": "Needs to be taken care as part of future enhancements\nhttps://jira.onap.org/browse/DCAEGEN2-2502",
+      "parentUuid": "8abe9cbc_7ffa5e18",
+      "revId": "55b3a7b440890c86def8a048deabad70e04b9e70",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3bb4e06f_bf2c13b5",
         "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/dmaap/DmaapBlueprintService.java",
         "patchSetId": 5
@@ -597,6 +795,24 @@
     },
     {
       "key": {
+        "uuid": "fdb40cba_22638282",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/dmaap/DmaapBlueprintService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-03T13:58:07Z",
+      "side": 1,
+      "message": "Done in PS8",
+      "parentUuid": "3bb4e06f_bf2c13b5",
+      "revId": "55b3a7b440890c86def8a048deabad70e04b9e70",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d20fc1d3_6465fc2d",
         "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/dmaap/DmaapBlueprintService.java",
         "patchSetId": 5
@@ -611,6 +827,24 @@
       "revId": "55b3a7b440890c86def8a048deabad70e04b9e70",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81287d36_8046a259",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/dmaap/DmaapBlueprintService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-03T13:58:07Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "d20fc1d3_6465fc2d",
+      "revId": "55b3a7b440890c86def8a048deabad70e04b9e70",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -696,6 +930,24 @@
       "revId": "55b3a7b440890c86def8a048deabad70e04b9e70",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0ab6565_d8547826",
+        "filename": "mod/bpgenerator/onap/src/test/java/org/onap/blueprintgenerator/test/TlsInfoTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-03T13:58:07Z",
+      "side": 1,
+      "message": "The code is copied form existng Onap BpGen created by Nokia Team",
+      "parentUuid": "9e41db9e_1676f9e8",
+      "revId": "55b3a7b440890c86def8a048deabad70e04b9e70",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }

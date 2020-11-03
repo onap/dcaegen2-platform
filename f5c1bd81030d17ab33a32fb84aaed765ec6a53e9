@@ -3252,6 +3252,24 @@
     },
     {
       "key": {
+        "uuid": "dae56cfe_c2836d0a",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/CommonUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-03T13:58:07Z",
+      "side": 1,
+      "message": "Needs to be taken care as part of future enhancements\nhttps://jira.onap.org/browse/DCAEGEN2-2502",
+      "parentUuid": "a4a6c8b5_c471520f",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "075686e9_99a5338b",
         "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/CommonUtils.java",
         "patchSetId": 3
@@ -3267,6 +3285,24 @@
       "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba54374e_c8d6ec89",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/CommonUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-03T13:58:07Z",
+      "side": 1,
+      "message": "Needs to be taken care as part of future enhancements\nhttps://jira.onap.org/browse/DCAEGEN2-2502",
+      "parentUuid": "075686e9_99a5338b",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -3288,6 +3324,24 @@
     },
     {
       "key": {
+        "uuid": "56eb8e8f_7d7b2713",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/CommonUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-03T13:58:07Z",
+      "side": 1,
+      "message": "Needs to be taken care as part of future enhancements\nhttps://jira.onap.org/browse/DCAEGEN2-2502",
+      "parentUuid": "1d63ac93_0eb4c33f",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5611eb0b_35b137c3",
         "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/CommonUtils.java",
         "patchSetId": 3
@@ -3303,6 +3357,24 @@
       "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0e2eb9f_518e6d6e",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/CommonUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-03T13:58:07Z",
+      "side": 1,
+      "message": "Needs to be taken care as part of future enhancements\nhttps://jira.onap.org/browse/DCAEGEN2-2502",
+      "parentUuid": "5611eb0b_35b137c3",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -3339,6 +3411,24 @@
       "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0fa5a61b_8101dba1",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/DmaapService.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-03T13:58:07Z",
+      "side": 1,
+      "message": "Needs to be taken care as part of future enhancements\nhttps://jira.onap.org/browse/DCAEGEN2-2502",
+      "parentUuid": "4aaf40a1_9b27adcc",
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -3630,6 +3720,30 @@
       "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc903f02_66f217b9",
+        "filename": "mod/bpgenerator/pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-03T13:58:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff7b593b_89714842",
+      "range": {
+        "startLine": 32,
+        "startChar": 13,
+        "endLine": 32,
+        "endChar": 25
+      },
+      "revId": "f5c1bd81030d17ab33a32fb84aaed765ec6a53e9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
