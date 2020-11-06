@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8a893d98_038d3ec4",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/BlueprintGeneratorMainApplication.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-06T04:58:03Z",
+      "side": 1,
+      "message": "Resolved in PS9",
+      "parentUuid": "dc42dbb1_b0e0bc2c",
+      "range": {
+        "startLine": 85,
+        "startChar": 8,
+        "endLine": 85,
+        "endChar": 10
+      },
+      "revId": "f4e3602b9bd190a5a359205a5a15b24b642d590a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a88d41dc_5746bb57",
         "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/BlueprintGeneratorMainApplication.java",
         "patchSetId": 8
@@ -45,6 +69,30 @@
       "revId": "f4e3602b9bd190a5a359205a5a15b24b642d590a",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5064f353_16f15cf0",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/BlueprintGeneratorMainApplication.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-06T04:58:03Z",
+      "side": 1,
+      "message": "Resolved in PS9",
+      "parentUuid": "a88d41dc_5746bb57",
+      "range": {
+        "startLine": 87,
+        "startChar": 96,
+        "endLine": 87,
+        "endChar": 104
+      },
+      "revId": "f4e3602b9bd190a5a359205a5a15b24b642d590a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "fafcb2fc_324468c1",
+        "filename": "mod/bpgenerator/onap/src/main/resources/application.properties",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-06T04:58:03Z",
+      "side": 1,
+      "message": "Resolved in PS9",
+      "parentUuid": "488756ea_aded6550",
+      "range": {
+        "startLine": 33,
+        "startChar": 60,
+        "endLine": 33,
+        "endChar": 61
+      },
+      "revId": "f4e3602b9bd190a5a359205a5a15b24b642d590a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "556dfbac_3c5fa846",
         "filename": "mod/bpgenerator/onap/src/test/java/org/onap/blueprintgenerator/test/BlueprintJarComparatorTest.java",
         "patchSetId": 8
@@ -91,6 +163,30 @@
       "revId": "f4e3602b9bd190a5a359205a5a15b24b642d590a",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3bbad1e_06102602",
+        "filename": "mod/bpgenerator/onap/src/test/java/org/onap/blueprintgenerator/test/BlueprintJarComparatorTest.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-06T04:58:03Z",
+      "side": 1,
+      "message": "Resolved in PS9",
+      "parentUuid": "556dfbac_3c5fa846",
+      "range": {
+        "startLine": 62,
+        "startChar": 34,
+        "endLine": 62,
+        "endChar": 58
+      },
+      "revId": "f4e3602b9bd190a5a359205a5a15b24b642d590a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "79690514_256505af",
+        "filename": "mod/bpgenerator/onap/src/test/java/org/onap/blueprintgenerator/test/BlueprintJarComparatorTest.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-06T04:58:03Z",
+      "side": 1,
+      "message": "Resolved in PS9",
+      "parentUuid": "c1b17b8b_2c97a441",
+      "range": {
+        "startLine": 99,
+        "startChar": 110,
+        "endLine": 99,
+        "endChar": 112
+      },
+      "revId": "f4e3602b9bd190a5a359205a5a15b24b642d590a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fff32992_399d1dee",
         "filename": "mod/bpgenerator/pom.xml",
         "patchSetId": 8
@@ -137,6 +257,30 @@
       "revId": "f4e3602b9bd190a5a359205a5a15b24b642d590a",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0608a247_348c0caa",
+        "filename": "mod/bpgenerator/pom.xml",
+        "patchSetId": 8
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-06T04:58:03Z",
+      "side": 1,
+      "message": "Resolved in PS9",
+      "parentUuid": "fff32992_399d1dee",
+      "range": {
+        "startLine": 182,
+        "startChar": 1,
+        "endLine": 195,
+        "endChar": 21
+      },
+      "revId": "f4e3602b9bd190a5a359205a5a15b24b642d590a",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
