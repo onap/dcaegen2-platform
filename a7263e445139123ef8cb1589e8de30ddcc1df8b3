@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "166e9e46_1cf25f12",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/BlueprintGeneratorMainApplication.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-11-09T17:04:37Z",
+      "side": 1,
+      "message": "Shouldn\u0027t onapCommonUtils.printInstructions() be an else for the outer if?",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 1
+      },
+      "revId": "a7263e445139123ef8cb1589e8de30ddcc1df8b3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5e593e9f_a0065bcc",
+        "filename": "mod/bpgenerator/pom.xml",
+        "patchSetId": 11
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-11-09T17:04:37Z",
+      "side": 1,
+      "message": "Cobertura properties left.",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 118
+      },
+      "revId": "a7263e445139123ef8cb1589e8de30ddcc1df8b3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc1ade56_7f861b48",
+        "filename": "mod/bpgenerator/pom.xml",
+        "patchSetId": 11
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-11-09T17:04:37Z",
+      "side": 1,
+      "message": "Not sure about the coverage paths (but i guess it could be fixed later).",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 136
+      },
+      "revId": "a7263e445139123ef8cb1589e8de30ddcc1df8b3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
