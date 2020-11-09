@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8a2702d1_984ebb99",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/BlueprintGeneratorMainApplication.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-09T17:50:02Z",
+      "side": 1,
+      "message": "Resolved in PS13",
+      "parentUuid": "166e9e46_1cf25f12",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 1
+      },
+      "revId": "a7263e445139123ef8cb1589e8de30ddcc1df8b3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5e593e9f_a0065bcc",
         "filename": "mod/bpgenerator/pom.xml",
         "patchSetId": 11
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "01fcb4ef_63eb0786",
+        "filename": "mod/bpgenerator/pom.xml",
+        "patchSetId": 11
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-09T17:50:02Z",
+      "side": 1,
+      "message": "Resolved in PS13",
+      "parentUuid": "5e593e9f_a0065bcc",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 118
+      },
+      "revId": "a7263e445139123ef8cb1589e8de30ddcc1df8b3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc1ade56_7f861b48",
         "filename": "mod/bpgenerator/pom.xml",
         "patchSetId": 11
@@ -68,6 +116,30 @@
       "revId": "a7263e445139123ef8cb1589e8de30ddcc1df8b3",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba0673cd_715eb4ae",
+        "filename": "mod/bpgenerator/pom.xml",
+        "patchSetId": 11
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-09T17:50:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fc1ade56_7f861b48",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 72,
+        "endChar": 136
+      },
+      "revId": "a7263e445139123ef8cb1589e8de30ddcc1df8b3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
