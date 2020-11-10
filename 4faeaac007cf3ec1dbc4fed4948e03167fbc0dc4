@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8e18b3f9_183f8a5e",
+        "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/model/base/Blueprint.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-10T17:52:34Z",
+      "side": 1,
+      "message": "Resolved in PS15",
+      "parentUuid": "e6846a44_2b2ba5ef",
+      "range": {
+        "startLine": 53,
+        "startChar": 1,
+        "endLine": 53,
+        "endChar": 28
+      },
+      "revId": "4faeaac007cf3ec1dbc4fed4948e03167fbc0dc4",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df52cd4e_ce7a1676",
         "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/service/base/BlueprintService.java",
         "patchSetId": 13
@@ -45,6 +69,30 @@
       "revId": "4faeaac007cf3ec1dbc4fed4948e03167fbc0dc4",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d61b4a9_6b2f89d5",
+        "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/service/base/BlueprintService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-10T17:52:34Z",
+      "side": 1,
+      "message": "Resolved in PS15",
+      "parentUuid": "df52cd4e_ce7a1676",
+      "range": {
+        "startLine": 74,
+        "startChar": 18,
+        "endLine": 74,
+        "endChar": 42
+      },
+      "revId": "4faeaac007cf3ec1dbc4fed4948e03167fbc0dc4",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "9a7108d8_c66f1cd3",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/model/common/Properties.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-10T17:52:34Z",
+      "side": 1,
+      "message": "Resolved in PS14",
+      "parentUuid": "9d5c6541_f1a0f503",
+      "range": {
+        "startLine": 82,
+        "startChar": 9,
+        "endLine": 82,
+        "endChar": 16
+      },
+      "revId": "4faeaac007cf3ec1dbc4fed4948e03167fbc0dc4",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "40fd69b6_4a6c3c7b",
         "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/ImportsService.java",
         "patchSetId": 13
@@ -91,6 +163,30 @@
       "revId": "4faeaac007cf3ec1dbc4fed4948e03167fbc0dc4",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "808335a1_8a52a39c",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/ImportsService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-10T17:52:34Z",
+      "side": 1,
+      "message": "Removed as part of PS14",
+      "parentUuid": "40fd69b6_4a6c3c7b",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 30
+      },
+      "revId": "4faeaac007cf3ec1dbc4fed4948e03167fbc0dc4",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -160,6 +256,30 @@
       "revId": "4faeaac007cf3ec1dbc4fed4948e03167fbc0dc4",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bdf145a6_7ba70b72",
+        "filename": "mod/bpgenerator/pom.xml",
+        "patchSetId": 13
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-10T17:52:34Z",
+      "side": 1,
+      "message": "Resolved in PS14",
+      "parentUuid": "66c07607_6197deb8",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 72
+      },
+      "revId": "4faeaac007cf3ec1dbc4fed4948e03167fbc0dc4",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
