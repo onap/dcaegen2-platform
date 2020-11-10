@@ -213,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "10492633_6f5a456c",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/ResourceConfigService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-10T17:53:52Z",
+      "side": 1,
+      "message": "Resolved in PS15",
+      "parentUuid": "b1ecc538_abc4ea8d",
+      "range": {
+        "startLine": 57,
+        "startChar": 93,
+        "endLine": 57,
+        "endChar": 101
+      },
+      "revId": "4faeaac007cf3ec1dbc4fed4948e03167fbc0dc4",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aff8a0c8_fdae08e0",
         "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/ResourceConfigService.java",
         "patchSetId": 13
@@ -233,6 +257,30 @@
       "revId": "4faeaac007cf3ec1dbc4fed4948e03167fbc0dc4",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b9f92c8_a39fcc23",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/ResourceConfigService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 6660
+      },
+      "writtenOn": "2020-11-10T17:53:52Z",
+      "side": 1,
+      "message": "Resolved in PS15",
+      "parentUuid": "aff8a0c8_fdae08e0",
+      "range": {
+        "startLine": 59,
+        "startChar": 91,
+        "endLine": 59,
+        "endChar": 99
+      },
+      "revId": "4faeaac007cf3ec1dbc4fed4948e03167fbc0dc4",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
