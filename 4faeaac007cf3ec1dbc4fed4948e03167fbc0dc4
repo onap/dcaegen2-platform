@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e6846a44_2b2ba5ef",
+        "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/model/base/Blueprint.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-11-10T11:13:19Z",
+      "side": 1,
+      "message": "Consider moving description higher (preferably before imports).\n\nWhen mapping to yaml the order of variables is retained.",
+      "range": {
+        "startLine": 53,
+        "startChar": 1,
+        "endLine": 53,
+        "endChar": 28
+      },
+      "revId": "4faeaac007cf3ec1dbc4fed4948e03167fbc0dc4",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df52cd4e_ce7a1676",
+        "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/service/base/BlueprintService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-11-10T11:13:19Z",
+      "side": 1,
+      "message": "Null check is needed here. blueprintName in Input class is set to null when there is no -n option provided in run command. (additionally blueprintName is defined as optional in printInstructions)\n\nIf you are going to change anything here please also format the code - it\u0027s hard to read because everything is flattened.",
+      "range": {
+        "startLine": 74,
+        "startChar": 18,
+        "endLine": 74,
+        "endChar": 42
+      },
+      "revId": "4faeaac007cf3ec1dbc4fed4948e03167fbc0dc4",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d5c6541_f1a0f503",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/model/common/Properties.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-11-10T11:13:19Z",
+      "side": 1,
+      "message": "I think that Boolean should be used, so when the value is not explicitly set (useExisting is null), then there is no entry in resulting blueprint.\nNow it defaults to false.",
+      "range": {
+        "startLine": 82,
+        "startChar": 9,
+        "endLine": 82,
+        "endChar": 16
+      },
+      "revId": "4faeaac007cf3ec1dbc4fed4948e03167fbc0dc4",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40fd69b6_4a6c3c7b",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/ImportsService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-11-10T11:13:19Z",
+      "side": 1,
+      "message": "Why is mrTopicUrl an import?",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 30
+      },
+      "revId": "4faeaac007cf3ec1dbc4fed4948e03167fbc0dc4",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1ecc538_abc4ea8d",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/ResourceConfigService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-11-10T11:13:19Z",
+      "side": 1,
+      "message": "Consider using:\n blueprintHelperService.createStringInput(Constants.MEMORY_LIMIT_128Mi)\n\nor writing some real description insted of \"string\"",
+      "range": {
+        "startLine": 57,
+        "startChar": 93,
+        "endLine": 57,
+        "endChar": 101
+      },
+      "revId": "4faeaac007cf3ec1dbc4fed4948e03167fbc0dc4",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aff8a0c8_fdae08e0",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/ResourceConfigService.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-11-10T11:13:19Z",
+      "side": 1,
+      "message": "Consider using:\n blueprintHelperService.createStringInput(Constants.CPU_LIMIT_250m)\n\nor writing some real description insted of \"string\"",
+      "range": {
+        "startLine": 59,
+        "startChar": 91,
+        "endLine": 59,
+        "endChar": 99
+      },
+      "revId": "4faeaac007cf3ec1dbc4fed4948e03167fbc0dc4",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66c07607_6197deb8",
+        "filename": "mod/bpgenerator/pom.xml",
+        "patchSetId": 13
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-11-10T11:13:19Z",
+      "side": 1,
+      "message": "This can be removed.",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 72
+      },
+      "revId": "4faeaac007cf3ec1dbc4fed4948e03167fbc0dc4",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
