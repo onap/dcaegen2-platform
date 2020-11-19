@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "43850bc3_65dcbdf7",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/ImportsService.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-11-19T17:17:44Z",
+      "side": 1,
+      "message": "javadoc format\nhttps://jira.onap.org/browse/DCAEGEN2-2502",
+      "revId": "214ada123f7f3036ba6d0ba19a500f0af73b52f4",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eceb5e80_4941cc0d",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/ImportsService.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-11-19T17:17:44Z",
+      "side": 1,
+      "message": "javadoc format\nhttps://jira.onap.org/browse/DCAEGEN2-2502",
+      "revId": "214ada123f7f3036ba6d0ba19a500f0af73b52f4",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    }
+  ]
+}
