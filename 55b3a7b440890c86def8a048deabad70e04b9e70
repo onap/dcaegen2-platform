@@ -916,6 +916,24 @@
     },
     {
       "key": {
+        "uuid": "25ceffe7_4a453ae4",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/PgaasNodeService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-11-19T17:39:57Z",
+      "side": 1,
+      "message": "copied forward",
+      "parentUuid": "ed076372_5e4de27b",
+      "revId": "55b3a7b440890c86def8a048deabad70e04b9e70",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "15c708f1_3296dcc3",
         "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/PgaasNodeService.java",
         "patchSetId": 5
@@ -1443,6 +1461,24 @@
     },
     {
       "key": {
+        "uuid": "c97dba70_70911072",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/dmaap/DmaapBlueprintService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-11-19T17:39:57Z",
+      "side": 1,
+      "message": "copied forward",
+      "parentUuid": "dd64e310_333e3a26",
+      "revId": "55b3a7b440890c86def8a048deabad70e04b9e70",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d20fc1d3_6465fc2d",
         "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/dmaap/DmaapBlueprintService.java",
         "patchSetId": 5
@@ -1493,6 +1529,24 @@
       "revId": "55b3a7b440890c86def8a048deabad70e04b9e70",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "713fc3ac_8549062e",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/dmaap/DmaapBlueprintService.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-11-19T17:39:57Z",
+      "side": 1,
+      "message": "copied forward",
+      "parentUuid": "85806900_b6b763ba",
+      "revId": "55b3a7b440890c86def8a048deabad70e04b9e70",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
