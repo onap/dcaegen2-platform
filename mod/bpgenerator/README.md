@@ -27,14 +27,17 @@ OPTIONS:
 - -d: Onvoke the dmaap plugin (optional)
 - -o: The service component name override (optional)
 
-
 it will look like this:
 
 ```bash
-java -jar target/blueprint-generator-1.4.0-SNAPSHOT-executable.jar blueprint -p Blueprints -i ComponentSpecs/TestComponentSpec.json -n HelloWorld -d
+   java -jar target/<JAR Filename>.jar app ONAP -i componentspec -p OutputBlueprintPath  -n Blueprintname -d
 ```
 
-This command will create a blueprint from the component spec TestComponentSpec. The blueprint file name will be called HelloWorld.yaml and it will be in the directory Blueprints. The blueprint will also contain the DMaaP plugin.
+This command will create a blueprint from the component spec. The blueprint file name will be called Blueprintname.yaml and it will be in the directory OutputBlueprintPath. The blueprint will also contain the DMaaP plugin. 
+
+
+
+
 
 ## Extra information:
 - The component spec must be of the same format as stated in the onap [readthedocs](https://onap.readthedocs.io/en/latest/submodules/dcaegen2.git/docs/sections/components/component-specification/common-specification.html#working-with-component-specs) page 
@@ -53,9 +56,9 @@ OPTIONS:
 - -p: The output path for all of the models (required)
 
 it will look like this:
-
+                   
 ```bash
-java -jar target/blueprint-generator-1.4.0-SNAPSHOT-executable.jar policy -p models -i ComponentSpecs/TestComponentSpec.json
+   java -jar target/<JAR Filename>.jar app ONAP -type policycreate -i componentspec -p OutputPolicyPath
 ```
 
 This command will create a directory called models and put the policy models created from the component spec given in that directory. (A component spec may generate multiple policy models)
