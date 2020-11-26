@@ -42,127 +42,133 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
 
-
 //@RunWith(Parameterized.class)
-public class TlsInfoTest  extends BlueprintGeneratorTests {
+public class TlsInfoTest extends BlueprintGeneratorTests {
 
- @Parameterized.Parameter
- public char bpType;
+    @Parameterized.Parameter
+    public char bpType;
 
- @Parameterized.Parameters(name = "Blueprint type: {0}")
- public static List<Character> data() {
-  return Arrays.asList('o', 'd');
- }
-
-
- @Test
- public void useTlsTrueAndUseExternalTlsTrueTest(){
-  //Input input = input.setComponentSpecPath(componentSpecPath + "testComponentSpec_withTlsTrueAndExternalTlsTrue.json");
-  OnapBlueprint bp = createBlueprintFromFile(Paths.get("src", "test", "resources", "componentspecs", useTlsTrueAndUseExternalTlsTrueTest).toFile().getAbsolutePath());
-
-  assertBlueprintContainsExternalTlsInfoWithUseFlagDefault(bp, true);
-  assertBlueprintContainsTlsInfoWithUseFlagDefault(bp, true);
- }
-
- @Test
- public void useTlsFalseAndUseExternalTlsFalseTest(){
-  OnapBlueprint bp = createBlueprintFromFile(Paths.get("src", "test", "resources", "componentspecs", useTlsFalseAndUseExternalTlsFalseTest).toFile().getAbsolutePath());
-
-  assertBlueprintContainsExternalTlsInfoWithUseFlagDefault(bp, false);
-  assertBlueprintContainsTlsInfoWithUseFlagDefault(bp, false);
- }
-
- @Test
- public void useTlsTrueAndNoExternalTlsFlagTest(){
-  OnapBlueprint bp = createBlueprintFromFile(Paths.get("src", "test", "resources", "componentspecs", useTlsTrueAndNoExternalTlsFlagTest).toFile().getAbsolutePath());
-
-  assertBlueprintContainsTlsInfoWithUseFlagDefault(bp, true);
-  assertBlueprintHasNoExternalTlsInfo(bp);
- }
-
- @Test
- public void noTlsInfo(){
-  OnapBlueprint bp = createBlueprintFromFile(Paths.get("src", "test", "resources", "componentspecs", noTlsInfo).toFile().getAbsolutePath());
-
-  assertBlueprintHasNoTlsInfo(bp);
-  assertBlueprintHasNoExternalTlsInfo(bp);
- }
-
- private void assertBlueprintContainsExternalTlsInfoWithUseFlagDefault(OnapBlueprint bp, boolean useFlagDefault) {
-  //should create proper inputs
-  assertContainsInputWithDefault(bp, "external_cert_use_external_tls", useFlagDefault);
-  assertContainsInputWithDefault(bp, "external_cert_ca_name", "\"RA\"");
-  assertContainsInputWithDefault(bp, "external_cert_cert_type", "\"P12\"");
-  assertContainsInputWithDefault(bp, "external_cert_common_name", "\"sample.onap.org\"");
-  assertContainsInputWithDefault(bp, "external_cert_sans",
-    "\"sample.onap.org:component.sample.onap.org\"");
-
-  Node node = bp.getNode_templates().get("test.component.spec");
-
-  //should create proper externalTlsInfo object in node properties
-  ExternalTlsInfo externalTlsInfo = node.getProperties().getExternal_cert();
-  assertNotNull(externalTlsInfo);
-
-  assertEquals("external_cert_ca_name", externalTlsInfo.getCaName().getBpInputName());
-  assertEquals("external_cert_cert_type", externalTlsInfo.getCertType().getBpInputName());
-  assertEquals("external_cert_use_external_tls", externalTlsInfo.getUseExternalTls().getBpInputName());
-  assertEquals("/opt/app/dcae-certificate/", externalTlsInfo.getExternalCertDirectory());
-
-  ExternalCertificateParameters extCertParams = externalTlsInfo.getExternalCertificateParameters();
-  assertNotNull(extCertParams);
-
-  assertEquals("external_cert_common_name", extCertParams.getCommonName().getBpInputName());
-  assertEquals("external_cert_sans", extCertParams.getSans().getBpInputName());
- }
-
- private void assertBlueprintContainsTlsInfoWithUseFlagDefault(OnapBlueprint bp, boolean useFlagDefault) {
-  //shold create proper inputs
-  assertContainsInputWithDefault(bp, "use_tls", useFlagDefault);
-
-  Node node = bp.getNode_templates().get("test.component.spec");
-
-  //should create proper tlsInfo object in node properties
-  TlsInfo tlsInfo = node.getProperties().getTls_info();
-  assertEquals("use_tls", tlsInfo.getUseTls().getBpInputName());
-  assertEquals("/opt/app/dcae-certificate/", tlsInfo.getCertDirectory());
-
- }
-
- private void assertBlueprintHasNoExternalTlsInfo(OnapBlueprint bp) {
-  //should not create inputs for external tls
-  assertFalse(bp.getInputs().containsKey("external_cert_use_external_tls"));
-  assertFalse(bp.getInputs().containsKey("external_cert_common_name"));
-  assertFalse(bp.getInputs().containsKey("external_cert_ca_name"));
-  assertFalse(bp.getInputs().containsKey("external_cert_sans"));
-
-  Node node = bp.getNode_templates().get("test.component.spec");
-
-  //should not create externalTlsInfo object in node properties
-  ExternalTlsInfo externalTlsInfo = node.getProperties().getExternal_cert();
-  assertNull(externalTlsInfo);
- }
+    @Parameterized.Parameters(name = "Blueprint type: {0}")
+    public static List<Character> data() {
+        return Arrays.asList('o', 'd');
+    }
 
 
- private void assertBlueprintHasNoTlsInfo(OnapBlueprint bp) {
-  //should not create inputs for tls
-  assertFalse(bp.getInputs().containsKey("use_tls"));
+    @Test
+    public void useTlsTrueAndUseExternalTlsTrueTest() {
+        //Input input = input.setComponentSpecPath(componentSpecPath + "testComponentSpec_withTlsTrueAndExternalTlsTrue.json");
+        OnapBlueprint bp = createBlueprintFromFile(
+            Paths.get("src", "test", "resources", "componentspecs", useTlsTrueAndUseExternalTlsTrueTest).toFile()
+                .getAbsolutePath());
 
-  Node node = bp.getNode_templates().get("test.component.spec");
+        assertBlueprintContainsExternalTlsInfoWithUseFlagDefault(bp, true);
+        assertBlueprintContainsTlsInfoWithUseFlagDefault(bp, true);
+    }
 
-  //should not create tlsInfo object in node properties
-  assertNull(node.getProperties().getTls_info());
- }
+    @Test
+    public void useTlsFalseAndUseExternalTlsFalseTest() {
+        OnapBlueprint bp = createBlueprintFromFile(
+            Paths.get("src", "test", "resources", "componentspecs", useTlsFalseAndUseExternalTlsFalseTest).toFile()
+                .getAbsolutePath());
 
- private void assertContainsInputWithDefault(OnapBlueprint bp, String inputName, Object defaultValue) {
-  LinkedHashMap<String, Object> input = bp.getInputs().get(inputName);
-  assertNotNull(input);
-  assertEquals(defaultValue, input.get("default"));
- }
+        assertBlueprintContainsExternalTlsInfoWithUseFlagDefault(bp, false);
+        assertBlueprintContainsTlsInfoWithUseFlagDefault(bp, false);
+    }
 
- private OnapBlueprint createBlueprintFromFile(String path) {
-  onapComponentSpec = onapComponentSpecService.createComponentSpecFromFile(path);
-  Input input = onapTestUtils.getInput(path, "", "", "", "o", "");
-  OnapBlueprint onapBlueprint = onapBlueprintService.createBlueprint(onapComponentSpec, input);
-  return onapBlueprint;
- }
+    @Test
+    public void useTlsTrueAndNoExternalTlsFlagTest() {
+        OnapBlueprint bp = createBlueprintFromFile(
+            Paths.get("src", "test", "resources", "componentspecs", useTlsTrueAndNoExternalTlsFlagTest).toFile()
+                .getAbsolutePath());
+
+        assertBlueprintContainsTlsInfoWithUseFlagDefault(bp, true);
+        assertBlueprintHasNoExternalTlsInfo(bp);
+    }
+
+    @Test
+    public void noTlsInfo() {
+        OnapBlueprint bp = createBlueprintFromFile(
+            Paths.get("src", "test", "resources", "componentspecs", noTlsInfo).toFile().getAbsolutePath());
+
+        assertBlueprintHasNoTlsInfo(bp);
+        assertBlueprintHasNoExternalTlsInfo(bp);
+    }
+
+    private void assertBlueprintContainsExternalTlsInfoWithUseFlagDefault(OnapBlueprint bp, boolean useFlagDefault) {
+        //should create proper inputs
+        assertContainsInputWithDefault(bp, "external_cert_use_external_tls", useFlagDefault);
+        assertContainsInputWithDefault(bp, "external_cert_ca_name", "\"RA\"");
+        assertContainsInputWithDefault(bp, "external_cert_cert_type", "\"P12\"");
+        assertContainsInputWithDefault(bp, "external_cert_common_name", "\"sample.onap.org\"");
+        assertContainsInputWithDefault(bp, "external_cert_sans",
+            "\"sample.onap.org,component.sample.onap.org\"");
+
+        Node node = bp.getNode_templates().get("test.component.spec");
+
+        //should create proper externalTlsInfo object in node properties
+        ExternalTlsInfo externalTlsInfo = node.getProperties().getExternal_cert();
+        assertNotNull(externalTlsInfo);
+
+        assertEquals("external_cert_ca_name", externalTlsInfo.getCaName().getBpInputName());
+        assertEquals("external_cert_cert_type", externalTlsInfo.getCertType().getBpInputName());
+        assertEquals("external_cert_use_external_tls", externalTlsInfo.getUseExternalTls().getBpInputName());
+        assertEquals("/opt/app/dcae-certificate/", externalTlsInfo.getExternalCertDirectory());
+
+        ExternalCertificateParameters extCertParams = externalTlsInfo.getExternalCertificateParameters();
+        assertNotNull(extCertParams);
+
+        assertEquals("external_cert_common_name", extCertParams.getCommonName().getBpInputName());
+        assertEquals("external_cert_sans", extCertParams.getSans().getBpInputName());
+    }
+
+    private void assertBlueprintContainsTlsInfoWithUseFlagDefault(OnapBlueprint bp, boolean useFlagDefault) {
+        //shold create proper inputs
+        assertContainsInputWithDefault(bp, "use_tls", useFlagDefault);
+
+        Node node = bp.getNode_templates().get("test.component.spec");
+
+        //should create proper tlsInfo object in node properties
+        TlsInfo tlsInfo = node.getProperties().getTls_info();
+        assertEquals("use_tls", tlsInfo.getUseTls().getBpInputName());
+        assertEquals("/opt/app/dcae-certificate/", tlsInfo.getCertDirectory());
+
+    }
+
+    private void assertBlueprintHasNoExternalTlsInfo(OnapBlueprint bp) {
+        //should not create inputs for external tls
+        assertFalse(bp.getInputs().containsKey("external_cert_use_external_tls"));
+        assertFalse(bp.getInputs().containsKey("external_cert_common_name"));
+        assertFalse(bp.getInputs().containsKey("external_cert_ca_name"));
+        assertFalse(bp.getInputs().containsKey("external_cert_sans"));
+
+        Node node = bp.getNode_templates().get("test.component.spec");
+
+        //should not create externalTlsInfo object in node properties
+        ExternalTlsInfo externalTlsInfo = node.getProperties().getExternal_cert();
+        assertNull(externalTlsInfo);
+    }
+
+
+    private void assertBlueprintHasNoTlsInfo(OnapBlueprint bp) {
+        //should not create inputs for tls
+        assertFalse(bp.getInputs().containsKey("use_tls"));
+
+        Node node = bp.getNode_templates().get("test.component.spec");
+
+        //should not create tlsInfo object in node properties
+        assertNull(node.getProperties().getTls_info());
+    }
+
+    private void assertContainsInputWithDefault(OnapBlueprint bp, String inputName, Object defaultValue) {
+        LinkedHashMap<String, Object> input = bp.getInputs().get(inputName);
+        assertNotNull(input);
+        assertEquals(defaultValue, input.get("default"));
+    }
+
+    private OnapBlueprint createBlueprintFromFile(String path) {
+        onapComponentSpec = onapComponentSpecService.createComponentSpecFromFile(path);
+        Input input = onapTestUtils.getInput(path, "", "", "", "o", "");
+        OnapBlueprint onapBlueprint = onapBlueprintService.createBlueprint(onapComponentSpec, input);
+        return onapBlueprint;
+    }
 }

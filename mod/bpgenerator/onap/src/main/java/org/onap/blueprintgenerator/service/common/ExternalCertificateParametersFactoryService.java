@@ -4,6 +4,7 @@
  *  *  org.onap.dcae
  *  *  ================================================================================
  *  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
+ *  *  Copyright (c) 2020  Nokia. All rights reserved.
  *  *  ================================================================================
  *  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  *  you may not use this file except in compliance with the License.
@@ -34,9 +35,8 @@ import java.util.Map;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * Common ONAP Service used by ONAP and DMAAP Blueprint to add External Certificate Parameters
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator Common ONAP Service used by ONAP and DMAAP Blueprint to add
+ * External Certificate Parameters
  */
 
 
@@ -58,11 +58,14 @@ public class ExternalCertificateParametersFactoryService extends ExternalCertifi
     public Map<String, LinkedHashMap<String, Object>> createInputList() {
         Map<String, LinkedHashMap<String, Object>> retInputs = new LinkedHashMap<>();
 
-        LinkedHashMap<String, Object> commonNameInputMap = blueprintHelperService.createStringInput("Common name which should be present in certificate.",Constants.DEFAULT_COMMON_NAME);
+        LinkedHashMap<String, Object> commonNameInputMap = blueprintHelperService
+            .createStringInput("Common name which should be present in certificate.", Constants.DEFAULT_COMMON_NAME);
         retInputs.put(addPrefix(Constants.COMMON_NAME_FIELD), commonNameInputMap);
 
-        LinkedHashMap<String, Object> sansInputMap = blueprintHelperService.createStringInput("\"List of Subject Alternative Names (SANs) which should be present in certificate. " +
-                "Delimiter - : Should contain a common_name value and other FQDNs under which the given " +"component is accessible.\"",Constants.DEFAULT_SANS);
+        LinkedHashMap<String, Object> sansInputMap = blueprintHelperService
+            .createStringInput("\"List of Subject Alternative Names (SANs) which should be present in certificate. " +
+                "Delimiter - , Should contain a common_name value and other FQDNs under which the given "
+                + "component is accessible.\"", Constants.DEFAULT_SANS);
         retInputs.put(addPrefix(Constants.SANS_FIELD), sansInputMap);
 
         return retInputs;

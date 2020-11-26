@@ -86,7 +86,7 @@ public class Constants {
     public static final String COMMON_NAME_FIELD = "common_name";
     public static final String SANS_FIELD = "sans";
     public static final String DEFAULT_COMMON_NAME = "sample.onap.org";
-    public static final String DEFAULT_SANS = "sample.onap.org:component.sample.onap.org";
+    public static final String DEFAULT_SANS = "sample.onap.org,component.sample.onap.org";
     public static final String FEED = "dcaegen2.nodes.Feed";
     public static final String TOPIC = "dcaegen2.nodes.Topic";
     public static final String PUBLISH_EVENTS = "dcaegen2.relationships.publish_events";
