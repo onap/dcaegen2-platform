@@ -20,6 +20,12 @@
 
 package org.onap.dcaegen2.platform.mod.web;
 
+import org.hamcrest.Matchers;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentMatchers;
+import org.mockito.Mockito;
 import org.onap.dcaegen2.platform.mod.model.basemicroservice.BaseMicroservice;
 import org.onap.dcaegen2.platform.mod.model.exceptions.OperationNotAllowedException;
 import org.onap.dcaegen2.platform.mod.model.exceptions.ResourceConflictException;
@@ -28,12 +34,6 @@ import org.onap.dcaegen2.platform.mod.model.restapi.MicroserviceUpdateRequest;
 import org.onap.dcaegen2.platform.mod.objectmothers.BaseMsObjectMother;
 import org.onap.dcaegen2.platform.mod.web.controller.BaseMicroserviceController;
 import org.onap.dcaegen2.platform.mod.web.service.basemicroservice.MsService;
-import org.hamcrest.Matchers;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.ArgumentMatchers;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;

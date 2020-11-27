@@ -20,6 +20,9 @@
 
 package org.onap.dcaegen2.platform.mod.web.controller;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.google.gson.Gson;
+import lombok.extern.slf4j.Slf4j;
 import org.onap.dcaegen2.platform.mod.model.exceptions.MissingRequestBodyException;
 import org.onap.dcaegen2.platform.mod.model.exceptions.OperationNotAllowedException;
 import org.onap.dcaegen2.platform.mod.model.exceptions.ResourceConflictException;
@@ -27,12 +30,10 @@ import org.onap.dcaegen2.platform.mod.model.exceptions.basemicroservice.BaseMicr
 import org.onap.dcaegen2.platform.mod.model.exceptions.common.UserNotPassedException;
 import org.onap.dcaegen2.platform.mod.model.exceptions.deploymentartifact.DeploymentArtifactNotFound;
 import org.onap.dcaegen2.platform.mod.model.exceptions.msinstance.MsInstanceNotFoundException;
+import org.onap.dcaegen2.platform.mod.model.exceptions.policymodel.PolicyModelNotFoundException;
 import org.onap.dcaegen2.platform.mod.model.exceptions.specification.SpecificationInvalid;
 import org.onap.dcaegen2.platform.mod.model.restapi.ErrorResponse;
 import org.onap.dcaegen2.platform.mod.model.restapi.GenericErrorResponse;
-import com.fasterxml.jackson.core.JsonParseException;
-import com.google.gson.Gson;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -98,6 +99,12 @@ public class AppExceptionHandler {
 
     @ExceptionHandler
     public ResponseEntity<ErrorResponse> resolveMsInstanceNotFoundException(MsInstanceNotFoundException ex) {
+        log.error(ex.getMessage());
+        return new ResponseEntity<>(new ErrorResponse(ex.getMessage()), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler
+    public ResponseEntity<ErrorResponse> resolvePolicyModelNotFoundException(PolicyModelNotFoundException ex) {
         log.error(ex.getMessage());
         return new ResponseEntity<>(new ErrorResponse(ex.getMessage()), HttpStatus.BAD_REQUEST);
     }

@@ -20,15 +20,15 @@
 
 package org.onap.dcaegen2.platform.mod.web.service.deploymentartifact;
 
-import org.onap.dcaegen2.platform.mod.model.deploymentartifact.DeploymentArtifact;
-import org.onap.dcaegen2.platform.mod.model.deploymentartifact.DeploymentArtifactStatus;
-import org.onap.dcaegen2.platform.mod.model.exceptions.deploymentartifact.StatusChangeNotValidException;
-import org.onap.dcaegen2.platform.mod.objectmothers.DeploymentArtifactObjectMother;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.onap.dcaegen2.platform.mod.model.deploymentartifact.DeploymentArtifact;
+import org.onap.dcaegen2.platform.mod.model.deploymentartifact.DeploymentArtifactStatus;
+import org.onap.dcaegen2.platform.mod.model.exceptions.deploymentartifact.StatusChangeNotValidException;
+import org.onap.dcaegen2.platform.mod.objectmothers.DeploymentArtifactObjectMother;
 
 import java.util.List;
 
