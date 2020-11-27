@@ -20,6 +20,9 @@
 
 package org.onap.dcaegen2.platform.mod.web;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.onap.dcaegen2.platform.mod.model.microserviceinstance.MsInstance;
 import org.onap.dcaegen2.platform.mod.model.restapi.MsInstanceRequest;
 import org.onap.dcaegen2.platform.mod.model.restapi.MsInstanceUpdateRequest;
@@ -27,9 +30,6 @@ import org.onap.dcaegen2.platform.mod.objectmothers.BaseMsObjectMother;
 import org.onap.dcaegen2.platform.mod.objectmothers.MsInstanceObjectMother;
 import org.onap.dcaegen2.platform.mod.web.controller.MicroserviceInstanceController;
 import org.onap.dcaegen2.platform.mod.web.service.microserviceinstance.MsInstanceService;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -42,10 +42,10 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.onap.dcaegen2.platform.mod.objectmothers.MsInstanceObjectMother.*;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
 import static org.mockito.Mockito.*;
+import static org.onap.dcaegen2.platform.mod.objectmothers.MsInstanceObjectMother.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;

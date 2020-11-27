@@ -20,6 +20,8 @@
 
 package org.onap.dcaegen2.platform.mod.web.service.deploymentartifact;
 
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import org.onap.dcaegen2.platform.mod.model.deploymentartifact.DeploymentArtifact;
 import org.onap.dcaegen2.platform.mod.model.deploymentartifact.DeploymentArtifactSearch;
 import org.onap.dcaegen2.platform.mod.model.deploymentartifact.DeploymentArtifactStatus;
@@ -30,13 +32,15 @@ import org.onap.dcaegen2.platform.mod.model.microserviceinstance.MsInstance;
 import org.onap.dcaegen2.platform.mod.model.restapi.DeploymentArtifactPatchRequest;
 import org.onap.dcaegen2.platform.mod.model.specification.Specification;
 import org.onap.dcaegen2.platform.mod.web.service.microserviceinstance.MsInstanceService;
-import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * DeploymentArtifact Service implementation

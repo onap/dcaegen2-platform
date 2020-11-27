@@ -20,14 +20,14 @@
 
 package org.onap.dcaegen2.platform.mod.web;
 
-import org.onap.dcaegen2.platform.mod.model.specification.DeploymentType;
-import org.onap.dcaegen2.platform.mod.model.restapi.SpecificationRequest;
-import org.onap.dcaegen2.platform.mod.model.specification.Specification;
-import org.onap.dcaegen2.platform.mod.web.controller.SpecificationController;
-import org.onap.dcaegen2.platform.mod.web.service.specification.SpecificationService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.onap.dcaegen2.platform.mod.model.restapi.SpecificationRequest;
+import org.onap.dcaegen2.platform.mod.model.specification.DeploymentType;
+import org.onap.dcaegen2.platform.mod.model.specification.Specification;
+import org.onap.dcaegen2.platform.mod.web.controller.SpecificationController;
+import org.onap.dcaegen2.platform.mod.web.service.specification.SpecificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -35,12 +35,12 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static org.hamcrest.Matchers.notNullValue;
+import static org.mockito.Mockito.*;
 import static org.onap.dcaegen2.platform.mod.objectmothers.BaseMsObjectMother.asJsonString;
 import static org.onap.dcaegen2.platform.mod.objectmothers.MsInstanceObjectMother.MS_INSTANCE_ID;
 import static org.onap.dcaegen2.platform.mod.objectmothers.SpecificationObjectMother.getMockSpecification;
 import static org.onap.dcaegen2.platform.mod.objectmothers.SpecificationObjectMother.getSpecificationRequest;
-import static org.hamcrest.Matchers.notNullValue;
-import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;

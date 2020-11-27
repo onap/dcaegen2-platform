@@ -20,15 +20,22 @@
 
 package org.onap.dcaegen2.platform.mod.web.controller;
 
-import org.onap.dcaegen2.platform.mod.model.restapi.SpecificationRequest;
-import org.onap.dcaegen2.platform.mod.model.specification.Specification;
-import org.onap.dcaegen2.platform.mod.web.service.specification.SpecificationService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.onap.dcaegen2.platform.mod.model.restapi.SpecificationRequest;
+import org.onap.dcaegen2.platform.mod.model.specification.Specification;
+import org.onap.dcaegen2.platform.mod.web.service.specification.SpecificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 

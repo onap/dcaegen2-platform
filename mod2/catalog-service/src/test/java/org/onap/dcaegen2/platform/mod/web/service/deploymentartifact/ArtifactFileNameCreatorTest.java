@@ -20,13 +20,13 @@
 
 package org.onap.dcaegen2.platform.mod.web.service.deploymentartifact;
 
-import org.onap.dcaegen2.platform.mod.model.specification.DeploymentType;
-import org.onap.dcaegen2.platform.mod.model.exceptions.deploymentartifact.BlueprintFileNameCreateException;
-import org.onap.dcaegen2.platform.mod.model.microserviceinstance.MsInstance;
-import org.onap.dcaegen2.platform.mod.objectmothers.MsInstanceObjectMother;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.onap.dcaegen2.platform.mod.model.exceptions.deploymentartifact.BlueprintFileNameCreateException;
+import org.onap.dcaegen2.platform.mod.model.microserviceinstance.MsInstance;
+import org.onap.dcaegen2.platform.mod.model.specification.DeploymentType;
+import org.onap.dcaegen2.platform.mod.objectmothers.MsInstanceObjectMother;
 
 import java.util.HashMap;
 

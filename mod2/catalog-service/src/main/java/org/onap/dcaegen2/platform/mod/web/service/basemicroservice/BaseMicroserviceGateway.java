@@ -21,7 +21,6 @@
 package org.onap.dcaegen2.platform.mod.web.service.basemicroservice;
 
 import org.onap.dcaegen2.platform.mod.model.basemicroservice.BaseMicroservice;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;

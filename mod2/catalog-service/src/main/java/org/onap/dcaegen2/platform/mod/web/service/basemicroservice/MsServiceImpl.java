@@ -20,6 +20,7 @@
 
 package org.onap.dcaegen2.platform.mod.web.service.basemicroservice;
 
+import lombok.Setter;
 import org.onap.dcaegen2.platform.mod.model.basemicroservice.BaseMicroservice;
 import org.onap.dcaegen2.platform.mod.model.basemicroservice.BaseMsStatus;
 import org.onap.dcaegen2.platform.mod.model.common.AuditFields;
@@ -30,7 +31,6 @@ import org.onap.dcaegen2.platform.mod.model.microserviceinstance.MsInstance;
 import org.onap.dcaegen2.platform.mod.model.restapi.MicroserviceCreateRequest;
 import org.onap.dcaegen2.platform.mod.model.restapi.MicroserviceUpdateRequest;
 import org.onap.dcaegen2.platform.mod.web.service.microserviceinstance.MsInstanceService;
-import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
