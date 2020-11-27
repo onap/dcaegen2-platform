@@ -27,7 +27,6 @@ import org.onap.dcaegen2.platform.mod.model.specification.Specification;
 import org.onap.dcaegen2.platform.mod.web.service.deploymentartifact.DeploymentArtifactGeneratorStrategy;
 import org.springframework.stereotype.Component;
 
-
 import java.util.HashMap;
 import java.util.Map;
 

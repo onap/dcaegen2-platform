@@ -20,9 +20,9 @@
 
 package org.onap.dcaegen2.platform.mod.model.restapi;
 
-import org.onap.dcaegen2.platform.mod.model.deploymentartifact.DeploymentArtifactStatus;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+import org.onap.dcaegen2.platform.mod.model.deploymentartifact.DeploymentArtifactStatus;
 
 import java.util.Map;
 

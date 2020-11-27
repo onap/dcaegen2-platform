@@ -44,7 +44,7 @@
         <dependency>
             <groupId>org.onap.dcaegen2.platform.mod</groupId>
             <artifactId>blueprint-generator</artifactId>
-            <version>1.5.2-SNAPSHOT</version>
+            <version>1.5.2</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -102,12 +102,12 @@
         <dependency>
             <groupId>com.squareup.okhttp3</groupId>
             <artifactId>okhttp</artifactId>
-            <version>4.0.1</version>
+            <version>4.2.2</version>
         </dependency>
         <dependency>
             <groupId>com.squareup.okhttp3</groupId>
             <artifactId>mockwebserver</artifactId>
-            <version>4.0.1</version>
+            <version>4.2.2</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

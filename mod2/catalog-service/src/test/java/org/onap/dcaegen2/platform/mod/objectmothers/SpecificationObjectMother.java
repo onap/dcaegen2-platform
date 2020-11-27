@@ -20,8 +20,8 @@
 
 package org.onap.dcaegen2.platform.mod.objectmothers;
 
-import org.onap.dcaegen2.platform.mod.model.specification.DeploymentType;
 import org.onap.dcaegen2.platform.mod.model.restapi.SpecificationRequest;
+import org.onap.dcaegen2.platform.mod.model.specification.DeploymentType;
 import org.onap.dcaegen2.platform.mod.model.specification.Specification;
 import org.onap.dcaegen2.platform.mod.util.TestUtil;
 
