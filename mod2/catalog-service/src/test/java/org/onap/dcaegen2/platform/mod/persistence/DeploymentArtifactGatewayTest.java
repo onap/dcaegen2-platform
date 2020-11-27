@@ -20,6 +20,11 @@
 
 package org.onap.dcaegen2.platform.mod.persistence;
 
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.onap.dcaegen2.platform.mod.model.deploymentartifact.DeploymentArtifact;
 import org.onap.dcaegen2.platform.mod.model.deploymentartifact.DeploymentArtifactFilter;
 import org.onap.dcaegen2.platform.mod.model.deploymentartifact.DeploymentArtifactSearch;
@@ -28,11 +33,6 @@ import org.onap.dcaegen2.platform.mod.mongo.deploymentartifact.DeploymentArtifac
 import org.onap.dcaegen2.platform.mod.mongo.deploymentartifact.DeploymentArtifactMongoRepo;
 import org.onap.dcaegen2.platform.mod.objectmothers.DeploymentArtifactObjectMother;
 import org.onap.dcaegen2.platform.mod.web.service.deploymentartifact.DeploymentArtifactGateway;
-import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.mongodb.core.MongoOperations;

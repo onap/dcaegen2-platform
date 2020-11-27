@@ -20,11 +20,11 @@
 
 package org.onap.dcaegen2.platform.mod.objectmothers;
 
-import org.onap.dcaegen2.platform.mod.model.specification.DeploymentType;
 import org.onap.dcaegen2.platform.mod.model.microserviceinstance.DeploymentArtifactsRef;
 import org.onap.dcaegen2.platform.mod.model.microserviceinstance.MsInstance;
 import org.onap.dcaegen2.platform.mod.model.microserviceinstance.MsInstanceStatus;
 import org.onap.dcaegen2.platform.mod.model.restapi.MsInstanceRequest;
+import org.onap.dcaegen2.platform.mod.model.specification.DeploymentType;
 
 import java.util.ArrayList;
 import java.util.HashMap;

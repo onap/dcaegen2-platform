@@ -20,11 +20,11 @@
 
 package org.onap.dcaegen2.platform.mod.model.microserviceinstance;
 
-import org.onap.dcaegen2.platform.mod.model.specification.Specification;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.onap.dcaegen2.platform.mod.model.specification.Specification;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;

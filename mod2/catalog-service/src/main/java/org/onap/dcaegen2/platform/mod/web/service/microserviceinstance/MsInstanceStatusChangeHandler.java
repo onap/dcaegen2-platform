@@ -20,12 +20,12 @@
 
 package org.onap.dcaegen2.platform.mod.web.service.microserviceinstance;
 
+import lombok.extern.slf4j.Slf4j;
 import org.onap.dcaegen2.platform.mod.model.deploymentartifact.DeploymentArtifact;
 import org.onap.dcaegen2.platform.mod.model.deploymentartifact.DeploymentArtifactStatus;
 import org.onap.dcaegen2.platform.mod.model.microserviceinstance.MsInstance;
 import org.onap.dcaegen2.platform.mod.model.microserviceinstance.MsInstanceStatus;
 import org.onap.dcaegen2.platform.mod.web.service.deploymentartifact.DeploymentArtifactService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

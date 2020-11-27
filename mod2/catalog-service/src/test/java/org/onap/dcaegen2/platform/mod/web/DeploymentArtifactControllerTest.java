@@ -20,6 +20,10 @@
 
 package org.onap.dcaegen2.platform.mod.web;
 
+import org.hamcrest.Matchers;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.onap.dcaegen2.platform.mod.model.deploymentartifact.DeploymentArtifact;
 import org.onap.dcaegen2.platform.mod.model.deploymentartifact.DeploymentArtifactStatus;
 import org.onap.dcaegen2.platform.mod.model.exceptions.deploymentartifact.BlueprintFileNameCreateException;
@@ -30,10 +34,6 @@ import org.onap.dcaegen2.platform.mod.objectmothers.DeploymentArtifactObjectMoth
 import org.onap.dcaegen2.platform.mod.objectmothers.MsInstanceObjectMother;
 import org.onap.dcaegen2.platform.mod.web.controller.DeploymentArtifactController;
 import org.onap.dcaegen2.platform.mod.web.service.deploymentartifact.DeploymentArtifactService;
-import org.hamcrest.Matchers;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
