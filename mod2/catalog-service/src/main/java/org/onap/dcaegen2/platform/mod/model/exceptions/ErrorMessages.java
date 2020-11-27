@@ -30,4 +30,6 @@ public class ErrorMessages {
     public static final String MS_SERVICE_NAME_CONFLICT_MESSAGE = "Microservice with this core name already exists.";
     public static final String MS_SERVICE_NAME_VALIDATION_MESSAGE =
             "Service name is Invalid. Accepts lowercase letters and hyphens";
+    public static final String POLICYMODEL_NAME_VERSION_CONFLICT_MESSAGE = "Policy Model with this name and version already exists.";
+
 }
