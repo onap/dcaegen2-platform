@@ -20,11 +20,11 @@
 
 package org.onap.dcaegen2.platform.mod.model.basemicroservice;
 
-import org.onap.dcaegen2.platform.mod.model.common.AuditFields;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.onap.dcaegen2.platform.mod.model.common.AuditFields;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;

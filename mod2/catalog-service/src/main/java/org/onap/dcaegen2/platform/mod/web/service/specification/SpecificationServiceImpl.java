@@ -20,13 +20,13 @@
 
 package org.onap.dcaegen2.platform.mod.web.service.specification;
 
+import lombok.Setter;
 import org.onap.dcaegen2.platform.mod.model.microserviceinstance.MsInstance;
 import org.onap.dcaegen2.platform.mod.model.microserviceinstance.MsInstanceStatus;
 import org.onap.dcaegen2.platform.mod.model.restapi.SpecificationRequest;
 import org.onap.dcaegen2.platform.mod.model.specification.Specification;
 import org.onap.dcaegen2.platform.mod.model.specification.SpecificationStatus;
 import org.onap.dcaegen2.platform.mod.web.service.microserviceinstance.MsInstanceService;
-import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

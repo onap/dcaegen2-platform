@@ -20,6 +20,11 @@
 
 package org.onap.dcaegen2.platform.mod.web.service.deploymentartifact;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.onap.dcaegen2.platform.mod.model.deploymentartifact.DeploymentArtifact;
 import org.onap.dcaegen2.platform.mod.model.deploymentartifact.DeploymentArtifactStatus;
 import org.onap.dcaegen2.platform.mod.model.exceptions.deploymentartifact.DeploymentArtifactNotFound;
@@ -31,22 +36,17 @@ import org.onap.dcaegen2.platform.mod.objectmothers.DeploymentArtifactObjectMoth
 import org.onap.dcaegen2.platform.mod.objectmothers.MsInstanceObjectMother;
 import org.onap.dcaegen2.platform.mod.objectmothers.SpecificationObjectMother;
 import org.onap.dcaegen2.platform.mod.web.service.microserviceinstance.MsInstanceService;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import static org.onap.dcaegen2.platform.mod.objectmothers.MsInstanceObjectMother.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
+import static org.onap.dcaegen2.platform.mod.objectmothers.MsInstanceObjectMother.*;
 
 @ExtendWith(MockitoExtension.class)
 class DeploymentArtifactServiceImplTest {

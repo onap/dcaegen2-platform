@@ -20,10 +20,10 @@
 
 package org.onap.dcaegen2.platform.mod.model.restapi;
 
-import org.onap.dcaegen2.platform.mod.model.basemicroservice.BaseMsLocation;
-import org.onap.dcaegen2.platform.mod.model.basemicroservice.BaseMsType;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.onap.dcaegen2.platform.mod.model.basemicroservice.BaseMsLocation;
+import org.onap.dcaegen2.platform.mod.model.basemicroservice.BaseMsType;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;

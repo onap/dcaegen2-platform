@@ -20,9 +20,14 @@
 
 package org.onap.dcaegen2.platform.mod.web.service;
 
-import org.onap.dcaegen2.platform.mod.model.specification.DeploymentType;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.onap.dcaegen2.platform.mod.model.microserviceinstance.MsInstance;
 import org.onap.dcaegen2.platform.mod.model.restapi.SpecificationRequest;
+import org.onap.dcaegen2.platform.mod.model.specification.DeploymentType;
 import org.onap.dcaegen2.platform.mod.model.specification.Specification;
 import org.onap.dcaegen2.platform.mod.model.specification.SpecificationStatus;
 import org.onap.dcaegen2.platform.mod.objectmothers.MsInstanceObjectMother;
@@ -30,18 +35,13 @@ import org.onap.dcaegen2.platform.mod.web.service.microserviceinstance.MsInstanc
 import org.onap.dcaegen2.platform.mod.web.service.specification.SpecificationGateway;
 import org.onap.dcaegen2.platform.mod.web.service.specification.SpecificationServiceImpl;
 import org.onap.dcaegen2.platform.mod.web.service.specification.SpecificationValidatorService;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
 import static org.onap.dcaegen2.platform.mod.objectmothers.MsInstanceObjectMother.MS_INSTANCE_ID;
 import static org.onap.dcaegen2.platform.mod.objectmothers.SpecificationObjectMother.getMockSpecification;
 import static org.onap.dcaegen2.platform.mod.objectmothers.SpecificationObjectMother.getSpecificationRequest;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
 
 @ExtendWith({MockitoExtension.class})
 public class SpecificationServiceTest {
