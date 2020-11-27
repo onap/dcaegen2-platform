@@ -20,6 +20,12 @@
 
 package org.onap.dcaegen2.platform.mod.web.service;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.Spy;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.onap.dcaegen2.platform.mod.model.basemicroservice.BaseMicroservice;
 import org.onap.dcaegen2.platform.mod.model.deploymentartifact.DeploymentArtifact;
 import org.onap.dcaegen2.platform.mod.model.deploymentartifact.MsInstanceInfo;
@@ -34,22 +40,16 @@ import org.onap.dcaegen2.platform.mod.web.service.microserviceinstance.MsInstanc
 import org.onap.dcaegen2.platform.mod.web.service.microserviceinstance.MsInstanceServiceImpl;
 import org.onap.dcaegen2.platform.mod.web.service.microserviceinstance.MsInstanceStatusChangeHandler;
 import org.onap.dcaegen2.platform.mod.web.service.specification.SpecificationService;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.Spy;
-import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-import static org.onap.dcaegen2.platform.mod.objectmothers.MsInstanceObjectMother.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
+import static org.onap.dcaegen2.platform.mod.objectmothers.MsInstanceObjectMother.*;
 
 @ExtendWith(MockitoExtension.class)
 class MsInstanceServiceImplTest {

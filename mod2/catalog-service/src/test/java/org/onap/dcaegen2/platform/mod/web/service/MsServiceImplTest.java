@@ -20,6 +20,12 @@
 
 package org.onap.dcaegen2.platform.mod.web.service;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.Spy;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.onap.dcaegen2.platform.mod.model.basemicroservice.BaseMicroservice;
 import org.onap.dcaegen2.platform.mod.model.basemicroservice.BaseMsLocation;
 import org.onap.dcaegen2.platform.mod.model.basemicroservice.BaseMsType;
@@ -31,21 +37,20 @@ import org.onap.dcaegen2.platform.mod.objectmothers.BaseMsObjectMother;
 import org.onap.dcaegen2.platform.mod.web.service.basemicroservice.BaseMicroserviceGateway;
 import org.onap.dcaegen2.platform.mod.web.service.basemicroservice.MsServiceImpl;
 import org.onap.dcaegen2.platform.mod.web.service.microserviceinstance.MsInstanceService;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.Spy;
-import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
+import static org.assertj.core.api.Assertions.*;
+import static org.mockito.Mockito.*;
 import static org.onap.dcaegen2.platform.mod.model.exceptions.ErrorMessages.MICROSERVICE_NAME_CONFLICT_MESSAGE;
 import static org.onap.dcaegen2.platform.mod.model.exceptions.ErrorMessages.MICROSERVICE_TAG_CONFLICT_MESSAGE;
 import static org.onap.dcaegen2.platform.mod.objectmothers.BaseMsObjectMother.createMockMsObject;
 import static org.onap.dcaegen2.platform.mod.objectmothers.BaseMsObjectMother.createMockMsRequest;
-import static org.assertj.core.api.Assertions.*;
-import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class MsServiceImplTest {
