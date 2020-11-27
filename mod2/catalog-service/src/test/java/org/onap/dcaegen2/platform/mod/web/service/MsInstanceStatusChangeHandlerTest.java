@@ -20,6 +20,11 @@
 
 package org.onap.dcaegen2.platform.mod.web.service;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.onap.dcaegen2.platform.mod.model.microserviceinstance.MsInstance;
 import org.onap.dcaegen2.platform.mod.model.microserviceinstance.MsInstanceStatus;
 import org.onap.dcaegen2.platform.mod.objectmothers.DeploymentArtifactObjectMother;
@@ -27,11 +32,6 @@ import org.onap.dcaegen2.platform.mod.objectmothers.MsInstanceObjectMother;
 import org.onap.dcaegen2.platform.mod.web.service.deploymentartifact.DeploymentArtifactService;
 import org.onap.dcaegen2.platform.mod.web.service.microserviceinstance.MsInstanceService;
 import org.onap.dcaegen2.platform.mod.web.service.microserviceinstance.MsInstanceStatusChangeHandler;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;

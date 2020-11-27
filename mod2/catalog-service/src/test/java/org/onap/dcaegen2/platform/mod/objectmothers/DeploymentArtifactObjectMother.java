@@ -24,7 +24,11 @@ import org.onap.dcaegen2.platform.mod.model.deploymentartifact.DeploymentArtifac
 import org.onap.dcaegen2.platform.mod.model.deploymentartifact.DeploymentArtifactStatus;
 import org.onap.dcaegen2.platform.mod.model.deploymentartifact.MsInstanceInfo;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static org.onap.dcaegen2.platform.mod.objectmothers.MsInstanceObjectMother.USER;
 
