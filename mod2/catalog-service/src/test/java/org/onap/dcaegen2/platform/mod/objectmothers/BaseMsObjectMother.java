@@ -20,6 +20,7 @@
 
 package org.onap.dcaegen2.platform.mod.objectmothers;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.onap.dcaegen2.platform.mod.model.basemicroservice.BaseMicroservice;
 import org.onap.dcaegen2.platform.mod.model.basemicroservice.BaseMsLocation;
 import org.onap.dcaegen2.platform.mod.model.basemicroservice.BaseMsStatus;
@@ -27,9 +28,13 @@ import org.onap.dcaegen2.platform.mod.model.basemicroservice.BaseMsType;
 import org.onap.dcaegen2.platform.mod.model.common.AuditFields;
 import org.onap.dcaegen2.platform.mod.model.restapi.MicroserviceCreateRequest;
 import org.onap.dcaegen2.platform.mod.model.restapi.MicroserviceUpdateRequest;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class BaseMsObjectMother {
 

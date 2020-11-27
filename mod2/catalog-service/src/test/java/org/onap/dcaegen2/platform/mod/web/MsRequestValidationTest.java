@@ -20,11 +20,11 @@
 
 package org.onap.dcaegen2.platform.mod.web;
 
-import org.onap.dcaegen2.platform.mod.model.restapi.MicroserviceCreateRequest;
-import org.onap.dcaegen2.platform.mod.objectmothers.BaseMsObjectMother;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.onap.dcaegen2.platform.mod.model.restapi.MicroserviceCreateRequest;
+import org.onap.dcaegen2.platform.mod.objectmothers.BaseMsObjectMother;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;

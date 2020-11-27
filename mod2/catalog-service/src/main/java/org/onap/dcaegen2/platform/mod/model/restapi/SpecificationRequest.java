@@ -20,11 +20,11 @@
 
 package org.onap.dcaegen2.platform.mod.model.restapi;
 
-import org.onap.dcaegen2.platform.mod.model.specification.DeploymentType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.onap.dcaegen2.platform.mod.model.specification.DeploymentType;
 
 import java.util.Map;
 

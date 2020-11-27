@@ -20,6 +20,8 @@
 
 package org.onap.dcaegen2.platform.mod.web.service.microserviceinstance;
 
+import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import org.onap.dcaegen2.platform.mod.model.basemicroservice.BaseMicroservice;
 import org.onap.dcaegen2.platform.mod.model.deploymentartifact.DeploymentArtifact;
 import org.onap.dcaegen2.platform.mod.model.exceptions.msinstance.MsInstanceAlreadyExistsException;
@@ -31,8 +33,6 @@ import org.onap.dcaegen2.platform.mod.model.restapi.MsInstanceUpdateRequest;
 import org.onap.dcaegen2.platform.mod.web.service.basemicroservice.MsService;
 import org.onap.dcaegen2.platform.mod.web.service.deploymentartifact.DeploymentArtifactService;
 import org.onap.dcaegen2.platform.mod.web.service.specification.SpecificationService;
-import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
