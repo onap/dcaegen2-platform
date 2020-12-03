@@ -1,0 +1,242 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bab56f1e_2a653323",
+        "filename": "mod2/catalog-service/src/main/java/org/onap/dcaegen2/platform/mod/util/PolicyModelUtils.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-12-03T02:17:18Z",
+      "side": 1,
+      "message": "javadoc for new public classes and public methods",
+      "revId": "34a9834c5e4be10bb3c170d935f8364216471338",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1fd5aca_f21316fe",
+        "filename": "mod2/catalog-service/src/main/java/org/onap/dcaegen2/platform/mod/util/PolicyModelUtils.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-12-03T02:17:18Z",
+      "side": 1,
+      "message": "javadoc for new public classes and public methods",
+      "revId": "34a9834c5e4be10bb3c170d935f8364216471338",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "844406bd_553810cd",
+        "filename": "mod2/catalog-service/src/main/java/org/onap/dcaegen2/platform/mod/web/controller/AppExceptionHandler.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-12-03T02:17:18Z",
+      "side": 1,
+      "message": "should have javadoc on newly add methods \n(of course, adding them to the previous methods would be nice too)",
+      "revId": "34a9834c5e4be10bb3c170d935f8364216471338",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ce280c4_876af56c",
+        "filename": "mod2/catalog-service/src/main/java/org/onap/dcaegen2/platform/mod/web/controller/PolicyModelController.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-12-03T02:17:18Z",
+      "side": 1,
+      "message": "javadocs should be on all public methods",
+      "revId": "34a9834c5e4be10bb3c170d935f8364216471338",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2380091_05015a5d",
+        "filename": "mod2/catalog-service/src/main/java/org/onap/dcaegen2/platform/mod/web/controller/PolicyModelDistributionController.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-12-03T02:17:18Z",
+      "side": 1,
+      "message": "javadocs should be on all public methods",
+      "revId": "34a9834c5e4be10bb3c170d935f8364216471338",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e9201ef_33191599",
+        "filename": "mod2/catalog-service/src/main/java/org/onap/dcaegen2/platform/mod/web/service/policymodel/PolicyModelDistributionServiceImpl.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-12-03T02:17:18Z",
+      "side": 1,
+      "message": "javadocs should be on all public methods",
+      "revId": "34a9834c5e4be10bb3c170d935f8364216471338",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f30feaee_abe5bdc8",
+        "filename": "mod2/catalog-service/src/test/java/org/onap/dcaegen2/platform/mod/objectmothers/PolicyModelObjectMother.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-12-03T02:17:18Z",
+      "side": 1,
+      "message": "javadocs should be on new classes and all public methods",
+      "revId": "34a9834c5e4be10bb3c170d935f8364216471338",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05bf97c7_5f05d596",
+        "filename": "mod2/catalog-service/src/test/java/org/onap/dcaegen2/platform/mod/web/MicroserviceInstanceControllerTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-12-03T02:17:18Z",
+      "side": 1,
+      "message": "wildcard imports must be expanded",
+      "revId": "34a9834c5e4be10bb3c170d935f8364216471338",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59317f2f_a8b96766",
+        "filename": "mod2/catalog-service/src/test/java/org/onap/dcaegen2/platform/mod/web/PolicyModelControllerTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-12-03T02:17:18Z",
+      "side": 1,
+      "message": "remove comments",
+      "revId": "34a9834c5e4be10bb3c170d935f8364216471338",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed13d5da_bf292995",
+        "filename": "mod2/catalog-service/src/test/java/org/onap/dcaegen2/platform/mod/web/service/MsInstanceServiceImplTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-12-03T02:17:18Z",
+      "side": 1,
+      "message": "wildcard imports must be expanded",
+      "revId": "34a9834c5e4be10bb3c170d935f8364216471338",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d358d373_f80ab5ac",
+        "filename": "mod2/catalog-service/src/test/java/org/onap/dcaegen2/platform/mod/web/service/MsInstanceStatusChangeHandlerTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-12-03T02:17:18Z",
+      "side": 1,
+      "message": "wildcard imports must be expanded",
+      "revId": "34a9834c5e4be10bb3c170d935f8364216471338",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef62529a_e6c0acf9",
+        "filename": "mod2/catalog-service/src/test/java/org/onap/dcaegen2/platform/mod/web/service/MsServiceImplTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-12-03T02:17:18Z",
+      "side": 1,
+      "message": "wildcard imports must be expanded",
+      "revId": "34a9834c5e4be10bb3c170d935f8364216471338",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5581cdd_eb90a7e6",
+        "filename": "mod2/catalog-service/src/test/java/org/onap/dcaegen2/platform/mod/web/service/SpecificationServiceTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-12-03T02:17:18Z",
+      "side": 1,
+      "message": "wildcard imports must be expanded",
+      "revId": "34a9834c5e4be10bb3c170d935f8364216471338",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b3fe5d8_f6d3e40e",
+        "filename": "mod2/catalog-service/src/test/java/org/onap/dcaegen2/platform/mod/web/service/deploymentartifact/DeploymentArtifactServiceImplTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-12-03T02:17:18Z",
+      "side": 1,
+      "message": "wildcard imports must be expanded",
+      "revId": "34a9834c5e4be10bb3c170d935f8364216471338",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
