@@ -34,12 +34,9 @@ import java.io.File;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * Common ONAP Service used by ONAP and DMAAP Blueprint to create Component Spec from File
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator Common ONAP Service used by ONAP and
+ * DMAAP Blueprint to create Component Spec from File
  */
-
-
 @Service("onapComponentSpecService")
 public class ComponentSpecService {
 
@@ -51,14 +48,39 @@ public class ComponentSpecService {
     @Autowired
     private ObjectMapper yamlComponentMapper;
 
+    /**
+     * Creates ComponentSpec from given file path and validates if the input is json file or not
+     *
+     * @param componentSpecPath
+     * @return
+     */
     public OnapComponentSpec createComponentSpecFromFile(String componentSpecPath) {
         OnapComponentSpec componentSpec;
         try {
-            if(!componentSpecPath.endsWith(".json"))
-                componentMapper = yamlComponentMapper;
-            componentSpec = componentMapper.readValue(new File(componentSpecPath), OnapComponentSpec.class);
+            if (!componentSpecPath.endsWith(".json")) {
+                componentSpec = yamlComponentMapper.readValue(new File(componentSpecPath), OnapComponentSpec.class);
+            }else{
+                componentSpec = componentMapper.readValue(new File(componentSpecPath), OnapComponentSpec.class);
+            }
         } catch (Exception ex) {
             throw new ComponentSpecException("Unable to create ONAP Component Spec from the input file: "+ componentSpecPath, ex);
+        }
+        return componentSpec;
+    }
+
+    /**
+     * Creates the component spec from string.
+     * This method is used by RuntimeAPI
+     * @param specString the spec string
+     */
+    public OnapComponentSpec createComponentSpecFromString(String specString) {
+        OnapComponentSpec componentSpec;
+        try {
+            componentSpec = componentMapper.readValue(specString, OnapComponentSpec.class);
+        } catch (Exception ex) {
+            throw new ComponentSpecException(
+                "Unable to create ONAP Component Spec from the input string: " + specString,
+                ex);
         }
         return componentSpec;
     }
