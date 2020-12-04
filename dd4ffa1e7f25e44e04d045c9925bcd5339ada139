@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ad89d12_0dea748f",
+        "filename": "mod/bpgenerator/onap/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-12-04T16:57:43Z",
+      "side": 1,
+      "message": "I think that the common submodule also needs to be marked with SNAPSHOT.",
+      "range": {
+        "startLine": 47,
+        "startChar": 21,
+        "endLine": 47,
+        "endChar": 26
+      },
+      "revId": "dd4ffa1e7f25e44e04d045c9925bcd5339ada139",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
