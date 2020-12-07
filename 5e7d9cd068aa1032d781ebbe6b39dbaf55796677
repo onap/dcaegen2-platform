@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97967441_bd424693",
+        "filename": "mod2/catalog-service/src/test/java/org/onap/dcaegen2/platform/mod/web/service/MsServiceImplTest.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-12-07T22:19:20Z",
+      "side": 1,
+      "message": "you expanded the Assertions wildcard import, but now java.util is wildcarded",
+      "revId": "5e7d9cd068aa1032d781ebbe6b39dbaf55796677",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}

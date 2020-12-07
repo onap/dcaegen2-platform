@@ -87,6 +87,24 @@
     },
     {
       "key": {
+        "uuid": "8d2c0ce1_a44129d3",
+        "filename": "mod2/catalog-service/src/test/java/org/onap/dcaegen2/platform/mod/web/service/MsServiceImplTest.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-12-07T22:19:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "361c76e5_cc1405ce",
+      "revId": "489331cb3db090b4b2a9c671084ce5a9ed00987c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ead6d57_a197285e",
         "filename": "mod2/catalog-service/src/test/java/org/onap/dcaegen2/platform/mod/web/service/SpecificationServiceTest.java",
         "patchSetId": 7
@@ -101,6 +119,24 @@
       "revId": "489331cb3db090b4b2a9c671084ce5a9ed00987c",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4b339f7_0d8fa943",
+        "filename": "mod2/catalog-service/src/test/java/org/onap/dcaegen2/platform/mod/web/service/SpecificationServiceTest.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2020-12-07T22:19:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ead6d57_a197285e",
+      "revId": "489331cb3db090b4b2a9c671084ce5a9ed00987c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
