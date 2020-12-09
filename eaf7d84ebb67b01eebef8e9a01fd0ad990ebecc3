@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3d4d15fe_ba5c69da",
+        "filename": "mod2/catalog-service/src/main/java/org/onap/dcaegen2/platform/mod/model/restapi/PolicyModelCreateRequest.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-12-09T08:01:15Z",
+      "side": 1,
+      "message": "Just a tip - dot is any char so 1x1x1 would be valid.",
+      "range": {
+        "startLine": 54,
+        "startChar": 27,
+        "endLine": 54,
+        "endChar": 28
+      },
+      "revId": "eaf7d84ebb67b01eebef8e9a01fd0ad990ebecc3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90694081_47930638",
+        "filename": "mod2/catalog-service/src/main/java/org/onap/dcaegen2/platform/mod/util/PolicyModelUtils.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-12-09T08:01:15Z",
+      "side": 1,
+      "message": "In future you could onsider putting the elements to a single map with wrapping object containing the neccessary values.",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 93
+      },
+      "revId": "eaf7d84ebb67b01eebef8e9a01fd0ad990ebecc3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
