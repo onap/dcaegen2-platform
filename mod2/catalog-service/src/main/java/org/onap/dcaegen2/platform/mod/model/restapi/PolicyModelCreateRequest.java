@@ -40,7 +40,7 @@ import javax.validation.constraints.Size;
 public class PolicyModelCreateRequest {
 
    @NotBlank
-   @Pattern(regexp = "^([a-z0-9](-[a-z0-9])*)+$", message = "Policy Model name is invalid. Accepts lower alphanumerics and hyphens.")
+   @Pattern(regexp = "^([a-zA-Z0-9]([.|-][a-zA-Z0-9])*)+$", message = "Policy Model name is invalid. Accepts alphanumerics, Dot(.) and hyphens.")
    @Size(min = 5, max = 50, message = "Policy Model name length cannot exceed 50 characters")
    private String name;
 
@@ -51,7 +51,7 @@ public class PolicyModelCreateRequest {
    private String owner;
 
    @NotBlank
-   @Pattern(regexp = "[0-9].[0-9].[0-9]", message = "Policy Model version is invalid. Should be in x.x.x format.")
+   @Pattern(regexp = "[0-9][.][0-9][.][0-9]", message = "Policy Model version is invalid. Should be in x.x.x format.")
    private String version;
 
    private MetadataRequest metadata;
