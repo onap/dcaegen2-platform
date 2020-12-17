@@ -22,7 +22,7 @@
  */
 
 
-package org.onap.blueprintgenerator.test;
+package org.onap.blueprintgenerator;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
@@ -31,7 +31,6 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.jupiter.api.Order;
 import org.junit.runners.MethodSorters;
-import org.onap.blueprintgenerator.test.BlueprintGeneratorTests;
 
 import java.io.File;
 import java.io.IOException;

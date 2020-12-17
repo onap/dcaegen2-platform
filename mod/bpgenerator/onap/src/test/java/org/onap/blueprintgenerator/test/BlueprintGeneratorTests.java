@@ -27,7 +27,7 @@ package org.onap.blueprintgenerator.test;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Ignore;
 import org.junit.runner.RunWith;
-import org.onap.blueprintgenerator.BlueprintGeneratorMainApplication;
+import org.onap.blueprintgenerator.BlueprintGeneratorConfiguration;
 import org.onap.blueprintgenerator.model.componentspec.OnapComponentSpec;
 import org.onap.blueprintgenerator.service.BlueprintCreatorService;
 import org.onap.blueprintgenerator.service.base.BlueprintService;
@@ -50,7 +50,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = BlueprintGeneratorMainApplication.class, initializers = ConfigFileApplicationContextInitializer.class)
+@ContextConfiguration(classes = BlueprintGeneratorConfiguration.class, initializers = ConfigFileApplicationContextInitializer.class)
 @TestPropertySource(
     properties = {
         "ves=ves.json",

@@ -28,16 +28,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>blueprint-generator-onap</artifactId>
-    <version>1.7.0-SNAPSHOT</version>
+    <version>1.7.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Onap</name>
-    <description>This Application is used to generate ONAP Blueprint YAML Files for given Component Specs</description>
+    <description>This Application is a library used to generate ONAP Blueprint YAML Files for given Component Specs</description>
 
     <parent>
         <groupId>org.onap.dcaegen2.platform.mod</groupId>
         <artifactId>blueprint-generator</artifactId>
-        <version>1.7.0-SNAPSHOT</version>
+        <version>1.7.1-SNAPSHOT</version>
     </parent>
 
     <dependencies>
@@ -48,23 +48,5 @@
             <scope>compile</scope>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.2.5.RELEASE</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-        <finalName>onap-blueprint-generator-${project.version}</finalName>
-    </build>
 
 </project>
