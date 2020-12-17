@@ -4,6 +4,7 @@
  *  *  org.onap.dcae
  *  *  ================================================================================
  *  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
+ *  *  Copyright (c) 2020  Nokia. All rights reserved.
  *  *  ================================================================================
  *  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  *  you may not use this file except in compliance with the License.
@@ -22,7 +23,7 @@
  */
 
 
-package org.onap.blueprintgenerator.test;
+package org.onap.blueprintgenerator;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
@@ -31,7 +32,6 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.jupiter.api.Order;
 import org.junit.runners.MethodSorters;
-import org.onap.blueprintgenerator.test.BlueprintGeneratorTests;
 
 import java.io.File;
 import java.io.IOException;
@@ -57,10 +57,9 @@ public class BlueprintJarComparatorTest extends BlueprintGeneratorTests {
     private String latestJarPath = Paths.get("target").toAbsolutePath().toString() + "\\";
     private String previousJarPath = Paths.get("src", "test", "resources", "archives").toAbsolutePath().toString() + "\\";
     private String inputPath = Paths.get("src", "test", "resources", "componentspecs").toAbsolutePath().toString() + "\\";
-    private String inputPolicyPath = Paths.get("src", "test", "resources", "policyjson").toAbsolutePath().toString() + "\\";
     private String outputPath = Paths.get("src", "test", "resources", "outputfiles").toAbsolutePath().toString() + "\\";
-    private String previousJar = "onap-blueprint-generator-" + previousJarVersion + ".jar";
-    private String latestJar = "onap-blueprint-generator-" + latestJarVersion + ".jar";
+    private String previousJar = "blueprint-generator-onap-executable-" + previousJarVersion + ".jar";
+    private String latestJar = "blueprint-generator-onap-executable-" + latestJarVersion + ".jar";
 
     @Test
     @Order(value=1)
