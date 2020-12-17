@@ -168,7 +168,7 @@ public class TlsInfoTest extends BlueprintGeneratorTests {
     private OnapBlueprint createBlueprintFromFile(String path) {
         onapComponentSpec = onapComponentSpecService.createComponentSpecFromFile(path);
         Input input = onapTestUtils.getInput(path, "", "", "", "o", "");
-        OnapBlueprint onapBlueprint = onapBlueprintService.createBlueprint(onapComponentSpec, input);
+        OnapBlueprint onapBlueprint = onapBlueprintCreatorService.createBlueprint(onapComponentSpec, input);
         return onapBlueprint;
     }
 }

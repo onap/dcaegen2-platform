@@ -52,7 +52,7 @@ import java.util.regex.Pattern;
  */
 
 @Service
-public abstract class BlueprintService {
+public class BlueprintService {
 
   @Autowired
   protected FixesService fixesService;
