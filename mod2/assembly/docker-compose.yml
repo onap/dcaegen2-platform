@@ -44,8 +44,13 @@ services:
       - mod_catalog_service
     restart: always
   mod_catalog_service:
-    image: 'nexus3.onap.org:10001/onap/org.onap.dcaegen2.platform.mod.catalog-service:latest'
+    image: 'nexus3.onap.org:10003/onap/org.onap.dcaegen2.platform.mod.catalog-service:latest'
     container_name: mod_catalog_service
+	environment:
+	  - DEV_SERVER=${DEV_SERVER}
+	  - DEV_PORT=${DEV_PORT}
+	  - DEV_USER=${DEV_USER}
+	  - DEV_PASSWORD=${DEV_PASSWORD}	  
     ports:
       - 31001:8080
     links:
