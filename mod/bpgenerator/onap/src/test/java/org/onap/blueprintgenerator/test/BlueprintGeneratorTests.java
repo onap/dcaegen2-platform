@@ -4,6 +4,7 @@
  *  *  org.onap.dcae
  *  *  ================================================================================
  *  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
+ *  *  Copyright (c) 2020  Nokia. All rights reserved.
  *  *  ================================================================================
  *  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  *  you may not use this file except in compliance with the License.
@@ -23,14 +24,16 @@
 
 package org.onap.blueprintgenerator.test;
 
-import org.onap.blueprintgenerator.BlueprintGeneratorMainApplication;
-import org.onap.blueprintgenerator.model.componentspec.OnapComponentSpec;
-import org.onap.blueprintgenerator.service.OnapBlueprintService;
-import org.onap.blueprintgenerator.service.common.ComponentSpecService;
-import org.onap.blueprintgenerator.service.dmaap.DmaapBlueprintService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Ignore;
 import org.junit.runner.RunWith;
+import org.onap.blueprintgenerator.BlueprintGeneratorMainApplication;
+import org.onap.blueprintgenerator.model.componentspec.OnapComponentSpec;
+import org.onap.blueprintgenerator.service.BlueprintCreatorService;
+import org.onap.blueprintgenerator.service.base.BlueprintService;
+import org.onap.blueprintgenerator.service.common.ComponentSpecService;
+import org.onap.blueprintgenerator.service.dmaap.DmaapBlueprintCreatorService;
+import org.onap.blueprintgenerator.service.onap.OnapBlueprintCreatorService;
 import org.onap.policycreate.service.PolicyModelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -90,10 +93,16 @@ public class BlueprintGeneratorTests {
     protected ComponentSpecService onapComponentSpecService;
 
     @Autowired
-    protected DmaapBlueprintService dmaapBlueprintService;
+    protected DmaapBlueprintCreatorService dmaapBlueprintCreatorService;
 
     @Autowired
-    protected OnapBlueprintService onapBlueprintService;
+    protected OnapBlueprintCreatorService onapBlueprintCreatorService;
+
+    @Autowired
+    protected BlueprintCreatorService blueprintCreatorService;
+
+    @Autowired
+    protected BlueprintService blueprintService;
 
     @Autowired
     protected PolicyModelService policyModelService;

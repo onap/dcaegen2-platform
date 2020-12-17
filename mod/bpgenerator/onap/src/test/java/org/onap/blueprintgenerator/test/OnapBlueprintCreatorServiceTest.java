@@ -4,6 +4,7 @@
  *  *  org.onap.dcae
  *  *  ================================================================================
  *  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
+ *  *  Copyright (c) 2020  Nokia. All rights reserved.
  *  *  ================================================================================
  *  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  *  you may not use this file except in compliance with the License.
@@ -23,38 +24,31 @@
 
 package org.onap.blueprintgenerator.test;
 
-import org.mockito.ArgumentCaptor;
-import org.mockito.Mockito;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
+import java.io.IOException;
+import java.nio.file.Paths;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
 import org.onap.blueprintgenerator.constants.Constants;
 import org.onap.blueprintgenerator.model.common.Input;
 import org.onap.blueprintgenerator.model.common.Node;
 import org.onap.blueprintgenerator.model.common.OnapBlueprint;
 import org.onap.blueprintgenerator.model.common.Properties;
-import org.junit.Test;
-import org.junit.jupiter.api.DisplayName;
-import picocli.CommandLine;
-
-import java.io.IOException;
-import java.io.PrintStream;
-import java.nio.file.Paths;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertArrayEquals;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
 
 /**
  * @author : Ravi Mantena
  * @date 10/16/2020 Application: ONAP - Blueprint Generator ONAP Blueprint Test Cases for ONAP and
  * DMAAP
  */
-public class OnapBlueprintServiceTest extends BlueprintGeneratorTests {
+
+
+public class OnapBlueprintCreatorServiceTest extends BlueprintGeneratorTests {
 
     private String outputfilesPath =
         Paths.get("src", "test", "resources", "outputfiles").toAbsolutePath().toString();
@@ -80,11 +74,9 @@ public class OnapBlueprintServiceTest extends BlueprintGeneratorTests {
         assertNotNull(
             "K8s Blueprint for Service Name Override Component Spec is NULL", onapComponentSpec);
 
-        OnapBlueprint onapBlueprint = onapBlueprintService
-            .createBlueprint(onapComponentSpec, input);
-        onapBlueprintService.blueprintToYaml(onapComponentSpec, onapBlueprint, input);
-        System.out.println(
-            onapBlueprintService.blueprintToString(onapComponentSpec, onapBlueprint, input));
+        OnapBlueprint onapBlueprint = onapBlueprintCreatorService.createBlueprint(onapComponentSpec, input);
+        blueprintService.blueprintToYaml(onapComponentSpec, onapBlueprint, input);
+        System.out.println(blueprintService.blueprintToString(onapComponentSpec, onapBlueprint, input));
 
         onapTestUtils.verifyToscaDefVersion(
             "Service Name Override K8s", onapBlueprint, Constants.TOSCA_DEF_VERSION);
@@ -173,8 +165,7 @@ public class OnapBlueprintServiceTest extends BlueprintGeneratorTests {
             "K8s Blueprint for Service Name Override with Import File Component Spec is NULL",
             onapComponentSpec);
 
-        OnapBlueprint onapBlueprint = onapBlueprintService
-            .createBlueprint(onapComponentSpec, input);
+        OnapBlueprint onapBlueprint = onapBlueprintCreatorService.createBlueprint(onapComponentSpec, input);
 
         onapTestUtils.verifyToscaDefVersion(
             "Service Name Override with Import File K8s", onapBlueprint,
@@ -276,9 +267,8 @@ public class OnapBlueprintServiceTest extends BlueprintGeneratorTests {
             onapComponentSpecService.createComponentSpecFromFile(input.getComponentSpecPath());
         assertNotNull("K8s Blueprint for DMAAP Component Spec is NULL", onapComponentSpec);
 
-        OnapBlueprint onapBlueprint = dmaapBlueprintService
-            .createBlueprint(onapComponentSpec, input);
-        onapBlueprintService.blueprintToYaml(onapComponentSpec, onapBlueprint, input);
+        OnapBlueprint onapBlueprint = dmaapBlueprintCreatorService.createBlueprint(onapComponentSpec, input);
+        blueprintService.blueprintToYaml(onapComponentSpec, onapBlueprint, input);
     }
 
     /**
@@ -301,11 +291,9 @@ public class OnapBlueprintServiceTest extends BlueprintGeneratorTests {
             onapComponentSpecService.createComponentSpecFromFile(input.getComponentSpecPath());
         assertNotNull("K8s Blueprint for DMAAP Component Spec is NULL", onapComponentSpec);
 
-        OnapBlueprint onapBlueprint = dmaapBlueprintService
-            .createBlueprint(onapComponentSpec, input);
-        onapBlueprintService.blueprintToYaml(onapComponentSpec, onapBlueprint, input);
-        System.out.println(
-            onapBlueprintService.blueprintToString(onapComponentSpec, onapBlueprint, input));
+        OnapBlueprint onapBlueprint = dmaapBlueprintCreatorService.createBlueprint(onapComponentSpec, input);
+        blueprintService.blueprintToYaml(onapComponentSpec, onapBlueprint, input);
+        System.out.println(blueprintService.blueprintToString(onapComponentSpec, onapBlueprint, input));
 
         policyModelService.createPolicyModels(onapComponentSpec.getParameters(), "models");
 
@@ -390,8 +378,7 @@ public class OnapBlueprintServiceTest extends BlueprintGeneratorTests {
         assertNotNull(
             "K8s Blueprint for DMAAP Component Spec with Import File is NULL", onapComponentSpec);
 
-        OnapBlueprint onapBlueprint = dmaapBlueprintService
-            .createBlueprint(onapComponentSpec, input);
+        OnapBlueprint onapBlueprint = dmaapBlueprintCreatorService.createBlueprint(onapComponentSpec, input);
 
         onapTestUtils.verifyToscaDefVersion(
             "DMAAP with Import File K8s", onapBlueprint, Constants.TOSCA_DEF_VERSION);

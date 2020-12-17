@@ -4,6 +4,7 @@
  *  *  org.onap.dcae
  *  *  ================================================================================
  *  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
+ *  *  Copyright (c) 2020  Nokia. All rights reserved.
  *  *  ================================================================================
  *  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  *  you may not use this file except in compliance with the License.
@@ -21,7 +22,7 @@
  *
  */
 
-package org.onap.blueprintgenerator.service;
+package org.onap.blueprintgenerator.service.onap;
 
 import org.onap.blueprintgenerator.constants.Constants;
 import org.onap.blueprintgenerator.exception.BlueprintException;
@@ -48,7 +49,7 @@ import java.util.TreeMap;
  * @date 10/16/2020 Application: ONAP - Blueprint Generator Service to create ONAP Blueprint
  */
 @Service
-public class OnapBlueprintService extends BlueprintService {
+public class OnapBlueprintCreatorService {
 
     @Autowired
     private NodeService nodeService;

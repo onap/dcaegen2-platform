@@ -54,7 +54,7 @@ import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
  * Yaml/String
  */
 @Service
-public abstract class BlueprintService {
+public class BlueprintService {
 
     @Autowired
     protected FixesService fixesService;

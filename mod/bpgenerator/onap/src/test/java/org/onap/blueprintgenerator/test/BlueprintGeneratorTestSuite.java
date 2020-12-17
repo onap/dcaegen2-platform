@@ -33,7 +33,7 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
     OnapComponentSpecTest.class,
-    OnapBlueprintServiceTest.class,
+    OnapBlueprintCreatorServiceTest.class,
     ExternalCertificateParametersFactoryServiceTest.class /*, BlueprintJarComparatorTest.class*/
 })
 public class BlueprintGeneratorTestSuite {

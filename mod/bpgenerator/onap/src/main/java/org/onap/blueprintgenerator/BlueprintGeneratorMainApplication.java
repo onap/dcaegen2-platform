@@ -4,6 +4,7 @@
  *  *  org.onap.dcae
  *  *  ================================================================================
  *  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
+ *  *  Copyright (c) 2020  Nokia. All rights reserved.
  *  *  ================================================================================
  *  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  *  you may not use this file except in compliance with the License.
@@ -23,22 +24,23 @@
 
 package org.onap.blueprintgenerator;
 
+
+import static java.lang.System.exit;
+
 import org.onap.blueprintgenerator.model.base.Blueprint;
 import org.onap.blueprintgenerator.model.common.Input;
 import org.onap.blueprintgenerator.model.componentspec.OnapComponentSpec;
 import org.onap.blueprintgenerator.model.componentspec.base.ComponentSpec;
-import org.onap.blueprintgenerator.service.OnapBlueprintService;
+import org.onap.blueprintgenerator.service.BlueprintCreatorService;
+import org.onap.blueprintgenerator.service.base.BlueprintService;
 import org.onap.blueprintgenerator.service.common.CommonUtils;
 import org.onap.blueprintgenerator.service.common.ComponentSpecService;
-import org.onap.blueprintgenerator.service.dmaap.DmaapBlueprintService;
 import org.onap.policycreate.service.PolicyModelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
-
-import static java.lang.System.exit;
 
 /**
  * @author : Ravi Mantena
@@ -68,10 +70,10 @@ public class BlueprintGeneratorMainApplication implements CommandLineRunner {
     private CommonUtils onapCommonUtils;
 
     @Autowired
-    private OnapBlueprintService onapBlueprintService;
+    private BlueprintCreatorService blueprintCreatorService;
 
     @Autowired
-    private DmaapBlueprintService dmaapBlueprintService;
+    private BlueprintService blueprintService;
 
     /**
      * Main Application to run BPGen to generate Policies/Blueprint based on Input Arguments values
@@ -99,24 +101,10 @@ public class BlueprintGeneratorMainApplication implements CommandLineRunner {
                     componentSpec.getParameters(), input.getOutputPath());
             } else {
                 Input input = onapCommonUtils.parseInputs(args);
-                OnapComponentSpec onapComponentSpec =
-                    onapComponentSpecService
-                        .createComponentSpecFromFile(input.getComponentSpecPath());
-                if (input.getBpType().equals("o")) {
-                    Blueprint blueprint = onapBlueprintService
-                        .createBlueprint(onapComponentSpec, input);
-                    onapBlueprintService.blueprintToYaml(onapComponentSpec, blueprint, input);
-                    System.out.println(
-                        onapBlueprintService
-                            .blueprintToString(onapComponentSpec, blueprint, input));
-                } else if (input.getBpType().equals("d")) {
-                    Blueprint blueprint = dmaapBlueprintService
-                        .createBlueprint(onapComponentSpec, input);
-                    dmaapBlueprintService.blueprintToYaml(onapComponentSpec, blueprint, input);
-                    System.out.println(
-                        dmaapBlueprintService
-                            .blueprintToString(onapComponentSpec, blueprint, input));
-                }
+                OnapComponentSpec onapComponentSpec = onapComponentSpecService.createComponentSpecFromFile(input.getComponentSpecPath());
+                Blueprint blueprint = blueprintCreatorService.createBlueprint(onapComponentSpec, input);
+                blueprintService.blueprintToYaml(onapComponentSpec, blueprint, input);
+                System.out.println(blueprintService.blueprintToString(onapComponentSpec, blueprint, input));
             }
         }
 
