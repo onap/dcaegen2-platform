@@ -5,6 +5,7 @@
   ~  *  org.onap.dcae
   ~  *  ================================================================================
   ~  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
+  ~  *  Copyright (c) 2020  Nokia. All rights reserved.
   ~  *  ================================================================================
   ~  *  Licensed under the Apache License, Version 2.0 (the "License");
   ~  *  you may not use this file except in compliance with the License.
@@ -29,12 +30,13 @@
 
     <groupId>org.onap.dcaegen2.platform.mod</groupId>
     <artifactId>blueprint-generator</artifactId>
-    <version>1.7.0-SNAPSHOT</version>
+    <version>1.7.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
         <module>common</module>
         <module>onap</module>
+        <module>onap-executable</module>
     </modules>
 
     <name>BlueprintGenerator</name>
