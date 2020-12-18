@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24b63017_4934d346",
+        "filename": "mod/bpgenerator/onap-executable/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 3699
+      },
+      "writtenOn": "2020-12-18T09:08:06Z",
+      "side": 1,
+      "message": "Shouldn\u0027t there be a license? Also in other files probably there should be Modifications Copyright Nokia clause",
+      "revId": "e9f360cdced0f4118f0dd2a1dd35e8e458bedc3e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
