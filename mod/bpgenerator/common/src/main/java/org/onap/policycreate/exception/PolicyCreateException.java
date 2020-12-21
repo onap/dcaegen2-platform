@@ -25,18 +25,21 @@ package org.onap.policycreate.exception;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: DCAE/ONAP - Blueprint Generator
- * Common Module: Used by both ONAp and DCAE Blueprint Applications
- * Exception: For Policy Create
+ * @date 10/16/2020 Application: DCAE/ONAP - Blueprint Generator Common Module: Used by both ONAp
+ * and DCAE Blueprint Applications Exception: To handle error messages for Policy Create exceptions
  */
+public class PolicyCreateException extends RuntimeException {
 
-public class PolicyCreateException extends RuntimeException{
-
+    /**
+     * Handles Policy Create Exception for Error Message
+     */
     public PolicyCreateException(String errorMessage) {
         super(errorMessage);
     }
 
+    /**
+     * Handles Policy Create Exception for Error Message and Error
+     */
     public PolicyCreateException(String errorMessage, Throwable err) {
         super(errorMessage, err);
     }

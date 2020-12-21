@@ -23,7 +23,6 @@
 
 package org.onap.blueprintgenerator.test;
 
-
 import org.onap.blueprintgenerator.exception.ComponentSpecException;
 import org.onap.blueprintgenerator.model.componentspec.base.ComponentSpec;
 import org.junit.Test;
@@ -35,24 +34,35 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * ONAP ComponentSpec Test Cases
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator ONAP ComponentSpec Test Cases
  */
-
 public class OnapComponentSpecTest extends BlueprintGeneratorTests {
 
+    /**
+     * Test Case for ComponentSpec File Generation for Invalid File
+     *
+     */
     @DisplayName("Testing ComponentSpec File Generation for Invalid File")
     @Test(expected = ComponentSpecException.class)
     public void testComponentSpecForInvalidFile() {
         onapComponentSpecService.createComponentSpecFromFile("invalid.json");
     }
 
+    /**
+     * Test Case for ComponentSpec File Generation for Valid DMAAP Fil
+     *
+     */
     @DisplayName("Testing ComponentSpec File Generation for Valid DMAAP File")
     @Test
-    public void testComponentSpecForValidVesFile(){
-        ComponentSpec onapComponentSpec = onapComponentSpecService.createComponentSpecFromFile(Paths.get("src", "test", "resources", "componentspecs", ves).toFile().getAbsolutePath());
-        assertEquals("ComponentSpec name not matching for Valid Ves File",onapComponentSpec.getSelf().getName(), "dcae-ves-collector");
+    public void testComponentSpecForValidVesFile() {
+        ComponentSpec onapComponentSpec =
+            onapComponentSpecService.createComponentSpecFromFile(
+                Paths.get("src", "test", "resources", "componentspecs", ves)
+                    .toFile()
+                    .getAbsolutePath());
+        assertEquals(
+            "ComponentSpec name not matching for Valid Ves File",
+            onapComponentSpec.getSelf().getName(),
+            "dcae-ves-collector");
     }
-
 }

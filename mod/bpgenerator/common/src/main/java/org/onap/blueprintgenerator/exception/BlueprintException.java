@@ -28,15 +28,21 @@ package org.onap.blueprintgenerator.exception;
  * @date 10/16/2020
  * Application: DCAE/ONAP - Blueprint Generator
  * Common Module: Used by both ONAP and DCAE Blueprint Applications
- * Exception: For Blueprint
+ * Exception: To handle error messages for Blueprint
  */
 
-public class BlueprintException extends RuntimeException{
+public class BlueprintException extends RuntimeException {
 
+    /**
+     * Handles Blueprint Exception for Error Message
+     */
     public BlueprintException(String errorMessage) {
         super(errorMessage);
     }
 
+    /**
+     * Handles Blueprint Exception for Error Message and Error
+     */
     public BlueprintException(String errorMessage, Throwable err) {
         super(errorMessage, err);
     }

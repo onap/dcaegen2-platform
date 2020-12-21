@@ -28,18 +28,14 @@ import lombok.Data;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * ONAP Common Model used by both ONAP and DMAAP: Policy Properties
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator ONAP Common Model: A model class which
+ * represents Policy Properties
  */
-
-
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class PolicyProperties {
-	
-	private String type;
 
-	private Object entry_schema;
-	
+    private String type;
+
+    private Object entry_schema;
 }

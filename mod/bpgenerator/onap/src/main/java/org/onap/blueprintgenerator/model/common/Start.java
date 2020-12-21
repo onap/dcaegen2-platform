@@ -31,19 +31,15 @@ import java.util.Map;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * ONAP Common Model used by both ONAP and DMAAP: Start
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator ONAP Common Model: A model class which
+ * represents Start
  */
-
-
 @Data
-@JsonInclude(value= JsonInclude.Include.NON_NULL)
+@JsonInclude(value = JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Start {
 
     private StartInputs inputs;
 
     private Map<String, Object> envs;
-
 }

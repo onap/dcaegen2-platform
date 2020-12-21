@@ -23,7 +23,6 @@
 
 package org.onap.blueprintgenerator.service;
 
-
 import org.onap.blueprintgenerator.constants.Constants;
 import org.onap.blueprintgenerator.exception.BlueprintException;
 import org.onap.blueprintgenerator.model.common.Input;
@@ -46,11 +45,8 @@ import java.util.TreeMap;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * Service to create ONAP Blueprint
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator Service to create ONAP Blueprint
  */
-
 @Service
 public class OnapBlueprintService extends BlueprintService {
 
@@ -69,43 +65,51 @@ public class OnapBlueprintService extends BlueprintService {
     @Autowired
     protected ImportsService importsService;
 
-    // Method to generate Onap Blueprint
+    /**
+     * Creates Onap Blueprint
+     *
+     * @param onapComponentSpec OnapComponentSpec
+     * @param input Inputs
+     * @return
+     */
     public OnapBlueprint createBlueprint(OnapComponentSpec onapComponentSpec, Input input) {
         try {
             OnapBlueprint blueprint = new OnapBlueprint();
             blueprint.setTosca_definitions_version(Constants.TOSCA_DEF_VERSION);
 
-            //if (!"".equals(input.getImportPath()))
-            if (!StringUtils.isEmpty(input.getImportPath()))
+            // if (!"".equals(input.getImportPath()))
+            if (!StringUtils.isEmpty(input.getImportPath())) {
                 blueprint.setImports(importsService.createImportsFromFile(input.getImportPath()));
-            else
+            } else {
                 blueprint.setImports(importsService.createImports(input.getBpType()));
+            }
 
             Map<String, Node> nodeTemplate = new TreeMap<>();
             String nodeName = onapComponentSpec.getSelf().getName();
             Map<String, LinkedHashMap<String, Object>> inputs = new TreeMap<>();
 
-            Map<String, Object> onapNodeResponse = nodeService.createOnapNode(inputs, onapComponentSpec, input.getServiceNameOverride());
+            Map<String, Object> onapNodeResponse =
+                nodeService
+                    .createOnapNode(inputs, onapComponentSpec, input.getServiceNameOverride());
             inputs = (Map<String, LinkedHashMap<String, Object>>) onapNodeResponse.get("inputs");
             nodeTemplate.put(nodeName, (Node) onapNodeResponse.get("onapNode"));
             blueprint.setNode_templates(nodeTemplate);
 
-            if (onapComponentSpec.getPolicyInfo() != null)
+            if (onapComponentSpec.getPolicyInfo() != null) {
                 policyNodeService.addPolicyNodesAndInputs(onapComponentSpec, nodeTemplate, inputs);
+            }
 
-            if (onapComponentSpec.getAuxilary() != null && onapComponentSpec.getAuxilary().getDatabases() != null)
+            if (onapComponentSpec.getAuxilary() != null
+                && onapComponentSpec.getAuxilary().getDatabases() != null) {
                 pgaasNodeService.addPgaasNodesAndInputs(onapComponentSpec, nodeTemplate, inputs);
+            }
 
             blueprint.setInputs(inputs);
 
             return quotationService.setQuotations(blueprint);
         } catch (Exception ex) {
-            throw new BlueprintException("Unable to create ONAP Blueprint Object from given input parameters", ex);
+            throw new BlueprintException(
+                "Unable to create ONAP Blueprint Object from given input parameters", ex);
         }
     }
-
-
 }
-
-
-

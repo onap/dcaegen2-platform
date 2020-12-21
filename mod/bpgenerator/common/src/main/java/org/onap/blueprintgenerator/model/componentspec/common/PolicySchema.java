@@ -29,29 +29,26 @@ import lombok.Data;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: DCAE/ONAP - Blueprint Generator
- * Common Module: Used by both ONAP and DCAE Blueprint Applications
- * Component Spec Model: For Policy Schema
+ * @date 10/16/2020 Application: DCAE/ONAP - Blueprint Generator Common Module: Used by both ONAP
+ * and DCAE Blueprint Applications Component Spec Model: A model class which represents Policy
+ * Schema used in Componentspec
  */
-
 @Data
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PolicySchema {
 
-	private String name;
+    private String name;
 
-	private String description;
+    private String description;
 
-	private String type;
+    private String type;
 
-	private String value;
+    private String value;
 
-	private EntrySchema[] entry_schema;
+    private EntrySchema[] entry_schema;
 
-	private boolean required;
+    private boolean required;
 
-	private Constraints[] constraints;
-
- }
+    private Constraints[] constraints;
+}

@@ -35,12 +35,9 @@ import java.util.Map;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * Component Spec Model for ONAP Auxillary derived from Common Module Auxillary used by both DCAE and ONAP
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator ONAP Component Spec Model: A model class
+ * which represents ONAP Auxillary derived from Common Module Auxillary
  */
-
-
 @Data
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -56,5 +53,4 @@ public class OnapAuxilary extends Auxilary {
     private Map<String, Object> tls_info;
 
     private Volumes[] volumes;
-
 }

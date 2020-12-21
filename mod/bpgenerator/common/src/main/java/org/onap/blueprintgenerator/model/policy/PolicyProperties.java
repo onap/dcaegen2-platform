@@ -29,16 +29,12 @@ import lombok.Data;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: DCAE/ONAP - Blueprint Generator
- * Common Module: Used by both ONAp and DCAE Blueprint Applications
- * Policy Model: To Get Policy Properties
+ * @date 10/16/2020 Application: DCAE/ONAP - Blueprint Generator Common Module: Used by both ONAp
+ * and DCAE Blueprint Applications Policy Model: A model class which represents Policy Properties
  */
-
 @Data
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 public class PolicyProperties {
 
-	private GetInput policy_id;
-
+    private GetInput policy_id;
 }

@@ -23,26 +23,22 @@
 
 package org.onap.blueprintgenerator.model.componentspec.common;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: DCAE/ONAP - Blueprint Generator
- * Common Module: Used by both ONAP and DCAE Blueprint Applications
- * Component Spec Model: For Request Response
+ * @date 10/16/2020 Application: DCAE/ONAP - Blueprint Generator Common Module: Used by both ONAP
+ * and DCAE Blueprint Applications Component Spec Model: A model class which represents Request
+ * Response used in Componentspec
  */
-
 @Data
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class RequestResponse {
 
-	private String format;
+    private String format;
 
-	private String version;
-
+    private String version;
 }

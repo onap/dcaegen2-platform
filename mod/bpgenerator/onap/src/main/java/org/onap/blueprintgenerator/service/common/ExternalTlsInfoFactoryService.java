@@ -36,12 +36,9 @@ import java.util.Map;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * Common ONAP Service used by ONAP and DMAAP Blueprint to add External TLS Info
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator Common ONAP Service to add External TLS
+ * Info
  */
-
-
 @Service
 public class ExternalTlsInfoFactoryService extends ExternalCertificateDataFactoryService {
 
@@ -51,37 +48,58 @@ public class ExternalTlsInfoFactoryService extends ExternalCertificateDataFactor
     @Autowired
     private BlueprintHelperService blueprintHelperService;
 
-    //Method to create External TLS Info from Component Spec
+    /**
+     * Creates External TLS Info from Component Spec
+     *
+     * @param cs ComponentSpec
+     * @return
+     */
     public ExternalTlsInfo createFromComponentSpec(OnapComponentSpec cs) {
         ExternalTlsInfo externalTlsInfoBp = new ExternalTlsInfo();
         Map<String, Object> tlsInfoCs = cs.getAuxilary().getTls_info();
 
-        externalTlsInfoBp.setExternalCertDirectory((String) tlsInfoCs.get(Constants.CERT_DIRECTORY_FIELD));
-        externalTlsInfoBp.setUseExternalTls(createPrefixedGetInput(Constants.USE_EXTERNAL_TLS_FIELD));
+        externalTlsInfoBp.setExternalCertDirectory(
+            (String) tlsInfoCs.get(Constants.CERT_DIRECTORY_FIELD));
+        externalTlsInfoBp
+            .setUseExternalTls(createPrefixedGetInput(Constants.USE_EXTERNAL_TLS_FIELD));
         externalTlsInfoBp.setCaName(createPrefixedGetInput(Constants.CA_NAME_FIELD));
         externalTlsInfoBp.setCertType(createPrefixedGetInput(Constants.CERT_TYPE_FIELD));
-        externalTlsInfoBp.setExternalCertificateParameters(externalCertificateParametersFactoryService.create());
+        externalTlsInfoBp.setExternalCertificateParameters(
+            externalCertificateParametersFactoryService.create());
 
         return externalTlsInfoBp;
     }
 
-    //Method to create Input List for External TLS Info from Component Spec
-    public Map<String, LinkedHashMap<String, Object>> createInputListFromComponentSpec(OnapComponentSpec cs) {
+    /**
+     * Creates Input List for External TLS Info from Component Spec
+     *
+     * @param cs ComponentSpec
+     * @return
+     */
+    public Map<String, LinkedHashMap<String, Object>> createInputListFromComponentSpec(
+        OnapComponentSpec cs) {
 
         Map<String, LinkedHashMap<String, Object>> retInputs = new HashMap<>();
 
         Map<String, Object> externalTlsInfoCs = cs.getAuxilary().getTls_info();
-        LinkedHashMap<String, Object> useTlsFlagInput = blueprintHelperService.createBooleanInput("Flag to indicate external tls enable/disable.",externalTlsInfoCs.get(Constants.USE_EXTERNAL_TLS_FIELD));
+        LinkedHashMap<String, Object> useTlsFlagInput =
+            blueprintHelperService.createBooleanInput(
+                "Flag to indicate external tls enable/disable.",
+                externalTlsInfoCs.get(Constants.USE_EXTERNAL_TLS_FIELD));
         retInputs.put(addPrefix(Constants.USE_EXTERNAL_TLS_FIELD), useTlsFlagInput);
 
-        LinkedHashMap<String, Object> caNameInputMap = blueprintHelperService.createStringInput("Name of Certificate Authority configured on CertService side.",Constants.DEFAULT_CA);
+        LinkedHashMap<String, Object> caNameInputMap =
+            blueprintHelperService.createStringInput(
+                "Name of Certificate Authority configured on CertService side.",
+                Constants.DEFAULT_CA);
         retInputs.put(addPrefix(Constants.CA_NAME_FIELD), caNameInputMap);
 
-        LinkedHashMap<String, Object> certTypeInputMap = blueprintHelperService.createStringInput("Format of provided certificates",Constants.DEFAULT_CERT_TYPE);
+        LinkedHashMap<String, Object> certTypeInputMap =
+            blueprintHelperService.createStringInput(
+                "Format of provided certificates", Constants.DEFAULT_CERT_TYPE);
         retInputs.put(addPrefix(Constants.CERT_TYPE_FIELD), certTypeInputMap);
 
         retInputs.putAll(externalCertificateParametersFactoryService.createInputList());
         return retInputs;
     }
-
 }

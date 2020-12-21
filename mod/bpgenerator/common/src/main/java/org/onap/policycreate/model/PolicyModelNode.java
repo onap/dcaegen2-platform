@@ -31,17 +31,14 @@ import java.util.Map;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: DCAE/ONAP - Blueprint Generator
- * Common Module: Used by both ONAp and DCAE Blueprint Applications
- * Policy Create Model: For Policy Model Node
+ * @date 10/16/2020 Application: DCAE/ONAP - Blueprint Generator Common Module: Used by both ONAp
+ * and DCAE Blueprint Applications Policy Create Model: A model class which represents Policy Model
+ * Node
  */
-
 @Data
-@JsonInclude(value=Include.NON_NULL)
+@JsonInclude(value = Include.NON_NULL)
 public class PolicyModelNode {
 
-	private String derived_from;
-	private Map<String, PolicyProperties> properties;
-
+    private String derived_from;
+    private Map<String, PolicyProperties> properties;
 }

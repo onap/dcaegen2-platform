@@ -30,19 +30,14 @@ import java.util.Map;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * ONAP Common Model used by both ONAP and DMAAP: Policy Model
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator ONAP Common Model: A model class which
+ * represents Policy Model
  */
-
-
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class PolicyModel {
-	
-	private String tosca_definition_version;
-	private Map<String, PolicyModelNode> node_types;
-	private Map<String, PolicyModelNode> data_types;
-	
 
+    private String tosca_definition_version;
+    private Map<String, PolicyModelNode> node_types;
+    private Map<String, PolicyModelNode> data_types;
 }

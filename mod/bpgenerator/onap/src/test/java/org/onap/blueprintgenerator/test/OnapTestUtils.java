@@ -53,14 +53,11 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * Test Utilities used in Test Suite and Test Cases
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator Test Utilities used in Test Suite and
+ * Test Cases
  */
-
 @Component
 @Ignore
 public class OnapTestUtils extends BlueprintGeneratorTests {
@@ -83,9 +80,24 @@ public class OnapTestUtils extends BlueprintGeneratorTests {
     @Value("${import.Clamp}")
     private String importClamp;
 
-
-
-    public Input getInput(String componentSpecPath,String outputPath,String bluePrintName,String importPath,String bpType,String serviceNameOverride){
+    /**
+     * Creates Input
+     *
+     * @param componentSpecPath
+     * @param outputPath
+     * @param bluePrintName
+     * @param importPath
+     * @param bpType
+     * @param serviceNameOverride
+     * @return
+     */
+    public Input getInput(
+        String componentSpecPath,
+        String outputPath,
+        String bluePrintName,
+        String importPath,
+        String bpType,
+        String serviceNameOverride) {
         Input input = new Input();
         input.setComponentSpecPath(componentSpecPath);
         input.setBluePrintName(bluePrintName);
@@ -96,112 +108,285 @@ public class OnapTestUtils extends BlueprintGeneratorTests {
         return input;
     }
 
-    public Input getInput(String componentSpecPath){
+    /**
+     * Creates Input from Component Spec Path
+     *
+     * @param componentSpecPath
+     * @return
+     */
+    public Input getInput(String componentSpecPath) {
         Input input = new Input();
         input.setComponentSpecPath(componentSpecPath);
         return input;
     }
 
-    public void verifyToscaDefVersion(String type,Blueprint blueprint,String toscaDefVersion){
+    /**
+     * Verifies Tosca Def Version
+     *
+     * @param type
+     * @param blueprint
+     * @param toscaDefVersion
+     */
+    public void verifyToscaDefVersion(String type, Blueprint blueprint, String toscaDefVersion) {
         String bpToscaDefVersion = blueprint.getTosca_definitions_version();
         assertNotNull(type + " TOSCA Definition Version is NULL", bpToscaDefVersion);
-        assertEquals(type + " TOSCA Definition Version is not Matching", bpToscaDefVersion, toscaDefVersion);
+        assertEquals(
+            type + " TOSCA Definition Version is not Matching", bpToscaDefVersion, toscaDefVersion);
     }
 
-    public void verifyBpImports(String type,Blueprint blueprint, boolean validateimps) {
-        String[] bpImports = blueprint.getImports().toArray(new String[blueprint.getImports().size()]);
+    /**
+     * Verifies Imports
+     *
+     * @param type
+     * @param blueprint
+     * @param validateimps
+     */
+    public void verifyBpImports(String type, Blueprint blueprint, boolean validateimps) {
+        String[] bpImports = blueprint.getImports()
+            .toArray(new String[blueprint.getImports().size()]);
         if (validateimps) {
-            String[] testImports = {importsOnapTypes,importsOnapK8sPlugintypes,importsDmaapDmaapplugin,importPostgres,importClamp};
-            assertArrayEquals(type + " Blueprint Imports is not matching with default Dmaap K8s Blueprint imports", bpImports, testImports);
+            String[] testImports = {
+                importsOnapTypes,
+                importsOnapK8sPlugintypes,
+                importsDmaapDmaapplugin,
+                importPostgres,
+                importClamp
+            };
+            assertArrayEquals(
+                type
+                    + " Blueprint Imports is not matching with default Dmaap K8s Blueprint imports",
+                bpImports,
+                testImports);
+        } else {
+            String[] testImports = {
+                importsOnapTypes,
+                importsOnapK8sPlugintypes,
+                importsOnapK8sDcaepolicyplugin,
+                importPostgres,
+                importClamp
+            };
+            assertArrayEquals(
+                type + " Blueprint Imports is not matching with default Onap K8s Blueprint imports",
+                bpImports,
+                testImports);
         }
-        else{
-            String[] testImports = {importsOnapTypes,importsOnapK8sPlugintypes,importsOnapK8sDcaepolicyplugin,importPostgres,importClamp};
-            assertArrayEquals(type + " Blueprint Imports is not matching with default Onap K8s Blueprint imports", bpImports, testImports);
-        }
-
     }
 
-    public void verifyBpImportsFromFile(String type,Blueprint blueprint, String importPath) throws IOException {
-        Blueprint importFileRead = yamlObjectMapper.readValue(new File(importPath), Blueprint.class);
-        String[] importFileImports = importFileRead.getImports().toArray(new String[importFileRead.getImports().size()]);
-        String[] bpImports = blueprint.getImports().toArray(new String[blueprint.getImports().size()]);
-        assertArrayEquals(type + " Blueprint Imports is not matching with default Dmaap K8s Blueprint imports", bpImports, importFileImports);
-
+    /**
+     * Verifies Imports from file
+     *
+     * @param type
+     * @param blueprint
+     * @param importPath
+     */
+    public void verifyBpImportsFromFile(String type, Blueprint blueprint, String importPath)
+        throws IOException {
+        Blueprint importFileRead = yamlObjectMapper
+            .readValue(new File(importPath), Blueprint.class);
+        String[] importFileImports =
+            importFileRead.getImports().toArray(new String[importFileRead.getImports().size()]);
+        String[] bpImports = blueprint.getImports()
+            .toArray(new String[blueprint.getImports().size()]);
+        assertArrayEquals(
+            type + " Blueprint Imports is not matching with default Dmaap K8s Blueprint imports",
+            bpImports,
+            importFileImports);
     }
 
-    public void verifyStreamsPublishes(String type, OnapComponentSpec onapComponentSpec, Properties nodeTemplateProperties) {
+    /**
+     * Verifies Streams Publishes
+     *
+     * @param type
+     * @param onapComponentSpec
+     * @param nodeTemplateProperties
+     */
+    public void verifyStreamsPublishes(
+        String type, OnapComponentSpec onapComponentSpec, Properties nodeTemplateProperties) {
         List<Streams> streamsPublishes = nodeTemplateProperties.getStreams_publishes();
         if (!(streamsPublishes == null)) {
-            assertNotNull(type + " Blueprint:NodeTemplates:Properties:StreamsPublishes is NULL", streamsPublishes);
-            assertTrue(type + " Blueprint:NodeTemplates:Properties:StreamsPublishes Section Size is 0", streamsPublishes.size() > 0);
-            assertEquals(type + " Blueprint:NodeTemplates:Properties:StreamsPublishes is Not Matching", streamsPublishes.get(0).getType(), Constants.MESSAGEROUTER_VALUE);
-            assertEquals(type + " Blueprint:NodeTemplates:Properties:StreamsPublishes is Not Matching", streamsPublishes.get(1).getType(), Constants.MESSAGEROUTER_VALUE);
+            assertNotNull(
+                type + " Blueprint:NodeTemplates:Properties:StreamsPublishes is NULL",
+                streamsPublishes);
+            assertTrue(
+                type + " Blueprint:NodeTemplates:Properties:StreamsPublishes Section Size is 0",
+                streamsPublishes.size() > 0);
+            assertEquals(
+                type + " Blueprint:NodeTemplates:Properties:StreamsPublishes is Not Matching",
+                streamsPublishes.get(0).getType(),
+                Constants.MESSAGEROUTER_VALUE);
+            assertEquals(
+                type + " Blueprint:NodeTemplates:Properties:StreamsPublishes is Not Matching",
+                streamsPublishes.get(1).getType(),
+                Constants.MESSAGEROUTER_VALUE);
         }
     }
 
-    public void verifyStreamsSubscribes(String type,OnapComponentSpec onapComponentSpec, Properties nodeTemplateProperties){
+    /**
+     * Verifies Streams Subscribes
+     *
+     * @param type
+     * @param onapComponentSpec
+     * @param nodeTemplateProperties
+     */
+    public void verifyStreamsSubscribes(
+        String type, OnapComponentSpec onapComponentSpec, Properties nodeTemplateProperties) {
         List<Streams> streamsSubscribes = nodeTemplateProperties.getStreams_subscribes();
         if (!(streamsSubscribes == null)) {
-            assertNotNull(type + " Blueprint:NodeTemplates:Properties:StreamsSubscribes is NULL", streamsSubscribes);
-            assertTrue(type + " Blueprint:NodeTemplates:Properties:StreamsSubscribes Section Size is 0", streamsSubscribes.size() > 0);
-            assertEquals(type + " Blueprint:NodeTemplates:Properties:StreamsSubscribes is Not Matching", streamsSubscribes.get(0).getType(), Constants.MESSAGE_ROUTER);
-            assertEquals(type + " Blueprint:NodeTemplates:Properties:StreamsSubscribes is Not Matching", streamsSubscribes.get(1).getType(), Constants.DATA_ROUTER);
+            assertNotNull(
+                type + " Blueprint:NodeTemplates:Properties:StreamsSubscribes is NULL",
+                streamsSubscribes);
+            assertTrue(
+                type + " Blueprint:NodeTemplates:Properties:StreamsSubscribes Section Size is 0",
+                streamsSubscribes.size() > 0);
+            assertEquals(
+                type + " Blueprint:NodeTemplates:Properties:StreamsSubscribes is Not Matching",
+                streamsSubscribes.get(0).getType(),
+                Constants.MESSAGE_ROUTER);
+            assertEquals(
+                type + " Blueprint:NodeTemplates:Properties:StreamsSubscribes is Not Matching",
+                streamsSubscribes.get(1).getType(),
+                Constants.DATA_ROUTER);
         }
     }
 
-    public void verifyServicesCalls(String type, OnapComponentSpec onapComponentSpec){
+    /**
+     * Verifies Services Calls
+     *
+     * @param type
+     * @param onapComponentSpec
+     */
+    public void verifyServicesCalls(String type, OnapComponentSpec onapComponentSpec) {
         Calls[] csServicesCalls = onapComponentSpec.getServices().getCalls();
         assertNotNull(type + " ComponentSpec Services Calls is NULL", csServicesCalls);
-        //assertTrue(type + " ComponentSpec Services Calls Section Size is 0", csServicesCalls.length > 0);
+        // assertTrue(type + " ComponentSpec Services Calls Section Size is 0", csServicesCalls.length >
+        // 0);
     }
 
-    public void verifyServicesProvides(String type, OnapComponentSpec onapComponentSpec){
+    /**
+     * Verifies Services Provides
+     *
+     * @param type
+     * @param onapComponentSpec
+     */
+    public void verifyServicesProvides(String type, OnapComponentSpec onapComponentSpec) {
         Provides[] csServicesProvides = onapComponentSpec.getServices().getProvides();
         assertNotNull(type + " ComponentSpec Services Provides is NULL", csServicesProvides);
-        assertTrue(type + " ComponentSpec Services Provides Section Size is 0", csServicesProvides.length > 0);
+        assertTrue(
+            type + " ComponentSpec Services Provides Section Size is 0",
+            csServicesProvides.length > 0);
     }
 
-    public void verifyDockerConfig(String type,OnapComponentSpec onapComponentSpec, Properties nodeTemplateProperties){
-        OnapAuxilary dockerConfig =  nodeTemplateProperties.getDocker_config();
-        assertNotNull(type +" Blueprint Docker Config Section is NULL", dockerConfig);
+    /**
+     * Verifies Docker Config
+     *
+     * @param type
+     * @param onapComponentSpec
+     * @param nodeTemplateProperties
+     */
+    public void verifyDockerConfig(
+        String type, OnapComponentSpec onapComponentSpec, Properties nodeTemplateProperties) {
+        OnapAuxilary dockerConfig = nodeTemplateProperties.getDocker_config();
+        assertNotNull(type + " Blueprint Docker Config Section is NULL", dockerConfig);
     }
 
-
-    public void verifyParameters(String type, OnapComponentSpec onapComponentSpec, Map<String, Node> nodeTemplates) {
+    /**
+     * Verifies Parameters
+     *
+     * @param type
+     * @param onapComponentSpec
+     * @param nodeTemplates
+     */
+    public void verifyParameters(
+        String type, OnapComponentSpec onapComponentSpec, Map<String, Node> nodeTemplates) {
         Parameters[] csParameters = onapComponentSpec.getParameters();
-        assertNotNull(type +" ComponentSpec Parameters Section is NULL", csParameters);
+        assertNotNull(type + " ComponentSpec Parameters Section is NULL", csParameters);
         assertTrue(type + " ComponentSpec Parameters Section Size is 0", csParameters.length > 0);
     }
 
-    public void verifyAuxilary(String type, OnapComponentSpec onapComponentSpec){
+    /**
+     * Verifies Auxilary
+     *
+     * @param type
+     * @param onapComponentSpec
+     */
+    public void verifyAuxilary(String type, OnapComponentSpec onapComponentSpec) {
         OnapAuxilary csAuxilary = onapComponentSpec.getAuxilary();
-        assertNotNull(type +" ComponentSpec Auxilary Section is NULL", csAuxilary);
+        assertNotNull(type + " ComponentSpec Auxilary Section is NULL", csAuxilary);
     }
 
-    public void verifyHealthCheck(String type,OnapComponentSpec onapComponentSpec, Properties nodeTemplateProperties){
+    /**
+     * Verifies HealthCheck
+     *
+     * @param type
+     * @param onapComponentSpec
+     * @param nodeTemplateProperties
+     */
+    public void verifyHealthCheck(
+        String type, OnapComponentSpec onapComponentSpec, Properties nodeTemplateProperties) {
         HealthCheck csAuxilaryHealthcheck = onapComponentSpec.getAuxilary().getHealthcheck();
-        assertNotNull(type +" ComponentSpec Auxilary Health Check Section is NULL", csAuxilaryHealthcheck);
+        assertNotNull(
+            type + " ComponentSpec Auxilary Health Check Section is NULL", csAuxilaryHealthcheck);
         HealthCheck healthCheck = nodeTemplateProperties.getDocker_config().getHealthcheck();
-        assertNotNull(type + " Blueprint:NodeTemplates:DockerConfig:Healthcheck Section is NULL", healthCheck);
-        assertEquals(type + " Blueprint:NodeTemplates:DockerConfig:Healthcheck:Interval Tag is not matching", healthCheck.getInterval(), csAuxilaryHealthcheck.getInterval());
-        assertEquals(type + " Blueprint:NodeTemplates:DockerConfig:Healthcheck:Timeout Tag is not matching", healthCheck.getTimeout(), csAuxilaryHealthcheck.getTimeout());
-        assertEquals(type + " Blueprint:NodeTemplates:DockerConfig:Healthcheck:Script Tag is not matching", healthCheck.getEndpoint(), csAuxilaryHealthcheck.getEndpoint());
-        assertEquals(type + " Blueprint:NodeTemplates:DockerConfig:Healthcheck:Type Tag is not matching", healthCheck.getType(), csAuxilaryHealthcheck.getType());
+        assertNotNull(
+            type + " Blueprint:NodeTemplates:DockerConfig:Healthcheck Section is NULL",
+            healthCheck);
+        assertEquals(
+            type + " Blueprint:NodeTemplates:DockerConfig:Healthcheck:Interval Tag is not matching",
+            healthCheck.getInterval(),
+            csAuxilaryHealthcheck.getInterval());
+        assertEquals(
+            type + " Blueprint:NodeTemplates:DockerConfig:Healthcheck:Timeout Tag is not matching",
+            healthCheck.getTimeout(),
+            csAuxilaryHealthcheck.getTimeout());
+        assertEquals(
+            type + " Blueprint:NodeTemplates:DockerConfig:Healthcheck:Script Tag is not matching",
+            healthCheck.getEndpoint(),
+            csAuxilaryHealthcheck.getEndpoint());
+        assertEquals(
+            type + " Blueprint:NodeTemplates:DockerConfig:Healthcheck:Type Tag is not matching",
+            healthCheck.getType(),
+            csAuxilaryHealthcheck.getType());
     }
 
-    public void verifyVolumes(String type,OnapComponentSpec onapComponentSpec, Properties nodeTemplateProperties){
+    /**
+     * Verifies Volumes
+     *
+     * @param type
+     * @param onapComponentSpec
+     * @param nodeTemplateProperties
+     */
+    public void verifyVolumes(
+        String type, OnapComponentSpec onapComponentSpec, Properties nodeTemplateProperties) {
         Volumes[] csAuxilaryVolumes = onapComponentSpec.getAuxilary().getVolumes();
-        assertNotNull(type +" ComponentSpec Auxilary Live Health Check Section is NULL", csAuxilaryVolumes);
+        assertNotNull(
+            type + " ComponentSpec Auxilary Live Health Check Section is NULL", csAuxilaryVolumes);
         Volumes[] onapVolumes = nodeTemplateProperties.getDocker_config().getVolumes();
-        assertNotNull(type + " Blueprint:NodeTemplates:DockerConfig:LiveHealthcheck Section is NULL", onapVolumes);
+        assertNotNull(
+            type + " Blueprint:NodeTemplates:DockerConfig:LiveHealthcheck Section is NULL",
+            onapVolumes);
     }
 
-    public void verifyArtifacts(String type,OnapComponentSpec onapComponentSpec, Map<String, LinkedHashMap<String, Object>> inputs,String bptype){
+    /**
+     * Verifies Artifacts
+     *
+     * @param type
+     * @param onapComponentSpec
+     * @param inputs
+     * @param bptype
+     */
+    public void verifyArtifacts(
+        String type,
+        OnapComponentSpec onapComponentSpec,
+        Map<String, LinkedHashMap<String, Object>> inputs,
+        String bptype) {
         Artifacts[] csArtifacts = onapComponentSpec.getArtifacts();
         assertNotNull(type + " ComponentSpec Artifacts Section is NULL", csArtifacts);
-        assertEquals(type + " Blueprint:Artifacts:image is not matching", ((String) inputs.get("image").get("default")), "\"" + csArtifacts[0].getUri() + "\"");
-        //assertEquals(type + " Blueprint:Artifacts:image is not matching", ((String) inputs.get("tag_version").get("default")), "\"" + csArtifacts[0].getUri() + "\"");
+        assertEquals(
+            type + " Blueprint:Artifacts:image is not matching",
+            ((String) inputs.get("image").get("default")),
+            "\"" + csArtifacts[0].getUri() + "\"");
+        // assertEquals(type + " Blueprint:Artifacts:image is not matching", ((String)
+        // inputs.get("tag_version").get("default")), "\"" + csArtifacts[0].getUri() + "\"");
 
     }
-
 }

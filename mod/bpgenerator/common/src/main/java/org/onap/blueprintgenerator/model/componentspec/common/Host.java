@@ -29,19 +29,16 @@ import lombok.EqualsAndHashCode;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: DCAE/ONAP - Blueprint Generator
- * Common Module: Used by both ONAP and DCAE Blueprint Applications
- * Component Spec Model: For Host
+ * @date 10/16/2020 Application: DCAE/ONAP - Blueprint Generator Common Module: Used by both ONAP
+ * and DCAE Blueprint Applications Component Spec Model: A model class which represents Host used in
+ * Componentspec
  */
-
 @Data
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 @EqualsAndHashCode
 public class Host {
 
-	private String path;
+    private String path;
 
-	private String mode;
-
+    private String mode;
 }

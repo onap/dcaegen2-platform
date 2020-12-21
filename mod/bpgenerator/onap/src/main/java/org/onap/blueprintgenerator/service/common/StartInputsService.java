@@ -38,22 +38,26 @@ import java.util.List;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * Common ONAP Service used by ONAP and DMAAP Blueprint to add Start Inputs Node under Start
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator Common ONAP Service to add Start Inputs
+ * Node under Start
  */
-
-
 @Service
 public class StartInputsService {
 
     @Autowired
     private PgaasNodeService pgaasNodeService;
 
-    //Method to create Start Inputs for Start in Interfaces
-    public Map<String, Object> createStartInputs(Map<String, LinkedHashMap<String, Object>> inputs, OnapComponentSpec onapComponentSpec){
+    /**
+     * Creates Start Inputs for Start in Interfaces
+     *
+     * @param inputs Inputs
+     * @param onapComponentSpec OnapComponentSpec
+     * @return
+     */
+    public Map<String, Object> createStartInputs(
+        Map<String, LinkedHashMap<String, Object>> inputs, OnapComponentSpec onapComponentSpec) {
 
-        Map<String,Object> response = new HashMap<>();
+        Map<String, Object> response = new HashMap<>();
         StartInputs startInputs = new StartInputs();
 
         int count = 0;
@@ -61,9 +65,11 @@ public class StartInputsService {
         OnapAuxilary aux = onapComponentSpec.getAuxilary();
 
         if (aux.getPorts() != null) {
-            for(Object p : aux.getPorts()) {
+            for (Object p : aux.getPorts()) {
                 String[] ports = p.toString().split(":");
-                portList.add(String.format("concat: [\"%s:\", {get_input: external_port_%d}]" , ports[0], count));
+                portList.add(
+                    String.format("concat: [\"%s:\", {get_input: external_port_%d}]", ports[0],
+                        count));
 
                 LinkedHashMap<String, Object> portType = new LinkedHashMap();
                 portType.put("type", "string");
@@ -76,12 +82,12 @@ public class StartInputsService {
         startInputs.setPorts(portList);
 
         LinkedHashMap<String, Object> envMap = new LinkedHashMap();
-        if(onapComponentSpec.getAuxilary().getDatabases() != null){
-            Map<String, Object> envVars = pgaasNodeService.getEnvVariables(onapComponentSpec.getAuxilary().getDatabases());
+        if (onapComponentSpec.getAuxilary().getDatabases() != null) {
+            Map<String, Object> envVars =
+                pgaasNodeService.getEnvVariables(onapComponentSpec.getAuxilary().getDatabases());
             startInputs.setEnvs(envVars);
             envMap.put("default", "&envs {}");
-        }
-        else {
+        } else {
             GetInput env = new GetInput();
             env.setBpInputName("envs");
             startInputs.setEnvs(env);
@@ -93,5 +99,4 @@ public class StartInputsService {
         response.put("inputs", inputs);
         return response;
     }
-
 }

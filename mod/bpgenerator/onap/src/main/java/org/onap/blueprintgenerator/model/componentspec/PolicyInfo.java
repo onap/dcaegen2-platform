@@ -30,16 +30,12 @@ import java.util.List;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * Component Spec Model for Policy Info
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator ONAP Component Spec Model: A model class
+ * which represents Policy Info
  */
-
-
 @Data
 public class PolicyInfo {
 
     @JsonProperty("policy")
     private List<TypePolicy> typePolicyList;
-
 }

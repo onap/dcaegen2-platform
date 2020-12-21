@@ -29,17 +29,13 @@ import java.util.Map;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * ONAP Common Model used by both ONAP and DMAAP: Resource Config
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator ONAP Common Model: A model class which
+ * represents Resource Config
  */
-
-
 @Data
 public class ResourceConfig {
 
-	private Map<String, GetInput> limits;
+    private Map<String, GetInput> limits;
 
-	private Map<String, GetInput> requests;
-
+    private Map<String, GetInput> requests;
 }

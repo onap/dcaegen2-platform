@@ -31,19 +31,14 @@ import java.util.Map;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: DCAE/ONAP - Blueprint Generator
- * Common Module: Used by both ONAp and DCAE Blueprint Applications
- * Policy Create Model: For Policy Model
+ * @date 10/16/2020 Application: DCAE/ONAP - Blueprint Generator Common Module: Used by both ONAp
+ * and DCAE Blueprint Applications Policy Create Model: A model class which represents Policy Model
  */
-
 @Data
-@JsonInclude(value=Include.NON_NULL)
+@JsonInclude(value = Include.NON_NULL)
 public class PolicyModel {
 
     private String tosca_definition_version;
     private Map<String, PolicyModelNode> node_types;
     private Map<String, PolicyModelNode> data_types;
-
 }
-

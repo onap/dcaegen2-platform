@@ -42,12 +42,9 @@ import java.util.TreeMap;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * Service for Policy Model to create Policy Models, Policy Group Names and Convert Policy to Yaml
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator Service for Policy Model to create
+ * Policy Models, Policy Group Names and Convert Policy to Yaml
  */
-
-
 @Service("onapPolicyModelService")
 public class PolicyModelService {
 
@@ -58,7 +55,13 @@ public class PolicyModelService {
     @Autowired
     private PolicyModelNodeService policyModelNodeService;
 
-    // Method to create Policy Models
+    /**
+     * Creates Policy Models
+     *
+     * @param params Parameters
+     * @param filePath File path
+     * @return
+     */
     public void createPolicyModels(Parameters[] params, String filePath) {
         try {
             List<String> policyGroups = getPolicyGroupNames(params);
@@ -72,12 +75,16 @@ public class PolicyModelService {
                 nodeType.put(nodeTypeName, (PolicyModelNode) response.get("policyModelNode"));
                 model.setNode_types(nodeType);
 
-                if (!"".equals(response.get("hasEntrySchema")))
-                    model.setData_types(policyModelNodeService.createDataTypes((String) response.get("hasEntrySchema"), params));
+                if (!"".equals(response.get("hasEntrySchema"))) {
+                    model.setData_types(
+                        policyModelNodeService.createDataTypes(
+                            (String) response.get("hasEntrySchema"), params));
+                }
                 policyModelToYaml(filePath, model, s);
             }
         } catch (Exception ex) {
-            throw new PolicyCreateException("Unable to create Policies from given input parameters", ex);
+            throw new PolicyCreateException("Unable to create Policies from given input parameters",
+                ex);
         }
     }
 
@@ -88,7 +95,7 @@ public class PolicyModelService {
                 if (names.isEmpty()) {
                     names.add(p.getPolicy_group());
                 } else if (!names.contains(p.getPolicy_group())) {
-                        names.add(p.getPolicy_group());
+                    names.add(p.getPolicy_group());
                 }
             }
         }
@@ -100,6 +107,4 @@ public class PolicyModelService {
         outputFile.getParentFile().mkdirs();
         yamlObjectMapper.writeValue(outputFile, model);
     }
-
 }
-

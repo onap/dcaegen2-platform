@@ -30,27 +30,24 @@ import lombok.EqualsAndHashCode;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: DCAE/ONAP - Blueprint Generator
- * Common Module: Used by both ONAP and DCAE Blueprint Applications
- * Component Spec Model: For Publishes
+ * @date 10/16/2020 Application: DCAE/ONAP - Blueprint Generator Common Module: Used by both ONAP
+ * and DCAE Blueprint Applications Component Spec Model: A model class which represents Publishes
+ * used in Componentspec
  */
-
 @Data
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @EqualsAndHashCode
 public class Publishes {
 
-	private String config_key;
+    private String config_key;
 
-	private String format;
+    private String format;
 
-	private String type;
+    private String type;
 
-	private String version;
+    private String version;
 
-	//Used in ONAP
-	private String route;
-
+    // Used in ONAP
+    private String route;
 }

@@ -23,8 +23,6 @@
 
 package org.onap.blueprintgenerator.service.common;
 
-
-
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.ParseException;
@@ -40,57 +38,74 @@ import static java.lang.System.exit;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * Common ONAP Service used by ONAP and DMAAP Blueprint to Print Instructions and Parse Inputs
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator Common ONAP Service used by ONAP and
+ * DMAAP Blueprint to Print Instructions and Parse Inputs
  */
-
-
 @Service("onapCommonUtilsService")
 public class CommonUtils {
 
+    /**
+     * Prints input arguments options to run the Blueprint Application
+     */
     public void printInstructions() {
         System.out.println("OPTIONS:");
-        System.out.println("-i OR --component-spec: The path of the ONAP Blueprint INPUT JSON SPEC FILE (Required)");
-        System.out.println("-p OR --blueprint-path: The path of the ONAP Blueprint OUTPUT where it will be saved (Required)");
-        System.out.println("-n OR --blueprint-name: The NAME of the ONAP Blueprint OUTPUT that will be created (Optional)");
-        System.out.println("-t OR --imports: The path of the ONAP Blueprint IMPORT FILE (Optional)");
-        System.out.println("-o OR --service-name-override: The Value used to OVERRIDE the SERVICE NAME of the ONAP Blueprint  (Optional)");
-        System.out.println("-d OR --dmaap-plugin: The option to create a ONAP Blueprint with DMAAP Plugin (Optional)");
-        System.out.println("Syntax to run from command line: \n          For Blueprint : java -jar target/<JAR Filename>.jar app ONAP -i componentspec -p OutputBlueprintPath  -n Blueprintname -d \n          For PolicyCreate: java -jar target/<JAR Filename>.jar app ONAP -type policycreate -i componentspec -p OutputPolicyPath");
+        System.out.println(
+            "-i OR --component-spec: The path of the ONAP Blueprint INPUT JSON SPEC FILE (Required)");
+        System.out.println(
+            "-p OR --blueprint-path: The path of the ONAP Blueprint OUTPUT where it will be saved (Required)");
+        System.out.println(
+            "-n OR --blueprint-name: The NAME of the ONAP Blueprint OUTPUT that will be created (Optional)");
+        System.out
+            .println("-t OR --imports: The path of the ONAP Blueprint IMPORT FILE (Optional)");
+        System.out.println(
+            "-o OR --service-name-override: The Value used to OVERRIDE the SERVICE NAME of the ONAP Blueprint  (Optional)");
+        System.out.println(
+            "-d OR --dmaap-plugin: The option to create a ONAP Blueprint with DMAAP Plugin (Optional)");
+        System.out.println(
+            "Syntax to run from command line: \n          For Blueprint : java -jar target/<JAR Filename>.jar app ONAP -i componentspec -p OutputBlueprintPath  -n Blueprintname -d \n          For PolicyCreate: java -jar target/<JAR Filename>.jar app ONAP -type policycreate -i componentspec -p OutputPolicyPath");
     }
 
+    /**
+     * Parses Input Arguments and validates is reuired arguments are provided or not
+     *
+     * @param args Input Arguments
+     * @return
+     */
     public Input parseInputs(String[] args) {
         String[] modArgs = new String[args.length];
-        for(int i=0; i<args.length; i++){
-            if(args[i].contains("--component-spec"))
+        for (int i = 0; i < args.length; i++) {
+            if (args[i].contains("--component-spec")) {
                 modArgs[i] = "-_component_spec";
-            else if(args[i].contains("--blueprint-path"))
+            } else if (args[i].contains("--blueprint-path")) {
                 modArgs[i] = "-_blueprint_path";
-            else if(args[i].contains("--blueprint-name"))
+            } else if (args[i].contains("--blueprint-name")) {
                 modArgs[i] = "-_blueprint_name";
-            else if(args[i].contains("--imports"))
+            } else if (args[i].contains("--imports")) {
                 modArgs[i] = "-_imports";
-            else if(args[i].contains("--service-name-override"))
+            } else if (args[i].contains("--service-name-override")) {
                 modArgs[i] = "-_service_name_override";
-            else if(args[i].contains("--dmaap-plugin"))
+            } else if (args[i].contains("--dmaap-plugin")) {
                 modArgs[i] = "-_dmaap_plugin";
-            else
+            } else {
                 modArgs[i] = args[i];
+            }
         }
-        String commands = " ";
+
+        StringBuilder commandsBuf = new StringBuilder("");
+        String sep = "";
         for (String s : modArgs) {
-
-                commands = commands + " " + s;
+            commandsBuf.append(sep).append(s);
+            sep = " ";
         }
+        String commands = commandsBuf.toString();
 
-        //checks if the required inputs are present or not
-        if (!(commands.contains(" -i ")|| commands.contains(" -_component_spec "))
-                && !(commands.contains(" -p ") || commands.contains(" -_blueprint_path ") ) ) {
-            System.out.println("\n Please enter the ONAP Blueprint required inputs for: \n         -i (The path of the ONAP Blueprint INPUT JSON SPEC FILE), \n         -p (The path of the ONAP Blueprint OUTPUT where it will be saved)");
+        // checks if the required inputs are present or not
+        if (!(commands.contains(" -i ") || commands.contains(" -_component_spec "))
+            && !(commands.contains(" -p ") || commands.contains(" -_blueprint_path "))) {
+            System.out.println(
+                "\n Please enter the ONAP Blueprint required inputs for: \n         -i (The path of the ONAP Blueprint INPUT JSON SPEC FILE), \n         -p (The path of the ONAP Blueprint OUTPUT where it will be saved)");
             exit(-1);
         }
-
 
         CommandLineParser parser = new DefaultParser();
         HelpFormatter formatter = new HelpFormatter();
@@ -98,48 +113,88 @@ public class CommonUtils {
         Options options = new Options();
 
         options.addOption("i", "Spec", true, "ComponentSpec Input File of the ONAP Blueprint");
-        options.addOption("_component_spec", "Spec", true, "ComponentSpec Input File of the ONAP Blueprint");
+        options.addOption(
+            "_component_spec", "Spec", true, "ComponentSpec Input File of the ONAP Blueprint");
         options.addOption("p", "Path", true, "Path of the ONAP Blueprint OUTPUT");
         options.addOption("_blueprint_path", "Path", true, "Path of the ONAP Blueprint OUTPUT");
         options.addOption("n", "name", true, "NAME of the ONAP Blueprint OUTPUT");
         options.addOption("_blueprint_name", "name", true, "NAME of the ONAP Blueprint OUTPUT");
         options.addOption("t", "Import File", true, "Import file for the OUTPUT Blueprint Imports");
-        options.addOption("_imports", "Import File", true, "Import file for the OUTPUT Blueprint Imports");
-        options.addOption("o", "Service name Override", true, "Value used to override the OUTPUT Blueprint service name");
-        options.addOption("_service_name_override", "Service name Override", true, "Value used to override the OUTPUT Blueprint service name");
-        options.addOption("d", "Dmaap Plugin", false, "Flag used to indicate ONAP Blueprint OUTPUT uses the DMaaP plugin");
-        options.addOption("_dmaap_plugin", "Dmaap Plugin", false, "Flag used to indicate ONAP Blueprint OUTPUT uses the DMaaP plugin");
+        options.addOption(
+            "_imports", "Import File", true, "Import file for the OUTPUT Blueprint Imports");
+        options.addOption(
+            "o",
+            "Service name Override",
+            true,
+            "Value used to override the OUTPUT Blueprint service name");
+        options.addOption(
+            "_service_name_override",
+            "Service name Override",
+            true,
+            "Value used to override the OUTPUT Blueprint service name");
+        options.addOption(
+            "d",
+            "Dmaap Plugin",
+            false,
+            "Flag used to indicate ONAP Blueprint OUTPUT uses the DMaaP plugin");
+        options.addOption(
+            "_dmaap_plugin",
+            "Dmaap Plugin",
+            false,
+            "Flag used to indicate ONAP Blueprint OUTPUT uses the DMaaP plugin");
 
         Input input = new Input();
         try {
             CommandLine commandLine = parser.parse(options, modArgs);
-            input.setComponentSpecPath(commandLine.getOptionValue("i") == null ? commandLine.getOptionValue("_component_spec") : commandLine.getOptionValue("i"));
-            input.setOutputPath(commandLine.getOptionValue("p") == null ? commandLine.getOptionValue("_blueprint_path") : commandLine.getOptionValue("p"));
-            input.setBluePrintName(commandLine.getOptionValue("n") == null ? commandLine.getOptionValue("_blueprint_name") : commandLine.getOptionValue("n"));
-            input.setImportPath(commandLine.getOptionValue("t")  == null ? commandLine.getOptionValue("_imports") : commandLine.getOptionValue("t"));
-            input.setBpType((commands.contains(" -d ") || commands.contains(" -_dmaap_plugin ") ) ? "d" : "o");
-            input.setServiceNameOverride(commandLine.getOptionValue("o") == null ? commandLine.getOptionValue("_service_name_override") ==  null ? "" : commandLine.getOptionValue("_service_name_override") : commandLine.getOptionValue("o"));
+            input.setComponentSpecPath(
+                commandLine.getOptionValue("i") == null
+                    ? commandLine.getOptionValue("_component_spec")
+                    : commandLine.getOptionValue("i"));
+            input.setOutputPath(
+                commandLine.getOptionValue("p") == null
+                    ? commandLine.getOptionValue("_blueprint_path")
+                    : commandLine.getOptionValue("p"));
+            input.setBluePrintName(
+                commandLine.getOptionValue("n") == null
+                    ? commandLine.getOptionValue("_blueprint_name")
+                    : commandLine.getOptionValue("n"));
+            input.setImportPath(
+                commandLine.getOptionValue("t") == null
+                    ? commandLine.getOptionValue("_imports")
+                    : commandLine.getOptionValue("t"));
+            input.setBpType(
+                (commands.contains(" -d ") || commands.contains(" -_dmaap_plugin ")) ? "d" : "o");
+            input.setServiceNameOverride(
+                commandLine.getOptionValue("o") == null
+                    ? commandLine.getOptionValue("_service_name_override") == null
+                    ? ""
+                    : commandLine.getOptionValue("_service_name_override")
+                    : commandLine.getOptionValue("o"));
         } catch (ParseException ex) {
             ex.printStackTrace();
             System.out.println(ex.getMessage());
-            formatter.printHelp("Required/Valid Inputs to create ONAP Blueprint are not provided", options);
+            formatter.printHelp(
+                "Required/Valid Inputs to create ONAP Blueprint are not provided", options);
             exit(-1);
         }
         if (StringUtils.isEmpty(input.getComponentSpecPath())) {
-            System.out.println("The path of the ONAP Blueprint INPUT JSON SPEC FILE  is not specified");
+            System.out
+                .println("The path of the ONAP Blueprint INPUT JSON SPEC FILE  is not specified");
             exit(-1);
         }
         if (StringUtils.isEmpty(input.getOutputPath())) {
-            System.out.println("The path of the ONAP Blueprint OUTPUT where it will be saved is not specified");
+            System.out.println(
+                "The path of the ONAP Blueprint OUTPUT where it will be saved is not specified");
             exit(-1);
         }
         if (commands.contains(" -n ") || commands.contains(" -_blueprint_name ")) {
             if (StringUtils.isEmpty(input.getBluePrintName())) {
-                System.out.println("The NAME of the ONAP Blueprint OUTPUT that will be created is not specified");
+                System.out.println(
+                    "The NAME of the ONAP Blueprint OUTPUT that will be created is not specified");
                 exit(-1);
             }
         }
-        if (commands.contains(" -t ")|| commands.contains(" -_imports ")) {
+        if (commands.contains(" -t ") || commands.contains(" -_imports ")) {
             if (StringUtils.isEmpty(input.getImportPath())) {
                 System.out.println("The path of the ONAP Blueprint Imports File is not specified");
                 exit(-1);
@@ -148,5 +203,4 @@ public class CommonUtils {
 
         return input;
     }
-
 }

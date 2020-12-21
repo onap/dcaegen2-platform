@@ -31,18 +31,13 @@ import java.util.List;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: DCAE/ONAP - Blueprint Generator
- * Common Module: Used by both ONAP and DCAE Blueprint Applications
- * Common Model: For Concat
+ * @date 10/16/2020 Application: DCAE/ONAP - Blueprint Generator Common Module: Used by both ONAP
+ * and DCAE Blueprint Applications Common Model: A model class which represents for Concat
  */
-
 @Data
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Concat {
 
-	private List<Object> concat;
-
+    private List<Object> concat;
 }
-

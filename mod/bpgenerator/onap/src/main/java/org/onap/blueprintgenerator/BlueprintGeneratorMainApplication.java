@@ -23,7 +23,6 @@
 
 package org.onap.blueprintgenerator;
 
-
 import org.onap.blueprintgenerator.model.base.Blueprint;
 import org.onap.blueprintgenerator.model.common.Input;
 import org.onap.blueprintgenerator.model.componentspec.OnapComponentSpec;
@@ -43,12 +42,10 @@ import static java.lang.System.exit;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * ONAP - Blueprint Generator Main Application to create Policy Models or Blueprints
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator ONAP - Blueprint Generator Main
+ * Application to create Policy Models or Blueprints
  */
-
-@ComponentScan({"org.onap.blueprintgenerator","org.onap.policycreate"})
+@ComponentScan({"org.onap.blueprintgenerator", "org.onap.policycreate"})
 @SpringBootApplication
 public class BlueprintGeneratorMainApplication implements CommandLineRunner {
 
@@ -76,35 +73,53 @@ public class BlueprintGeneratorMainApplication implements CommandLineRunner {
     @Autowired
     private DmaapBlueprintService dmaapBlueprintService;
 
+    /**
+     * Main Application to run BPGen to generate Policies/Blueprint based on Input Arguments values
+     *
+     * @param args Input Arguments
+     */
     public static void main(String[] args) {
         SpringApplication.run(BlueprintGeneratorMainApplication.class, args);
     }
 
+    /**
+     * Creates Policies/Blueprint based on Input Arguments values
+     *
+     * @param args Input Arguments
+     */
     @Override
     public void run(String... args) {
-        if (args.length >=2 && args[0].equals("app") && args[1].equals("ONAP")) {
+        if (args.length >= 2 && args[0].equals("app") && args[1].equals("ONAP")) {
             onapCommonUtils.printInstructions();
-            if(args.length >=4 && args[2].equals("-type") && args[3].equals("policycreate")){
+            if (args.length >= 4 && args[2].equals("-type") && args[3].equals("policycreate")) {
                 Input input = onapCommonUtils.parseInputs(args);
-                ComponentSpec componentSpec = componentSpecService.createComponentSpecFromFile(input.getComponentSpecPath());
-                onapPolicyModelNodeService.createPolicyModels(componentSpec.getParameters(), input.getOutputPath());
-            }
-            else {
+                ComponentSpec componentSpec =
+                    componentSpecService.createComponentSpecFromFile(input.getComponentSpecPath());
+                onapPolicyModelNodeService.createPolicyModels(
+                    componentSpec.getParameters(), input.getOutputPath());
+            } else {
                 Input input = onapCommonUtils.parseInputs(args);
-                OnapComponentSpec onapComponentSpec = onapComponentSpecService.createComponentSpecFromFile(input.getComponentSpecPath());
+                OnapComponentSpec onapComponentSpec =
+                    onapComponentSpecService
+                        .createComponentSpecFromFile(input.getComponentSpecPath());
                 if (input.getBpType().equals("o")) {
-                    Blueprint blueprint = onapBlueprintService.createBlueprint(onapComponentSpec, input);
+                    Blueprint blueprint = onapBlueprintService
+                        .createBlueprint(onapComponentSpec, input);
                     onapBlueprintService.blueprintToYaml(onapComponentSpec, blueprint, input);
-                    System.out.println(onapBlueprintService.blueprintToString(onapComponentSpec, blueprint, input));
+                    System.out.println(
+                        onapBlueprintService
+                            .blueprintToString(onapComponentSpec, blueprint, input));
                 } else if (input.getBpType().equals("d")) {
-                    Blueprint blueprint = dmaapBlueprintService.createBlueprint(onapComponentSpec, input);
+                    Blueprint blueprint = dmaapBlueprintService
+                        .createBlueprint(onapComponentSpec, input);
                     dmaapBlueprintService.blueprintToYaml(onapComponentSpec, blueprint, input);
-                    System.out.println(dmaapBlueprintService.blueprintToString(onapComponentSpec, blueprint, input));
+                    System.out.println(
+                        dmaapBlueprintService
+                            .blueprintToString(onapComponentSpec, blueprint, input));
                 }
             }
         }
 
         exit(0);
     }
-
 }

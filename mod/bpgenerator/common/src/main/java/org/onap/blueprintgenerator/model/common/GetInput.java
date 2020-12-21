@@ -23,7 +23,6 @@
 
 package org.onap.blueprintgenerator.model.common;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -33,12 +32,9 @@ import lombok.NoArgsConstructor;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: DCAE/ONAP - Blueprint Generator
- * Common Module: Used by both ONAP and DCAE Blueprint Applications
- * Common Model: For Get Input
+ * @date 10/16/2020 Application: DCAE/ONAP - Blueprint Generator Common Module: Used by both ONAP
+ * and DCAE Blueprint Applications Common Model: A model class which represents Get Input
  */
-
 @Data
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -46,9 +42,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class GetInput {
 
-	//private Object get_input;
+    // private Object get_input;
 
-	@JsonProperty("get_input")
-	private Object bpInputName;
-
+    @JsonProperty("get_input")
+    private Object bpInputName;
 }

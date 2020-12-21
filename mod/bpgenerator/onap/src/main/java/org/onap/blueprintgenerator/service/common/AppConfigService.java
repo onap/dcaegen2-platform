@@ -43,12 +43,9 @@ import java.util.TreeMap;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * Common ONAP Service used by ONAP and DMAAP Blueprint to create App Config
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator Common ONAP Service used to create App
+ * Config
  */
-
-
 @Service("onapAppConfigService")
 public class AppConfigService {
 
@@ -58,31 +55,52 @@ public class AppConfigService {
     @Autowired
     private BlueprintHelperService blueprintHelperService;
 
-    public Map<String,Object> createAppconfig(Map<String, LinkedHashMap<String, Object>> inputs, OnapComponentSpec onapComponentSpec, String override, boolean isDmaap) {
+    /**
+     * Creates Inputs section under App Config with Publishes, Subscribes, Parameters sections by
+     * checking Datarouter/MessageRouter/override/Dmaap values
+     *
+     * @param inputs Inputs
+     * @param onapComponentSpec Onap Component Specification
+     * @param override Parameter to Service Component Override
+     * @param isDmaap Dmaap Argument
+     * @return
+     */
+    public Map<String, Object> createAppconfig(
+        Map<String, LinkedHashMap<String, Object>> inputs,
+        OnapComponentSpec onapComponentSpec,
+        String override,
+        boolean isDmaap) {
 
-        Map<String,Object> response = new HashMap<>();
+        Map<String, Object> response = new HashMap<>();
         Appconfig appconfig = new Appconfig();
 
         Calls[] call = new Calls[0];
         appconfig.setService_calls(call);
 
         Map<String, Dmaap> streamPublishes = new TreeMap<>();
-        if(onapComponentSpec.getStreams() != null) {
+        if (onapComponentSpec.getStreams() != null) {
             if (onapComponentSpec.getStreams().getPublishes() != null) {
                 for (Publishes publishes : onapComponentSpec.getStreams().getPublishes()) {
                     if (blueprintHelperService.isDataRouterType(publishes.getType())) {
                         String config = publishes.getConfig_key();
                         String name = config + Constants._FEED;
-                        Map<String, Object> dmaapDataRouterResponse = dmaapService.createDmaapDataRouter(inputs, config, name, isDmaap);
-                        inputs = (Map<String, LinkedHashMap<String, Object>>) dmaapDataRouterResponse.get("inputs");
+                        Map<String, Object> dmaapDataRouterResponse =
+                            dmaapService.createDmaapDataRouter(inputs, config, name, isDmaap);
+                        inputs =
+                            (Map<String, LinkedHashMap<String, Object>>) dmaapDataRouterResponse
+                                .get("inputs");
                         Dmaap dmaap = (Dmaap) dmaapDataRouterResponse.get("dmaap");
                         dmaap.setType(publishes.getType());
                         streamPublishes.put(config, dmaap);
                     } else if (blueprintHelperService.isMessageRouterType(publishes.getType())) {
                         String config = publishes.getConfig_key();
                         String name = config + Constants._TOPIC;
-                        Map<String, Object> dmaapDataRouterResponse = dmaapService.createDmaapMessageRouter(inputs, config, 'p', name, name, isDmaap);
-                        inputs = (Map<String, LinkedHashMap<String, Object>>) dmaapDataRouterResponse.get("inputs");
+                        Map<String, Object> dmaapDataRouterResponse =
+                            dmaapService
+                                .createDmaapMessageRouter(inputs, config, 'p', name, name, isDmaap);
+                        inputs =
+                            (Map<String, LinkedHashMap<String, Object>>) dmaapDataRouterResponse
+                                .get("inputs");
                         Dmaap dmaap = (Dmaap) dmaapDataRouterResponse.get("dmaap");
                         dmaap.setType(publishes.getType());
                         streamPublishes.put(config, dmaap);
@@ -93,22 +111,29 @@ public class AppConfigService {
 
         Map<String, Dmaap> streamSubscribes = new TreeMap<>();
 
-        if(onapComponentSpec.getStreams() != null) {
+        if (onapComponentSpec.getStreams() != null) {
             if (onapComponentSpec.getStreams().getSubscribes() != null) {
                 for (Subscribes subscribes : onapComponentSpec.getStreams().getSubscribes()) {
                     if (blueprintHelperService.isDataRouterType(subscribes.getType())) {
                         String config = subscribes.getConfig_key();
                         String name = config + Constants._FEED;
-                        Map<String, Object> dmaapDataRouterResponse = dmaapService.createDmaapDataRouter(inputs, config, name, isDmaap);
-                        inputs = (Map<String, LinkedHashMap<String, Object>>) dmaapDataRouterResponse.get("inputs");
+                        Map<String, Object> dmaapDataRouterResponse =
+                            dmaapService.createDmaapDataRouter(inputs, config, name, isDmaap);
+                        inputs =
+                            (Map<String, LinkedHashMap<String, Object>>) dmaapDataRouterResponse
+                                .get("inputs");
                         Dmaap dmaap = (Dmaap) dmaapDataRouterResponse.get("dmaap");
                         dmaap.setType(subscribes.getType());
                         streamSubscribes.put(config, dmaap);
                     } else if (blueprintHelperService.isMessageRouterType(subscribes.getType())) {
                         String config = subscribes.getConfig_key();
                         String name = config + Constants._TOPIC;
-                        Map<String, Object> dmaapDataRouterResponse = dmaapService.createDmaapMessageRouter(inputs, config, 's', name, name, isDmaap);
-                        inputs = (Map<String, LinkedHashMap<String, Object>>) dmaapDataRouterResponse.get("inputs");
+                        Map<String, Object> dmaapDataRouterResponse =
+                            dmaapService
+                                .createDmaapMessageRouter(inputs, config, 's', name, name, isDmaap);
+                        inputs =
+                            (Map<String, LinkedHashMap<String, Object>>) dmaapDataRouterResponse
+                                .get("inputs");
                         Dmaap dmaap = (Dmaap) dmaapDataRouterResponse.get("dmaap");
                         dmaap.setType(subscribes.getType());
                         streamSubscribes.put(config, dmaap);
@@ -121,14 +146,15 @@ public class AppConfigService {
         appconfig.setStreams_subscribes(streamSubscribes);
 
         Map<String, Object> parameters = new TreeMap<>();
-        for(Parameters p: onapComponentSpec.getParameters()) {
+        for (Parameters p : onapComponentSpec.getParameters()) {
             String pName = p.getName();
-            if(p.isSourced_at_deployment()) {
+            if (p.isSourced_at_deployment()) {
                 GetInput paramInput = new GetInput();
                 paramInput.setBpInputName(pName);
                 parameters.put(pName, paramInput);
-                if(!"".equals(p.getValue())) {
-                    LinkedHashMap<String, Object> pInputs =  blueprintHelperService.createStringInput( p.getValue());
+                if (!"".equals(p.getValue())) {
+                    LinkedHashMap<String, Object> pInputs =
+                        blueprintHelperService.createStringInput(p.getValue());
                     inputs.put(pName, pInputs);
                 } else {
                     LinkedHashMap<String, Object> pInputs = new LinkedHashMap<>();
@@ -136,23 +162,23 @@ public class AppConfigService {
                     inputs.put(pName, pInputs);
                 }
             } else {
-                if("string".equals(p.getType())) {
-                    String val  =(String) p.getValue();
+                if ("string".equals(p.getType())) {
+                    String val = (String) p.getValue();
                     val = '"' + val + '"';
                     parameters.put(pName, val);
-                }
-                else {
+                } else {
                     parameters.put(pName, p.getValue());
                     // Updated code to resolve the issue of missing \ for collector.schema.file
-                    //parameters.put(pName, pName.equals("collector.schema.file") ? ((String)p.getValue()).replace("\"", "\\\"") : p.getValue());
+                    // parameters.put(pName, pName.equals("collector.schema.file") ?
+                    // ((String)p.getValue()).replace("\"", "\\\"") : p.getValue());
                 }
             }
         }
-        if(override != null) {
+        if (override != null) {
             GetInput ov = new GetInput();
             ov.setBpInputName(Constants.SERVICE_COMPONENT_NAME_OVERRIDE);
             parameters.put(Constants.SERVICE_COMPONENT_NAME_OVERRIDE, ov);
-            LinkedHashMap<String, Object> over =  blueprintHelperService.createStringInput( override);
+            LinkedHashMap<String, Object> over = blueprintHelperService.createStringInput(override);
             inputs.put(Constants.SERVICE_COMPONENT_NAME_OVERRIDE, over);
         }
         appconfig.setParams(parameters);
@@ -160,7 +186,5 @@ public class AppConfigService {
         response.put("appconfig", appconfig);
         response.put("inputs", inputs);
         return response;
-
     }
-
 }

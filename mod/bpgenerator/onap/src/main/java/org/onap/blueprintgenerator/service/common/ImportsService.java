@@ -37,12 +37,9 @@ import java.util.List;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: DCAE/ONAP - Blueprint Generator
- * Common Module: Used by ONAP Blueprint Application
- * Service: For Imports
+ * @date 10/16/2020 Application: DCAE/ONAP - Blueprint Generator Common Module: Used by ONAP
+ * Blueprint Application Service: For Imports
  */
-
 @Service
 public class ImportsService {
 
@@ -64,11 +61,16 @@ public class ImportsService {
     @Value("${import.Clamp}")
     private String importClamp;
 
-
     @Qualifier("yamlObjectMapper")
     @Autowired
     protected ObjectMapper yamlObjectMapper;
 
+    /**
+     * Creates Imports for Blueprint based on Blueprint Type
+     *
+     * @param bpType Blueprint Type
+     * @return
+     */
     public List<String> createImports(String bpType) {
         List<String> imports = new ArrayList<>();
         if (bpType.equals("o")) {
@@ -77,8 +79,7 @@ public class ImportsService {
             imports.add(importsOnapK8sDcaepolicyplugin);
             imports.add(importPostgres);
             imports.add(importClamp);
-        }
-        else {
+        } else {
             imports.add(importsOnapTypes);
             imports.add(importsOnapK8sPlugintypes);
             imports.add(importsDmaapDmaapplugin);
@@ -88,11 +89,16 @@ public class ImportsService {
         return imports;
     }
 
+    /**
+     * Creates Imports for Blueprint from the file path provided
+     *
+     * @param path Path of Import File
+     * @return
+     */
     public List<String> createImportsFromFile(String path) throws IOException {
         File importPath = new File(path);
         Imports imports = yamlObjectMapper.readValue(importPath, Imports.class);
         imports.getImports().removeIf(String::isBlank);
         return imports.getImports();
     }
-
 }

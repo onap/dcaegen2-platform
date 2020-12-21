@@ -28,11 +28,15 @@ package org.onap.blueprintgenerator.exception;
  * @date 10/16/2020
  * Application: DCAE/ONAP - Blueprint Generator
  * Common Module: Used by both ONAP and DCAE Blueprint Applications
- * Exception: For Databases Not Found
+ * Exception: To handle error messages for Databases Not Found
  */
 
 public class DatabasesNotFoundException extends RuntimeException {
 
-    public DatabasesNotFoundException(String message) { super(message);}
-
+    /**
+     * Handles Databases NotFound Exception for Error Message
+     */
+    public DatabasesNotFoundException(String message) {
+        super(message);
+    }
 }

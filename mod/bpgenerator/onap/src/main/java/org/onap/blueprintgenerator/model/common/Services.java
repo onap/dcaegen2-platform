@@ -32,19 +32,15 @@ import lombok.Data;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * ONAP Common Model used by both ONAP and DMAAP: Services
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator ONAP Common Model: A model class which
+ * represents Services
  */
-
-
 @Data
-@JsonInclude(value=Include.NON_NULL)
+@JsonInclude(value = Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class    Services {
-	
-	private Calls[] calls;
+public class Services {
 
-	private Provides[] provides;
+    private Calls[] calls;
 
+    private Provides[] provides;
 }

@@ -35,63 +35,87 @@ import java.util.Map;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * Common ONAP Service used by ONAP and DMAAP Blueprint to add DMAAP Message and Data Routers
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator Common ONAP Service to add DMAAP Message
+ * and Data Routers
  */
-
-
 @Service
 public class DmaapService {
 
     @Autowired
     private InfoService infoService;
 
-    // Method is used to create the Dmaap Message Router
-    public Map<String,Object> createDmaapMessageRouter(Map<String, LinkedHashMap<String, Object>> inputs,String config, char type, String counter, String num, boolean isDmaap) {
+    /**
+     * Creates Dmaap Message Router from given inputs
+     *
+     * @param inputs Input Arguments
+     * @param config Configuration
+     * @param type BP Type
+     * @param counter Counter
+     * @param num Number Incrementor
+     * @param isDmaap Dmaap Argument
+     * @return
+     */
+    public Map<String, Object> createDmaapMessageRouter(
+        Map<String, LinkedHashMap<String, Object>> inputs,
+        String config,
+        char type,
+        String counter,
+        String num,
+        boolean isDmaap) {
 
-        Map<String,Object> response = new HashMap<>();
+        Map<String, Object> response = new HashMap<>();
         Dmaap dmaap = new Dmaap();
 
         LinkedHashMap<String, Object> stringType = new LinkedHashMap();
         stringType.put("type", "string");
 
-        if(!isDmaap){
-            Map<String, Object> infoResponse = infoService.createMessageRouterInfo(inputs, config, type);
+        if (!isDmaap) {
+            Map<String, Object> infoResponse = infoService
+                .createMessageRouterInfo(inputs, config, type);
             inputs = (Map<String, LinkedHashMap<String, Object>>) infoResponse.get("inputs");
             dmaap.setDmaap_info(infoResponse.get("info"));
-        }
-        else{
+        } else {
             String infoType = "<<" + counter + ">>";
             dmaap.setDmaap_info(infoType);
 
             GetInput u = new GetInput();
-            u.setBpInputName(config + "_" + num +"_aaf_username");
+            u.setBpInputName(config + "_" + num + "_aaf_username");
             dmaap.setUser(u);
-            inputs.put(config + "_" + num +"_aaf_username", stringType);
+            inputs.put(config + "_" + num + "_aaf_username", stringType);
 
             GetInput p = new GetInput();
-            p.setBpInputName(config + "_" + num +"_aaf_password");
+            p.setBpInputName(config + "_" + num + "_aaf_password");
             dmaap.setPass(p);
-            inputs.put(config + "_" + num +"_aaf_password", stringType);
+            inputs.put(config + "_" + num + "_aaf_password", stringType);
         }
         response.put("dmaap", dmaap);
         response.put("inputs", inputs);
         return response;
     }
 
-    // Method is used to create the Dmaap Data Router
-    public Map<String,Object> createDmaapDataRouter(Map<String, LinkedHashMap<String, Object>> inputs, String config, String counter, boolean isDmaap) {
+    /**
+     * Creates Dmaap Data Router from given inputs
+     *
+     * @param inputs Input Arguments
+     * @param config Configuration
+     * @param counter Counter
+     * @param isDmaap Dmaap Argument
+     * @return
+     */
+    public Map<String, Object> createDmaapDataRouter(
+        Map<String, LinkedHashMap<String, Object>> inputs,
+        String config,
+        String counter,
+        boolean isDmaap) {
 
-        Map<String,Object> response = new HashMap<>();
+        Map<String, Object> response = new HashMap<>();
         Dmaap dmaap = new Dmaap();
 
-        if(!isDmaap){
+        if (!isDmaap) {
             Map<String, Object> infoResponse = infoService.createDataRouterInfo(inputs, config);
             inputs = (Map<String, LinkedHashMap<String, Object>>) infoResponse.get("inputs");
             dmaap.setDmaap_info(infoResponse.get("info"));
-        }
-        else {
+        } else {
             String infoType = "<<" + counter + ">>";
             dmaap.setDmaap_info(infoType);
         }
@@ -99,5 +123,4 @@ public class DmaapService {
         response.put("inputs", inputs);
         return response;
     }
-
 }

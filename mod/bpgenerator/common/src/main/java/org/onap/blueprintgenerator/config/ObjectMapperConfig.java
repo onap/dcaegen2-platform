@@ -42,16 +42,22 @@ import org.springframework.context.annotation.Scope;
 @Configuration
 public class ObjectMapperConfig {
 
-    @Bean(name="objectMapper")
+    /**
+     * Creates Object Mapper
+     */
+    @Bean(name = "objectMapper")
     @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
-    public ObjectMapper objectMapper(){
+    public ObjectMapper objectMapper() {
         return new ObjectMapper();
     }
 
-    @Bean(name="yamlObjectMapper")
+    /**
+     * Creates Yaml Object Mapper
+     */
+    @Bean(name = "yamlObjectMapper")
     @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
-    public ObjectMapper yamlObjectMapper(){
-        return new ObjectMapper(new YAMLFactory().configure(YAMLGenerator.Feature.MINIMIZE_QUOTES, true));
+    public ObjectMapper yamlObjectMapper() {
+        return new ObjectMapper(
+            new YAMLFactory().configure(YAMLGenerator.Feature.MINIMIZE_QUOTES, true));
     }
-
 }

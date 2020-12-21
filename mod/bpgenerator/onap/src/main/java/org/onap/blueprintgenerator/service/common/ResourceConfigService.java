@@ -37,26 +37,32 @@ import java.util.TreeMap;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * Common ONAP Service used by ONAP and DMAAP Blueprint to add ResourceConfig
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator Common ONAP Service to add
+ * ResourceConfig
  */
-
-
 @Service("onapResourceConfigService")
 public class ResourceConfigService {
 
     @Autowired
     private BlueprintHelperService blueprintHelperService;
 
-    //Method to create Resouce Config for properties
-    public Map<String,Object> createResourceConfig(Map<String, LinkedHashMap<String, Object>> inputs, String name){
-        Map<String,Object> response = new HashMap<>();
+    /**
+     * Creates Resouce Config for properties
+     *
+     * @param inputs Inputs
+     * @param name Name
+     * @return
+     */
+    public Map<String, Object> createResourceConfig(
+        Map<String, LinkedHashMap<String, Object>> inputs, String name) {
+        Map<String, Object> response = new HashMap<>();
         ResourceConfig resourceConfig = new ResourceConfig();
 
-        LinkedHashMap<String, Object> memoryLimit = blueprintHelperService.createStringInput(Constants.MEMORY_LIMIT_128Mi);
+        LinkedHashMap<String, Object> memoryLimit =
+            blueprintHelperService.createStringInput(Constants.MEMORY_LIMIT_128Mi);
 
-        LinkedHashMap<String, Object> cpuLimit  = blueprintHelperService.createStringInput( Constants.CPU_LIMIT_250m);
+        LinkedHashMap<String, Object> cpuLimit =
+            blueprintHelperService.createStringInput(Constants.CPU_LIMIT_250m);
 
         name = blueprintHelperService.getNamePrefix(name);
 
@@ -94,5 +100,4 @@ public class ResourceConfigService {
         response.put("inputs", inputs);
         return response;
     }
-
 }

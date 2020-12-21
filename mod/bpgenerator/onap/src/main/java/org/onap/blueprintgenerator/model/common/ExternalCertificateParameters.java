@@ -29,12 +29,9 @@ import lombok.Data;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * ONAP Common Model used by both ONAP and DMAAP: External Certificate Parameters
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator ONAP Common Model: A model class which
+ * represents External Certificate Parameters
  */
-
-
 @Data
 public class ExternalCertificateParameters {
 
@@ -43,5 +40,4 @@ public class ExternalCertificateParameters {
 
     @JsonProperty(Constants.SANS_FIELD)
     private GetInput sans;
-
 }

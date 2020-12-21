@@ -35,21 +35,33 @@ import java.util.Map;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * Service to create Streams
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator Service to create Streams
  */
-
-
 @Service
 public class StreamsService {
 
     @Autowired
     private BlueprintHelperService blueprintHelperService;
 
-    //Methos to create streams for Dmaap Blueprint
-    public Map<String, Object> createStreams(Map<String, LinkedHashMap<String, Object>> inputs, String name, String type, String key, String route, char o){
-        Map<String,Object> response = new HashMap<>();
+    /**
+     * Creates streams for Dmaap Blueprint
+     *
+     * @param inputs Inputs
+     * @param name Name
+     * @param type Type
+     * @param key Key
+     * @param route Route
+     * @param o For Data Router Type s
+     * @return
+     */
+    public Map<String, Object> createStreams(
+        Map<String, LinkedHashMap<String, Object>> inputs,
+        String name,
+        String type,
+        String key,
+        String route,
+        char o) {
+        Map<String, Object> response = new HashMap<>();
         Streams streams = new Streams();
 
         LinkedHashMap<String, Object> stringType = new LinkedHashMap();
@@ -63,8 +75,8 @@ public class StreamsService {
         inputs.put(key + "_" + name + "_location", stringType);
         streams.setLocation(location);
 
-        if(blueprintHelperService.isDataRouterType(type)) {
-            if('s' == o) {
+        if (blueprintHelperService.isDataRouterType(type)) {
+            if ('s' == o) {
                 GetInput username = new GetInput();
                 username.setBpInputName(key + "_" + name + "_username");
                 streams.setUsername(username);
@@ -89,7 +101,6 @@ public class StreamsService {
                 streams.setScheme("https");
             }
 
-
         } else {
             GetInput client = new GetInput();
             client.setBpInputName(key + "_" + name + "_client_role");
@@ -100,5 +111,4 @@ public class StreamsService {
         response.put("inputs", inputs);
         return response;
     }
-
 }

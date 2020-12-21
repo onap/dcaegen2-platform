@@ -30,37 +30,32 @@ import lombok.Data;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * DMAAP Model for Streams
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator ONAP DMAAP Spec Model: A model class
+ * which represents Streams
  */
-
-
 @Data
-@JsonInclude(value= Include.NON_NULL)
+@JsonInclude(value = Include.NON_NULL)
 public class Streams {
 
-	private String name;
+    private String name;
 
-	private GetInput location;
+    private GetInput location;
 
-	private GetInput client_role;
+    private GetInput client_role;
 
-	private String type;
+    private String type;
 
-	private GetInput username;
+    private GetInput username;
 
-	private GetInput password;
+    private GetInput password;
 
-	//private GetInput delivery_url;
+    // private GetInput delivery_url;
 
-	private GetInput privileged;
+    private GetInput privileged;
 
-	private GetInput decompress;
+    private GetInput decompress;
 
-	private String route;
+    private String route;
 
-	private String scheme;
-
-
+    private String scheme;
 }

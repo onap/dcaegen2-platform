@@ -33,12 +33,9 @@ import java.util.Map;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: DCAE/ONAP - Blueprint Generator
- * Common Module: Used by both ONAP and DCAE Blueprint Applications
- * Common Model: For App Config
+ * @date 10/16/2020 Application: DCAE/ONAP - Blueprint Generator Common Module: Used by both ONAP
+ * and DCAE Blueprint Applications Common Model: A model class which represents App Config
  */
-
 @Data
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -52,13 +49,11 @@ public class Appconfig {
 
     private Map<String, Object> params;
 
-    @JsonAnyGetter //The Map is persisted as flattened properties of the target POJO.
+    @JsonAnyGetter // The Map is persisted as flattened properties of the target POJO.
     public Map<String, Object> getParams() {
         return params;
     }
 
-    //Used in ONAP
+    // Used in ONAP
     private Calls[] service_calls;
-
 }
-

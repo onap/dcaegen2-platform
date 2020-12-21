@@ -29,24 +29,21 @@ import lombok.Data;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: DCAE/ONAP - Blueprint Generator
- * Common Module: Used by both ONAP and DCAE Blueprint Applications
- * Component Spec Model: For Provides
+ * @date 10/16/2020 Application: DCAE/ONAP - Blueprint Generator Common Module: Used by both ONAP
+ * and DCAE Blueprint Applications Component Spec Model: A model class which represents Provides
+ * used in Componentspec
  */
-
 @Data
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Provides {
 
-	private String route;
+    private String route;
 
-	private RequestResponse request;
-	
-	private RequestResponse response;
+    private RequestResponse request;
 
-	//Used in ONAP
-	private String verb;
+    private RequestResponse response;
 
+    // Used in ONAP
+    private String verb;
 }

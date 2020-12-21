@@ -23,6 +23,7 @@
 
 package org.onap.blueprintgenerator.service.common;
 
+import java.io.IOException;
 import org.onap.blueprintgenerator.exception.ComponentSpecException;
 import org.onap.blueprintgenerator.model.componentspec.OnapComponentSpec;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -51,7 +52,7 @@ public class ComponentSpecService {
     /**
      * Creates ComponentSpec from given file path and validates if the input is json file or not
      *
-     * @param componentSpecPath
+     * @param componentSpecPath Path of Component Spec File Location
      * @return
      */
     public OnapComponentSpec createComponentSpecFromFile(String componentSpecPath) {
@@ -63,7 +64,9 @@ public class ComponentSpecService {
                 componentSpec = componentMapper.readValue(new File(componentSpecPath), OnapComponentSpec.class);
             }
         } catch (Exception ex) {
-            throw new ComponentSpecException("Unable to create ONAP Component Spec from the input file: "+ componentSpecPath, ex);
+            throw new ComponentSpecException(
+                "Unable to create ONAP Component Spec from the input file: " + componentSpecPath,
+                ex);
         }
         return componentSpec;
     }
@@ -71,7 +74,8 @@ public class ComponentSpecService {
     /**
      * Creates the component spec from string.
      * This method is used by RuntimeAPI
-     * @param specString the spec string
+     * @param specString the spec string of Component Spec
+     * @return
      */
     public OnapComponentSpec createComponentSpecFromString(String specString) {
         OnapComponentSpec componentSpec;

@@ -29,26 +29,22 @@ import lombok.Data;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * ONAP Common Model used by both ONAP and DMAAP: Info
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator ONAP Common Model: A model class which
+ * represents Info
  */
-
-
 @Data
-@JsonInclude(value= Include.NON_NULL)
+@JsonInclude(value = Include.NON_NULL)
 public class Info {
 
-	private GetInput topic_url;
+    private GetInput topic_url;
 
-	private GetInput username;
+    private GetInput username;
 
-	private GetInput password;
+    private GetInput password;
 
-	private GetInput location;
+    private GetInput location;
 
-	private GetInput delivery_url;
+    private GetInput delivery_url;
 
-	private GetInput subscriber_id;
-
+    private GetInput subscriber_id;
 }

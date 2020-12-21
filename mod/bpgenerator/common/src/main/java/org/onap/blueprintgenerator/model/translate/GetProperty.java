@@ -30,16 +30,12 @@ import java.util.List;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: DCAE/ONAP - Blueprint Generator
- * Common Module: Used by both ONAp and DCAE Blueprint Applications
- * Translate Model: To Get Property
+ * @date 10/16/2020 Application: DCAE/ONAP - Blueprint Generator Common Module: Used by both ONAp
+ * and DCAE Blueprint Applications Translate Model: A model class which represents Get Property
  */
-
 @Data
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 public class GetProperty {
 
-	private List<String> get_property;
-
+    private List<String> get_property;
 }

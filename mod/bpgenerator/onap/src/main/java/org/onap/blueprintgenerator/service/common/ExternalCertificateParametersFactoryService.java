@@ -35,40 +35,52 @@ import java.util.Map;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020 Application: ONAP - Blueprint Generator Common ONAP Service used by ONAP and DMAAP Blueprint to add
- * External Certificate Parameters
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator Common ONAP Service used by ONAP and
+ * DMAAP Blueprint to add Common ONAP Service to add External Certificate Parameters Factory
  */
-
-
 @Service
-public class ExternalCertificateParametersFactoryService extends ExternalCertificateDataFactoryService {
+public class ExternalCertificateParametersFactoryService
+    extends ExternalCertificateDataFactoryService {
 
     @Autowired
     private BlueprintHelperService blueprintHelperService;
 
-    // method to create external certificate parameters
+    /**
+     * Creates external certificate parameters
+     *
+     * @return
+     */
     public ExternalCertificateParameters create() {
-        ExternalCertificateParameters externalCertificateParameters = new ExternalCertificateParameters();
-        externalCertificateParameters.setCommonName(createPrefixedGetInput(Constants.COMMON_NAME_FIELD));
+        ExternalCertificateParameters externalCertificateParameters =
+            new ExternalCertificateParameters();
+        externalCertificateParameters.setCommonName(
+            createPrefixedGetInput(Constants.COMMON_NAME_FIELD));
         externalCertificateParameters.setSans(createPrefixedGetInput(Constants.SANS_FIELD));
         return externalCertificateParameters;
     }
 
-    // method to create input list for external certificate parameters factory
+    /**
+     * Creates input list for external certificate parameters factory
+     *
+     * @return
+     */
     public Map<String, LinkedHashMap<String, Object>> createInputList() {
         Map<String, LinkedHashMap<String, Object>> retInputs = new LinkedHashMap<>();
 
-        LinkedHashMap<String, Object> commonNameInputMap = blueprintHelperService
-            .createStringInput("Common name which should be present in certificate.", Constants.DEFAULT_COMMON_NAME);
+        LinkedHashMap<String, Object> commonNameInputMap =
+            blueprintHelperService.createStringInput(
+                "Common name which should be present in certificate.",
+                Constants.DEFAULT_COMMON_NAME);
         retInputs.put(addPrefix(Constants.COMMON_NAME_FIELD), commonNameInputMap);
 
-        LinkedHashMap<String, Object> sansInputMap = blueprintHelperService
-            .createStringInput("\"List of Subject Alternative Names (SANs) which should be present in certificate. " +
-                "Delimiter - , Should contain a common_name value and other FQDNs under which the given "
-                + "component is accessible.\"", Constants.DEFAULT_SANS);
+        LinkedHashMap<String, Object> sansInputMap =
+            blueprintHelperService.createStringInput(
+                "\"List of Subject Alternative Names (SANs) which should be present in certificate. "
+                    + "Delimiter - , Should contain a common_name value and other FQDNs under which the given "
+                    + "component is accessible.\"",
+                Constants.DEFAULT_SANS);
         retInputs.put(addPrefix(Constants.SANS_FIELD), sansInputMap);
 
         return retInputs;
     }
-
 }

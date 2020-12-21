@@ -28,15 +28,21 @@ package org.onap.blueprintgenerator.exception;
  * @date 10/16/2020
  * Application: DCAE/ONAP - Blueprint Generator
  * Common Module: Used by both ONAP and DCAE Blueprint Applications
- * Exception: For Fixes
+ * Exception: To handle error messages for Fixes
  */
 
-public class FixesException extends RuntimeException{
+public class FixesException extends RuntimeException {
 
+    /**
+     * Handles Fixes NotFound Exception for Error Message
+     */
     public FixesException(String errorMessage) {
         super(errorMessage);
     }
 
+    /**
+     * Handles Fixes Exception for Error Message and Error
+     */
     public FixesException(String errorMessage, Throwable err) {
         super(errorMessage, err);
     }

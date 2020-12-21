@@ -28,13 +28,9 @@ import lombok.Data;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * ONAP Common Model used by both ONAP and DMAAP: Pgaas Node Properties
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator OONAP Common Model: A model class which
+ * represents Pgaas Node Properties
  */
-
-
-
 @Data
 public class PgaasNodeProperties {
 

@@ -23,24 +23,19 @@
 
 package org.onap.blueprintgenerator.model.common;
 
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * ONAP Common Model used by both ONAP and DMAAP: Pgaas Node
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator ONAP Common Model: A model class which
+ * represents Pgaas Node
  */
-
-
 @Data
 @NoArgsConstructor
 public class PgaasNode extends Node {
 
     @JsonProperty("properties")
     private PgaasNodeProperties pgaasNodeProperties;
-
 }

@@ -27,17 +27,13 @@ import lombok.Data;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * Component Spec Model for Type Policy
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator ONAP Component Spec Model: A model class
+ * which represents Type Policy
  */
-
-
 @Data
 public class TypePolicy {
 
     private String node_label;
     private String policy_id;
     private String policy_model_id;
-
 }

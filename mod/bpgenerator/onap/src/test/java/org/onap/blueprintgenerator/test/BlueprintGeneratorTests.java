@@ -42,24 +42,21 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * ONAP Test Cases
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator ONAP Test Cases
  */
-
-
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = BlueprintGeneratorMainApplication.class, initializers = ConfigFileApplicationContextInitializer.class)
+@ContextConfiguration(
+    classes = BlueprintGeneratorMainApplication.class,
+    initializers = ConfigFileApplicationContextInitializer.class)
 @TestPropertySource(
-        properties = {
-                "ves=ves.json",
-                "testImports=testImports.yaml",
-                "useTlsTrueAndUseExternalTlsTrueTest=testComponentSpec_withTlsTrueAndExternalTlsTrue.json",
-                "useTlsFalseAndUseExternalTlsFalseTest=testComponentSpec_withTlsFalseAndExternalTlsFalse.json",
-                "useTlsTrueAndNoExternalTlsFlagTest=testComponentSpec_withTlsTrueAndNoExternalTls.json",
-                "noTlsInfo=testComponentSpec_withoutTlsInfo.json"
-        }
-)
+    properties = {
+        "ves=ves.json",
+        "testImports=testImports.yaml",
+        "useTlsTrueAndUseExternalTlsTrueTest=testComponentSpec_withTlsTrueAndExternalTlsTrue.json",
+        "useTlsFalseAndUseExternalTlsFalseTest=testComponentSpec_withTlsFalseAndExternalTlsFalse.json",
+        "useTlsTrueAndNoExternalTlsFlagTest=testComponentSpec_withTlsTrueAndNoExternalTls.json",
+        "noTlsInfo=testComponentSpec_withoutTlsInfo.json"
+    })
 @Ignore
 public class BlueprintGeneratorTests {
 
@@ -105,5 +102,4 @@ public class BlueprintGeneratorTests {
     protected OnapTestUtils onapTestUtils;
 
     protected OnapComponentSpec onapComponentSpec = null;
-
 }

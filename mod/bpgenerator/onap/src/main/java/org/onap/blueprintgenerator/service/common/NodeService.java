@@ -42,15 +42,11 @@ import java.util.HashMap;
 import java.util.TreeMap;
 import java.util.List;
 
-
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * Common ONAP Service used by ONAP and DMAAP Blueprint to add ONAP/DMAAP/Feed/Topic Nodes
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator Common ONAP Service to add
+ * ONAP/DMAAP/Feed/Topic Nodes
  */
-
-
 @Service
 public class NodeService {
 
@@ -69,68 +65,97 @@ public class NodeService {
     @Autowired
     private BlueprintHelperService blueprintHelperService;
 
-    // method to create Onap Node to include interface
-    public Map<String,Object> createOnapNode(Map<String, LinkedHashMap<String, Object>> inputs, OnapComponentSpec onapComponentSpec, String override) {
+    /**
+     * Creates Onap Node to include interface
+     *
+     * @param inputs Inputs
+     * @param onapComponentSpec OnapComponentSpec
+     * @param override Service Name Override
+     * @return
+     */
+    public Map<String, Object> createOnapNode(
+        Map<String, LinkedHashMap<String, Object>> inputs,
+        OnapComponentSpec onapComponentSpec,
+        String override) {
 
-        Map<String,Object> response = new HashMap<>();
+        Map<String, Object> response = new HashMap<>();
         Node onapNode = new Node();
 
-        Map<String, Object> onapResponse = interfacesService.createInterface(inputs, onapComponentSpec);
+        Map<String, Object> onapResponse = interfacesService
+            .createInterface(inputs, onapComponentSpec);
         inputs = (Map<String, LinkedHashMap<String, Object>>) onapResponse.get("inputs");
 
         Map<String, Interfaces> interfaces = new TreeMap<>();
-        interfaces.put(Constants.CLOUDIFY_INTERFACES_LEFECYCLE, (Interfaces) onapResponse.get("interfaces"));
+        interfaces.put(
+            Constants.CLOUDIFY_INTERFACES_LEFECYCLE, (Interfaces) onapResponse.get("interfaces"));
         onapNode.setInterfaces(interfaces);
 
         onapNode.setType(Constants.DCAE_NODES_CONTAINERIZED_SERVICE_COMPONENT);
 
         List<Map<String, String>> relationships = new ArrayList();
 
-        if(onapComponentSpec.getPolicyInfo() != null){
-            List<Map<String, String>> policyRelationshipsList = policyNodeService.getPolicyRelationships(onapComponentSpec);
+        if (onapComponentSpec.getPolicyInfo() != null) {
+            List<Map<String, String>> policyRelationshipsList =
+                policyNodeService.getPolicyRelationships(onapComponentSpec);
             relationships.addAll(policyRelationshipsList);
         }
 
-        if(onapComponentSpec.getAuxilary().getDatabases() != null){
-            List<Map<String, String>> pgaasRelationshipsList = pgaasNodeService.getPgaasNodeRelationships(onapComponentSpec);
+        if (onapComponentSpec.getAuxilary().getDatabases() != null) {
+            List<Map<String, String>> pgaasRelationshipsList =
+                pgaasNodeService.getPgaasNodeRelationships(onapComponentSpec);
             relationships.addAll(pgaasRelationshipsList);
         }
 
         onapNode.setRelationships(relationships);
 
-        Map<String, Object> propertiesResponse = propertiesService.createOnapProperties(inputs, onapComponentSpec, override);
+        Map<String, Object> propertiesResponse =
+            propertiesService.createOnapProperties(inputs, onapComponentSpec, override);
         inputs = (Map<String, LinkedHashMap<String, Object>>) propertiesResponse.get("inputs");
-        onapNode.setProperties((org.onap.blueprintgenerator.model.common.Properties)propertiesResponse.get("properties"));
+        onapNode.setProperties(
+            (org.onap.blueprintgenerator.model.common.Properties) propertiesResponse
+                .get("properties"));
 
         response.put("onapNode", onapNode);
         response.put("inputs", inputs);
         return response;
     }
 
-    // method to create Dmaap Node to include interface
-    public Map<String,Object> createDmaapNode(OnapComponentSpec onapComponentSpec, Map<String, LinkedHashMap<String, Object>> inputs, String override) {
+    /**
+     * Creates Dmaap Node to include interface
+     *
+     * @param inputs Inputs
+     * @param onapComponentSpec OnapComponentSpec
+     * @param override Service Name Override
+     * @return
+     */
+    public Map<String, Object> createDmaapNode(
+        OnapComponentSpec onapComponentSpec,
+        Map<String, LinkedHashMap<String, Object>> inputs,
+        String override) {
 
-        Map<String,Object> response = new HashMap<>();
+        Map<String, Object> response = new HashMap<>();
         Node dmaapNode = new Node();
 
         dmaapNode.setType(Constants.DCAE_NODES_CONTAINERIZED_SERVICE_COMPONENT_USING_DMAAP);
 
-        Map<String, Object> dmaapResponse = interfacesService.createInterface(inputs, onapComponentSpec);
+        Map<String, Object> dmaapResponse =
+            interfacesService.createInterface(inputs, onapComponentSpec);
         inputs = (Map<String, LinkedHashMap<String, Object>>) dmaapResponse.get("inputs");
 
         Map<String, Interfaces> interfaces = new TreeMap<>();
-        interfaces.put(Constants.CLOUDIFY_INTERFACES_LEFECYCLE, (Interfaces) dmaapResponse.get("interfaces"));
+        interfaces.put(
+            Constants.CLOUDIFY_INTERFACES_LEFECYCLE, (Interfaces) dmaapResponse.get("interfaces"));
         dmaapNode.setInterfaces(interfaces);
 
         List<Map<String, String>> relationships = new ArrayList();
 
-        if(onapComponentSpec.getStreams().getPublishes() != null) {
-            for(Publishes publishes: onapComponentSpec.getStreams().getPublishes()) {
+        if (onapComponentSpec.getStreams().getPublishes() != null) {
+            for (Publishes publishes : onapComponentSpec.getStreams().getPublishes()) {
                 Map<String, String> pubRelations = new LinkedHashMap();
-                if(blueprintHelperService.isMessageRouterType(publishes.getType())){
+                if (blueprintHelperService.isMessageRouterType(publishes.getType())) {
                     pubRelations.put("type", Constants.PUBLISH_EVENTS);
                     pubRelations.put("target", publishes.getConfig_key() + Constants._TOPIC);
-                } else if(blueprintHelperService.isDataRouterType(publishes.getType())){
+                } else if (blueprintHelperService.isDataRouterType(publishes.getType())) {
                     pubRelations.put("type", Constants.PUBLISH_FILES);
                     pubRelations.put("target", publishes.getConfig_key() + Constants._FEED);
                 }
@@ -138,13 +163,13 @@ public class NodeService {
             }
         }
 
-        if(onapComponentSpec.getStreams().getSubscribes() != null) {
-            for(Subscribes subscribes: onapComponentSpec.getStreams().getSubscribes()) {
-               Map<String, String> subRelations = new LinkedHashMap();
-                if(blueprintHelperService.isMessageRouterType(subscribes.getType())){
+        if (onapComponentSpec.getStreams().getSubscribes() != null) {
+            for (Subscribes subscribes : onapComponentSpec.getStreams().getSubscribes()) {
+                Map<String, String> subRelations = new LinkedHashMap();
+                if (blueprintHelperService.isMessageRouterType(subscribes.getType())) {
                     subRelations.put("type", Constants.SUBSCRIBE_TO_EVENTS);
                     subRelations.put("target", subscribes.getConfig_key() + Constants._TOPIC);
-                } else  if(blueprintHelperService.isDataRouterType(subscribes.getType())){
+                } else if (blueprintHelperService.isDataRouterType(subscribes.getType())) {
                     subRelations.put("type", Constants.SUBSCRIBE_TO_FILES);
                     subRelations.put("target", subscribes.getConfig_key() + Constants._FEED);
                 }
@@ -152,30 +177,42 @@ public class NodeService {
             }
         }
 
-        if(onapComponentSpec.getPolicyInfo() != null){
-            List<Map<String, String>> policyRelationshipsList = policyNodeService.getPolicyRelationships(onapComponentSpec);
+        if (onapComponentSpec.getPolicyInfo() != null) {
+            List<Map<String, String>> policyRelationshipsList =
+                policyNodeService.getPolicyRelationships(onapComponentSpec);
             relationships.addAll(policyRelationshipsList);
         }
 
-        if(onapComponentSpec.getAuxilary().getDatabases() != null){
-            List<Map<String, String>> pgaasRelationshipsList = pgaasNodeService.getPgaasNodeRelationships(onapComponentSpec);
+        if (onapComponentSpec.getAuxilary().getDatabases() != null) {
+            List<Map<String, String>> pgaasRelationshipsList =
+                pgaasNodeService.getPgaasNodeRelationships(onapComponentSpec);
             relationships.addAll(pgaasRelationshipsList);
         }
 
         dmaapNode.setRelationships(relationships);
 
-        Map<String, Object> propertiesResponse = propertiesService.createDmaapProperties(inputs, onapComponentSpec, override);
+        Map<String, Object> propertiesResponse =
+            propertiesService.createDmaapProperties(inputs, onapComponentSpec, override);
         inputs = (Map<String, LinkedHashMap<String, Object>>) propertiesResponse.get("inputs");
-        dmaapNode.setProperties((org.onap.blueprintgenerator.model.common.Properties)propertiesResponse.get("properties"));
+        dmaapNode.setProperties(
+            (org.onap.blueprintgenerator.model.common.Properties) propertiesResponse
+                .get("properties"));
 
         response.put("dmaapNode", dmaapNode);
         response.put("inputs", inputs);
         return response;
     }
 
-    // method to create Feed Node for Streams
-    public Map<String,Object> createFeedNode(Map<String, LinkedHashMap<String, Object>> inputs, String name){
-        Map<String,Object> response = new HashMap<>();
+    /**
+     * Creates Feed Node for Streams
+     *
+     * @param inputs Inputs
+     * @param name Name
+     * @return
+     */
+    public Map<String, Object> createFeedNode(
+        Map<String, LinkedHashMap<String, Object>> inputs, String name) {
+        Map<String, Object> response = new HashMap<>();
         Node feedNode = new Node();
 
         LinkedHashMap<String, Object> stringType = new LinkedHashMap();
@@ -183,7 +220,8 @@ public class NodeService {
 
         feedNode.setType(Constants.FEED);
 
-        org.onap.blueprintgenerator.model.common.Properties props = new org.onap.blueprintgenerator.model.common.Properties();
+        org.onap.blueprintgenerator.model.common.Properties props =
+            new org.onap.blueprintgenerator.model.common.Properties();
         GetInput topicInput = new GetInput();
         topicInput.setBpInputName(name + "_name");
         props.setFeed_name(topicInput);
@@ -196,9 +234,16 @@ public class NodeService {
         return response;
     }
 
-    // method to create Topic Node for Streams
-    public Map<String,Object> createTopicNode(Map<String, LinkedHashMap<String, Object>> inputs, String name){
-        Map<String,Object> response = new HashMap<>();
+    /**
+     * Creates Topic Node for Streams
+     *
+     * @param inputs Inpts
+     * @param name Name
+     * @return
+     */
+    public Map<String, Object> createTopicNode(
+        Map<String, LinkedHashMap<String, Object>> inputs, String name) {
+        Map<String, Object> response = new HashMap<>();
         Node topicNode = new Node();
 
         LinkedHashMap<String, Object> stringType = new LinkedHashMap();
@@ -217,6 +262,4 @@ public class NodeService {
         response.put("inputs", inputs);
         return response;
     }
-
-
 }

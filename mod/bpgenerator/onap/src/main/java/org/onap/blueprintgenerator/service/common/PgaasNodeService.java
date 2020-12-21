@@ -26,7 +26,6 @@ package org.onap.blueprintgenerator.service.common;
 import org.onap.blueprintgenerator.constants.Constants;
 import org.onap.blueprintgenerator.exception.DatabasesNotFoundException;
 
-
 import org.onap.blueprintgenerator.model.common.Node;
 import org.onap.blueprintgenerator.model.common.PgaasNode;
 import org.onap.blueprintgenerator.model.common.GetInput;
@@ -45,30 +44,43 @@ import java.util.List;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * Common ONAP Service used by ONAP and DMAAP Blueprint to add Pgaas Node
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator Common ONAP Service to add Pgaas Node
  */
-
-
 @Service
 public class PgaasNodeService {
 
     @Autowired
     private BlueprintHelperService blueprintHelperService;
 
-    // method to create Pgaas Nodes and Inputs for Databases
-    public void addPgaasNodesAndInputs(OnapComponentSpec onapComponentSpec, Map<String, Node> nodeTemplate, Map<String, LinkedHashMap<String, Object>> inputs)  {
+    /**
+     * Creates Pgaas Nodes and Inputs for Databases
+     *
+     * @param onapComponentSpec OnapComponentSpec
+     * @param nodeTemplate Node template
+     * @param inputs Inputs
+     * @return
+     */
+    public void addPgaasNodesAndInputs(
+        OnapComponentSpec onapComponentSpec,
+        Map<String, Node> nodeTemplate,
+        Map<String, LinkedHashMap<String, Object>> inputs) {
         Map<String, String> databases = onapComponentSpec.getAuxilary().getDatabases();
-        for(Map.Entry<String, String> database : databases.entrySet()){
-            addPgaasNode(database, nodeTemplate);
-            addPgaasInputs(database, inputs);
+        if (databases != null) {
+            for (Map.Entry<String, String> database : databases.entrySet()) {
+                addPgaasNode(database, nodeTemplate);
+                addPgaasInputs(database, inputs);
+            }
         }
     }
 
-    private void addPgaasInputs(Map.Entry<String, String> database, Map<String, LinkedHashMap<String, Object>> inputs) {
-        inputs.put(database.getKey() + Constants.NAME_POSTFIX, blueprintHelperService.createStringInput( "db name", ""));
-        inputs.put(database.getKey() + Constants.WRITER_FQDN_POSTFIX, blueprintHelperService.createStringInput( "db writerfqdn", ""));
+    private void addPgaasInputs(
+        Map.Entry<String, String> database, Map<String, LinkedHashMap<String, Object>> inputs) {
+        inputs.put(
+            database.getKey() + Constants.NAME_POSTFIX,
+            blueprintHelperService.createStringInput("db name", ""));
+        inputs.put(
+            database.getKey() + Constants.WRITER_FQDN_POSTFIX,
+            blueprintHelperService.createStringInput("db writerfqdn", ""));
     }
 
     private void addPgaasNode(Map.Entry<String, String> database, Map<String, Node> nodeTemplate) {
@@ -76,7 +88,7 @@ public class PgaasNodeService {
         String dbName = database.getKey();
         pgaasNode.setType(Constants.PGAAS_NODE_TYPE);
         pgaasNode.setPgaasNodeProperties(buildPgaasNodeProperties(dbName));
-        nodeTemplate.put(dbName + Constants.PGAAS_NODE_NAME_POSTFIX , pgaasNode);
+        nodeTemplate.put(dbName + Constants.PGAAS_NODE_NAME_POSTFIX, pgaasNode);
     }
 
     private PgaasNodeProperties buildPgaasNodeProperties(String dbName) {
@@ -95,10 +107,17 @@ public class PgaasNodeService {
         return pgaasNodeProperties;
     }
 
-    // method to create Pgaas Node Relationships for Databases
-    public List<Map<String, String>> getPgaasNodeRelationships(OnapComponentSpec onapComponentSpec) {
+    /**
+     * Creates Pgaas Nodes Relationships for Databases
+     *
+     * @param onapComponentSpec OnapComponentSpec
+     * @return
+     */
+    public List<Map<String, String>> getPgaasNodeRelationships(
+        OnapComponentSpec onapComponentSpec) {
         List<Map<String, String>> relationships = new ArrayList<>();
-        for(Map.Entry<String, String> database : onapComponentSpec.getAuxilary().getDatabases().entrySet()){
+        for (Map.Entry<String, String> database :
+            onapComponentSpec.getAuxilary().getDatabases().entrySet()) {
             Map<String, String> relationship = new LinkedHashMap<>();
             relationship.put("type", Constants.DB_RELATIONSHIP_TYPE);
             relationship.put("target", database.getKey() + Constants.PGAAS_NODE_NAME_POSTFIX);
@@ -107,10 +126,15 @@ public class PgaasNodeService {
         return relationships;
     }
 
-    // method to create Env Variables for Databases
+    /**
+     * Creates Env Variables for Databases
+     *
+     * @param databases Database
+     * @return
+     */
     public Map<String, Object> getEnvVariables(Map<String, String> databases) {
         Map<String, Object> envVariables = new LinkedHashMap<>();
-        for(Map.Entry<String, String> database : databases.entrySet()){
+        for (Map.Entry<String, String> database : databases.entrySet()) {
             String name = database.getKey().toUpperCase();
             envVariables.put("<<", "*envs");
 
@@ -118,21 +142,25 @@ public class PgaasNodeService {
             nameValue.setBpInputName(name.toLowerCase() + Constants.NAME_POSTFIX);
             envVariables.put(name + "_DB_NAME", nameValue);
 
-            GetAttribute adminHostValue = buildGetAttributeValue(name.toLowerCase(), "admin", "host");
-            envVariables.put( name.toUpperCase() + "_DB_ADMIN_HOST", adminHostValue);
+            GetAttribute adminHostValue = buildGetAttributeValue(name.toLowerCase(), "admin",
+                "host");
+            envVariables.put(name.toUpperCase() + "_DB_ADMIN_HOST", adminHostValue);
 
-            GetAttribute adminUserValue = buildGetAttributeValue(name.toLowerCase(), "admin", "user");
-            envVariables.put( name.toUpperCase() + "_DB_ADMIN_USER", adminUserValue);
+            GetAttribute adminUserValue = buildGetAttributeValue(name.toLowerCase(), "admin",
+                "user");
+            envVariables.put(name.toUpperCase() + "_DB_ADMIN_USER", adminUserValue);
 
-            GetAttribute adminPasswordValue = buildGetAttributeValue(name.toLowerCase(), "admin", "password");
-            envVariables.put( name.toUpperCase() + "_DB_ADMIN_PASS", adminPasswordValue);
+            GetAttribute adminPasswordValue =
+                buildGetAttributeValue(name.toLowerCase(), "admin", "password");
+            envVariables.put(name.toUpperCase() + "_DB_ADMIN_PASS", adminPasswordValue);
         }
         return envVariables;
     }
 
     private GetAttribute buildGetAttributeValue(String dbName, String owner, String type) {
         GetAttribute attribute = new GetAttribute();
-        attribute.setAttribute(Arrays.asList(dbName + Constants.PGAAS_NODE_NAME_POSTFIX, owner, type));
+        attribute
+            .setAttribute(Arrays.asList(dbName + Constants.PGAAS_NODE_NAME_POSTFIX, owner, type));
         return attribute;
     }
 }

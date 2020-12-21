@@ -23,24 +23,19 @@
 
 package org.onap.blueprintgenerator.model.common;
 
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * ONAP Common Model used by both ONAP and DMAAP: Policy Node  derived from Common Module Node Model used by both DCAE and ONAP
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator ONAP Common Model: A model class which
+ * represents Policy Node derived from Common Module Node Model
  */
-
-
 @Data
 @NoArgsConstructor
 public class PolicyNode extends Node {
 
     @JsonProperty("properties")
     private PolicyNodeProperties policyNodeProperties;
-
 }

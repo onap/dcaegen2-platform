@@ -23,20 +23,15 @@
 
 package org.onap.blueprintgenerator.model.common;
 
-
 import lombok.Data;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * ONAP Common Model used by both ONAP and DMAAP: Interfaces
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator ONAP Common Model: A model class which
+ * represents Interfaces
  */
-
-
 @Data
 public class Interfaces {
 
-	private Start start;
-
+    private Start start;
 }

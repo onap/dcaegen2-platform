@@ -29,24 +29,20 @@ import lombok.Data;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: DCAE/ONAP - Blueprint Generator
- * Common Module: Used by both ONAp and DCAE Blueprint Applications
- * Policy Model: To Get Policies
+ * @date 10/16/2020 Application: DCAE/ONAP - Blueprint Generator Common Module: Used by both ONAp
+ * and DCAE Blueprint Applications Policy Model: A model class which represents Policies
  */
-
 @Data
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 public class Policies {
 
-	private String configAttributes;
+    private String configAttributes;
 
-	private String configName;
-	
-	private String onapName = Constants.ONAP_NAME_DCAE;
-	
-	private String policyName = Constants.POLICIES_POLICYNAME_DCAECONFIG;
-	
-	private boolean unique = false;
+    private String configName;
 
+    private String onapName = Constants.ONAP_NAME_DCAE;
+
+    private String policyName = Constants.POLICIES_POLICYNAME_DCAECONFIG;
+
+    private boolean unique = false;
 }

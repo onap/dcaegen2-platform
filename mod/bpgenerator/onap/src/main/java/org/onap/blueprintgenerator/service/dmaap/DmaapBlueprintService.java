@@ -48,97 +48,116 @@ import java.util.TreeMap;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * Service to create DMAAP Blueprint
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator Service to create DMAAP Blueprint
  */
-
 @Service
 public class DmaapBlueprintService extends BlueprintService {
 
- @Autowired
- protected ImportsService importsService;
+    @Autowired
+    protected ImportsService importsService;
 
- @Autowired
- private NodeService nodeService;
+    @Autowired
+    private NodeService nodeService;
 
- @Autowired
- private PolicyNodeService policyNodeService;
+    @Autowired
+    private PolicyNodeService policyNodeService;
 
- @Autowired
- private PgaasNodeService pgaasNodeService;
+    @Autowired
+    private PgaasNodeService pgaasNodeService;
 
- @Autowired
- private QuotationService quotationService;
+    @Autowired
+    private QuotationService quotationService;
 
- @Autowired
- private BlueprintHelperService blueprintHelperService;
+    @Autowired
+    private BlueprintHelperService blueprintHelperService;
 
- // method to generate Dmaap Blueprint
- public OnapBlueprint createBlueprint(OnapComponentSpec onapComponentSpec, Input input) {
-  try {
-   OnapBlueprint blueprint = new OnapBlueprint();
-   blueprint.setTosca_definitions_version(Constants.TOSCA_DEF_VERSION);
-   blueprint.setDescription(onapComponentSpec.getSelf().getDescription());
+    /**
+     * Creates Dmaap Blueprint
+     *
+     * @param onapComponentSpec OnapComponentSpec
+     * @param input Inputs
+     * @return
+     */
+    public OnapBlueprint createBlueprint(OnapComponentSpec onapComponentSpec, Input input) {
+        try {
+            OnapBlueprint blueprint = new OnapBlueprint();
+            blueprint.setTosca_definitions_version(Constants.TOSCA_DEF_VERSION);
+            blueprint.setDescription(onapComponentSpec.getSelf().getDescription());
 
-   Map<String, LinkedHashMap<String, Object>> inputs = new TreeMap<>();
+            Map<String, LinkedHashMap<String, Object>> inputs = new TreeMap<>();
 
-   //if (!"".equals(input.getImportPath()))
-   if (!StringUtils.isEmpty(input.getImportPath()) )
-    blueprint.setImports(importsService.createImportsFromFile(input.getImportPath()));
-   else
-    blueprint.setImports(importsService.createImports(input.getBpType()));
+            // if (!"".equals(input.getImportPath()))
+            if (!StringUtils.isEmpty(input.getImportPath())) {
+                blueprint.setImports(importsService.createImportsFromFile(input.getImportPath()));
+            } else {
+                blueprint.setImports(importsService.createImports(input.getBpType()));
+            }
 
-   Map<String, Node> nodeTemplate = new TreeMap();
+            Map<String, Node> nodeTemplate = new TreeMap();
 
-   Map<String, Object> dmaapNodeResponse = nodeService.createDmaapNode(onapComponentSpec, inputs, input.getServiceNameOverride());
-   inputs = (Map<String, LinkedHashMap<String, Object>>) dmaapNodeResponse.get("inputs");
-   nodeTemplate.put(onapComponentSpec.getSelf().getName(), (Node) dmaapNodeResponse.get("dmaapNode"));
+            Map<String, Object> dmaapNodeResponse =
+                nodeService
+                    .createDmaapNode(onapComponentSpec, inputs, input.getServiceNameOverride());
+            inputs = (Map<String, LinkedHashMap<String, Object>>) dmaapNodeResponse.get("inputs");
+            nodeTemplate.put(
+                onapComponentSpec.getSelf().getName(), (Node) dmaapNodeResponse.get("dmaapNode"));
 
-   if (onapComponentSpec.getStreams() != null) {
-    if (onapComponentSpec.getStreams().getPublishes() != null) {
-     for (Publishes publishes : onapComponentSpec.getStreams().getPublishes()) {
-      if (blueprintHelperService.isMessageRouterType(publishes.getType())) {
-       String topic = publishes.getConfig_key() + Constants._TOPIC;
-       Map<String, Object> topicNodeResponse = nodeService.createTopicNode(inputs, topic);
-       inputs = (Map<String, LinkedHashMap<String, Object>>) topicNodeResponse.get("inputs");
-       nodeTemplate.put(topic, (Node) topicNodeResponse.get("topicNode"));
-      } else if (blueprintHelperService.isDataRouterType(publishes.getType())) {
-       String feed = publishes.getConfig_key() + Constants._FEED;
-       Map<String, Object> feedNodeResponse = nodeService.createFeedNode(inputs, feed);
-       inputs = (Map<String, LinkedHashMap<String, Object>>) feedNodeResponse.get("inputs");
-       nodeTemplate.put(feed, (Node) feedNodeResponse.get("feedNode"));
-      }
-     }
+            if (onapComponentSpec.getStreams() != null) {
+                if (onapComponentSpec.getStreams().getPublishes() != null) {
+                    for (Publishes publishes : onapComponentSpec.getStreams().getPublishes()) {
+                        if (blueprintHelperService.isMessageRouterType(publishes.getType())) {
+                            String topic = publishes.getConfig_key() + Constants._TOPIC;
+                            Map<String, Object> topicNodeResponse = nodeService
+                                .createTopicNode(inputs, topic);
+                            inputs = (Map<String, LinkedHashMap<String, Object>>) topicNodeResponse
+                                .get("inputs");
+                            nodeTemplate.put(topic, (Node) topicNodeResponse.get("topicNode"));
+                        } else if (blueprintHelperService.isDataRouterType(publishes.getType())) {
+                            String feed = publishes.getConfig_key() + Constants._FEED;
+                            Map<String, Object> feedNodeResponse = nodeService
+                                .createFeedNode(inputs, feed);
+                            inputs = (Map<String, LinkedHashMap<String, Object>>) feedNodeResponse
+                                .get("inputs");
+                            nodeTemplate.put(feed, (Node) feedNodeResponse.get("feedNode"));
+                        }
+                    }
+                }
+                if (onapComponentSpec.getStreams().getSubscribes() != null) {
+                    for (Subscribes s : onapComponentSpec.getStreams().getSubscribes()) {
+                        if (blueprintHelperService.isMessageRouterType(s.getType())) {
+                            String topic = s.getConfig_key() + Constants._TOPIC;
+                            Map<String, Object> topicNodeResponse = nodeService
+                                .createTopicNode(inputs, topic);
+                            inputs = (Map<String, LinkedHashMap<String, Object>>) topicNodeResponse
+                                .get("inputs");
+                            nodeTemplate.put(topic, (Node) topicNodeResponse.get("topicNode"));
+                        } else if (blueprintHelperService.isDataRouterType(s.getType())) {
+                            String feed = s.getConfig_key() + Constants._FEED;
+                            Map<String, Object> feedNodeResponse = nodeService
+                                .createFeedNode(inputs, feed);
+                            inputs = (Map<String, LinkedHashMap<String, Object>>) feedNodeResponse
+                                .get("inputs");
+                            nodeTemplate.put(feed, (Node) feedNodeResponse.get("feedNode"));
+                        }
+                    }
+                }
+            }
+
+            if (onapComponentSpec.getPolicyInfo() != null) {
+                policyNodeService.addPolicyNodesAndInputs(onapComponentSpec, nodeTemplate, inputs);
+            }
+
+            if (onapComponentSpec.getAuxilary() != null
+                && onapComponentSpec.getAuxilary().getDatabases() != null) {
+                pgaasNodeService.addPgaasNodesAndInputs(onapComponentSpec, nodeTemplate, inputs);
+            }
+
+            blueprint.setNode_templates(nodeTemplate);
+            blueprint.setInputs(inputs);
+            return quotationService.setQuotations(blueprint);
+        } catch (Exception ex) {
+            throw new BlueprintException(
+                "Unable to create ONAP DMAAP Blueprint Object from given input parameters", ex);
+        }
     }
-    if (onapComponentSpec.getStreams().getSubscribes() != null) {
-     for (Subscribes s : onapComponentSpec.getStreams().getSubscribes()) {
-      if (blueprintHelperService.isMessageRouterType(s.getType())) {
-       String topic = s.getConfig_key() + Constants._TOPIC;
-       Map<String, Object> topicNodeResponse = nodeService.createTopicNode(inputs, topic);
-       inputs = (Map<String, LinkedHashMap<String, Object>>) topicNodeResponse.get("inputs");
-       nodeTemplate.put(topic, (Node) topicNodeResponse.get("topicNode"));
-      } else if (blueprintHelperService.isDataRouterType(s.getType())) {
-       String feed = s.getConfig_key() + Constants._FEED;
-       Map<String, Object> feedNodeResponse = nodeService.createFeedNode(inputs, feed);
-       inputs = (Map<String, LinkedHashMap<String, Object>>) feedNodeResponse.get("inputs");
-       nodeTemplate.put(feed, (Node) feedNodeResponse.get("feedNode"));
-      }
-     }
-    }
-   }
-
-   if (onapComponentSpec.getPolicyInfo() != null)
-    policyNodeService.addPolicyNodesAndInputs(onapComponentSpec, nodeTemplate, inputs);
-
-   if (onapComponentSpec.getAuxilary() != null && onapComponentSpec.getAuxilary().getDatabases() != null)
-    pgaasNodeService.addPgaasNodesAndInputs(onapComponentSpec, nodeTemplate, inputs);
-
-   blueprint.setNode_templates(nodeTemplate);
-   blueprint.setInputs(inputs);
-   return quotationService.setQuotations(blueprint);
-  } catch (Exception ex) {
-   throw new BlueprintException("Unable to create ONAP DMAAP Blueprint Object from given input parameters", ex);
-  }
- }
 }

@@ -35,22 +35,26 @@ import java.util.Map;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * Common ONAP Service used by ONAP and DMAAP Blueprint to add Interfaces
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator Common ONAP Service to add Interfaces
  */
-
-
 @Service
 public class InterfacesService {
 
     @Autowired
     private StartService startService;
 
-    // Method to create Interface to include Start and Start inputs sections in BP
-    public Map<String,Object> createInterface(Map<String, LinkedHashMap<String, Object>> inputs, OnapComponentSpec onapComponentSpec){
+    /**
+     * Creates Interface to include Start and Start inputs sections in BP for given Inputs and
+     * ComponentSpec
+     *
+     * @param inputs Inputs
+     * @param onapComponentSpec  OnapComponentSpec
+     * @return
+     */
+    public Map<String, Object> createInterface(
+        Map<String, LinkedHashMap<String, Object>> inputs, OnapComponentSpec onapComponentSpec) {
 
-        Map<String,Object> response = new HashMap<>();
+        Map<String, Object> response = new HashMap<>();
         Interfaces interfaces = new Interfaces();
 
         Map<String, Object> startResponse = startService.createStart(inputs, onapComponentSpec);
@@ -62,6 +66,4 @@ public class InterfacesService {
         response.put("inputs", inputs);
         return response;
     }
-
 }
-

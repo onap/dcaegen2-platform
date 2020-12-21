@@ -28,15 +28,21 @@ package org.onap.blueprintgenerator.exception;
  * @date 10/16/2020
  * Application: DCAE/ONAP - Blueprint Generator
  * Common Module: Used by both ONAP and DCAE Blueprint Applications
- * Exception: For ComponentSpec
+ * Exception: To handle error messages for ComponentSpec
  */
 
-public class ComponentSpecException extends RuntimeException{
+public class ComponentSpecException extends RuntimeException {
 
+    /**
+     * Handles Component Specification Exception for Error Message
+     */
     public ComponentSpecException(String errorMessage) {
         super(errorMessage);
     }
 
+    /**
+     * Handles Component Specification Exception for Error Message and Error
+     */
     public ComponentSpecException(String errorMessage, Throwable err) {
         super(errorMessage, err);
     }

@@ -39,39 +39,41 @@ import java.util.List;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * To create Node Type, Data Type and Translate Entry Schema for Policy Model Node
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator To create Node Type, Data Type and
+ * Translate Entry Schema for Policy Model Node
  */
-
-
 @Service("onapPolicyModelNodeService")
 public class PolicyModelNodeService {
 
-    // Method to create Nodes for Policy
-    public  Map<String,Object> creatNodeType(String policyName, Parameters[] params) {
+    /**
+     * Creates Nodes for Policy
+     *
+     * @param policyName Policy Name
+     * @param params Paramaeters
+     * @return
+     */
+    public Map<String, Object> creatNodeType(String policyName, Parameters[] params) {
         String hasEntrySchema = "";
-        Map<String,Object> response = new HashMap<>();
+        Map<String, Object> response = new HashMap<>();
         PolicyModelNode policyModelNode = new PolicyModelNode();
 
         Map<String, PolicyProperties> props = new TreeMap<>();
-        for(Parameters p: params) {
-            if(p.getPolicy_group() != null && p.getPolicy_group().equals(policyName)) {
-                    String name = p.getName();
-                    String type = p.getType();
-                    PolicyProperties polProps = new PolicyProperties();
-                    if(p.getPolicy_schema() != null) {
-                        polProps.setType("map");
-                        ArrayList<String> entrySchema = new ArrayList<String>();
-                        entrySchema.add("type: onap.datatypes." + name);
-                        polProps.setEntry_schema(entrySchema);
-                        hasEntrySchema = name;
-                        props.put(name, polProps);
-                    }
-                    else {
-                        polProps.setType(type);
-                        props.put(name, polProps);
-                    }
+        for (Parameters p : params) {
+            if (p.getPolicy_group() != null && p.getPolicy_group().equals(policyName)) {
+                String name = p.getName();
+                String type = p.getType();
+                PolicyProperties polProps = new PolicyProperties();
+                if (p.getPolicy_schema() != null) {
+                    polProps.setType("map");
+                    ArrayList<String> entrySchema = new ArrayList<String>();
+                    entrySchema.add("type: onap.datatypes." + name);
+                    polProps.setEntry_schema(entrySchema);
+                    hasEntrySchema = name;
+                    props.put(name, polProps);
+                } else {
+                    polProps.setType(type);
+                    props.put(name, polProps);
+                }
             }
         }
         policyModelNode.setDerived_from(Constants.TOSCA_DATATYPES_ROOT);
@@ -81,32 +83,37 @@ public class PolicyModelNodeService {
         return response;
     }
 
-    // Method to create Data Types for Policy
-    public Map<String, PolicyModelNode> createDataTypes(String param, Parameters[] parameters){
+    /**
+     * Creates Data Types for Policy
+     *
+     * @param param Param
+     * @param parameters Parameters
+     * @return
+     */
+    public Map<String, PolicyModelNode> createDataTypes(String param, Parameters[] parameters) {
         Map<String, PolicyModelNode> dataType = new TreeMap<>();
         PolicyModelNode node = new PolicyModelNode();
         node.setDerived_from(Constants.TOSCA_DATATYPES_ROOT);
 
         Map<String, PolicyProperties> properties = new TreeMap<>();
         Parameters par = new Parameters();
-        for(Parameters p: parameters) {
-            if(param.equals(p.getName())) {
+        for (Parameters p : parameters) {
+            if (param.equals(p.getName())) {
                 par = p;
                 break;
             }
         }
 
-        for(PolicySchema pol: par.getPolicy_schema()) {
-            if(pol.getEntry_schema() != null) {
-                PolicyProperties prop =new PolicyProperties();
+        for (PolicySchema pol : par.getPolicy_schema()) {
+            if (pol.getEntry_schema() != null) {
+                PolicyProperties prop = new PolicyProperties();
                 prop.setType("map");
-                ArrayList<String> schema = new ArrayList<String>();
+                List<String> schema = new ArrayList<>();
                 schema.add("type: onap.datatypes." + pol.getName());
                 prop.setEntry_schema(schema);
                 properties.put(pol.getName(), prop);
                 dataType = translateEntrySchema(dataType, pol.getEntry_schema(), pol.getName());
-            }
-            else {
+            } else {
                 PolicyProperties prop = new PolicyProperties();
                 prop.setType(pol.getType());
                 properties.put(pol.getName(), prop);
@@ -118,14 +125,15 @@ public class PolicyModelNodeService {
         return dataType;
     }
 
-    private Map<String, PolicyModelNode> translateEntrySchema(Map<String, PolicyModelNode> dataType, EntrySchema[] entry, String name){
+    private Map<String, PolicyModelNode> translateEntrySchema(
+        Map<String, PolicyModelNode> dataType, EntrySchema[] entry, String name) {
         Map<String, PolicyModelNode> data = dataType;
         PolicyModelNode node = new PolicyModelNode();
         node.setDerived_from(Constants.TOSCA_NODES_ROOT);
         Map<String, PolicyProperties> properties = new TreeMap<>();
 
-        for(EntrySchema e: entry) {
-            if(e.getEntry_schema() != null) {
+        for (EntrySchema e : entry) {
+            if (e.getEntry_schema() != null) {
                 PolicyProperties prop = new PolicyProperties();
                 prop.setType("list");
                 List<String> schema = new ArrayList<>();
@@ -145,6 +153,4 @@ public class PolicyModelNodeService {
         dataType.put("onap.datatypes." + name, node);
         return data;
     }
-
 }
-

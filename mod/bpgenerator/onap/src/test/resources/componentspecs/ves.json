@@ -12,14 +12,14 @@
         "version": "1.0.0",
         "route": "/TEST_HELLO_WORLD_SUB_MR",
         "type": "message_router",
-        "config_key": "TEST-SUB-MR" 
+        "config_key": "TEST-SUB-MR"
       },
       {
         "format": "dataformat_Hello_World_PM DR",
         "version": "1.0.0",
-        "route": "/TEST_HELLO_WORLD_SUB_DR",		
+        "route": "/TEST_HELLO_WORLD_SUB_DR",
         "type": "data_router",
-        "config_key": "TEST-SUB-DR" 
+        "config_key": "TEST-SUB-DR"
       }
     ],
     "publishes": [
@@ -27,37 +27,37 @@
         "format": "VES_specification",
         "version": "5.28.4",
         "type": "message router",
-        "config_key": "ves-fault" 
+        "config_key": "ves-fault"
       },
       {
         "format": "VES_specification",
         "version": "5.28.4",
         "type": "message router",
-        "config_key": "ves-measurement" 
+        "config_key": "ves-measurement"
       },
       {
         "format": "VES_specification",
         "version": "5.28.4",
         "type": "message router",
-        "config_key": "ves-other"  
+        "config_key": "ves-other"
       },
       {
         "format": "VES_specification",
         "version": "5.28.4",
         "type": "message router",
-        "config_key": "ves-heartbeat-secondary" 
+        "config_key": "ves-heartbeat-secondary"
       },
       {
         "format": "VES_specification",
         "version": "7.30.0",
         "type": "message router",
-        "config_key": "ves-pnfRegistration" 
+        "config_key": "ves-pnfRegistration"
       },
       {
         "format": "VES_specification",
         "version": "7.30.0",
         "type": "message router",
-        "config_key": "ves-notification" 
+        "config_key": "ves-notification"
       }
     ]
   },
@@ -242,24 +242,24 @@
       "sourced_at_deployment": true,
       "policy_editable": true,
       "policy_group": "Test_Parameters",
-      "required": true,	  
+      "required": true,
       "designer_editable": true,
       "policy_schema": [
-	      {
-		  	"name": "PolicySchemaTest",
-		    "description": "List of objects for vnf type monitorng",
-		    "type": "String",
-		    "entry_schema": [
-			    {
-			     "name": "TestEntrySchema",
-			     "description": "entry",
-			     "type": "string",
-			     "value": "None"
-			    }
-		    ]
-          }
+        {
+          "name": "PolicySchemaTest",
+          "description": "List of objects for vnf type monitorng",
+          "type": "String",
+          "entry_schema": [
+            {
+              "name": "TestEntrySchema",
+              "description": "entry",
+              "type": "string",
+              "value": "None"
+            }
+          ]
+        }
       ]
-    },	
+    },
     {
       "name": "tomcat.maxthreads",
       "value": "200",
@@ -281,17 +281,17 @@
       "interval": "15s",
       "timeout": "1s",
       "endpoint": "/livehealthcheck"
-    },	
+    },
     "databases": {
       "dti": "postgres"
-    },	
+    },
     "reconfigs": {
       "app_reconfig": "abc"
-    },	
+    },
     "policy": {
       "trigger_type": "docker",
-      "script_path": "/opt/app/manager/bin/reconfigure.sh"	  
-    },		
+      "script_path": "/opt/app/manager/bin/reconfigure.sh"
+    },
     "volumes": [
       {
         "container": {

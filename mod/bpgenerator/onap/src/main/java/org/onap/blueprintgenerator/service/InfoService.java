@@ -35,32 +35,37 @@ import java.util.Map;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * Service to create Message Router and Data Router Information
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator Service to create Message Router and
+ * Data Router Information
  */
-
 @Service
 public class InfoService {
 
     @Autowired
     private BlueprintHelperService blueprintHelperService;
 
-    // Method to create info for Message Router
-    public Map<String,Object> createMessageRouterInfo(Map<String, LinkedHashMap<String, Object>> inputs, String config, char type) {
+    /**
+     * Creates info for Message Router
+     *
+     * @param inputs Inputs
+     * @param config Config
+     * @param type BP Type
+     * @return
+     */
+    public Map<String, Object> createMessageRouterInfo(
+        Map<String, LinkedHashMap<String, Object>> inputs, String config, char type) {
 
-        Map<String,Object> response = new HashMap<>();
+        Map<String, Object> response = new HashMap<>();
         Info info = new Info();
 
         LinkedHashMap<String, Object> stringType = new LinkedHashMap<>();
         stringType.put("type", "string");
 
         config = config.replaceAll("-", "_");
-        if(type == 'p') {
+        if (type == 'p') {
             config = config + "_publish_url";
-        }
-        else if(type == 's') {
-            config = config+ "_subscribe_url";
+        } else if (type == 's') {
+            config = config + "_subscribe_url";
         }
 
         GetInput topic = new GetInput();
@@ -74,10 +79,17 @@ public class InfoService {
         return response;
     }
 
-    // Method to create info for Data Router
-    public Map<String,Object> createDataRouterInfo(Map<String, LinkedHashMap<String, Object>> inputs, String config) {
+    /**
+     * Creates info for Data Router
+     *
+     * @param inputs Inputs
+     * @param config Config
+     * @return
+     */
+    public Map<String, Object> createDataRouterInfo(
+        Map<String, LinkedHashMap<String, Object>> inputs, String config) {
 
-        Map<String,Object> response = new HashMap<>();
+        Map<String, Object> response = new HashMap<>();
         Info info = new Info();
 
         LinkedHashMap<String, Object> stringType = new LinkedHashMap<>();
@@ -98,12 +110,14 @@ public class InfoService {
         info.setLocation(location);
         inputs.put(userlocationInputName, stringType);
 
-        String userdeliveryUrlInputName = blueprintHelperService.joinUnderscore(config, "delivery_url");
+        String userdeliveryUrlInputName = blueprintHelperService
+            .joinUnderscore(config, "delivery_url");
         GetInput deliveryUrl = new GetInput(userdeliveryUrlInputName);
         info.setDelivery_url(deliveryUrl);
         inputs.put(userdeliveryUrlInputName, stringType);
 
-        String usersubscriberIDInputName = blueprintHelperService.joinUnderscore(config, "subscriber_id");
+        String usersubscriberIDInputName =
+            blueprintHelperService.joinUnderscore(config, "subscriber_id");
         GetInput subscriberID = new GetInput(usersubscriberIDInputName);
         info.setSubscriber_id(subscriberID);
         inputs.put(usersubscriberIDInputName, stringType);
@@ -112,5 +126,4 @@ public class InfoService {
         response.put("inputs", inputs);
         return response;
     }
-
 }

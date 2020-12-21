@@ -30,40 +30,37 @@ import lombok.EqualsAndHashCode;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: DCAE/ONAP - Blueprint Generator
- * Common Module: Used by both ONAP and DCAE Blueprint Applications
- * Component Spec Model: For Parameters
+ * @date 10/16/2020 Application: DCAE/ONAP - Blueprint Generator Common Module: Used by both ONAP
+ * and DCAE Blueprint Applications Component Spec Model: A model class which represents Parameters
+ * used in Componentspec
  */
-
 @Data
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @EqualsAndHashCode
 public class Parameters {
 
-	private String name;
+    private String name;
 
-	private Object value;
+    private Object value;
 
-	private String description;
+    private String description;
 
-	private boolean sourced_at_deployment;
+    private boolean sourced_at_deployment;
 
-	private boolean designer_editable;
+    private boolean designer_editable;
 
-	private boolean policy_editable;
+    private boolean policy_editable;
 
-	private boolean required;
+    private boolean required;
 
-	private String type;
+    private String type;
 
-	private String policy_group;
+    private String policy_group;
 
-	private PolicySchema[] policy_schema;
+    private PolicySchema[] policy_schema;
 
-	private EntrySchema[] entry_schema;
+    private EntrySchema[] entry_schema;
 
-	private Constraints[] constraints;
-
+    private Constraints[] constraints;
 }

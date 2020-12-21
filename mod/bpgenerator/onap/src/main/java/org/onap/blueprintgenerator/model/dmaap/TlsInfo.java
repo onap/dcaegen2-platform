@@ -30,12 +30,9 @@ import lombok.NoArgsConstructor;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * DMAAP Model for TLS Info
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator ONAP DMAAP Spec Model: A model class
+ * which represents TLS Info
  */
-
-
 @Data
 @NoArgsConstructor
 public class TlsInfo {
@@ -45,5 +42,4 @@ public class TlsInfo {
 
     @JsonProperty("use_tls")
     private GetInput useTls;
-
 }

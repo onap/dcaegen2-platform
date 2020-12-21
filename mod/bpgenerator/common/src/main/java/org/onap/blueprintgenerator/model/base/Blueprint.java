@@ -33,23 +33,19 @@ import java.util.Map;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: DCAE/ONAP - Blueprint Generator
- * Common Module: Used by both ONAP and DCAE Blueprint Applications
- * Base Model: For Blueprint
+ * @date 10/16/2020 Application: DCAE/ONAP - Blueprint Generator Common Module: Used by both ONAP
+ * and DCAE Blueprint Applications Base Model: A model class which represents base Blueprint
  */
-
 @Data
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Blueprint {
 
-	private String tosca_definitions_version;
+    private String tosca_definitions_version;
 
-	private String description;
+    private String description;
 
-	private List<String> imports;
+    private List<String> imports;
 
-	private Map<String, LinkedHashMap<String, Object>> inputs;
-
+    private Map<String, LinkedHashMap<String, Object>> inputs;
 }

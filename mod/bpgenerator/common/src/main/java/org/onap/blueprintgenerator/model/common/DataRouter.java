@@ -23,7 +23,6 @@
 
 package org.onap.blueprintgenerator.model.common;
 
-
 import org.onap.blueprintgenerator.constants.Constants;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -31,17 +30,13 @@ import lombok.Data;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: DCAE/ONAP - Blueprint Generator
- * Common Module: Used by both ONAP and DCAE Blueprint Applications
- * Common Model: For Data Router
+ * @date 10/16/2020 Application: DCAE/ONAP - Blueprint Generator Common Module: Used by both ONAP
+ * and DCAE Blueprint Applications Common Model: A model class which represents Data Router
  */
-
 @Data
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class DataRouter extends Dmaap {
 
-	private String type = Constants.DATA_ROUTER;
-
+    private String type = Constants.DATA_ROUTER;
 }

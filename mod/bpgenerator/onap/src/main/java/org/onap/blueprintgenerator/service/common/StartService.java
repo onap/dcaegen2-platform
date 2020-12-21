@@ -23,7 +23,6 @@
 
 package org.onap.blueprintgenerator.service.common;
 
-
 import org.onap.blueprintgenerator.model.common.Start;
 import org.onap.blueprintgenerator.model.common.StartInputs;
 import org.onap.blueprintgenerator.model.componentspec.OnapComponentSpec;
@@ -36,24 +35,28 @@ import java.util.Map;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * Common ONAP Service used by ONAP and DMAAP Blueprint to add Start Node
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator Common ONAP Service to add Start Node
  */
-
-
 @Service
 public class StartService {
 
     @Autowired
     private StartInputsService startInputsService;
 
-    // Method to create Start for Interfaces
-    public Map<String,Object> createStart(Map<String, LinkedHashMap<String, Object>> inputs, OnapComponentSpec onapComponentSpec) {
-        Map<String,Object> response = new HashMap<>();
+    /**
+     * Creates Start for Interfaces
+     *
+     * @param inputs Inputs
+     * @param onapComponentSpec OnapComponentSpec
+     * @return
+     */
+    public Map<String, Object> createStart(
+        Map<String, LinkedHashMap<String, Object>> inputs, OnapComponentSpec onapComponentSpec) {
+        Map<String, Object> response = new HashMap<>();
         Start start = new Start();
 
-        Map<String, Object> startInputsResponse = startInputsService.createStartInputs(inputs, onapComponentSpec);
+        Map<String, Object> startInputsResponse =
+            startInputsService.createStartInputs(inputs, onapComponentSpec);
         inputs = (Map<String, LinkedHashMap<String, Object>>) startInputsResponse.get("inputs");
         start.setInputs((StartInputs) startInputsResponse.get("startInputs"));
 
@@ -61,5 +64,4 @@ public class StartService {
         response.put("inputs", inputs);
         return response;
     }
-
 }

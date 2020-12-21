@@ -23,22 +23,17 @@
 
 package org.onap.blueprintgenerator.model.policy;
 
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: DCAE/ONAP - Blueprint Generator
- * Common Module: Used by both ONAp and DCAE Blueprint Applications
- * Policy Model: To Get Policy
+ * @date 10/16/2020 Application: DCAE/ONAP - Blueprint Generator Common Module: Used by both ONAp
+ * and DCAE Blueprint Applications Policy Model: A model class which represents Policy
  */
-
 @Data
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 public class Policy {
 
-	private String policy_id;
-
+    private String policy_id;
 }

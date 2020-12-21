@@ -29,32 +29,30 @@ import lombok.Data;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: DCAE/ONAP - Blueprint Generator
- * Common Module: Used by both ONAP and DCAE Blueprint Applications
- * Component Spec Model: For Constraints
+ * @date 10/16/2020 Application: DCAE/ONAP - Blueprint Generator Common Module: Used by both ONAP
+ * and DCAE Blueprint Applications Component Spec Model: A model class which represents Constraints
+ * used in Componentspec
  */
-
 @Data
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Constraints {
 
-	private Object equal;
+    private Object equal;
 
-	private int greater_than;
+    private int greater_than;
 
-	private int greater_or_equal;
+    private int greater_or_equal;
 
-	private int less_than;
+    private int less_than;
 
-	private int less_or_equal;
+    private int less_or_equal;
 
-	private Object[] valid_values;
+    private Object[] valid_values;
 
-	private int length;
+    private int length;
 
-	private int min_length;
+    private int min_length;
 
-	private int max_length;
+    private int max_length;
 }

@@ -30,16 +30,12 @@ import java.util.List;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: DCAE/ONAP - Blueprint Generator
- * Common Module: Used by both ONAP and DCAE Blueprint Applications
- * Common Model: For Imports
+ * @date 10/16/2020 Application: DCAE/ONAP - Blueprint Generator Common Module: Used by both ONAP
+ * and DCAE Blueprint Applications Common Model: A model class which represents Imports
  */
-
 @Data
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 public class Imports {
 
-	private List<String> imports;
-
+    private List<String> imports;
 }

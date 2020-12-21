@@ -23,7 +23,6 @@
 
 package org.onap.blueprintgenerator.model.componentspec.base;
 
-
 import org.onap.blueprintgenerator.model.componentspec.common.HealthCheck;
 import org.onap.blueprintgenerator.model.componentspec.common.Policy;
 import org.onap.blueprintgenerator.model.componentspec.common.Reconfigs;
@@ -39,36 +38,32 @@ import java.util.Map;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: DCAE/ONAP - Blueprint Generator
- * Common Module: Used by both ONAP and DCAE Blueprint Applications
- * Component Spec Model: For Auxilary
+ * @date 10/16/2020 Application: DCAE/ONAP - Blueprint Generator Common Module: Used by both ONAP
+ * and DCAE Blueprint Applications Component Spec Model: A model class which represents Auxilary of
+ * Componentspec
  */
-
 @Data
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @EqualsAndHashCode
 public class Auxilary {
 
-	private HealthCheck healthcheck;
+    private HealthCheck healthcheck;
 
-	private HealthCheck livehealthcheck;
+    private HealthCheck livehealthcheck;
 
-	private Policy policy;
+    private Policy policy;
 
-	private Reconfigs reconfigs;
+    private Reconfigs reconfigs;
 
-	private List<LinkedHashMap<String, String>> env;
+    private List<LinkedHashMap<String, String>> env;
 
-	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-	private Map<String, String> databases;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private Map<String, String> databases;
 
-/*	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-	private Affinity affinity;*/
+  /*	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+  private Affinity affinity;*/
 
-	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-	private Object hpa_config;
-
-
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private Object hpa_config;
 }

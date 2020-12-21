@@ -23,7 +23,6 @@
 
 package org.onap.blueprintgenerator.model.componentspec.common;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
@@ -31,28 +30,25 @@ import lombok.EqualsAndHashCode;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: DCAE/ONAP - Blueprint Generator
- * Common Module: Used by both ONAP and DCAE Blueprint Applications
- * Component Spec Model: For HealthCheck
+ * @date 10/16/2020 Application: DCAE/ONAP - Blueprint Generator Common Module: Used by both ONAP
+ * and DCAE Blueprint Applications Component Spec Model: A model class which represents HealthCheck
+ * used in Componentspec
  */
-
 @Data
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @EqualsAndHashCode
 public class HealthCheck {
 
-	private String interval;
+    private String interval;
 
-	private String timeout;
+    private String timeout;
 
-	private String script;
+    private String script;
 
-	private String type;
+    private String type;
 
-	private String endpoint;
+    private String endpoint;
 
-	private String initialDelaySeconds;
-
+    private String initialDelaySeconds;
 }

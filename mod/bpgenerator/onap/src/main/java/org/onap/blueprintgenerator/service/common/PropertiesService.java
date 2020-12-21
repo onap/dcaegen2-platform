@@ -47,13 +47,9 @@ import java.util.List;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * Common ONAP Service used by ONAP and DMAAP Blueprint to create Properties Node
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator Common ONAP Service to create Properties
+ * Node
  */
-
-
-
 @Service("onapPropertiesService")
 public class PropertiesService {
 
@@ -72,18 +68,30 @@ public class PropertiesService {
     @Autowired
     private BlueprintHelperService blueprintHelperService;
 
-    // Method to create ONAP properties
-    public Map<String,Object> createOnapProperties(Map<String, LinkedHashMap<String, Object>> inputs, OnapComponentSpec onapComponentSpec, String override) {
-        Map<String,Object> response = new HashMap<>();
-        org.onap.blueprintgenerator.model.common.Properties properties = new org.onap.blueprintgenerator.model.common.Properties();
+    /**
+     * Creates ONAP properties
+     *
+     * @param inputs Inputs
+     * @param onapComponentSpec OnapComponentSpec
+     * @param override Override
+     * @return
+     */
+    public Map<String, Object> createOnapProperties(
+        Map<String, LinkedHashMap<String, Object>> inputs,
+        OnapComponentSpec onapComponentSpec,
+        String override) {
+        Map<String, Object> response = new HashMap<>();
+        org.onap.blueprintgenerator.model.common.Properties properties =
+            new org.onap.blueprintgenerator.model.common.Properties();
 
         GetInput image = new GetInput();
         image.setBpInputName("image");
         properties.setImage(image);
 
         LinkedHashMap<String, Object> img = new LinkedHashMap<>();
-        inputs.put("image", blueprintHelperService.createStringInput(onapComponentSpec.getArtifacts()[0].getUri()));
-
+        inputs.put(
+            "image",
+            blueprintHelperService.createStringInput(onapComponentSpec.getArtifacts()[0].getUri()));
 
         GetInput location = new GetInput();
         location.setBpInputName("location_id");
@@ -98,14 +106,16 @@ public class PropertiesService {
         replica.setBpInputName("replicas");
         properties.setReplicas(replica);
 
-        LinkedHashMap<String, Object> replicas = blueprintHelperService.createIntegerInput("number of instances", 1);
+        LinkedHashMap<String, Object> replicas =
+            blueprintHelperService.createIntegerInput("number of instances", 1);
         inputs.put("replicas", replicas);
 
         OnapAuxilary onapAuxilary = onapComponentSpec.getAuxilary();
 
         properties.setDocker_config(onapAuxilary);
 
-        Map<String, Object> appConfigResponse = appConfigService.createAppconfig(inputs, onapComponentSpec, override, false);
+        Map<String, Object> appConfigResponse =
+            appConfigService.createAppconfig(inputs, onapComponentSpec, override, false);
         inputs = (Map<String, LinkedHashMap<String, Object>>) appConfigResponse.get("inputs");
         properties.setApplication_config((Appconfig) appConfigResponse.get("appconfig"));
 
@@ -114,7 +124,9 @@ public class PropertiesService {
 
         properties.setAlways_pull_image(always_pull_image);
 
-        LinkedHashMap<String, Object> inputAlwaysPullImage = blueprintHelperService.createBooleanInput("Set to true if the image should always be pulled",true);
+        LinkedHashMap<String, Object> inputAlwaysPullImage =
+            blueprintHelperService.createBooleanInput(
+                "Set to true if the image should always be pulled", true);
         inputs.put("always_pull_image", inputAlwaysPullImage);
 
         String sType = onapComponentSpec.getSelf().getName();
@@ -122,33 +134,49 @@ public class PropertiesService {
         properties.setService_component_type(sType);
 
         Map<String, Object> tls_info = onapComponentSpec.getAuxilary().getTls_info();
-        if(tls_info != null) {
+        if (tls_info != null) {
             addTlsInfo(onapComponentSpec, inputs, properties);
             if (tls_info.get(Constants.USE_EXTERNAL_TLS_FIELD) != null) {
-                inputs.putAll(addExternalTlsInfo(onapComponentSpec,properties));
+                inputs.putAll(addExternalTlsInfo(onapComponentSpec, properties));
             }
         }
 
-        Map<String, Object> resourceConfigResponse = resourceConfigService.createResourceConfig(inputs, onapComponentSpec.getSelf().getName());
+        Map<String, Object> resourceConfigResponse =
+            resourceConfigService
+                .createResourceConfig(inputs, onapComponentSpec.getSelf().getName());
         inputs = (Map<String, LinkedHashMap<String, Object>>) resourceConfigResponse.get("inputs");
-        properties.setResource_config((ResourceConfig) resourceConfigResponse.get("resourceConfig"));
+        properties
+            .setResource_config((ResourceConfig) resourceConfigResponse.get("resourceConfig"));
 
         response.put("properties", properties);
         response.put("inputs", inputs);
         return response;
     }
 
-    // Method to create Dmaap properties
-    public  Map<String,Object> createDmaapProperties(Map<String, LinkedHashMap<String, Object>> inputs, OnapComponentSpec onapComponentSpec, String override) {
-        Map<String,Object> response = new HashMap<>();
-        org.onap.blueprintgenerator.model.common.Properties properties = new org.onap.blueprintgenerator.model.common.Properties();
+    /**
+     * Creates Dmaap properties
+     *
+     * @param inputs Inputs
+     * @param onapComponentSpec OnapComponentSpec
+     * @param override Override
+     * @return
+     */
+    public Map<String, Object> createDmaapProperties(
+        Map<String, LinkedHashMap<String, Object>> inputs,
+        OnapComponentSpec onapComponentSpec,
+        String override) {
+        Map<String, Object> response = new HashMap<>();
+        org.onap.blueprintgenerator.model.common.Properties properties =
+            new org.onap.blueprintgenerator.model.common.Properties();
 
         GetInput image = new GetInput();
         image.setBpInputName("tag_version");
         properties.setImage(image);
 
         LinkedHashMap<String, Object> img = new LinkedHashMap<>();
-        inputs.put("tag_version", blueprintHelperService.createStringInput(onapComponentSpec.getArtifacts()[0].getUri()));
+        inputs.put(
+            "tag_version",
+            blueprintHelperService.createStringInput(onapComponentSpec.getArtifacts()[0].getUri()));
 
         GetInput location = new GetInput();
         location.setBpInputName("location_id");
@@ -164,10 +192,10 @@ public class PropertiesService {
         properties.setService_component_type(sType);
 
         Map<String, Object> tls_info = onapComponentSpec.getAuxilary().getTls_info();
-        if(tls_info != null) {
+        if (tls_info != null) {
             addTlsInfo(onapComponentSpec, inputs, properties);
             if (tls_info.get(Constants.USE_EXTERNAL_TLS_FIELD) != null) {
-                inputs.putAll(addExternalTlsInfo(onapComponentSpec,properties));
+                inputs.putAll(addExternalTlsInfo(onapComponentSpec, properties));
             }
         }
 
@@ -175,31 +203,50 @@ public class PropertiesService {
         replica.setBpInputName("replicas");
         properties.setReplicas(replica);
 
-        LinkedHashMap<String, Object> rep =  blueprintHelperService.createIntegerInput( "number of instances", 1);
+        LinkedHashMap<String, Object> rep =
+            blueprintHelperService.createIntegerInput("number of instances", 1);
         inputs.put("replicas", rep);
 
         OnapAuxilary onapAuxilary = onapComponentSpec.getAuxilary();
 
         properties.setDocker_config(onapAuxilary);
 
-        Map<String, Object> appConfigResponse = appConfigService.createAppconfig(inputs, onapComponentSpec, override, true);
+        Map<String, Object> appConfigResponse =
+            appConfigService.createAppconfig(inputs, onapComponentSpec, override, true);
         inputs = (Map<String, LinkedHashMap<String, Object>>) appConfigResponse.get("inputs");
         properties.setApplication_config((Appconfig) appConfigResponse.get("appconfig"));
 
-
         List<Streams> pubStreams = new ArrayList();
-        if(onapComponentSpec.getStreams() != null) {
+        if (onapComponentSpec.getStreams() != null) {
             if (onapComponentSpec.getStreams().getPublishes() != null) {
                 for (Publishes publishes : onapComponentSpec.getStreams().getPublishes()) {
                     if (blueprintHelperService.isMessageRouterType(publishes.getType())) {
                         String topic = publishes.getConfig_key() + Constants._TOPIC;
-                        Map<String, Object> streamsMessageRouterResponse = streamsService.createStreams(inputs, topic, publishes.getType(), publishes.getConfig_key(), publishes.getRoute(), 'p');
-                        inputs = (Map<String, LinkedHashMap<String, Object>>) streamsMessageRouterResponse.get("inputs");
+                        Map<String, Object> streamsMessageRouterResponse =
+                            streamsService.createStreams(
+                                inputs,
+                                topic,
+                                publishes.getType(),
+                                publishes.getConfig_key(),
+                                publishes.getRoute(),
+                                'p');
+                        inputs =
+                            (Map<String, LinkedHashMap<String, Object>>)
+                                streamsMessageRouterResponse.get("inputs");
                         pubStreams.add((Streams) streamsMessageRouterResponse.get("streams"));
                     } else if (blueprintHelperService.isDataRouterType(publishes.getType())) {
                         String feed = publishes.getConfig_key() + Constants._FEED;
-                        Map<String, Object> streamsDataRouterResponse = streamsService.createStreams(inputs, feed, publishes.getType(), publishes.getConfig_key(), publishes.getRoute(), 'p');
-                        inputs = (Map<String, LinkedHashMap<String, Object>>) streamsDataRouterResponse.get("inputs");
+                        Map<String, Object> streamsDataRouterResponse =
+                            streamsService.createStreams(
+                                inputs,
+                                feed,
+                                publishes.getType(),
+                                publishes.getConfig_key(),
+                                publishes.getRoute(),
+                                'p');
+                        inputs =
+                            (Map<String, LinkedHashMap<String, Object>>)
+                                streamsDataRouterResponse.get("inputs");
                         pubStreams.add((Streams) streamsDataRouterResponse.get("streams"));
                     }
                 }
@@ -207,53 +254,84 @@ public class PropertiesService {
         }
 
         ArrayList<Streams> subStreams = new ArrayList();
-        if(onapComponentSpec.getStreams() != null) {
+        if (onapComponentSpec.getStreams() != null) {
             if (onapComponentSpec.getStreams().getSubscribes() != null) {
                 for (Subscribes subscribes : onapComponentSpec.getStreams().getSubscribes()) {
                     if (blueprintHelperService.isMessageRouterType(subscribes.getType())) {
                         String topic = subscribes.getConfig_key() + Constants._TOPIC;
-                        Map<String, Object> streamsMessageRouterResponse = streamsService.createStreams(inputs, topic, subscribes.getType(), subscribes.getConfig_key(), subscribes.getRoute(), 's');
-                        inputs = (Map<String, LinkedHashMap<String, Object>>) streamsMessageRouterResponse.get("inputs");
+                        Map<String, Object> streamsMessageRouterResponse =
+                            streamsService.createStreams(
+                                inputs,
+                                topic,
+                                subscribes.getType(),
+                                subscribes.getConfig_key(),
+                                subscribes.getRoute(),
+                                's');
+                        inputs =
+                            (Map<String, LinkedHashMap<String, Object>>)
+                                streamsMessageRouterResponse.get("inputs");
                         subStreams.add((Streams) streamsMessageRouterResponse.get("streams"));
                     } else if (blueprintHelperService.isDataRouterType(subscribes.getType())) {
                         String feed = subscribes.getConfig_key() + Constants._FEED;
-                        Map<String, Object> streamsDataRouterResponse = streamsService.createStreams(inputs, feed, subscribes.getType(), subscribes.getConfig_key(), subscribes.getRoute(), 's');
-                        inputs = (Map<String, LinkedHashMap<String, Object>>) streamsDataRouterResponse.get("inputs");
+                        Map<String, Object> streamsDataRouterResponse =
+                            streamsService.createStreams(
+                                inputs,
+                                feed,
+                                subscribes.getType(),
+                                subscribes.getConfig_key(),
+                                subscribes.getRoute(),
+                                's');
+                        inputs =
+                            (Map<String, LinkedHashMap<String, Object>>)
+                                streamsDataRouterResponse.get("inputs");
                         subStreams.add((Streams) streamsDataRouterResponse.get("streams"));
                     }
                 }
             }
         }
 
-        if(!pubStreams.isEmpty())
+        if (!pubStreams.isEmpty()) {
             properties.setStreams_publishes(pubStreams);
+        }
 
-        if(!subStreams.isEmpty())
+        if (!subStreams.isEmpty()) {
             properties.setStreams_subscribes(subStreams);
+        }
 
-        Map<String, Object> resourceConfigResponse = resourceConfigService.createResourceConfig(inputs, onapComponentSpec.getSelf().getName());
+        Map<String, Object> resourceConfigResponse =
+            resourceConfigService
+                .createResourceConfig(inputs, onapComponentSpec.getSelf().getName());
         inputs = (Map<String, LinkedHashMap<String, Object>>) resourceConfigResponse.get("inputs");
-        properties.setResource_config((ResourceConfig) resourceConfigResponse.get("resourceConfig"));
+        properties
+            .setResource_config((ResourceConfig) resourceConfigResponse.get("resourceConfig"));
 
         response.put("properties", properties);
         response.put("inputs", inputs);
         return response;
     }
 
-    private void addTlsInfo(OnapComponentSpec onapComponentSpec, Map<String, LinkedHashMap<String, Object>> inputs, Properties properties) {
+    private void addTlsInfo(
+        OnapComponentSpec onapComponentSpec,
+        Map<String, LinkedHashMap<String, Object>> inputs,
+        Properties properties) {
         TlsInfo tlsInfo = new TlsInfo();
-        tlsInfo.setCertDirectory((String) onapComponentSpec.getAuxilary().getTls_info().get("cert_directory"));
+        tlsInfo.setCertDirectory(
+            (String) onapComponentSpec.getAuxilary().getTls_info().get("cert_directory"));
         GetInput useTLSFlag = new GetInput();
         useTLSFlag.setBpInputName("use_tls");
         tlsInfo.setUseTls(useTLSFlag);
         properties.setTls_info(tlsInfo);
-        LinkedHashMap<String, Object> useTlsFlagInput = blueprintHelperService.createBooleanInput("flag to indicate tls enable/disable",onapComponentSpec.getAuxilary().getTls_info().get("use_tls"));
+        LinkedHashMap<String, Object> useTlsFlagInput =
+            blueprintHelperService.createBooleanInput(
+                "flag to indicate tls enable/disable",
+                onapComponentSpec.getAuxilary().getTls_info().get("use_tls"));
         inputs.put("use_tls", useTlsFlagInput);
     }
 
- private Map<String, LinkedHashMap<String, Object>> addExternalTlsInfo(OnapComponentSpec onapComponentSpec, Properties properties) {
-  properties.setExternal_cert(externalTlsInfoFactoryService.createFromComponentSpec(onapComponentSpec));
-  return externalTlsInfoFactoryService.createInputListFromComponentSpec(onapComponentSpec);
- }
-
+    private Map<String, LinkedHashMap<String, Object>> addExternalTlsInfo(
+        OnapComponentSpec onapComponentSpec, Properties properties) {
+        properties.setExternal_cert(
+            externalTlsInfoFactoryService.createFromComponentSpec(onapComponentSpec));
+        return externalTlsInfoFactoryService.createInputListFromComponentSpec(onapComponentSpec);
+    }
 }

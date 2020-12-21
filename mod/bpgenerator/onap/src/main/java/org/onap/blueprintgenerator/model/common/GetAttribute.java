@@ -1,4 +1,3 @@
-
 /*
  *
  *  * ============LICENSE_START=======================================================
@@ -29,16 +28,12 @@ import lombok.Data;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * ONAP Common Model used by both ONAP and DMAAP: Get Attribute
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator ONAP Common Model: A model class which
+ * represents Get Attribute
  */
-
-
 @Data
 public class GetAttribute {
 
     @JsonProperty("get_attribute")
     private Object attribute;
-
 }

@@ -28,7 +28,7 @@ package org.onap.blueprintgenerator.constants;
  * @date 10/16/2020
  * Application: DCAE/ONAP - Blueprint Generator
  * Common Module: Used by both ONAP and DCAE Blueprint Applications
- * Constants: Used in ONAP and DCAE Blueprints
+ * Constants: Used in ONAP Blueprints
  */
 
 public class Constants {
@@ -46,7 +46,8 @@ public class Constants {
     public static final String BOOLEAN_TYPE = "boolean";
     public static final String STRING_TYPE = "string";
     public static final String EMPTY_VALUE = "";
-    public static final String DCAE_NODES_CONTAINERIZED_SERVICE_COMPONENT_USING_DMAAP =  "dcae.nodes.ContainerizedServiceComponentUsingDmaap";
+    public static final String DCAE_NODES_CONTAINERIZED_SERVICE_COMPONENT_USING_DMAAP =
+        "dcae.nodes.ContainerizedServiceComponentUsingDmaap";
     public static final String MEMORY_LIMIT_128Mi = "128Mi";
     public static final String CPU_LIMIT_250m = "250m";
     public static final String CPU_LIMIT = "cpu_limit";
@@ -56,7 +57,8 @@ public class Constants {
 
     public static final String CLOUDIFY_INTERFACES_LEFECYCLE = "cloudify.interfaces.lifecycle";
     public static final String DCAE = "dcae";
-    public static final String DCAE_NODES_CONTAINERIZED_SERVICE_COMPONENT =  "dcae.nodes.ContainerizedServiceComponent";
+    public static final String DCAE_NODES_CONTAINERIZED_SERVICE_COMPONENT =
+        "dcae.nodes.ContainerizedServiceComponent";
     public static final String ONAP_NAME_DCAE = "DCAE";
     public static final String POLICIES_POLICYNAME_DCAECONFIG = "DCAE.Config_";
 
@@ -69,11 +71,12 @@ public class Constants {
     public static final String WRITER_FQDN_POSTFIX = "_database_writerfqdn";
     public static final boolean USE_EXISTING = true;
     public static final String ONAP_INPUT_CPU_LIMIT = "dcae-ves-collector_cpu_limit";
-    public static final String ONAP_NODETEMPLATES =  "dcae-ves-collector";
-    public static final String ONAP_NODETEMPLATES_TYPE =  "dcae.nodes.ContainerizedServiceComponent";
+    public static final String ONAP_NODETEMPLATES = "dcae-ves-collector";
+    public static final String ONAP_NODETEMPLATES_TYPE = "dcae.nodes.ContainerizedServiceComponent";
     public static final String ONAP_DEFAULT250m = "\"250m\"";
     public static final String ONAP_SERVICE_COMPONENTNAME_OVERRIDE_DEFAULT = "\"\"";
-    public static final String DMAAP_NODETEMPLATES_TYPE =  "dcae.nodes.ContainerizedServiceComponentUsingDmaap";
+    public static final String DMAAP_NODETEMPLATES_TYPE =
+        "dcae.nodes.ContainerizedServiceComponentUsingDmaap";
     public static final String USE_EXTERNAL_TLS_FIELD = "use_external_tls";
     public static final String DEFAULT_CA = "RA";
     public static final Object DEFAULT_CERT_TYPE = "P12";
@@ -81,7 +84,8 @@ public class Constants {
     public static final String EXTERNAL_CERT_DIRECTORY_FIELD = "external_cert_directory";
     public static final String CA_NAME_FIELD = "ca_name";
     public static final String CERT_TYPE_FIELD = "cert_type";
-    public static final String EXTERNAL_CERTIFICATE_PARAMETERS_FIELD = "external_certificate_parameters";
+    public static final String EXTERNAL_CERTIFICATE_PARAMETERS_FIELD =
+        "external_certificate_parameters";
     public static final String CERT_DIRECTORY_FIELD = "cert_directory";
     public static final String COMMON_NAME_FIELD = "common_name";
     public static final String SANS_FIELD = "sans";
@@ -96,5 +100,4 @@ public class Constants {
     public static final String TOSCA_DATATYPES_ROOT = "tosca.datatypes.Root";
     public static final String TOSCA_NODES_ROOT = "tosca.nodes.Root";
     public static final String TOSCA_SIMPLE_YAML = "tosca_simple_yaml_1_0_0";
-
 }

@@ -23,7 +23,6 @@
 
 package org.onap.blueprintgenerator.model.componentspec;
 
-
 import org.onap.blueprintgenerator.model.componentspec.common.Calls;
 import org.onap.blueprintgenerator.model.componentspec.common.Provides;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -33,19 +32,15 @@ import lombok.Data;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * Component Spec Model for Services
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator ONAP Component Spec Model: A model class
+ * which represents Services
  */
-
-
 @Data
-@JsonInclude(value= Include.NON_NULL)
+@JsonInclude(value = Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Services {
 
-	private Calls[] calls;
+    private Calls[] calls;
 
-	private Provides[] provides;
-
+    private Provides[] provides;
 }

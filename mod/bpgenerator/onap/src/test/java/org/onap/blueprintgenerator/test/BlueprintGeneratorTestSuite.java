@@ -28,13 +28,14 @@ import org.junit.runners.Suite;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * ONAP Test Suite for Test Cases
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator ONAP Test Suite for Test Cases
  */
-
-
 @RunWith(Suite.class)
-@Suite.SuiteClasses({ OnapComponentSpecTest.class, OnapBlueprintServiceTest.class,ExternalCertificateParametersFactoryServiceTest.class/*, BlueprintJarComparatorTest.class*/})
+@Suite.SuiteClasses({
+    OnapComponentSpecTest.class,
+    OnapBlueprintServiceTest.class,
+    ExternalCertificateParametersFactoryServiceTest.class /*, BlueprintJarComparatorTest.class*/
+})
 public class BlueprintGeneratorTestSuite {
+
 }

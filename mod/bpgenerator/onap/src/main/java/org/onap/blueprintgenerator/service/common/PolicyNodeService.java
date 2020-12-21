@@ -41,31 +41,40 @@ import java.util.Map;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * Common ONAP Service used by ONAP and DMAAP Blueprint to add Policy Node
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator Common ONAP Service to add Policy Node
  */
-
-
 @Service("onapPolicyNodeService")
 public class PolicyNodeService {
 
     @Autowired
     private BlueprintHelperService blueprintHelperService;
 
-    // Method to add Policy Nodes and Inputs
-    public void addPolicyNodesAndInputs(OnapComponentSpec onapComponentSpec, Map<String, Node> nodeTemplate, Map<String, LinkedHashMap<String, Object>> inputs) {
+    /**
+     * Creates Policy Nodes and Inputs
+     *
+     * @param onapComponentSpec OnapComponentSpec
+     * @param nodeTemplate Node Template
+     * @param inputs Inputs
+     * @return
+     */
+    public void addPolicyNodesAndInputs(
+        OnapComponentSpec onapComponentSpec,
+        Map<String, Node> nodeTemplate,
+        Map<String, LinkedHashMap<String, Object>> inputs) {
         List<TypePolicy> policyList = onapComponentSpec.getPolicyInfo().getTypePolicyList();
-        for(TypePolicy policy: policyList){
+        for (TypePolicy policy : policyList) {
             addPolicyNodesToNodeTemplate(policy, nodeTemplate);
             addPolicyInputs(policy, inputs);
         }
     }
 
-    private void addPolicyInputs(TypePolicy policy, Map<String, LinkedHashMap<String, Object>> inputs) {
+    private void addPolicyInputs(
+        TypePolicy policy, Map<String, LinkedHashMap<String, Object>> inputs) {
         String defaultValue = policy.getPolicy_id();
         defaultValue = defaultValue != null ? defaultValue : "";
-        inputs.put(policy.getNode_label() + "_policy_id", blueprintHelperService.createStringInput("policy_id", defaultValue));
+        inputs.put(
+            policy.getNode_label() + "_policy_id",
+            blueprintHelperService.createStringInput("policy_id", defaultValue));
     }
 
     private void addPolicyNodesToNodeTemplate(TypePolicy policy, Map<String, Node> nodeTemplate) {
@@ -84,11 +93,16 @@ public class PolicyNodeService {
         return policyNodeProperties;
     }
 
-    // Method to add Policy Relationships
+    /**
+     * Creates Policy Relationships
+     *
+     * @param onapComponentSpec OnapComponentSpec
+     * @return
+     */
     public List<Map<String, String>> getPolicyRelationships(OnapComponentSpec onapComponentSpec) {
         List<Map<String, String>> relationships = new ArrayList<>();
         List<TypePolicy> policyList = onapComponentSpec.getPolicyInfo().getTypePolicyList();
-        for(TypePolicy policy: policyList){
+        for (TypePolicy policy : policyList) {
             Map<String, String> relationship = new LinkedHashMap<>();
             relationship.put("type", Constants.POLICY_RELATIONSHIP_TYPE);
             relationship.put("target", policy.getNode_label());

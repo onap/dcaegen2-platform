@@ -30,21 +30,19 @@ import org.springframework.stereotype.Service;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * Common ONAP Service used by ONAP and DMAAP Blueprint to add External Certificate Data Factory
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator Common ONAP Service to add External
+ * Certificate Data Factory
  */
-
-
 @Service
 public abstract class ExternalCertificateDataFactoryService {
 
- //  Method to concatenate Constant with field
+    //  Method to concatenate Constant with field
     protected static GetInput createPrefixedGetInput(String fieldName) {
         return new GetInput(addPrefix(fieldName));
     }
 
     //  Method to concatenate the Constant INPUT_PREFIX to the input field
-    protected static String addPrefix(String fieldName) { return Constants.INPUT_PREFIX + fieldName;  }
-
+    protected static String addPrefix(String fieldName) {
+        return Constants.INPUT_PREFIX + fieldName;
+    }
 }

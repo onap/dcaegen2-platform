@@ -23,8 +23,8 @@
   -->
 
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>blueprint-generator-onap</artifactId>
@@ -32,7 +32,9 @@
     <packaging>jar</packaging>
 
     <name>Onap</name>
-    <description>This Application is used to generate ONAP Blueprint YAML Files for given Component Specs</description>
+    <description>This Application is used to generate ONAP Blueprint YAML Files for given Component
+        Specs
+    </description>
 
     <parent>
         <groupId>org.onap.dcaegen2.platform.mod</groupId>

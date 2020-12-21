@@ -30,22 +30,24 @@ import java.util.LinkedHashMap;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * Common ONAP Service used by ONAP and DMAAP Blueprint to set Quotations of generated Blueprint
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator Common ONAP Service to set Quotations of
+ * generated Blueprint
  */
-
-
 @Service
 public class QuotationService {
 
-    // Method to add Quotes for String Types
+    /**
+     * Adds Quotes for String Types for generated Blueprint
+     *
+     * @param bp Blueprint
+     * @return
+     */
     public OnapBlueprint setQuotations(OnapBlueprint bp) {
-        for(String s: bp.getInputs().keySet()) {
+        for (String s : bp.getInputs().keySet()) {
             LinkedHashMap<String, Object> temp = bp.getInputs().get(s);
-            if(temp.get("type") == "string") {
+            if (temp.get("type") == "string") {
                 String def = (String) temp.get("default");
-                if(def != null){
+                if (def != null) {
                     def = def.replaceAll("\"$", "").replaceAll("^\"", "");
                 }
                 def = '"' + def + '"';
@@ -55,5 +57,4 @@ public class QuotationService {
         }
         return bp;
     }
-
 }

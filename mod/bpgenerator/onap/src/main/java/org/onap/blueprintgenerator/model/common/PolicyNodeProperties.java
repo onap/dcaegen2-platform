@@ -29,12 +29,9 @@ import lombok.NoArgsConstructor;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * ONAP Common Model used by both ONAP and DMAAP: Policy Node Properties
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator ONAP Common Model: A model class which
+ * represents Policy Node Properties
  */
-
-
 @Data
 @NoArgsConstructor
 public class PolicyNodeProperties {
@@ -44,5 +41,4 @@ public class PolicyNodeProperties {
 
     @JsonProperty("policy_model_id")
     private String policyModelId;
-
 }

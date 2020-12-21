@@ -31,12 +31,9 @@ import lombok.Data;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * ONAP Common Model used by both ONAP and DMAAP: External TLS Info
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator ONAP Common Model: A model class which
+ * represents External TLS Info
  */
-
-
 @Data
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -56,5 +53,4 @@ public class ExternalTlsInfo {
 
     @JsonProperty(Constants.EXTERNAL_CERTIFICATE_PARAMETERS_FIELD)
     private ExternalCertificateParameters externalCertificateParameters;
-
 }

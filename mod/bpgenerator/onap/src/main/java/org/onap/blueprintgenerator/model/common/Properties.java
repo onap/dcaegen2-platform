@@ -37,53 +37,49 @@ import java.util.Map;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * ONAP Common Model used by both ONAP and DMAAP: Properties
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator ONAP Common Model: A model class which
+ * represents Properties
  */
-
-
 @Data
 @JsonInclude(value = Include.NON_NULL)
 public class Properties {
 
-	private Appconfig application_config;
+    private Appconfig application_config;
 
-	private OnapAuxilary docker_config;
+    private OnapAuxilary docker_config;
 
-	private Object image;
+    private Object image;
 
-	private GetInput location_id;
+    private GetInput location_id;
 
-	private String service_component_type;
+    private String service_component_type;
 
-	private Map<String, Object> log_info;
+    private Map<String, Object> log_info;
 
-	private String dns_name;
+    private String dns_name;
 
-	private Object replicas;
+    private Object replicas;
 
-	private String name;
+    private String name;
 
-	private GetInput topic_name;
+    private GetInput topic_name;
 
-	private GetInput feed_name;
+    private GetInput feed_name;
 
-	private List<Streams> streams_publishes;
+    private List<Streams> streams_publishes;
 
-	private List<Streams> streams_subscribes;
+    private List<Streams> streams_subscribes;
 
-	private TlsInfo tls_info;
+    private TlsInfo tls_info;
 
-	private ResourceConfig resource_config;
+    private ResourceConfig resource_config;
 
-	private GetInput always_pull_image;
+    private GetInput always_pull_image;
 
-	private Boolean useExisting;
+    private Boolean useExisting;
 
-	@JsonIgnore
-	private ExternalTlsInfoFactoryService externalCertFactory;
+    @JsonIgnore
+    private ExternalTlsInfoFactoryService externalCertFactory;
 
-	private ExternalTlsInfo external_cert;
-
+    private ExternalTlsInfo external_cert;
 }

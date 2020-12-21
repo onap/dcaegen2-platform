@@ -31,12 +31,9 @@ import lombok.Data;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020
- * Application: ONAP - Blueprint Generator
- * Component Spec Model for ONAP Component Spec derived from Common Module Component Spec used by both DCAE and ONAP
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator ONAP Component Spec Model: A model class
+ * which represents ONAP Component Spec derived from Common Module Component Spec
  */
-
-
 @Data
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -48,5 +45,4 @@ public class OnapComponentSpec extends ComponentSpec {
 
     @JsonProperty("policy_info")
     private PolicyInfo policyInfo;
-
 }
