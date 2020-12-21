@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "efdcc157_ea0b5d0e",
+        "filename": "mod/bpgenerator/onap/src/test/java/org/onap/blueprintgenerator/service/BlueprintCreatorServiceTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2020-12-21T15:08:27Z",
+      "side": 1,
+      "message": "Consider, introduce const \"incorrectType\"",
+      "range": {
+        "startLine": 104,
+        "startChar": 25,
+        "endLine": 104,
+        "endChar": 26
+      },
+      "revId": "a365402ad7106ba29f07d68cee42e225d1fa05ae",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
