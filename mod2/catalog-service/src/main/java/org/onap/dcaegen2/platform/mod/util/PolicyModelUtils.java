@@ -24,6 +24,7 @@ import io.netty.handler.ssl.SslContext;
 import io.netty.handler.ssl.SslContextBuilder;
 import io.netty.handler.ssl.util.InsecureTrustManagerFactory;
 import org.onap.dcaegen2.platform.mod.model.exceptions.policymodel.PolicyModelDistributionEnvNotFoundException;
+import org.onap.dcaegen2.platform.mod.model.policymodel.EnvInfo;
 import org.onap.dcaegen2.platform.mod.model.policymodel.PolicyModelDistributionEnv;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
@@ -96,31 +97,18 @@ public class PolicyModelUtils {
     @Value("${prod.password}")
     private String prodServerUserPassword;
 
-    Map<String, String> envToUrlMap,envToUserNameMap,envToPasswordMap;
+    Map<String, EnvInfo> envMap;
 
     /**
      * Creates a Policy Model Distribution Engine URL for the Environment requested
      */
     @PostConstruct
     public void init() {
-        envToUrlMap = new HashMap<>();
-        envToUserNameMap = new HashMap();
-        envToPasswordMap = new HashMap();
-
-        envToUrlMap.put(PolicyModelDistributionEnv.DEV.name(), "https://"+ devServer + ":" + devServerPort + urlpath);
-        envToUrlMap.put(PolicyModelDistributionEnv.PST.name(), "https://"+ pstServer + ":" + pstServerPort + urlpath);
-        envToUrlMap.put(PolicyModelDistributionEnv.ETE.name(), "https://"+ eteServer + ":" + eteServerPort + urlpath);
-        envToUrlMap.put(PolicyModelDistributionEnv.PROD.name(), "https://"+ prodServer + ":" + prodServerPort + urlpath);
-
-        envToUserNameMap.put(PolicyModelDistributionEnv.DEV.name(), devServerUser);
-        envToUserNameMap.put(PolicyModelDistributionEnv.PST.name(), pstServerUser);
-        envToUserNameMap.put(PolicyModelDistributionEnv.ETE.name(), eteServerUser);
-        envToUserNameMap.put(PolicyModelDistributionEnv.PROD.name(), prodServerUser);
-
-        envToPasswordMap.put(PolicyModelDistributionEnv.DEV.name(), devServerUserPassword);
-        envToPasswordMap.put(PolicyModelDistributionEnv.PST.name(), pstServerUserPassword);
-        envToPasswordMap.put(PolicyModelDistributionEnv.ETE.name(), eteServerUserPassword);
-        envToPasswordMap.put(PolicyModelDistributionEnv.PROD.name(), prodServerUserPassword);
+        envMap = new HashMap<>();
+        envMap.put(PolicyModelDistributionEnv.DEV.name(), EnvInfo.builder().url("https://"+ devServer + ":" + devServerPort + urlpath).username(devServerUser).password(devServerUserPassword).build());
+        envMap.put(PolicyModelDistributionEnv.DEV.name(), EnvInfo.builder().url("https://"+ pstServer + ":" + pstServerPort + urlpath).username(pstServerUser).password(pstServerUserPassword).build());
+        envMap.put(PolicyModelDistributionEnv.DEV.name(), EnvInfo.builder().url("https://"+ eteServer + ":" + eteServerPort + urlpath).username(eteServerUser).password(eteServerUserPassword).build());
+        envMap.put(PolicyModelDistributionEnv.DEV.name(), EnvInfo.builder().url("https://"+ prodServer + ":" + prodServerPort + urlpath).username(prodServerUser).password(prodServerUserPassword).build());
     }
 
     /**
@@ -130,8 +118,8 @@ public class PolicyModelUtils {
      * @return
      */
     public String getPolicyEngineURL(String env) {
-        if(!envToUrlMap.containsKey(env)) throw new PolicyModelDistributionEnvNotFoundException(String.format("Policy Model Environment with env %s invalid", env));
-        return envToUrlMap.get(env);
+        if(!envMap.containsKey(env)) throw new PolicyModelDistributionEnvNotFoundException(String.format("Policy Model Environment with env %s invalid", env));
+        return envMap.get(env).getUrl();
     }
 
 
@@ -144,8 +132,8 @@ public class PolicyModelUtils {
      */
 
     public String getUserName(String env) {
-        if(!envToUserNameMap.containsKey(env)) throw new PolicyModelDistributionEnvNotFoundException(String.format("Policy Model Environment with env %s invalid", env));
-        return envToUserNameMap.get(env);
+        if(!envMap.containsKey(env)) throw new PolicyModelDistributionEnvNotFoundException(String.format("Policy Model Environment with env %s invalid", env));
+        return envMap.get(env).getUsername();
     }
 
 
@@ -157,8 +145,8 @@ public class PolicyModelUtils {
      */
 
     public String getPassword(String env) {
-        if(!envToPasswordMap.containsKey(env)) throw new PolicyModelDistributionEnvNotFoundException(String.format("Policy Model Environment with env %s invalid", env));
-        return envToPasswordMap.get(env);
+        if(!envMap.containsKey(env)) throw new PolicyModelDistributionEnvNotFoundException(String.format("Policy Model Environment with env %s invalid", env));
+        return envMap.get(env).getPassword();
     }
 
     /**
