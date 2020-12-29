@@ -1,13 +1,14 @@
 /*-
  * ============LICENSE_START=======================================================
  * Copyright (C) 2019 AT&T Intellectual Property. All rights reserved.
+ * Copyright (C) 2020 Nokia. All rights reserved.
  * ================================================================================
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *      http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -16,17 +17,6 @@
  * ============LICENSE_END=========================================================
  */
 package org.onap.dcae.runtime.web.configuration;
-
-import org.onap.dcae.runtime.core.FlowGraphParser;
-import org.onap.dcae.runtime.core.blueprint_creator.BlueprintCreatorOnap;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Profile;
-import org.springframework.core.env.Environment;
-import org.yaml.snakeyaml.Yaml;
 
 import java.io.IOException;
 import java.nio.file.FileAlreadyExistsException;
@@ -37,13 +27,33 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.onap.blueprintgenerator.BlueprintGeneratorConfiguration;
+import org.onap.blueprintgenerator.service.BlueprintCreatorService;
+import org.onap.blueprintgenerator.service.base.BlueprintService;
+import org.onap.blueprintgenerator.service.base.FixesService;
+import org.onap.blueprintgenerator.service.common.ComponentSpecService;
+import org.onap.dcae.runtime.core.FlowGraphParser;
+import org.onap.dcae.runtime.core.blueprint_creator.BlueprintCreatorOnap;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Profile;
+import org.springframework.core.env.Environment;
+import org.yaml.snakeyaml.Yaml;
 
 @Configuration
+@Import(BlueprintGeneratorConfiguration.class)
 public class BlueprintCreatorConfig {
 
-    @Autowired
-    Environment env;
-    
+    private final Environment env;
+    private final BlueprintService blueprintService;
+    private final ComponentSpecService componentSpecService;
+    private final BlueprintCreatorService blueprintCreatorService;
+    private final FixesService fixesService;
+
     @Value("${onap.topicUrl}")
     String onapDublinTopicUrl;
 
@@ -68,12 +78,24 @@ public class BlueprintCreatorConfig {
     @Value("${onap.import.dmaapPlugin}")
     String onapDublinImportDmaapPlugin;
 
+    @Autowired
+    public BlueprintCreatorConfig(Environment env, BlueprintService blueprintService,
+        ComponentSpecService componentSpecService, BlueprintCreatorService blueprintCreatorService,
+        FixesService fixesService) {
+        this.env = env;
+        this.blueprintService = blueprintService;
+        this.componentSpecService = componentSpecService;
+        this.blueprintCreatorService = blueprintCreatorService;
+        this.fixesService = fixesService;
+    }
+
 
     @Profile("onap")
     @Primary
     @Bean
-    public FlowGraphParser getFlowGraphParserForOnapDublin(){
-        BlueprintCreatorOnap blueprintCreatorOnap = new BlueprintCreatorOnap();
+    public FlowGraphParser getFlowGraphParserForOnapDublin() {
+        BlueprintCreatorOnap blueprintCreatorOnap = new BlueprintCreatorOnap(componentSpecService,
+            blueprintCreatorService, blueprintService, fixesService);
         blueprintCreatorOnap.setImportFilePath(writeImportsTofile());
         blueprintCreatorOnap.setUseDmaapPlugin(useDmaapPlugin);
         FlowGraphParser flowGraphParser = new FlowGraphParser(blueprintCreatorOnap);
@@ -85,7 +107,7 @@ public class BlueprintCreatorConfig {
         String fielPath = "";
         try {
             Path path = createDataImportDirAndImportFile();
-            fielPath = Files.write(path,contentToWrite.getBytes()).toString();
+            fielPath = Files.write(path, contentToWrite.getBytes()).toString();
             new String(Files.readAllBytes(path));
         } catch (IOException e) {
             e.printStackTrace();
@@ -100,17 +122,15 @@ public class BlueprintCreatorConfig {
         try {
             Files.createDirectories(importDirPath);
             Files.createFile(onapImportFilePath);
-        }
-        catch (FileAlreadyExistsException ignored){
-        }
-        catch (IOException e) {
+        } catch (FileAlreadyExistsException ignored) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return onapImportFilePath;
     }
 
     private String getContentToWrite() {
-        Map<String,Object> result = new HashMap<String, Object>();
+        Map<String, Object> result = new HashMap<String, Object>();
         List<String> importList = new ArrayList<String>();
         importList.add(onapDublinImportCloudifyPlugin);
         importList.add(onapDublinImportK8sPlugin);
@@ -119,10 +139,8 @@ public class BlueprintCreatorConfig {
         importList.add(onapDublinImportPostgresPlugin);
         importList.add(onapDublinImportClampPlugin);
         importList.add(onapDublinImportDmaapPlugin);
-                
-    
-   
-        result.put("imports",importList);
+
+        result.put("imports", importList);
         return new Yaml().dump(result);
     }
 
