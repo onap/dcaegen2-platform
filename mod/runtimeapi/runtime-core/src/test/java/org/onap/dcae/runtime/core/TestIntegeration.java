@@ -1,6 +1,7 @@
 /*-
  * ============LICENSE_START=======================================================
  * Copyright (C) 2019 AT&T Intellectual Property. All rights reserved.
+ * Copyright (C) 2020 Nokia. All rights reserved.
  * ================================================================================
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,13 +18,13 @@
  */
 package org.onap.dcae.runtime.core;
 
-import org.onap.dcae.runtime.core.blueprint_creator.BlueprintCreator;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.onap.dcae.runtime.core.blueprint_creator.BlueprintCreator;
 import org.onap.dcae.runtime.core.blueprint_creator.BlueprintCreatorOnap;
 
-public class TestIntegeration {
+public class TestIntegeration extends BpGenTestBase {
 
     private FlowGraphParser flowGraphParser;
 
@@ -33,7 +34,9 @@ public class TestIntegeration {
         FlowGraph<Node, Edge> flowGraph = Helper.prepareFlowGraph();
 
         //2. Inject graph in FlowGraphParser
-        BlueprintCreator blueprintCreator = new BlueprintCreatorOnap();
+        BlueprintCreator blueprintCreator = new BlueprintCreatorOnap(componentSpecService, blueprintCreatorService,
+            blueprintService,
+            fixesService);
         flowGraphParser = new FlowGraphParser(blueprintCreator);
         flowGraphParser.parse(flowGraph);
     }
