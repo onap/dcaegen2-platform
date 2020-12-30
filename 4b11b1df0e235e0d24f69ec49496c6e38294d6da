@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7900794a_fcaa5ee5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-12-30T12:46:23Z",
+      "side": 1,
+      "message": "Just a note - no need to define issue id in commit message subject.",
+      "range": {
+        "startLine": 7,
+        "startChar": 54,
+        "endLine": 7,
+        "endChar": 78
+      },
+      "revId": "4b11b1df0e235e0d24f69ec49496c6e38294d6da",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "755643e6_54d9c624",
+        "filename": "mod2/catalog-service/src/main/java/org/onap/dcaegen2/platform/mod/util/PolicyModelUtils.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-12-30T12:46:23Z",
+      "side": 1,
+      "message": "Probably: PST",
+      "range": {
+        "startLine": 109,
+        "startChar": 46,
+        "endLine": 109,
+        "endChar": 49
+      },
+      "revId": "4b11b1df0e235e0d24f69ec49496c6e38294d6da",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0f719f5_94289d02",
+        "filename": "mod2/catalog-service/src/main/java/org/onap/dcaegen2/platform/mod/util/PolicyModelUtils.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-12-30T12:46:23Z",
+      "side": 1,
+      "message": "Probably: ETE",
+      "range": {
+        "startLine": 110,
+        "startChar": 46,
+        "endLine": 110,
+        "endChar": 49
+      },
+      "revId": "4b11b1df0e235e0d24f69ec49496c6e38294d6da",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fcb4b88_333551f2",
+        "filename": "mod2/catalog-service/src/main/java/org/onap/dcaegen2/platform/mod/util/PolicyModelUtils.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-12-30T12:46:23Z",
+      "side": 1,
+      "message": "Probabl PROD",
+      "range": {
+        "startLine": 111,
+        "startChar": 46,
+        "endLine": 111,
+        "endChar": 49
+      },
+      "revId": "4b11b1df0e235e0d24f69ec49496c6e38294d6da",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1503f4ef_be5a2e56",
+        "filename": "mod2/catalog-service/src/main/java/org/onap/dcaegen2/platform/mod/util/PolicyModelUtils.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2020-12-30T12:46:23Z",
+      "side": 1,
+      "message": "Consider extracting method to lower repetitions.",
+      "range": {
+        "startLine": 111,
+        "startChar": 58,
+        "endLine": 111,
+        "endChar": 202
+      },
+      "revId": "4b11b1df0e235e0d24f69ec49496c6e38294d6da",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
