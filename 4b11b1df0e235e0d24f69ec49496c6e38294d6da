@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "ce9630b1_ab1f151e",
+        "filename": "mod2/catalog-service/src/main/java/org/onap/dcaegen2/platform/mod/util/PolicyModelUtils.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-01-04T18:51:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "755643e6_54d9c624",
+      "range": {
+        "startLine": 109,
+        "startChar": 46,
+        "endLine": 109,
+        "endChar": 49
+      },
+      "revId": "4b11b1df0e235e0d24f69ec49496c6e38294d6da",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0f719f5_94289d02",
         "filename": "mod2/catalog-service/src/main/java/org/onap/dcaegen2/platform/mod/util/PolicyModelUtils.java",
         "patchSetId": 1
@@ -68,6 +92,30 @@
       "revId": "4b11b1df0e235e0d24f69ec49496c6e38294d6da",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a062659_0e8e5097",
+        "filename": "mod2/catalog-service/src/main/java/org/onap/dcaegen2/platform/mod/util/PolicyModelUtils.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-01-04T18:51:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0f719f5_94289d02",
+      "range": {
+        "startLine": 110,
+        "startChar": 46,
+        "endLine": 110,
+        "endChar": 49
+      },
+      "revId": "4b11b1df0e235e0d24f69ec49496c6e38294d6da",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -114,6 +162,54 @@
       "revId": "4b11b1df0e235e0d24f69ec49496c6e38294d6da",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eff4f149_d47a722e",
+        "filename": "mod2/catalog-service/src/main/java/org/onap/dcaegen2/platform/mod/util/PolicyModelUtils.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-01-04T18:51:22Z",
+      "side": 1,
+      "message": "Not necessary",
+      "parentUuid": "1503f4ef_be5a2e56",
+      "range": {
+        "startLine": 111,
+        "startChar": 58,
+        "endLine": 111,
+        "endChar": 202
+      },
+      "revId": "4b11b1df0e235e0d24f69ec49496c6e38294d6da",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b70a053_04aef8b6",
+        "filename": "mod2/catalog-service/src/main/java/org/onap/dcaegen2/platform/mod/util/PolicyModelUtils.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-01-04T18:51:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fcb4b88_333551f2",
+      "range": {
+        "startLine": 111,
+        "startChar": 46,
+        "endLine": 111,
+        "endChar": 49
+      },
+      "revId": "4b11b1df0e235e0d24f69ec49496c6e38294d6da",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
