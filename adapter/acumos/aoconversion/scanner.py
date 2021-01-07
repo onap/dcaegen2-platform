@@ -116,7 +116,7 @@ def _x_zip_matcher(art):
 
 def _md_json_matcher(art):
     """ Is this artifact the metadata.json file? """
-    return art['name'].endswith('.json')
+    return art['name'].__contains__('metadata') & art['name'].endswith('.json')
 
 
 def _walk(config):
@@ -136,6 +136,7 @@ def _walk(config):
 
 
 def onboard(aa, callback, solution, revid):
+
     xrev = aa.jsonget('/solutions/{}/revisions/{}', solution['solutionId'], revid)
     callback(model_name=solution['name'], model_version=xrev['version'], model_last_updated=xrev['modified'], rating=solution['ratingAverageTenths'] / 10.0, proto_getter=aa.artgetter(xrev, _x_proto_matcher), zip_getter=aa.artgetter(xrev, _x_zip_matcher), metadata_getter=aa.artgetter(xrev, _md_json_matcher))
 
