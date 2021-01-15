@@ -200,6 +200,15 @@ public class BlueprintHelperService {
     public boolean isMessageRouterType(String type) {
         return type.equals(Constants.MESSAGE_ROUTER) || type.equals(Constants.MESSAGEROUTER_VALUE);
     }
+    /**
+     * Returns if the type is Kafka or not
+     *
+     * @param type Input Type
+     * @return
+     */
+    public boolean isKafkaStreamType(String type) {
+        return type.equals(Constants.KAFKA_TYPE);
+    }
 
     /**
      * Returns name with underscore for empty input

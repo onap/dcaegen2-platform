@@ -3,7 +3,7 @@
  *  * ============LICENSE_START=======================================================
  *  *  org.onap.dcae
  *  *  ================================================================================
- *  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
+ *  *  Copyright (c) 2021 Nokia Intellectual Property. All rights reserved.
  *  *  ================================================================================
  *  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  *  you may not use this file except in compliance with the License.
@@ -21,39 +21,32 @@
  *
  */
 
-package org.onap.blueprintgenerator.model.common;
+package org.onap.blueprintgenerator.service.common.kafka;
 
-import org.onap.blueprintgenerator.model.componentspec.common.Calls;
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import lombok.Data;
-
-import java.util.Map;
+import org.onap.blueprintgenerator.model.common.GetInput;
 
 /**
- * @author : Ravi Mantena
- * @date 10/16/2020 Application: DCAE/ONAP - Blueprint Generator Common Module: Used by both ONAP
- * and DCAE Blueprint Applications Common Model: A model class which represents App Config
+ * @author : Tomasz Wrobel
+ * @date 01/18/2021 Application: DCAE/ONAP - Blueprint Generator
+ * Applications Common Model: A model class which represents AafCredential
  */
+
 @Data
-@JsonInclude(value = JsonInclude.Include.NON_NULL)
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class Appconfig {
+@JsonInclude(value = Include.NON_NULL)
+public class AafCredential {
 
-    private Calls[] services_calls;
+    private GetInput username;
 
-    private Map<String, BaseStream> streams_publishes;
+    private GetInput password;
 
-    private Map<String, BaseStream> streams_subscribes;
+    public AafCredential(String usernameInput, String passwordInput) {
 
-    private Map<String, Object> params;
+        this.username = new GetInput(usernameInput);
 
-    @JsonAnyGetter // The Map is persisted as flattened properties of the target POJO.
-    public Map<String, Object> getParams() {
-        return params;
+        this.password = new GetInput(passwordInput);
+
     }
-
-    // Used in ONAP
-    private Calls[] service_calls;
 }
