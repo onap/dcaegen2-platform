@@ -40,7 +40,8 @@
             "oneOf": [
               { "$ref": "#/definitions/publisher_http" },
               { "$ref": "#/definitions/publisher_message_router" },
-              { "$ref": "#/definitions/publisher_data_router" }
+              { "$ref": "#/definitions/publisher_data_router" },
+              { "$ref": "#/definitions/publisher_kafka" }
             ]
           }
         },
@@ -51,7 +52,8 @@
             "oneOf": [
               { "$ref": "#/definitions/subscriber_http" },
               { "$ref": "#/definitions/subscriber_message_router" },
-              { "$ref": "#/definitions/subscriber_data_router" }
+              { "$ref": "#/definitions/subscriber_data_router" },
+              { "$ref": "#/definitions/subscriber_kafka" }
             ]
           }
         }
@@ -470,6 +472,33 @@
         "type"
       ]
     },
+    "stream_kafka": {
+      "type": "object",
+      "properties": {
+        "format": {
+          "$ref": "#/definitions/name"
+        },
+        "version": {
+          "$ref": "#/definitions/version"
+        },
+        "config_key": {
+          "type": "string"
+        },
+        "type": {
+          "description": "Type of stream to be used",
+          "type": "string",
+          "enum": [
+            "kafka"
+          ]
+        }
+      },
+      "required": [
+        "format",
+        "version",
+        "config_key",
+        "type"
+      ]
+    },
     "publisher_http": {
       "type": "object",
       "properties": {
@@ -527,6 +556,9 @@
         "config_key",
         "type"
       ]
+    },
+    "publisher_kafka": {
+      "$ref": "#/definitions/stream_kafka"
     },
     "subscriber_http": {
       "type": "object",
@@ -590,6 +622,9 @@
         "type",
         "config_key"
       ]
+    },
+    "subscriber_kafka": {
+      "$ref": "#/definitions/stream_kafka"
     },
     "provider" : {
       "oneOf" : [
