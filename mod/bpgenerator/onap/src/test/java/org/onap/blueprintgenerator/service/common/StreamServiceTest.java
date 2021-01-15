@@ -35,6 +35,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.onap.blueprintgenerator.model.common.BaseStream;
 import org.onap.blueprintgenerator.model.common.Dmaap;
 import org.onap.blueprintgenerator.model.componentspec.OnapComponentSpec;
 import org.onap.blueprintgenerator.model.componentspec.common.Publishes;
@@ -66,7 +67,7 @@ class StreamServiceTest {
     void whenStreamsIsNullCreateStreamPublishesShouldReturnEmptyMap() {
         when(onapComponentSpecMock.getStreams()).thenReturn(null);
 
-        Map<String, Dmaap> streamPublishes = streamService.createStreamPublishes(
+        Map<String, BaseStream> streamPublishes = streamService.createStreamPublishes(
             onapComponentSpecMock,
             blueprintHelperServiceMock,
             dmaapServiceMock,
@@ -81,7 +82,7 @@ class StreamServiceTest {
         when(streamsMock.getPublishes()).thenReturn(null);
         when(onapComponentSpecMock.getStreams()).thenReturn(streamsMock);
 
-        Map<String, Dmaap> streamPublishes = streamService.createStreamPublishes(
+        Map<String, BaseStream> streamPublishes = streamService.createStreamPublishes(
             onapComponentSpecMock,
             blueprintHelperServiceMock,
             dmaapServiceMock,
@@ -99,21 +100,22 @@ class StreamServiceTest {
 
         DmaapService dmaapService = new DmaapService();
 
-        Map<String, Dmaap> streamPublishes = streamService.createStreamPublishes(
+        Map<String, BaseStream> streamPublishes = streamService.createStreamPublishes(
             onapComponentSpecMock,
             blueprintHelperServiceMock,
             dmaapService,
             createInputs(),
             true);
 
-        Map<String, Dmaap> expectedMap = createExpectedMap("_feed");
+        Map<String, BaseStream> expectedMap = createExpectedMap("_feed");
 
         assertNotNull(streamPublishes);
         assertEquals(expectedMap.size(), streamPublishes.size());
-        for(Map.Entry<String, Dmaap> entry : expectedMap.entrySet()) {
+        for (Map.Entry<String, BaseStream> entry : expectedMap.entrySet()) {
             assertTrue(streamPublishes.containsKey(entry.getKey()));
-            assertTrue(streamPublishes.get(entry.getKey()).getType().equals(entry.getValue().getType()));
-            assertTrue(streamPublishes.get(entry.getKey()).getDmaap_info().equals(entry.getValue().getDmaap_info()));
+            assertEquals(streamPublishes.get(entry.getKey()).getType(), entry.getValue().getType());
+            assertEquals(((Dmaap) streamPublishes.get(entry.getKey())).getDmaap_info(),
+                ((Dmaap) entry.getValue()).getDmaap_info());
         }
     }
 
@@ -125,21 +127,22 @@ class StreamServiceTest {
 
         DmaapService dmaapService = new DmaapService();
 
-        Map<String, Dmaap> streamPublishes = streamService.createStreamPublishes(
+        Map<String, BaseStream> streamPublishes = streamService.createStreamPublishes(
             onapComponentSpecMock,
             blueprintHelperServiceMock,
             dmaapService,
             createInputs(),
             true);
 
-        Map<String, Dmaap> expectedMap = createExpectedMap("_topic");
+        Map<String, BaseStream> expectedMap = createExpectedMap("_topic");
 
         assertNotNull(streamPublishes);
         assertEquals(expectedMap.size(), streamPublishes.size());
-        for(Map.Entry<String, Dmaap> entry : expectedMap.entrySet()) {
+        for (Map.Entry<String, BaseStream> entry : expectedMap.entrySet()) {
             assertTrue(streamPublishes.containsKey(entry.getKey()));
-            assertTrue(streamPublishes.get(entry.getKey()).getType().equals(entry.getValue().getType()));
-            assertTrue(streamPublishes.get(entry.getKey()).getDmaap_info().equals(entry.getValue().getDmaap_info()));
+            assertEquals(streamPublishes.get(entry.getKey()).getType(), entry.getValue().getType());
+            assertEquals(((Dmaap) streamPublishes.get(entry.getKey())).getDmaap_info(),
+                ((Dmaap) entry.getValue()).getDmaap_info());
         }
     }
 
@@ -147,7 +150,7 @@ class StreamServiceTest {
     void whenStreamsIsNullCreateStreamSubscribesShouldReturnEmptyMap() {
         when(onapComponentSpecMock.getStreams()).thenReturn(null);
 
-        Map<String, Dmaap> streamSubscribes = streamService.createStreamSubscribes(
+        Map<String, BaseStream> streamSubscribes = streamService.createStreamSubscribes(
             onapComponentSpecMock,
             blueprintHelperServiceMock,
             dmaapServiceMock,
@@ -162,7 +165,7 @@ class StreamServiceTest {
         when(streamsMock.getPublishes()).thenReturn(null);
         when(onapComponentSpecMock.getStreams()).thenReturn(streamsMock);
 
-        Map<String, Dmaap> streamSubscribes = streamService.createStreamSubscribes(
+        Map<String, BaseStream> streamSubscribes = streamService.createStreamSubscribes(
             onapComponentSpecMock,
             blueprintHelperServiceMock,
             dmaapServiceMock,
@@ -180,21 +183,22 @@ class StreamServiceTest {
 
         DmaapService dmaapService = new DmaapService();
 
-        Map<String, Dmaap> streamSubscribes = streamService.createStreamSubscribes(
+        Map<String, BaseStream> streamSubscribes = streamService.createStreamSubscribes(
             onapComponentSpecMock,
             blueprintHelperServiceMock,
             dmaapService,
             createInputs(),
             true);
 
-        Map<String, Dmaap> expectedMap = createExpectedMap("_feed");
+        Map<String, BaseStream> expectedMap = createExpectedMap("_feed");
 
         assertNotNull(streamSubscribes);
         assertEquals(expectedMap.size(), streamSubscribes.size());
-        for(Map.Entry<String, Dmaap> entry : expectedMap.entrySet()) {
+        for (Map.Entry<String, BaseStream> entry : expectedMap.entrySet()) {
             assertTrue(streamSubscribes.containsKey(entry.getKey()));
-            assertTrue(streamSubscribes.get(entry.getKey()).getType().equals(entry.getValue().getType()));
-            assertTrue(streamSubscribes.get(entry.getKey()).getDmaap_info().equals(entry.getValue().getDmaap_info()));
+            assertEquals(streamSubscribes.get(entry.getKey()).getType(), entry.getValue().getType());
+            assertEquals(((Dmaap) streamSubscribes.get(entry.getKey())).getDmaap_info(),
+                ((Dmaap) entry.getValue()).getDmaap_info());
         }
     }
 
@@ -206,26 +210,27 @@ class StreamServiceTest {
 
         DmaapService dmaapService = new DmaapService();
 
-        Map<String, Dmaap> streamSubscribes = streamService.createStreamSubscribes(
+        Map<String, BaseStream> streamSubscribes = streamService.createStreamSubscribes(
             onapComponentSpecMock,
             blueprintHelperServiceMock,
             dmaapService,
             createInputs(),
             true);
 
-        Map<String, Dmaap> expectedMap = createExpectedMap("_topic");
+        Map<String, BaseStream> expectedMap = createExpectedMap("_topic");
 
         assertNotNull(streamSubscribes);
         assertEquals(expectedMap.size(), streamSubscribes.size());
-        for(Map.Entry<String, Dmaap> entry : expectedMap.entrySet()) {
+        for (Map.Entry<String, BaseStream> entry : expectedMap.entrySet()) {
             assertTrue(streamSubscribes.containsKey(entry.getKey()));
-            assertTrue(streamSubscribes.get(entry.getKey()).getType().equals(entry.getValue().getType()));
-            assertTrue(streamSubscribes.get(entry.getKey()).getDmaap_info().equals(entry.getValue().getDmaap_info()));
+            assertEquals(streamSubscribes.get(entry.getKey()).getType(), entry.getValue().getType());
+            assertEquals(((Dmaap) streamSubscribes.get(entry.getKey())).getDmaap_info(),
+                ((Dmaap) entry.getValue()).getDmaap_info());
         }
     }
 
-    private Map<String, Dmaap> createExpectedMap(String suffix) {
-        Map<String, Dmaap> expectedMap = new HashMap<>();
+    private Map<String, BaseStream> createExpectedMap(String suffix) {
+        Map<String, BaseStream> expectedMap = new HashMap<>();
         Dmaap dmaap1 = new Dmaap();
         dmaap1.setType("t1");
         dmaap1.setDmaap_info("<<k1" + suffix + ">>");
@@ -260,21 +265,21 @@ class StreamServiceTest {
         return new Subscribes[]{sub1, sub2, sub3};
     }
 
-    private Publishes createPublishes(String key, String type){
+    private Publishes createPublishes(String key, String type) {
         Publishes publishes = new Publishes();
         publishes.setConfig_key(key);
         publishes.setType(type);
         return publishes;
     }
 
-    private Subscribes createSubscribes(String key, String type){
+    private Subscribes createSubscribes(String key, String type) {
         Subscribes subscribes = new Subscribes();
         subscribes.setConfig_key(key);
         subscribes.setType(type);
         return subscribes;
     }
 
-    private Map<String, LinkedHashMap<String, Object>> createInputs(){
+    private Map<String, LinkedHashMap<String, Object>> createInputs() {
         LinkedHashMap<String, Object> map = new LinkedHashMap<>();
         map.put("key-1", "obj-1");
 
