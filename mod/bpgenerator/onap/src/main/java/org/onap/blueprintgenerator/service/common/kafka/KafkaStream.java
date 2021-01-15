@@ -3,9 +3,7 @@
  *  * ============LICENSE_START=======================================================
  *  *  org.onap.dcae
  *  *  ================================================================================
- *  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
- *  *  ================================================================================
- *  *  Modifications Copyright (c) 2021 Nokia
+ *  *  Copyright (c) 2021 Nokia Intellectual Property. All rights reserved.
  *  *  ================================================================================
  *  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  *  you may not use this file except in compliance with the License.
@@ -23,30 +21,41 @@
  *
  */
 
-package org.onap.blueprintgenerator.model.common;
+
+package org.onap.blueprintgenerator.service.common.kafka;
+
+import static org.onap.blueprintgenerator.service.common.kafka.KafkaCommonConstants.AAF_KAFKA_PASSWORD_INPUT_NAME;
+import static org.onap.blueprintgenerator.service.common.kafka.KafkaCommonConstants.AFF_KAFKA_USER_INPUT_NAME;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.Data;
+import org.onap.blueprintgenerator.model.common.BaseStream;
+
 
 /**
- * @author : Ravi Mantena
- * @date 10/16/2020 Application: DCAE/ONAP - Blueprint Generator Common Module: Used by both ONAP and DCAE Blueprint
- * Applications Common Model: A model class which represents Dmaap
+ * @author : Tomasz Wrobel
+ * @date 01/18/2021 Application: DCAE/ONAP - Blueprint Generator
+ * Applications Common Model: A model class which represents Kafka Stream
  */
 
 @Data
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Dmaap implements BaseStream {
+public class KafkaStream implements BaseStream {
 
-    private Object dmaap_info;
+    private final String type = "kafka";
 
-    // Below properties are used in ONAP
-    private String type;
+    @JsonProperty("aaf_credentials")
+    private AafCredential aafCredential;
 
-    private GetInput pass;
+    @JsonProperty("kafka_info")
+    private KafkaInfo kafkaInfo;
 
-    private GetInput user;
-
+    public KafkaStream(String topicName) {
+        this.aafCredential = new AafCredential(AFF_KAFKA_USER_INPUT_NAME, AAF_KAFKA_PASSWORD_INPUT_NAME);
+        this.kafkaInfo = new KafkaInfo(topicName);
+    }
 }
