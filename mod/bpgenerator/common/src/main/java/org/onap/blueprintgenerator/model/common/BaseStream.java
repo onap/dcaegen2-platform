@@ -21,32 +21,17 @@
  *
  */
 
+
 package org.onap.blueprintgenerator.model.common;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 /**
- * @author : Ravi Mantena
- * @date 10/16/2020 Application: DCAE/ONAP - Blueprint Generator Common Module: Used by both ONAP and DCAE Blueprint
- * Applications Common Model: A model class which represents Dmaap
+ * @author : Tomasz Wrobel
+ * @date 01/18/2021 Application: DCAE/ONAP - Blueprint Generator
+ * Applications Common Model: An abstract class with common stream field
  */
 
-@Data
-@JsonInclude(value = JsonInclude.Include.NON_NULL)
-@JsonIgnoreProperties(ignoreUnknown = true)
-@EqualsAndHashCode(callSuper = true)
-public class Dmaap extends BaseStream {
+public abstract class BaseStream {
 
-    private Object dmaap_info;
-
-    // Below properties are used in ONAP
-    private String type;
-
-    private GetInput pass;
-
-    private GetInput user;
+    public abstract String getType();
 
 }
