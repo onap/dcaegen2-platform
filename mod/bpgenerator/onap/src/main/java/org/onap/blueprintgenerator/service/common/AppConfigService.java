@@ -5,6 +5,8 @@
  *  *  ================================================================================
  *  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
  *  *  ================================================================================
+ *  *  Modifications Copyright (c) 2021 Nokia
+ *  *  ================================================================================
  *  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  *  you may not use this file except in compliance with the License.
  *  *  You may obtain a copy of the License at
@@ -55,6 +57,9 @@ public class AppConfigService {
     @Autowired
     private BlueprintHelperService blueprintHelperService;
 
+    @Autowired
+    private StreamService streamService;
+
     /**
      * Creates Inputs section under App Config with Publishes, Subscribes, Parameters sections by
      * checking Datarouter/MessageRouter/override/Dmaap values
@@ -77,70 +82,10 @@ public class AppConfigService {
         Calls[] call = new Calls[0];
         appconfig.setService_calls(call);
 
-        Map<String, Dmaap> streamPublishes = new TreeMap<>();
-        if (onapComponentSpec.getStreams() != null) {
-            if (onapComponentSpec.getStreams().getPublishes() != null) {
-                for (Publishes publishes : onapComponentSpec.getStreams().getPublishes()) {
-                    if (blueprintHelperService.isDataRouterType(publishes.getType())) {
-                        String config = publishes.getConfig_key();
-                        String name = config + Constants._FEED;
-                        Map<String, Object> dmaapDataRouterResponse =
-                            dmaapService.createDmaapDataRouter(inputs, config, name, isDmaap);
-                        inputs =
-                            (Map<String, LinkedHashMap<String, Object>>) dmaapDataRouterResponse
-                                .get("inputs");
-                        Dmaap dmaap = (Dmaap) dmaapDataRouterResponse.get("dmaap");
-                        dmaap.setType(publishes.getType());
-                        streamPublishes.put(config, dmaap);
-                    } else if (blueprintHelperService.isMessageRouterType(publishes.getType())) {
-                        String config = publishes.getConfig_key();
-                        String name = config + Constants._TOPIC;
-                        Map<String, Object> dmaapDataRouterResponse =
-                            dmaapService
-                                .createDmaapMessageRouter(inputs, config, 'p', name, name, isDmaap);
-                        inputs =
-                            (Map<String, LinkedHashMap<String, Object>>) dmaapDataRouterResponse
-                                .get("inputs");
-                        Dmaap dmaap = (Dmaap) dmaapDataRouterResponse.get("dmaap");
-                        dmaap.setType(publishes.getType());
-                        streamPublishes.put(config, dmaap);
-                    }
-                }
-            }
-        }
-
-        Map<String, Dmaap> streamSubscribes = new TreeMap<>();
-
-        if (onapComponentSpec.getStreams() != null) {
-            if (onapComponentSpec.getStreams().getSubscribes() != null) {
-                for (Subscribes subscribes : onapComponentSpec.getStreams().getSubscribes()) {
-                    if (blueprintHelperService.isDataRouterType(subscribes.getType())) {
-                        String config = subscribes.getConfig_key();
-                        String name = config + Constants._FEED;
-                        Map<String, Object> dmaapDataRouterResponse =
-                            dmaapService.createDmaapDataRouter(inputs, config, name, isDmaap);
-                        inputs =
-                            (Map<String, LinkedHashMap<String, Object>>) dmaapDataRouterResponse
-                                .get("inputs");
-                        Dmaap dmaap = (Dmaap) dmaapDataRouterResponse.get("dmaap");
-                        dmaap.setType(subscribes.getType());
-                        streamSubscribes.put(config, dmaap);
-                    } else if (blueprintHelperService.isMessageRouterType(subscribes.getType())) {
-                        String config = subscribes.getConfig_key();
-                        String name = config + Constants._TOPIC;
-                        Map<String, Object> dmaapDataRouterResponse =
-                            dmaapService
-                                .createDmaapMessageRouter(inputs, config, 's', name, name, isDmaap);
-                        inputs =
-                            (Map<String, LinkedHashMap<String, Object>>) dmaapDataRouterResponse
-                                .get("inputs");
-                        Dmaap dmaap = (Dmaap) dmaapDataRouterResponse.get("dmaap");
-                        dmaap.setType(subscribes.getType());
-                        streamSubscribes.put(config, dmaap);
-                    }
-                }
-            }
-        }
+        Map<String, Dmaap> streamPublishes = streamService.createStreamPublishes(
+            onapComponentSpec, blueprintHelperService, dmaapService, inputs, isDmaap);
+        Map<String, Dmaap> streamSubscribes = streamService.createStreamSubscribes(
+            onapComponentSpec, blueprintHelperService, dmaapService, inputs, isDmaap);
 
         appconfig.setStreams_publishes(streamPublishes);
         appconfig.setStreams_subscribes(streamSubscribes);
