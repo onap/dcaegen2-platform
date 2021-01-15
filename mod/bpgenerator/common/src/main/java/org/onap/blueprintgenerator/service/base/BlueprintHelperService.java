@@ -5,6 +5,8 @@
  *  *  ================================================================================
  *  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
  *  *  ================================================================================
+ *  *  Modifications Copyright (c) 2021 Nokia
+ *  *  ================================================================================
  *  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  *  you may not use this file except in compliance with the License.
  *  *  You may obtain a copy of the License at
@@ -199,6 +201,16 @@ public class BlueprintHelperService {
      */
     public boolean isMessageRouterType(String type) {
         return type.equals(Constants.MESSAGE_ROUTER) || type.equals(Constants.MESSAGEROUTER_VALUE);
+    }
+
+    /**
+     * Returns if the type is Kafka or not
+     *
+     * @param type Input Type
+     * @return
+     */
+    public boolean isKafkaStreamType(String type) {
+        return type.equals(Constants.KAFKA_TYPE);
     }
 
     /**
