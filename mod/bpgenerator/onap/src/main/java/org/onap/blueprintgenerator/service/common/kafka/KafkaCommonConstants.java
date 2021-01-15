@@ -3,9 +3,7 @@
  *  * ============LICENSE_START=======================================================
  *  *  org.onap.dcae
  *  *  ================================================================================
- *  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
- *  *  ================================================================================
- *  *  Modifications Copyright (c) 2021 Nokia
+ *  *  Copyright (c) 2021 Nokia Intellectual Property. All rights reserved.
  *  *  ================================================================================
  *  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  *  you may not use this file except in compliance with the License.
@@ -23,32 +21,19 @@
  *
  */
 
-package org.onap.blueprintgenerator.model.common;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+package org.onap.blueprintgenerator.service.common.kafka;
 
 /**
- * @author : Ravi Mantena
- * @date 10/16/2020 Application: DCAE/ONAP - Blueprint Generator Common Module: Used by both ONAP and DCAE Blueprint
- * Applications Common Model: A model class which represents Dmaap
+ * @author : Tomasz Wrobel
+ * @date 01/18/2021 Application: DCAE/ONAP - Blueprint Generator
+ * Class which contains Kafka Constants
  */
 
-@Data
-@JsonInclude(value = JsonInclude.Include.NON_NULL)
-@JsonIgnoreProperties(ignoreUnknown = true)
-@EqualsAndHashCode(callSuper = true)
-public class Dmaap extends BaseStream {
+public class KafkaCommonConstants {
 
-    private Object dmaap_info;
+    public static final String KAFKA_INFO_BOOTSTRAP_SERVERS_INPUT_NAME = "kafka_bootstrap_servers";
 
-    // Below properties are used in ONAP
-    private String type;
-
-    private GetInput pass;
-
-    private GetInput user;
+    public static final String AFF_KAFKA_USER_INPUT_NAME = "kafka_username";
+    public static final String AAF_KAFKA_PASSWORD_INPUT_NAME = "kafka_password";
 
 }

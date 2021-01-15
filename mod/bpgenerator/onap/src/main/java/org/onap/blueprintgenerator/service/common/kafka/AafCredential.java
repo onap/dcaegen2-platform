@@ -3,9 +3,7 @@
  *  * ============LICENSE_START=======================================================
  *  *  org.onap.dcae
  *  *  ================================================================================
- *  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
- *  *  ================================================================================
- *  *  Modifications Copyright (c) 2021 Nokia
+ *  *  Copyright (c) 2021 Nokia Intellectual Property. All rights reserved.
  *  *  ================================================================================
  *  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  *  you may not use this file except in compliance with the License.
@@ -23,32 +21,32 @@
  *
  */
 
-package org.onap.blueprintgenerator.model.common;
+package org.onap.blueprintgenerator.service.common.kafka;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
+import org.onap.blueprintgenerator.model.common.GetInput;
 
 /**
- * @author : Ravi Mantena
- * @date 10/16/2020 Application: DCAE/ONAP - Blueprint Generator Common Module: Used by both ONAP and DCAE Blueprint
- * Applications Common Model: A model class which represents Dmaap
+ * @author : Tomasz Wrobel
+ * @date 01/18/2021 Application: DCAE/ONAP - Blueprint Generator
+ * Applications Common Model: A model class which represents AafCredential
  */
 
 @Data
-@JsonInclude(value = JsonInclude.Include.NON_NULL)
-@JsonIgnoreProperties(ignoreUnknown = true)
-@EqualsAndHashCode(callSuper = true)
-public class Dmaap extends BaseStream {
+@JsonInclude(value = Include.NON_NULL)
+public class AafCredential {
 
-    private Object dmaap_info;
+    private GetInput username;
 
-    // Below properties are used in ONAP
-    private String type;
+    private GetInput password;
 
-    private GetInput pass;
+    public AafCredential(String usernameInput, String passwordInput) {
 
-    private GetInput user;
+        this.username = new GetInput(usernameInput);
 
+        this.password = new GetInput(passwordInput);
+
+    }
 }
