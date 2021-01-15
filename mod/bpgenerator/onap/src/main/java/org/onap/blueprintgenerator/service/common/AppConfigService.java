@@ -25,6 +25,7 @@ package org.onap.blueprintgenerator.service.common;
 
 import org.onap.blueprintgenerator.constants.Constants;
 import org.onap.blueprintgenerator.model.common.Appconfig;
+import org.onap.blueprintgenerator.model.common.BaseStream;
 import org.onap.blueprintgenerator.model.common.Dmaap;
 import org.onap.blueprintgenerator.model.common.GetInput;
 import org.onap.blueprintgenerator.model.componentspec.OnapComponentSpec;
@@ -33,6 +34,7 @@ import org.onap.blueprintgenerator.model.componentspec.common.Parameters;
 import org.onap.blueprintgenerator.model.componentspec.common.Publishes;
 import org.onap.blueprintgenerator.model.componentspec.common.Subscribes;
 import org.onap.blueprintgenerator.service.base.BlueprintHelperService;
+import org.onap.blueprintgenerator.service.common.kafka.KafkaStreamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,8 +45,7 @@ import java.util.TreeMap;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020 Application: ONAP - Blueprint Generator Common ONAP Service used to create App
- * Config
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator Common ONAP Service used to create App Config
  */
 @Service("onapAppConfigService")
 public class AppConfigService {
@@ -55,14 +56,17 @@ public class AppConfigService {
     @Autowired
     private BlueprintHelperService blueprintHelperService;
 
+    @Autowired
+    private KafkaStreamService kafkaStreamsService;
+
     /**
-     * Creates Inputs section under App Config with Publishes, Subscribes, Parameters sections by
-     * checking Datarouter/MessageRouter/override/Dmaap values
+     * Creates Inputs section under App Config with Publishes, Subscribes, Parameters sections by checking
+     * Datarouter/MessageRouter/override/Dmaap values
      *
-     * @param inputs Inputs
+     * @param inputs            Inputs
      * @param onapComponentSpec Onap Component Specification
-     * @param override Parameter to Service Component Override
-     * @param isDmaap Dmaap Argument
+     * @param override          Parameter to Service Component Override
+     * @param isDmaap           Dmaap Argument
      * @return
      */
     public Map<String, Object> createAppconfig(
@@ -77,7 +81,7 @@ public class AppConfigService {
         Calls[] call = new Calls[0];
         appconfig.setService_calls(call);
 
-        Map<String, Dmaap> streamPublishes = new TreeMap<>();
+        Map<String, BaseStream> streamPublishes = new TreeMap<>();
         if (onapComponentSpec.getStreams() != null) {
             if (onapComponentSpec.getStreams().getPublishes() != null) {
                 for (Publishes publishes : onapComponentSpec.getStreams().getPublishes()) {
@@ -94,7 +98,7 @@ public class AppConfigService {
                         streamPublishes.put(config, dmaap);
                     } else if (blueprintHelperService.isMessageRouterType(publishes.getType())) {
                         String config = publishes.getConfig_key();
-                        String name = config + Constants._TOPIC;
+                        String name = config + Constants._TOPIC ;
                         Map<String, Object> dmaapDataRouterResponse =
                             dmaapService
                                 .createDmaapMessageRouter(inputs, config, 'p', name, name, isDmaap);
@@ -104,12 +108,17 @@ public class AppConfigService {
                         Dmaap dmaap = (Dmaap) dmaapDataRouterResponse.get("dmaap");
                         dmaap.setType(publishes.getType());
                         streamPublishes.put(config, dmaap);
+                    } else if (isKafkaStreamType(publishes.getType())) {
+
+                        inputs.putAll(kafkaStreamsService.createStreamPublishInputs(publishes.getConfig_key()));
+                        streamPublishes.putAll(kafkaStreamsService.createAppPropertiesPublish(publishes.getConfig_key()));
+
                     }
                 }
             }
         }
 
-        Map<String, Dmaap> streamSubscribes = new TreeMap<>();
+        Map<String, BaseStream> streamSubscribes = new TreeMap<>();
 
         if (onapComponentSpec.getStreams() != null) {
             if (onapComponentSpec.getStreams().getSubscribes() != null) {
@@ -137,6 +146,11 @@ public class AppConfigService {
                         Dmaap dmaap = (Dmaap) dmaapDataRouterResponse.get("dmaap");
                         dmaap.setType(subscribes.getType());
                         streamSubscribes.put(config, dmaap);
+                    } else if (isKafkaStreamType(subscribes.getType())) {
+
+                        inputs.putAll(kafkaStreamsService.createStreamSubscribeInputs(subscribes.getConfig_key()));
+                        streamSubscribes.putAll(kafkaStreamsService.createAppPropertiesSubscribe(subscribes.getConfig_key()));
+
                     }
                 }
             }
@@ -186,5 +200,10 @@ public class AppConfigService {
         response.put("appconfig", appconfig);
         response.put("inputs", inputs);
         return response;
+    }
+
+    private boolean isKafkaStreamType(String type) {
+
+        return type.equals("kafka");
     }
 }
