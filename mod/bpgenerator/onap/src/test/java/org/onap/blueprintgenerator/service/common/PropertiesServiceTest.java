@@ -103,7 +103,7 @@ public class PropertiesServiceTest {
     @Test
     public void shouldReturnInputsAndPropertiesForOnap() {
         //given
-        when(appConfigService.createAppconfig(any(), eq(getOnapComponentSpec()), eq(""), eq(false)))
+        when(appConfigService.createAppconfig(any(), eq(getOnapComponentSpec()), eq(false)))
             .thenReturn((Map<String, Object>) resourceConfigResponse);
 
         //when
@@ -278,6 +278,7 @@ public class PropertiesServiceTest {
         expectedProperties.setImage(getGetInput(image));
         expectedProperties.setLocation_id(getGetInput("location_id"));
         expectedProperties.setService_component_type("test-Name");
+        expectedProperties.setService_component_name_override(getGetInput("service_component_name_override"));
         expectedProperties.setLog_info(Collections.emptyMap());
         expectedProperties.setReplicas(getGetInput("replicas"));
         expectedProperties.setTls_info(getTlsInfo());

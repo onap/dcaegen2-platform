@@ -4,6 +4,7 @@
  *  *  org.onap.dcae
  *  *  ================================================================================
  *  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
+ *  *  Copyright (c) 2021  Nokia. All rights reserved.
  *  *  ================================================================================
  *  *  Modifications Copyright (c) 2021 Nokia
  *  *  ================================================================================
@@ -25,15 +26,12 @@
 
 package org.onap.blueprintgenerator.service.common;
 
-import org.onap.blueprintgenerator.constants.Constants;
 import org.onap.blueprintgenerator.model.common.Appconfig;
 import org.onap.blueprintgenerator.model.common.Dmaap;
 import org.onap.blueprintgenerator.model.common.GetInput;
 import org.onap.blueprintgenerator.model.componentspec.OnapComponentSpec;
 import org.onap.blueprintgenerator.model.componentspec.common.Calls;
 import org.onap.blueprintgenerator.model.componentspec.common.Parameters;
-import org.onap.blueprintgenerator.model.componentspec.common.Publishes;
-import org.onap.blueprintgenerator.model.componentspec.common.Subscribes;
 import org.onap.blueprintgenerator.service.base.BlueprintHelperService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -66,14 +64,12 @@ public class AppConfigService {
      *
      * @param inputs Inputs
      * @param onapComponentSpec Onap Component Specification
-     * @param override Parameter to Service Component Override
      * @param isDmaap Dmaap Argument
      * @return
      */
     public Map<String, Object> createAppconfig(
         Map<String, LinkedHashMap<String, Object>> inputs,
         OnapComponentSpec onapComponentSpec,
-        String override,
         boolean isDmaap) {
 
         Map<String, Object> response = new HashMap<>();
@@ -119,13 +115,7 @@ public class AppConfigService {
                 }
             }
         }
-        if (override != null) {
-            GetInput ov = new GetInput();
-            ov.setBpInputName(Constants.SERVICE_COMPONENT_NAME_OVERRIDE);
-            parameters.put(Constants.SERVICE_COMPONENT_NAME_OVERRIDE, ov);
-            LinkedHashMap<String, Object> over = blueprintHelperService.createStringInput(override);
-            inputs.put(Constants.SERVICE_COMPONENT_NAME_OVERRIDE, over);
-        }
+
         appconfig.setParams(parameters);
 
         response.put("appconfig", appconfig);

@@ -4,6 +4,7 @@
  *  *  org.onap.dcae
  *  *  ================================================================================
  *  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
+ *  *  Copyright (c) 2021  Nokia. All rights reserved.
  *  *  ================================================================================
  *  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  *  you may not use this file except in compliance with the License.
@@ -23,9 +24,15 @@
 
 package org.onap.blueprintgenerator.service.common;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 import org.onap.blueprintgenerator.constants.Constants;
 import org.onap.blueprintgenerator.model.common.Appconfig;
 import org.onap.blueprintgenerator.model.common.GetInput;
+import org.onap.blueprintgenerator.model.common.Properties;
 import org.onap.blueprintgenerator.model.common.ResourceConfig;
 import org.onap.blueprintgenerator.model.componentspec.OnapAuxilary;
 import org.onap.blueprintgenerator.model.componentspec.OnapComponentSpec;
@@ -35,20 +42,12 @@ import org.onap.blueprintgenerator.model.dmaap.Streams;
 import org.onap.blueprintgenerator.model.dmaap.TlsInfo;
 import org.onap.blueprintgenerator.service.base.BlueprintHelperService;
 import org.onap.blueprintgenerator.service.dmaap.StreamsService;
-import org.onap.blueprintgenerator.model.common.Properties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020 Application: ONAP - Blueprint Generator Common ONAP Service to create Properties
- * Node
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator Common ONAP Service to create Properties Node
  */
 @Service("onapPropertiesService")
 public class PropertiesService {
@@ -71,9 +70,9 @@ public class PropertiesService {
     /**
      * Creates ONAP properties
      *
-     * @param inputs Inputs
+     * @param inputs            Inputs
      * @param onapComponentSpec OnapComponentSpec
-     * @param override Override
+     * @param override          Override
      * @return
      */
     public Map<String, Object> createOnapProperties(
@@ -113,7 +112,7 @@ public class PropertiesService {
         properties.setDocker_config(onapAuxilary);
 
         Map<String, Object> appConfigResponse =
-            appConfigService.createAppconfig(inputs, onapComponentSpec, override, false);
+            appConfigService.createAppconfig(inputs, onapComponentSpec, false);
         inputs = (Map<String, LinkedHashMap<String, Object>>) appConfigResponse.get("inputs");
         properties.setApplication_config((Appconfig) appConfigResponse.get("appconfig"));
 
@@ -130,6 +129,9 @@ public class PropertiesService {
         String sType = onapComponentSpec.getSelf().getName();
         sType = sType.replace('.', '-');
         properties.setService_component_type(sType);
+
+        inputs.put(Constants.SERVICE_COMPONENT_NAME_OVERRIDE,
+            addServiceComponentNameOverride(override, properties));
 
         Map<String, Object> tls_info = onapComponentSpec.getAuxilary().getTls_info();
         if (tls_info != null) {
@@ -154,9 +156,9 @@ public class PropertiesService {
     /**
      * Creates Dmaap properties
      *
-     * @param inputs Inputs
+     * @param inputs            Inputs
      * @param onapComponentSpec OnapComponentSpec
-     * @param override Override
+     * @param override          Override
      * @return
      */
     public Map<String, Object> createDmaapProperties(
@@ -189,6 +191,9 @@ public class PropertiesService {
         sType = sType.replace('.', '-');
         properties.setService_component_type(sType);
 
+        inputs.put(Constants.SERVICE_COMPONENT_NAME_OVERRIDE,
+            addServiceComponentNameOverride(override, properties));
+
         Map<String, Object> tls_info = onapComponentSpec.getAuxilary().getTls_info();
         if (tls_info != null) {
             addTlsInfo(onapComponentSpec, inputs, properties);
@@ -210,7 +215,7 @@ public class PropertiesService {
         properties.setDocker_config(onapAuxilary);
 
         Map<String, Object> appConfigResponse =
-            appConfigService.createAppconfig(inputs, onapComponentSpec, override, true);
+            appConfigService.createAppconfig(inputs, onapComponentSpec, true);
         inputs = (Map<String, LinkedHashMap<String, Object>>) appConfigResponse.get("inputs");
         properties.setApplication_config((Appconfig) appConfigResponse.get("appconfig"));
 
@@ -306,6 +311,13 @@ public class PropertiesService {
         response.put("properties", properties);
         response.put("inputs", inputs);
         return response;
+    }
+
+    private LinkedHashMap<String, Object> addServiceComponentNameOverride(String override, Properties properties) {
+        GetInput overrideGetInput = new GetInput();
+        overrideGetInput.setBpInputName(Constants.SERVICE_COMPONENT_NAME_OVERRIDE);
+        properties.setService_component_name_override(overrideGetInput);
+        return blueprintHelperService.createStringInput(override != null ? override : "");
     }
 
     private void addTlsInfo(
