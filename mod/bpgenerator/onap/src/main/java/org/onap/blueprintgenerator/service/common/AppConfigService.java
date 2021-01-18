@@ -4,6 +4,7 @@
  *  *  org.onap.dcae
  *  *  ================================================================================
  *  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
+ *  *  Copyright (c) 2021  Nokia. All rights reserved.
  *  *  ================================================================================
  *  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  *  you may not use this file except in compliance with the License.
@@ -174,13 +175,7 @@ public class AppConfigService {
                 }
             }
         }
-        if (override != null) {
-            GetInput ov = new GetInput();
-            ov.setBpInputName(Constants.SERVICE_COMPONENT_NAME_OVERRIDE);
-            parameters.put(Constants.SERVICE_COMPONENT_NAME_OVERRIDE, ov);
-            LinkedHashMap<String, Object> over = blueprintHelperService.createStringInput(override);
-            inputs.put(Constants.SERVICE_COMPONENT_NAME_OVERRIDE, over);
-        }
+
         appconfig.setParams(parameters);
 
         response.put("appconfig", appconfig);

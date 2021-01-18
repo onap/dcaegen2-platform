@@ -4,6 +4,7 @@
  *  *  org.onap.dcae
  *  *  ================================================================================
  *  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
+ *  *  Copyright (c) 2021  Nokia. All rights reserved.
  *  *  ================================================================================
  *  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  *  you may not use this file except in compliance with the License.
@@ -53,6 +54,8 @@ public class Properties {
     private GetInput location_id;
 
     private String service_component_type;
+
+    private GetInput service_component_name_override;
 
     private Map<String, Object> log_info;
 
