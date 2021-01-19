@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2e951a81_e7bdc495",
+        "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/model/common/BaseStream.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2021-01-19T14:46:48Z",
+      "side": 1,
+      "message": "Right, interface is also ok.",
+      "parentUuid": "4c00b090_ef2eabea",
+      "revId": "3bd9eae352d443979a284ea48b8103335ed651ea",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6c286ec8_10467981",
         "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/model/common/Dmaap.java",
         "patchSetId": 7
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "656a3eef_1d6cb113",
+        "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/model/common/Dmaap.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2021-01-19T14:46:48Z",
+      "side": 1,
+      "message": "Change to interface",
+      "parentUuid": "6c286ec8_10467981",
+      "revId": "3bd9eae352d443979a284ea48b8103335ed651ea",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e6177111_7ef215e7",
         "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/kafka/KafkaStream.java",
         "patchSetId": 7
@@ -47,6 +83,24 @@
       "writtenOn": "2021-01-19T14:18:23Z",
       "side": 1,
       "message": "Why it is hardcoded here?",
+      "revId": "3bd9eae352d443979a284ea48b8103335ed651ea",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7157da73_4b1c4d5d",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/kafka/KafkaStream.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2021-01-19T14:46:48Z",
+      "side": 1,
+      "message": "KafkaStream always has type \"kafka\" @Data annotation provide getter for this field and override method in BaseStream. \nShould we use constructor for this field ?",
+      "parentUuid": "e6177111_7ef215e7",
       "revId": "3bd9eae352d443979a284ea48b8103335ed651ea",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
