@@ -88,7 +88,6 @@ public class PropertiesService {
         image.setBpInputName("image");
         properties.setImage(image);
 
-        LinkedHashMap<String, Object> img = new LinkedHashMap<>();
         inputs.put(
             "image",
             blueprintHelperService.createStringInput(onapComponentSpec.getArtifacts()[0].getUri()));
@@ -97,7 +96,6 @@ public class PropertiesService {
         location.setBpInputName("location_id");
         properties.setLocation_id(location);
 
-        LinkedHashMap<String, Object> locMap = new LinkedHashMap();
         inputs.put("location_id", blueprintHelperService.createStringInput(Constants.EMPTY_VALUE));
 
         properties.setLog_info(onapComponentSpec.getAuxilary().getLog_info());
