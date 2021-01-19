@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4c00b090_ef2eabea",
+        "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/model/common/BaseStream.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 5775
+      },
+      "writtenOn": "2021-01-19T14:18:23Z",
+      "side": 1,
+      "message": "I don\u0027t understand why this class is abstract if it has just one method without any members. Maybe I/F will be better",
+      "revId": "3bd9eae352d443979a284ea48b8103335ed651ea",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c286ec8_10467981",
+        "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/model/common/Dmaap.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 5775
+      },
+      "writtenOn": "2021-01-19T14:18:23Z",
+      "side": 1,
+      "message": "Equals and hashcode are not defined in super class...",
+      "revId": "3bd9eae352d443979a284ea48b8103335ed651ea",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6177111_7ef215e7",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/kafka/KafkaStream.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 5775
+      },
+      "writtenOn": "2021-01-19T14:18:23Z",
+      "side": 1,
+      "message": "Why it is hardcoded here?",
+      "revId": "3bd9eae352d443979a284ea48b8103335ed651ea",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
