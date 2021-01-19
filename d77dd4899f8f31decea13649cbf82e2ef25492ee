@@ -16,6 +16,24 @@
       "revId": "d77dd4899f8f31decea13649cbf82e2ef25492ee",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd02d696_40f9fcfd",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/StreamService.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2021-01-19T13:23:20Z",
+      "side": 1,
+      "message": "Javadocs added.",
+      "parentUuid": "85630f32_72711dca",
+      "revId": "d77dd4899f8f31decea13649cbf82e2ef25492ee",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
