@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0287d3cc_84b58520",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/PropertiesService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2021-01-19T14:13:34Z",
+      "side": 1,
+      "message": "Consider to (if possible) create and return ComponnentNameOverride Map, to avoid modify inputs in method.",
+      "range": {
+        "startLine": 135,
+        "startChar": 8,
+        "endLine": 135,
+        "endChar": 39
+      },
+      "revId": "7fa81bc5461538b49f9ae00c222c96fd727fa593",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2072a019_5fb4eda4",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/PropertiesService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2021-01-19T14:13:34Z",
+      "side": 1,
+      "message": "Use full name. eg overrideInput",
+      "range": {
+        "startLine": 320,
+        "startChar": 17,
+        "endLine": 320,
+        "endChar": 19
+      },
+      "revId": "7fa81bc5461538b49f9ae00c222c96fd727fa593",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
