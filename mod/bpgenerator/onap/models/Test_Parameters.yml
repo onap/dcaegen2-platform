@@ -7,7 +7,7 @@ node_types:
       testParam1:
         type: map
         entry_schema:
-          - 'type: onap.datatypes.testParam1'
+        - 'type: onap.datatypes.testParam1'
 data_types:
   onap.datatypes.PolicySchemaTest:
     derived_from: tosca.nodes.Root
@@ -20,4 +20,4 @@ data_types:
       PolicySchemaTest:
         type: map
         entry_schema:
-          - 'type: onap.datatypes.PolicySchemaTest'
+        - 'type: onap.datatypes.PolicySchemaTest'
