@@ -22,6 +22,30 @@
       "revId": "8f31110ea0b2b1b4297970ec9b7717497b636804",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17ab5772_931ebe9f",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/kafka/KafkaStreamService.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2021-01-21T10:28:48Z",
+      "side": 1,
+      "message": "Change to \"sample_stream_url\"",
+      "parentUuid": "c662906e_e38c2ac8",
+      "range": {
+        "startLine": 47,
+        "startChar": 54,
+        "endLine": 47,
+        "endChar": 69
+      },
+      "revId": "8f31110ea0b2b1b4297970ec9b7717497b636804",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
