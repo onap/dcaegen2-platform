@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c662906e_e38c2ac8",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/kafka/KafkaStreamService.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-01-21T00:14:18Z",
+      "side": 1,
+      "message": "default should not be specific to HV_VES. You can set this generic value or remove the default so deployment will enforce input to be specified",
+      "range": {
+        "startLine": 47,
+        "startChar": 54,
+        "endLine": 47,
+        "endChar": 69
+      },
+      "revId": "8f31110ea0b2b1b4297970ec9b7717497b636804",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
