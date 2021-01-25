@@ -5,6 +5,8 @@
  *  *  ================================================================================
  *  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
  *  *  ================================================================================
+ *  *  Modifications Copyright (c) 2021 Nokia
+ *  *  ================================================================================
  *  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  *  you may not use this file except in compliance with the License.
  *  *  You may obtain a copy of the License at
@@ -43,9 +45,9 @@ public class Appconfig {
 
     private Calls[] services_calls;
 
-    private Map<String, Dmaap> streams_publishes;
+    private Map<String, BaseStream> streams_publishes;
 
-    private Map<String, Dmaap> streams_subscribes;
+    private Map<String, BaseStream> streams_subscribes;
 
     private Map<String, Object> params;
 

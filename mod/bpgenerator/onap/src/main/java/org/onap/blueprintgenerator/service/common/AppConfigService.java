@@ -27,7 +27,7 @@
 package org.onap.blueprintgenerator.service.common;
 
 import org.onap.blueprintgenerator.model.common.Appconfig;
-import org.onap.blueprintgenerator.model.common.Dmaap;
+import org.onap.blueprintgenerator.model.common.BaseStream;
 import org.onap.blueprintgenerator.model.common.GetInput;
 import org.onap.blueprintgenerator.model.componentspec.OnapComponentSpec;
 import org.onap.blueprintgenerator.model.componentspec.common.Calls;
@@ -58,6 +58,7 @@ public class AppConfigService {
     @Autowired
     private StreamService streamService;
 
+
     /**
      * Creates Inputs section under App Config with Publishes, Subscribes, Parameters sections by
      * checking Datarouter/MessageRouter/override/Dmaap values
@@ -78,9 +79,9 @@ public class AppConfigService {
         Calls[] call = new Calls[0];
         appconfig.setService_calls(call);
 
-        Map<String, Dmaap> streamPublishes = streamService.createStreamPublishes(
+        Map<String, BaseStream> streamPublishes = streamService.createStreamPublishes(
             onapComponentSpec, blueprintHelperService, dmaapService, inputs, isDmaap);
-        Map<String, Dmaap> streamSubscribes = streamService.createStreamSubscribes(
+        Map<String, BaseStream> streamSubscribes = streamService.createStreamSubscribes(
             onapComponentSpec, blueprintHelperService, dmaapService, inputs, isDmaap);
 
         appconfig.setStreams_publishes(streamPublishes);
@@ -122,4 +123,5 @@ public class AppConfigService {
         response.put("inputs", inputs);
         return response;
     }
+
 }
