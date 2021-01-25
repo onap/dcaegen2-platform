@@ -104,6 +104,24 @@
       "revId": "3bd9eae352d443979a284ea48b8103335ed651ea",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8859ad98_9afeaac9",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/kafka/KafkaStream.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 5775
+      },
+      "writtenOn": "2021-01-25T10:03:40Z",
+      "side": 1,
+      "message": "It can stay as it is...",
+      "parentUuid": "7157da73_4b1c4d5d",
+      "revId": "3bd9eae352d443979a284ea48b8103335ed651ea",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
