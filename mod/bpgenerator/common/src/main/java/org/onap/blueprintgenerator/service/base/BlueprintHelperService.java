@@ -32,8 +32,8 @@ import java.util.LinkedHashMap;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020 Application: DCAE/ONAP - Blueprint Generator Common Module: Used by both ONAp
- * and DCAE Blueprint Applications Service: An interface for Common Functions used across Blueprint
+ * @date 10/16/2020 Application: DCAE/ONAP - Blueprint Generator Common Module: Used by both ONAp and DCAE Blueprint
+ * Applications Service: An interface for Common Functions used across Blueprint
  */
 @Service
 public class BlueprintHelperService {
@@ -41,8 +41,8 @@ public class BlueprintHelperService {
     /**
      * creates Input value by contatinating Type, Description and Default value
      *
-     * @param type Input Type
-     * @param description Description
+     * @param type         Input Type
+     * @param description  Description
      * @param defaultValue Default value of Type
      * @return
      */
@@ -58,7 +58,7 @@ public class BlueprintHelperService {
     /**
      * creates Input value by contatinating Type and Description
      *
-     * @param type Input Type
+     * @param type        Input Type
      * @param description Description
      * @return
      */
@@ -72,7 +72,7 @@ public class BlueprintHelperService {
     /**
      * creates Input value by contatinating Type and Default value
      *
-     * @param type Input Type
+     * @param type         Input Type
      * @param defaultValue Default value of Type
      * @return
      */
@@ -86,7 +86,7 @@ public class BlueprintHelperService {
     /**
      * creates Input value by contatinating Description and Default value
      *
-     * @param description Description
+     * @param description  Description
      * @param defaultValue Default value of Type
      * @return
      */
@@ -118,7 +118,7 @@ public class BlueprintHelperService {
     /**
      * creates Integer Input value for given Description and Default value
      *
-     * @param description Description
+     * @param description  Description
      * @param defaultValue Default value of Type
      * @return
      */
@@ -149,7 +149,8 @@ public class BlueprintHelperService {
 
     /**
      * creates String Input value for given Default value
-     * @param description Description
+     *
+     * @param description  Description
      * @param defaultValue Default value of Type
      * @return
      */
@@ -173,9 +174,30 @@ public class BlueprintHelperService {
     }
 
     /**
+     * creates proper Input for given inputType and defaultValue.
+     * <p>
+     * Default input type: "string".
+     *
+     * @param inputType    Input type, supported: "boolean", "integer"
+     * @param defaultValue Default value of Type
+     * @return
+     */
+    public LinkedHashMap<String, Object> createInputByType(String inputType, Object defaultValue) {
+        switch (inputType) {
+            case "boolean":
+                return createBooleanInput(defaultValue);
+            case "integer":
+                return createIntegerInput(defaultValue);
+            default:
+                return createStringInput(defaultValue);
+        }
+    }
+
+
+    /**
      * Concatenates String Input values with Underscore
      *
-     * @param firstValue Value
+     * @param firstValue  Value
      * @param secondValue Value
      * @return
      */

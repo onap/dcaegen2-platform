@@ -43,8 +43,7 @@ import java.util.TreeMap;
 
 /**
  * @author : Ravi Mantena
- * @date 10/16/2020 Application: ONAP - Blueprint Generator Common ONAP Service used to create App
- * Config
+ * @date 10/16/2020 Application: ONAP - Blueprint Generator Common ONAP Service used to create App Config
  */
 @Service("onapAppConfigService")
 public class AppConfigService {
@@ -60,12 +59,12 @@ public class AppConfigService {
 
 
     /**
-     * Creates Inputs section under App Config with Publishes, Subscribes, Parameters sections by
-     * checking Datarouter/MessageRouter/override/Dmaap values
+     * Creates Inputs section under App Config with Publishes, Subscribes, Parameters sections by checking
+     * Datarouter/MessageRouter/override/Dmaap values
      *
-     * @param inputs Inputs
+     * @param inputs            Inputs
      * @param onapComponentSpec Onap Component Specification
-     * @param isDmaap Dmaap Argument
+     * @param isDmaap           Dmaap Argument
      * @return
      */
     public Map<String, Object> createAppconfig(
@@ -95,8 +94,7 @@ public class AppConfigService {
                 paramInput.setBpInputName(pName);
                 parameters.put(pName, paramInput);
                 if (!"".equals(p.getValue())) {
-                    LinkedHashMap<String, Object> pInputs =
-                        blueprintHelperService.createStringInput(p.getValue());
+                    LinkedHashMap<String, Object> pInputs = createInputFromParameter(p);
                     inputs.put(pName, pInputs);
                 } else {
                     LinkedHashMap<String, Object> pInputs = new LinkedHashMap<>();
@@ -124,4 +122,9 @@ public class AppConfigService {
         return response;
     }
 
+    private LinkedHashMap<String, Object> createInputFromParameter(Parameters parameter) {
+        String inputType = parameter.getType() == null ? "string" : parameter.getType();
+
+        return blueprintHelperService.createInputByType(inputType, parameter.getValue());
+    }
 }
