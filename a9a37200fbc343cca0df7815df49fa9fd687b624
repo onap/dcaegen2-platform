@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5fc65da9_c75ee7cf",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/AppConfigService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 6714
+      },
+      "writtenOn": "2021-01-26T18:25:00Z",
+      "side": 1,
+      "message": "Consider moving this method to blueprintHelperService",
+      "revId": "a9a37200fbc343cca0df7815df49fa9fd687b624",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56600eee_a25ea0f4",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/AppConfigService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 6714
+      },
+      "writtenOn": "2021-01-26T18:25:00Z",
+      "side": 1,
+      "message": "To avoid code duplication consider following:\n\nString type \u003d parameter.getType() \u003d\u003d null ? \"string\" : parameter.getType();\nswitch(type) {\n   ...\n}",
+      "revId": "a9a37200fbc343cca0df7815df49fa9fd687b624",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
