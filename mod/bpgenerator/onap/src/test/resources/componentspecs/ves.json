@@ -316,6 +316,10 @@
         "host": {
           "path": "/opt/logs/DCAE/VESCollector/etc"
         }
+      },
+      {
+        "container": { "bind": "/opt/app/etc/config" },
+        "config_volume": { "name":"myConfig" }
       }
     ],
     "ports": [
