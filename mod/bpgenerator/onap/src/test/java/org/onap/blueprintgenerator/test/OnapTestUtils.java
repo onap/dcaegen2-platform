@@ -4,6 +4,7 @@
  *  *  org.onap.dcae
  *  *  ================================================================================
  *  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
+ *  *  Copyright (c) 2021  Nokia. All rights reserved.
  *  *  ================================================================================
  *  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  *  you may not use this file except in compliance with the License.
@@ -44,6 +45,7 @@ import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -364,6 +366,11 @@ public class OnapTestUtils extends BlueprintGeneratorTests {
         assertNotNull(
             type + " Blueprint:NodeTemplates:DockerConfig:LiveHealthcheck Section is NULL",
             onapVolumes);
+        assertNotNull(type + " Blueprint:NodeTemplates:DockerConfig:Volumes:ConfigVolume:GetName Section is NULL", Arrays.stream(onapVolumes)
+                .filter(c -> c.getConfigVolume() != null)
+                .filter(c -> c.getName() != null)
+                .filter(c -> c.equals("myConfig"))
+                .findAny());
     }
 
     /**
