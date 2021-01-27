@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2d6fb4d7_9d15493b",
+        "filename": "mod/runtimeapi/runtime-core/src/test/data/blueprints/helloworld_no_edits.yaml",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-01-27T19:14:48Z",
+      "side": 1,
+      "message": "copyright 2021 nokia",
+      "revId": "848e92cfd43797c891399319752c9fd07b036f19",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
