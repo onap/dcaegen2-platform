@@ -31,12 +31,7 @@ import org.onap.blueprintgenerator.model.common.Properties;
 import org.onap.blueprintgenerator.model.componentspec.OnapAuxilary;
 import org.onap.blueprintgenerator.model.componentspec.OnapComponentSpec;
 
-import org.onap.blueprintgenerator.model.componentspec.common.Calls;
-import org.onap.blueprintgenerator.model.componentspec.common.Provides;
-import org.onap.blueprintgenerator.model.componentspec.common.HealthCheck;
-import org.onap.blueprintgenerator.model.componentspec.common.Parameters;
-import org.onap.blueprintgenerator.model.componentspec.common.Volumes;
-import org.onap.blueprintgenerator.model.componentspec.common.Artifacts;
+import org.onap.blueprintgenerator.model.componentspec.common.*;
 import org.onap.blueprintgenerator.model.dmaap.Streams;
 import org.junit.Ignore;
 import org.springframework.beans.factory.annotation.Value;
@@ -44,6 +39,7 @@ import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -364,6 +360,11 @@ public class OnapTestUtils extends BlueprintGeneratorTests {
         assertNotNull(
             type + " Blueprint:NodeTemplates:DockerConfig:LiveHealthcheck Section is NULL",
             onapVolumes);
+        assertNotNull(type + " Blueprint:NodeTemplates:DockerConfig:Volumes:ConfigVolume:GetName Section is NULL", Arrays.stream(onapVolumes)
+                .filter(c -> c.getConfig_volume() != null)
+                .filter(c -> c.getName() != null)
+                .filter(c -> c.equals(Constants.MY_CONFIG))
+                .findAny());
     }
 
     /**

@@ -20,33 +20,17 @@
  *
  *
  */
-
 package org.onap.blueprintgenerator.model.componentspec.common;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * @author : Ravi Mantena
- * @date 10/16/2020 Application: DCAE/ONAP - Blueprint Generator Common Module: Used by both ONAP
- * and DCAE Blueprint Applications Component Spec Model: A model class which represents Volumes used
- * in Componentspec
- */
 @Data
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
-@JsonIgnoreProperties(ignoreUnknown = true)
 @EqualsAndHashCode
-public class Volumes {
-
-    private Container container;
-
-    private Host host;
-
-    private configVolume config_volume;
-
-    private String type;
+public class configVolume {
 
     private String name;
+
 }
