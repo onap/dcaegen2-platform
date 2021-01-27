@@ -22,6 +22,30 @@
       "revId": "49c4a4b6051f37611e7cd34643943d43f45089e3",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3fbf15a_b89ffd58",
+        "filename": "mod/component-json-schemas/component-specification/dcae-cli-v2/component-spec-schema.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 918,
+      "author": {
+        "id": 7439
+      },
+      "writtenOn": "2021-01-27T14:29:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25b0a736_f696cb75",
+      "range": {
+        "startLine": 877,
+        "startChar": 0,
+        "endLine": 918,
+        "endChar": 13
+      },
+      "revId": "49c4a4b6051f37611e7cd34643943d43f45089e3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
