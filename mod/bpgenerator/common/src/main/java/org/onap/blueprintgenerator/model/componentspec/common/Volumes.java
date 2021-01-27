@@ -44,6 +44,8 @@ public class Volumes {
 
     private Host host;
 
+    private configVolume config_volume;
+
     private String type;
 
     private String name;
