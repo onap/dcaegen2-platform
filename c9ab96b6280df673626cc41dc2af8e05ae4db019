@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "858bb1b9_c78b1725",
+        "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/model/componentspec/common/Volumes.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 3433
+      },
+      "writtenOn": "2021-01-27T07:40:29Z",
+      "side": 1,
+      "message": "do not use _ in field variable names. _ character can be used only in static names in Java convention.",
+      "revId": "c9ab96b6280df673626cc41dc2af8e05ae4db019",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2b14b46_b15c64de",
+        "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/model/componentspec/common/configVolume.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 3433
+      },
+      "writtenOn": "2021-01-27T07:40:29Z",
+      "side": 1,
+      "message": "too many asterisks. Pls fix doc format.",
+      "revId": "c9ab96b6280df673626cc41dc2af8e05ae4db019",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f684f3d7_87ed9719",
+        "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/model/componentspec/common/configVolume.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 3433
+      },
+      "writtenOn": "2021-01-27T07:40:29Z",
+      "side": 1,
+      "message": "Class name should start from capital letter",
+      "revId": "c9ab96b6280df673626cc41dc2af8e05ae4db019",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
