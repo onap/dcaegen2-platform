@@ -65,6 +65,24 @@
     },
     {
       "key": {
+        "uuid": "f6ca3c3a_a2946193",
+        "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/model/componentspec/common/Volumes.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-01-27T07:52:22Z",
+      "side": 1,
+      "message": "Hint: desired effect - \"config_volume\" key in output file can be achieved using: @JsonProperty",
+      "parentUuid": "858bb1b9_c78b1725",
+      "revId": "c9ab96b6280df673626cc41dc2af8e05ae4db019",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a2b14b46_b15c64de",
         "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/model/componentspec/common/configVolume.java",
         "patchSetId": 2
