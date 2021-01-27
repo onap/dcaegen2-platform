@@ -2,6 +2,52 @@
   "comments": [
     {
       "key": {
+        "uuid": "852b1341_08a187f4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-01-27T07:42:42Z",
+      "side": 1,
+      "message": "Wrong jira ticket.",
+      "range": {
+        "startLine": 10,
+        "startChar": 10,
+        "endLine": 10,
+        "endChar": 21
+      },
+      "revId": "c9ab96b6280df673626cc41dc2af8e05ae4db019",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d78e25f0_ff674c7b",
+        "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/constants/Constants.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-01-27T07:42:42Z",
+      "side": 1,
+      "message": "Only used in tests, consider if it really should be here.",
+      "range": {
+        "startLine": 106,
+        "startChar": 31,
+        "endLine": 106,
+        "endChar": 40
+      },
+      "revId": "c9ab96b6280df673626cc41dc2af8e05ae4db019",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "858bb1b9_c78b1725",
         "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/model/componentspec/common/Volumes.java",
         "patchSetId": 2
@@ -36,6 +82,29 @@
     },
     {
       "key": {
+        "uuid": "a5d8b6bd_cb277f8b",
+        "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/model/componentspec/common/configVolume.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-01-27T07:42:42Z",
+      "side": 1,
+      "message": "Shouldn\u0027t be 2021 Nokia?",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 1
+      },
+      "revId": "c9ab96b6280df673626cc41dc2af8e05ae4db019",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f684f3d7_87ed9719",
         "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/model/componentspec/common/configVolume.java",
         "patchSetId": 2
@@ -47,6 +116,52 @@
       "writtenOn": "2021-01-27T07:40:29Z",
       "side": 1,
       "message": "Class name should start from capital letter",
+      "revId": "c9ab96b6280df673626cc41dc2af8e05ae4db019",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7315463e_ffab7729",
+        "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/model/componentspec/common/configVolume.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-01-27T07:42:42Z",
+      "side": 1,
+      "message": "Should start with capital letter.",
+      "range": {
+        "startLine": 32,
+        "startChar": 13,
+        "endLine": 32,
+        "endChar": 25
+      },
+      "revId": "c9ab96b6280df673626cc41dc2af8e05ae4db019",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "17b459cc_838b3ce2",
+        "filename": "mod/bpgenerator/onap/src/test/java/org/onap/blueprintgenerator/test/OnapTestUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-01-27T07:42:42Z",
+      "side": 1,
+      "message": "No wildcard imports should be used according to ONAP code style.\nhttps://wiki.onap.org/display/DW/Java+code+style",
+      "range": {
+        "startLine": 34,
+        "startChar": 62,
+        "endLine": 34,
+        "endChar": 63
+      },
       "revId": "c9ab96b6280df673626cc41dc2af8e05ae4db019",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
