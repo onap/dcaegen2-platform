@@ -3,7 +3,6 @@
  *  * ============LICENSE_START=======================================================
  *  *  org.onap.dcae
  *  *  ================================================================================
- *  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
  *  *  Copyright (c) 2021  Nokia. All rights reserved.
  *  *  ================================================================================
  *  *  Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,35 +20,17 @@
  *
  *
  */
-
 package org.onap.blueprintgenerator.model.componentspec.common;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
- * @author : Ravi Mantena
- * @date 10/16/2020 Application: DCAE/ONAP - Blueprint Generator Common Module: Used by both ONAP
- * and DCAE Blueprint Applications Component Spec Model: A model class which represents Volumes used
- * in Componentspec
- */
 @Data
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
-@JsonIgnoreProperties(ignoreUnknown = true)
 @EqualsAndHashCode
-public class Volumes {
-
-    private Container container;
-
-    private Host host;
-
-    @JsonProperty("config_volume")
-    private ConfigVolume configVolume;
-
-    private String type;
+public class ConfigVolume {
 
     private String name;
+
 }

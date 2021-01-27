@@ -874,17 +874,10 @@
           "type": "array",
           "items": {
             "type": "object",
-            "properties": {
-              "host":{
-                "type":"object",
-                "path": {"type": "string"}
-              },
-              "container":{
-                "type":"object",
-                "bind": { "type": "string"},
-                "mode": { "type": "string"}
-              }
-            }
+            "oneOf": [
+              { "$ref": "#/definitions/host_path_volume" },
+              { "$ref": "#/definitions/config_map_volume" }
+            ]
           }
         }
       },
@@ -892,6 +885,46 @@
         "healthcheck"
       ],
       "additionalProperties": false
+    },
+    "host_path_volume": {
+      "type": "object",
+      "properties": {
+        "host": {
+          "type": "object",
+          "path": {
+            "type": "string"
+          }
+        },
+        "container": {
+          "type": "object",
+          "bind": {
+            "type": "string"
+          },
+          "mode": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "config_map_volume": {
+      "type": "object",
+      "properties": {
+        "config_volume": {
+          "type": "object",
+          "name": {
+            "type": "string"
+          }
+        },
+        "container": {
+          "type": "object",
+          "bind": {
+            "type": "string"
+          },
+          "mode": {
+            "type": "string"
+          }
+        }
+      }
     },
     "docker_healthcheck_http": {
       "properties": {
