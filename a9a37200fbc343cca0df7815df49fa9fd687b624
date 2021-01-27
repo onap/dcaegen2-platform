@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "adf9aa8c_b747659b",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/AppConfigService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2021-01-27T08:29:29Z",
+      "side": 1,
+      "message": "Done. Reused code moved to blueprintHelperService",
+      "parentUuid": "5fc65da9_c75ee7cf",
+      "revId": "a9a37200fbc343cca0df7815df49fa9fd687b624",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56600eee_a25ea0f4",
         "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/AppConfigService.java",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "a9a37200fbc343cca0df7815df49fa9fd687b624",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5f2ef97_7a5e1ece",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/AppConfigService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2021-01-27T08:29:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56600eee_a25ea0f4",
+      "revId": "a9a37200fbc343cca0df7815df49fa9fd687b624",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
