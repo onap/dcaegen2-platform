@@ -874,17 +874,48 @@
           "type": "array",
           "items": {
             "type": "object",
-            "properties": {
-              "host":{
-                "type":"object",
-                "path": {"type": "string"}
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "host": {
+                    "type": "object",
+                    "path": {
+                      "type": "string"
+                    }
+                  },
+                  "container": {
+                    "type": "object",
+                    "bind": {
+                      "type": "string"
+                    },
+                    "mode": {
+                      "type": "string"
+                    }
+                  }
+                }
               },
-              "container":{
-                "type":"object",
-                "bind": { "type": "string"},
-                "mode": { "type": "string"}
+              {
+                "type": "object",
+                "properties": {
+                  "config_volume": {
+                    "type": "object",
+                    "name": {
+                      "type": "string"
+                    }
+                  },
+                  "container": {
+                    "type": "object",
+                    "bind": {
+                      "type": "string"
+                    },
+                    "mode": {
+                      "type": "string"
+                    }
+                  }
+                }
               }
-            }
+            ]
           }
         }
       },
