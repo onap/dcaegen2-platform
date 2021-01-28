@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "10b5e035_4f1555cb",
+        "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/service/base/BlueprintHelperService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 6714
+      },
+      "writtenOn": "2021-01-28T08:33:58Z",
+      "side": 1,
+      "message": "I think sooner or later it would be wise to use constants (enums) for inputTypes ;)",
+      "revId": "2842b1b471a6ee115f492cf613d46bc9df8fcc94",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5157c751_90347ed8",
+        "filename": "mod/bpgenerator/onap/src/test/java/org/onap/blueprintgenerator/service/common/AppConfigServiceTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 6714
+      },
+      "writtenOn": "2021-01-28T08:33:58Z",
+      "side": 1,
+      "message": "Good to see that in this project more and more tests are emerging :)",
+      "revId": "2842b1b471a6ee115f492cf613d46bc9df8fcc94",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
