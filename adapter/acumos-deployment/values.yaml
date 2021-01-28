@@ -28,7 +28,8 @@ global:
   ingress:
     enabled: true
     virtualhost:
-        enabled: false
+        enabled: true
+        baseurl: "simpledemo.onap.org" 
 
 config:
   distributorAPIURL: /distributor
@@ -50,7 +51,7 @@ service:
 ingress:
   enabled: true
   service:
-    - baseaddr: "acumos-adapter"
+    - baseaddr: "dcaemod"
       name: "dcae-acumos-adapter"
       port: 9000
   annotations:
