@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4f66c0a0_a5ff9499",
+        "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/service/base/BlueprintHelperService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2021-01-28T09:31:50Z",
+      "side": 1,
+      "message": "Maybe later ;) or in other MR",
+      "parentUuid": "10b5e035_4f1555cb",
+      "revId": "2842b1b471a6ee115f492cf613d46bc9df8fcc94",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5157c751_90347ed8",
         "filename": "mod/bpgenerator/onap/src/test/java/org/onap/blueprintgenerator/service/common/AppConfigServiceTest.java",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "2842b1b471a6ee115f492cf613d46bc9df8fcc94",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a65b1d1_8b33fc1a",
+        "filename": "mod/bpgenerator/onap/src/test/java/org/onap/blueprintgenerator/service/common/AppConfigServiceTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2021-01-28T09:31:50Z",
+      "side": 1,
+      "message": ";)",
+      "parentUuid": "5157c751_90347ed8",
+      "revId": "2842b1b471a6ee115f492cf613d46bc9df8fcc94",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
