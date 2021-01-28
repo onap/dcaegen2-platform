@@ -178,7 +178,7 @@ public class BlueprintHelperService {
      * <p>
      * Default input type: "string".
      *
-     * @param inputType    Input type, supported: "boolean", "integer"
+     * @param inputType    Input type, supported: "boolean", "integer", "number"
      * @param defaultValue Default value of Type
      * @return
      */
@@ -187,6 +187,7 @@ public class BlueprintHelperService {
             case "boolean":
                 return createBooleanInput(defaultValue);
             case "integer":
+            case "number":
                 return createIntegerInput(defaultValue);
             default:
                 return createStringInput(defaultValue);
