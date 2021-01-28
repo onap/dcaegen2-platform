@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.12.4]
+
+* Update component-spec-schema to support: kafka stream subscribes and publishes, config maps as volumes
+
+## [2.12.3]
+
+* Add Python 3.8 support
+* Use Integration base image
 
 ## [2.12.1]
 
