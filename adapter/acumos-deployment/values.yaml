@@ -29,7 +29,7 @@ global:
     enabled: true
     virtualhost:
         enabled: true
-        baseurl: "simpledemo.onap.org" 
+        baseurl: "simpledemo.onap.org"
 
 config:
   distributorAPIURL: /distributor
@@ -54,6 +54,7 @@ ingress:
     - baseaddr: "dcaemod"
       name: "dcae-acumos-adapter"
       port: 9000
+      path: "/acumos-adapter"
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
   # Adapter can take a long time to respond, since
