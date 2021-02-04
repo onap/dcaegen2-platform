@@ -18,39 +18,12 @@
  *  ============LICENSE_END=========================================================
  */
 
-package org.onap.dcaegen2.platform.mod.model.deploymentartifact;
+package org.onap.dcaegen2.platform.mod.objectmothers;
 
-import java.util.ArrayList;
-import java.util.List;
-import lombok.Data;
-import org.onap.dcaegen2.platform.mod.model.policymodel.DistributionInfo;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-import java.util.Map;
-
-/**
- * A model class which represents Deployment-Artifact entity
- */
-@Data
-@Document("deployment-artifact")
-public class DeploymentArtifact {
-
-    private String id;
-
-    private Integer version;
-
-    private String content;
-
-    private String fileName;
-
-    private DeploymentArtifactStatus status;
-
-    private Map<String, Object> metadata;
-
-    private MsInstanceInfo msInstanceInfo;
-
-    private Map<String, Object> specificationInfo;
-
-    private DistributionInfo distributionInfo;
+public class BlueprintDistributionObjectMother {
+    public static final String BP_DISTRIBUTION_ENV = "DEV";
+    public static final String BP_DISTRIBUTION_MODEL_ID = "5f74ed7877b37173993057f5";
+    public static final String BP_DISTRIBUTION_USER = "User1";
+    public static final String BP_DISTRIBUTION_PWD = "pwd";
 
 }
