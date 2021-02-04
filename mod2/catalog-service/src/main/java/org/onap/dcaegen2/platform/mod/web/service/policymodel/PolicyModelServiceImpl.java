@@ -2,7 +2,7 @@
  * ============LICENSE_START=======================================================
  *  org.onap.dcae
  *  ================================================================================
- *  Copyright (c) 2020 AT&T Intellectual Property. All rights reserved.
+ *  Copyright (c) 2021 AT&T Intellectual Property. All rights reserved.
  *  ================================================================================
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -52,16 +52,16 @@ import java.util.List;
 @Slf4j
 public class PolicyModelServiceImpl implements PolicyModelService {
 
-    @Value("${dev.server}")
+    @Value("${policymodel.dev.server}")
     private String devServer;
 
-    @Value("${dev.port}")
+    @Value("${policymodel.dev.port}")
     private String devServerPort;
 
-    @Value("${dev.user}")
+    @Value("${policymodel.dev.user}")
     private String devServerUser;
 
-    @Value("${dev.password}")
+    @Value("${policymodel.dev.password}")
     private String devServerPassword;
 
     @Autowired
