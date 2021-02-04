@@ -52,16 +52,16 @@ import java.util.List;
 @Slf4j
 public class PolicyModelServiceImpl implements PolicyModelService {
 
-    @Value("${dev.server}")
+    @Value("${policymodel.dev.server}")
     private String devServer;
 
-    @Value("${dev.port}")
+    @Value("${policymodel.dev.port}")
     private String devServerPort;
 
-    @Value("${dev.user}")
+    @Value("${policymodel.dev.user}")
     private String devServerUser;
 
-    @Value("${dev.password}")
+    @Value("${policymodel.dev.password}")
     private String devServerPassword;
 
     @Autowired
