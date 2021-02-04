@@ -46,55 +46,55 @@ import java.util.Map;
 @Component
 public class PolicyModelUtils {
 
-    @Value("${url.path}")
+    @Value("${policymodel.url.path}")
     private String urlpath;
 
-    @Value("${dev.server}")
+    @Value("${policymodel.dev.server}")
     private String devServer;
 
-    @Value("${dev.port}")
+    @Value("${policymodel.dev.port}")
     private String devServerPort;
 
-    @Value("${dev.user}")
+    @Value("${policymodel.dev.user}")
     private String devServerUser;
 
-    @Value("${dev.password}")
+    @Value("${policymodel.dev.password}")
     private String devServerUserPassword;
 
-    @Value("${pst.server}")
+    @Value("${policymodel.pst.server}")
     private String pstServer;
 
-    @Value("${pst.port}")
+    @Value("${policymodel.pst.port}")
     private String pstServerPort;
 
-    @Value("${pst.user}")
+    @Value("${policymodel.pst.user}")
     private String pstServerUser;
 
-    @Value("${pst.password}")
+    @Value("${policymodel.pst.password}")
     private String pstServerUserPassword;
 
-    @Value("${ete.server}")
+    @Value("${policymodel.ete.server}")
     private String eteServer;
 
-    @Value("${ete.port}")
+    @Value("${policymodel.ete.port}")
     private String eteServerPort;
 
-    @Value("${ete.user}")
+    @Value("${policymodel.ete.user}")
     private String eteServerUser;
 
-    @Value("${ete.password}")
+    @Value("${policymodel.ete.password}")
     private String eteServerUserPassword;
 
-    @Value("${prod.server}")
+    @Value("${policymodel.prod.server}")
     private String prodServer;
 
-    @Value("${prod.port}")
+    @Value("${policymodel.prod.port}")
     private String prodServerPort;
 
-    @Value("${prod.user}")
+    @Value("${policymodel.prod.user}")
     private String prodServerUser;
 
-    @Value("${prod.password}")
+    @Value("${policymodel.prod.password}")
     private String prodServerUserPassword;
 
     Map<String, EnvInfo> envMap;

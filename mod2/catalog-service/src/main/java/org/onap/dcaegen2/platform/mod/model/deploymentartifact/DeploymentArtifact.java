@@ -20,7 +20,10 @@
 
 package org.onap.dcaegen2.platform.mod.model.deploymentartifact;
 
+import java.util.ArrayList;
+import java.util.List;
 import lombok.Data;
+import org.onap.dcaegen2.platform.mod.model.policymodel.DistributionInfo;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Map;
@@ -47,5 +50,7 @@ public class DeploymentArtifact {
     private MsInstanceInfo msInstanceInfo;
 
     private Map<String, Object> specificationInfo;
+
+    private DistributionInfo distributionInfo;
 
 }
