@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "20cf72cb_7cfd9766",
+        "filename": "mod2/catalog-service/pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-02-08T17:44:06Z",
+      "side": 1,
+      "message": "2020-2021",
+      "range": {
+        "startLine": 6,
+        "startChar": 19,
+        "endLine": 6,
+        "endChar": 23
+      },
+      "revId": "522d32abbc5db6c1c9a82ce1cc9feb1a3a84cd7e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c0cb58d_3b8e4c00",
+        "filename": "mod2/catalog-service/src/main/java/org/onap/dcaegen2/platform/mod/model/deploymentartifact/DeploymentArtifact.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-02-08T17:44:06Z",
+      "side": 1,
+      "message": "2020-2021",
+      "range": {
+        "startLine": 5,
+        "startChar": 18,
+        "endLine": 5,
+        "endChar": 22
+      },
+      "revId": "522d32abbc5db6c1c9a82ce1cc9feb1a3a84cd7e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7c1b927e_3dd0e4fe",
+        "filename": "mod2/catalog-service/src/main/java/org/onap/dcaegen2/platform/mod/util/BlueprintDistributionUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-02-08T17:44:06Z",
+      "side": 1,
+      "message": "For new files - 2021",
+      "range": {
+        "startLine": 6,
+        "startChar": 21,
+        "endLine": 6,
+        "endChar": 25
+      },
+      "revId": "522d32abbc5db6c1c9a82ce1cc9feb1a3a84cd7e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e4bb070_4a3ffbfe",
+        "filename": "mod2/catalog-service/src/main/java/org/onap/dcaegen2/platform/mod/util/BlueprintDistributionUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-02-08T17:44:06Z",
+      "side": 1,
+      "message": "keep the license header format consistent (remove extra space/*)",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 2
+      },
+      "revId": "522d32abbc5db6c1c9a82ce1cc9feb1a3a84cd7e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4a55552_f6c1569d",
+        "filename": "mod2/catalog-service/src/main/java/org/onap/dcaegen2/platform/mod/util/SSLUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-02-08T17:44:06Z",
+      "side": 1,
+      "message": "same comments as before",
+      "range": {
+        "startLine": 3,
+        "startChar": 1,
+        "endLine": 21,
+        "endChar": 2
+      },
+      "revId": "522d32abbc5db6c1c9a82ce1cc9feb1a3a84cd7e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8bf9fc11_01937398",
+        "filename": "mod2/catalog-service/src/main/java/org/onap/dcaegen2/platform/mod/web/service/policymodel/PolicyModelServiceImpl.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-02-08T17:44:06Z",
+      "side": 1,
+      "message": "2020-2021",
+      "range": {
+        "startLine": 6,
+        "startChar": 21,
+        "endLine": 6,
+        "endChar": 25
+      },
+      "revId": "522d32abbc5db6c1c9a82ce1cc9feb1a3a84cd7e",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
