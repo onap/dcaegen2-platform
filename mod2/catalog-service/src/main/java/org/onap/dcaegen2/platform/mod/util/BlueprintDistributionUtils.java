@@ -2,7 +2,7 @@
  * ============LICENSE_START=======================================================
  *  org.onap.dcae
  *  ================================================================================
- *  Copyright (c) 2020-2021 AT&T Intellectual Property. All rights reserved.
+ *  Copyright (c) 2021 AT&T Intellectual Property. All rights reserved.
  *  ================================================================================
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -20,87 +20,77 @@
 
 package org.onap.dcaegen2.platform.mod.util;
 
-import io.netty.handler.ssl.SslContext;
-import io.netty.handler.ssl.SslContextBuilder;
-import io.netty.handler.ssl.util.InsecureTrustManagerFactory;
+import java.util.HashMap;
+import java.util.Map;
+import javax.annotation.PostConstruct;
 import org.onap.dcaegen2.platform.mod.model.exceptions.policymodel.PolicyModelDistributionEnvNotFoundException;
 import org.onap.dcaegen2.platform.mod.model.policymodel.EnvInfo;
 import org.onap.dcaegen2.platform.mod.model.policymodel.PolicyModelDistributionEnv;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.client.reactive.ReactorClientHttpConnector;
 import org.springframework.stereotype.Component;
-import org.springframework.web.reactive.function.client.ExchangeFilterFunctions;
-import org.springframework.web.reactive.function.client.WebClient;
-import reactor.netty.http.client.HttpClient;
-
-import javax.annotation.PostConstruct;
-import javax.net.ssl.SSLException;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Policy Model Service Utils to get URL, Username, Password, Webclient
  */
 
 @Component
-public class PolicyModelUtils {
+public class BlueprintDistributionUtils {
 
-    @Value("${policymodel.url.path}")
+    @Value("${dcae.platform.url.path}")
     private String urlpath;
 
-    @Value("${policymodel.dev.server}")
+    @Value("${dcae.platform.dev.server}")
     private String devServer;
 
-    @Value("${policymodel.dev.port}")
+    @Value("${dcae.platform.dev.port}")
     private String devServerPort;
 
-    @Value("${policymodel.dev.user}")
+    @Value("${dcae.platform.dev.user}")
     private String devServerUser;
 
-    @Value("${policymodel.dev.password}")
+    @Value("${dcae.platform.dev.password}")
     private String devServerUserPassword;
 
-    @Value("${policymodel.pst.server}")
+    @Value("${dcae.platform.pst.server}")
     private String pstServer;
 
-    @Value("${policymodel.pst.port}")
+    @Value("${dcae.platform.pst.port}")
     private String pstServerPort;
 
-    @Value("${policymodel.pst.user}")
+    @Value("${dcae.platform.pst.user}")
     private String pstServerUser;
 
-    @Value("${policymodel.pst.password}")
+    @Value("${dcae.platform.pst.password}")
     private String pstServerUserPassword;
 
-    @Value("${policymodel.ete.server}")
+    @Value("${dcae.platform.ete.server}")
     private String eteServer;
 
-    @Value("${policymodel.ete.port}")
+    @Value("${dcae.platform.ete.port}")
     private String eteServerPort;
 
-    @Value("${policymodel.ete.user}")
+    @Value("${dcae.platform.ete.user}")
     private String eteServerUser;
 
-    @Value("${policymodel.ete.password}")
+    @Value("${dcae.platform.ete.password}")
     private String eteServerUserPassword;
 
-    @Value("${policymodel.prod.server}")
+    @Value("${dcae.platform.prod.server}")
     private String prodServer;
 
-    @Value("${policymodel.prod.port}")
+    @Value("${dcae.platform.prod.port}")
     private String prodServerPort;
 
-    @Value("${policymodel.prod.user}")
+    @Value("${dcae.platform.prod.user}")
     private String prodServerUser;
 
-    @Value("${policymodel.prod.password}")
+    @Value("${dcae.platform.prod.password}")
     private String prodServerUserPassword;
 
     Map<String, EnvInfo> envMap;
 
     /**
-     * Creates a Policy Model Distribution Engine URL for the Environment requested
+     * Creates a Blueprint Distribution Dashboard URL for the Environment requested
      */
     @PostConstruct
     public void init() {
@@ -112,63 +102,39 @@ public class PolicyModelUtils {
     }
 
     /**
-     * Generates a Policy Model Distribution Engine URL for the Environment
+     * Generates a Blueprint Distribution Dashboard URL for the Environment
      *
      * @param env
      * @return
      */
-    public String getPolicyEngineURL(String env) {
-        if(!envMap.containsKey(env)) throw new PolicyModelDistributionEnvNotFoundException(String.format("Policy Model Environment with env %s invalid", env));
+    public String getBlueprintDashboardURL(String env) {
+        if(!envMap.containsKey(env)) throw new PolicyModelDistributionEnvNotFoundException(String.format("Blueprint Dashboard Environment with env %s invalid", env));
         return envMap.get(env).getUrl();
     }
 
-
-
     /**
-     * Generates a Policy Model Distribution Engine UserName for the Environment
+     * Generates a Blueprint Distribution Dashboard UserName for the Environment
      *
      * @param env
      * @return
      */
 
-    public String getUserName(String env) {
-        if(!envMap.containsKey(env)) throw new PolicyModelDistributionEnvNotFoundException(String.format("Policy Model Environment with env %s invalid", env));
+    public String getBlueprintDashboardUserName(String env) {
+        if(!envMap.containsKey(env)) throw new PolicyModelDistributionEnvNotFoundException(String.format("Blueprint Dashboard Environment with env %s invalid", env));
         return envMap.get(env).getUsername();
     }
 
 
     /**
-     * Generates a Policy Model Distribution Engine Password for the Environment
+     * Generates a Blueprint Distribution Dashboard Password for the Environment
      *
      * @param env
      * @return
      */
 
-    public String getPassword(String env) {
-        if(!envMap.containsKey(env)) throw new PolicyModelDistributionEnvNotFoundException(String.format("Policy Model Environment with env %s invalid", env));
+    public String getBlueprintDashboardPassword(String env) {
+        if(!envMap.containsKey(env)) throw new PolicyModelDistributionEnvNotFoundException(String.format("Blueprint Dashboard Environment with env %s invalid", env));
         return envMap.get(env).getPassword();
     }
-
-    /**
-     * Generates a Policy Model Distribution Engine Webclient for the Environment
-     *
-     * @param env
-     * @return
-     */
-    public WebClient getWebClient(String env) throws SSLException {
-        String userName = getUserName(env);
-        String password = getPassword(env);
-
-        SslContext sslContext = SslContextBuilder.forClient()
-                .trustManager(InsecureTrustManagerFactory.INSTANCE)
-                .build();
-        HttpClient httpClient = HttpClient.create().secure(t -> t.sslContext(sslContext));
-        return WebClient.builder().clientConnector(new ReactorClientHttpConnector(httpClient))
-                .defaultHeader(HttpHeaders.CONTENT_TYPE, "application/yaml")
-                .filter(ExchangeFilterFunctions.basicAuthentication(userName, password))
-                .build();
-    }
-
-
 
 }

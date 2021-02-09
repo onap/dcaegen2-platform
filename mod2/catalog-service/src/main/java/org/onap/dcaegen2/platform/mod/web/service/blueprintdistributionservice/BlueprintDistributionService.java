@@ -2,7 +2,7 @@
  * ============LICENSE_START=======================================================
  *  org.onap.dcae
  *  ================================================================================
- *  Copyright (c) 2020-2021 AT&T Intellectual Property. All rights reserved.
+ *  Copyright (c) 2021 AT&T Intellectual Property. All rights reserved.
  *  ================================================================================
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -18,39 +18,17 @@
  *  ============LICENSE_END=========================================================
  */
 
-package org.onap.dcaegen2.platform.mod.model.deploymentartifact;
+package org.onap.dcaegen2.platform.mod.web.service.blueprintdistributionservice;
 
-import java.util.ArrayList;
-import java.util.List;
-import lombok.Data;
-import org.onap.dcaegen2.platform.mod.model.policymodel.DistributionInfo;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.Map;
+import org.springframework.http.ResponseEntity;
 
 /**
- * A model class which represents Deployment-Artifact entity
+ * An interface to access Blueprint Distribution Services
  */
-@Data
-@Document("deployment-artifact")
-public class DeploymentArtifact {
 
-    private String id;
+public interface BlueprintDistributionService {
 
-    private Integer version;
-
-    private String content;
-
-    private String fileName;
-
-    private DeploymentArtifactStatus status;
-
-    private Map<String, Object> metadata;
-
-    private MsInstanceInfo msInstanceInfo;
-
-    private Map<String, Object> specificationInfo;
-
-    private DistributionInfo distributionInfo;
+    public ResponseEntity distributeBlueprint(String deploymentArtifactId, String env);
 
 }
