@@ -81,7 +81,7 @@ public class TestFlowGraphController {
 
     @Test
     public void testSwaggerUi() throws Exception {
-    	mockMvc.perform(get("/swagger-ui.html"))
+    	mockMvc.perform(get("/swagger-ui/index.html"))
 		.andExpect(status().isOk());
     }
 
