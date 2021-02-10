@@ -34,7 +34,7 @@ limitations under the License.
 	</parent>
 	<groupId>org.onap.dcaegen2.platform.mod</groupId>
 	<artifactId>runtimeapi</artifactId>
-	<version>1.2.1</version>
+	<version>1.2.2</version>
 	<name>dcaegen2-platform-mod-runtimeapi</name>
 	<description>MOD Runtime API</description>
 	<properties>
@@ -108,6 +108,17 @@ limitations under the License.
 				<version>2.1.7.RELEASE</version>
 				<type>pom</type>
 				<scope>import</scope>
+				<exclusions>
+					<exclusion>
+						<groupId>org.springframework.plugin</groupId>
+						<artifactId>spring-plugin-core</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.plugin</groupId>
+				<artifactId>spring-plugin-core</artifactId>
+				<version>2.0.0.RELEASE</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
