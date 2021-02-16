@@ -904,7 +904,8 @@
             "type": "string"
           }
         }
-      }
+      },
+      "required": ["host", "container"]
     },
     "config_map_volume": {
       "type": "object",
@@ -924,7 +925,8 @@
             "type": "string"
           }
         }
-      }
+      },
+      "required": ["config_volume", "container"]
     },
     "docker_healthcheck_http": {
       "properties": {
