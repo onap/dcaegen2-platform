@@ -24,7 +24,7 @@ limitations under the License.
   <groupId>org.onap.dcaegen2.platform.mod</groupId>
   <artifactId>dcaegen2-platform-mod-onboardingapi</artifactId>
   <name>dcaegen2-platform-mod-onboardingapi</name>
-  <version>2.12.4-SNAPSHOT</version>
+  <version>2.12.5-SNAPSHOT</version>
   <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

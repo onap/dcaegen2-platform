@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.12.5]
+
+* Fix component-spec-schema bug: Failed validating 'oneOf' in schema['properties']['volumes']['items']
+
+
 ## [2.12.4]
 
 * Update component-spec-schema to support: kafka stream subscribes and publishes, config maps as volumes
