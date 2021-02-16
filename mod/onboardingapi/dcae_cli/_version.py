@@ -19,4 +19,4 @@
 # ECOMP is a trademark and service mark of AT&T Intellectual Property.
 
 # -*- coding: utf-8 -*-
-__version__ = "2.12.4"
+__version__ = "2.12.5"
