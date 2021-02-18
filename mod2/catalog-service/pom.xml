@@ -4,6 +4,7 @@
   ~  org.onap.dcae
   ~  ================================================================================
   ~  Copyright (c) 2020-2021 AT&T Intellectual Property. All rights reserved.
+  ~  Copyright (c) 2021 Samsung Electronics. All rights reserved.
   ~  ================================================================================
   ~  Licensed under the Apache License, Version 2.0 (the "License");
   ~  you may not use this file except in compliance with the License.
@@ -30,7 +31,7 @@
     </parent>
     <groupId>org.onap.dcaegen2.platform.mod</groupId>
     <artifactId>catalog-service</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.2-SNAPSHOT</version>
 
     <properties>
         <java.version>11</java.version>
