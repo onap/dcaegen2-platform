@@ -1,4 +1,4 @@
-FROM onap/integration-java11:7.1.0
+FROM nexus3.onap.org:10001/onap/integration-java11:latest
 WORKDIR /usr/app
 VOLUME /tmp
 
