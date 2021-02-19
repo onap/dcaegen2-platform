@@ -1,0 +1,10 @@
+dcaeurl: https://git.onap.org/dcaegen2/platform/plain/mod
+dcaeuser: aoadapter
+onboardingurl: http://dcaemod-onboarding-api:8080/onboarding
+onboardinguser: ''
+onboardingpass: ''
+certfile: /run/certs/cert.pem
+dockerregistry: 'dockerregistry'
+dockeruser: 'dockeruser'
+dockerpass: 'dockerpass'
+port: '90'

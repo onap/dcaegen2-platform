@@ -172,3 +172,8 @@ def test_aoconversion(mock_schemas, tmpdir, monkeypatch):
     monkeypatch.setattr(requests, 'patch', _mockwww(_mockpatchdata))
     aoc_scanner.scan(config)
     aoc_scanner.scan(config)
+
+
+def test__derefconfig():
+    config_path = get_test_file('config.yaml')
+    assert aoc_scanner._derefconfig('@' + config_path) == 'dcaeurl: https://git.onap.org/dcaegen2/platform/plain/mod'
