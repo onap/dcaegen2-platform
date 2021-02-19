@@ -19,7 +19,9 @@
 import os
 import pytest
 import requests
+
 import aoconversion
+from tests import testing_helpers
 
 
 @pytest.fixture
@@ -29,3 +31,43 @@ def mock_schemas(monkeypatch):
     monkeypatch.setattr(aoconversion.utils.component_schema, 'path', schemadir + '/component-specification/dcae-cli-v2/component-spec-schema.json')
     monkeypatch.setattr(aoconversion.utils.dataformat_schema, 'path', schemadir + '/data-format/dcae-cli-v1/data-format-schema.json')
     monkeypatch.setattr(aoconversion.utils.schema_schema, 'ret', requests.get('https://json-schema.org/draft-04/schema#').json())
+
+
+def test_get_metadata():
+    model_repo_path = testing_helpers.get_fixture_path('models')
+    model_name = 'example-model'
+    assert (aoconversion.utils.get_metadata(model_repo_path, model_name) == {
+        "schema": "acumos.schema.model:0.4.0",
+        "runtime": {
+            "name": "python",
+            "encoding": "protobuf",
+            "version": "3.6.8",
+            "dependencies": {
+                "pip": {
+                    "indexes": [],
+                    "requirements": [
+                        {
+                            "name": "dill",
+                            "version": "0.3.0"
+                        },
+                        {
+                            "name": "acumos",
+                            "version": "0.8.0"
+                        }
+                    ]
+                },
+                "conda": {
+                    "channels": [],
+                    "requirements": []
+                }
+            }
+        },
+        "name": "example-model",
+        "methods": {
+            "add": {
+                "input": "NumbersIn",
+                "output": "NumberOut",
+                "description": "Adds two integers"
+            }
+        }
+    })

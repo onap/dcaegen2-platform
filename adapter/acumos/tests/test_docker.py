@@ -16,8 +16,9 @@
 # limitations under the License.
 # ============LICENSE_END======================================================
 
-from testing_helpers import get_json_fixture
-from aoconversion import docker_gen
+from testing_helpers import get_json_fixture, get_fixture_path
+from aoconversion import docker_gen, scanner
+import test_fed
 
 TEST_META = get_json_fixture("models/example-model/metadata.json")
 
@@ -45,3 +46,10 @@ def test_generate_dockerfile():
     CMD ["/app/example-model"]
     """
     )
+
+
+def test_build_and_push_docker(monkeypatch):
+    model_repo_path = get_fixture_path('models')
+    config = scanner.Config(dcaeurl='http://dcaeurl', dcaeuser='dcaeuser', onboardingurl='https://onboarding', onboardinguser='obuser', onboardingpass='obpass', acumosurl='https://acumos', certfile=None, dockerregistry='dockerregistry', dockeruser='registryuser', dockerpass='registrypassword', tmpdir=model_repo_path)
+    monkeypatch.setattr(docker_gen, 'APIClient', test_fed._mockdocker.APIClient)
+    assert(docker_gen.build_and_push_docker(config, 'example-model', model_version="latest") == 'dockerregistry/example-model:latest')
