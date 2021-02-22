@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "7e5e9c9d_10ad7ac8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-02-22T18:27:13Z",
+      "side": 1,
+      "message": "included DCAEGEN2-2420",
+      "revId": "2ac21a5f80f74b77d3eaf186f9db98ae58bfa672",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9c701c95_0fbda7e8",
         "filename": "mod2/auth-service/Dockerfile",
         "patchSetId": 2
@@ -13,6 +30,53 @@
       "writtenOn": "2021-02-22T09:05:19Z",
       "side": 1,
       "message": "lmk if rather than following current recommendations manual updates are preferred, I\u0027ll switch to 8.0.0 (current recommendation)",
+      "range": {
+        "startLine": 1,
+        "startChar": 51,
+        "endLine": 1,
+        "endChar": 57
+      },
+      "revId": "2ac21a5f80f74b77d3eaf186f9db98ae58bfa672",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46af1aba_4e6e27c9",
+        "filename": "mod2/auth-service/Dockerfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-02-22T18:27:13Z",
+      "side": 1,
+      "message": "Alex - I would prefer specifying the exact released tag to be used as we dont have control on integration builds and dont want un-verified snapshot to be picked.",
+      "parentUuid": "9c701c95_0fbda7e8",
+      "range": {
+        "startLine": 1,
+        "startChar": 51,
+        "endLine": 1,
+        "endChar": 57
+      },
+      "revId": "2ac21a5f80f74b77d3eaf186f9db98ae58bfa672",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8f19d44c_87b5d435",
+        "filename": "mod2/catalog-service/Dockerfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-02-22T18:27:13Z",
+      "side": 1,
+      "message": "same comment as earlier",
       "range": {
         "startLine": 1,
         "startChar": 51,
