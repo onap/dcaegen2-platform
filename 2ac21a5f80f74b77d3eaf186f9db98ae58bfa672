@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c701c95_0fbda7e8",
+        "filename": "mod2/auth-service/Dockerfile",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 7352
+      },
+      "writtenOn": "2021-02-22T09:05:19Z",
+      "side": 1,
+      "message": "lmk if rather than following current recommendations manual updates are preferred, I\u0027ll switch to 8.0.0 (current recommendation)",
+      "range": {
+        "startLine": 1,
+        "startChar": 51,
+        "endLine": 1,
+        "endChar": 57
+      },
+      "revId": "2ac21a5f80f74b77d3eaf186f9db98ae58bfa672",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
