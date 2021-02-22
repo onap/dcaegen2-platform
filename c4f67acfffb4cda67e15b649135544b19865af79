@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "56702f70_1047633c",
+        "filename": "adapter/acumos/coverage.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-02-22T15:50:44Z",
+      "side": 1,
+      "message": "This file should be removed",
+      "revId": "c4f67acfffb4cda67e15b649135544b19865af79",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
