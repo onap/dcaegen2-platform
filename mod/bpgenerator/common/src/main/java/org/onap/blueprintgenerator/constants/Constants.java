@@ -4,8 +4,7 @@
  *  *  org.onap.dcae
  *  *  ================================================================================
  *  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
- *  *  ================================================================================
- *  *  Modifications Copyright (c) 2021 Nokia
+ *  *  Copyright (c) 2021 Nokia. All rights reserved.
  *  *  ================================================================================
  *  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  *  you may not use this file except in compliance with the License.
@@ -51,8 +50,6 @@ public class Constants {
     public static final String EMPTY_VALUE = "";
     public static final String DCAE_NODES_CONTAINERIZED_SERVICE_COMPONENT_USING_DMAAP =
         "dcae.nodes.ContainerizedServiceComponentUsingDmaap";
-    public static final String MEMORY_LIMIT_128Mi = "128Mi";
-    public static final String CPU_LIMIT_250m = "250m";
     public static final String CPU_LIMIT = "cpu_limit";
     public static final String MEMORY_LIMIT = "memory_limit";
     public static final String CPU_REQUEST = "cpu_request";

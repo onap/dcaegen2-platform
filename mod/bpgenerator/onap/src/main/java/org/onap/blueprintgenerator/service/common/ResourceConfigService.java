@@ -4,6 +4,7 @@
  *  *  org.onap.dcae
  *  *  ================================================================================
  *  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
+ *  *  Copyright (c) 2021 Nokia. All rights reserved.
  *  *  ================================================================================
  *  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  *  you may not use this file except in compliance with the License.
@@ -28,6 +29,7 @@ import org.onap.blueprintgenerator.model.common.GetInput;
 import org.onap.blueprintgenerator.model.common.ResourceConfig;
 import org.onap.blueprintgenerator.service.base.BlueprintHelperService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -46,6 +48,12 @@ public class ResourceConfigService {
     @Autowired
     private BlueprintHelperService blueprintHelperService;
 
+    @Value("${resources.cpuLimit}")
+    private String defaultCpuLimit;
+
+    @Value("${resources.memoryLimit}")
+    private String defaultMemoryLimit;
+
     /**
      * Creates Resouce Config for properties
      *
@@ -59,10 +67,10 @@ public class ResourceConfigService {
         ResourceConfig resourceConfig = new ResourceConfig();
 
         LinkedHashMap<String, Object> memoryLimit =
-            blueprintHelperService.createStringInput(Constants.MEMORY_LIMIT_128Mi);
+            blueprintHelperService.createStringInput(defaultMemoryLimit);
 
         LinkedHashMap<String, Object> cpuLimit =
-            blueprintHelperService.createStringInput(Constants.CPU_LIMIT_250m);
+            blueprintHelperService.createStringInput(defaultCpuLimit);
 
         name = blueprintHelperService.getNamePrefix(name);
 
