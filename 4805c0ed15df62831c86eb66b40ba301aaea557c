@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "41723979_52b702f5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-02-23T21:17:48Z",
+      "side": 1,
+      "message": "Was suggesting separate line - \"Issue-ID: DCAEGEN2-2420\" under #15",
+      "revId": "4805c0ed15df62831c86eb66b40ba301aaea557c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
