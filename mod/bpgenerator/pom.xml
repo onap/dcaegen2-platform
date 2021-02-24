@@ -30,7 +30,7 @@
 
     <groupId>org.onap.dcaegen2.platform.mod</groupId>
     <artifactId>blueprint-generator</artifactId>
-    <version>1.7.3-SNAPSHOT</version>
+    <version>1.7.3</version>
     <packaging>pom</packaging>
 
     <modules>
