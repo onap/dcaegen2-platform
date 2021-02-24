@@ -1,0 +1,5 @@
+distribution_type: 'maven'
+version: '1.7.3'
+project: 'dcaegen2/platform'
+log_dir: 'dcaegen2-platform-mod-bpgenerator-maven-stage-master/388'
+git_tag: '1.7.3-bpgenerator'
