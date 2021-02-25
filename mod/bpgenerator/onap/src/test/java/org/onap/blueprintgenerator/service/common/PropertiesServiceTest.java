@@ -128,7 +128,7 @@ public class PropertiesServiceTest {
         OnapComponentSpec onapComponentSpec = getOnapComponentSpecWithStreamsPublishes();
         Publishes publishes = onapComponentSpec.getStreams().getPublishes()[0];
         when(blueprintHelperService.isMessageRouterType(eq(publishes.getType()))).thenReturn(true);
-        when(streamsService.createStreams(any(), eq(publishes.getConfig_key() + Constants._TOPIC),
+        when(streamsService.createStreams(any(), eq(publishes.getConfig_key() + Constants.A_TOPIC),
             eq(publishes.getType()),
             eq(publishes.getConfig_key()),
             eq(publishes.getRoute()),
@@ -153,7 +153,7 @@ public class PropertiesServiceTest {
         OnapComponentSpec onapComponentSpec = getOnapComponentSpecWithStreamsPublishes();
         Publishes publishes = onapComponentSpec.getStreams().getPublishes()[0];
         when(blueprintHelperService.isDataRouterType(eq(publishes.getType()))).thenReturn(true);
-        when(streamsService.createStreams(any(), eq(publishes.getConfig_key() + Constants._FEED),
+        when(streamsService.createStreams(any(), eq(publishes.getConfig_key() + Constants.A_FEED),
             eq(publishes.getType()),
             eq(publishes.getConfig_key()),
             eq(publishes.getRoute()),
@@ -178,7 +178,7 @@ public class PropertiesServiceTest {
         OnapComponentSpec onapComponentSpec = getOnapComponentSpecWithStreamsSubscribes();
         Subscribes subscribes = onapComponentSpec.getStreams().getSubscribes()[0];
         when(blueprintHelperService.isMessageRouterType(eq(subscribes.getType()))).thenReturn(true);
-        when(streamsService.createStreams(any(), eq(subscribes.getConfig_key() + Constants._TOPIC),
+        when(streamsService.createStreams(any(), eq(subscribes.getConfig_key() + Constants.A_TOPIC),
             eq(subscribes.getType()),
             eq(subscribes.getConfig_key()),
             eq(subscribes.getRoute()),
@@ -203,7 +203,7 @@ public class PropertiesServiceTest {
         OnapComponentSpec onapComponentSpec = getOnapComponentSpecWithStreamsSubscribes();
         Subscribes subscribes = onapComponentSpec.getStreams().getSubscribes()[0];
         when(blueprintHelperService.isDataRouterType(eq(subscribes.getType()))).thenReturn(true);
-        when(streamsService.createStreams(any(), eq(subscribes.getConfig_key() + Constants._FEED),
+        when(streamsService.createStreams(any(), eq(subscribes.getConfig_key() + Constants.A_FEED),
             eq(subscribes.getType()),
             eq(subscribes.getConfig_key()),
             eq(subscribes.getRoute()),

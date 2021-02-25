@@ -1,7 +1,7 @@
 /*============LICENSE_START=======================================================
 org.onap.dcae
 ================================================================================
-Copyright (c) 2020 Nokia Intellectual Property. All rights reserved.
+Copyright (c) 2020-2021 Nokia Intellectual Property. All rights reserved.
 Copyright (c) 2020 AT&T Intellectual Property. All rights reserved.
 ================================================================================
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -26,7 +26,6 @@ import org.onap.blueprintgenerator.service.common.ExternalCertificateParametersF
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
@@ -65,7 +64,7 @@ public class ExternalCertificateParametersFactoryServiceTest extends BlueprintGe
     @Test
     public void shouldCreateCorrectInputListWithDefaultValuesTakenFromComponentSpec() {
 
-        Map<String, LinkedHashMap<String, Object>> result =
+        Map<String, Map<String, Object>> result =
             externalCertificateParametersFactoryService.createInputList();
         assertEquals(
             Constants.DEFAULT_COMMON_NAME, result.get(PREFIXED_COMMON_NAME_FIELD).get(DEFAULT));

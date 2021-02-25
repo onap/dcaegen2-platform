@@ -4,6 +4,7 @@
  *  *  org.onap.dcae
  *  *  ================================================================================
  *  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
+ *  *  Copyright (c) 2021 Nokia. All rights reserved.
  *  *  ================================================================================
  *  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  *  you may not use this file except in compliance with the License.
@@ -74,7 +75,7 @@ public class NodeService {
      * @return
      */
     public Map<String, Object> createOnapNode(
-        Map<String, LinkedHashMap<String, Object>> inputs,
+        Map<String, Map<String, Object>> inputs,
         OnapComponentSpec onapComponentSpec,
         String override) {
 
@@ -83,7 +84,7 @@ public class NodeService {
 
         Map<String, Object> onapResponse = interfacesService
             .createInterface(inputs, onapComponentSpec);
-        inputs = (Map<String, LinkedHashMap<String, Object>>) onapResponse.get("inputs");
+        inputs = (Map<String, Map<String, Object>>) onapResponse.get("inputs");
 
         Map<String, Interfaces> interfaces = new TreeMap<>();
         interfaces.put(
@@ -110,7 +111,7 @@ public class NodeService {
 
         Map<String, Object> propertiesResponse =
             propertiesService.createOnapProperties(inputs, onapComponentSpec, override);
-        inputs = (Map<String, LinkedHashMap<String, Object>>) propertiesResponse.get("inputs");
+        inputs = (Map<String, Map<String, Object>>) propertiesResponse.get("inputs");
         onapNode.setProperties(
             (org.onap.blueprintgenerator.model.common.Properties) propertiesResponse
                 .get("properties"));
@@ -130,7 +131,7 @@ public class NodeService {
      */
     public Map<String, Object> createDmaapNode(
         OnapComponentSpec onapComponentSpec,
-        Map<String, LinkedHashMap<String, Object>> inputs,
+        Map<String, Map<String, Object>> inputs,
         String override) {
 
         Map<String, Object> response = new HashMap<>();
@@ -140,7 +141,7 @@ public class NodeService {
 
         Map<String, Object> dmaapResponse =
             interfacesService.createInterface(inputs, onapComponentSpec);
-        inputs = (Map<String, LinkedHashMap<String, Object>>) dmaapResponse.get("inputs");
+        inputs = (Map<String, Map<String, Object>>) dmaapResponse.get("inputs");
 
         Map<String, Interfaces> interfaces = new TreeMap<>();
         interfaces.put(
@@ -154,10 +155,10 @@ public class NodeService {
                 Map<String, String> pubRelations = new LinkedHashMap();
                 if (blueprintHelperService.isMessageRouterType(publishes.getType())) {
                     pubRelations.put("type", Constants.PUBLISH_EVENTS);
-                    pubRelations.put("target", publishes.getConfig_key() + Constants._TOPIC);
+                    pubRelations.put("target", publishes.getConfig_key() + Constants.A_TOPIC);
                 } else if (blueprintHelperService.isDataRouterType(publishes.getType())) {
                     pubRelations.put("type", Constants.PUBLISH_FILES);
-                    pubRelations.put("target", publishes.getConfig_key() + Constants._FEED);
+                    pubRelations.put("target", publishes.getConfig_key() + Constants.A_FEED);
                 }
                 relationships.add(pubRelations);
             }
@@ -168,10 +169,10 @@ public class NodeService {
                 Map<String, String> subRelations = new LinkedHashMap();
                 if (blueprintHelperService.isMessageRouterType(subscribes.getType())) {
                     subRelations.put("type", Constants.SUBSCRIBE_TO_EVENTS);
-                    subRelations.put("target", subscribes.getConfig_key() + Constants._TOPIC);
+                    subRelations.put("target", subscribes.getConfig_key() + Constants.A_TOPIC);
                 } else if (blueprintHelperService.isDataRouterType(subscribes.getType())) {
                     subRelations.put("type", Constants.SUBSCRIBE_TO_FILES);
-                    subRelations.put("target", subscribes.getConfig_key() + Constants._FEED);
+                    subRelations.put("target", subscribes.getConfig_key() + Constants.A_FEED);
                 }
                 relationships.add(subRelations);
             }
@@ -193,7 +194,7 @@ public class NodeService {
 
         Map<String, Object> propertiesResponse =
             propertiesService.createDmaapProperties(inputs, onapComponentSpec, override);
-        inputs = (Map<String, LinkedHashMap<String, Object>>) propertiesResponse.get("inputs");
+        inputs = (Map<String, Map<String, Object>>) propertiesResponse.get("inputs");
         dmaapNode.setProperties(
             (org.onap.blueprintgenerator.model.common.Properties) propertiesResponse
                 .get("properties"));
@@ -211,11 +212,11 @@ public class NodeService {
      * @return
      */
     public Map<String, Object> createFeedNode(
-        Map<String, LinkedHashMap<String, Object>> inputs, String name) {
+        Map<String, Map<String, Object>> inputs, String name) {
         Map<String, Object> response = new HashMap<>();
         Node feedNode = new Node();
 
-        LinkedHashMap<String, Object> stringType = new LinkedHashMap();
+        Map<String, Object> stringType = new LinkedHashMap();
         stringType.put("type", "string");
 
         feedNode.setType(Constants.FEED);
@@ -242,11 +243,11 @@ public class NodeService {
      * @return
      */
     public Map<String, Object> createTopicNode(
-        Map<String, LinkedHashMap<String, Object>> inputs, String name) {
+        Map<String, Map<String, Object>> inputs, String name) {
         Map<String, Object> response = new HashMap<>();
         Node topicNode = new Node();
 
-        LinkedHashMap<String, Object> stringType = new LinkedHashMap();
+        Map<String, Object> stringType = new LinkedHashMap();
         stringType.put("type", "string");
 
         topicNode.setType(Constants.TOPIC);

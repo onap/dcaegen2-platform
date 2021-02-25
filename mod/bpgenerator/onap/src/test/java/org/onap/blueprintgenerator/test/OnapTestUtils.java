@@ -46,7 +46,6 @@ import org.springframework.stereotype.Component;
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -384,7 +383,7 @@ public class OnapTestUtils extends BlueprintGeneratorTests {
     public void verifyArtifacts(
         String type,
         OnapComponentSpec onapComponentSpec,
-        Map<String, LinkedHashMap<String, Object>> inputs,
+        Map<String, Map<String, Object>> inputs,
         String bptype) {
         Artifacts[] csArtifacts = onapComponentSpec.getArtifacts();
         assertNotNull(type + " ComponentSpec Artifacts Section is NULL", csArtifacts);

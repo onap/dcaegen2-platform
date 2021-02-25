@@ -27,7 +27,6 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.Map;
 import org.junit.Before;
 import org.junit.Test;
@@ -84,7 +83,7 @@ public class AppConfigServiceTest {
     public void shouldCreateStringInputForStringParameter() {
 
         mockParameters(PARAMETERS_TYPE_STRING, TEST_STRING_VALUE);
-        Map<String, LinkedHashMap<String, Object>> inputs = new HashMap<>();
+        Map<String, Map<String, Object>> inputs = new HashMap<>();
         
         Map<String, Object> appConfig = appConfigService.createAppconfig(inputs, componentSpec, false);
         Map<String, Object> createdInputs = (Map<String, Object>) appConfig.get(INPUTS);
@@ -99,7 +98,7 @@ public class AppConfigServiceTest {
     public void shouldCreateStringInputForUnknownParameter() {
 
         mockParameters(UNKNOWN_TYPE, TEST_STRING_VALUE);
-        Map<String, LinkedHashMap<String, Object>> inputs = new HashMap<>();
+        Map<String, Map<String, Object>> inputs = new HashMap<>();
         
         Map<String, Object> appConfig = appConfigService.createAppconfig(inputs, componentSpec, false);
         Map<String, Object> createdInputs = (Map<String, Object>) appConfig.get(INPUTS);
@@ -114,7 +113,7 @@ public class AppConfigServiceTest {
     public void shouldCreateBooleanInputForBooleanParameter() {
 
         mockParameters(PARAMETERS_TYPE_BOOLEAN, BOOLEAN_TEST_VALUE);
-        Map<String, LinkedHashMap<String, Object>> inputs = new HashMap<>();
+        Map<String, Map<String, Object>> inputs = new HashMap<>();
         
         Map<String, Object> appConfig = appConfigService.createAppconfig(inputs, componentSpec, false);
         Map<String, Object> createdInputs = (Map<String, Object>) appConfig.get(INPUTS);
@@ -129,7 +128,7 @@ public class AppConfigServiceTest {
     public void shouldCreateIntegerInputForIntegerParameter() {
 
         mockParameters(PARAMETERS_TYPE_INTEGER, 123);
-        Map<String, LinkedHashMap<String, Object>> inputs = new HashMap<>();
+        Map<String, Map<String, Object>> inputs = new HashMap<>();
         
         Map<String, Object> appConfig = appConfigService.createAppconfig(inputs, componentSpec, false);
         Map<String, Object> createdInputs = (Map<String, Object>) appConfig.get(INPUTS);
@@ -144,7 +143,7 @@ public class AppConfigServiceTest {
     public void shouldCreateIntegerInputForNumberParameter() {
 
         mockParameters(PARAMETERS_TYPE_NUMBER, 123);
-        Map<String, LinkedHashMap<String, Object>> inputs = new HashMap<>();
+        Map<String, Map<String, Object>> inputs = new HashMap<>();
         
         Map<String, Object> appConfig = appConfigService.createAppconfig(inputs, componentSpec, false);
         Map<String, Object> createdInputs = (Map<String, Object>) appConfig.get(INPUTS);

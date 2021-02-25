@@ -4,6 +4,7 @@
  *  *  org.onap.dcae
  *  *  ================================================================================
  *  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
+ *  *  Copyright (c) 2021 Nokia. All rights reserved.
  *  *  ================================================================================
  *  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  *  you may not use this file except in compliance with the License.
@@ -55,7 +56,7 @@ public class StreamsService {
      * @return
      */
     public Map<String, Object> createStreams(
-        Map<String, LinkedHashMap<String, Object>> inputs,
+        Map<String, Map<String, Object>> inputs,
         String name,
         String type,
         String key,
@@ -64,7 +65,7 @@ public class StreamsService {
         Map<String, Object> response = new HashMap<>();
         Streams streams = new Streams();
 
-        LinkedHashMap<String, Object> stringType = new LinkedHashMap();
+        Map<String, Object> stringType = new LinkedHashMap();
         stringType.put("type", "string");
 
         streams.setName(name);

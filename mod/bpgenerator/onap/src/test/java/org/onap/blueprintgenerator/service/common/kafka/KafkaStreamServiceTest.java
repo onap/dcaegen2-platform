@@ -27,7 +27,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import java.util.LinkedHashMap;
 import java.util.Map;
 import org.junit.Test;
 
@@ -55,12 +54,12 @@ public class KafkaStreamServiceTest {
     @Test
     public void createCorrectStreamCommonInputs() {
 
-        Map<String, LinkedHashMap<String, Object>> publishInputs = kafkaStreamService
+        Map<String, Map<String, Object>> publishInputs = kafkaStreamService
             .createStreamPublishInputs("test_stream_name");
 
-        LinkedHashMap<String, Object> kafka_bootstrap_servers = publishInputs.get("kafka_bootstrap_servers");
-        LinkedHashMap<String, Object> kafka_username = publishInputs.get("kafka_username");
-        LinkedHashMap<String, Object> kafka_password = publishInputs.get("kafka_password");
+        Map<String, Object> kafka_bootstrap_servers = publishInputs.get("kafka_bootstrap_servers");
+        Map<String, Object> kafka_username = publishInputs.get("kafka_username");
+        Map<String, Object> kafka_password = publishInputs.get("kafka_password");
 
         assertNotNull(kafka_bootstrap_servers);
         assertNotNull(kafka_username);
@@ -73,10 +72,10 @@ public class KafkaStreamServiceTest {
 
     @Test
     public void createCorrectStreamPublishInput() {
-        Map<String, LinkedHashMap<String, Object>> publishInputs = kafkaStreamService
+        Map<String, Map<String, Object>> publishInputs = kafkaStreamService
             .createStreamPublishInputs(TEST_STREAM_NAME);
 
-        LinkedHashMap<String, Object> kafka_stream_name = publishInputs.get(TEST_STREAM_NAME + PUBLISH_URL_SUFFIX);
+        Map<String, Object> kafka_stream_name = publishInputs.get(TEST_STREAM_NAME + PUBLISH_URL_SUFFIX);
 
         assertNotNull(kafka_stream_name);
 
@@ -85,10 +84,10 @@ public class KafkaStreamServiceTest {
 
     @Test
     public void createCorrectStreamSubscribeInput() {
-        Map<String, LinkedHashMap<String, Object>> publishInputs = kafkaStreamService
+        Map<String, Map<String, Object>> publishInputs = kafkaStreamService
             .createStreamSubscribeInputs(TEST_STREAM_NAME);
 
-        LinkedHashMap<String, Object> kafka_stream_name = publishInputs.get(TEST_STREAM_NAME + SUBSCRIBE_URL_SUFFIX);
+        Map<String, Object> kafka_stream_name = publishInputs.get(TEST_STREAM_NAME + SUBSCRIBE_URL_SUFFIX);
 
         assertNotNull(kafka_stream_name);
 

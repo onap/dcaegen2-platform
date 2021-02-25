@@ -76,7 +76,7 @@ public class PropertiesService {
      * @return
      */
     public Map<String, Object> createOnapProperties(
-        Map<String, LinkedHashMap<String, Object>> inputs,
+        Map<String, Map<String, Object>> inputs,
         OnapComponentSpec onapComponentSpec,
         String override) {
         Map<String, Object> response = new HashMap<>();
@@ -103,7 +103,7 @@ public class PropertiesService {
         replica.setBpInputName("replicas");
         properties.setReplicas(replica);
 
-        LinkedHashMap<String, Object> replicas =
+        Map<String, Object> replicas =
             blueprintHelperService.createIntegerInput("number of instances", 1);
         inputs.put("replicas", replicas);
 
@@ -113,7 +113,7 @@ public class PropertiesService {
 
         Map<String, Object> appConfigResponse =
             appConfigService.createAppconfig(inputs, onapComponentSpec, false);
-        inputs = (Map<String, LinkedHashMap<String, Object>>) appConfigResponse.get("inputs");
+        inputs = (Map<String, Map<String, Object>>) appConfigResponse.get("inputs");
         properties.setApplication_config((Appconfig) appConfigResponse.get("appconfig"));
 
         GetInput always_pull_image = new GetInput();
@@ -121,7 +121,7 @@ public class PropertiesService {
 
         properties.setAlways_pull_image(always_pull_image);
 
-        LinkedHashMap<String, Object> inputAlwaysPullImage =
+        Map<String, Object> inputAlwaysPullImage =
             blueprintHelperService.createBooleanInput(
                 "Set to true if the image should always be pulled", true);
         inputs.put("always_pull_image", inputAlwaysPullImage);
@@ -144,7 +144,7 @@ public class PropertiesService {
         Map<String, Object> resourceConfigResponse =
             resourceConfigService
                 .createResourceConfig(inputs, onapComponentSpec.getSelf().getName());
-        inputs = (Map<String, LinkedHashMap<String, Object>>) resourceConfigResponse.get("inputs");
+        inputs = (Map<String, Map<String, Object>>) resourceConfigResponse.get("inputs");
         properties
             .setResource_config((ResourceConfig) resourceConfigResponse.get("resourceConfig"));
 
@@ -162,7 +162,7 @@ public class PropertiesService {
      * @return
      */
     public Map<String, Object> createDmaapProperties(
-        Map<String, LinkedHashMap<String, Object>> inputs,
+        Map<String, Map<String, Object>> inputs,
         OnapComponentSpec onapComponentSpec,
         String override) {
         Map<String, Object> response = new HashMap<>();
@@ -173,7 +173,7 @@ public class PropertiesService {
         image.setBpInputName("tag_version");
         properties.setImage(image);
 
-        LinkedHashMap<String, Object> img = new LinkedHashMap<>();
+        Map<String, Object> img = new LinkedHashMap<>();
         inputs.put(
             "tag_version",
             blueprintHelperService.createStringInput(onapComponentSpec.getArtifacts()[0].getUri()));
@@ -182,7 +182,7 @@ public class PropertiesService {
         location.setBpInputName("location_id");
         properties.setLocation_id(location);
 
-        LinkedHashMap<String, Object> locMap = new LinkedHashMap();
+        Map<String, Object> locMap = new LinkedHashMap();
         inputs.put("location_id", blueprintHelperService.createStringInput(Constants.EMPTY_VALUE));
 
         properties.setLog_info(onapComponentSpec.getAuxilary().getLog_info());
@@ -206,7 +206,7 @@ public class PropertiesService {
         replica.setBpInputName("replicas");
         properties.setReplicas(replica);
 
-        LinkedHashMap<String, Object> rep =
+        Map<String, Object> rep =
             blueprintHelperService.createIntegerInput("number of instances", 1);
         inputs.put("replicas", rep);
 
@@ -216,7 +216,7 @@ public class PropertiesService {
 
         Map<String, Object> appConfigResponse =
             appConfigService.createAppconfig(inputs, onapComponentSpec, true);
-        inputs = (Map<String, LinkedHashMap<String, Object>>) appConfigResponse.get("inputs");
+        inputs = (Map<String, Map<String, Object>>) appConfigResponse.get("inputs");
         properties.setApplication_config((Appconfig) appConfigResponse.get("appconfig"));
 
         List<Streams> pubStreams = new ArrayList();
@@ -224,7 +224,7 @@ public class PropertiesService {
             if (onapComponentSpec.getStreams().getPublishes() != null) {
                 for (Publishes publishes : onapComponentSpec.getStreams().getPublishes()) {
                     if (blueprintHelperService.isMessageRouterType(publishes.getType())) {
-                        String topic = publishes.getConfig_key() + Constants._TOPIC;
+                        String topic = publishes.getConfig_key() + Constants.A_TOPIC;
                         Map<String, Object> streamsMessageRouterResponse =
                             streamsService.createStreams(
                                 inputs,
@@ -234,11 +234,11 @@ public class PropertiesService {
                                 publishes.getRoute(),
                                 'p');
                         inputs =
-                            (Map<String, LinkedHashMap<String, Object>>)
+                            (Map<String, Map<String, Object>>)
                                 streamsMessageRouterResponse.get("inputs");
                         pubStreams.add((Streams) streamsMessageRouterResponse.get("streams"));
                     } else if (blueprintHelperService.isDataRouterType(publishes.getType())) {
-                        String feed = publishes.getConfig_key() + Constants._FEED;
+                        String feed = publishes.getConfig_key() + Constants.A_FEED;
                         Map<String, Object> streamsDataRouterResponse =
                             streamsService.createStreams(
                                 inputs,
@@ -248,7 +248,7 @@ public class PropertiesService {
                                 publishes.getRoute(),
                                 'p');
                         inputs =
-                            (Map<String, LinkedHashMap<String, Object>>)
+                            (Map<String, Map<String, Object>>)
                                 streamsDataRouterResponse.get("inputs");
                         pubStreams.add((Streams) streamsDataRouterResponse.get("streams"));
                     }
@@ -261,7 +261,7 @@ public class PropertiesService {
             if (onapComponentSpec.getStreams().getSubscribes() != null) {
                 for (Subscribes subscribes : onapComponentSpec.getStreams().getSubscribes()) {
                     if (blueprintHelperService.isMessageRouterType(subscribes.getType())) {
-                        String topic = subscribes.getConfig_key() + Constants._TOPIC;
+                        String topic = subscribes.getConfig_key() + Constants.A_TOPIC;
                         Map<String, Object> streamsMessageRouterResponse =
                             streamsService.createStreams(
                                 inputs,
@@ -271,11 +271,11 @@ public class PropertiesService {
                                 subscribes.getRoute(),
                                 's');
                         inputs =
-                            (Map<String, LinkedHashMap<String, Object>>)
+                            (Map<String, Map<String, Object>>)
                                 streamsMessageRouterResponse.get("inputs");
                         subStreams.add((Streams) streamsMessageRouterResponse.get("streams"));
                     } else if (blueprintHelperService.isDataRouterType(subscribes.getType())) {
-                        String feed = subscribes.getConfig_key() + Constants._FEED;
+                        String feed = subscribes.getConfig_key() + Constants.A_FEED;
                         Map<String, Object> streamsDataRouterResponse =
                             streamsService.createStreams(
                                 inputs,
@@ -285,7 +285,7 @@ public class PropertiesService {
                                 subscribes.getRoute(),
                                 's');
                         inputs =
-                            (Map<String, LinkedHashMap<String, Object>>)
+                            (Map<String, Map<String, Object>>)
                                 streamsDataRouterResponse.get("inputs");
                         subStreams.add((Streams) streamsDataRouterResponse.get("streams"));
                     }
@@ -304,7 +304,7 @@ public class PropertiesService {
         Map<String, Object> resourceConfigResponse =
             resourceConfigService
                 .createResourceConfig(inputs, onapComponentSpec.getSelf().getName());
-        inputs = (Map<String, LinkedHashMap<String, Object>>) resourceConfigResponse.get("inputs");
+        inputs = (Map<String, Map<String, Object>>) resourceConfigResponse.get("inputs");
         properties
             .setResource_config((ResourceConfig) resourceConfigResponse.get("resourceConfig"));
 
@@ -313,7 +313,7 @@ public class PropertiesService {
         return response;
     }
 
-    private LinkedHashMap<String, Object> addServiceComponentNameOverride(String override, Properties properties) {
+    private Map<String, Object> addServiceComponentNameOverride(String override, Properties properties) {
         GetInput overrideGetInput = new GetInput();
         overrideGetInput.setBpInputName(Constants.SERVICE_COMPONENT_NAME_OVERRIDE);
         properties.setService_component_name_override(overrideGetInput);
@@ -322,7 +322,7 @@ public class PropertiesService {
 
     private void addTlsInfo(
         OnapComponentSpec onapComponentSpec,
-        Map<String, LinkedHashMap<String, Object>> inputs,
+        Map<String, Map<String, Object>> inputs,
         Properties properties) {
         TlsInfo tlsInfo = new TlsInfo();
         tlsInfo.setCertDirectory(
@@ -331,14 +331,14 @@ public class PropertiesService {
         useTLSFlag.setBpInputName("use_tls");
         tlsInfo.setUseTls(useTLSFlag);
         properties.setTls_info(tlsInfo);
-        LinkedHashMap<String, Object> useTlsFlagInput =
+        Map<String, Object> useTlsFlagInput =
             blueprintHelperService.createBooleanInput(
                 "flag to indicate tls enable/disable",
                 onapComponentSpec.getAuxilary().getTls_info().get("use_tls"));
         inputs.put("use_tls", useTlsFlagInput);
     }
 
-    private Map<String, LinkedHashMap<String, Object>> addExternalTlsInfo(
+    private Map<String, Map<String, Object>> addExternalTlsInfo(
         OnapComponentSpec onapComponentSpec, Properties properties) {
         properties.setExternal_cert(
             externalTlsInfoFactoryService.createFromComponentSpec(onapComponentSpec));

@@ -4,6 +4,7 @@
  *  *  org.onap.dcae
  *  *  ================================================================================
  *  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
+ *  *  Copyright (c) 2021 Nokia. All rights reserved.
  *  *  ================================================================================
  *  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  *  you may not use this file except in compliance with the License.
@@ -31,7 +32,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
@@ -76,25 +76,25 @@ public class ExternalTlsInfoFactoryService extends ExternalCertificateDataFactor
      * @param cs ComponentSpec
      * @return
      */
-    public Map<String, LinkedHashMap<String, Object>> createInputListFromComponentSpec(
+    public Map<String, Map<String, Object>> createInputListFromComponentSpec(
         OnapComponentSpec cs) {
 
-        Map<String, LinkedHashMap<String, Object>> retInputs = new HashMap<>();
+        Map<String, Map<String, Object>> retInputs = new HashMap<>();
 
         Map<String, Object> externalTlsInfoCs = cs.getAuxilary().getTls_info();
-        LinkedHashMap<String, Object> useTlsFlagInput =
+        Map<String, Object> useTlsFlagInput =
             blueprintHelperService.createBooleanInput(
                 "Flag to indicate external tls enable/disable.",
                 externalTlsInfoCs.get(Constants.USE_EXTERNAL_TLS_FIELD));
         retInputs.put(addPrefix(Constants.USE_EXTERNAL_TLS_FIELD), useTlsFlagInput);
 
-        LinkedHashMap<String, Object> caNameInputMap =
+        Map<String, Object> caNameInputMap =
             blueprintHelperService.createStringInput(
                 "Name of Certificate Authority configured on CertService side.",
                 Constants.DEFAULT_CA);
         retInputs.put(addPrefix(Constants.CA_NAME_FIELD), caNameInputMap);
 
-        LinkedHashMap<String, Object> certTypeInputMap =
+        Map<String, Object> certTypeInputMap =
             blueprintHelperService.createStringInput(
                 "Format of provided certificates", Constants.DEFAULT_CERT_TYPE);
         retInputs.put(addPrefix(Constants.CERT_TYPE_FIELD), certTypeInputMap);
