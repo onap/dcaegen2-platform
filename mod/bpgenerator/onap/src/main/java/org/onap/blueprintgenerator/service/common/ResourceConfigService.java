@@ -33,7 +33,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -62,14 +61,14 @@ public class ResourceConfigService {
      * @return
      */
     public Map<String, Object> createResourceConfig(
-        Map<String, LinkedHashMap<String, Object>> inputs, String name) {
+        Map<String, Map<String, Object>> inputs, String name) {
         Map<String, Object> response = new HashMap<>();
         ResourceConfig resourceConfig = new ResourceConfig();
 
-        LinkedHashMap<String, Object> memoryLimit =
+        Map<String, Object> memoryLimit =
             blueprintHelperService.createStringInput(defaultMemoryLimit);
 
-        LinkedHashMap<String, Object> cpuLimit =
+        Map<String, Object> cpuLimit =
             blueprintHelperService.createStringInput(defaultCpuLimit);
 
         name = blueprintHelperService.getNamePrefix(name);

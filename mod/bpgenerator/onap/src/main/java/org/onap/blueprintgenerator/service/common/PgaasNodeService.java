@@ -4,6 +4,7 @@
  *  *  org.onap.dcae
  *  *  ================================================================================
  *  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
+ *  *  Copyright (c) 2021 Nokia. All rights reserved.
  *  *  ================================================================================
  *  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  *  you may not use this file except in compliance with the License.
@@ -63,7 +64,7 @@ public class PgaasNodeService {
     public void addPgaasNodesAndInputs(
         OnapComponentSpec onapComponentSpec,
         Map<String, Node> nodeTemplate,
-        Map<String, LinkedHashMap<String, Object>> inputs) {
+        Map<String, Map<String, Object>> inputs) {
         Map<String, String> databases = onapComponentSpec.getAuxilary().getDatabases();
         if (databases != null) {
             for (Map.Entry<String, String> database : databases.entrySet()) {
@@ -74,7 +75,7 @@ public class PgaasNodeService {
     }
 
     private void addPgaasInputs(
-        Map.Entry<String, String> database, Map<String, LinkedHashMap<String, Object>> inputs) {
+        Map.Entry<String, String> database, Map<String, Map<String, Object>> inputs) {
         inputs.put(
             database.getKey() + Constants.NAME_POSTFIX,
             blueprintHelperService.createStringInput("db name", ""));

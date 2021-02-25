@@ -4,6 +4,7 @@
  *  *  org.onap.dcae
  *  *  ================================================================================
  *  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
+ *  *  Copyright (c) 2021 Nokia. All rights reserved.
  *  *  ================================================================================
  *  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  *  you may not use this file except in compliance with the License.
@@ -56,7 +57,7 @@ public class DmaapService {
      * @return
      */
     public Map<String, Object> createDmaapMessageRouter(
-        Map<String, LinkedHashMap<String, Object>> inputs,
+        Map<String, Map<String, Object>> inputs,
         String config,
         char type,
         String counter,
@@ -72,7 +73,7 @@ public class DmaapService {
         if (!isDmaap) {
             Map<String, Object> infoResponse = infoService
                 .createMessageRouterInfo(inputs, config, type);
-            inputs = (Map<String, LinkedHashMap<String, Object>>) infoResponse.get("inputs");
+            inputs = (Map<String, Map<String, Object>>) infoResponse.get("inputs");
             dmaap.setDmaap_info(infoResponse.get("info"));
         } else {
             String infoType = "<<" + counter + ">>";
@@ -103,7 +104,7 @@ public class DmaapService {
      * @return
      */
     public Map<String, Object> createDmaapDataRouter(
-        Map<String, LinkedHashMap<String, Object>> inputs,
+        Map<String, Map<String, Object>> inputs,
         String config,
         String counter,
         boolean isDmaap) {
@@ -113,7 +114,7 @@ public class DmaapService {
 
         if (!isDmaap) {
             Map<String, Object> infoResponse = infoService.createDataRouterInfo(inputs, config);
-            inputs = (Map<String, LinkedHashMap<String, Object>>) infoResponse.get("inputs");
+            inputs = (Map<String, Map<String, Object>>) infoResponse.get("inputs");
             dmaap.setDmaap_info(infoResponse.get("info"));
         } else {
             String infoType = "<<" + counter + ">>";

@@ -64,7 +64,7 @@ public class StreamService {
         OnapComponentSpec onapComponentSpec,
         BlueprintHelperService blueprintHelperService,
         DmaapService dmaapService,
-        Map<String, LinkedHashMap<String, Object>> inputs,
+        Map<String, Map<String, Object>> inputs,
         boolean isDmaap) {
 
         Map<String, BaseStream> streamPublishes = new TreeMap<>();
@@ -75,23 +75,23 @@ public class StreamService {
         for (Publishes publishes : onapComponentSpec.getStreams().getPublishes()) {
             if (blueprintHelperService.isDataRouterType(publishes.getType())) {
                 String config = publishes.getConfig_key();
-                String name = config + Constants._FEED;
+                String name = config + Constants.A_FEED;
                 Map<String, Object> dmaapDataRouterResponse =
                     dmaapService.createDmaapDataRouter(inputs, config, name, isDmaap);
                 inputs =
-                    (Map<String, LinkedHashMap<String, Object>>) dmaapDataRouterResponse
+                    (Map<String, Map<String, Object>>) dmaapDataRouterResponse
                         .get("inputs");
                 Dmaap dmaap = (Dmaap) dmaapDataRouterResponse.get("dmaap");
                 dmaap.setType(publishes.getType());
                 streamPublishes.put(config, dmaap);
             } else if (blueprintHelperService.isMessageRouterType(publishes.getType())) {
                 String config = publishes.getConfig_key();
-                String name = config + Constants._TOPIC;
+                String name = config + Constants.A_TOPIC;
                 Map<String, Object> dmaapDataRouterResponse =
                     dmaapService
                         .createDmaapMessageRouter(inputs, config, 'p', name, name, isDmaap);
                 inputs =
-                    (Map<String, LinkedHashMap<String, Object>>) dmaapDataRouterResponse
+                    (Map<String, Map<String, Object>>) dmaapDataRouterResponse
                         .get("inputs");
                 Dmaap dmaap = (Dmaap) dmaapDataRouterResponse.get("dmaap");
                 dmaap.setType(publishes.getType());
@@ -118,7 +118,7 @@ public class StreamService {
         OnapComponentSpec onapComponentSpec,
         BlueprintHelperService blueprintHelperService,
         DmaapService dmaapService,
-        Map<String, LinkedHashMap<String, Object>> inputs,
+        Map<String, Map<String, Object>> inputs,
         boolean isDmaap) {
 
         Map<String, BaseStream> streamSubscribes = new TreeMap<>();
@@ -129,23 +129,23 @@ public class StreamService {
         for (Subscribes subscribes : onapComponentSpec.getStreams().getSubscribes()) {
             if (blueprintHelperService.isDataRouterType(subscribes.getType())) {
                 String config = subscribes.getConfig_key();
-                String name = config + Constants._FEED;
+                String name = config + Constants.A_FEED;
                 Map<String, Object> dmaapDataRouterResponse =
                     dmaapService.createDmaapDataRouter(inputs, config, name, isDmaap);
                 inputs =
-                    (Map<String, LinkedHashMap<String, Object>>) dmaapDataRouterResponse
+                    (Map<String, Map<String, Object>>) dmaapDataRouterResponse
                         .get("inputs");
                 Dmaap dmaap = (Dmaap) dmaapDataRouterResponse.get("dmaap");
                 dmaap.setType(subscribes.getType());
                 streamSubscribes.put(config, dmaap);
             } else if (blueprintHelperService.isMessageRouterType(subscribes.getType())) {
                 String config = subscribes.getConfig_key();
-                String name = config + Constants._TOPIC;
+                String name = config + Constants.A_TOPIC;
                 Map<String, Object> dmaapDataRouterResponse =
                     dmaapService
                         .createDmaapMessageRouter(inputs, config, 's', name, name, isDmaap);
                 inputs =
-                    (Map<String, LinkedHashMap<String, Object>>) dmaapDataRouterResponse
+                    (Map<String, Map<String, Object>>) dmaapDataRouterResponse
                         .get("inputs");
                 Dmaap dmaap = (Dmaap) dmaapDataRouterResponse.get("dmaap");
                 dmaap.setType(subscribes.getType());

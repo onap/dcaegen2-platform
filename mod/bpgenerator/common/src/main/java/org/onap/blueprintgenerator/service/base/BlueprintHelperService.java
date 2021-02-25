@@ -28,6 +28,7 @@ package org.onap.blueprintgenerator.service.base;
 import org.onap.blueprintgenerator.constants.Constants;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
 import java.util.LinkedHashMap;
 
 /**
@@ -46,7 +47,7 @@ public class BlueprintHelperService {
      * @param defaultValue Default value of Type
      * @return
      */
-    public LinkedHashMap<String, Object> createInputValue(
+    public Map<String, Object> createInputValue(
         String type, String description, Object defaultValue) {
         LinkedHashMap<String, Object> inputMap = new LinkedHashMap<>();
         inputMap.put("type", type);
@@ -62,7 +63,7 @@ public class BlueprintHelperService {
      * @param description Description
      * @return
      */
-    public LinkedHashMap<String, Object> createInputValue(String type, String description) {
+    public Map<String, Object> createInputValue(String type, String description) {
         LinkedHashMap<String, Object> inputMap = new LinkedHashMap<>();
         inputMap.put("type", type);
         inputMap.put("description", description);
@@ -76,7 +77,7 @@ public class BlueprintHelperService {
      * @param defaultValue Default value of Type
      * @return
      */
-    public LinkedHashMap<String, Object> createInputValue(String type, Object defaultValue) {
+    public Map<String, Object> createInputValue(String type, Object defaultValue) {
         LinkedHashMap<String, Object> inputMap = new LinkedHashMap<>();
         inputMap.put("type", type);
         inputMap.put("default", defaultValue);
@@ -90,7 +91,7 @@ public class BlueprintHelperService {
      * @param defaultValue Default value of Type
      * @return
      */
-    public LinkedHashMap<String, Object> createIntegerInput(String description,
+    public Map<String, Object> createIntegerInput(String description,
         Object defaultValue) {
         return createInputValue(Constants.INTEGER_TYPE, description, defaultValue);
     }
@@ -101,7 +102,7 @@ public class BlueprintHelperService {
      * @param description Description
      * @return
      */
-    public LinkedHashMap<String, Object> createIntegerInput(String description) {
+    public Map<String, Object> createIntegerInput(String description) {
         return createInputValue(Constants.INTEGER_TYPE, description);
     }
 
@@ -111,7 +112,7 @@ public class BlueprintHelperService {
      * @param defaultValue Default value of Type
      * @return
      */
-    public LinkedHashMap<String, Object> createIntegerInput(Object defaultValue) {
+    public Map<String, Object> createIntegerInput(Object defaultValue) {
         return createInputValue(Constants.INTEGER_TYPE, defaultValue);
     }
 
@@ -122,7 +123,7 @@ public class BlueprintHelperService {
      * @param defaultValue Default value of Type
      * @return
      */
-    public LinkedHashMap<String, Object> createBooleanInput(String description,
+    public Map<String, Object> createBooleanInput(String description,
         Object defaultValue) {
         return createInputValue(Constants.BOOLEAN_TYPE, description, defaultValue);
     }
@@ -133,7 +134,7 @@ public class BlueprintHelperService {
      * @param description Description
      * @return
      */
-    public LinkedHashMap<String, Object> createBooleanInput(String description) {
+    public Map<String, Object> createBooleanInput(String description) {
         return createInputValue(Constants.BOOLEAN_TYPE, description);
     }
 
@@ -143,7 +144,7 @@ public class BlueprintHelperService {
      * @param defaultValue Default value of Type
      * @return
      */
-    public LinkedHashMap<String, Object> createBooleanInput(Object defaultValue) {
+    public Map<String, Object> createBooleanInput(Object defaultValue) {
         return createInputValue(Constants.BOOLEAN_TYPE, defaultValue);
     }
 
@@ -154,14 +155,10 @@ public class BlueprintHelperService {
      * @param defaultValue Default value of Type
      * @return
      */
-    public LinkedHashMap<String, Object> createStringInput(String description,
+    public Map<String, Object> createStringInput(String description,
         Object defaultValue) {
         return createInputValue(Constants.STRING_TYPE, description, defaultValue);
     }
-
-  /*  public LinkedHashMap<String, Object> createStringInput(String description){
-    return createInputValue(Constants.STRING_TYPE, description);
-  }*/
 
     /**
      * creates String Input value for given Default value
@@ -169,7 +166,7 @@ public class BlueprintHelperService {
      * @param defaultValue Default value of Type
      * @return
      */
-    public LinkedHashMap<String, Object> createStringInput(Object defaultValue) {
+    public Map<String, Object> createStringInput(Object defaultValue) {
         return createInputValue(Constants.STRING_TYPE, defaultValue);
     }
 
@@ -182,7 +179,7 @@ public class BlueprintHelperService {
      * @param defaultValue Default value of Type
      * @return
      */
-    public LinkedHashMap<String, Object> createInputByType(String inputType, Object defaultValue) {
+    public Map<String, Object> createInputByType(String inputType, Object defaultValue) {
         switch (inputType) {
             case "boolean":
                 return createBooleanInput(defaultValue);
