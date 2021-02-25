@@ -5,6 +5,8 @@
  *  *  ================================================================================
  *  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
  *  *  ================================================================================
+ *  *  Copyright (c) 2021 Nokia. All rights reserved.
+ *  *  ================================================================================
  *  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  *  you may not use this file except in compliance with the License.
  *  *  You may obtain a copy of the License at
@@ -30,7 +32,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
@@ -51,13 +52,13 @@ public class StartService {
      * @return
      */
     public Map<String, Object> createStart(
-        Map<String, LinkedHashMap<String, Object>> inputs, OnapComponentSpec onapComponentSpec) {
+        Map<String, Map<String, Object>> inputs, OnapComponentSpec onapComponentSpec) {
         Map<String, Object> response = new HashMap<>();
         Start start = new Start();
 
         Map<String, Object> startInputsResponse =
             startInputsService.createStartInputs(inputs, onapComponentSpec);
-        inputs = (Map<String, LinkedHashMap<String, Object>>) startInputsResponse.get("inputs");
+        inputs = (Map<String,Map<String, Object>>) startInputsResponse.get("inputs");
         start.setInputs((StartInputs) startInputsResponse.get("startInputs"));
 
         response.put("start", start);

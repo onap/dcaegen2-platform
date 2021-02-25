@@ -279,11 +279,11 @@ class StreamServiceTest {
         return subscribes;
     }
 
-    private Map<String, LinkedHashMap<String, Object>> createInputs() {
-        LinkedHashMap<String, Object> map = new LinkedHashMap<>();
+    private Map<String, Map<String, Object>> createInputs() {
+        Map<String, Object> map = new LinkedHashMap<>();
         map.put("key-1", "obj-1");
 
-        Map<String, LinkedHashMap<String, Object>> mapsMap = new HashMap<>();
+        Map<String, Map<String, Object>> mapsMap = new HashMap<>();
         mapsMap.put("inputs", map);
         return mapsMap;
     }

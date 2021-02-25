@@ -5,6 +5,8 @@
  *  *  ================================================================================
  *  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
  *  *  ================================================================================
+ *  *  Copyright (c) 2021 Nokia. All rights reserved.
+ *  *  ================================================================================
  *  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  *  you may not use this file except in compliance with the License.
  *  *  You may obtain a copy of the License at
@@ -55,15 +57,15 @@ public class FixesService {
             FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
             for (String line = br.readLine(); line != null; line = br.readLine()) {
+                String newLine = line;
                 if (line.contains("'")) {
-                    line = processLine(line);
+                    newLine = processLine(line);
                 }
                 if (line.contains("get_input") || line.contains("get_secret") || line
                     .contains("envs")) {
-                    line = line.replaceAll("'", "");
+                    newLine = line.replace("'", "");
                 }
-
-                lines.add(line);
+                lines.add(newLine);
             }
 
             fr.close();
@@ -90,8 +92,8 @@ public class FixesService {
      * @return
      */
     public String fixStringQuotes(String string) {
-        String sLines[] = string.split("\n");
-        String ret = "";
+        String[] sLines = string.split("\n");
+        StringBuilder ret = new StringBuilder();
         for (String line : sLines) {
             if (line.contains("get_input")
                 || line.contains("get_secret")
@@ -101,15 +103,16 @@ public class FixesService {
                 || line.contains("dmaap")
                 || line.contains(".\"'"))
                 && line.contains("'"))) {
-                line = line.replaceAll("'", "");
+                line = line.replace("'", "");
             }
 
             if (line.contains("'")) {
                 line = processLine(line);
             }
-            ret = ret + "\n" + line;
+            ret.append("\n");
+            ret.append(line);
         }
-        return ret;
+        return ret.toString();
     }
 
     /**
@@ -124,13 +127,14 @@ public class FixesService {
             FileReader fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
             for (String line = br.readLine(); line != null; line = br.readLine()) {
+                String newLine = line;
                 if (line.contains("'")) {
-                    line = line.replace("'", "");
+                    newLine = line.replace("'", "");
                 }
                 if (line.contains("\"\"") && (line.contains("m") || line.contains("M"))) {
-                    line = line.replaceAll("\"\"", "\"");
+                    newLine = line.replace("\"\"", "\"");
                 }
-                lines.add(line);
+                lines.add(newLine);
             }
             fr.close();
             br.close();
@@ -185,18 +189,18 @@ public class FixesService {
     }
 
     private String processLine(String line) {
-        return line.replaceAll("'\\{", "{")
-            .replaceAll("}'", "}")
-            .replaceAll("'\\[", "[")
-            .replaceAll("]'", "]")
-            .replaceAll("'''''", "'")
-            .replaceAll("'''", "'")
-            .replaceAll("'''", "")
-            .replaceAll("''\\{", "'{")
-            .replaceAll("}''", "}'")
-            .replaceAll("''\\[", "'[")
-            .replaceAll("]''", "]'")
-            .replaceAll("\"''", "'")
-            .replaceAll("''\"", "'");
+        return line.replace("'\\{", "{")
+            .replace("}'", "}")
+            .replace("'\\[", "[")
+            .replace("]'", "]")
+            .replace("'''''", "'")
+            .replace("'''", "'")
+            .replace("'''", "")
+            .replace("''\\{", "'{")
+            .replace("}''", "}'")
+            .replace("''\\[", "'[")
+            .replace("]''", "]'")
+            .replace("\"''", "'")
+            .replace("''\"", "'");
     }
 }

@@ -4,7 +4,7 @@
  *  *  org.onap.dcae
  *  *  ================================================================================
  *  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
- *  *  Copyright (c) 2020  Nokia. All rights reserved.
+ *  *  Copyright (c) 2020-2021  Nokia. All rights reserved.
  *  *  ================================================================================
  *  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  *  you may not use this file except in compliance with the License.
@@ -43,7 +43,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -85,9 +84,8 @@ public class DmaapBlueprintCreatorService {
             blueprint.setTosca_definitions_version(Constants.TOSCA_DEF_VERSION);
             blueprint.setDescription(onapComponentSpec.getSelf().getDescription());
 
-            Map<String, LinkedHashMap<String, Object>> inputs = new TreeMap<>();
+            Map<String, Map<String, Object>> inputs = new TreeMap<>();
 
-            // if (!"".equals(input.getImportPath()))
             if (!StringUtils.isEmpty(input.getImportPath())) {
                 blueprint.setImports(importsService.createImportsFromFile(input.getImportPath()));
             } else {
@@ -99,7 +97,7 @@ public class DmaapBlueprintCreatorService {
             Map<String, Object> dmaapNodeResponse =
                 nodeService
                     .createDmaapNode(onapComponentSpec, inputs, input.getServiceNameOverride());
-            inputs = (Map<String, LinkedHashMap<String, Object>>) dmaapNodeResponse.get("inputs");
+            inputs = (Map<String, Map<String, Object>>) dmaapNodeResponse.get("inputs");
             nodeTemplate.put(
                 onapComponentSpec.getSelf().getName(), (Node) dmaapNodeResponse.get("dmaapNode"));
 
@@ -107,17 +105,17 @@ public class DmaapBlueprintCreatorService {
                 if (onapComponentSpec.getStreams().getPublishes() != null) {
                     for (Publishes publishes : onapComponentSpec.getStreams().getPublishes()) {
                         if (blueprintHelperService.isMessageRouterType(publishes.getType())) {
-                            String topic = publishes.getConfig_key() + Constants._TOPIC;
+                            String topic = publishes.getConfig_key() + Constants.A_TOPIC;
                             Map<String, Object> topicNodeResponse = nodeService
                                 .createTopicNode(inputs, topic);
-                            inputs = (Map<String, LinkedHashMap<String, Object>>) topicNodeResponse
+                            inputs = (Map<String, Map<String, Object>>) topicNodeResponse
                                 .get("inputs");
                             nodeTemplate.put(topic, (Node) topicNodeResponse.get("topicNode"));
                         } else if (blueprintHelperService.isDataRouterType(publishes.getType())) {
-                            String feed = publishes.getConfig_key() + Constants._FEED;
+                            String feed = publishes.getConfig_key() + Constants.A_FEED;
                             Map<String, Object> feedNodeResponse = nodeService
                                 .createFeedNode(inputs, feed);
-                            inputs = (Map<String, LinkedHashMap<String, Object>>) feedNodeResponse
+                            inputs = (Map<String, Map<String, Object>>) feedNodeResponse
                                 .get("inputs");
                             nodeTemplate.put(feed, (Node) feedNodeResponse.get("feedNode"));
                         }
@@ -126,17 +124,17 @@ public class DmaapBlueprintCreatorService {
                 if (onapComponentSpec.getStreams().getSubscribes() != null) {
                     for (Subscribes s : onapComponentSpec.getStreams().getSubscribes()) {
                         if (blueprintHelperService.isMessageRouterType(s.getType())) {
-                            String topic = s.getConfig_key() + Constants._TOPIC;
+                            String topic = s.getConfig_key() + Constants.A_TOPIC;
                             Map<String, Object> topicNodeResponse = nodeService
                                 .createTopicNode(inputs, topic);
-                            inputs = (Map<String, LinkedHashMap<String, Object>>) topicNodeResponse
+                            inputs = (Map<String, Map<String, Object>>) topicNodeResponse
                                 .get("inputs");
                             nodeTemplate.put(topic, (Node) topicNodeResponse.get("topicNode"));
                         } else if (blueprintHelperService.isDataRouterType(s.getType())) {
-                            String feed = s.getConfig_key() + Constants._FEED;
+                            String feed = s.getConfig_key() + Constants.A_FEED;
                             Map<String, Object> feedNodeResponse = nodeService
                                 .createFeedNode(inputs, feed);
-                            inputs = (Map<String, LinkedHashMap<String, Object>>) feedNodeResponse
+                            inputs = (Map<String, Map<String, Object>>) feedNodeResponse
                                 .get("inputs");
                             nodeTemplate.put(feed, (Node) feedNodeResponse.get("feedNode"));
                         }

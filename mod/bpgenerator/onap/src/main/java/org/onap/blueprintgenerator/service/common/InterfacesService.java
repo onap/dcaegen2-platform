@@ -5,6 +5,8 @@
  *  *  ================================================================================
  *  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
  *  *  ================================================================================
+ *  *  Copyright (c) 2021 Nokia. All rights reserved.
+ *  *  ================================================================================
  *  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  *  you may not use this file except in compliance with the License.
  *  *  You may obtain a copy of the License at
@@ -30,7 +32,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
@@ -52,13 +53,13 @@ public class InterfacesService {
      * @return
      */
     public Map<String, Object> createInterface(
-        Map<String, LinkedHashMap<String, Object>> inputs, OnapComponentSpec onapComponentSpec) {
+        Map<String, Map<String, Object>> inputs, OnapComponentSpec onapComponentSpec) {
 
         Map<String, Object> response = new HashMap<>();
         Interfaces interfaces = new Interfaces();
 
         Map<String, Object> startResponse = startService.createStart(inputs, onapComponentSpec);
-        inputs = (Map<String, LinkedHashMap<String, Object>>) startResponse.get("inputs");
+        inputs = (Map<String, Map<String, Object>>) startResponse.get("inputs");
 
         interfaces.setStart((Start) startResponse.get("start"));
 

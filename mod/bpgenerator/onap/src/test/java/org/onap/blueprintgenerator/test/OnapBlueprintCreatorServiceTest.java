@@ -4,7 +4,7 @@
  *  *  org.onap.dcae
  *  *  ================================================================================
  *  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
- *  *  Copyright (c) 2020  Nokia. All rights reserved.
+ *  *  Copyright (c) 2020-2021  Nokia. All rights reserved.
  *  *  ================================================================================
  *  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  *  you may not use this file except in compliance with the License.
@@ -30,7 +30,6 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.nio.file.Paths;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import org.junit.Test;
@@ -82,7 +81,7 @@ public class OnapBlueprintCreatorServiceTest extends BlueprintGeneratorTests {
             "Service Name Override K8s", onapBlueprint, Constants.TOSCA_DEF_VERSION);
         onapTestUtils.verifyBpImports("Service Name Override K8s", onapBlueprint, false);
 
-        Map<String, LinkedHashMap<String, Object>> k8sBpInputs = onapBlueprint.getInputs();
+        Map<String, Map<String, Object>> k8sBpInputs = onapBlueprint.getInputs();
         assertNotNull("Service Name Override K8s Blueprint Inputs Section is NULL", k8sBpInputs);
         assertTrue(
             "Service Name Override K8s Blueprint Inputs Section is Empty", k8sBpInputs.size() > 0);
@@ -92,7 +91,7 @@ public class OnapBlueprintCreatorServiceTest extends BlueprintGeneratorTests {
                 + Constants.ONAP_INPUT_CPU_LIMIT
                 + " Default is not matching",
             k8sBpInputs.get(Constants.ONAP_INPUT_CPU_LIMIT).get("default"),
-            Constants.ONAP_DEFAULT250m);
+            Constants.ONAP_DEFAULT250M);
         assertEquals(
             "Service Name Override K8s Blueprint:Inputs "
                 + Constants.SERVICE_COMPONENT_NAME_OVERRIDE
@@ -119,7 +118,7 @@ public class OnapBlueprintCreatorServiceTest extends BlueprintGeneratorTests {
             "Service Name Override K8s Blueprint Node Templates:Properties Section is NULL",
             k8sBpNodeTemplateProperties);
 
-        Map<String, LinkedHashMap<String, Object>> bpInputs = onapBlueprint.getInputs();
+        Map<String, Map<String, Object>> bpInputs = onapBlueprint.getInputs();
         onapTestUtils
             .verifyArtifacts("Service Name Override K8s", onapComponentSpec, bpInputs, "o");
 
@@ -173,7 +172,7 @@ public class OnapBlueprintCreatorServiceTest extends BlueprintGeneratorTests {
         onapTestUtils.verifyBpImportsFromFile(
             "Service Name Override with Import File K8s", onapBlueprint, input.getImportPath());
 
-        Map<String, LinkedHashMap<String, Object>> k8sBpInputs = onapBlueprint.getInputs();
+        Map<String, Map<String, Object>> k8sBpInputs = onapBlueprint.getInputs();
         assertNotNull(
             "Service Name Override with Import File K8s Blueprint Inputs Section is NULL",
             k8sBpInputs);
@@ -186,7 +185,7 @@ public class OnapBlueprintCreatorServiceTest extends BlueprintGeneratorTests {
                 + Constants.ONAP_INPUT_CPU_LIMIT
                 + " Default is not matching",
             k8sBpInputs.get(Constants.ONAP_INPUT_CPU_LIMIT).get("default"),
-            Constants.ONAP_DEFAULT250m);
+            Constants.ONAP_DEFAULT250M);
         assertEquals(
             "Service Name Override with Import File K8s Blueprint:Inputs "
                 + Constants.SERVICE_COMPONENT_NAME_OVERRIDE
@@ -213,7 +212,7 @@ public class OnapBlueprintCreatorServiceTest extends BlueprintGeneratorTests {
             "Service Name Override with Import File K8s Blueprint Node Templates:Properties Section is NULL",
             k8sBpNodeTemplateProperties);
 
-        Map<String, LinkedHashMap<String, Object>> bpInputs = onapBlueprint.getInputs();
+        Map<String, Map<String, Object>> bpInputs = onapBlueprint.getInputs();
         onapTestUtils.verifyArtifacts(
             "Service Name Override with Import File K8s", onapComponentSpec, bpInputs, "o");
 
@@ -300,7 +299,7 @@ public class OnapBlueprintCreatorServiceTest extends BlueprintGeneratorTests {
         onapTestUtils
             .verifyToscaDefVersion("DMAAP K8s", onapBlueprint, Constants.TOSCA_DEF_VERSION);
 
-        Map<String, LinkedHashMap<String, Object>> k8sBpInputs = onapBlueprint.getInputs();
+        Map<String, Map<String, Object>> k8sBpInputs = onapBlueprint.getInputs();
         assertNotNull("DMAAP K8s Blueprint Inputs Section is NULL", k8sBpInputs);
         assertTrue("DMAAP K8s Blueprint Inputs Section is Empty", k8sBpInputs.size() > 0);
 
@@ -308,7 +307,7 @@ public class OnapBlueprintCreatorServiceTest extends BlueprintGeneratorTests {
             "DMAAP K8s Blueprint:Inputs " + Constants.ONAP_INPUT_CPU_LIMIT
                 + " Default is not matching",
             k8sBpInputs.get(Constants.ONAP_INPUT_CPU_LIMIT).get("default"),
-            Constants.ONAP_DEFAULT250m);
+            Constants.ONAP_DEFAULT250M);
         assertEquals(
             "DMAAP K8s Blueprint:Inputs "
                 + Constants.SERVICE_COMPONENT_NAME_OVERRIDE
@@ -385,7 +384,7 @@ public class OnapBlueprintCreatorServiceTest extends BlueprintGeneratorTests {
         onapTestUtils.verifyBpImportsFromFile(
             "DMAAP with Import File K8s", onapBlueprint, input.getImportPath());
 
-        Map<String, LinkedHashMap<String, Object>> k8sBpInputs = onapBlueprint.getInputs();
+        Map<String, Map<String, Object>> k8sBpInputs = onapBlueprint.getInputs();
         assertNotNull("DMAAP with Import File K8s Blueprint Inputs Section is NULL", k8sBpInputs);
         assertTrue(
             "DMAAP with Import File K8s Blueprint Inputs Section is Empty", k8sBpInputs.size() > 0);
@@ -395,7 +394,7 @@ public class OnapBlueprintCreatorServiceTest extends BlueprintGeneratorTests {
                 + Constants.ONAP_INPUT_CPU_LIMIT
                 + " Default is not matching",
             k8sBpInputs.get(Constants.ONAP_INPUT_CPU_LIMIT).get("default"),
-            Constants.ONAP_DEFAULT250m);
+            Constants.ONAP_DEFAULT250M);
         assertEquals(
             "DMAAP with Import File K8s Blueprint:Inputs "
                 + Constants.SERVICE_COMPONENT_NAME_OVERRIDE

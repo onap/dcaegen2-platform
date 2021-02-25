@@ -5,6 +5,8 @@
  *  *  ================================================================================
  *  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
  *  *  ================================================================================
+ *  *  Copyright (c) 2021 Nokia. All rights reserved.
+ *  *  ================================================================================
  *  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  *  you may not use this file except in compliance with the License.
  *  *  You may obtain a copy of the License at
@@ -23,8 +25,9 @@
 
 package org.onap.blueprintgenerator.service.base;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.FileReader;
-import java.nio.file.Paths;
 import org.onap.blueprintgenerator.model.base.Blueprint;
 import org.onap.blueprintgenerator.model.common.Input;
 import org.onap.blueprintgenerator.model.componentspec.base.ComponentSpec;
@@ -56,6 +59,9 @@ import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
 @Service
 public class BlueprintService {
 
+    private static final String TYPE_KEY = "type";
+    private static final String DEFAULT_KEY = "default";
+
     @Autowired
     protected FixesService fixesService;
 
@@ -66,6 +72,8 @@ public class BlueprintService {
     @Qualifier("yamlObjectMapper")
     @Autowired
     protected ObjectMapper yamlObjectMapper;
+
+    private static final Logger logger = LoggerFactory.getLogger(BlueprintService.class);
 
     /**
      * Convertes blueprint to Yaml for given ComponentSpec, Blueprint and input
@@ -81,32 +89,17 @@ public class BlueprintService {
         String comment = "# " + input.getComment() + '\n';
 
         try {
-            File outputFile;
             String name =
                 StringUtils.isEmpty(bluePrintName) ? cs.getSelf().getName() : bluePrintName;
             if (name.contains(".")) {
                 name = name.replaceAll(Pattern.quote("."), "_");
             }
             if (name.contains(" ")) {
-                name = name.replaceAll(" ", "");
-            }
-            String file = name + ".yaml";
-            outputFile = new File(outputPath, file);
-            outputFile.getParentFile().mkdirs();
-            try {
-                outputFile.createNewFile();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+                name = name.replace(" ", "");
             }
 
-            String appVersion = "";
-            try {
-                MavenXpp3Reader reader = new MavenXpp3Reader();
-                Model model = reader.read(new FileReader("pom.xml"));
-                appVersion = "#bpgen_application_version: " + model.getVersion() + '\n';
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            File outputFile = createFile(outputPath, name);
+            String appVersion = readAppVersion();
 
             String version = "#blueprint_version: " + cs.getSelf().getVersion() + '\n';
             String description = "#description: " + cs.getSelf().getDescription() + '\n';
@@ -134,9 +127,7 @@ public class BlueprintService {
                 fixesService.fixOnapSingleQuotes(outputFile);
             }
 
-            // new Yaml().load(new FileInputStream(outputFile));
-
-            System.out.println("Blueprint is created with valid YAML Format");
+            logger.debug("Blueprint is created with valid YAML Format");
         } catch (Exception ex) {
             throw new RuntimeException(
                 "Unable to generate YAML file from Blueprint  or the generated YAML is not valid",
@@ -155,12 +146,12 @@ public class BlueprintService {
 
         inputs.forEach(
             (key, value) -> {
-                if (value.get("type") != null) {
-                    if (value.get("type").equals("string")
-                        && value.get("default") != null
+                if (value.get(TYPE_KEY) != null) {
+                    if (value.get(TYPE_KEY).equals("string")
+                        && value.get(DEFAULT_KEY) != null
                         && !key.contains("policies")) {
-                        value.replace("default", "'" + value.get("default").toString() + "'");
-                    } else if (value.get("type").equals("map") || value.get("type")
+                        value.replace(DEFAULT_KEY, "'" + value.get(DEFAULT_KEY).toString() + "'");
+                    } else if (value.get(TYPE_KEY).equals("map") || value.get(TYPE_KEY)
                         .equals("list")) {
                         // Commented the Code as we need to read the object as is for Map and List. If the
                         // List object is to be converted to string uncomment the below code.
@@ -168,7 +159,7 @@ public class BlueprintService {
               String temp = inputs.get(s).get("default").toString();
               inputs.get(s).replace("default", temp);
               }*/
-                        inputs.get(key).remove("type");
+                        inputs.get(key).remove(TYPE_KEY);
                     }
                 }
             });
@@ -214,5 +205,35 @@ public class BlueprintService {
         return input.getBpType().equals("dti")
             || input.getBpType().equals("m")
             || input.getBpType().equals("k");
+    }
+
+    private File createFile(String outputPath, String name) {
+        File outputFile;
+        String file = name + ".yaml";
+        outputFile = new File(outputPath, file);
+        outputFile.getParentFile().mkdirs();
+        try {
+            boolean isCreated = outputFile.createNewFile();
+            if (isCreated) {
+                logger.debug("The file " + file + " was successfully created.");
+            } else {
+                logger.debug("The file " + file + " already existed.");
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return outputFile;
+    }
+
+    private String readAppVersion() {
+        String appVersion = "";
+        try {
+            MavenXpp3Reader reader = new MavenXpp3Reader();
+            Model model = reader.read(new FileReader("pom.xml"));
+            appVersion = "#bpgen_application_version: " + model.getVersion() + '\n';
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return appVersion;
     }
 }

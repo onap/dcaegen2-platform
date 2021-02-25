@@ -5,6 +5,8 @@
  *  *  ================================================================================
  *  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
  *  *  ================================================================================
+ *  *  Copyright (c) 2021 Nokia. All rights reserved.
+ *  *  ================================================================================
  *  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  *  you may not use this file except in compliance with the License.
  *  *  You may obtain a copy of the License at
@@ -23,10 +25,9 @@
 
 package org.onap.blueprintgenerator.service.common;
 
+import java.util.Map;
 import org.onap.blueprintgenerator.model.common.OnapBlueprint;
 import org.springframework.stereotype.Service;
-
-import java.util.LinkedHashMap;
 
 /**
  * @author : Ravi Mantena
@@ -44,7 +45,7 @@ public class QuotationService {
      */
     public OnapBlueprint setQuotations(OnapBlueprint bp) {
         for (String s : bp.getInputs().keySet()) {
-            LinkedHashMap<String, Object> temp = bp.getInputs().get(s);
+            Map<String, Object> temp = bp.getInputs().get(s);
             if (temp.get("type") == "string") {
                 String def = (String) temp.get("default");
                 if (def != null) {
