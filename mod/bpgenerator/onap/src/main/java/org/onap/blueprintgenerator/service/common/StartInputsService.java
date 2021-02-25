@@ -4,6 +4,7 @@
  *  *  org.onap.dcae
  *  *  ================================================================================
  *  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
+ *  *  Copyright (c) 2021 Nokia. All rights reserved.
  *  *  ================================================================================
  *  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  *  you may not use this file except in compliance with the License.
@@ -55,7 +56,7 @@ public class StartInputsService {
      * @return
      */
     public Map<String, Object> createStartInputs(
-        Map<String, LinkedHashMap<String, Object>> inputs, OnapComponentSpec onapComponentSpec) {
+        Map<String, Map<String, Object>> inputs, OnapComponentSpec onapComponentSpec) {
 
         Map<String, Object> response = new HashMap<>();
         StartInputs startInputs = new StartInputs();
@@ -71,7 +72,7 @@ public class StartInputsService {
                     String.format("concat: [\"%s:\", {get_input: external_port_%d}]", ports[0],
                         count));
 
-                LinkedHashMap<String, Object> portType = new LinkedHashMap();
+                Map<String, Object> portType = new LinkedHashMap();
                 portType.put("type", "string");
                 portType.put("default", ports[1]);
                 inputs.put("external_port_" + count, portType);
@@ -81,7 +82,7 @@ public class StartInputsService {
 
         startInputs.setPorts(portList);
 
-        LinkedHashMap<String, Object> envMap = new LinkedHashMap();
+        Map<String, Object> envMap = new LinkedHashMap();
         if (onapComponentSpec.getAuxilary().getDatabases() != null) {
             Map<String, Object> envVars =
                 pgaasNodeService.getEnvVariables(onapComponentSpec.getAuxilary().getDatabases());

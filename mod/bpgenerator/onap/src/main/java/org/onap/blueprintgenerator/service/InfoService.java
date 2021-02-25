@@ -4,6 +4,7 @@
  *  *  org.onap.dcae
  *  *  ================================================================================
  *  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
+ *  *  Copyright (c) 2021 Nokia. All rights reserved.
  *  *  ================================================================================
  *  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  *  you may not use this file except in compliance with the License.
@@ -53,12 +54,12 @@ public class InfoService {
      * @return
      */
     public Map<String, Object> createMessageRouterInfo(
-        Map<String, LinkedHashMap<String, Object>> inputs, String config, char type) {
+        Map<String, Map<String, Object>> inputs, String config, char type) {
 
         Map<String, Object> response = new HashMap<>();
         Info info = new Info();
 
-        LinkedHashMap<String, Object> stringType = new LinkedHashMap<>();
+        Map<String, Object> stringType = new LinkedHashMap<>();
         stringType.put("type", "string");
 
         config = config.replaceAll("-", "_");
@@ -87,12 +88,12 @@ public class InfoService {
      * @return
      */
     public Map<String, Object> createDataRouterInfo(
-        Map<String, LinkedHashMap<String, Object>> inputs, String config) {
+        Map<String, Map<String, Object>> inputs, String config) {
 
         Map<String, Object> response = new HashMap<>();
         Info info = new Info();
 
-        LinkedHashMap<String, Object> stringType = new LinkedHashMap<>();
+        Map<String, Object> stringType = new LinkedHashMap<>();
         stringType.put("type", "string");
 
         String userNameInputName = blueprintHelperService.joinUnderscore(config, "username");

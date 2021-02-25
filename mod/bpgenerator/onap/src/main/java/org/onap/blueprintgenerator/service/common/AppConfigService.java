@@ -68,7 +68,7 @@ public class AppConfigService {
      * @return
      */
     public Map<String, Object> createAppconfig(
-        Map<String, LinkedHashMap<String, Object>> inputs,
+        Map<String, Map<String, Object>> inputs,
         OnapComponentSpec onapComponentSpec,
         boolean isDmaap) {
 
@@ -94,7 +94,7 @@ public class AppConfigService {
                 paramInput.setBpInputName(pName);
                 parameters.put(pName, paramInput);
                 if (!"".equals(p.getValue())) {
-                    LinkedHashMap<String, Object> pInputs = createInputFromParameter(p);
+                    Map<String, Object> pInputs = createInputFromParameter(p);
                     inputs.put(pName, pInputs);
                 } else {
                     LinkedHashMap<String, Object> pInputs = new LinkedHashMap<>();
@@ -122,7 +122,7 @@ public class AppConfigService {
         return response;
     }
 
-    private LinkedHashMap<String, Object> createInputFromParameter(Parameters parameter) {
+    private Map<String, Object> createInputFromParameter(Parameters parameter) {
         String inputType = parameter.getType() == null ? "string" : parameter.getType();
 
         return blueprintHelperService.createInputByType(inputType, parameter.getValue());

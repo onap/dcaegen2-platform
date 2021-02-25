@@ -4,6 +4,7 @@
  *  *  org.onap.dcae
  *  *  ================================================================================
  *  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
+ *  *  Copyright (c) 2021 Nokia. All rights reserved.
  *  *  ================================================================================
  *  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  *  you may not use this file except in compliance with the License.
@@ -60,7 +61,7 @@ public class PolicyNodeService {
     public void addPolicyNodesAndInputs(
         OnapComponentSpec onapComponentSpec,
         Map<String, Node> nodeTemplate,
-        Map<String, LinkedHashMap<String, Object>> inputs) {
+        Map<String, Map<String, Object>> inputs) {
         List<TypePolicy> policyList = onapComponentSpec.getPolicyInfo().getTypePolicyList();
         for (TypePolicy policy : policyList) {
             addPolicyNodesToNodeTemplate(policy, nodeTemplate);
@@ -69,7 +70,7 @@ public class PolicyNodeService {
     }
 
     private void addPolicyInputs(
-        TypePolicy policy, Map<String, LinkedHashMap<String, Object>> inputs) {
+        TypePolicy policy, Map<String, Map<String, Object>> inputs) {
         String defaultValue = policy.getPolicy_id();
         defaultValue = defaultValue != null ? defaultValue : "";
         inputs.put(

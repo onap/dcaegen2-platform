@@ -1,7 +1,7 @@
 /*============LICENSE_START=======================================================
 org.onap.dcae
 ================================================================================
-Copyright (c) 2020 Nokia. All rights reserved.
+Copyright (c) 2020-2021 Nokia. All rights reserved.
 Copyright (c) 2020 AT&T. All rights reserved.
 ================================================================================
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,6 +20,7 @@ limitations under the License.
 
 package org.onap.blueprintgenerator.test;
 
+import java.util.Map;
 import org.junit.Test;
 import org.junit.runners.Parameterized;
 import org.onap.blueprintgenerator.model.common.Input;
@@ -31,7 +32,6 @@ import org.onap.blueprintgenerator.model.dmaap.TlsInfo;
 
 import java.nio.file.Paths;
 import java.util.Arrays;
-import java.util.LinkedHashMap;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -43,7 +43,6 @@ import static org.junit.Assert.assertNull;
  * Test Case for Tls Info
  *
  */
-// @RunWith(Parameterized.class)
 public class TlsInfoTest extends BlueprintGeneratorTests {
 
     @Parameterized.Parameter
@@ -201,7 +200,7 @@ public class TlsInfoTest extends BlueprintGeneratorTests {
 
     private void assertContainsInputWithDefault(
         OnapBlueprint bp, String inputName, Object defaultValue) {
-        LinkedHashMap<String, Object> input = bp.getInputs().get(inputName);
+        Map<String, Object> input = bp.getInputs().get(inputName);
         assertNotNull(input);
         assertEquals(defaultValue, input.get("default"));
     }

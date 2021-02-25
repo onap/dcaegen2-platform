@@ -4,7 +4,7 @@
  *  *  org.onap.dcae
  *  *  ================================================================================
  *  *  Copyright (c) 2020  AT&T Intellectual Property. All rights reserved.
- *  *  Copyright (c) 2020  Nokia. All rights reserved.
+ *  *  Copyright (c) 2020-2021  Nokia. All rights reserved.
  *  *  ================================================================================
  *  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  *  you may not use this file except in compliance with the License.
@@ -40,7 +40,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
-import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -78,7 +77,6 @@ public class OnapBlueprintCreatorService {
             OnapBlueprint blueprint = new OnapBlueprint();
             blueprint.setTosca_definitions_version(Constants.TOSCA_DEF_VERSION);
 
-            // if (!"".equals(input.getImportPath()))
             if (!StringUtils.isEmpty(input.getImportPath())) {
                 blueprint.setImports(importsService.createImportsFromFile(input.getImportPath()));
             } else {
@@ -87,12 +85,12 @@ public class OnapBlueprintCreatorService {
 
             Map<String, Node> nodeTemplate = new TreeMap<>();
             String nodeName = onapComponentSpec.getSelf().getName();
-            Map<String, LinkedHashMap<String, Object>> inputs = new TreeMap<>();
+            Map<String, Map<String, Object>> inputs = new TreeMap<>();
 
             Map<String, Object> onapNodeResponse =
                 nodeService
                     .createOnapNode(inputs, onapComponentSpec, input.getServiceNameOverride());
-            inputs = (Map<String, LinkedHashMap<String, Object>>) onapNodeResponse.get("inputs");
+            inputs = (Map<String, Map<String, Object>>) onapNodeResponse.get("inputs");
             nodeTemplate.put(nodeName, (Node) onapNodeResponse.get("onapNode"));
             blueprint.setNode_templates(nodeTemplate);
 

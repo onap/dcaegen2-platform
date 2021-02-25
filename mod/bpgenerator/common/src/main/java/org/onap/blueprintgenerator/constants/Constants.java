@@ -34,8 +34,10 @@ package org.onap.blueprintgenerator.constants;
 
 public class Constants {
 
-    public static final String _TOPIC = "_topic";
-    public static final String _FEED = "_feed";
+    private Constants(){}
+
+    public static final String A_TOPIC = "_topic";
+    public static final String A_FEED = "_feed";
     public static final String DATAROUTER_VALUE = "data router";
     public static final String DATA_ROUTER = "data_router";
     public static final String MESSAGEROUTER_VALUE = "message router";
@@ -73,7 +75,7 @@ public class Constants {
     public static final String ONAP_INPUT_CPU_LIMIT = "dcae-ves-collector_cpu_limit";
     public static final String ONAP_NODETEMPLATES = "dcae-ves-collector";
     public static final String ONAP_NODETEMPLATES_TYPE = "dcae.nodes.ContainerizedServiceComponent";
-    public static final String ONAP_DEFAULT250m = "\"250m\"";
+    public static final String ONAP_DEFAULT250M = "\"250m\"";
     public static final String ONAP_SERVICE_COMPONENTNAME_OVERRIDE_DEFAULT = "\"\"";
     public static final String DMAAP_NODETEMPLATES_TYPE =
         "dcae.nodes.ContainerizedServiceComponentUsingDmaap";
