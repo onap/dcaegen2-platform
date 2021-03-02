@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "71270cdb_4618e572",
+        "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/service/base/BlueprintService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 3699
+      },
+      "writtenOn": "2021-03-02T11:44:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e51fb502_d031c06b",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 7
+      },
+      "revId": "c2f9b62b58c5ee88ccf76daab2122e25488e0370",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "812e2a88_4a34592e",
         "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/service/base/FixesService.java",
         "patchSetId": 2
@@ -59,6 +83,24 @@
     },
     {
       "key": {
+        "uuid": "289125ea_2d3fef76",
+        "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/service/base/FixesService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 3699
+      },
+      "writtenOn": "2021-03-02T11:44:54Z",
+      "side": 1,
+      "message": "You are right, should be fixed now.",
+      "parentUuid": "ca3a8d10_5331b891",
+      "revId": "c2f9b62b58c5ee88ccf76daab2122e25488e0370",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "52cdf518_d71aee58",
         "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/NodeService.java",
         "patchSetId": 2
@@ -79,6 +121,30 @@
       "revId": "c2f9b62b58c5ee88ccf76daab2122e25488e0370",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7ea740b9_2855b1bc",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/NodeService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 3699
+      },
+      "writtenOn": "2021-03-02T11:44:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52cdf518_d71aee58",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 1
+      },
+      "revId": "c2f9b62b58c5ee88ccf76daab2122e25488e0370",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
