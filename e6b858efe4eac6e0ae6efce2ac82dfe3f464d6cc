@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "303ff5fb_57df1b7c",
+        "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/model/base/Blueprint.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 3699
+      },
+      "writtenOn": "2021-03-02T10:18:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fbb15f19_44ba412c",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 87
+      },
+      "revId": "e6b858efe4eac6e0ae6efce2ac82dfe3f464d6cc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc79c345_31bba81e",
         "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/model/common/GetInput.java",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "e6b858efe4eac6e0ae6efce2ac82dfe3f464d6cc",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cfc0e917_e359c7e4",
+        "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/model/common/GetInput.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 3699
+      },
+      "writtenOn": "2021-03-02T10:18:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc79c345_31bba81e",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 87
+      },
+      "revId": "e6b858efe4eac6e0ae6efce2ac82dfe3f464d6cc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "614740e7_11269214",
+        "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/model/componentspec/base/Auxilary.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 3699
+      },
+      "writtenOn": "2021-03-02T10:18:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db1a4eae_572f9e4c",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 87
+      },
+      "revId": "e6b858efe4eac6e0ae6efce2ac82dfe3f464d6cc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d4baa29_fcbbce50",
         "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/service/base/BlueprintService.java",
         "patchSetId": 1
@@ -91,6 +163,30 @@
       "revId": "e6b858efe4eac6e0ae6efce2ac82dfe3f464d6cc",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92b4fe43_ddb6d5d0",
+        "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/service/base/BlueprintService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 3699
+      },
+      "writtenOn": "2021-03-02T10:18:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d4baa29_fcbbce50",
+      "range": {
+        "startLine": 7,
+        "startChar": 1,
+        "endLine": 7,
+        "endChar": 87
+      },
+      "revId": "e6b858efe4eac6e0ae6efce2ac82dfe3f464d6cc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "0d4e6d26_34853eb4",
+        "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/service/base/FixesService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 3699
+      },
+      "writtenOn": "2021-03-02T10:18:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9060e558_4b5ae536",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 87
+      },
+      "revId": "e6b858efe4eac6e0ae6efce2ac82dfe3f464d6cc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "01617e4b_e5155ae4",
         "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/InfoService.java",
         "patchSetId": 1
@@ -137,6 +257,30 @@
       "revId": "e6b858efe4eac6e0ae6efce2ac82dfe3f464d6cc",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b557bac_73857e7c",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/InfoService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 3699
+      },
+      "writtenOn": "2021-03-02T10:18:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01617e4b_e5155ae4",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 87
+      },
+      "revId": "e6b858efe4eac6e0ae6efce2ac82dfe3f464d6cc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "7b8f6145_b511936d",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/DmaapService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 3699
+      },
+      "writtenOn": "2021-03-02T10:18:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89fd35b4_45137fd1",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 87
+      },
+      "revId": "e6b858efe4eac6e0ae6efce2ac82dfe3f464d6cc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "31f0ba36_648d0ae8",
         "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/ExternalTlsInfoFactoryService.java",
         "patchSetId": 1
@@ -183,6 +351,30 @@
       "revId": "e6b858efe4eac6e0ae6efce2ac82dfe3f464d6cc",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f54d277d_7aac72b7",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/ExternalTlsInfoFactoryService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 3699
+      },
+      "writtenOn": "2021-03-02T10:18:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31f0ba36_648d0ae8",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 87
+      },
+      "revId": "e6b858efe4eac6e0ae6efce2ac82dfe3f464d6cc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -209,6 +401,30 @@
     },
     {
       "key": {
+        "uuid": "a2a74ecf_848b90c9",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/InterfacesService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 3699
+      },
+      "writtenOn": "2021-03-02T10:18:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7cbf1768_7dba258c",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 87
+      },
+      "revId": "e6b858efe4eac6e0ae6efce2ac82dfe3f464d6cc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c738cd0b_99f6d691",
         "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/PgaasNodeService.java",
         "patchSetId": 1
@@ -229,6 +445,30 @@
       "revId": "e6b858efe4eac6e0ae6efce2ac82dfe3f464d6cc",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed91b3ef_10082849",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/PgaasNodeService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 3699
+      },
+      "writtenOn": "2021-03-02T10:18:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c738cd0b_99f6d691",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 87
+      },
+      "revId": "e6b858efe4eac6e0ae6efce2ac82dfe3f464d6cc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -255,6 +495,30 @@
     },
     {
       "key": {
+        "uuid": "730046a3_7746124c",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/PolicyNodeService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 3699
+      },
+      "writtenOn": "2021-03-02T10:18:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24776867_a8e04266",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 87
+      },
+      "revId": "e6b858efe4eac6e0ae6efce2ac82dfe3f464d6cc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "76968914_70ca210f",
         "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/QuotationService.java",
         "patchSetId": 1
@@ -275,6 +539,30 @@
       "revId": "e6b858efe4eac6e0ae6efce2ac82dfe3f464d6cc",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a63f763a_3e29c8b6",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/QuotationService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 3699
+      },
+      "writtenOn": "2021-03-02T10:18:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76968914_70ca210f",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 87
+      },
+      "revId": "e6b858efe4eac6e0ae6efce2ac82dfe3f464d6cc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -301,6 +589,30 @@
     },
     {
       "key": {
+        "uuid": "956a8f24_a907a3ef",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/StartInputsService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 3699
+      },
+      "writtenOn": "2021-03-02T10:18:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8edf1939_f4bb05ee",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 87
+      },
+      "revId": "e6b858efe4eac6e0ae6efce2ac82dfe3f464d6cc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e7471cc8_ef790c02",
         "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/StartService.java",
         "patchSetId": 1
@@ -324,6 +636,30 @@
     },
     {
       "key": {
+        "uuid": "336bada1_cc7a15d8",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/StartService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 3699
+      },
+      "writtenOn": "2021-03-02T10:18:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7471cc8_ef790c02",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 86
+      },
+      "revId": "e6b858efe4eac6e0ae6efce2ac82dfe3f464d6cc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cfa8eb13_c2003713",
         "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/dmaap/StreamsService.java",
         "patchSetId": 1
@@ -344,6 +680,30 @@
       "revId": "e6b858efe4eac6e0ae6efce2ac82dfe3f464d6cc",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "860b8f16_d58a29e4",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/dmaap/StreamsService.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 3699
+      },
+      "writtenOn": "2021-03-02T10:18:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cfa8eb13_c2003713",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 87
+      },
+      "revId": "e6b858efe4eac6e0ae6efce2ac82dfe3f464d6cc",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
