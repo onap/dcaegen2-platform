@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e51fb502_d031c06b",
+        "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/service/base/BlueprintService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-03-02T10:55:34Z",
+      "side": 1,
+      "message": "Move higher in the file (Group private static final toghether) please.",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 7
+      },
+      "revId": "c2f9b62b58c5ee88ccf76daab2122e25488e0370",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "812e2a88_4a34592e",
+        "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/service/base/FixesService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-03-02T10:55:34Z",
+      "side": 1,
+      "message": "Same as below in fixOnapSingleQuotes method",
+      "revId": "c2f9b62b58c5ee88ccf76daab2122e25488e0370",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca3a8d10_5331b891",
+        "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/service/base/FixesService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-03-02T10:55:34Z",
+      "side": 1,
+      "message": "Isn\u0027t the behavior changed here?\nPreviously it was possible that both ifs would be taken into account. Now second if is \"more important\" and overall it\u0027s:\n                if (line.contains(\"\\\"\\\"\") \u0026\u0026 (line.contains(\"m\") || line.contains(\"M\"))) {\n                    newLine \u003d line.replace(\"\\\"\\\"\", \"\\\"\");\n                } else if (line.contains(\"\u0027\")) {\n                    newLine \u003d line.replace(\"\u0027\", \"\");\n                }",
+      "revId": "c2f9b62b58c5ee88ccf76daab2122e25488e0370",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52cdf518_d71aee58",
+        "filename": "mod/bpgenerator/onap/src/main/java/org/onap/blueprintgenerator/service/common/NodeService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-03-02T10:55:34Z",
+      "side": 1,
+      "message": "The line here should probably also be removed",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 1
+      },
+      "revId": "c2f9b62b58c5ee88ccf76daab2122e25488e0370",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
