@@ -66,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "9b9741f0_e27be609",
+        "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/service/base/FixesService.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-03-03T08:06:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "812e2a88_4a34592e",
+      "revId": "c2f9b62b58c5ee88ccf76daab2122e25488e0370",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca3a8d10_5331b891",
         "filename": "mod/bpgenerator/common/src/main/java/org/onap/blueprintgenerator/service/base/FixesService.java",
         "patchSetId": 2
