@@ -1,0 +1,35 @@
+#################################################################
+# Global configuration defaults.
+#################################################################
+global:
+  nodePortPrefix: 302
+  repository: nexus3.onap.org:10001
+  dockerHubRepository: &dockerHubRepository docker.io
+  elasticRepository: &elasticRepository docker.elastic.co
+  googleK8sRepository: k8s.gcr.io
+
+
+# Enable all DCAE MOD components by default
+mongo:
+  enabled: true
+catalog-service:
+  enabled: true
+auth-service:
+  enabled: true
+dcaemod2-ui:
+  enabled: true
+
+mongo:
+  nameOverride: dcaemod2-mongo
+  config:
+    dbName: dcae_mod
+  service:
+    name: dcaemod2-mongohost
+    internalPort: 27017
+  nfsprovisionerPrefix: dcaemod2mongo
+  sdnctlPrefix: mod2
+  persistence:
+    mountSubPath: dcaemod2/mongo/data
+    enabled: true
+  disableNfsProvisioner: true
+
