@@ -1,0 +1,4 @@
+apiVersion: v1
+name: dcaemod2
+description: Helm chart for dcaemod2
+version: 1.0.0
