@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5872d285_7ea87bd2",
+        "filename": "mod2/assembly/helm/components/catalog-service/values.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-03-12T18:16:52Z",
+      "side": 1,
+      "message": "\u003cK8SNodeip\u003e",
+      "range": {
+        "startLine": 28,
+        "startChar": 25,
+        "endLine": 28,
+        "endChar": 36
+      },
+      "revId": "629abcaaa2ad5ed62c0b8554fa993d324abdf7ea",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "07a39b77_591f6fc7",
+        "filename": "mod2/assembly/helm/components/catalog-service/values.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-03-12T18:16:52Z",
+      "side": 1,
+      "message": "same as above",
+      "range": {
+        "startLine": 32,
+        "startChar": 27,
+        "endLine": 32,
+        "endChar": 37
+      },
+      "revId": "629abcaaa2ad5ed62c0b8554fa993d324abdf7ea",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "866fc368_0f1e383d",
+        "filename": "mod2/assembly/helm/components/catalog-service/values.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-03-12T18:16:52Z",
+      "side": 1,
+      "message": "1.0.1-SNAPSHOT",
+      "range": {
+        "startLine": 68,
+        "startChar": 59,
+        "endLine": 68,
+        "endChar": 73
+      },
+      "revId": "629abcaaa2ad5ed62c0b8554fa993d324abdf7ea",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19a2e7d6_3e44f326",
+        "filename": "mod2/assembly/helm/components/ui/values.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-03-12T18:16:52Z",
+      "side": 1,
+      "message": "remove trailing space",
+      "range": {
+        "startLine": 25,
+        "startChar": 42,
+        "endLine": 25,
+        "endChar": 44
+      },
+      "revId": "629abcaaa2ad5ed62c0b8554fa993d324abdf7ea",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2c302e3_ad30fb31",
+        "filename": "mod2/assembly/helm/components/ui/values.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-03-12T18:16:52Z",
+      "side": 1,
+      "message": "\"\u003cK8SNodeIP\u003e\"",
+      "range": {
+        "startLine": 28,
+        "startChar": 16,
+        "endLine": 28,
+        "endChar": 27
+      },
+      "revId": "629abcaaa2ad5ed62c0b8554fa993d324abdf7ea",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
