@@ -3,7 +3,7 @@
  *  * ============LICENSE_START=======================================================
  *  *  org.onap.dcae
  *  *  ================================================================================
- *  *  Copyright (c) 2020 AT&T Intellectual Property. All rights reserved.
+ *  *  Copyright (c) 2020 - 2021 AT&T Intellectual Property. All rights reserved.
  *  *  ================================================================================
  *  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  *  you may not use this file except in compliance with the License.
@@ -22,15 +22,29 @@
 
 package org.onap.dcaegen2.platform.mod.web;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
-import org.junit.Assert;
+import static org.hamcrest.core.IsNull.notNullValue;
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.anyString;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+import static org.onap.dcaegen2.platform.mod.objectmothers.AuthObjectMother.asJsonString;
+import static org.onap.dcaegen2.platform.mod.objectmothers.AuthObjectMother.getLoginRequest;
+import static org.onap.dcaegen2.platform.mod.objectmothers.AuthObjectMother.getModUser;
+import static org.onap.dcaegen2.platform.mod.objectmothers.AuthObjectMother.getSignupRequest;
+import static org.onap.dcaegen2.platform.mod.objectmothers.AuthObjectMother.getUserDetailsImpl;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.Optional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.onap.dcaegen2.platform.mod.controllers.AuthController;
-import org.onap.dcaegen2.platform.mod.models.*;
+import org.onap.dcaegen2.platform.mod.models.LoginRequest;
+import org.onap.dcaegen2.platform.mod.models.Role;
+import org.onap.dcaegen2.platform.mod.models.SignupRequest;
 import org.onap.dcaegen2.platform.mod.repositories.RoleRepository;
 import org.onap.dcaegen2.platform.mod.repositories.UserRepository;
 import org.onap.dcaegen2.platform.mod.security.jwt.AuthEntryPointJwt;
@@ -38,29 +52,14 @@ import org.onap.dcaegen2.platform.mod.security.jwt.JwtUtils;
 import org.onap.dcaegen2.platform.mod.security.services.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.*;
+import org.springframework.http.MediaType;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.test.context.support.WithMockUser;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.web.client.RestTemplate;
-import org.testng.annotations.BeforeTest;
-
-import java.io.IOException;
-import java.util.Optional;
-
-import static org.hamcrest.core.IsNull.notNullValue;
-import static org.mockito.Mockito.*;
-import static org.onap.dcaegen2.platform.mod.objectmothers.AuthObjectMother.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
  * @author
