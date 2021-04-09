@@ -23,12 +23,9 @@
 package org.onap.dcaegen2.platform.mod.objectmothers;
 
 
-import org.onap.dcaegen2.platform.mod.models.ModUser;
+import java.util.ArrayList;
+import java.util.List;
 import org.onap.dcaegen2.platform.mod.models.Role;
-import org.onap.dcaegen2.platform.mod.repositories.RoleRepository;
-
-import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * @author
