@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "218a0241_4dd38cd3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-04-09T17:00:34Z",
+      "side": 1,
+      "message": "remove this duplicate reference as Issue-ID is already included on footer comments",
+      "range": {
+        "startLine": 7,
+        "startChar": 24,
+        "endLine": 7,
+        "endChar": 47
+      },
+      "revId": "1bd6a64a464f8cd5591383abd863d5fc7241eba6",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7507ee7d_fb361ff0",
+        "filename": "mod2/auth-service/src/test/java/org/onap/dcaegen2/platform/mod/objectmothers/RoleObjectMother.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-04-09T17:00:34Z",
+      "side": 1,
+      "message": "2020-2021",
+      "range": {
+        "startLine": 6,
+        "startChar": 21,
+        "endLine": 6,
+        "endChar": 25
+      },
+      "revId": "1bd6a64a464f8cd5591383abd863d5fc7241eba6",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ebec0b0f_a5765ded",
+        "filename": "mod2/auth-service/src/test/java/org/onap/dcaegen2/platform/mod/web/AuthControllerTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-04-09T17:00:34Z",
+      "side": 1,
+      "message": "2020-2021",
+      "range": {
+        "startLine": 6,
+        "startChar": 21,
+        "endLine": 6,
+        "endChar": 26
+      },
+      "revId": "1bd6a64a464f8cd5591383abd863d5fc7241eba6",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f152bea_37ea5806",
+        "filename": "mod2/auth-service/src/test/java/org/onap/dcaegen2/platform/mod/web/UserControllerTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-04-09T17:00:34Z",
+      "side": 1,
+      "message": "2020-2021",
+      "range": {
+        "startLine": 6,
+        "startChar": 21,
+        "endLine": 6,
+        "endChar": 25
+      },
+      "revId": "1bd6a64a464f8cd5591383abd863d5fc7241eba6",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
