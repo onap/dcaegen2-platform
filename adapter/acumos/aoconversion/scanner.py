@@ -47,7 +47,7 @@ class Config(object):
     Configuration parameters as attributes, make sure the required ones are there,
     populate defaults.
     """
-    def __init__(self, dcaeuser, onboardingurl, onboardinguser, onboardingpass, certfile, dockerregistry, dockeruser, dockerpass, acumosurl=None, interval=900, dockerhost='tcp://localhost:2375', tmpdir='/var/tmp/aoadapter', certverify=True, catalogs=None, port=None, **extras):
+    def __init__(self, dcaeuser, onboardingurl, onboardinguser, onboardingpass, certfile, dockerregistry, dockeruser, dockerpass, http_proxy, no_proxy,acumosurl=None, interval=900, dockerhost='tcp://localhost:2375', tmpdir='/var/tmp/aoadapter', certverify=True, catalogs=None, port=None, **extras):
         self.dcaeuser = dcaeuser
 
         def x(fmt, *args, **kwargs):
@@ -64,6 +64,14 @@ class Config(object):
         self._dockerpass = dockerpass
         self.interval = interval
         self.tmpdir = tmpdir
+        if http_proxy is not None:
+            self.http_proxy = http_proxy
+        else:
+            self.http_proxy = ""
+        if no_proxy is not None:
+            self.no_proxy=no_proxy
+        else:
+            self.no_proxy = ""
         if catalogs is not None and type(catalogs) is not list:
             catalogs = [catalogs]
         self.catalogs = catalogs

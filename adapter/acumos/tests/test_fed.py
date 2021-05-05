@@ -165,7 +165,7 @@ _mockwebdata = {
 
 
 def test_aoconversion(mock_schemas, tmpdir, monkeypatch):
-    config = aoc_scanner.Config(dcaeurl='http://dcaeurl', dcaeuser='dcaeuser', onboardingurl='https://onboarding', onboardinguser='obuser', onboardingpass='obpass', acumosurl='https://acumos', certfile=None, dockerregistry='dockerregistry', dockeruser='registryuser', dockerpass='registrypassword')
+    config = aoc_scanner.Config(dcaeurl='http://dcaeurl', dcaeuser='dcaeuser', onboardingurl='https://onboarding', onboardinguser='obuser', onboardingpass='obpass', acumosurl='https://acumos', certfile=None, dockerregistry='dockerregistry', dockeruser='registryuser', dockerpass='registrypassword', http_proxy='', no_proxy='')
     monkeypatch.setattr(aoc_docker_gen, 'APIClient', _mockdocker.APIClient)
     monkeypatch.setattr(requests, 'get', _mockwww(_mockwebdata))
     monkeypatch.setattr(requests, 'post', _mockwww(_mockpostdata))
