@@ -3,6 +3,8 @@
 # =============================================================================
 # Copyright (c) 2019-2020 AT&T Intellectual Property. All rights reserved.
 # =============================================================================
+# Copyright (c) 2021 highstreet technologies GmbH. All rights reserved.
+# =============================================================================
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -47,7 +49,7 @@ class Config(object):
     Configuration parameters as attributes, make sure the required ones are there,
     populate defaults.
     """
-    def __init__(self, dcaeuser, onboardingurl, onboardinguser, onboardingpass, certfile, dockerregistry, dockeruser, dockerpass, acumosurl=None, interval=900, dockerhost='tcp://localhost:2375', tmpdir='/var/tmp/aoadapter', certverify=True, catalogs=None, port=None, **extras):
+    def __init__(self, dcaeuser, onboardingurl, onboardinguser, onboardingpass, certfile, dockerregistry, dockeruser, dockerpass, http_proxy, https_proxy, no_proxy, acumosurl=None, interval=900, dockerhost='tcp://localhost:2375', tmpdir='/var/tmp/aoadapter', certverify=True, catalogs=None, port=None, **extras):
         self.dcaeuser = dcaeuser
 
         def x(fmt, *args, **kwargs):
@@ -64,6 +66,9 @@ class Config(object):
         self._dockerpass = dockerpass
         self.interval = interval
         self.tmpdir = tmpdir
+        self.http_proxy = http_proxy if http_proxy is not None else ""
+        self.https_proxy = https_proxy if https_proxy is not None else ""
+        self.no_proxy = no_proxy if no_proxy is not None else ""
         if catalogs is not None and type(catalogs) is not list:
             catalogs = [catalogs]
         self.catalogs = catalogs

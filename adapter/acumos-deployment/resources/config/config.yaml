@@ -7,5 +7,8 @@ certfile: /run/certs/cert.pem
 dockerregistry: {{ .Values.dockerTargetRegistry }}
 dockeruser: {{ .Values.dockerUser }}
 dockerpass: '@/run/pass/dpass'
+http_proxy: {{ .Values.http_proxy }}
+https_proxy: {{ .Values.https_proxy }}
+no_proxy: {{ .Values.http_proxy }}
 {{ $firstPort := index .Values.service.ports 0 -}}
 port: {{ $firstPort.port }}
