@@ -3,6 +3,8 @@
 # =============================================================================
 # Copyright (c) 2019 AT&T Intellectual Property. All rights reserved.
 # =============================================================================
+# Copyright (c) 2021 highstreet technologies GmbH. All rights reserved.
+# =============================================================================
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -21,20 +23,26 @@ from docker import APIClient
 from aoconversion import exceptions, utils
 
 
-def _generate_dockerfile(meta, model_name):
+def _generate_dockerfile(meta, model_name, http_proxy, https_proxy, no_proxy):
     """
     bind the templated docker string
     """
-    docker_template = """
-    FROM python:{VERSION}
+    python_version = meta["runtime"]["version"]
+    docker_template = f'''
+    FROM python:{python_version}
 
-    ENV MODELNAME {MODELNAME}
+    ENV MODELNAME {model_name}
     RUN mkdir /app
     WORKDIR /app
 
-    ADD ./{MODELNAME} /app/{MODELNAME}
+    ADD ./{model_name} /app/{model_name}
     ADD ./requirements.txt /app
-
+    ENV http_proxy={http_proxy}
+    ENV https_proxy={https_proxy}
+    ENV HTTP_PROXY={http_proxy}
+    ENV HTTPS_PROXY={https_proxy}
+    ENV no_proxy={no_proxy}
+    ENV NO_PROXY={no_proxy}
     RUN pip install -r /app/requirements.txt && \
         pip install acumos_dcae_model_runner
 
@@ -42,10 +50,10 @@ def _generate_dockerfile(meta, model_name):
     EXPOSE $DCAEPORT
 
     ENTRYPOINT ["acumos_dcae_model_runner"]
-    CMD ["/app/{MODELNAME}"]
-    """
-    python_version = meta["runtime"]["version"]
-    return docker_template.format(VERSION=python_version, MODELNAME=model_name)
+    CMD ["/app/{model_name}"]
+    '''
+
+    return docker_template
 
 
 # Public
@@ -70,7 +78,8 @@ def build_and_push_docker(config, model_name, model_version="latest"):
             f.write("{0}=={1}\n".format(r["name"], r["version"]))
 
     # generate the dockerfile
-    dockerfile = _generate_dockerfile(meta, model_name)
+    print("Http_Proxy: {} & Https_Proxy: {}".format(config.http_proxy, config.https_proxy))
+    dockerfile = _generate_dockerfile(meta, model_name, config.http_proxy, config.https_proxy, config.no_proxy)
 
     # write the dockerfile, will be removed later
     with open("{0}/Dockerfile".format(model_repo_path), "w") as f:

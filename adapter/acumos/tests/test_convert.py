@@ -3,6 +3,8 @@
 # =============================================================================
 # Copyright (c) 2019-2020 AT&T Intellectual Property. All rights reserved.
 # =============================================================================
+# Copyright (c) 2021 highstreet technologies GmbH. All rights reserved.
+# =============================================================================
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -27,7 +29,7 @@ from testing_helpers import get_fixture_path
 def test_gen_dcae_artifacts_for_model(monkeypatch):
     model_repo_path = get_fixture_path('models')
     model_name = 'example-model'
-    config = aoconversion.scanner.Config(dcaeurl='http://dcaeurl', dcaeuser='dcaeuser', onboardingurl='https://onboarding', onboardinguser='obuser', onboardingpass='obpass', acumosurl='https://acumos', certfile=None, dockerregistry='dockerregistry', dockeruser='registryuser', dockerpass='registrypassword', tmpdir=model_repo_path)
+    config = aoconversion.scanner.Config(dcaeurl='http://dcaeurl', dcaeuser='dcaeuser', onboardingurl='https://onboarding', onboardinguser='obuser', onboardingpass='obpass', acumosurl='https://acumos', certfile=None, dockerregistry='dockerregistry', dockeruser='registryuser', dockerpass='registrypassword', http_proxy='', https_proxy='', no_proxy='', tmpdir=model_repo_path)
     spec = {
         "self": {
             "version": "1.0.0",
