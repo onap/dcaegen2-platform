@@ -21,7 +21,7 @@ from docker import APIClient
 from aoconversion import exceptions, utils
 
 
-def _generate_dockerfile(meta, model_name):
+def _generate_dockerfile(meta, model_name, http_proxy, no_proxy):
     """
     bind the templated docker string
     """
@@ -34,7 +34,12 @@ def _generate_dockerfile(meta, model_name):
 
     ADD ./{MODELNAME} /app/{MODELNAME}
     ADD ./requirements.txt /app
-
+    ENV https_proxy={HTTPPROXY}
+    ENV http_proxy={HTTPPROXY}
+    ENV HTTP_PROXY={HTTPPROXY}
+    ENV HTTPS_PROXY={HTTPPROXY}
+    ENV no_proxy={NOPROXY}
+    ENV NO_PROXY={NOPROXY}
     RUN pip install -r /app/requirements.txt && \
         pip install acumos_dcae_model_runner
 
@@ -45,7 +50,7 @@ def _generate_dockerfile(meta, model_name):
     CMD ["/app/{MODELNAME}"]
     """
     python_version = meta["runtime"]["version"]
-    return docker_template.format(VERSION=python_version, MODELNAME=model_name)
+    return docker_template.format(VERSION=python_version, MODELNAME=model_name, HTTPPROXY=http_proxy, NOPROXY=no_proxy)
 
 
 # Public
@@ -70,7 +75,8 @@ def build_and_push_docker(config, model_name, model_version="latest"):
             f.write("{0}=={1}\n".format(r["name"], r["version"]))
 
     # generate the dockerfile
-    dockerfile = _generate_dockerfile(meta, model_name)
+    print("Http_Proxy details Are {}".format(config.http_proxy))
+    dockerfile = _generate_dockerfile(meta, model_name, config.http_proxy, config.no_proxy)
 
     # write the dockerfile, will be removed later
     with open("{0}/Dockerfile".format(model_repo_path), "w") as f:
