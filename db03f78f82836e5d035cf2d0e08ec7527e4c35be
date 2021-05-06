@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a671a0c_eb6167e4",
+        "filename": "adapter/acumos-deployment/resources/config/config.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-05-06T00:52:12Z",
+      "side": 1,
+      "message": "isn\u0027t there an .Values.https_proxy as well?",
+      "revId": "db03f78f82836e5d035cf2d0e08ec7527e4c35be",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "47e25295_d7c3122c",
+        "filename": "adapter/acumos/aoconversion/docker_gen.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-05-06T00:52:12Z",
+      "side": 1,
+      "message": "Should there be a separate https_proxy?\nThe https proxy setting is NOT always the same as the http proxy.",
+      "revId": "db03f78f82836e5d035cf2d0e08ec7527e4c35be",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef7eabbb_c2e97359",
+        "filename": "adapter/acumos/aoconversion/docker_gen.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-05-06T00:52:12Z",
+      "side": 1,
+      "message": "use an f-string, refer to the variables directly, and remove the .format() at the end\nf\"\"\"\n... {http_proxy} ... {no_proxy} ... {python_version} ... {model_name} ...",
+      "revId": "db03f78f82836e5d035cf2d0e08ec7527e4c35be",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8470b439_1b32d19c",
+        "filename": "adapter/acumos/aoconversion/scanner.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-05-06T00:52:12Z",
+      "side": 1,
+      "message": "add a 2021 copyright line for your company",
+      "revId": "db03f78f82836e5d035cf2d0e08ec7527e4c35be",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81dbbd91_d1a62f00",
+        "filename": "adapter/acumos/aoconversion/scanner.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-05-06T00:52:12Z",
+      "side": 1,
+      "message": "the code can be simplified with\n\nself.http_proxy \u003d http_proxy if http_proxy is not None else \"\"\nself.no_proxy \u003d no_proxy if no_proxy is not None else \"\"",
+      "revId": "db03f78f82836e5d035cf2d0e08ec7527e4c35be",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96b3359a_354ce783",
+        "filename": "adapter/acumos/pom.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-05-06T00:52:12Z",
+      "side": 1,
+      "message": "add a copyright line",
+      "revId": "db03f78f82836e5d035cf2d0e08ec7527e4c35be",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba46061c_1966f225",
+        "filename": "adapter/acumos/setup.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-05-06T00:52:12Z",
+      "side": 1,
+      "message": "add a copyright line",
+      "revId": "db03f78f82836e5d035cf2d0e08ec7527e4c35be",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fcc8b943_9f62123f",
+        "filename": "adapter/acumos/tests/test_convert.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-05-06T00:52:12Z",
+      "side": 1,
+      "message": "add a copyright line",
+      "revId": "db03f78f82836e5d035cf2d0e08ec7527e4c35be",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08c7008e_3f0b9077",
+        "filename": "adapter/acumos/tests/test_docker.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-05-06T00:52:12Z",
+      "side": 1,
+      "message": "add a copyright line",
+      "revId": "db03f78f82836e5d035cf2d0e08ec7527e4c35be",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ece8ed41_f497a7ef",
+        "filename": "adapter/acumos/tests/test_fed.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-05-06T00:52:12Z",
+      "side": 1,
+      "message": "add a copyright line",
+      "revId": "db03f78f82836e5d035cf2d0e08ec7527e4c35be",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
