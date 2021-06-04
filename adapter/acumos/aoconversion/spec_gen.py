@@ -2,6 +2,7 @@
 # org.onap.dcae
 # =============================================================================
 # Copyright (c) 2019-2020 AT&T Intellectual Property. All rights reserved.
+# Copyright (c) 2021 highstreet technologies GmbH. All rights reserved.
 # =============================================================================
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -62,7 +63,7 @@ def _generate_spec(model_name, meta, dcae_cs_schema, data_formats, docker_uri):
     pstype = "message_router"
     for method in meta["methods"]:
 
-        df_in_name = meta["methods"][method]["input"]
+        df_in_name = utils.validate_format(meta, method, "input")
         subscriber = {
             "config_key": "{0}_subscriber".format(method),
             "format": df_in_name,
@@ -72,7 +73,7 @@ def _generate_spec(model_name, meta, dcae_cs_schema, data_formats, docker_uri):
 
         spec["streams"]["subscribes"].append(subscriber)
 
-        df_out_name = meta["methods"][method]["output"]
+        df_out_name = utils.validate_format(meta, method, "output")
 
         publisher = {
             "config_key": "{0}_publisher".format(method),

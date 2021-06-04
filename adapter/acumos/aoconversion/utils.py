@@ -2,6 +2,7 @@
 # org.onap.dcae
 # =============================================================================
 # Copyright (c) 2019-2020 AT&T Intellectual Property. All rights reserved.
+# Copyright (c) 2021 highstreet technologies GmbH. All rights reserved.
 # =============================================================================
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -46,3 +47,17 @@ dataformat_schema = _Schema('schemas/dataformat.json')
 def get_metadata(model_repo_path, model_name):
     # for now, assume it's called "metadata.json"
     return json.loads(open("{0}/{1}/metadata.json".format(model_repo_path, model_name), "r").read())
+
+
+def validate_format(meta, method, type):
+    """
+    Method to check for the metadata structure of the Acumos Model
+    due to change in tree structure of the input and output with Acumos-Demeter's release
+    Solution for Issue id: DCAEGEN2-2825
+    """
+    try:
+        df_name = meta["methods"][method][type]["name"]
+
+    except TypeError:
+        df_name = meta["methods"][method][type]
+    return df_name

@@ -2,6 +2,7 @@
 # org.onap.dcae
 # =============================================================================
 # Copyright (c) 2019-2020 AT&T Intellectual Property. All rights reserved.
+# Copyright (c) 2021 highstreet technologies GmbH. All rights reserved.
 # =============================================================================
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -54,8 +55,8 @@ def _get_needed_formats(meta):
     # we use a dict because multiple methods may reuse names
     needed_formats = {}
     for method in meta["methods"]:
-        needed_formats[meta["methods"][method]["input"]] = 1
-        needed_formats[meta["methods"][method]["output"]] = 1
+        needed_formats[utils.validate_format(meta, method, "input")] = 1
+        needed_formats[utils.validate_format(meta, method, "output")] = 1
     return list(needed_formats.keys())
 
 
