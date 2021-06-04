@@ -46,3 +46,12 @@ dataformat_schema = _Schema('schemas/dataformat.json')
 def get_metadata(model_repo_path, model_name):
     # for now, assume it's called "metadata.json"
     return json.loads(open("{0}/{1}/metadata.json".format(model_repo_path, model_name), "r").read())
+
+
+def validate_format(meta, method, type):
+    try:
+        df_name = meta["methods"][method][type]["name"]
+
+    except TypeError:
+        df_name = meta["methods"][method][type]
+    return df_name

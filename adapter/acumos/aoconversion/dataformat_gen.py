@@ -54,8 +54,8 @@ def _get_needed_formats(meta):
     # we use a dict because multiple methods may reuse names
     needed_formats = {}
     for method in meta["methods"]:
-        needed_formats[meta["methods"][method]["input"]] = 1
-        needed_formats[meta["methods"][method]["output"]] = 1
+        needed_formats[utils.validate_format(meta, method, "input")] = 1
+        needed_formats[utils.validate_format(meta, method, "output")] = 1
     return list(needed_formats.keys())
 
 
