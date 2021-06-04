@@ -1,0 +1,66 @@
+{
+   "schema":"acumos.schema.model:0.6.0",
+   "runtime":{
+      "name":"python",
+      "version":"3.7.9",
+      "dependencies":{
+         "pip":{
+            "indexes":[
+
+            ],
+            "requirements":[
+               {
+                  "name":"dill",
+                  "version":"0.3.3"
+               },
+               {
+                  "name":"scikit-learn",
+                  "version":"0.23.2"
+               },
+               {
+                  "name":"numpy",
+                  "version":"1.19.2"
+               },
+               {
+                  "name":"acumos",
+                  "version":"0.9.7"
+               }
+            ]
+         },
+         "conda":{
+            "channels":[
+
+            ],
+            "requirements":[
+
+            ]
+         }
+      }
+   },
+   "name":"example-model",
+   "methods":{
+      "Numbers":{
+         "input":{
+            "name":"NumbersIn",
+            "media_type":[
+               "application/vnd.google.protobuf"
+            ],
+            "metadata":{
+
+            },
+            "description":""
+         },
+         "output":{
+            "name":"NumbersOut",
+            "media_type":[
+               "application/vnd.google.protobuf"
+            ],
+            "metadata":{
+
+            },
+            "description":""
+         },
+         "description":""
+      }
+   }
+}
