@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "22e058da_51140110",
+        "filename": "adapter/acumos/tests/fixtures/models/example-model-demeter/metadata.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-06-07T19:49:17Z",
+      "side": 1,
+      "message": "No newline at end of file",
+      "revId": "501fea4990a43b2f65c5ef5e241e306c91486576",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45027e7b_b1c109d0",
+        "filename": "adapter/acumos/tests/test_validatejson.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-06-07T19:49:17Z",
+      "side": 1,
+      "message": "this is new code. The 2019-2020 copyright line should not be here.",
+      "revId": "501fea4990a43b2f65c5ef5e241e306c91486576",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
