@@ -790,6 +790,41 @@
       "title": "Docker component specification schema",
       "type": "object",
       "properties": {
+        "helm": {
+          "type": "object",
+          "properties": {
+            "applicationEnv": {
+              "type": "object"
+            },
+            "services": {
+              "description": "Mapping for kubernetes services",
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "NodePort",
+                    "Cluster"
+                  ]
+                },
+                "name": {
+                  "type": "string"
+                },
+                "ports": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              },
+              "required": [
+                "type",
+                "name",
+                "ports"
+              ]
+            }
+          }
+        },
         "healthcheck": {
           "description": "Define the health check that Consul should perfom for this component",
           "type": "object",
@@ -950,6 +985,14 @@
         },
         "endpoint": {
           "description": "Relative endpoint used by Consul to check health by making periodic HTTP GET calls",
+          "type": "string"
+        },
+        "port": {
+          "description": "Port mapping for readiness section",
+          "type": "integer"
+        },
+        "initialDelaySeconds": {
+          "description": "Initial delay in seconds for readiness section",
           "type": "string"
         }
       },
