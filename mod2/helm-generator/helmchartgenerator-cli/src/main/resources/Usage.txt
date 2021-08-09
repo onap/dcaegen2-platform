@@ -1,0 +1,32 @@
+
+Helm Chart Generator:
+
+- generate a helm chart from the base helm template and parsed component spec file.
+- distribute a helm chart to Chartmuseum
+
+Environment variables:
+
+| Name                               | Description                                                                       |
+|------------------------------------|-----------------------------------------------------------------------------------|
+| $CHARTMUSEUM_BASEURL               | set a Chartmuseum base url for chart distribution.                                |
+| $CHARTMUSEUM_AUTH_BASIC_USERNAME   | set a Chartmuseum username for the basic auth.                                    |
+| $CHARTMUSEUM_AUTH_BASIC_PASSWORD   | set a Chartmuseum password for the basic auth.                                    |
+
+Requirements:
+
+- Helm Chart Generator uses 'helm' command installed on the host machine, so 'helm' command must be installed.
+- For the distribution, $CHARTMUSEUM_BASEURL, $CHARTMUSEUM_AUTH_BASIC_USERNAME and $CHARTMUSEUM_AUTH_BASIC_PASSWORD
+  must be set.
+
+Usage:
+  helmchartgenerator-<jar-version>.jar <args>         (with JAR)
+                    OR
+  HelmChartGeneratorApplication.java <args>           (with the main class)
+
+  - Arguments must be passed in the numeric order mentioned below.
+Arguments:
+  1. Spec file location (Required)
+  2. Chart directory location (helm template location) (Required)
+  3. Output directory location (Required)
+  4. Component spec schema (Optional) (Note: Default componentSpec schema will be used if not passed.)
+  5. --distribute flag (Optional)
