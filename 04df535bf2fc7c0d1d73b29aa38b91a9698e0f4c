@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "77b1bcff_941e380a",
+        "filename": "mod2/helm-generator/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-08-10T17:27:01Z",
+      "side": 1,
+      "message": "include version",
+      "range": {
+        "startLine": 3,
+        "startChar": 13,
+        "endLine": 3,
+        "endChar": 18
+      },
+      "revId": "04df535bf2fc7c0d1d73b29aa38b91a9698e0f4c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ac1d351_725cd501",
+        "filename": "mod2/helm-generator/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-08-10T17:27:01Z",
+      "side": 1,
+      "message": "missing distribution flag",
+      "range": {
+        "startLine": 12,
+        "startChar": 4,
+        "endLine": 12,
+        "endChar": 26
+      },
+      "revId": "04df535bf2fc7c0d1d73b29aa38b91a9698e0f4c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5fb9761f_21be9dae",
+        "filename": "mod2/helm-generator/pom.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-08-10T17:27:01Z",
+      "side": 1,
+      "message": "formatting to be fixed",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 21
+      },
+      "revId": "04df535bf2fc7c0d1d73b29aa38b91a9698e0f4c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14e121ff_f28f1001",
+        "filename": "mod2/helm-generator/src/main/resources/blueprint/values.yaml",
+        "patchSetId": 4
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-08-10T17:27:01Z",
+      "side": 1,
+      "message": "remove these from base template",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 155,
+        "endChar": 50
+      },
+      "revId": "04df535bf2fc7c0d1d73b29aa38b91a9698e0f4c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "130b6a1a_67cf304f",
+        "filename": "mod2/helm-generator/src/main/resources/specSchema.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-08-10T17:27:01Z",
+      "side": 1,
+      "message": "suggest keeping same filename - component-spec-schema.json as submitted under earlier commit",
+      "revId": "04df535bf2fc7c0d1d73b29aa38b91a9698e0f4c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1659d33e_5341eb59",
+        "filename": "mod2/helm-generator/src/main/resources/specSchema.json",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-08-10T17:27:01Z",
+      "side": 1,
+      "message": "missing docker_healthcheck_script under docker_healthcheck_script",
+      "revId": "04df535bf2fc7c0d1d73b29aa38b91a9698e0f4c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
