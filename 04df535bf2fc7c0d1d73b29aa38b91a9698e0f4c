@@ -71,6 +71,581 @@
     },
     {
       "key": {
+        "uuid": "634d2e15_f8411018",
+        "filename": "mod2/helm-generator/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/HelmChartGeneratorApplication.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-08-11T09:03:02Z",
+      "side": 1,
+      "message": "Formatting - use spaces.",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 1
+      },
+      "revId": "04df535bf2fc7c0d1d73b29aa38b91a9698e0f4c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "12372a6b_b5a2a65b",
+        "filename": "mod2/helm-generator/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/Utils.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-08-11T09:03:02Z",
+      "side": 1,
+      "message": "Please expand wildcard imports\n\nhttps://google.github.io/styleguide/javaguide.html#s3.3.1-wildcard-imports",
+      "range": {
+        "startLine": 26,
+        "startChar": 15,
+        "endLine": 26,
+        "endChar": 16
+      },
+      "revId": "04df535bf2fc7c0d1d73b29aa38b91a9698e0f4c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73fca504_00540800",
+        "filename": "mod2/helm-generator/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/Utils.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-08-11T09:03:02Z",
+      "side": 1,
+      "message": "Use Slf4j",
+      "range": {
+        "startLine": 56,
+        "startChar": 12,
+        "endLine": 56,
+        "endChar": 32
+      },
+      "revId": "04df535bf2fc7c0d1d73b29aa38b91a9698e0f4c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1392f25_c1beb717",
+        "filename": "mod2/helm-generator/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/Utils.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-08-11T09:03:02Z",
+      "side": 1,
+      "message": "Use Slf4j",
+      "range": {
+        "startLine": 74,
+        "startChar": 12,
+        "endLine": 74,
+        "endChar": 31
+      },
+      "revId": "04df535bf2fc7c0d1d73b29aa38b91a9698e0f4c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4485c9c1_7c2d69e0",
+        "filename": "mod2/helm-generator/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/Utils.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-08-11T09:03:02Z",
+      "side": 1,
+      "message": "Method not used.",
+      "range": {
+        "startLine": 109,
+        "startChar": 38,
+        "endLine": 109,
+        "endChar": 58
+      },
+      "revId": "04df535bf2fc7c0d1d73b29aa38b91a9698e0f4c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c43fac1e_2dff5e19",
+        "filename": "mod2/helm-generator/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/Utils.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-08-11T09:03:02Z",
+      "side": 1,
+      "message": "Use logger",
+      "range": {
+        "startLine": 115,
+        "startChar": 12,
+        "endLine": 115,
+        "endChar": 32
+      },
+      "revId": "04df535bf2fc7c0d1d73b29aa38b91a9698e0f4c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "92e3384f_b1b2ad4f",
+        "filename": "mod2/helm-generator/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/chartbuilder/ComponentSpecParser.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-08-11T09:03:02Z",
+      "side": 1,
+      "message": "No wildcard imports\n\nhttps://google.github.io/styleguide/javaguide.html#s3.3.1-wildcard-imports",
+      "range": {
+        "startLine": 26,
+        "startChar": 80,
+        "endLine": 26,
+        "endChar": 82
+      },
+      "revId": "04df535bf2fc7c0d1d73b29aa38b91a9698e0f4c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4611c1ed_e507b3db",
+        "filename": "mod2/helm-generator/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/chartbuilder/ComponentSpecParser.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-08-11T09:03:02Z",
+      "side": 1,
+      "message": "No wildcard imports\n\nhttps://google.github.io/styleguide/javaguide.html#s3.3.1-wildcard-imports",
+      "range": {
+        "startLine": 35,
+        "startChar": 16,
+        "endLine": 35,
+        "endChar": 18
+      },
+      "revId": "04df535bf2fc7c0d1d73b29aa38b91a9698e0f4c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cacde498_e5eadd00",
+        "filename": "mod2/helm-generator/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/chartbuilder/ComponentSpecParser.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-08-11T09:03:02Z",
+      "side": 1,
+      "message": "Is it used anywhere here?",
+      "range": {
+        "startLine": 46,
+        "startChar": 4,
+        "endLine": 46,
+        "endChar": 13
+      },
+      "revId": "04df535bf2fc7c0d1d73b29aa38b91a9698e0f4c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3337f40_2db4e03d",
+        "filename": "mod2/helm-generator/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/chartbuilder/HelmClientImpl.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-08-11T09:03:02Z",
+      "side": 1,
+      "message": "Consider using equals",
+      "range": {
+        "startLine": 67,
+        "startChar": 15,
+        "endLine": 67,
+        "endChar": 32
+      },
+      "revId": "04df535bf2fc7c0d1d73b29aa38b91a9698e0f4c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4cecb8d_36d6b4c6",
+        "filename": "mod2/helm-generator/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/chartbuilder/HelmClientImpl.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-08-11T09:03:02Z",
+      "side": 1,
+      "message": "use braces\nhttps://google.github.io/styleguide/javaguide.html#s4.1.1-braces-always-used",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 1
+      },
+      "revId": "04df535bf2fc7c0d1d73b29aa38b91a9698e0f4c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7d332bd_4fe52b2a",
+        "filename": "mod2/helm-generator/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/chartbuilder/HelmClientImpl.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-08-11T09:03:02Z",
+      "side": 1,
+      "message": "use braces",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 1
+      },
+      "revId": "04df535bf2fc7c0d1d73b29aa38b91a9698e0f4c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09c7c9b9_bdffac34",
+        "filename": "mod2/helm-generator/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/chartbuilder/HelmClientImpl.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-08-11T09:03:02Z",
+      "side": 1,
+      "message": "use logger",
+      "range": {
+        "startLine": 73,
+        "startChar": 12,
+        "endLine": 73,
+        "endChar": 32
+      },
+      "revId": "04df535bf2fc7c0d1d73b29aa38b91a9698e0f4c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1e4df634_8471d0a6",
+        "filename": "mod2/helm-generator/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/chartbuilder/HelmClientImpl.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-08-11T09:03:02Z",
+      "side": 1,
+      "message": "use logger",
+      "range": {
+        "startLine": 75,
+        "startChar": 12,
+        "endLine": 75,
+        "endChar": 32
+      },
+      "revId": "04df535bf2fc7c0d1d73b29aa38b91a9698e0f4c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "669a5113_6ff6a1de",
+        "filename": "mod2/helm-generator/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/chartbuilder/HelmClientImpl.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-08-11T09:03:02Z",
+      "side": 1,
+      "message": "Consider:\n1:\n while((line \u003d reader.readLine()) !\u003d null)\n\nor\n\n2:\n reader.lines().forEach(log::info);",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 54
+      },
+      "revId": "04df535bf2fc7c0d1d73b29aa38b91a9698e0f4c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ce82819_b06764be",
+        "filename": "mod2/helm-generator/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/chartbuilder/HelmClientImpl.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-08-11T09:03:02Z",
+      "side": 1,
+      "message": "Similar as above",
+      "range": {
+        "startLine": 92,
+        "startChar": 8,
+        "endLine": 92,
+        "endChar": 54
+      },
+      "revId": "04df535bf2fc7c0d1d73b29aa38b91a9698e0f4c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bf695581_9f77a229",
+        "filename": "mod2/helm-generator/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/chartbuilder/HelmClientImpl.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-08-11T09:03:02Z",
+      "side": 1,
+      "message": "use braces",
+      "range": {
+        "startLine": 98,
+        "startChar": 36,
+        "endLine": 98,
+        "endChar": 96
+      },
+      "revId": "04df535bf2fc7c0d1d73b29aa38b91a9698e0f4c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5914445c_f1117371",
+        "filename": "mod2/helm-generator/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/chartbuilder/HelmClientImpl.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-08-11T09:03:02Z",
+      "side": 1,
+      "message": "wont assert be ignored if ran from commandline without -ea ? If so - easy to be forgotten and it would be better to throw exception explicitly.",
+      "range": {
+        "startLine": 105,
+        "startChar": 8,
+        "endLine": 105,
+        "endChar": 29
+      },
+      "revId": "04df535bf2fc7c0d1d73b29aa38b91a9698e0f4c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a6811b1_29b55ad6",
+        "filename": "mod2/helm-generator/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/chartbuilder/KeyValueMerger.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-08-11T09:03:02Z",
+      "side": 1,
+      "message": "use logger",
+      "range": {
+        "startLine": 65,
+        "startChar": 12,
+        "endLine": 65,
+        "endChar": 31
+      },
+      "revId": "04df535bf2fc7c0d1d73b29aa38b91a9698e0f4c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0ed7cde_00af5645",
+        "filename": "mod2/helm-generator/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/chartbuilder/KeyValueMerger.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-08-11T09:03:02Z",
+      "side": 1,
+      "message": "use logger",
+      "range": {
+        "startLine": 78,
+        "startChar": 11,
+        "endLine": 78,
+        "endChar": 32
+      },
+      "revId": "04df535bf2fc7c0d1d73b29aa38b91a9698e0f4c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "def1e454_0b0d9d09",
+        "filename": "mod2/helm-generator/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/distribution/ChartMuseumDistributor.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-08-11T09:03:02Z",
+      "side": 1,
+      "message": "No wildcard imports\n\nhttps://google.github.io/styleguide/javaguide.html#s3.3.1-wildcard-imports",
+      "range": {
+        "startLine": 22,
+        "startChar": 14,
+        "endLine": 22,
+        "endChar": 16
+      },
+      "revId": "04df535bf2fc7c0d1d73b29aa38b91a9698e0f4c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9610ed91_b7c50ef9",
+        "filename": "mod2/helm-generator/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/models/componentspec/base/Auxilary.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-08-11T09:03:02Z",
+      "side": 1,
+      "message": "No wildcard imports\n\nhttps://google.github.io/styleguide/javaguide.html#s3.3.1-wildcard-imports",
+      "range": {
+        "startLine": 26,
+        "startChar": 80,
+        "endLine": 26,
+        "endChar": 82
+      },
+      "revId": "04df535bf2fc7c0d1d73b29aa38b91a9698e0f4c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80d3aa04_d78aaca3",
+        "filename": "mod2/helm-generator/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/models/componentspec/base/ComponentSpec.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-08-11T09:03:02Z",
+      "side": 1,
+      "message": "No wildcard imports\n\nhttps://google.github.io/styleguide/javaguide.html#s3.3.1-wildcard-imports",
+      "range": {
+        "startLine": 25,
+        "startChar": 80,
+        "endLine": 25,
+        "endChar": 82
+      },
+      "revId": "04df535bf2fc7c0d1d73b29aa38b91a9698e0f4c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "312b5242_5ad281f9",
+        "filename": "mod2/helm-generator/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/validation/ComponentSpecValidatorImpl.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-08-11T09:03:02Z",
+      "side": 1,
+      "message": "No wildcard imports",
+      "range": {
+        "startLine": 31,
+        "startChar": 15,
+        "endLine": 31,
+        "endChar": 16
+      },
+      "revId": "04df535bf2fc7c0d1d73b29aa38b91a9698e0f4c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ade88b2f_8f4641fe",
+        "filename": "mod2/helm-generator/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/validation/ComponentSpecValidatorImpl.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-08-11T09:03:02Z",
+      "side": 1,
+      "message": "use logger",
+      "range": {
+        "startLine": 79,
+        "startChar": 12,
+        "endLine": 79,
+        "endChar": 31
+      },
+      "revId": "04df535bf2fc7c0d1d73b29aa38b91a9698e0f4c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "14e121ff_f28f1001",
         "filename": "mod2/helm-generator/src/main/resources/blueprint/values.yaml",
         "patchSetId": 4
@@ -122,6 +697,75 @@
       "writtenOn": "2021-08-10T17:27:01Z",
       "side": 1,
       "message": "missing docker_healthcheck_script under docker_healthcheck_script",
+      "revId": "04df535bf2fc7c0d1d73b29aa38b91a9698e0f4c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43ac909a_1afe0d04",
+        "filename": "mod2/helm-generator/src/test/java/org/onap/dcaegen2/platform/helmchartgenerator/ChartGeneratorTest.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-08-11T09:03:02Z",
+      "side": 1,
+      "message": "What is that class?",
+      "range": {
+        "startLine": 24,
+        "startChar": 1,
+        "endLine": 24,
+        "endChar": 26
+      },
+      "revId": "04df535bf2fc7c0d1d73b29aa38b91a9698e0f4c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b094d51_771f3d8c",
+        "filename": "mod2/helm-generator/src/test/java/org/onap/dcaegen2/platform/helmchartgenerator/ChartTemplateStructureValidatorTest.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-08-11T09:03:02Z",
+      "side": 1,
+      "message": "should be split into two tests",
+      "range": {
+        "startLine": 38,
+        "startChar": 4,
+        "endLine": 38,
+        "endChar": 8
+      },
+      "revId": "04df535bf2fc7c0d1d73b29aa38b91a9698e0f4c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd699856_4a7aa716",
+        "filename": "mod2/helm-generator/src/test/java/org/onap/dcaegen2/platform/helmchartgenerator/ComponentSpecValidatorTest.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 6044
+      },
+      "writtenOn": "2021-08-11T09:03:02Z",
+      "side": 1,
+      "message": "Split each case into separate tests",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 3
+      },
       "revId": "04df535bf2fc7c0d1d73b29aa38b91a9698e0f4c",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
