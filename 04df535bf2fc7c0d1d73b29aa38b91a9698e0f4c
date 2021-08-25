@@ -1224,6 +1224,30 @@
     },
     {
       "key": {
+        "uuid": "d3a40a2d_d475c8b4",
+        "filename": "mod2/helm-generator/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/chartbuilder/ComponentSpecParser.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-08-25T17:33:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6875e5ff_42a8d8a4",
+      "range": {
+        "startLine": 46,
+        "startChar": 4,
+        "endLine": 46,
+        "endChar": 13
+      },
+      "revId": "04df535bf2fc7c0d1d73b29aa38b91a9698e0f4c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2b8e5c0a_39b68273",
         "filename": "mod2/helm-generator/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/chartbuilder/ComponentSpecParser.java",
         "patchSetId": 4
