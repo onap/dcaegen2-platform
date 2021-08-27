@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.3.0]
+- Integrate helm chart generator
+    - create a switch to toggle between blueprint and helm based deployment types
+- Update commons-io version to 2.8.0
+
 ## [1.2.3]
 - Update BPGenerator 1.7.3
   - Update default k8splugin import
