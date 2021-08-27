@@ -1,6 +1,6 @@
 /*-
  * ============LICENSE_START=======================================================
- * Copyright (C) 2019-2020 AT&T Intellectual Property. All rights reserved.
+ * Copyright (C) 2021 AT&T Intellectual Property. All rights reserved.
  * ================================================================================
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,6 +17,7 @@
  */
 package org.onap.dcae.runtime.web.service;
 
+import org.json.JSONException;
 import org.onap.dcae.runtime.core.FlowGraphParser.BlueprintVessel;
 import org.onap.dcae.runtime.web.models.DashboardConfig;
 import org.json.JSONObject;
@@ -46,7 +47,6 @@ public class BlueprintInventory {
             JSONObject body = prepareBlueprintJsonObject(bpv.name, bpv.version, bpv.blueprint);
             postToDashboard(body);
             logger.info(String.format("Distributed: %s", bpv.toString()));
-            //System.out.println(bpv.blueprint);
         }
     }
 
@@ -74,12 +74,16 @@ public class BlueprintInventory {
 
     private JSONObject prepareBlueprintJsonObject(String blueprintName, int version, String blueprintContent) {
         JSONObject blueprintJsonObject = new JSONObject();
-        blueprintJsonObject.put("owner","dcae_mod");
-        blueprintJsonObject.put("typeName",blueprintName);
-        blueprintJsonObject.put("typeVersion",version);
-        blueprintJsonObject.put("blueprintTemplate",blueprintContent);
-        blueprintJsonObject.put("application","DCAE");
-        blueprintJsonObject.put("component","dcae");
+        try {
+            blueprintJsonObject.put("owner","dcae_mod");
+            blueprintJsonObject.put("typeName",blueprintName);
+            blueprintJsonObject.put("typeVersion",version);
+            blueprintJsonObject.put("blueprintTemplate",blueprintContent);
+            blueprintJsonObject.put("application","DCAE");
+            blueprintJsonObject.put("component","dcae");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         return blueprintJsonObject;
     }
 
