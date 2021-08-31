@@ -48,6 +48,69 @@
     },
     {
       "key": {
+        "uuid": "ae4e42f5_14e00033",
+        "filename": "mod2/helm-generator/helmchartgenerator-cli/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/HelmChartGeneratorApplication.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2021-08-31T10:36:40Z",
+      "side": 1,
+      "message": "Consider: Extract this try/catch block to new method",
+      "range": {
+        "startLine": 76,
+        "startChar": 3,
+        "endLine": 76,
+        "endChar": 39
+      },
+      "revId": "2e87d21e3915fc7e5950015299cee3c2e9100de0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "984de807_7e6525d9",
+        "filename": "mod2/helm-generator/helmchartgenerator-cli/src/main/resources/Usage.txt",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2021-08-31T10:36:40Z",
+      "side": 1,
+      "message": "Please keep all guides together. Please move it to main README",
+      "revId": "2e87d21e3915fc7e5950015299cee3c2e9100de0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d28d44d6_f3d0be5a",
+        "filename": "mod2/helm-generator/helmchartgenerator-cli/src/test/java/org/onap/dcaegen2/platform/helmchartgenerator/HelmChartGeneratorApplicationTests.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2021-08-31T10:36:40Z",
+      "side": 1,
+      "message": "Consider use @Disabled(\u003creason\u003e) -\u003e comments won\u0027t be necessary\nE.g @Disabled(\"Required helm command in local environment\")",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 19
+      },
+      "revId": "2e87d21e3915fc7e5950015299cee3c2e9100de0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "963c1696_ffe6fa1d",
         "filename": "mod2/helm-generator/helmchartgenerator-core/pom.xml",
         "patchSetId": 11
@@ -140,6 +203,75 @@
     },
     {
       "key": {
+        "uuid": "98c0cf36_8b0e7beb",
+        "filename": "mod2/helm-generator/helmchartgenerator-core/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/chartbuilder/ComponentSpecParser.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2021-08-31T10:36:40Z",
+      "side": 1,
+      "message": "Extract it to method with name \"getComponentNameWithOmitFirstWord\"or somethink like that.",
+      "range": {
+        "startLine": 219,
+        "startChar": 31,
+        "endLine": 219,
+        "endChar": 104
+      },
+      "revId": "2e87d21e3915fc7e5950015299cee3c2e9100de0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb763f5b_4c22c29c",
+        "filename": "mod2/helm-generator/helmchartgenerator-core/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/chartbuilder/ComponentSpecParser.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2021-08-31T10:36:40Z",
+      "side": 1,
+      "message": "As above",
+      "range": {
+        "startLine": 273,
+        "startChar": 31,
+        "endLine": 273,
+        "endChar": 94
+      },
+      "revId": "2e87d21e3915fc7e5950015299cee3c2e9100de0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67ecd99c_9b5f6d12",
+        "filename": "mod2/helm-generator/helmchartgenerator-core/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/chartbuilder/ComponentSpecParser.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2021-08-31T10:36:40Z",
+      "side": 1,
+      "message": "As above",
+      "range": {
+        "startLine": 304,
+        "startChar": 31,
+        "endLine": 304,
+        "endChar": 99
+      },
+      "revId": "2e87d21e3915fc7e5950015299cee3c2e9100de0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "89507b74_3e3c1bcf",
         "filename": "mod2/helm-generator/helmchartgenerator-core/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/chartbuilder/HelmClient.java",
         "patchSetId": 11
@@ -156,6 +288,236 @@
         "startChar": 0,
         "endLine": 19,
         "endChar": 3
+      },
+      "revId": "2e87d21e3915fc7e5950015299cee3c2e9100de0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3862ea7_a68de4f7",
+        "filename": "mod2/helm-generator/helmchartgenerator-core/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/chartbuilder/HelmClient.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2021-08-31T10:36:40Z",
+      "side": 1,
+      "message": "Java doc should be moved over line 27: public interface HelmClient {",
+      "range": {
+        "startLine": 20,
+        "startChar": 1,
+        "endLine": 20,
+        "endChar": 54
+      },
+      "revId": "2e87d21e3915fc7e5950015299cee3c2e9100de0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "417db3bd_89af2b6f",
+        "filename": "mod2/helm-generator/helmchartgenerator-core/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/chartbuilder/HelmClientImpl.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2021-08-31T10:36:40Z",
+      "side": 1,
+      "message": "Thread safety issue -\u003e thread is not marked as interrupt: \nSolution:\n\n catch (IOException e) {\n            log.error(e.getMessage(), e);\n            throw new RuntimeException(\"Error occurred while running helm command.\");\n        } catch (InterruptedException e) {\n            log.error(e.getMessage(), e);\n            Thread.currentThread().interrupt();\n            throw new RuntimeException(\"execution interrupted\");\n        }",
+      "range": {
+        "startLine": 74,
+        "startChar": 31,
+        "endLine": 74,
+        "endChar": 54
+      },
+      "revId": "2e87d21e3915fc7e5950015299cee3c2e9100de0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a30bf513_1e65f823",
+        "filename": "mod2/helm-generator/helmchartgenerator-core/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/chartbuilder/HelmClientImpl.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2021-08-31T10:36:40Z",
+      "side": 1,
+      "message": "Exception never throw",
+      "range": {
+        "startLine": 81,
+        "startChar": 60,
+        "endLine": 81,
+        "endChar": 78
+      },
+      "revId": "2e87d21e3915fc7e5950015299cee3c2e9100de0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec6b8fd6_25884041",
+        "filename": "mod2/helm-generator/helmchartgenerator-core/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/chartbuilder/HelmClientImpl.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2021-08-31T10:36:40Z",
+      "side": 1,
+      "message": "Thread safety issue - Input stream is not closed. You can extract inputStream variable and close E.g. \nInputStream inputStream \u003d process.getInputStream();\n        BufferedReader reader \u003d new BufferedReader(new InputStreamReader(inputStream));\n        reader.lines().forEach(log::info);\n        inputStream.close();",
+      "range": {
+        "startLine": 82,
+        "startChar": 73,
+        "endLine": 82,
+        "endChar": 97
+      },
+      "revId": "2e87d21e3915fc7e5950015299cee3c2e9100de0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16af389c_3bb9cc54",
+        "filename": "mod2/helm-generator/helmchartgenerator-core/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/chartbuilder/HelmClientImpl.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2021-08-31T10:36:40Z",
+      "side": 1,
+      "message": "Input stream is not closed //As above",
+      "range": {
+        "startLine": 88,
+        "startChar": 73,
+        "endLine": 88,
+        "endChar": 97
+      },
+      "revId": "2e87d21e3915fc7e5950015299cee3c2e9100de0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53ef54c3_4e25b5c7",
+        "filename": "mod2/helm-generator/helmchartgenerator-core/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/chartbuilder/HelmClientImpl.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2021-08-31T10:36:40Z",
+      "side": 1,
+      "message": "Process is not destroy anywhere, it is good place to do that\nAdd process.destroy();\n\nint exitCode \u003d 0;\n        exitCode \u003d process.waitFor();\n        process.destroy();\n        if (exitCode !\u003d 0){\n            throw new RuntimeException(\"Error occurred while running helm command.\");\n        }",
+      "range": {
+        "startLine": 105,
+        "startChar": 8,
+        "endLine": 105,
+        "endChar": 27
+      },
+      "revId": "2e87d21e3915fc7e5950015299cee3c2e9100de0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c4df847_b7f044f0",
+        "filename": "mod2/helm-generator/helmchartgenerator-core/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/distribution/ChartMuseumDistributor.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2021-08-31T10:36:40Z",
+      "side": 1,
+      "message": "Could be inlined",
+      "range": {
+        "startLine": 78,
+        "startChar": 15,
+        "endLine": 78,
+        "endChar": 22
+      },
+      "revId": "2e87d21e3915fc7e5950015299cee3c2e9100de0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e13116e_ff868b92",
+        "filename": "mod2/helm-generator/helmchartgenerator-core/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/models/componentspec/common/Publishes.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2021-08-31T10:36:40Z",
+      "side": 1,
+      "message": "Please use JsonProperty anotation",
+      "range": {
+        "startLine": 38,
+        "startChar": 4,
+        "endLine": 38,
+        "endChar": 30
+      },
+      "revId": "2e87d21e3915fc7e5950015299cee3c2e9100de0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8c8b38e_ac2132da",
+        "filename": "mod2/helm-generator/helmchartgenerator-core/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/models/componentspec/common/Reconfigs.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2021-08-31T10:36:40Z",
+      "side": 1,
+      "message": "JsonProperty",
+      "range": {
+        "startLine": 40,
+        "startChar": 19,
+        "endLine": 40,
+        "endChar": 31
+      },
+      "revId": "2e87d21e3915fc7e5950015299cee3c2e9100de0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fe1c5b3_62e2fd82",
+        "filename": "mod2/helm-generator/helmchartgenerator-core/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/models/componentspec/common/Subscribes.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2021-08-31T10:36:40Z",
+      "side": 1,
+      "message": "Json Property",
+      "range": {
+        "startLine": 38,
+        "startChar": 19,
+        "endLine": 38,
+        "endChar": 29
       },
       "revId": "2e87d21e3915fc7e5950015299cee3c2e9100de0",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
