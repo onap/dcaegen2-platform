@@ -3293,6 +3293,30 @@
     },
     {
       "key": {
+        "uuid": "97c6f6e6_5a36586e",
+        "filename": "mod2/helm-generator/src/main/resources/blueprint/values.yaml",
+        "patchSetId": 4
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-08-31T21:24:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9964d389_1fbf41ff",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 155,
+        "endChar": 50
+      },
+      "revId": "04df535bf2fc7c0d1d73b29aa38b91a9698e0f4c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "130b6a1a_67cf304f",
         "filename": "mod2/helm-generator/src/main/resources/specSchema.json",
         "patchSetId": 4
