@@ -178,6 +178,24 @@
     },
     {
       "key": {
+        "uuid": "07b811d7_f6636d3f",
+        "filename": "mod2/helm-generator/helmchartgenerator-cli/src/main/resources/Usage.txt",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2021-09-01T12:56:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8c45c82b_e167c951",
+      "revId": "2e87d21e3915fc7e5950015299cee3c2e9100de0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d28d44d6_f3d0be5a",
         "filename": "mod2/helm-generator/helmchartgenerator-cli/src/test/java/org/onap/dcaegen2/platform/helmchartgenerator/HelmChartGeneratorApplicationTests.java",
         "patchSetId": 11
@@ -222,6 +240,30 @@
       "revId": "2e87d21e3915fc7e5950015299cee3c2e9100de0",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2aa20edd_3f6911f2",
+        "filename": "mod2/helm-generator/helmchartgenerator-cli/src/test/java/org/onap/dcaegen2/platform/helmchartgenerator/HelmChartGeneratorApplicationTests.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 6310
+      },
+      "writtenOn": "2021-09-01T12:56:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7271050f_32346790",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 19
+      },
+      "revId": "2e87d21e3915fc7e5950015299cee3c2e9100de0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
