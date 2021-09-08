@@ -46,11 +46,7 @@
 		</sonar.junit.reportsPath>
 		<sonar.surefire.reportsPath>${project.basedir}/target/surefire-reports
 		</sonar.surefire.reportsPath>
-		<sonar.coverage.exclusions>coverage/**</sonar.coverage.exclusions>
-		<sonar.coverage.jacoco.xmlReportPaths>${project.basedir}/../coverage/target/site/jacoco-aggregate/jacoco.xml
-		</sonar.coverage.jacoco.xmlReportPaths>
-		<sonar.coverage.jacoco.xmlReportPaths>
-			${project.basedir}/../coverage/target/site/jacoco-aggregate/jacoco.xml
+		<sonar.coverage.jacoco.xmlReportPaths>${project.basedir}/target/site/jacoco-ut/jacoco.xml
 		</sonar.coverage.jacoco.xmlReportPaths>
 	</properties>
 	<dependencies>
