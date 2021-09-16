@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "94a7f9ff_a277d47f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-09-16T00:57:21Z",
+      "side": 1,
+      "message": "need to include also DCAEGEN2-2805",
+      "revId": "22707c99b511b10436eb550394a2e2f3610aa23f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e85a5ce_592510e9",
+        "filename": "mod/runtimeapi/data/imports/onapImports.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-09-16T00:57:21Z",
+      "side": 1,
+      "message": "file not required; should be removed",
+      "revId": "22707c99b511b10436eb550394a2e2f3610aa23f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "979cfe8b_158520a6",
+        "filename": "mod/runtimeapi/runtime-core/pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-09-16T00:57:21Z",
+      "side": 1,
+      "message": "can be removed",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 21
+      },
+      "revId": "22707c99b511b10436eb550394a2e2f3610aa23f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
