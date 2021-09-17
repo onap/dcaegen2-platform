@@ -1,0 +1,191 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0593324_1715b2dd",
+        "filename": "mod/runtimeapi/Changelog.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-09-17T01:39:36Z",
+      "side": 1,
+      "message": "missing the date in YYYY/MM/DD format\nmissing the JIRA ticket numbers (same JIRA ticket numbers as in commit log)",
+      "revId": "9e14327184603bca65667b6e7eb661c8ceac2f13",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ed46897_7666320c",
+        "filename": "mod/runtimeapi/runtime-core/src/main/java/org/onap/dcae/runtime/core/helm/HelmChartGeneratorClientImpl.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-09-17T01:39:36Z",
+      "side": 1,
+      "message": "where is the test code for this new class?",
+      "revId": "9e14327184603bca65667b6e7eb661c8ceac2f13",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb57e526_dbdf30e8",
+        "filename": "mod/runtimeapi/runtime-core/src/main/java/org/onap/dcae/runtime/core/helm/HelmChartGeneratorClientImpl.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-09-17T01:39:36Z",
+      "side": 1,
+      "message": "public methods are missing javadocs",
+      "revId": "9e14327184603bca65667b6e7eb661c8ceac2f13",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0c9aeb9_36797ba2",
+        "filename": "mod/runtimeapi/runtime-web/src/main/java/org/onap/dcae/runtime/web/controllers/GraphController.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-09-17T01:39:36Z",
+      "side": 1,
+      "message": "add 2021",
+      "revId": "9e14327184603bca65667b6e7eb661c8ceac2f13",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6df083c3_e67a99d4",
+        "filename": "mod/runtimeapi/runtime-web/src/main/java/org/onap/dcae/runtime/web/controllers/GraphController.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-09-17T01:39:36Z",
+      "side": 1,
+      "message": "expand * imports",
+      "revId": "9e14327184603bca65667b6e7eb661c8ceac2f13",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4ad9d0ef_4b193ad2",
+        "filename": "mod/runtimeapi/runtime-web/src/main/java/org/onap/dcae/runtime/web/controllers/GraphController.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-09-17T01:39:36Z",
+      "side": 1,
+      "message": "expand * imports",
+      "revId": "9e14327184603bca65667b6e7eb661c8ceac2f13",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a52aa039_cec386b9",
+        "filename": "mod/runtimeapi/runtime-web/src/main/java/org/onap/dcae/runtime/web/service/BlueprintInventory.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-09-17T01:39:36Z",
+      "side": 1,
+      "message": "add 2021",
+      "revId": "9e14327184603bca65667b6e7eb661c8ceac2f13",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f63a59f0_ad5219ea",
+        "filename": "mod/runtimeapi/runtime-web/src/main/java/org/onap/dcae/runtime/web/service/GraphActionsParser.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-09-17T01:39:36Z",
+      "side": 1,
+      "message": "new code must have javadocs for the module (file), class and public methods",
+      "revId": "9e14327184603bca65667b6e7eb661c8ceac2f13",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d392d0ef_f3d4d7bb",
+        "filename": "mod/runtimeapi/runtime-web/src/main/java/org/onap/dcae/runtime/web/service/GraphServiceHelmProxy.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-09-17T01:39:36Z",
+      "side": 1,
+      "message": "new code must have javadocs for the module (file), class and public methods",
+      "revId": "9e14327184603bca65667b6e7eb661c8ceac2f13",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9ca6312_b2a8d575",
+        "filename": "mod/runtimeapi/runtime-web/src/main/java/org/onap/dcae/runtime/web/service/GraphServiceImpl.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-09-17T01:39:36Z",
+      "side": 1,
+      "message": "add 2021",
+      "revId": "9e14327184603bca65667b6e7eb661c8ceac2f13",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8774326_d0a05ac3",
+        "filename": "mod/runtimeapi/runtime-web/src/main/java/org/onap/dcae/runtime/web/service/GraphServiceImpl.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-09-17T01:39:36Z",
+      "side": 1,
+      "message": "remove commented-out code",
+      "revId": "9e14327184603bca65667b6e7eb661c8ceac2f13",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
