@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.13.0] - 2021/09/21
+
+Changed
+  - [DCAEGEN2-2876] - Support v3 component spec for helm flow support
+
+
 ## [2.12.5]
 
 * Fix component-spec-schema bug: Failed validating 'oneOf' in schema['properties']['volumes']['items']

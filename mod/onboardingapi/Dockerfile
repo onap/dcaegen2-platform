@@ -1,5 +1,6 @@
 # ============LICENSE_START=======================================================
 # Copyright 2020 Deutsche Telekom. All rights reserved.
+# Copyright (c) 2021 AT&T Intellectual Property. All rights reserved.
 # ================================================================================
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,7 +17,7 @@
 FROM nexus3.onap.org:10001/onap/integration-python:7.0.1
 
 ENV SERVER_URL=https://git.onap.org/dcaegen2/platform/plain/mod
-ENV PATH_COMPONENT_SPEC=/component-json-schemas/component-specification/dcae-cli-v2/component-spec-schema.json
+ENV PATH_COMPONENT_SPEC=/component-json-schemas/component-specification/dcae-cli-v3/component-spec-schema.json
 ENV PATH_DATA_FORMAT=/component-json-schemas/data-format/dcae-cli-v1/data-format-schema.json
 ENV PG_CONN=
 
