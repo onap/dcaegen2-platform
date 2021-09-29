@@ -40,14 +40,19 @@ import java.util.Objects;
 @Slf4j
 public class ChartMuseumDistributor implements ChartDistributor {
 
-    @Value("${chartmuseum.baseurl}")
-    private String chartMuseumUrl;
+    private final String chartMuseumUrl;
 
-    @Value("${chartmuseum.auth.basic.username}")
-    private String username;
+    private final String username;
 
-    @Value("${chartmuseum.auth.basic.password}")
-    private String password;
+    private final String password;
+
+    public ChartMuseumDistributor( @Value("${chartmuseum.baseurl}") String chartMuseumUrl,
+                                   @Value("${chartmuseum.auth.basic.username}") String username,
+                                   @Value("${chartmuseum.auth.basic.password}")String password) {
+        this.chartMuseumUrl = chartMuseumUrl;
+        this.username = username;
+        this.password = password;
+    }
 
     /**
      * distributes chart to Chart Museum

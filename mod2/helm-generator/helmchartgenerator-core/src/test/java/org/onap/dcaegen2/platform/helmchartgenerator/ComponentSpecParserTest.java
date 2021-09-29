@@ -44,7 +44,7 @@ class ComponentSpecParserTest {
 
     @BeforeEach
     void setUp() {
-        parser = new ComponentSpecParser(validator);
+        parser = new ComponentSpecParser(validator, new Utils());
     }
 
     @Test

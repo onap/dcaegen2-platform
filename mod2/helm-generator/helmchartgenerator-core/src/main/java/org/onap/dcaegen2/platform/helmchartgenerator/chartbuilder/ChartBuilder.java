@@ -41,14 +41,20 @@ public class ChartBuilder {
    @Autowired
    private ChartGenerator chartGenerator;
 
+   @Autowired
+   private ChartTemplateStructureValidator validator;
+
     /**
      * constructor of ChartBuilder
      * @param specParser implementation of ComponentSpecParser
      * @param chartGenerator implementation of ChartGenerator
+     * @param validator implementation of Chart Template Validator
      */
-    public ChartBuilder(ComponentSpecParser specParser, ChartGenerator chartGenerator) {
+    public ChartBuilder(ComponentSpecParser specParser, ChartGenerator chartGenerator,
+                        ChartTemplateStructureValidator validator) {
         this.specParser = specParser;
         this.chartGenerator = chartGenerator;
+        this.validator = validator;
     }
 
     /**
@@ -61,7 +67,7 @@ public class ChartBuilder {
      * @throws Exception
      */
     public File build(String specFileLocation, String chartTemplateLocation, String outputLocation, String specSchemaLocation ) throws Exception {
-        ChartTemplateStructureValidator.validateChartTemplateStructure(chartTemplateLocation);
+        validator.validateChartTemplateStructure(chartTemplateLocation);
         ChartInfo chartInfo = specParser.extractChartInfo(specFileLocation, chartTemplateLocation, specSchemaLocation);
         return chartGenerator.generate(chartTemplateLocation, chartInfo, outputLocation);
     }

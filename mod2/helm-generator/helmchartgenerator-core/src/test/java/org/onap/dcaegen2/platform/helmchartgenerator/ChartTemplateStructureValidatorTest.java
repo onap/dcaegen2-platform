@@ -18,23 +18,31 @@
 
 package org.onap.dcaegen2.platform.helmchartgenerator;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.onap.dcaegen2.platform.helmchartgenerator.validation.ChartTemplateStructureValidator;
+import org.onap.dcaegen2.platform.helmchartgenerator.validation.ChartTemplateStructureValidatorImpl;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ChartTemplateStructureValidatorTest {
 
+    private ChartTemplateStructureValidatorImpl validator;
+
+    @BeforeEach
+    void setUp() {
+        validator = new ChartTemplateStructureValidatorImpl();
+    }
+
     @Test
     void validateTemplateStructure(){
         String validStructureLocation = "src/test/input/blueprint";
-        assertDoesNotThrow(() -> ChartTemplateStructureValidator.validateChartTemplateStructure(validStructureLocation));
+        assertDoesNotThrow(() -> validator.validateChartTemplateStructure(validStructureLocation));
     }
 
     @Test
     void invalidateTemplateStructureShouldThrowRuntimeError() {
         String invalidStructureLocation = "test";
-        assertThrows(RuntimeException.class, () -> ChartTemplateStructureValidator.validateChartTemplateStructure(invalidStructureLocation));
+        assertThrows(RuntimeException.class, () -> validator.validateChartTemplateStructure(invalidStructureLocation));
     }
 }

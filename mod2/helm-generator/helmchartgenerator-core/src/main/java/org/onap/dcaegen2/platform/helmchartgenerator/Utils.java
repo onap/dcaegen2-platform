@@ -21,6 +21,7 @@ package org.onap.dcaegen2.platform.helmchartgenerator;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
+import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.IOException;
@@ -33,13 +34,12 @@ import java.util.Map;
  * @author Dhrumin Desai
  */
 @Slf4j
+@Component
 public class Utils {
 
-    private static final ObjectMapper MAPPER = new ObjectMapper();
+    private final ObjectMapper MAPPER = new ObjectMapper();
 
-    private Utils() {}
-
-    public static <T> T deserializeJsonFileToModel(String filePath, Class<T> modelClass) {
+    public <T> T deserializeJsonFileToModel(String filePath, Class<T> modelClass) {
         return deserializeJsonFileToModel(new File(filePath), modelClass);
     }
 
@@ -49,7 +49,7 @@ public class Utils {
      * @param modelClass target model class for mapping
      * @return mapped model instance
      */
-    public static <T> T deserializeJsonFileToModel(File file, Class<T> modelClass) {
+    public <T> T deserializeJsonFileToModel(File file, Class<T> modelClass) {
         try {
             return MAPPER.readValue(file, modelClass);
         } catch (IOException e) {
@@ -63,7 +63,7 @@ public class Utils {
      * @param srcLocation
      * @return
      */
-    public static File cloneFileToTempLocation(String srcLocation) {
+    public File cloneFileToTempLocation(String srcLocation) {
         File cloneLocation = null;
         try {
             Path tempRootDir = Files.createTempDirectory("chart");
@@ -81,7 +81,7 @@ public class Utils {
      * deletes dir / file from temp location of OS
      * @param dir  dir to be deleted
      */
-    public static void deleteTempFileLocation(File dir) {
+    public void deleteTempFileLocation(File dir) {
         try {
             FileUtils.deleteDirectory(dir);
         } catch (IOException e) {
@@ -95,7 +95,7 @@ public class Utils {
      * @param key a key
      * @param value a value
      */
-    public static void putIfNotNull(Map<String, Object> map, String key, Object value){
+    public void putIfNotNull(Map<String, Object> map, String key, Object value){
         if(value != null){
             map.put(key, value);
         }
