@@ -19,6 +19,7 @@
 package org.onap.dcaegen2.platform.helmchartgenerator.chartbuilder;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
@@ -26,6 +27,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.stream.Collectors;
 
 /**
  * HelmClient implementation which uses helm command installed in the runtime environment.
@@ -35,12 +37,40 @@ import java.io.InputStreamReader;
 @Slf4j
 public class HelmClientImpl implements HelmClient {
 
+    private final String repoUrl;
+
+    private final String username;
+
+    private final String password;
+
+    public HelmClientImpl(@Value("${chartmuseum.baseurl}")String repoUrl,
+                          @Value("${chartmuseum.auth.basic.username}")String username,
+                          @Value("${chartmuseum.auth.basic.password}")String password) {
+        this.repoUrl = repoUrl;
+        this.username = username;
+        this.password = password;
+        try{
+            repoAdd(repoUrl, username,password);
+        }catch (Exception e){
+            log.warn("Could not add helm repo.");
+        }
+    }
+
+    private void repoAdd(String repoUrl, String username, String password) {
+        ProcessBuilder builder = new ProcessBuilder();
+        builder.inheritIO();
+        builder.command("helm", "repo", "add", "local",  repoUrl,
+                        "--username", username, "--password", password);
+        runProcess(builder, "repoAdd");
+    }
+
     /**
      * performs <code>helm lint</code> operation
      * @param chartLocation helm chart location
      */
     @Override
     public void lint(File chartLocation) {
+        helmDepUp(chartLocation.getAbsolutePath());
         ProcessBuilder builder = new ProcessBuilder();
         builder.command("helm", "lint", chartLocation.getAbsolutePath());
         runProcess(builder, "lint");
@@ -60,16 +90,24 @@ public class HelmClientImpl implements HelmClient {
         return runProcess(builder, "package");
     }
 
+    private void helmDepUp(String chartLocation) {
+        ProcessBuilder builder = new ProcessBuilder();
+        builder.inheritIO();
+        builder.command("helm", "dep", "up",chartLocation);
+        runProcess(builder, "helmDepUp");
+    }
+
     private File runProcess(ProcessBuilder builder, String command) {
+        log.info("running: " + String.join(" ",builder.command()));
         Process process = null;
         String chartPath = "";
         try {
             process = builder.start();
-            if(command.equals("lint")) {
-                printLintingProcessOutput(process);
+            if(command.equals("package")) {
+                chartPath = printPackagingProcessOutput(process);
             }
             else {
-                chartPath = printPackagingProcessOutput(process);
+                printProcessOutput(process);
             }
             assertExitCode(process);
         }  catch (IOException e) {
@@ -83,7 +121,7 @@ public class HelmClientImpl implements HelmClient {
         return new File(chartPath);
     }
 
-    private void printLintingProcessOutput(Process process) throws IOException {
+    private void printProcessOutput(Process process) throws IOException {
         final InputStream inputStream = process.getInputStream();
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
         reader.lines().forEach(log::info);

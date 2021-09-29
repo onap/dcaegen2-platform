@@ -18,7 +18,6 @@
 
 package org.onap.dcaegen2.platform.helmchartgenerator.chartbuilder;
 
-import org.jetbrains.annotations.NotNull;
 import org.onap.dcaegen2.platform.helmchartgenerator.Utils;
 import org.onap.dcaegen2.platform.helmchartgenerator.models.chartinfo.ChartInfo;
 import org.onap.dcaegen2.platform.helmchartgenerator.models.chartinfo.Metadata;
@@ -55,12 +54,17 @@ public class ComponentSpecParser {
     @Autowired
     private ComponentSpecValidator specValidator;
 
+    @Autowired
+    private Utils utils;
+
     /**
      * Constructor for ComponentSpecParser
      * @param specValidator ComponentSpecValidator implementation
+     * @param utils
      */
-    public ComponentSpecParser(ComponentSpecValidator specValidator) {
+    public ComponentSpecParser(ComponentSpecValidator specValidator, Utils utils) {
         this.specValidator = specValidator;
+        this.utils = utils;
     }
 
     /**
@@ -73,7 +77,7 @@ public class ComponentSpecParser {
      */
     public ChartInfo extractChartInfo(String specFileLocation, String chartTemplateLocation, String specSchemaLocation) throws Exception {
         specValidator.validateSpecFile(specFileLocation, specSchemaLocation);
-        ComponentSpec cs = Utils.deserializeJsonFileToModel(specFileLocation, ComponentSpec.class);
+        ComponentSpec cs = utils.deserializeJsonFileToModel(specFileLocation, ComponentSpec.class);
         ChartInfo chartInfo = new ChartInfo();
         chartInfo.setMetadata(extractMetadata(cs.getSelf()));
         chartInfo.setValues(extractValues(cs, chartTemplateLocation));
@@ -83,14 +87,14 @@ public class ComponentSpecParser {
     private Map<String, Object> extractValues(ComponentSpec cs, String chartTemplateLocation) {
         Map<String, Object> outerValues = new LinkedHashMap<>();
         if(cs.getAuxilary() != null && cs.getAuxilary().getTlsInfo() != null){
-            Utils.putIfNotNull(outerValues,"certDirectory", cs.getAuxilary().getTlsInfo().getCertDirectory());
-            Utils.putIfNotNull(outerValues, "tlsServer", cs.getAuxilary().getTlsInfo().getUseTls());
+            utils.putIfNotNull(outerValues,"certDirectory", cs.getAuxilary().getTlsInfo().getCertDirectory());
+            utils.putIfNotNull(outerValues, "tlsServer", cs.getAuxilary().getTlsInfo().getUseTls());
         }
         if(cs.getAuxilary() != null && cs.getAuxilary().getLogInfo() != null) {
-            Utils.putIfNotNull(outerValues,"logDirectory", cs.getAuxilary().getLogInfo().get("log_directory"));
+            utils.putIfNotNull(outerValues,"logDirectory", cs.getAuxilary().getLogInfo().get("log_directory"));
         }
         if(imageUriExistsForFirstArtifact(cs)){
-            Utils.putIfNotNull(outerValues,"image", cs.getArtifacts()[0].getUri());
+            utils.putIfNotNull(outerValues,"image", cs.getArtifacts()[0].getUri());
         }
         populateApplicationConfigSection(outerValues, cs);
         populateReadinessSection(outerValues, cs);
@@ -115,7 +119,7 @@ public class ComponentSpecParser {
          for(Parameters param : parameters){
             applicationConfig.put(param.getName(), param.getValue());
          }
-         Utils.putIfNotNull(outerValues,"applicationConfig", applicationConfig);
+        utils.putIfNotNull(outerValues,"applicationConfig", applicationConfig);
     }
 
     private void populateReadinessSection(Map<String, Object> outerValues, ComponentSpec cs) {
@@ -124,7 +128,7 @@ public class ComponentSpecParser {
 
         Map<String, Object> readiness = new LinkedHashMap<>();
         final HealthCheck healthcheck = cs.getAuxilary().getHealthcheck();
-        Utils.putIfNotNull(readiness, "initialDelaySeconds", healthcheck.getInitialDelaySeconds());
+        utils.putIfNotNull(readiness, "initialDelaySeconds", healthcheck.getInitialDelaySeconds());
 
         if(healthcheck.getInterval() != null) {
             readiness.put("periodSeconds", getSeconds(healthcheck.getInterval(), "interval"));
@@ -159,7 +163,7 @@ public class ComponentSpecParser {
     private void populateApplicationEnvSection(Map<String, Object> outerValues, ComponentSpec cs){
         if(applicationEnvExists(cs)) {
             Object applicationEnv = cs.getAuxilary().getHelm().getApplicationEnv();
-            Utils.putIfNotNull(outerValues,"applicationEnv", applicationEnv);
+            utils.putIfNotNull(outerValues,"applicationEnv", applicationEnv);
         }
     }
 
@@ -178,10 +182,10 @@ public class ComponentSpecParser {
         if(serviceFromSpec.getPorts() != null){
             List<Object> ports = mapServicePorts(serviceFromSpec.getPorts());
             service.put("ports", ports);
-            Utils.putIfNotNull(service, "type", serviceFromSpec.getType());
+            utils.putIfNotNull(service, "type", serviceFromSpec.getType());
         }
-        Utils.putIfNotNull(service,"name", serviceFromSpec.getName());
-        Utils.putIfNotNull(service,"has_internal_only_ports", serviceFromSpec.getHasInternalOnlyPorts());
+        utils.putIfNotNull(service,"name", serviceFromSpec.getName());
+        utils.putIfNotNull(service,"has_internal_only_ports", serviceFromSpec.getHasInternalOnlyPorts());
         outerValues.put("service", service);
     }
 
@@ -230,8 +234,8 @@ public class ComponentSpecParser {
             keystore.put("outputType", List.of("jks"));
             keystore.put("passwordSecretRef", passwordsSecretRef);
             certificate.put("mountPath", mountPath);
-            Utils.putIfNotNull(certificate,"commonName", cs.getSelf().getName());
-            Utils.putIfNotNull(certificate,"dnsNames", List.of(cs.getSelf().getName()));
+            utils.putIfNotNull(certificate,"commonName", cs.getSelf().getName());
+            utils.putIfNotNull(certificate,"dnsNames", List.of(cs.getSelf().getName()));
             certificate.put("keystore", keystore);
             outerValues.put("certificates", List.of(certificate));
         }

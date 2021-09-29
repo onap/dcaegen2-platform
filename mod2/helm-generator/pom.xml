@@ -33,7 +33,7 @@
 
 	<groupId>org.onap.dcaegen2.platform</groupId>
 	<artifactId>helmchartgenerator</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<name>helm-chart-generator</name>
 	<description>Helm chart generator</description>
 	<properties>
@@ -100,6 +100,12 @@
 			<groupId>com.squareup.okhttp3</groupId>
 			<artifactId>okhttp</artifactId>
 			<version>4.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.squareup.okhttp3</groupId>
+			<artifactId>mockwebserver</artifactId>
+			<version>4.0.1</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>

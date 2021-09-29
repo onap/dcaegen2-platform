@@ -18,43 +18,9 @@
 
 package org.onap.dcaegen2.platform.helmchartgenerator.validation;
 
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-
 /**
- * A class to validate structure of the base helm directory
+ * An interface to validate structure of the base helm directory
  */
-public class ChartTemplateStructureValidator {
-
-    /**
-     * validates base helm chart directory and throws error if the structure is not proper.
-     * @param chartTemplateLocation base helm chart dir location
-     */
-    public static void validateChartTemplateStructure(String chartTemplateLocation) {
-        checkBaseDirectory(chartTemplateLocation);
-    }
-
-    private static void checkBaseDirectory(String chartTemplateLocation) {
-        Path base = Paths.get(chartTemplateLocation, "base");
-        Path charts = Paths.get(chartTemplateLocation, "base/charts");
-        Path templates = Paths.get(chartTemplateLocation, "base/templates");
-        Path chart = Paths.get(chartTemplateLocation, "base/Chart.yaml");
-        Path values = Paths.get(chartTemplateLocation, "base/values.yaml");
-        if(!Files.exists(base)){
-            throw new RuntimeException("base directory not found in chart template location");
-        }
-        if(!Files.exists(charts)){
-            throw new RuntimeException("charts directory not found in base directory");
-        }
-        if(!Files.exists(templates)){
-            throw new RuntimeException("templates directory not found in base directory");
-        }
-        if(!Files.exists(chart)){
-            throw new RuntimeException("chart.yaml not found in base directory");
-        }
-        if(!Files.exists(values)){
-            throw new RuntimeException("values.yaml not found in base directory");
-        }
-    }
+public interface ChartTemplateStructureValidator {
+    void validateChartTemplateStructure(String chartTemplateLocation);
 }

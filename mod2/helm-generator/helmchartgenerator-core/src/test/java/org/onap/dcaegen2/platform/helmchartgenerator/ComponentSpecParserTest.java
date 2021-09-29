@@ -44,7 +44,7 @@ class ComponentSpecParserTest {
 
     @BeforeEach
     void setUp() {
-        parser = new ComponentSpecParser(validator);
+        parser = new ComponentSpecParser(validator, new Utils());
     }
 
     @Test
@@ -184,3 +184,4 @@ class ComponentSpecParserTest {
         assertThat(secret1.get("passwordPolicy")).isEqualTo("generate");
     }
 }
+

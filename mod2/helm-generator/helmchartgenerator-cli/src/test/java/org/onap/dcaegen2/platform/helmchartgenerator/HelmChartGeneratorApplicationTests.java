@@ -26,7 +26,7 @@ import org.springframework.test.context.junit.jupiter.DisabledIf;
  * Disabling the test as it is using 'helm' command from the local environment.
  */
 @DisabledIf("true")
-@SpringBootTest(args = {"src/test/input/specs/ves.json", "src/test/input/blueprint", "src/test/output/charts"})
+@SpringBootTest(args = {"src/test/input-new/specs/ves.json", "src/test/input-new/blueprint", "src/test/output/charts", "--distribute"})
 class HelmChartGeneratorApplicationTests {
 
 	@Test

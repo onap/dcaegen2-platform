@@ -26,6 +26,7 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.onap.dcaegen2.platform.helmchartgenerator.Utils;
 import org.onap.dcaegen2.platform.helmchartgenerator.models.componentspec.base.ComponentSpec;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
@@ -43,6 +44,13 @@ import java.io.InputStream;
 @Slf4j
 public class ComponentSpecValidatorImpl implements ComponentSpecValidator {
 
+    @Autowired
+    private Utils utils;
+
+    public ComponentSpecValidatorImpl(Utils utils) {
+        this.utils = utils;
+    }
+
     /**
      * Validates the spec json file  against schema and prints errors if found
      * @param specFileLocation specification json file location
@@ -52,7 +60,7 @@ public class ComponentSpecValidatorImpl implements ComponentSpecValidator {
     @Override
     public void validateSpecFile(String specFileLocation, String specSchemaLocation) throws IOException {
         File schemaFile = getSchemaFile(specSchemaLocation);
-        ComponentSpec cs = Utils.deserializeJsonFileToModel(specFileLocation, ComponentSpec.class);
+        ComponentSpec cs = utils.deserializeJsonFileToModel(specFileLocation, ComponentSpec.class);
         validateSpecSchema(new File(specFileLocation), schemaFile);
         validateHelmRequirements(cs);
     }

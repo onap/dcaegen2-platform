@@ -37,7 +37,7 @@ public class ComponentSpecValidatorTest {
 
     @BeforeEach
     void setUp() {
-        validator = new ComponentSpecValidatorImpl();
+        validator = new ComponentSpecValidatorImpl(new Utils());
     }
 
     @Test

@@ -18,16 +18,13 @@
 
 package org.onap.dcaegen2.platform.helmchartgenerator.chartbuilder;
 
-import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.onap.dcaegen2.platform.helmchartgenerator.Utils;
 import org.onap.dcaegen2.platform.helmchartgenerator.models.chartinfo.ChartInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
-
-import static org.onap.dcaegen2.platform.helmchartgenerator.Utils.cloneFileToTempLocation;
-import static org.onap.dcaegen2.platform.helmchartgenerator.Utils.deleteTempFileLocation;
 
 /**
  * ChartGenerator interacts with HelmClient and generates a packaged helm chart
@@ -37,22 +34,25 @@ import static org.onap.dcaegen2.platform.helmchartgenerator.Utils.deleteTempFile
 @Slf4j
 public class ChartGenerator {
 
-    @Setter
     @Autowired
     private HelmClient helmClient;
 
-    @Setter
     @Autowired
     private KeyValueMerger merger;
+
+    @Autowired
+    private Utils utils;
 
     /**
      * Constructor for ChartGenerator
      * @param helmClient HelmClient implementation
      * @param merger KeyValueMerger implementation
+     * @param utils
      */
-    public ChartGenerator(HelmClient helmClient, KeyValueMerger merger) {
+    public ChartGenerator(HelmClient helmClient, KeyValueMerger merger, Utils utils) {
         this.helmClient = helmClient;
         this.merger = merger;
+        this.utils = utils;
     }
 
     /**
@@ -63,11 +63,11 @@ public class ChartGenerator {
      * @return generated helm chart tgz file
      */
     public File generate(String chartBlueprintLocation, ChartInfo chartInfo, String outputLocation) {
-        File newChartDir = cloneFileToTempLocation(chartBlueprintLocation + "/base");
+        File newChartDir = utils.cloneFileToTempLocation(chartBlueprintLocation + "/base");
         merger.mergeValuesToChart(chartInfo, newChartDir);
         helmClient.lint(newChartDir);
         final File chartLocation = helmClient.packageChart(newChartDir, outputLocation);
-        deleteTempFileLocation(newChartDir);
+        utils.deleteTempFileLocation(newChartDir);
         return chartLocation;
     }
 }
