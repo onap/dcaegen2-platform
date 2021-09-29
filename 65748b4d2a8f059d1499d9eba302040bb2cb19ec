@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bba47fcb_7b102bcf",
+        "filename": "mod2/helm-generator/Changelog.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-09-29T15:40:14Z",
+      "side": 1,
+      "message": "Should include date - something like below\n[1.0.1] - 2021/09/29",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 10
+      },
+      "revId": "65748b4d2a8f059d1499d9eba302040bb2cb19ec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ecf9b30e_ac396337",
+        "filename": "mod2/helm-generator/coverage/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-09-29T15:40:14Z",
+      "side": 1,
+      "message": "Should be AT\u0026T\nHowever if this file is copied from different repo, AT\u0026T copyright can be added as separate new line",
+      "range": {
+        "startLine": 4,
+        "startChar": 19,
+        "endLine": 4,
+        "endChar": 25
+      },
+      "revId": "65748b4d2a8f059d1499d9eba302040bb2cb19ec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14e77582_8c341f05",
+        "filename": "mod2/helm-generator/coverage/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-09-29T15:40:14Z",
+      "side": 1,
+      "message": "1.0.1",
+      "range": {
+        "startLine": 25,
+        "startChar": 13,
+        "endLine": 25,
+        "endChar": 19
+      },
+      "revId": "65748b4d2a8f059d1499d9eba302040bb2cb19ec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c7bc7be_540c632c",
+        "filename": "mod2/helm-generator/coverage/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-09-29T15:40:14Z",
+      "side": 1,
+      "message": "1.0.1",
+      "range": {
+        "startLine": 42,
+        "startChar": 15,
+        "endLine": 42,
+        "endChar": 20
+      },
+      "revId": "65748b4d2a8f059d1499d9eba302040bb2cb19ec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84dcc577_6dd30fbe",
+        "filename": "mod2/helm-generator/coverage/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-09-29T15:40:14Z",
+      "side": 1,
+      "message": "1.0.1",
+      "range": {
+        "startLine": 47,
+        "startChar": 15,
+        "endLine": 47,
+        "endChar": 20
+      },
+      "revId": "65748b4d2a8f059d1499d9eba302040bb2cb19ec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
