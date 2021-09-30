@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "d63244f6_604fc774",
+        "filename": "mod2/helm-generator/Changelog.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-09-30T13:55:49Z",
+      "side": 1,
+      "message": "should mention [DCAEGEN2-2911] here, as in\n\n* [DCAEGEN2-2911] Refactor the code to make it more testable",
+      "revId": "65748b4d2a8f059d1499d9eba302040bb2cb19ec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ecf9b30e_ac396337",
         "filename": "mod2/helm-generator/coverage/pom.xml",
         "patchSetId": 1
@@ -48,6 +65,23 @@
     },
     {
       "key": {
+        "uuid": "98aa014f_136edb94",
+        "filename": "mod2/helm-generator/coverage/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-09-30T13:55:49Z",
+      "side": 1,
+      "message": "If this file WAS copied from a different repo, make certain that the ORIGINAL copyright notice is maintained. For example, if it was 2020 Nokia, then it should continue to say 2020 Nokia.",
+      "revId": "65748b4d2a8f059d1499d9eba302040bb2cb19ec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "14e77582_8c341f05",
         "filename": "mod2/helm-generator/coverage/pom.xml",
         "patchSetId": 1
@@ -65,6 +99,23 @@
         "endLine": 25,
         "endChar": 19
       },
+      "revId": "65748b4d2a8f059d1499d9eba302040bb2cb19ec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "70c14b7e_9dabed0b",
+        "filename": "mod2/helm-generator/coverage/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-09-30T13:55:49Z",
+      "side": 1,
+      "message": "question: does there need to be a \u003cversion\u003e block here?",
       "revId": "65748b4d2a8f059d1499d9eba302040bb2cb19ec",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
@@ -111,6 +162,74 @@
         "endLine": 47,
         "endChar": 20
       },
+      "revId": "65748b4d2a8f059d1499d9eba302040bb2cb19ec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ffd54fa_4f319450",
+        "filename": "mod2/helm-generator/helmchartgenerator-core/src/test/java/org/onap/dcaegen2/platform/helmchartgenerator/ChartMuseumDistributorTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-09-30T13:55:49Z",
+      "side": 1,
+      "message": "no newline at the end of the file",
+      "revId": "65748b4d2a8f059d1499d9eba302040bb2cb19ec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c1214e20_323e4196",
+        "filename": "mod2/helm-generator/helmchartgenerator-core/src/test/java/org/onap/dcaegen2/platform/helmchartgenerator/ComponentSpecParserTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-09-30T13:55:49Z",
+      "side": 1,
+      "message": "no newline at the end of the file",
+      "revId": "65748b4d2a8f059d1499d9eba302040bb2cb19ec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b123c73c_d8ce5305",
+        "filename": "mod2/helm-generator/helmchartgenerator-core/src/test/java/org/onap/dcaegen2/platform/helmchartgenerator/KeyValueMergerTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-09-30T13:55:49Z",
+      "side": 1,
+      "message": "no newline at the end of the file",
+      "revId": "65748b4d2a8f059d1499d9eba302040bb2cb19ec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54d5827e_99140e43",
+        "filename": "mod2/helm-generator/lombok.config",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-09-30T13:55:49Z",
+      "side": 1,
+      "message": "no newline at the end of the file",
       "revId": "65748b4d2a8f059d1499d9eba302040bb2cb19ec",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
