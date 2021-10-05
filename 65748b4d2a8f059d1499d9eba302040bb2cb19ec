@@ -82,6 +82,30 @@
     },
     {
       "key": {
+        "uuid": "42dd19b5_72656cc9",
+        "filename": "mod2/helm-generator/coverage/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 4389
+      },
+      "writtenOn": "2021-10-05T01:43:33Z",
+      "side": 1,
+      "message": "Accidentally added this file. Will be deleted.",
+      "parentUuid": "ecf9b30e_ac396337",
+      "range": {
+        "startLine": 4,
+        "startChar": 19,
+        "endLine": 4,
+        "endChar": 25
+      },
+      "revId": "65748b4d2a8f059d1499d9eba302040bb2cb19ec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "14e77582_8c341f05",
         "filename": "mod2/helm-generator/coverage/pom.xml",
         "patchSetId": 1
