@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da5c1999_d1a31626",
+        "filename": "mod/runtimeapi/runtime-core/pom.xml",
+        "patchSetId": 6
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-10-05T23:01:28Z",
+      "side": 1,
+      "message": "Need to switch to non-snapshot version; depenedent on merge of change - 124566",
+      "range": {
+        "startLine": 54,
+        "startChar": 21,
+        "endLine": 54,
+        "endChar": 35
+      },
+      "revId": "01f1b7901208d9ec7614d4d73a1668d7a4c0a385",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
