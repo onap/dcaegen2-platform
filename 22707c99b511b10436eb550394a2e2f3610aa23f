@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "640aea8e_7ff2d73a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 4389
+      },
+      "writtenOn": "2021-10-05T02:05:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94a7f9ff_a277d47f",
+      "revId": "22707c99b511b10436eb550394a2e2f3610aa23f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e85a5ce_592510e9",
         "filename": "mod/runtimeapi/data/imports/onapImports.yaml",
         "patchSetId": 3
@@ -33,6 +51,24 @@
       "revId": "22707c99b511b10436eb550394a2e2f3610aa23f",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2dee2bf3_b46892b8",
+        "filename": "mod/runtimeapi/data/imports/onapImports.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 4389
+      },
+      "writtenOn": "2021-10-05T02:05:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e85a5ce_592510e9",
+      "revId": "22707c99b511b10436eb550394a2e2f3610aa23f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -56,6 +92,30 @@
       "revId": "22707c99b511b10436eb550394a2e2f3610aa23f",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8caff88_35f34e5c",
+        "filename": "mod/runtimeapi/runtime-core/pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 4389
+      },
+      "writtenOn": "2021-10-05T02:05:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "979cfe8b_158520a6",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 21
+      },
+      "revId": "22707c99b511b10436eb550394a2e2f3610aa23f",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }

@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "719f3a13_47c3fd72",
+        "filename": "mod/runtimeapi/Changelog.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 4389
+      },
+      "writtenOn": "2021-10-05T02:05:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0593324_1715b2dd",
+      "revId": "9e14327184603bca65667b6e7eb661c8ceac2f13",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8ed46897_7666320c",
         "filename": "mod/runtimeapi/runtime-core/src/main/java/org/onap/dcae/runtime/core/helm/HelmChartGeneratorClientImpl.java",
         "patchSetId": 4
@@ -33,6 +51,24 @@
       "revId": "9e14327184603bca65667b6e7eb661c8ceac2f13",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b87abfac_9349ae49",
+        "filename": "mod/runtimeapi/runtime-core/src/main/java/org/onap/dcae/runtime/core/helm/HelmChartGeneratorClientImpl.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 4389
+      },
+      "writtenOn": "2021-10-05T02:05:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ed46897_7666320c",
+      "revId": "9e14327184603bca65667b6e7eb661c8ceac2f13",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "a8eeff57_594375e3",
+        "filename": "mod/runtimeapi/runtime-core/src/main/java/org/onap/dcae/runtime/core/helm/HelmChartGeneratorClientImpl.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 4389
+      },
+      "writtenOn": "2021-10-05T02:05:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb57e526_dbdf30e8",
+      "revId": "9e14327184603bca65667b6e7eb661c8ceac2f13",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0c9aeb9_36797ba2",
         "filename": "mod/runtimeapi/runtime-web/src/main/java/org/onap/dcae/runtime/web/controllers/GraphController.java",
         "patchSetId": 4
@@ -67,6 +121,24 @@
       "revId": "9e14327184603bca65667b6e7eb661c8ceac2f13",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44bf4c2e_3f20ce9c",
+        "filename": "mod/runtimeapi/runtime-web/src/main/java/org/onap/dcae/runtime/web/controllers/GraphController.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 4389
+      },
+      "writtenOn": "2021-10-05T02:05:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0c9aeb9_36797ba2",
+      "revId": "9e14327184603bca65667b6e7eb661c8ceac2f13",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "66d35649_904547c1",
+        "filename": "mod/runtimeapi/runtime-web/src/main/java/org/onap/dcae/runtime/web/controllers/GraphController.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 4389
+      },
+      "writtenOn": "2021-10-05T02:05:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6df083c3_e67a99d4",
+      "revId": "9e14327184603bca65667b6e7eb661c8ceac2f13",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4ad9d0ef_4b193ad2",
         "filename": "mod/runtimeapi/runtime-web/src/main/java/org/onap/dcae/runtime/web/controllers/GraphController.java",
         "patchSetId": 4
@@ -101,6 +191,24 @@
       "revId": "9e14327184603bca65667b6e7eb661c8ceac2f13",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8373a598_db9aa1fa",
+        "filename": "mod/runtimeapi/runtime-web/src/main/java/org/onap/dcae/runtime/web/controllers/GraphController.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 4389
+      },
+      "writtenOn": "2021-10-05T02:05:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ad9d0ef_4b193ad2",
+      "revId": "9e14327184603bca65667b6e7eb661c8ceac2f13",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "f86b707d_bdb2307b",
+        "filename": "mod/runtimeapi/runtime-web/src/main/java/org/onap/dcae/runtime/web/service/BlueprintInventory.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 4389
+      },
+      "writtenOn": "2021-10-05T02:05:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a52aa039_cec386b9",
+      "revId": "9e14327184603bca65667b6e7eb661c8ceac2f13",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f63a59f0_ad5219ea",
         "filename": "mod/runtimeapi/runtime-web/src/main/java/org/onap/dcae/runtime/web/service/GraphActionsParser.java",
         "patchSetId": 4
@@ -135,6 +261,24 @@
       "revId": "9e14327184603bca65667b6e7eb661c8ceac2f13",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5654689e_6b75f84a",
+        "filename": "mod/runtimeapi/runtime-web/src/main/java/org/onap/dcae/runtime/web/service/GraphActionsParser.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 4389
+      },
+      "writtenOn": "2021-10-05T02:05:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f63a59f0_ad5219ea",
+      "revId": "9e14327184603bca65667b6e7eb661c8ceac2f13",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "2af9e3f2_b67af88f",
+        "filename": "mod/runtimeapi/runtime-web/src/main/java/org/onap/dcae/runtime/web/service/GraphServiceHelmProxy.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 4389
+      },
+      "writtenOn": "2021-10-05T02:05:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d392d0ef_f3d4d7bb",
+      "revId": "9e14327184603bca65667b6e7eb661c8ceac2f13",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a9ca6312_b2a8d575",
         "filename": "mod/runtimeapi/runtime-web/src/main/java/org/onap/dcae/runtime/web/service/GraphServiceImpl.java",
         "patchSetId": 4
@@ -172,6 +334,24 @@
     },
     {
       "key": {
+        "uuid": "6c3f2247_1f7985d2",
+        "filename": "mod/runtimeapi/runtime-web/src/main/java/org/onap/dcae/runtime/web/service/GraphServiceImpl.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 4389
+      },
+      "writtenOn": "2021-10-05T02:05:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9ca6312_b2a8d575",
+      "revId": "9e14327184603bca65667b6e7eb661c8ceac2f13",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b8774326_d0a05ac3",
         "filename": "mod/runtimeapi/runtime-web/src/main/java/org/onap/dcae/runtime/web/service/GraphServiceImpl.java",
         "patchSetId": 4
@@ -186,6 +366,24 @@
       "revId": "9e14327184603bca65667b6e7eb661c8ceac2f13",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50a3f4cf_0cff75a5",
+        "filename": "mod/runtimeapi/runtime-web/src/main/java/org/onap/dcae/runtime/web/service/GraphServiceImpl.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 4389
+      },
+      "writtenOn": "2021-10-05T02:05:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8774326_d0a05ac3",
+      "revId": "9e14327184603bca65667b6e7eb661c8ceac2f13",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
