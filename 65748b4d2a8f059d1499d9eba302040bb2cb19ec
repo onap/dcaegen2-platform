@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "91d076d5_6a6535a8",
+        "filename": "mod2/helm-generator/Changelog.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-10-06T19:51:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bba47fcb_7b102bcf",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 10
+      },
+      "revId": "65748b4d2a8f059d1499d9eba302040bb2cb19ec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d63244f6_604fc774",
         "filename": "mod2/helm-generator/Changelog.md",
         "patchSetId": 1
@@ -39,6 +63,24 @@
       "revId": "65748b4d2a8f059d1499d9eba302040bb2cb19ec",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b16e248d_b8a6a6df",
+        "filename": "mod2/helm-generator/Changelog.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-10-06T19:51:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d63244f6_604fc774",
+      "revId": "65748b4d2a8f059d1499d9eba302040bb2cb19ec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -106,6 +148,48 @@
     },
     {
       "key": {
+        "uuid": "63442504_7ec63671",
+        "filename": "mod2/helm-generator/coverage/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-10-06T19:51:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42dd19b5_72656cc9",
+      "range": {
+        "startLine": 4,
+        "startChar": 19,
+        "endLine": 4,
+        "endChar": 25
+      },
+      "revId": "65748b4d2a8f059d1499d9eba302040bb2cb19ec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4dbe0ff2_6bd84bc9",
+        "filename": "mod2/helm-generator/coverage/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-10-06T19:51:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98aa014f_136edb94",
+      "revId": "65748b4d2a8f059d1499d9eba302040bb2cb19ec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "14e77582_8c341f05",
         "filename": "mod2/helm-generator/coverage/pom.xml",
         "patchSetId": 1
@@ -129,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "82b10cfd_edf9e26f",
+        "filename": "mod2/helm-generator/coverage/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-10-06T19:51:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14e77582_8c341f05",
+      "range": {
+        "startLine": 25,
+        "startChar": 13,
+        "endLine": 25,
+        "endChar": 19
+      },
+      "revId": "65748b4d2a8f059d1499d9eba302040bb2cb19ec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "70c14b7e_9dabed0b",
         "filename": "mod2/helm-generator/coverage/pom.xml",
         "patchSetId": 1
@@ -143,6 +251,24 @@
       "revId": "65748b4d2a8f059d1499d9eba302040bb2cb19ec",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "175c30b1_f452a6b8",
+        "filename": "mod2/helm-generator/coverage/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-10-06T19:51:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70c14b7e_9dabed0b",
+      "revId": "65748b4d2a8f059d1499d9eba302040bb2cb19ec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -169,6 +295,30 @@
     },
     {
       "key": {
+        "uuid": "2773c6d4_934b1a6a",
+        "filename": "mod2/helm-generator/coverage/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-10-06T19:51:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c7bc7be_540c632c",
+      "range": {
+        "startLine": 42,
+        "startChar": 15,
+        "endLine": 42,
+        "endChar": 20
+      },
+      "revId": "65748b4d2a8f059d1499d9eba302040bb2cb19ec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84dcc577_6dd30fbe",
         "filename": "mod2/helm-generator/coverage/pom.xml",
         "patchSetId": 1
@@ -192,6 +342,30 @@
     },
     {
       "key": {
+        "uuid": "4bd83392_dbac382b",
+        "filename": "mod2/helm-generator/coverage/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-10-06T19:51:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84dcc577_6dd30fbe",
+      "range": {
+        "startLine": 47,
+        "startChar": 15,
+        "endLine": 47,
+        "endChar": 20
+      },
+      "revId": "65748b4d2a8f059d1499d9eba302040bb2cb19ec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9ffd54fa_4f319450",
         "filename": "mod2/helm-generator/helmchartgenerator-core/src/test/java/org/onap/dcaegen2/platform/helmchartgenerator/ChartMuseumDistributorTest.java",
         "patchSetId": 1
@@ -206,6 +380,24 @@
       "revId": "65748b4d2a8f059d1499d9eba302040bb2cb19ec",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4090bbb8_a09fa731",
+        "filename": "mod2/helm-generator/helmchartgenerator-core/src/test/java/org/onap/dcaegen2/platform/helmchartgenerator/ChartMuseumDistributorTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-10-06T19:51:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ffd54fa_4f319450",
+      "revId": "65748b4d2a8f059d1499d9eba302040bb2cb19ec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -226,6 +418,24 @@
     },
     {
       "key": {
+        "uuid": "006caa14_5da38839",
+        "filename": "mod2/helm-generator/helmchartgenerator-core/src/test/java/org/onap/dcaegen2/platform/helmchartgenerator/ComponentSpecParserTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-10-06T19:51:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1214e20_323e4196",
+      "revId": "65748b4d2a8f059d1499d9eba302040bb2cb19ec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b123c73c_d8ce5305",
         "filename": "mod2/helm-generator/helmchartgenerator-core/src/test/java/org/onap/dcaegen2/platform/helmchartgenerator/KeyValueMergerTest.java",
         "patchSetId": 1
@@ -243,6 +453,24 @@
     },
     {
       "key": {
+        "uuid": "a6498d7c_e7a14657",
+        "filename": "mod2/helm-generator/helmchartgenerator-core/src/test/java/org/onap/dcaegen2/platform/helmchartgenerator/KeyValueMergerTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-10-06T19:51:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b123c73c_d8ce5305",
+      "revId": "65748b4d2a8f059d1499d9eba302040bb2cb19ec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "54d5827e_99140e43",
         "filename": "mod2/helm-generator/lombok.config",
         "patchSetId": 1
@@ -257,6 +485,24 @@
       "revId": "65748b4d2a8f059d1499d9eba302040bb2cb19ec",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0af4b594_d962e279",
+        "filename": "mod2/helm-generator/lombok.config",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-10-06T19:51:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54d5827e_99140e43",
+      "revId": "65748b4d2a8f059d1499d9eba302040bb2cb19ec",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
