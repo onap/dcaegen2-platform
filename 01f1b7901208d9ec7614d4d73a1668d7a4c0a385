@@ -22,6 +22,30 @@
       "revId": "01f1b7901208d9ec7614d4d73a1668d7a4c0a385",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aea750fa_f5da6e98",
+        "filename": "mod/runtimeapi/runtime-core/pom.xml",
+        "patchSetId": 6
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-10-08T16:26:29Z",
+      "side": 1,
+      "message": "As this components and depdendent jar is still in early phase - asked Dhrumin to skip the enforced plugin to allow snapshots. Once helm-gen jar is released, this will be updated.",
+      "parentUuid": "da5c1999_d1a31626",
+      "range": {
+        "startLine": 54,
+        "startChar": 21,
+        "endLine": 54,
+        "endChar": 35
+      },
+      "revId": "01f1b7901208d9ec7614d4d73a1668d7a4c0a385",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
