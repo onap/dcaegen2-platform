@@ -47,7 +47,7 @@ setup(
                       'Werkzeug==0.16.1',
                       'python-consul<1.0.0',
                       'six',
-                      'sqlalchemy',
+                      'sqlalchemy==1.3.23',
                       'SQLAlchemy-Utils',
                       'click>=6.0,<7.0',
                       'jsonschema',
