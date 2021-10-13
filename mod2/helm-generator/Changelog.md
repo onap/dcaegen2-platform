@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.0.2]- 2021-10-13
+*  [DCAEGEN2-2936] Convert streams_publishes and streams_subscribes json strings under applicationConfig to map
+
 ## [1.0.1]- 2021-10-04
 
 *  [DCAEGEN2-2911] Refactor the code to make it more testable
