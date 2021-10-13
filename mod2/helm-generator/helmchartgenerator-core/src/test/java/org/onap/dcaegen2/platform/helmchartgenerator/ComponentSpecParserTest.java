@@ -69,6 +69,7 @@ class ComponentSpecParserTest {
 
     private void assertApplicationConfigSection(ChartInfo chartInfo) {
         Map<String, Object> applicationConfig = (Map<String, Object>) chartInfo.getValues().get("applicationConfig");
+        assertThat(((Map<String,Object>) applicationConfig.get("streams_publishes"))).isInstanceOf(Map.class);
         assertThat(applicationConfig.size()).isEqualTo(20);
     }
 
