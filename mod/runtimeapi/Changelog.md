@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) 
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.3.0] - 2021-10-13
+- [DCAEGEN2-2936] Update helmgen-core to 1.0.2
+- [DCAEGEN2-2936] Update helm version to 3.5.4
+
 ## [1.3.0] - 2021-09-16
 - [DCAEGEN2-2694] Integrate helm chart generator
     - create a switch to toggle between blueprint and helm based deployment types
