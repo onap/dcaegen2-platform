@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "f900b12f_d4132826",
+        "filename": "mod2/helm-generator/Changelog.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-10-14T21:25:20Z",
+      "side": 1,
+      "message": "file does not end with a newline",
+      "revId": "9c145dad3ca12b84c573aa805fad88bc85faeb93",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6265e116_cbbfa7e6",
         "filename": "mod2/helm-generator/helmchartgenerator-core/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/chartbuilder/ComponentSpecParser.java",
         "patchSetId": 1
