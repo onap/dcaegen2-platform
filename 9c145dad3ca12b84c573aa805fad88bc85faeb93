@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6265e116_cbbfa7e6",
+        "filename": "mod2/helm-generator/helmchartgenerator-core/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/chartbuilder/ComponentSpecParser.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-10-14T19:54:40Z",
+      "side": 1,
+      "message": "This is still being written out as string\n\n  streams_publishes: \u0027{\"tca_handle_out\":{\"dmaap_info\":{\"topic_url\":\"http://message-router:3904/events/unauthenticated.DCAE_CL_OUTPUT\"},\"type\":\"message_router\"}}\u0027\n  streams_subscribes: \u0027{\"tca_handle_in\":{\"dmaap_info\":{\"topic_url\":\"http://message-router:3904/events/unauthenticated.VES_MEASUREMENT_OUTPUT\"},\"type\":\"message_router\"}}\u0027",
+      "range": {
+        "startLine": 125,
+        "startChar": 31,
+        "endLine": 125,
+        "endChar": 73
+      },
+      "revId": "9c145dad3ca12b84c573aa805fad88bc85faeb93",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
