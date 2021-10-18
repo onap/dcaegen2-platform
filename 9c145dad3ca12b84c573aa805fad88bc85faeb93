@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "670390a0_2f6ffa55",
+        "filename": "mod2/helm-generator/Changelog.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 4389
+      },
+      "writtenOn": "2021-10-18T20:25:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f900b12f_d4132826",
+      "revId": "9c145dad3ca12b84c573aa805fad88bc85faeb93",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6265e116_cbbfa7e6",
         "filename": "mod2/helm-generator/helmchartgenerator-core/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/chartbuilder/ComponentSpecParser.java",
         "patchSetId": 1
@@ -39,6 +57,30 @@
       "revId": "9c145dad3ca12b84c573aa805fad88bc85faeb93",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8530276_0c79bc7f",
+        "filename": "mod2/helm-generator/helmchartgenerator-core/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/chartbuilder/ComponentSpecParser.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 4389
+      },
+      "writtenOn": "2021-10-18T20:25:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6265e116_cbbfa7e6",
+      "range": {
+        "startLine": 125,
+        "startChar": 31,
+        "endLine": 125,
+        "endChar": 73
+      },
+      "revId": "9c145dad3ca12b84c573aa805fad88bc85faeb93",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
