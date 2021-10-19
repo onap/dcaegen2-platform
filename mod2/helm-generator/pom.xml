@@ -33,7 +33,7 @@
 
 	<groupId>org.onap.dcaegen2.platform</groupId>
 	<artifactId>helmchartgenerator</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>1.0.2-SNAPSHOT</version>
 	<name>helm-chart-generator</name>
 	<description>Helm chart generator</description>
 	<properties>

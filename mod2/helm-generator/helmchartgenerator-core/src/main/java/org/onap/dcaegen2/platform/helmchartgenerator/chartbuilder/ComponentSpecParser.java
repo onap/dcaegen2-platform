@@ -18,6 +18,9 @@
 
 package org.onap.dcaegen2.platform.helmchartgenerator.chartbuilder;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.onap.dcaegen2.platform.helmchartgenerator.Utils;
 import org.onap.dcaegen2.platform.helmchartgenerator.models.chartinfo.ChartInfo;
 import org.onap.dcaegen2.platform.helmchartgenerator.models.chartinfo.Metadata;
@@ -39,6 +42,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -48,6 +52,7 @@ import java.util.Map;
  * ComponentSpecParser reads a componentspec file and collects useful data for helm chart generation.
  * @author Dhrumin Desai
  */
+@Slf4j
 @Component
 public class ComponentSpecParser {
 
@@ -117,9 +122,26 @@ public class ComponentSpecParser {
         Map<String, Object> applicationConfig = new LinkedHashMap<>();
          Parameters[] parameters = cs.getParameters();
          for(Parameters param : parameters){
-            applicationConfig.put(param.getName(), param.getValue());
+             if (Arrays.asList("streams_publishes", "streams_subscribes").contains(param.getName())){
+                 applicationConfig.put(param.getName(), parseStringToMap(param.getValue()));
+             }else
+             {
+                 applicationConfig.put(param.getName(), param.getValue());
+             }
          }
         utils.putIfNotNull(outerValues,"applicationConfig", applicationConfig);
+    }
+
+    private Object parseStringToMap(Object value) {
+        if (value instanceof String){
+            try {
+                return new ObjectMapper().readValue((String)value, Map.class);
+            } catch (JsonProcessingException e) {
+                log.error(e.getMessage(), e);
+                log.warn("could not parse streams_publishes / streams_subscribes. Default value will be used.");
+            }
+        }
+        return value;
     }
 
     private void populateReadinessSection(Map<String, Object> outerValues, ComponentSpec cs) {
