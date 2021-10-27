@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "afd4796a_4e9918eb",
+        "filename": "mod2/helm-generator/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-10-27T18:01:08Z",
+      "side": 1,
+      "message": "the port is only needed if it\u0027s not the standard 80 for http or 443 for https.",
+      "revId": "09bb732e09ba9d951d8a8875ba852ff1209f5da7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6416d288_c953de4f",
+        "filename": "mod2/helm-generator/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-10-27T18:01:08Z",
+      "side": 1,
+      "message": "there\u0027s no newline at the end of the file",
+      "revId": "09bb732e09ba9d951d8a8875ba852ff1209f5da7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa32d014_8fff6076",
+        "filename": "mod2/helm-generator/helmchartgenerator-core/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/chartbuilder/AddOnsManager.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-10-27T18:01:08Z",
+      "side": 1,
+      "message": "useExternalTls is a Boolean, so you don\u0027t have to check .equals(true). You can just use tlsInfo.getUseExternalTls() by itself (like it\u0027s checked in ComponentSpecParser.java populateCertificatesSection())",
+      "revId": "09bb732e09ba9d951d8a8875ba852ff1209f5da7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee45f618_8378ab15",
+        "filename": "mod2/helm-generator/helmchartgenerator-core/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/chartbuilder/ComponentSpecParser.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-10-27T18:01:08Z",
+      "side": 1,
+      "message": "useExternalTls is a Boolean, so you don\u0027t have to check .equals(true). You can just use tlsInfo.getUseExternalTls() by itself (like it\u0027s checked in populateCertificatesSection() above)",
+      "revId": "09bb732e09ba9d951d8a8875ba852ff1209f5da7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90f2f11b_c9f4385b",
+        "filename": "mod2/helm-generator/helmchartgenerator-core/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/chartbuilder/ComponentSpecParser.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-10-27T18:01:08Z",
+      "side": 1,
+      "message": "???? \nWhy put a value for the same key in three times? Only the last one will remain.",
+      "revId": "09bb732e09ba9d951d8a8875ba852ff1209f5da7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4087a740_047026dd",
+        "filename": "mod2/helm-generator/helmchartgenerator-core/src/main/resources/component-spec-schema.json",
+        "patchSetId": 2
+      },
+      "lineNbr": 1162,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-10-27T18:01:08Z",
+      "side": 1,
+      "message": "no newline at the end of the file",
+      "revId": "09bb732e09ba9d951d8a8875ba852ff1209f5da7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a1cb997_7c91e923",
+        "filename": "mod2/helm-generator/helmchartgenerator-core/src/test/java/org/onap/dcaegen2/platform/helmchartgenerator/ComponentSpecParserTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-10-27T18:01:08Z",
+      "side": 1,
+      "message": "use .isTrue() instead of .isEqualTo(true)\n\nsame for other uses of isEqualTo(true)",
+      "revId": "09bb732e09ba9d951d8a8875ba852ff1209f5da7",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
