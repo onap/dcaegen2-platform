@@ -148,7 +148,7 @@
                             }
                         },
                         "required": [
-                            "node_label",
+                            "policy_id",
                             "policy_model_id"
                         ]
                     }
@@ -904,7 +904,7 @@
                                     "type": "string",
                                     "enum": [
                                         "NodePort",
-                                        "Cluster"
+                                        "ClusterIP"
                                     ]
                                 },
                                 "name": {

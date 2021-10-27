@@ -24,6 +24,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.onap.dcaegen2.platform.helmchartgenerator.chartbuilder.AddOnsManager;
 import org.onap.dcaegen2.platform.helmchartgenerator.chartbuilder.ChartGenerator;
 import org.onap.dcaegen2.platform.helmchartgenerator.chartbuilder.HelmClient;
 import org.onap.dcaegen2.platform.helmchartgenerator.chartbuilder.KeyValueMerger;
@@ -43,12 +44,15 @@ class ChartGeneratorTest {
     @Mock
     private Utils utils;
 
+    @Mock
+    private AddOnsManager addOnsManager;
+
     @Test
     void testChartGenerationSteps() throws Exception{
-        ChartGenerator chartGenerator = new ChartGenerator(helmClient, kvMerger, utils);
+        ChartGenerator chartGenerator = new ChartGenerator(helmClient, kvMerger, utils, addOnsManager);
         Mockito.when(utils.cloneFileToTempLocation(any())).thenReturn(any());
 
-        chartGenerator.generate("src/test/input/blueprint", new ChartInfo(), "src/test/output");
+        chartGenerator.generate("src/test/input/blueprint", new ChartInfo(), "src/test/output", "specFileLocation");
 
         Mockito.verify(kvMerger, Mockito.times(1)).mergeValuesToChart(any(), any());
         Mockito.verify(helmClient, Mockito.times(1)).lint(any());

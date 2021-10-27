@@ -43,16 +43,21 @@ public class ChartGenerator {
     @Autowired
     private Utils utils;
 
+    @Autowired
+    private AddOnsManager addOnsManager;
+
     /**
      * Constructor for ChartGenerator
      * @param helmClient HelmClient implementation
      * @param merger KeyValueMerger implementation
      * @param utils
+     * @param addOnsManager
      */
-    public ChartGenerator(HelmClient helmClient, KeyValueMerger merger, Utils utils) {
+    public ChartGenerator(HelmClient helmClient, KeyValueMerger merger, Utils utils, AddOnsManager addOnsManager) {
         this.helmClient = helmClient;
         this.merger = merger;
         this.utils = utils;
+        this.addOnsManager = addOnsManager;
     }
 
     /**
@@ -60,10 +65,12 @@ public class ChartGenerator {
      * @param chartBlueprintLocation location of the base helm chart template
      * @param chartInfo chartInfo object with key-values parsed from the specfile.
      * @param outputLocation location to store the helm chart
+     * @param specFileLocation
      * @return generated helm chart tgz file
      */
-    public File generate(String chartBlueprintLocation, ChartInfo chartInfo, String outputLocation) {
+    public File generate(String chartBlueprintLocation, ChartInfo chartInfo, String outputLocation, String specFileLocation) {
         File newChartDir = utils.cloneFileToTempLocation(chartBlueprintLocation + "/base");
+        addOnsManager.includeAddons(specFileLocation, newChartDir, chartBlueprintLocation);
         merger.mergeValuesToChart(chartInfo, newChartDir);
         helmClient.lint(newChartDir);
         final File chartLocation = helmClient.packageChart(newChartDir, outputLocation);

@@ -69,6 +69,6 @@ public class ChartBuilder {
     public File build(String specFileLocation, String chartTemplateLocation, String outputLocation, String specSchemaLocation ) throws Exception {
         validator.validateChartTemplateStructure(chartTemplateLocation);
         ChartInfo chartInfo = specParser.extractChartInfo(specFileLocation, chartTemplateLocation, specSchemaLocation);
-        return chartGenerator.generate(chartTemplateLocation, chartInfo, outputLocation);
+        return chartGenerator.generate(chartTemplateLocation, chartInfo, outputLocation, specFileLocation);
     }
 }
