@@ -48,7 +48,7 @@ class ChartBuilderTest {
         builder.build("someSpec", "someChartLocation", "someOutputLocation", "someSpecSchemaLocation");
 
         Mockito.verify(specParser, Mockito.times(1)).extractChartInfo(any(), any(), any());
-        Mockito.verify(chartGenerator, Mockito.times(1)).generate(any(), any(), any());
+        Mockito.verify(chartGenerator, Mockito.times(1)).generate(any(), any(), any(), any());
         Mockito.verify(validator, Mockito.times(1)).validateChartTemplateStructure(any());
     }
 }
