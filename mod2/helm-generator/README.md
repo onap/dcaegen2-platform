@@ -1,11 +1,18 @@
 ## Instructions for running helm chart generator
-version: 1.0.0-SNAPSHOT
+version: 1.0.2-SNAPSHOT
 
 1. Must have helm installed.
 
 2. Run `mvn clean package` to build and package the code.
 
-3. Run main class `HelmChartGeneratorApplication` with parameters added to configuration properties, set in the following order:
+3. Discover helmchartgenerator-cli-<version>.jar under helmchartgenerator-cli/target
+
+4. Override the default values for Chart Museum APIs for chart distribution by setting the following ENV variables:
+    CHARTMUSEUM_BASEURL -> Base URL along with a port of Chart Museum (e.g "http://chartmuseum:8080") 
+    CHARTMUSEUM_AUTH_BASIC_USERNAME -> Username for basic auth
+    CHARTMUSEUM_AUTH_BASIC_PASSWORD -> Password for basic auth
+
+5. Run the jar with these parameters set in the following order:
     1. Spec file location
     2. Chart directory location
     3. Output directory location

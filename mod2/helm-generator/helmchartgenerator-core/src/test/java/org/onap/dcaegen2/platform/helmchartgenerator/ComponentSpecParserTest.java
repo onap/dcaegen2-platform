@@ -79,6 +79,7 @@ class ComponentSpecParserTest {
         assertThat(outerKv.get("logDirectory")).isEqualTo("/opt/app/VESCollector/logs/");
         assertThat(outerKv.get("certDirectory")).isEqualTo("/opt/app/dcae-certificate/");
         assertThat(outerKv.get("tlsServer")).isEqualTo(true);
+        assertThat(outerKv.get("useCmpv2Certificates")).isEqualTo(true);
     }
 
     private void assertMetadata(ChartInfo chartInfo) {
@@ -143,7 +144,7 @@ class ComponentSpecParserTest {
         assertThat(certificate.get("commonName")).isEqualTo("dcae-ves-collector");
         assertThat(((List) certificate.get("dnsNames")).get(0)).isEqualTo("dcae-ves-collector");
         assertThat(((List) ((Map<String, Map>) certificate.get("keystore")).get("outputType")).get(0)).isEqualTo("jks");
-        assertThat((((Map<String, Map>) certificate.get("keystore")).get("passwordSecretRef")).get("name")).isEqualTo("ves-collector-cmpv2-keystore-password");
+        assertThat((((Map<String, Map>) certificate.get("keystore")).get("passwordSecretRef")).get("name")).isEqualTo("vescollector-cmpv2-keystore-password");
         assertThat((((Map<String, Map>) certificate.get("keystore")).get("passwordSecretRef")).get("key")).isEqualTo("password");
         assertThat((((Map<String, Map>) certificate.get("keystore")).get("passwordSecretRef")).get("create")).isEqualTo(true);
     }
@@ -168,18 +169,18 @@ class ComponentSpecParserTest {
         assertThat(((Map<String, Object>) ((Map<String, Object>) postgres.get("container")).get("name")).get("replica")).isEqualTo("dcae-ves-collector-pg-replica");
         assertThat(((Map<String, Object>) postgres.get("persistence")).get("mountSubPath")).isEqualTo("dcae-ves-collector/data");
         assertThat(((Map<String, Object>) postgres.get("persistence")).get("mountInitPath")).isEqualTo("dcae-ves-collector");
-        assertThat(((Map<String, Object>) postgres.get("config")).get("pgUserName")).isEqualTo("ves-collector");
-        assertThat(((Map<String, Object>) postgres.get("config")).get("pgDatabase")).isEqualTo("ves-collector");
-        assertThat(((Map<String, Object>) postgres.get("config")).get("pgUserExternalSecret")).isEqualTo("{{ include \"common.release\" . }}-ves-collector-pg-user-creds");
+        assertThat(((Map<String, Object>) postgres.get("config")).get("pgUserName")).isEqualTo("vescollector");
+        assertThat(((Map<String, Object>) postgres.get("config")).get("pgDatabase")).isEqualTo("vescollector");
+        assertThat(((Map<String, Object>) postgres.get("config")).get("pgUserExternalSecret")).isEqualTo("{{ include \"common.release\" . }}-vescollector-pg-user-creds");
     }
 
     private void assertSecrets(ChartInfo chartInfo) {
         List<Object> secrets = (List<Object>) chartInfo.getValues().get("secrets");
         Map<String, Object> secret1 = (Map<String, Object>) secrets.get(0);
         assertThat(secret1.get("uid")).isEqualTo("pg-user-creds");
-        assertThat(secret1.get("name")).isEqualTo("{{ include \"common.release\" . }}-ves-collector-pg-user-creds");
+        assertThat(secret1.get("name")).isEqualTo("{{ include \"common.release\" . }}-vescollector-pg-user-creds");
         assertThat(secret1.get("type")).isEqualTo("basicAuth");
-        assertThat(secret1.get("externalSecret")).isEqualTo("{{ ternary \"\" (tpl (default \"\" .Values.postgres.config.pgUserExternalSecret) .) (hasSuffix \"ves-collector-pg-user-creds\" .Values.postgres.config.pgUserExternalSecret) }}");
+        assertThat(secret1.get("externalSecret")).isEqualTo("{{ ternary \"\" (tpl (default \"\" .Values.postgres.config.pgUserExternalSecret) .) (hasSuffix \"vescollector-pg-user-creds\" .Values.postgres.config.pgUserExternalSecret) }}");
         assertThat(secret1.get("login")).isEqualTo("{{ .Values.postgres.config.pgUserName }}");
         assertThat(secret1.get("password")).isEqualTo("{{ .Values.postgres.config.pgUserPassword }}");
         assertThat(secret1.get("passwordPolicy")).isEqualTo("generate");
