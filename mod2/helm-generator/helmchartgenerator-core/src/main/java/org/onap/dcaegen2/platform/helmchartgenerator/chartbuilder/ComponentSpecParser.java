@@ -243,7 +243,8 @@ public class ComponentSpecParser {
         Map<String, Object> keystore = new LinkedHashMap<>();
         Map<String, Object> passwordsSecretRef = new LinkedHashMap<>();
         TlsInfo tlsInfo = cs.getAuxilary().getTlsInfo();
-        String componentName = getComponentNameWithOmitFirstWord(cs);
+        String componentName = getComponentNameWithOmitFirstWordAndTrimHyphens(cs);
+        outerValues.put("useCmpv2Certificates", false);
         if(externalTlsExists(tlsInfo)) {
             String mountPath = tlsInfo.getCertDirectory();
             if(tlsInfo.getUseExternalTls() != null && tlsInfo.getUseExternalTls()) {
@@ -260,15 +261,16 @@ public class ComponentSpecParser {
             utils.putIfNotNull(certificate,"dnsNames", List.of(cs.getSelf().getName()));
             certificate.put("keystore", keystore);
             outerValues.put("certificates", List.of(certificate));
+            outerValues.put("useCmpv2Certificates", true);
         }
     }
 
-    private String getComponentNameWithOmitFirstWord(ComponentSpec cs) {
-        return cs.getSelf().getName().substring(cs.getSelf().getName().indexOf("-") + 1);
+    private String getComponentNameWithOmitFirstWordAndTrimHyphens(ComponentSpec cs) {
+        return cs.getSelf().getName().substring(cs.getSelf().getName().indexOf("-") + 1).replaceAll("-","");
     }
 
     private boolean externalTlsExists(TlsInfo tlsInfo) {
-        return tlsInfo != null && tlsInfo.getUseExternalTls() != null && tlsInfo.getUseExternalTls().equals(true);
+        return tlsInfo != null && tlsInfo.getUseExternalTls() != null && tlsInfo.getUseExternalTls();
     }
 
     private void checkCertificateYamlExists(String chartTemplateLocation) {
@@ -301,7 +303,7 @@ public class ComponentSpecParser {
     private void populatePostgresSection(Map<String, Object> outerValues, ComponentSpec cs) {
         if(cs.getAuxilary().getDatabases() != null) {
             String componentFullName = cs.getSelf().getName();
-            String component = getComponentNameWithOmitFirstWord(cs);
+            String component = getComponentNameWithOmitFirstWordAndTrimHyphens(cs);
             Map<String, Object> postgres = new LinkedHashMap<>();
             Map<String, Object> service = new LinkedHashMap<>();
             Map<String, Object> container = new LinkedHashMap<>();
@@ -332,7 +334,7 @@ public class ComponentSpecParser {
 
     private void populateSecretsSection(Map<String, Object> outerValues, ComponentSpec cs) {
         if(cs.getAuxilary().getDatabases() != null) {
-            String component = getComponentNameWithOmitFirstWord(cs);
+            String component = getComponentNameWithOmitFirstWordAndTrimHyphens(cs);
             List<Object> secrets = new ArrayList<>();
             Map<String, Object> secret = new LinkedHashMap<>();
             secret.put("uid", "pg-user-creds");
