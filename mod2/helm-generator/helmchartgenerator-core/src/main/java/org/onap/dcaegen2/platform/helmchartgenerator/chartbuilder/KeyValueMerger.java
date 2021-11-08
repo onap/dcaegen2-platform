@@ -78,10 +78,23 @@ public class KeyValueMerger {
         Map<String, Object> valuesYamlKv;
         try {
             valuesYamlKv = yaml.load(new FileInputStream(valuesYamlFilePath));
+            changeNameOverrideUnderServiceAccount(valuesYamlKv, chartInfo);
             valuesYamlKv.putAll(chartInfo.getValues());
             yaml.dump(valuesYamlKv, new PrintWriter(valuesYamlFilePath));
         } catch (FileNotFoundException e) {
             log.error(e.getMessage());
+        }
+    }
+
+    private void changeNameOverrideUnderServiceAccount(Map<String, Object> valuesYamlKv, ChartInfo chartInfo) {
+        if(valuesYamlKv.containsKey("serviceAccount")){
+            Map<String,Object> serviceAccount = (Map<String, Object>) valuesYamlKv.get("serviceAccount");
+            if(serviceAccount.containsKey("nameOverride")){
+                serviceAccount.put("nameOverride", chartInfo.getMetadata().getName());
+            }
+        }
+        else{
+            log.warn("No serviceAccount section found in the values.yaml file. Skipping nameOverride substitution.");
         }
     }
 

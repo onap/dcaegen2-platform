@@ -19,6 +19,7 @@
 package org.onap.dcaegen2.platform.helmchartgenerator;
 
 import org.apache.commons.io.FileUtils;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -37,6 +38,7 @@ import java.io.InputStream;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -66,6 +68,29 @@ class KeyValueMergerTest {
 
         merger.mergeValuesToChart(chartInfo, chartDir);
         Mockito.verify(yamlHelper, Mockito.times(2)).dump(any(HashMap.class), any(PrintWriter.class));
+    }
+
+    @Test
+    void testServiceAccountNameOverrride() throws Exception{
+        ChartInfo chartInfo = prepareChartInfo();
+        chartDir = prepareChartDir();
+        HashMap<String, Object> valuesKvWithSA = getValuesKvWithSA();
+        Mockito.when(yamlHelper.load(any(InputStream.class))).thenReturn(valuesKvWithSA);
+
+        merger.mergeValuesToChart(chartInfo, chartDir);
+
+        Map<String, Object> serviceAccountKv = (Map<String, Object>) valuesKvWithSA.get("serviceAccount");
+        Assertions.assertThat(serviceAccountKv.get("nameOverride")).isEqualTo("someComponent");
+    }
+
+    private HashMap<String, Object> getValuesKvWithSA() {
+        HashMap<String, Object> innerKV = new HashMap<>();
+        innerKV.put("nameOverride", "TBD");
+        innerKV.put("roles", Arrays.asList("read"));
+
+        HashMap<String, Object> KV = new HashMap<>();
+        KV.put("serviceAccount", innerKV);
+        return KV;
     }
 
     @AfterEach
