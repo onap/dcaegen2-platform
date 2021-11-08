@@ -22,6 +22,57 @@
       "revId": "7b0b9b2bb61b3ed6a956178d319f232eb7cc4378",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cbe48622_5c5e5a0a",
+        "filename": "mod2/helm-generator/helmchartgenerator-cli/src/test/input/blueprint/base/values.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-11-08T17:41:51Z",
+      "side": 1,
+      "message": "is this update finished?",
+      "revId": "7b0b9b2bb61b3ed6a956178d319f232eb7cc4378",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5311c47d_6a7c2186",
+        "filename": "mod2/helm-generator/helmchartgenerator-core/src/main/java/org/onap/dcaegen2/platform/helmchartgenerator/chartbuilder/KeyValueMerger.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-11-08T17:41:51Z",
+      "side": 1,
+      "message": "is there a test for this change?",
+      "revId": "7b0b9b2bb61b3ed6a956178d319f232eb7cc4378",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e4a8248_100637dd",
+        "filename": "mod2/helm-generator/helmchartgenerator-core/src/test/input/blueprint/base/values.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-11-08T17:41:51Z",
+      "side": 1,
+      "message": "is this update finished?",
+      "revId": "7b0b9b2bb61b3ed6a956178d319f232eb7cc4378",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
