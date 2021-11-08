@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bff4a1a7_f6b25518",
+        "filename": "mod2/helm-generator/helmchartgenerator-cli/src/test/input/blueprint/base/Chart.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-11-08T17:06:10Z",
+      "side": 1,
+      "message": "Istanbul",
+      "range": {
+        "startLine": 18,
+        "startChar": 13,
+        "endLine": 18,
+        "endChar": 21
+      },
+      "revId": "7b0b9b2bb61b3ed6a956178d319f232eb7cc4378",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
