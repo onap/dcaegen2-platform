@@ -94,3 +94,9 @@ resources:
       cpu: 2
       memory: 2Gi
   unlimited: {}
+
+serviceAccount:
+  nameOverride: TBD
+  roles:
+    - read
+
