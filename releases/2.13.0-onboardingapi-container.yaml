@@ -1,0 +1,9 @@
+distribution_type: 'container'
+container_release_tag: '2.13.0'
+project: 'dcaegen2-platform'
+log_dir: 'dcaegen2-platform-mod-onboardingapi-docker-merge-master/97'
+ref: 8852e683a9cd036f1b0d7cb38153b88eded329de
+containers:
+  - name: 'org.onap.dcaegen2.platform.mod.onboardingapi'
+    version: '2.13.0-SNAPSHOT-20211026T020253Z'
+git_tag: '2.13.0-mod-onboardingapi'
