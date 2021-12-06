@@ -2,7 +2,6 @@
 # org.onap.dcae
 # =============================================================================
 # Copyright (c) 2019 AT&T Intellectual Property. All rights reserved.
-# =============================================================================
 # Copyright (c) 2021 highstreet technologies GmbH. All rights reserved.
 # =============================================================================
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,7 +21,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="aoconversion",
-    version="1.0.6-SNAPSHOT",
+    version="1.0.7",
     packages=find_packages(exclude=["tests.*", "tests"]),
     author="Tommy Carpenter, Andrew Gauld",
     author_email="tommy@research.att.com, agauld@att.com",
