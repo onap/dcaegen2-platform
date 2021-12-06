@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9e9848d7_fbb60db5",
+        "filename": "adapter/acumos/Changelog.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-12-06T19:22:41Z",
+      "side": 1,
+      "message": "These dates are ambiguous. Please change ALL dates to YYYY/MM/DD",
+      "revId": "683ed0a6d1a09ec3fff3f009bfd38aec1ea79af9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c688049_efda881b",
+        "filename": "adapter/acumos/Changelog.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-12-06T19:22:41Z",
+      "side": 1,
+      "message": "add the JIRA ticket reference here (DCAEGEN2-XXXX)",
+      "revId": "683ed0a6d1a09ec3fff3f009bfd38aec1ea79af9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a73000e0_f4cd18c7",
+        "filename": "adapter/acumos/pom.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-12-06T19:22:41Z",
+      "side": 1,
+      "message": "remove the \u003d\u003d\u003d\u003d\u003d\u003d line between the copyrights",
+      "revId": "683ed0a6d1a09ec3fff3f009bfd38aec1ea79af9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90b89d65_40774404",
+        "filename": "adapter/acumos/setup.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-12-06T19:22:41Z",
+      "side": 1,
+      "message": "remove the \u003d\u003d\u003d\u003d\u003d\u003d line between the copyrights",
+      "revId": "683ed0a6d1a09ec3fff3f009bfd38aec1ea79af9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e00f3e2a_0891fdac",
+        "filename": "adapter/acumos/setup.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-12-06T19:22:41Z",
+      "side": 1,
+      "message": "remove \"-SNAPSHOT\"",
+      "revId": "683ed0a6d1a09ec3fff3f009bfd38aec1ea79af9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87ce47f1_f2b21004",
+        "filename": "adapter/acumos/tox.ini",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-12-06T19:22:41Z",
+      "side": 1,
+      "message": "add copyright highstreet line",
+      "revId": "683ed0a6d1a09ec3fff3f009bfd38aec1ea79af9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
