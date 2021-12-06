@@ -29,5 +29,5 @@ def gen_dcae_artifacts_for_model(config, model_name, model_version="latest"):
     model_repo_path = config.tmpdir
     docker_uri = docker_gen.build_and_push_docker(config, model_name, model_version)
     data_formats = dataformat_gen.generate_dcae_data_formats(model_repo_path, model_name)
-    spec = spec_gen.generate_spec(model_repo_path, model_name, data_formats, docker_uri)
+    spec = spec_gen.generate_spec(model_repo_path, model_name, data_formats, model_version)
     return docker_uri, data_formats, spec

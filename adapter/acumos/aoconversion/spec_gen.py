@@ -21,7 +21,6 @@
 Generates DCAE component specs
 """
 
-
 import json
 from jsonschema import validate
 from aoconversion import utils
@@ -38,12 +37,12 @@ def _get_format_version(target_name, data_formats):
             return df["self"]["version"]
 
 
-def _generate_spec(model_name, meta, dcae_cs_schema, data_formats, docker_uri):
+def _generate_spec(model_name, meta, dcae_cs_schema, data_formats, model_version):
     """
     Function that generates the component spec from the model metadata and docker info
     Broken out to be unit-testable.
     """
-
+    docker_uri = "{}:{}".format(model_name, model_version)
     spec = {
         "self": {
             "version": "1.0.0",  # hopefully we get this from somewhere and not hardcode this
@@ -54,7 +53,13 @@ def _generate_spec(model_name, meta, dcae_cs_schema, data_formats, docker_uri):
         "services": {"calls": [], "provides": []},
         "streams": {"subscribes": [], "publishes": []},
         "parameters": [],
-        "auxilary": {"healthcheck": {"type": "http", "endpoint": "/healthcheck"}},
+        "auxilary": {"helm": {"service": {"type": "ClusterIP",
+                                          "name": model_name,
+                                          "has_internal_only_ports": "true",
+                                          "ports": [{"name": "http", "port": 8443, "plain_port": 8080,
+                                                     "port_protocol": "http"}]}},
+                     "healthcheck": {"type": "HTTP", "interval": "15s", "timeout": "1s", "port": 8080,
+                                     "endpoint": "/healthcheck"}},
         "artifacts": [{"type": "docker image", "uri": docker_uri}],
     }
 
@@ -62,7 +67,6 @@ def _generate_spec(model_name, meta, dcae_cs_schema, data_formats, docker_uri):
     # each model method gets a subscruber and a publisher, using the methood name
     pstype = "message_router"
     for method in meta["methods"]:
-
         df_in_name = utils.validate_format(meta, method, "input")
         subscriber = {
             "config_key": "{0}_subscriber".format(method),
@@ -82,21 +86,48 @@ def _generate_spec(model_name, meta, dcae_cs_schema, data_formats, docker_uri):
             "type": pstype,
         }
 
+        publisher = {
+            "config_key": "{0}_publisher".format(method),
+            "format": df_out_name,
+            "version": _get_format_version(df_out_name, data_formats),
+            "type": pstype,
+        }
+        parameter_subscriber = {
+            "name": "streams_subscribes",
+            "value": "{{\"{0}_subscriber\":{{\"dmaap_info\":{{\"topic_url\":\"http://message-router:3904/events/unauthenticated.{1}_In\"}},\"type\":\"message_router\"}}}}".format(
+                method, model_name),
+
+            "description": "standard http port collector will open for listening;",
+            "sourced_at_deployment": False,
+            "policy_editable": False,
+            "designer_editable": False
+        }
+        paramter_publisher = {
+            "name": "streams_publishes",
+            "value": "{{\"{0}_publisher\":{{\"dmaap_info\":{{\"topic_url\":\"http://message-router:3904/events/unauthenticated.{1}_Out\"}},\"type\":\"message_router\"}}}}".format(
+                method, model_name),
+            "description": "standard http port collector will open for listening;",
+            "sourced_at_deployment": False,
+            "policy_editable": False,
+            "designer_editable": False
+        }
         spec["streams"]["publishes"].append(publisher)
+        spec["parameters"].append(parameter_subscriber)
+        spec["parameters"].append(paramter_publisher)
 
     # Validate that we have a valid spec
     validate(instance=spec, schema=dcae_cs_schema)
-
     return spec
 
 
-def generate_spec(model_repo_path, model_name, data_formats, docker_uri):
+def generate_spec(model_repo_path, model_name, data_formats, model_version):
     """
     Generate and write the component spec to disk
     Returns the spec
     """
     spec = _generate_spec(
-        model_name, utils.get_metadata(model_repo_path, model_name), utils.component_schema.get(), data_formats, docker_uri
+        model_name, utils.get_metadata(model_repo_path, model_name), utils.component_schema.get(), data_formats,
+        model_version
     )
     fname = "{0}_dcae_component_specification.json".format(model_name)
     with open("{0}/{1}".format(model_repo_path, fname), "w") as f:

@@ -44,7 +44,8 @@ def _generate_dockerfile(meta, model_name, http_proxy, https_proxy, no_proxy):
     ENV no_proxy={no_proxy}
     ENV NO_PROXY={no_proxy}
     RUN pip install -r /app/requirements.txt && \
-        pip install acumos_dcae_model_runner
+        pip install acumos_dcae_model_runner && \
+        pip install pyyaml
 
     ENV DCAEPORT=10000
     EXPOSE $DCAEPORT

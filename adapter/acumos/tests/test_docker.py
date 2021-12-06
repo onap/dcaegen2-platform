@@ -44,7 +44,8 @@ def test_generate_dockerfile():
     ENV no_proxy=
     ENV NO_PROXY=
     RUN pip install -r /app/requirements.txt && \
-        pip install acumos_dcae_model_runner
+        pip install acumos_dcae_model_runner && \
+        pip install pyyaml
 
     ENV DCAEPORT=10000
     EXPOSE $DCAEPORT
