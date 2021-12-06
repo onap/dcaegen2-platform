@@ -2,6 +2,7 @@
 # org.onap.dcae
 # =============================================================================
 # Copyright (c) 2019 AT&T Intellectual Property. All rights reserved.
+# Copyright (c) 2021 highstreet technologies GmbH. All rights reserved.
 # =============================================================================
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -27,7 +28,7 @@ RUN apt-get update && \
     npm install -g protobuf-jsonschema && \
     mkdir schemas && \
     wget -O schemas/schema.json 'https://json-schema.org/draft-04/schema#' && \
-    wget -O schemas/compspec.json https://git.onap.org/dcaegen2/platform/plain/mod/component-json-schemas/component-specification/dcae-cli-v2/component-spec-schema.json && \
+    wget -O schemas/compspec.json https://git.onap.org/dcaegen2/platform/plain/mod/component-json-schemas/component-specification/dcae-cli-v3/component-spec-schema.json && \
     wget -O schemas/dataformat.json https://git.onap.org/dcaegen2/platform/plain/mod/component-json-schemas/data-format/dcae-cli-v1/data-format-schema.json && \
     cd /tmp/build/ && \
     python setup.py install && \
