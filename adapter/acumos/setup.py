@@ -22,7 +22,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="aoconversion",
-    version="1.0.6-SNAPSHOT",
+    version="1.0.7-SNAPSHOT",
     packages=find_packages(exclude=["tests.*", "tests"]),
     author="Tommy Carpenter, Andrew Gauld",
     author_email="tommy@research.att.com, agauld@att.com",

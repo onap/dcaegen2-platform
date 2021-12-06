@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.0.7] - 12/01/2021
+    * Customize DCAE adapter to support the v3 component spec
 ## [1.0.6] - 6/04/2021
     * Adapt DCAE adapter to work with Acumos Demeter's metadata structure change
 ## [1.0.5] - 5/05/2021
