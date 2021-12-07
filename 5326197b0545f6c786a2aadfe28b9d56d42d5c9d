@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a2214b7c_8a01920c",
+        "filename": "adapter/acumos/Changelog.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-12-07T17:58:10Z",
+      "side": 1,
+      "message": "2021",
+      "range": {
+        "startLine": 7,
+        "startChar": 13,
+        "endLine": 7,
+        "endChar": 16
+      },
+      "revId": "5326197b0545f6c786a2aadfe28b9d56d42d5c9d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5429cf15_da8c4743",
+        "filename": "adapter/acumos/aoconversion/spec_gen.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-12-07T17:58:10Z",
+      "side": 1,
+      "message": "Static setting here may not work for all containers.. Should these ports mapping be derived from the model/config?",
+      "range": {
+        "startLine": 59,
+        "startChar": 70,
+        "endLine": 59,
+        "endChar": 102
+      },
+      "revId": "5326197b0545f6c786a2aadfe28b9d56d42d5c9d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aade9da3_ab90be29",
+        "filename": "adapter/acumos/setup.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-12-07T17:58:10Z",
+      "side": 1,
+      "message": "remove snapshot from here also",
+      "range": {
+        "startLine": 24,
+        "startChar": 18,
+        "endLine": 24,
+        "endChar": 27
+      },
+      "revId": "5326197b0545f6c786a2aadfe28b9d56d42d5c9d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
