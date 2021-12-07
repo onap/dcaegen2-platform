@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ed1f8508_946fc47e",
+        "filename": "adapter/acumos/Changelog.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-12-07T19:44:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9e9848d7_fbb60db5",
+      "revId": "683ed0a6d1a09ec3fff3f009bfd38aec1ea79af9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2c688049_efda881b",
         "filename": "adapter/acumos/Changelog.md",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "683ed0a6d1a09ec3fff3f009bfd38aec1ea79af9",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "330c182d_56fcc144",
+        "filename": "adapter/acumos/Changelog.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-12-07T19:44:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2c688049_efda881b",
+      "revId": "683ed0a6d1a09ec3fff3f009bfd38aec1ea79af9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "a5ff37e6_ccbec73b",
+        "filename": "adapter/acumos/pom.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-12-07T19:44:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a73000e0_f4cd18c7",
+      "revId": "683ed0a6d1a09ec3fff3f009bfd38aec1ea79af9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "90b89d65_40774404",
         "filename": "adapter/acumos/setup.py",
         "patchSetId": 2
@@ -67,6 +121,24 @@
       "revId": "683ed0a6d1a09ec3fff3f009bfd38aec1ea79af9",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c532e3c2_e4c985dc",
+        "filename": "adapter/acumos/setup.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-12-07T19:44:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "90b89d65_40774404",
+      "revId": "683ed0a6d1a09ec3fff3f009bfd38aec1ea79af9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
@@ -101,6 +173,24 @@
       "revId": "683ed0a6d1a09ec3fff3f009bfd38aec1ea79af9",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5655e16_5917d399",
+        "filename": "adapter/acumos/tox.ini",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-12-07T19:44:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "87ce47f1_f2b21004",
+      "revId": "683ed0a6d1a09ec3fff3f009bfd38aec1ea79af9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
