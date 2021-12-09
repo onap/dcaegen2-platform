@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ac5a948b_04545be4",
+        "filename": "adapter/acumos/aoconversion/convert.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-12-09T13:28:45Z",
+      "side": 1,
+      "message": "add copyright 2021 notice here for highstreet",
+      "revId": "e2c9e40eae713f8575e24abbd7ef6c98667c9eb8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a260260b_f666b73b",
+        "filename": "adapter/acumos/aoconversion/docker_gen.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-12-09T13:28:45Z",
+      "side": 1,
+      "message": "remove this \u003d\u003d\u003d\u003d line between the copyright notices",
+      "revId": "e2c9e40eae713f8575e24abbd7ef6c98667c9eb8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d2608d6_3f73a091",
+        "filename": "adapter/acumos/tests/test_docker.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-12-09T13:28:45Z",
+      "side": 1,
+      "message": "remove this \u003d\u003d\u003d\u003d line between the copyright statements",
+      "revId": "e2c9e40eae713f8575e24abbd7ef6c98667c9eb8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cf4dac78_0d460284",
+        "filename": "adapter/acumos/tests/test_docker.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-12-09T13:28:45Z",
+      "side": 1,
+      "message": "I don\u0027t see requirements.txt in the gerrit repo. Do you have a local copy that is being used? If so, please add it to gerrit",
+      "revId": "e2c9e40eae713f8575e24abbd7ef6c98667c9eb8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63eb0f1b_e52818f1",
+        "filename": "adapter/acumos/tests/test_docker.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-12-09T13:28:45Z",
+      "side": 1,
+      "message": "curiosity question: why isn\u0027t pyyaml listed in /app/requirements.txt ? or acumos_dcae_model_runner ?",
+      "revId": "e2c9e40eae713f8575e24abbd7ef6c98667c9eb8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
