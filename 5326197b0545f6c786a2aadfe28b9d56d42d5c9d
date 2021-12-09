@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "24ef5794_8b42b745",
+        "filename": "adapter/acumos/Changelog.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-12-09T16:18:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2214b7c_8a01920c",
+      "range": {
+        "startLine": 7,
+        "startChar": 13,
+        "endLine": 7,
+        "endChar": 16
+      },
+      "revId": "5326197b0545f6c786a2aadfe28b9d56d42d5c9d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5429cf15_da8c4743",
         "filename": "adapter/acumos/aoconversion/spec_gen.py",
         "patchSetId": 3
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "d38aca3a_bc57af7b",
+        "filename": "adapter/acumos/aoconversion/spec_gen.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-12-09T16:18:50Z",
+      "side": 1,
+      "message": "This was discussed offline.. as there is currently no way to extract this info from model - static setting is okay (can be overriden if needed before deploy via values.yaml change)",
+      "parentUuid": "5429cf15_da8c4743",
+      "range": {
+        "startLine": 59,
+        "startChar": 70,
+        "endLine": 59,
+        "endChar": 102
+      },
+      "revId": "5326197b0545f6c786a2aadfe28b9d56d42d5c9d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aade9da3_ab90be29",
         "filename": "adapter/acumos/setup.py",
         "patchSetId": 3
@@ -68,6 +116,30 @@
       "revId": "5326197b0545f6c786a2aadfe28b9d56d42d5c9d",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "802afc86_8d41f4c1",
+        "filename": "adapter/acumos/setup.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-12-09T16:18:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aade9da3_ab90be29",
+      "range": {
+        "startLine": 24,
+        "startChar": 18,
+        "endLine": 24,
+        "endChar": 27
+      },
+      "revId": "5326197b0545f6c786a2aadfe28b9d56d42d5c9d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
