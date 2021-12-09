@@ -177,6 +177,24 @@
     },
     {
       "key": {
+        "uuid": "9528f6d3_a3164dd7",
+        "filename": "adapter/acumos/tests/test_docker.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2021-12-09T23:53:36Z",
+      "side": 1,
+      "message": "Hmmm, I had missed your comment before saying that \"Regarding the pyyaml module, the requirements.txt file is a dictionary that is extracted from the model\u0027s metadata.json file....\"\n\nDoes that mean that you do NOT need a static copy in the gerrit repo? Is the static file ignored when creating the test container?\n\nIf the static file is NOT ignored, then I\u0027m not sure I understand why it cannot have both of acumos_dcae_model_runner and pyyaml listed in it?",
+      "parentUuid": "58ff6157_95fc2bd8",
+      "revId": "e2c9e40eae713f8575e24abbd7ef6c98667c9eb8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "24c0739f_b836d8f1",
         "filename": "adapter/acumos/tests/test_spec.py",
         "patchSetId": 4
