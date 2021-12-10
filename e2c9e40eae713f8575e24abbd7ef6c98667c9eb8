@@ -195,6 +195,24 @@
     },
     {
       "key": {
+        "uuid": "c0586041_e911bcd1",
+        "filename": "adapter/acumos/tests/test_docker.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 6744
+      },
+      "writtenOn": "2021-12-10T07:53:15Z",
+      "side": 1,
+      "message": "Yes, you are right. The requirements.txt file is not a static file and is created within the docker container of the Acumos adapter based on the metadata of the ML model. It is also deleted once the docker_gen method completes successfully. Hence, we never required this file in the gerrit repo. Also because it is ignored in the test scripts. I will remove it from the repo. I added it thinking that it is needed for reference.",
+      "parentUuid": "9528f6d3_a3164dd7",
+      "revId": "e2c9e40eae713f8575e24abbd7ef6c98667c9eb8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "24c0739f_b836d8f1",
         "filename": "adapter/acumos/tests/test_spec.py",
         "patchSetId": 4
