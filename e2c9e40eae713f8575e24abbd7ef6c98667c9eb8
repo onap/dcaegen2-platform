@@ -233,6 +233,30 @@
       "revId": "e2c9e40eae713f8575e24abbd7ef6c98667c9eb8",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b2f56c0_d1f3cddb",
+        "filename": "adapter/acumos/tests/test_spec.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2021-12-12T23:51:10Z",
+      "side": 1,
+      "message": "Dint see update on this comment; shouldn\u0027t this be example-model:latest?",
+      "parentUuid": "24c0739f_b836d8f1",
+      "range": {
+        "startLine": 35,
+        "startChar": 9,
+        "endLine": 35,
+        "endChar": 15
+      },
+      "revId": "e2c9e40eae713f8575e24abbd7ef6c98667c9eb8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
