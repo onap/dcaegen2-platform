@@ -257,6 +257,30 @@
       "revId": "e2c9e40eae713f8575e24abbd7ef6c98667c9eb8",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54547143_fb0b8c8d",
+        "filename": "adapter/acumos/tests/test_spec.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 6744
+      },
+      "writtenOn": "2021-12-13T08:14:29Z",
+      "side": 1,
+      "message": "The value example-model:latest is placed in the uri under the artifact section as also seen in the assert statement. There, the docker registry details have been removed. Earlier while calling this component spec method, the docker uri (registry/model:tag) was passed as an argument. Now, it is replaced by only version as the method also contains model name as the first argument. Hence, the version and modelname are concatenated as modelname:tag and placed as the value.",
+      "parentUuid": "3b2f56c0_d1f3cddb",
+      "range": {
+        "startLine": 35,
+        "startChar": 9,
+        "endLine": 35,
+        "endChar": 15
+      },
+      "revId": "e2c9e40eae713f8575e24abbd7ef6c98667c9eb8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
