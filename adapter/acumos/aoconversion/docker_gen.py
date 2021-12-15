@@ -2,7 +2,6 @@
 # org.onap.dcae
 # =============================================================================
 # Copyright (c) 2019 AT&T Intellectual Property. All rights reserved.
-# =============================================================================
 # Copyright (c) 2021 highstreet technologies GmbH. All rights reserved.
 # =============================================================================
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -44,7 +43,8 @@ def _generate_dockerfile(meta, model_name, http_proxy, https_proxy, no_proxy):
     ENV no_proxy={no_proxy}
     ENV NO_PROXY={no_proxy}
     RUN pip install -r /app/requirements.txt && \
-        pip install acumos_dcae_model_runner
+        pip install acumos_dcae_model_runner && \
+        pip install pyyaml
 
     ENV DCAEPORT=10000
     EXPOSE $DCAEPORT
