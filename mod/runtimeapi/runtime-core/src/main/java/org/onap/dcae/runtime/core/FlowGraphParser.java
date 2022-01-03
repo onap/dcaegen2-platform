@@ -1,6 +1,6 @@
 /*-
  * ============LICENSE_START=======================================================
- * Copyright (C) 2019 AT&T Intellectual Property. All rights reserved.
+ * Copyright (C) 2019-2022 AT&T Intellectual Property. All rights reserved.
  * ================================================================================
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,7 +50,9 @@ public class FlowGraphParser {
     }
 
     private static int createBlueprintVersion() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyMMddHHmm").withZone(ZoneId.of("UTC"));
+	// Generated version must be unique for each flow-graph distribution
+	// Removed year from the text to fix invalid integer issue (DCAEGEN2-3028)
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMddHHmm").withZone(ZoneId.of("UTC"));
         Instant instant = Instant.now();
         String timestamp = formatter.format(instant);
         return Integer.parseInt(timestamp);
