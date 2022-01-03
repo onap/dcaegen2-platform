@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 ============LICENSE_START=======================================================
-Copyright (c) 2019-2020 AT&T Intellectual Property. All rights reserved.
+Copyright (c) 2019-2022 AT&T Intellectual Property. All rights reserved.
 ================================================================================
 Modifications Copyright (c) 2020 Nokia
 ================================================================================
@@ -25,12 +25,12 @@ limitations under the License.
     <parent>
         <artifactId>runtimeapi</artifactId>
         <groupId>org.onap.dcaegen2.platform.mod</groupId>
-        <version>1.3.1</version>
+        <version>1.3.2</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>runtime-core</artifactId>
-    <version>1.3.1</version>
+    <version>1.3.2</version>
 
     <dependencies>
         <dependency>
@@ -51,7 +51,7 @@ limitations under the License.
         <dependency>
             <groupId>org.onap.dcaegen2.platform</groupId>
             <artifactId>helmchartgenerator-core</artifactId>
-            <version>1.0.2-SNAPSHOT</version>
+            <version>1.0.2</version>
         </dependency>
         <dependency>
             <groupId>org.yaml</groupId>

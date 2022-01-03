@@ -50,7 +50,7 @@ public class FlowGraphParser {
     }
 
     private static int createBlueprintVersion() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyMMddHHmm").withZone(ZoneId.of("UTC"));
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMddHHmm").withZone(ZoneId.of("UTC"));
         Instant instant = Instant.now();
         String timestamp = formatter.format(instant);
         return Integer.parseInt(timestamp);
