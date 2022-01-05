@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "30db3d01_50f62107",
+        "filename": "mod/runtimeapi/Changelog.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2022-01-05T20:56:31Z",
+      "side": 1,
+      "message": "missing other issue IDs",
+      "revId": "28b5250df04e05138090877f31595fecd5c68692",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "694bc459_ac5a784b",
+        "filename": "mod/runtimeapi/runtime-core/src/main/java/org/onap/dcae/runtime/core/FlowGraphParser.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2022-01-05T20:56:31Z",
+      "side": 1,
+      "message": "2022",
+      "revId": "28b5250df04e05138090877f31595fecd5c68692",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8088e793_d5df8e9f",
+        "filename": "mod/runtimeapi/runtime-core/src/main/java/org/onap/dcae/runtime/core/FlowGraphParser.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2022-01-05T20:56:31Z",
+      "side": 1,
+      "message": "please add a comment about uniqueness properties of the return value",
+      "revId": "28b5250df04e05138090877f31595fecd5c68692",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
