@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "764db36b_823d1923",
+        "filename": "mod/runtimeapi/runtime-core/src/main/java/org/onap/dcae/runtime/core/FlowGraphParser.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2022-01-06T00:53:08Z",
+      "side": 1,
+      "message": "tabs",
+      "revId": "50817a3fbcd7260589e1d88d6ab02d5d641751c3",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
