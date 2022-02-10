@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 ============LICENSE_START=======================================================
-Copyright (c) 2019-2020 AT&T Intellectual Property. All rights reserved.
+Copyright (c) 2019-2022 AT&T Intellectual Property. All rights reserved.
 ================================================================================
 Modifications Copyright (c) 2020 Nokia
 ================================================================================
@@ -34,7 +34,7 @@ limitations under the License.
 	</parent>
 	<groupId>org.onap.dcaegen2.platform.mod</groupId>
 	<artifactId>runtimeapi</artifactId>
-	<version>1.2.3</version>
+	<version>1.2.4</version>
 	<name>dcaegen2-platform-mod-runtimeapi</name>
 	<description>MOD Runtime API</description>
 	<properties>
