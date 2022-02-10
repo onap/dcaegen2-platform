@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 ============LICENSE_START=======================================================
-Copyright (c) 2019-2020 AT&T Intellectual Property. All rights reserved.
-================================================================================
-Modifications Copyright (c) 2020 Nokia
+Copyright (c) 2019-2022 AT&T Intellectual Property. All rights reserved.
+Copyright (c) 2020 Nokia
 ================================================================================
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -19,140 +18,141 @@ limitations under the License.
 ============LICENSE_END=========================================================
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.onap.dcaegen2.platform.mod</groupId>
-		<artifactId>runtimeapi</artifactId>
-		<version>1.2.3</version>
-	</parent>
-	<artifactId>runtime-web</artifactId>
-	<version>1.2.3-SNAPSHOT</version>
-	<packaging>jar</packaging>
-	<name>runtime-web</name>
-	<description>MOD Runtime Web Module</description>
-	<dependencies>
-		<dependency>
-			<groupId>org.onap.dcaegen2.platform.mod</groupId>
-			<artifactId>runtime-core</artifactId>
-			<version>1.2.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.onap.dcaegen2.platform.mod</groupId>
+        <artifactId>runtimeapi</artifactId>
+        <version>1.2.4</version>
+    </parent>
+    <artifactId>runtime-web</artifactId>
+    <version>1.2.4-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>runtime-web</name>
+    <description>MOD Runtime Web Module</description>
+    <dependencies>
+        <dependency>
+            <groupId>org.onap.dcaegen2.platform.mod</groupId>
+            <artifactId>runtime-core</artifactId>
+            <version>1.2.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>28.0-jre</version>
-		</dependency>
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-boot-starter</artifactId>
-			<version>3.0.0</version>
-		</dependency>
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger-ui</artifactId>
-			<version>3.0.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.json</groupId>
-			<artifactId>json</artifactId>
-			<version>20190722</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpclient</artifactId>
-			<version>4.5.8</version>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>28.0-jre</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-boot-starter</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20190722</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.8</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<executions>
-					<execution>
-						<goals>
-							<goal>repackage</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>io.fabric8</groupId>
-				<artifactId>docker-maven-plugin</artifactId>
-				<configuration>
-					<verbose>true</verbose>
-					<pullRegistry>${docker.pull.registry}</pullRegistry>
-					<pushRegistry>${docker.push.registry}</pushRegistry>
-					<images>
-						<image>
-							<name>onap/${project.groupId}.${project.artifactId}</name>
-							<registry>${onap.nexus.dockerregistry.daily}</registry>
-							<build>
-								<from>openjdk:11-jre-slim</from>
-								<tags>
-									<tag>latest</tag>
-									<tag>${project.version}</tag>
-									<tag>${project.version}-${maven.build.timestamp}Z</tag>
-								</tags>
-								<assembly>
-									<descriptorRef>artifact</descriptorRef>
-								</assembly>
-								<runCmds>
-								  <runCmd>groupadd -r dcaemod &amp;&amp; useradd -ms /bin/bash dcaemod -g dcaemod &amp;&amp; mkdir -p /maven/data &amp;&amp; chown -R dcaemod:dcaemod /maven/data</runCmd>
-								</runCmds>
-								<workdir>/maven</workdir>
-								<volumes>
-									<volume>/tmp</volume>
-								</volumes>
-								<ports>
-									<port>9090</port>
-								</ports>
-								<user>dcaemod</user>
-								<entryPoint>
-									<exec>
-										<arg>java</arg>
-										<arg>-Djava.security.egd=file:/dev/./urandom</arg>
-										<arg>-jar</arg>
-										<arg>${project.artifactId}-${project.version}.${project.packaging}</arg>
-									</exec>
-								</entryPoint>
-							</build>
-						</image>
-					</images>
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>build</goal>
-							<goal>push</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>2.6.2</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <configuration>
+                    <verbose>true</verbose>
+                    <pullRegistry>${docker.pull.registry}</pullRegistry>
+                    <pushRegistry>${docker.push.registry}</pushRegistry>
+                    <images>
+                        <image>
+                            <name>onap/${project.groupId}.${project.artifactId}</name>
+                            <registry>${onap.nexus.dockerregistry.daily}</registry>
+                            <build>
+                                <from>openjdk:11-jre-slim</from>
+                                <tags>
+                                    <tag>latest</tag>
+                                    <tag>${project.version}</tag>
+                                    <tag>${project.version}-${maven.build.timestamp}Z</tag>
+                                </tags>
+                                <assembly>
+                                    <descriptorRef>artifact</descriptorRef>
+                                </assembly>
+                                <runCmds>
+                                  <runCmd>groupadd -r dcaemod &amp;&amp; useradd -ms /bin/bash dcaemod -g dcaemod &amp;&amp; mkdir -p /maven/data &amp;&amp; chown -R dcaemod:dcaemod /maven/data</runCmd>
+                                </runCmds>
+                                <workdir>/maven</workdir>
+                                <volumes>
+                                    <volume>/tmp</volume>
+                                </volumes>
+                                <ports>
+                                    <port>9090</port>
+                                </ports>
+                                <user>dcaemod</user>
+                                <entryPoint>
+                                    <exec>
+                                        <arg>java</arg>
+                                        <arg>-Djava.security.egd=file:/dev/./urandom</arg>
+                                        <arg>-jar</arg>
+                                        <arg>${project.artifactId}-${project.version}.${project.packaging}</arg>
+                                    </exec>
+                                </entryPoint>
+                            </build>
+                        </image>
+                    </images>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>build</goal>
+                            <goal>push</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
