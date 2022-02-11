@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d5dc9e53_2208a542",
+        "filename": "mod/runtimeapi/pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2022-02-11T01:33:48Z",
+      "side": 1,
+      "message": "the separator line should not be here between the Copyright lines\n\nthe word Modifications is not needed on the next line",
+      "revId": "8a9ffc8e4c3ee7c0c68fb4f362a2dfd85e1f46b0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1af3850d_1a434a02",
+        "filename": "mod/runtimeapi/pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2022-02-11T01:33:48Z",
+      "side": 1,
+      "message": "while you have this file open, please fix the tabs, changing them to spaces. Check your IDE settings.",
+      "revId": "8a9ffc8e4c3ee7c0c68fb4f362a2dfd85e1f46b0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "96aebd2b_33258730",
+        "filename": "mod/runtimeapi/runtime-core/pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2022-02-11T01:33:48Z",
+      "side": 1,
+      "message": "the separator line should not be here between the Copyright lines\n\nthe word Modifications is not needed on the next line",
+      "revId": "8a9ffc8e4c3ee7c0c68fb4f362a2dfd85e1f46b0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea511f4c_7f277d46",
+        "filename": "mod/runtimeapi/runtime-web/pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2022-02-11T01:33:48Z",
+      "side": 1,
+      "message": "the separator line should not be here between the Copyright lines\n\nthe word Modifications is not needed on the next line",
+      "revId": "8a9ffc8e4c3ee7c0c68fb4f362a2dfd85e1f46b0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "089cc722_7374d488",
+        "filename": "mod/runtimeapi/runtime-web/pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2022-02-11T01:33:48Z",
+      "side": 1,
+      "message": "while you have the file open, please fix the tabs that should be spaces. Check your IDE settings.",
+      "revId": "8a9ffc8e4c3ee7c0c68fb4f362a2dfd85e1f46b0",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
