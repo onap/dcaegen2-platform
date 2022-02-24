@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "34c1c405_b594412a",
+        "filename": "mod2/helm-generator/helmchartgenerator-cli/pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2022-02-24T15:22:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6242afa7_2864fcb1",
+      "revId": "5bff4d76093f4932ab605fbdb77a8f562ae79f5d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "192df695_3cf7807f",
         "filename": "mod2/helm-generator/helmchartgenerator-core/pom.xml",
         "patchSetId": 3
@@ -33,6 +51,24 @@
       "revId": "5bff4d76093f4932ab605fbdb77a8f562ae79f5d",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f23f3dcb_5db34411",
+        "filename": "mod2/helm-generator/helmchartgenerator-core/pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2022-02-24T15:22:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "192df695_3cf7807f",
+      "revId": "5bff4d76093f4932ab605fbdb77a8f562ae79f5d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
