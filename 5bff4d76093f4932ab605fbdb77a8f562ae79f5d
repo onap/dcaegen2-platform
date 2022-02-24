@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6242afa7_2864fcb1",
+        "filename": "mod2/helm-generator/helmchartgenerator-cli/pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2022-02-24T01:10:57Z",
+      "side": 1,
+      "message": "the copyright/license block is missing",
+      "revId": "5bff4d76093f4932ab605fbdb77a8f562ae79f5d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "192df695_3cf7807f",
+        "filename": "mod2/helm-generator/helmchartgenerator-core/pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2022-02-24T01:10:57Z",
+      "side": 1,
+      "message": "the copyright/license block is missing",
+      "revId": "5bff4d76093f4932ab605fbdb77a8f562ae79f5d",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
