@@ -51,7 +51,7 @@ limitations under the License.
         <dependency>
             <groupId>org.onap.dcaegen2.platform</groupId>
             <artifactId>helmchartgenerator-core</artifactId>
-            <version>1.0.2</version>
+            <version>1.0.3</version>
         </dependency>
         <dependency>
             <groupId>org.yaml</groupId>
