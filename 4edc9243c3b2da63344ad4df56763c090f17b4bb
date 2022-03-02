@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "95025513_36369b18",
+        "filename": "mod/runtimeapi/runtime-core/pom.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2022-03-02T23:58:49Z",
+      "side": 1,
+      "message": "remove the separator\nModifications on the next line are not needed",
+      "revId": "4edc9243c3b2da63344ad4df56763c090f17b4bb",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
