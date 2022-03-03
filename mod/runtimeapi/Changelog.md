@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - [DCAEGEN2-3028] Change version format to MMddHHmm (removed YY)
 - [DCAEGEN2-3008] Update helmgen-core from snapshot to released version
 - [DCAEGEN2-3088] Set spring-boot-maven-plugin to 2.6.2
+- [DCAEGEN2-3052] Update helmgen-core to 1.0.3 (includes vulnerability fixes for J)
 
 ## [1.3.1] - 2021-10-13
 - [DCAEGEN2-2936] Update helmgen-core to 1.0.2
