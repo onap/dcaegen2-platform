@@ -26,7 +26,7 @@ limitations under the License.
   </parent>
   <groupId>org.onap.dcaegen2.platform.mod</groupId>
   <artifactId>genprocessor</artifactId>
-  <version>1.0.2-SNAPSHOT</version>
+  <version>1.0.3-SNAPSHOT</version>
   <name>dcaegen2-platform-mod-genprocessor</name>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
