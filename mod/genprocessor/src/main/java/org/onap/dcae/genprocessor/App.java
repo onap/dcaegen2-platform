@@ -1,6 +1,7 @@
 /*-
  * ============LICENSE_START=======================================================
  * Copyright (C) 2019-2020 AT&T Intellectual Property. All rights reserved.
+ * Copyright (C) 2022 Huawei. All rights reserved.
  * ================================================================================
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -205,9 +206,7 @@ public class App {
                     return true;
                 }
             }
-        } catch (InterruptedException e) {
-            throw new RuntimeException("Error while creating jar", e);
-        } catch (IOException e) {
+        } catch (InterruptedException | IOException e) {
             throw new RuntimeException("Error while creating jar", e);
         }
 
@@ -315,11 +314,11 @@ public class App {
             String sleepstr = System.getenv("GENPROC_SLEEP_SEC");
             long sleepdur = (sleepstr != null)? 1000 * Long.parseLong(sleepstr): 0;
             do {
-		try {
-			main2(args);
-		} catch (Exception e) {
-			LOG.error(e.toString(), e);
-		}
+                try {
+                    main2(args);
+                } catch (Exception e) {
+                    LOG.error(e.toString(), e);
+                }
                 Thread.sleep(sleepdur);
             } while (sleepdur > 0);
             return;
@@ -401,3 +400,4 @@ public class App {
         }
     }
 }
+

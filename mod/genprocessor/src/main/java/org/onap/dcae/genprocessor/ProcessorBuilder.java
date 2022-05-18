@@ -1,6 +1,7 @@
 /*-
  * ============LICENSE_START=======================================================
  * Copyright (C) 2019 AT&T Intellectual Property. All rights reserved.
+ * Copyright (C) 2022 Huawei. All rights reserved.
  * ================================================================================
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -112,7 +113,7 @@ public class ProcessorBuilder {
         ccFile.addAttribute(attr);
     }
 
-    private static void addMethod(CtClass target, String methodCode) {
+    public static void addMethod(CtClass target, String methodCode) {
         try {
             CtMethod method = CtMethod.make(methodCode, target);
             target.addMethod(method);
@@ -193,3 +194,4 @@ public class ProcessorBuilder {
     }
 
 }
+
