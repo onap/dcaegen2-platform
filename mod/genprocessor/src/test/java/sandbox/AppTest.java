@@ -28,12 +28,16 @@ import java.io.Writer;
 
 import java.net.URISyntaxException;
 
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
+import javassist.ClassPool;
+import javassist.CtClass;
 import org.apache.nifi.components.PropertyDescriptor;
 import org.apache.nifi.processor.ProcessContext;
 import org.apache.nifi.processor.ProcessSession;
@@ -78,6 +82,24 @@ public class AppTest {
         CompSpec cs = new CompSpec();
         cs.unpackSelf(mx);
         assertEquals(Utils.formatNameForJar(cs), "SomeJar-2.0");
+        try {
+            CompSpec.loadComponentSpec(new File("sandbox/temp.txt"));
+        } catch (RuntimeException e) {
+            // expected case
+        }
+    }
+
+    @Test
+    public void testGetNameForJavaClass() {
+        CompList.CompShort compShort = new CompList.CompShort();
+        compShort.name = "test";
+        compShort.getNameForJavaClass();
+        compShort.componentUrl = "6:invalidURI";
+        try {
+            compShort.getComponentUrlAsURI();
+        } catch (RuntimeException e) {
+            // expected case
+        }
     }
 
 
@@ -174,5 +196,24 @@ public class AppTest {
         App.main(new String[] { "load" });
         /* gen case */
         App.main(new String[] { "gen" });
+
+        URL[] jarURLs = new URL[1];
+        try {
+            App.loadFromJars(jarURLs);
+        } catch (NullPointerException e) {
+            // expected case
+        }
+
+        try {
+            ClassPool pool = ClassPool.getDefault();
+            CtClass base = pool.get(DCAEProcessor.class.getName());
+
+            CtClass cc = pool.makeClass(String.format("org.onap.dcae.%s", DCAEProcessor.class));
+            cc.setSuperclass(base);
+
+            ProcessorBuilder.addMethod(cc, "test");
+        } catch (Exception e) {
+            // expected case
+        }
     }
 }

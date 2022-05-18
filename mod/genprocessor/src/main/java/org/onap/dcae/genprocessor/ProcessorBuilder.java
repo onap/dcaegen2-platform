@@ -112,7 +112,7 @@ public class ProcessorBuilder {
         ccFile.addAttribute(attr);
     }
 
-    private static void addMethod(CtClass target, String methodCode) {
+    public static void addMethod(CtClass target, String methodCode) {
         try {
             CtMethod method = CtMethod.make(methodCode, target);
             target.addMethod(method);

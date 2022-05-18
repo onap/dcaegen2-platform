@@ -205,9 +205,7 @@ public class App {
                     return true;
                 }
             }
-        } catch (InterruptedException e) {
-            throw new RuntimeException("Error while creating jar", e);
-        } catch (IOException e) {
+        } catch (InterruptedException | IOException e) {
             throw new RuntimeException("Error while creating jar", e);
         }
 
