@@ -2,6 +2,7 @@
 <!--
 ============LICENSE_START=======================================================
 Copyright (c) 2020 AT&T Intellectual Property. All rights reserved.
+Copyright (C) 2022 Huawei. All rights reserved.
 ================================================================================
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -26,7 +27,7 @@ limitations under the License.
   </parent>
   <groupId>org.onap.dcaegen2.platform.mod</groupId>
   <artifactId>genprocessor</artifactId>
-  <version>1.0.2-SNAPSHOT</version>
+  <version>1.0.3-SNAPSHOT</version>
   <name>dcaegen2-platform-mod-genprocessor</name>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -139,10 +140,10 @@ limitations under the License.
                     </files>
                   </inline>
                 </assembly>
-		<runCmds>
-		  <runCmd>sed -i /etc/nginx/nginx.conf -e '/^user /d' &amp;&amp; touch /var/run/nginx.pid &amp;&amp; mkdir -p /www/data &amp;&amp; chown -R nginx:nginx /www /etc/nginx /var/cache/nginx /var/log/nginx /var/run/nginx.pid</runCmd>
-		</runCmds>
-		<user>nginx</user>
+                <runCmds>
+                    <runCmd>sed -i /etc/nginx/nginx.conf -e '/^user /d' &amp;&amp; touch /var/run/nginx.pid &amp;&amp; mkdir -p /www/data &amp;&amp; chown -R nginx:nginx /www /etc/nginx /var/cache/nginx /var/log/nginx /var/run/nginx.pid</runCmd>
+                </runCmds>
+        <user>nginx</user>
                 <entryPoint>
                   <exec>
                     <arg>nginx</arg>
@@ -165,16 +166,16 @@ limitations under the License.
                 <assembly>
                   <descriptorRef>artifact-with-dependencies</descriptorRef>
                 </assembly>
-		<runCmds>
-		  <runCmd>groupadd -g 1000 dcaemod &amp;&amp; useradd --shell /bin/bash -u 1000 -g 1000 -m dcaemod</runCmd>
-		</runCmds>
+                <runCmds>
+                    <runCmd>groupadd -g 1000 dcaemod &amp;&amp; useradd --shell /bin/bash -u 1000 -g 1000 -m dcaemod</runCmd>
+                </runCmds>
                 <workdir>/maven</workdir>
                 <env>
                   <GENPROC_WORKING_DIR>/work</GENPROC_WORKING_DIR>
                   <GENPROC_ONBOARDING_API_HOST>http://onboarding-api:8080/onboarding</GENPROC_ONBOARDING_API_HOST>
                   <GENPROC_SLEEP_SEC>10</GENPROC_SLEEP_SEC>
                 </env>
-		<user>dcaemod</user>
+                <user>dcaemod</user>
                 <entryPoint>
                   <exec>
                     <arg>java</arg>
