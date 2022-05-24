@@ -1,5 +1,5 @@
 ## Instructions for running helm chart generator
-version: 1.0.2-SNAPSHOT
+version: 1.0.4-SNAPSHOT
 
 1. Must have helm installed.
 

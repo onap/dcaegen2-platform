@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.0.4]- 2022-05-24
+*  [DCAEGEN2-3087] Helm-gen fix for logpath default
+
 ## [1.0.3]- 2022-02-23
 *  [DCAEGEN2-3052] Vulnerability fixes for okhttp & commons-io modules
 
