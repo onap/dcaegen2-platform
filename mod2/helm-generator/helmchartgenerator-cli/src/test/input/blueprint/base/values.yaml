@@ -50,7 +50,8 @@ postgres:
 
 # log directory where logging sidecar should look for log files
 # if absent, no sidecar will be deployed
-#logDirectory: TBD  #/opt/app/VESCollector/logs #DONE
+#log:
+#  path: TBD  #/opt/app/VESCollector/logs #DONE
 
 # directory where TLS certs should be stored
 # if absent, no certs will be retrieved and stored

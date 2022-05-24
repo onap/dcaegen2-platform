@@ -91,12 +91,16 @@ public class ComponentSpecParser {
 
     private Map<String, Object> extractValues(ComponentSpec cs, String chartTemplateLocation) {
         Map<String, Object> outerValues = new LinkedHashMap<>();
+       
+        
         if(cs.getAuxilary() != null && cs.getAuxilary().getTlsInfo() != null){
             utils.putIfNotNull(outerValues,"certDirectory", cs.getAuxilary().getTlsInfo().getCertDirectory());
             utils.putIfNotNull(outerValues, "tlsServer", cs.getAuxilary().getTlsInfo().getUseTls());
         }
         if(cs.getAuxilary() != null && cs.getAuxilary().getLogInfo() != null) {
-            utils.putIfNotNull(outerValues,"logDirectory", cs.getAuxilary().getLogInfo().get("log_directory"));
+            Map<String, Object> logPath = new LinkedHashMap<>();
+            logPath.put("path", cs.getAuxilary().getLogInfo().get("log_directory"));
+            outerValues.put("log", logPath);
         }
         if(imageUriExistsForFirstArtifact(cs)){
             utils.putIfNotNull(outerValues,"image", cs.getArtifacts()[0].getUri());

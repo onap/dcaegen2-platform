@@ -22,10 +22,10 @@
     <parent>
         <groupId>org.onap.dcaegen2.platform</groupId>
         <artifactId>helmchartgenerator</artifactId>
-        <version>1.0.3-SNAPSHOT</version>
+        <version>1.0.4-SNAPSHOT</version>
     </parent>
     <artifactId>helmchartgenerator-core</artifactId>
-    <version>1.0.3-SNAPSHOT</version>
+    <version>1.0.4-SNAPSHOT</version>
     <name>helmchartgenerator-core</name>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

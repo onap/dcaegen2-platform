@@ -78,7 +78,8 @@ class ComponentSpecParserTest {
     private void assertOuterKeyValues(ChartInfo chartInfo) {
         Map<String, Object> outerKv = chartInfo.getValues();
         assertThat(outerKv.get("image")).isEqualTo("nexus3.onap.org:10001/onap/org.onap.dcaegen2.collectors.ves.vescollector:latest");
-        assertThat(outerKv.get("logDirectory")).isEqualTo("/opt/app/VESCollector/logs/");
+        Map<String, Object> logPath = (Map<String, Object>) chartInfo.getValues().get("log");
+        assertThat(logPath.get("path")).isEqualTo("/opt/app/VESCollector/logs/");
         assertThat(outerKv.get("certDirectory")).isEqualTo("/opt/app/dcae-certificate/");
         assertTrue((Boolean) outerKv.get("tlsServer"));
         assertTrue((Boolean) outerKv.get("useCmpv2Certificates"));
