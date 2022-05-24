@@ -1,5 +1,5 @@
 ## Instructions for running helm chart generator
-version: 1.0.2-SNAPSHOT
+version: 1.0.4-SNAPSHOT
 
 1. Must have helm installed.
 
@@ -25,6 +25,4 @@ version: 1.0.2-SNAPSHOT
 
     Test files currently included in project:
         - Spec file: `helm-chart-generator\src\test\input\specs\ves.json`
-        - Charts Directory: `helm-chart-generator\src\test\input\blueprint` 
-        
-        gi  
+        - Charts Directory: `helm-chart-generator\src\test\input\blueprint`
