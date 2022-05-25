@@ -3,7 +3,7 @@
 ============LICENSE_START=======================================================
 org.onap.dcae
 ================================================================================
-Copyright (c) 2019-2020 AT&T Intellectual Property. All rights reserved.
+Copyright (c) 2019-2020,2022 AT&T Intellectual Property. All rights reserved.
 Copyright (c) 2021 highstreet technologies GmbH. All rights reserved.
 =============================================================================
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,19 +20,20 @@ limitations under the License.
 ============LICENSE_END=========================================================
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<!-- This file is used only for Sonar scans -->
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.onap.dcaegen2.platform.adapter</groupId>
-	<artifactId>dcaegen2-platform-adapter-acumos</artifactId>
-	<version>1.0.7</version>
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<sonar.sources>.</sonar.sources>
-		<sonar.junit.reportsPath>xunit-results.xml</sonar.junit.reportsPath>
-		<sonar.python.coverage.reportPaths>coverage.xml</sonar.python.coverage.reportPaths>
-		<sonar.language>py</sonar.language>
-		<sonar.pluginname>python</sonar.pluginname>
-		<sonar.inclusions>**/*.py</sonar.inclusions>
-		<sonar.exclusions>**/tests/**,**/setup.py</sonar.exclusions>
-	</properties>
+  <!-- This file is used only for Sonar scans -->
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.onap.dcaegen2.platform.adapter</groupId>
+  <artifactId>dcaegen2-platform-adapter-acumos</artifactId>
+  <version>1.0.7</version>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <sonar.sources>.</sonar.sources>
+    <sonar.junit.reportsPath>xunit-results.xml</sonar.junit.reportsPath>
+    <sonar.python.coverage.reportPaths>coverage.xml</sonar.python.coverage.reportPaths>
+    <sonar.language>py</sonar.language>
+    <sonar.pluginname>python</sonar.pluginname>
+    <sonar.inclusions>**/*.py</sonar.inclusions>
+    <sonar.exclusions>**/tests/**,**/setup.py</sonar.exclusions>
+    <containerName>org.onap.dcaegen2.platform.adapter.acumos</containerName>
+  </properties>
 </project>
