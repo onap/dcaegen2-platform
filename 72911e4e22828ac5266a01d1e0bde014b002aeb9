@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fdfbebde_0673cc29",
+        "filename": "adapter/acumos/pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2022-05-25T22:35:45Z",
+      "side": 1,
+      "message": "tabs should be fixed",
+      "revId": "72911e4e22828ac5266a01d1e0bde014b002aeb9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
