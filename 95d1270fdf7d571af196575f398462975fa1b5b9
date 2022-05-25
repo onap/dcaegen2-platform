@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8bcaf42b_32f85d7e",
+        "filename": "mod2/helm-generator/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2022-05-25T22:43:22Z",
+      "side": 1,
+      "message": "the file is missing a NL at its end. Please check your IDE settigs.",
+      "revId": "95d1270fdf7d571af196575f398462975fa1b5b9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
