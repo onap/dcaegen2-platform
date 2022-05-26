@@ -16,6 +16,24 @@
       "revId": "72911e4e22828ac5266a01d1e0bde014b002aeb9",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41b74d19_2829760f",
+        "filename": "adapter/acumos/pom.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 93
+      },
+      "writtenOn": "2022-05-26T14:49:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdfbebde_0673cc29",
+      "revId": "72911e4e22828ac5266a01d1e0bde014b002aeb9",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
