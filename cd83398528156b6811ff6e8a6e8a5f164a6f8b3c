@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5034a60c_fd6293d2",
+        "filename": "mod/genprocessor/Changelog.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2022-05-26T17:53:13Z",
+      "side": 1,
+      "message": "this should be 1.0.3",
+      "revId": "cd83398528156b6811ff6e8a6e8a5f164a6f8b3c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd87da4e_db56403e",
+        "filename": "mod/genprocessor/pom.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2022-05-26T17:53:13Z",
+      "side": 1,
+      "message": "tab indentation should not be used, here or below",
+      "revId": "cd83398528156b6811ff6e8a6e8a5f164a6f8b3c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca4d852d_f80813e8",
+        "filename": "mod/genprocessor/src/main/java/org/onap/dcae/genprocessor/App.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2022-05-26T17:53:13Z",
+      "side": 1,
+      "message": "add copyright for 2022 Huawei",
+      "revId": "cd83398528156b6811ff6e8a6e8a5f164a6f8b3c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8f48f5e_a388905b",
+        "filename": "mod/genprocessor/src/main/java/org/onap/dcae/genprocessor/App.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2022-05-26T17:53:13Z",
+      "side": 1,
+      "message": "there should not be tabs here",
+      "revId": "cd83398528156b6811ff6e8a6e8a5f164a6f8b3c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aada8ddb_b2c733b6",
+        "filename": "mod/genprocessor/src/test/java/sandbox/AppTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2022-05-26T17:53:13Z",
+      "side": 1,
+      "message": "needs 2022 Huawei copyright",
+      "revId": "cd83398528156b6811ff6e8a6e8a5f164a6f8b3c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
