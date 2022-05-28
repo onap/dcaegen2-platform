@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "31558c3c_51f81017",
+        "filename": "mod/genprocessor/src/main/java/org/onap/dcae/genprocessor/App.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2022-05-28T00:09:15Z",
+      "side": 1,
+      "message": "2022 only",
+      "revId": "e9d51e23e257271d0a94bd40732bf6051f592d2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2481bf56_04776953",
+        "filename": "mod/genprocessor/src/test/java/sandbox/AppTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2022-05-28T00:09:15Z",
+      "side": 1,
+      "message": "2022 only",
+      "revId": "e9d51e23e257271d0a94bd40732bf6051f592d2b",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}

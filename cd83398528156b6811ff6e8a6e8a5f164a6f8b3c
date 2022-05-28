@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6e793fdc_b494bca4",
+        "filename": "mod/genprocessor/Changelog.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2022-05-28T00:09:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5034a60c_fd6293d2",
+      "revId": "cd83398528156b6811ff6e8a6e8a5f164a6f8b3c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bd87da4e_db56403e",
         "filename": "mod/genprocessor/pom.xml",
         "patchSetId": 5
@@ -53,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "99d1d119_f4a590d4",
+        "filename": "mod/genprocessor/src/main/java/org/onap/dcae/genprocessor/App.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2022-05-28T00:09:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca4d852d_f80813e8",
+      "revId": "cd83398528156b6811ff6e8a6e8a5f164a6f8b3c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d8f48f5e_a388905b",
         "filename": "mod/genprocessor/src/main/java/org/onap/dcae/genprocessor/App.java",
         "patchSetId": 5
@@ -84,6 +120,24 @@
       "revId": "cd83398528156b6811ff6e8a6e8a5f164a6f8b3c",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9809a8f_0c48a98c",
+        "filename": "mod/genprocessor/src/test/java/sandbox/AppTest.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2022-05-28T00:09:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aada8ddb_b2c733b6",
+      "revId": "cd83398528156b6811ff6e8a6e8a5f164a6f8b3c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
