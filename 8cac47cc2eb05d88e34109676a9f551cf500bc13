@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2eef704d_17c77499",
+        "filename": "mod/genprocessor/src/main/java/org/onap/dcae/genprocessor/ProcessorBuilder.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2022-05-29T00:49:58Z",
+      "side": 1,
+      "message": "copyright Huawei 2022",
+      "revId": "8cac47cc2eb05d88e34109676a9f551cf500bc13",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}

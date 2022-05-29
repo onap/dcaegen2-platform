@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "c241aafb_53071101",
+        "filename": "mod/genprocessor/pom.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2022-05-29T00:49:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd87da4e_db56403e",
+      "revId": "cd83398528156b6811ff6e8a6e8a5f164a6f8b3c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ca4d852d_f80813e8",
         "filename": "mod/genprocessor/src/main/java/org/onap/dcae/genprocessor/App.java",
         "patchSetId": 5
@@ -103,6 +121,24 @@
       "revId": "cd83398528156b6811ff6e8a6e8a5f164a6f8b3c",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6e32921_b73895ff",
+        "filename": "mod/genprocessor/src/main/java/org/onap/dcae/genprocessor/App.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2022-05-29T00:49:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8f48f5e_a388905b",
+      "revId": "cd83398528156b6811ff6e8a6e8a5f164a6f8b3c",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     },
     {
       "key": {
