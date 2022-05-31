@@ -1,6 +1,6 @@
 /*
  * # ============LICENSE_START=======================================================
- * # Copyright (c) 2021 AT&T Intellectual Property. All rights reserved.
+ * # Copyright (c) 2021-2022 AT&T Intellectual Property. All rights reserved.
  * # ================================================================================
  * # Licensed under the Apache License, Version 2.0 (the "License");
  * # you may not use this file except in compliance with the License.
@@ -96,7 +96,9 @@ public class ComponentSpecParser {
             utils.putIfNotNull(outerValues, "tlsServer", cs.getAuxilary().getTlsInfo().getUseTls());
         }
         if(cs.getAuxilary() != null && cs.getAuxilary().getLogInfo() != null) {
-            utils.putIfNotNull(outerValues,"logDirectory", cs.getAuxilary().getLogInfo().get("log_directory"));
+            Map<String, Object> logPath = new LinkedHashMap<>();
+            logPath.put("path", cs.getAuxilary().getLogInfo().get("log_directory"));
+            outerValues.put("log", logPath);
         }
         if(imageUriExistsForFirstArtifact(cs)){
             utils.putIfNotNull(outerValues,"image", cs.getArtifacts()[0].getUri());
