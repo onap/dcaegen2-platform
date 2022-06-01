@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "281bd5f6_406bdc37",
+        "filename": "mod/genprocessor/pom.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2022-06-01T14:24:12Z",
+      "side": 1,
+      "message": "please add a Huawei copyright 2022 line",
+      "revId": "9e1a2c28bf81de48820b931b7d42eaa01884f005",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
