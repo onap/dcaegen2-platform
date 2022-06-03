@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa257c81_7daa184d",
+        "filename": "mod/runtimeapi/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2022-06-03T19:03:42Z",
+      "side": 1,
+      "message": "remove the separator line and \"Modifications\"",
+      "revId": "0a06d90b73595dc04589136dd61c4f0016d13a32",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32a55712_ef76fde3",
+        "filename": "mod/runtimeapi/pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 105
+      },
+      "writtenOn": "2022-06-03T19:03:42Z",
+      "side": 1,
+      "message": "tabs are not allowed",
+      "revId": "0a06d90b73595dc04589136dd61c4f0016d13a32",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
