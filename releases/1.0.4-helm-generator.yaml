@@ -1,0 +1,5 @@
+distribution_type: 'maven'
+version: '1.0.4'
+project: 'dcaegen2/platform'
+log_dir: 'dcaegen2-platform-mod2-helm-generator-maven-stage-master/206'
+git_tag: '1.0.4-helmgenerator'
