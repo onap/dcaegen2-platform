@@ -22,10 +22,10 @@
   <parent>
     <groupId>org.onap.dcaegen2.platform</groupId>
     <artifactId>helmchartgenerator</artifactId>
-    <version>1.0.4-SNAPSHOT</version>
+    <version>1.0.4</version>
   </parent>
   <artifactId>helmchartgenerator-cli</artifactId>
-  <version>1.0.4-SNAPSHOT</version>
+  <version>1.0.4</version>
   <name>helmchartgenerator-cli</name>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -34,7 +34,7 @@
     <dependency>
       <groupId>org.onap.dcaegen2.platform</groupId>
       <artifactId>helmchartgenerator-core</artifactId>
-      <version>1.0.4-SNAPSHOT</version>
+      <version>1.0.4</version>
     </dependency>
   </dependencies>
   <build>
