@@ -38,6 +38,7 @@ setup(
             "flask-restplus"
             , "Flask-Cors"
             , "requests"
+	    , "MarkupSafe==2.0.1"
             ],
         zip_safe = False
         )
