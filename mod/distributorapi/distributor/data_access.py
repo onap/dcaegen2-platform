@@ -1,5 +1,5 @@
 # ============LICENSE_START=======================================================
-# Copyright (c) 2019 AT&T Intellectual Property. All rights reserved.
+# Copyright (c) 2019-2022 AT&T Intellectual Property. All rights reserved.
 # ================================================================================
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -29,8 +29,9 @@ def get_distribution_targets():
 
 def get_distribution_target(ds_id):
     global _cache
-    result = [ i for i in _cache if i["dt_id"] == ds_id ]
+    result = [i for i in _cache if i["dt_id"] == ds_id]
     return result[0] if result else {}
+
 
 def transform_request(req):
     """Transform request to object to store
@@ -43,6 +44,7 @@ def transform_request(req):
     req["dt_id"] = str(uuid.uuid4())
     req["processGroups"] = []
     return req
+
 
 def add_distribution_target(dt):
     global _cache
@@ -57,6 +59,7 @@ def merge_request(dt, req):
     dt["nextDistributionTargetId"] = req.get("nextDistributionTargetId", None)
     dt["modified"] = datetime.utcnow().isoformat()
     return dt
+
 
 def update_distribution_target(updated_dt):
     dt_id = updated_dt["dt_id"]
@@ -85,5 +88,3 @@ def add_process_group(ds_id, process_group):
             dt["processGroups"].append(process_group)
             return process_group
     return None
-
-

@@ -1,5 +1,5 @@
 # ============LICENSE_START=======================================================
-# Copyright (c) 2019 AT&T Intellectual Property. All rights reserved.
+# Copyright (c) 2019-2022 AT&T Intellectual Property. All rights reserved.
 # ================================================================================
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -28,11 +28,10 @@ def _grab_env(name, default=None):
     except KeyError:
         raise errors.DistributorAPIConfigError("Required environment variable missing: {0}".format(name))
 
+
 def init():
     global nifi_registry_url
-    nifi_registry_url = _grab_env("NIFI_REGISTRY_URL"
-            , default="http://nifi-registry:18080/nifi-registry-api")
+    nifi_registry_url = _grab_env("NIFI_REGISTRY_URL", default="http://nifi-registry:18080/nifi-registry-api")
 
     global onboarding_api_url
-    onboarding_api_url = _grab_env("ONBOARDING_API_URL"
-            , default="http://onboarding-api:8080/onboarding")
+    onboarding_api_url = _grab_env("ONBOARDING_API_URL", default="http://onboarding-api:8080/onboarding")

@@ -1,5 +1,5 @@
 # ============LICENSE_START=======================================================
-# Copyright (c) 2019 AT&T Intellectual Property. All rights reserved.
+# Copyright (c) 2019-2022 AT&T Intellectual Property. All rights reserved.
 # ================================================================================
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -29,8 +29,7 @@ def get_graph(runtime_url, graph_id):
 def create_graph(runtime_url, graph_id, graph_name):
     url = urljoin(runtime_url, "api/graph/main")
 
-    resp = reqs.post(url, json={"name": graph_name, "id": graph_id
-        , "description": "", "main": True})
+    resp = reqs.post(url, json={"name": graph_name, "id": graph_id, "description": "", "main": True})
 
     try:
         resp.raise_for_status()
@@ -60,6 +59,7 @@ def post_graph(runtime_url, graph_id, actions):
     except Exception as e:
         with open("runtime-request-failed.json", "w+") as f:
             import json
+
             json.dump(graph_request, f)
         raise errors.DistributorAPIError(e)
 
