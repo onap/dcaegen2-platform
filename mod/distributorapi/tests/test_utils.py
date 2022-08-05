@@ -1,5 +1,5 @@
 # ============LICENSE_START=======================================================
-# Copyright (c) 2019 AT&T Intellectual Property. All rights reserved.
+# Copyright (c) 2019-2022 AT&T Intellectual Property. All rights reserved.
 # ================================================================================
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,6 +15,8 @@
 # ============LICENSE_END=========================================================
 from distributor import utils
 
+
+# more tests are in test_api.py
 
 def test_urljoin():
     assert "http://foo/bar/baz" == utils.urljoin("http://foo", "bar", "baz")
