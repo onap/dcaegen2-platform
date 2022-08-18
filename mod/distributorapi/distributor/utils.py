@@ -1,5 +1,5 @@
 # ============LICENSE_START=======================================================
-# Copyright (c) 2019 AT&T Intellectual Property. All rights reserved.
+# Copyright (c) 2019-2022 AT&T Intellectual Property. All rights reserved.
 # ================================================================================
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@ def urljoin(base, *trailing, **query_params):
     url = "/".join(full)
 
     if query_params:
-        qp = ["{0}={1}".format(quote(k), quote(str(v))) for k,v in query_params.items()]
+        qp = ["{0}={1}".format(quote(k), quote(str(v))) for k, v in query_params.items()]
         qp = "&".join(qp)
         return "?".join([url, qp])
     else:

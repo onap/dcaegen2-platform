@@ -1,5 +1,5 @@
 # ============LICENSE_START=======================================================
-# Copyright (c) 2019 AT&T Intellectual Property. All rights reserved.
+# Copyright (c) 2019-2022 AT&T Intellectual Property. All rights reserved.
 # ================================================================================
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -36,64 +36,82 @@ _app = Flask(__name__)
 CORS(_app)
 # Try to bundle as many errors together
 # https://flask-restplus.readthedocs.io/en/stable/parsing.html#error-handling
-_app.config['BUNDLE_ERRORS'] = True
-_api = Api(_app, version=__version__, title="Distributor HTTP API",
-        description="HTTP API to manage distribution targets for DCAE design. Distribution targets are DCAE runtime environments that have been registered and are enabled to accept flow design changes that are to be orchestrated in that environment",
-    contact="", default_mediatype="application/json"
-    , prefix="/distributor", doc="/distributor", default="distributor"
-    )
+_app.config["BUNDLE_ERRORS"] = True
+_api = Api(
+    _app,
+    version=__version__,
+    title="Distributor HTTP API",
+    description="HTTP API to manage distribution targets for DCAE design. Distribution targets are DCAE runtime environments that have been registered and are enabled to accept flow design changes that are to be orchestrated in that environment",
+    contact="",
+    default_mediatype="application/json",
+    prefix="/distributor",
+    doc="/distributor",
+    default="distributor",
+)
 # REVIEW: Do I need a namespace?
 ns = _api
 
-model_pg = _api.model("ProcessGroup", {
-    "id": fields.String(required=True, description="Id for this process group"
-        , attribute="processGroupId")
-    , "version": fields.Integer(required=True
-        , description="Version of the process group")
-    , "processed": fields.DateTime(required=True
-        , description="When this process group was processed by this API")
-    , "runtimeResponse": fields.String(required=True
-        , description="Full response from the runtime API")
-    })
+model_pg = _api.model(
+    "ProcessGroup",
+    {
+        "id": fields.String(required=True, description="Id for this process group", attribute="processGroupId"),
+        "version": fields.Integer(required=True, description="Version of the process group"),
+        "processed": fields.DateTime(required=True, description="When this process group was processed by this API"),
+        "runtimeResponse": fields.String(required=True, description="Full response from the runtime API"),
+    },
+)
 
-model_dt = _api.model("DistributionTarget", {
-    "selfUrl": fields.Url("resource_distribution_target", absolute=True)
-    , "id": fields.String(required=True, description="Id for this distribution target"
-        , attribute="dt_id")
-    , "name": fields.String(required=True, description="Name for this distribution target"
-        , attribute="name")
-    , "runtimeApiUrl": fields.String(required=True
-        , description="Url to the runtime API for this distribution target"
-        , attribute="runtimeApiUrl")
-    , "description": fields.String(required=False
-        , description="Description for this distribution target"
-        , attribute="description")
-    , "nextDistributionTargetId": fields.String(required=False
-        , description="Id to the next distribution target. Distribution targets can be linked together and have a progression order. Specifying the id of the next distribution target defines the next element int the order."
-        , attribute="nextDistributionTargetId")
-    , "created": fields.String(required=True
-        , description="When this distribution target was created in UTC"
-        , attribute="created")
-    , "modified": fields.String(required=True
-        , description="When this distribution target was last modified in UTC"
-        , attribute="modified")
-    , "processGroups": fields.List(fields.Nested(model_pg))
-    })
+model_dt = _api.model(
+    "DistributionTarget",
+    {
+        "selfUrl": fields.Url("resource_distribution_target", absolute=True),
+        "id": fields.String(required=True, description="Id for this distribution target", attribute="dt_id"),
+        "name": fields.String(required=True, description="Name for this distribution target", attribute="name"),
+        "runtimeApiUrl": fields.String(
+            required=True, description="Url to the runtime API for this distribution target", attribute="runtimeApiUrl"
+        ),
+        "description": fields.String(
+            required=False, description="Description for this distribution target", attribute="description"
+        ),
+        "nextDistributionTargetId": fields.String(
+            required=False,
+            description="Id to the next distribution target. Distribution targets can be linked together and have a progression order. Specifying the id of the next distribution target defines the next element int the order.",
+            attribute="nextDistributionTargetId",
+        ),
+        "created": fields.String(
+            required=True, description="When this distribution target was created in UTC", attribute="created"
+        ),
+        "modified": fields.String(
+            required=True, description="When this distribution target was last modified in UTC", attribute="modified"
+        ),
+        "processGroups": fields.List(fields.Nested(model_pg)),
+    },
+)
 
-model_dts = _api.model("DistributionTargets", {
-    "distributionTargets": fields.List(fields.Nested(model_dt))
-    })
+model_dts = _api.model("DistributionTargets", {"distributionTargets": fields.List(fields.Nested(model_dt))})
 
 
 parser_dt_req = ns.parser()
-parser_dt_req.add_argument("name", required=True, trim=True,
-        location="json", help="Name for this new distribution target")
-parser_dt_req.add_argument("runtimeApiUrl", required=True, trim=True,
-        location="json", help="Url to the runtime API for this distribution target")
-parser_dt_req.add_argument("description", required=False, trim=True,
-        location="json", help="Description for this distribution target")
-parser_dt_req.add_argument("nextDistributionTargetId", required=False, trim=True,
-        location="json", help="Id of the next distribution target. Distribution targets can be linked together and have a progression order. Specifying the id of the next distribution target defines the next element int the order.")
+parser_dt_req.add_argument(
+    "name", required=True, trim=True, location="json", help="Name for this new distribution target"
+)
+parser_dt_req.add_argument(
+    "runtimeApiUrl",
+    required=True,
+    trim=True,
+    location="json",
+    help="Url to the runtime API for this distribution target",
+)
+parser_dt_req.add_argument(
+    "description", required=False, trim=True, location="json", help="Description for this distribution target"
+)
+parser_dt_req.add_argument(
+    "nextDistributionTargetId",
+    required=False,
+    trim=True,
+    location="json",
+    help="Id of the next distribution target. Distribution targets can be linked together and have a progression order. Specifying the id of the next distribution target defines the next element int the order.",
+)
 
 
 @ns.route("/distribution-targets", endpoint="resource_distribution_targets")
@@ -101,7 +119,7 @@ class DistributionTargets(Resource):
     @ns.doc("get_distribution_targets", description="List distribution targets")
     @ns.marshal_with(model_dts)
     def get(self):
-        return { "distributionTargets": da.get_distribution_targets() }, 200
+        return {"distributionTargets": da.get_distribution_targets()}, 200
 
     @ns.doc("post_distribution_targets", description="Create a new distribution target")
     @ns.expect(parser_dt_req)
@@ -112,11 +130,12 @@ class DistributionTargets(Resource):
         resp = da.add_distribution_target(req)
         return resp, 200
 
+
 @ns.route("/distribution-targets/<string:dt_id>", endpoint="resource_distribution_target")
 class DistributionTarget(Resource):
     @ns.doc("get_distribution_target", description="Get a distribution target instance")
-    @ns.response(404, 'Distribution target not found')
-    @ns.response(500, 'Internal Server Error')
+    @ns.response(404, "Distribution target not found")
+    @ns.response(500, "Internal Server Error")
     @ns.marshal_with(model_dt)
     def get(self, dt_id):
         result = da.get_distribution_target(dt_id)
@@ -127,8 +146,8 @@ class DistributionTarget(Resource):
             frp.abort(code=404, message="Unknown distribution target")
 
     @ns.doc("put_distribution_target", description="Update an existing distribution target")
-    @ns.response(404, 'Distribution target not found')
-    @ns.response(500, 'Internal Server Error')
+    @ns.response(404, "Distribution target not found")
+    @ns.response(500, "Internal Server Error")
     @ns.expect(parser_dt_req)
     @ns.marshal_with(model_dt)
     def put(self, dt_id):
@@ -145,8 +164,8 @@ class DistributionTarget(Resource):
         else:
             frp.abort(code=500, message="Problem with storing the update")
 
-    @ns.response(404, 'Distribution target not found')
-    @ns.response(500, 'Internal Server Error')
+    @ns.response(404, "Distribution target not found")
+    @ns.response(500, "Internal Server Error")
     @ns.doc("delete_distribution_target", description="Delete an existing distribution target")
     def delete(self, dt_id):
         if da.delete_distribution_target(dt_id):
@@ -156,15 +175,16 @@ class DistributionTarget(Resource):
 
 
 parser_post_process_group = ns.parser()
-parser_post_process_group.add_argument("processGroupId", required=True,
-        trim=True, location="json", help="Process group ID that exists in Nifi")
+parser_post_process_group.add_argument(
+    "processGroupId", required=True, trim=True, location="json", help="Process group ID that exists in Nifi"
+)
+
 
 @ns.route("/distribution-targets/<string:dt_id>/process-groups", endpoint="resource_target_process_groups")
 class DTargetProcessGroups(Resource):
-
-    @ns.response(404, 'Distribution target not found')
-    @ns.response(501, 'Feature is not supported right now')
-    @ns.response(500, 'Internal Server Error')
+    @ns.response(404, "Distribution target not found")
+    @ns.response(501, "Feature is not supported right now")
+    @ns.response(500, "Internal Server Error")
     @ns.expect(parser_post_process_group)
     def post(self, dt_id):
         # TODO: Need bucket ID but for now will simply scan through all buckets
@@ -198,7 +218,7 @@ class DTargetProcessGroups(Resource):
         # Make sure graph is setup in runtime api
 
         if runc.ensure_graph(runtime_url, pg_id, pg_name) == False:
-            frp.abort(code=501 , message="Runtime API: Graph could not be created")
+            frp.abort(code=501, message="Runtime API: Graph could not be created")
 
         # Graph diffing using Nifi registry
 
@@ -245,6 +265,7 @@ def start_http_server():
 
     def is_debug():
         import os
+
         if os.environ.get("DISTRIBUTOR_DEBUG", "1") == "1":
             return True
         else:

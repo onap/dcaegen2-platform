@@ -1,5 +1,5 @@
 # ============LICENSE_START=======================================================
-# Copyright (c) 2019 AT&T Intellectual Property. All rights reserved.
+# Copyright (c) 2019-2022 AT&T Intellectual Property. All rights reserved.
 # ================================================================================
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ def _add_url_from_link(registry_url, obj):
 
     for k, v in obj.items():
         if k == "link":
-            result["selfUrl"] =_urljoin(registry_url, v["href"])
+            result["selfUrl"] = _urljoin(registry_url, v["href"])
             result[k] = v
         elif type(v) == dict:
             result[k] = _add_url_from_link(registry_url, v)
@@ -63,12 +63,13 @@ def get_flow_versions(flow_url):
     """Returns list of versions from greatest to least for a given flow"""
     versions_url = _urljoin(flow_url, "versions")
     # List of versions will be greatest to least
-    return list(reversed(sorted(
-        [v["version"] for v in _get_json(versions_url)])))
+    return list(reversed(sorted([v["version"] for v in _get_json(versions_url)])))
+
 
 def get_flow_diff(registry_url, flow_url, version_one, version_two):
     diff_url = _urljoin(flow_url, "diff", str(version_one), str(version_two))
     return _get_json(diff_url)
+
 
 def get_flow_diff_latest(registry_url, flow_url):
     versions = get_flow_versions(flow_url)
@@ -80,12 +81,13 @@ def get_flow_diff_latest(registry_url, flow_url):
         return None
     else:
         # Example in gitlab wiki shows that lower version is first
-        return _add_url_from_link(registry_url
-                , get_flow_diff(registry_url, flow_url, versions[1], versions[0]))
+        return _add_url_from_link(registry_url, get_flow_diff(registry_url, flow_url, versions[1], versions[0]))
+
 
 def get_flow_version(registry_url, flow_url, version):
     version_url = _urljoin(flow_url, "versions", str(version))
     return _add_url_from_link(registry_url, _get_json(version_url))
+
 
 def get_flow_version_latest(registry_url, flow_url):
     return get_flow_version(registry_url, flow_url, "latest")

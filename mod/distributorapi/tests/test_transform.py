@@ -1,5 +1,5 @@
 # ============LICENSE_START=======================================================
-# Copyright (c) 2019 AT&T Intellectual Property. All rights reserved.
+# Copyright (c) 2019-2022 AT&T Intellectual Property. All rights reserved.
 # ================================================================================
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,10 +18,12 @@ from distributor import transform as tr
 
 TEST_DIR = os.path.dirname(__file__)
 
+
 def _load_data(filename):
     path = os.path.join(TEST_DIR, filename)
     with open(path) as f:
         return json.load(f)
+
 
 def _setup():
     flow = _load_data("flow.json")
@@ -50,19 +52,18 @@ def test_make_fbp_from_flow():
     assert list(sorted(expected)) == list(sorted(actual))
 
     # Test processor to processor scenario
-    expected = {'metadata': {'data_type': 'json',
-                           'dmaap_type': 'MR',
-                           'name': 'foo-conn'},
-              'src': {'node': '75c9a179-b36b-4985-9445-d44c8768d6eb',
-                      'port': 'ves-pnfRegistration-secondary'},
-              'tgt': {'node': '3fadb641-2079-4ca9-bb07-0df5952967fc',
-                      'port': 'predict_subscriber'}}
+    expected = {
+        "metadata": {"data_type": "json", "dmaap_type": "MR", "name": "foo-conn"},
+        "src": {"node": "75c9a179-b36b-4985-9445-d44c8768d6eb", "port": "ves-pnfRegistration-secondary"},
+        "tgt": {"node": "3fadb641-2079-4ca9-bb07-0df5952967fc", "port": "predict_subscriber"},
+    }
     actual = [e["payload"] for e in fbp if e["command"] == "addedge"]
     assert actual[0] == expected or actual[1] == expected
 
     # Test input port to processor scenario
-    expected = {'metadata': {'data_type': 'json', 'dmaap_type': 'MR',
-        'name': 'ves-data-conn'}, 'src': {},
-        'tgt': {'node': '75c9a179-b36b-4985-9445-d44c8768d6eb',
-            'port': 'ves-notification'}}
+    expected = {
+        "metadata": {"data_type": "json", "dmaap_type": "MR", "name": "ves-data-conn"},
+        "src": {},
+        "tgt": {"node": "75c9a179-b36b-4985-9445-d44c8768d6eb", "port": "ves-notification"},
+    }
     assert actual[0] == expected or actual[1] == expected

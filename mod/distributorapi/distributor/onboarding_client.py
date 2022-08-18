@@ -1,5 +1,5 @@
 # ============LICENSE_START=======================================================
-# Copyright (c) 2019 AT&T Intellectual Property. All rights reserved.
+# Copyright (c) 2019-2022 AT&T Intellectual Property. All rights reserved.
 # ================================================================================
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -30,6 +30,4 @@ def get_component(onboarding_url, name, version):
 
 
 def get_components_indexed(onboarding_url, list_name_version):
-    return dict([
-        ((c[0], c[1]), get_component(onboarding_url, c[0], c[1]))
-        for c in list_name_version])
+    return dict([((c[0], c[1]), get_component(onboarding_url, c[0], c[1])) for c in list_name_version])
