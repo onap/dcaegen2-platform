@@ -1,0 +1,9 @@
+distribution_type: 'container'
+container_release_tag: '1.1.1'
+project: 'dcaegen2-platform'
+log_dir: 'dcaegen2-platform-mod-distributorapi-docker-merge-master/136/'
+ref: c83d2369eb2f0ac40d5acd2db2d7350fe86101e5
+containers:
+  - name: 'org.onap.dcaegen2.platform.mod.distributorapi'
+    version: '1.1.1-SNAPSHOT-20220920T140636Z'
+git_tag: 1.1.1-mod-distributorapi
