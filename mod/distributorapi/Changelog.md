@@ -4,10 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [1.1.1] - 2022/08/05
+## [1.1.1] - 2022/09/23
     * DCAEGEN2-3170 - CodeCoverage improvement for dcaegen2-platform-mod-distributorapi
     * fix value of MarkupSafe to 2.0.1 because jango+jinja uses a slightly older API
     * run black on mod/distributorapi
+
+    * DCAEGEN2-3271 - Switch to 9.1.0 base image which used python 3.9
 
 ## [1.1.0] - 2020/08/19
     * DCAEGEN2-2292 - ONAP must complete update of the Python language (from 2.7 -> 3.8)
