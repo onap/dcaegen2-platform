@@ -1,5 +1,5 @@
 # ============LICENSE_START=======================================================
-# Copyright (c) 2019 AT&T Intellectual Property. All rights reserved.
+# Copyright (c) 2019,2022 AT&T Intellectual Property. All rights reserved.
 #  Copyright 2020 Deutsche Telekom. All rights reserved.
 # ================================================================================
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ============LICENSE_END=========================================================
-FROM nexus3.onap.org:10001/onap/integration-python:latest
+FROM nexus3.onap.org:10001/onap/integration-python:9.1.0
 
 COPY --chown=onap:onap . /app
 RUN pip install .
